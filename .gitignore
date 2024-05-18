@@ -4,3 +4,7 @@ venv/
 secret
 
 bot.session
+
+# TODO: remove after exclude news_aggregator
+news_aggregator/microservice/gazp.session
+news_aggregator/microservice/config.py
