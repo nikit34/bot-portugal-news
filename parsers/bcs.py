@@ -15,8 +15,7 @@ async def bcs_wrapper(client, chat_id, posted_q):
         await bcs_parser(client, chat_id, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: bcs-express.ru parser is down\n' + str(e)
-        feature = client.send_message(entity=int(chat_id), message=message, parse_mode='html', link_preview=False)
-        client.loop.run_until_complete(feature)
+        await client.send_message(entity=int(chat_id), message=message, parse_mode='html', link_preview=False)
 
 
 async def bcs_parser(

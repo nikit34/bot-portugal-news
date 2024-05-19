@@ -16,8 +16,7 @@ async def rss_wrapper(client, chat_id, source, rss_link, posted_q):
         await rss_parser(client, chat_id, source, rss_link, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: www.rbc.ru parser is down\n' + str(e)
-        feature = client.send_message(entity=int(chat_id), message=message, parse_mode='html', link_preview=False)
-        client.loop.run_until_complete(feature)
+        await client.send_message(entity=int(chat_id), message=message, parse_mode='html', link_preview=False)
 
 
 async def rss_parser(
