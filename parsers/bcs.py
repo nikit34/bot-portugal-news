@@ -11,9 +11,9 @@ from static.sources import bcs_channels
 from user_agents_manager import random_user_agent_headers
 
 
-async def bcs_wrapper(client, chat_id, source, bcs_link, posted_q):
+async def bcs_wrapper(client, chat_id, httpx_client, source, bcs_link, posted_q):
     try:
-        await bcs_parser(client, chat_id, source, bcs_link, posted_q)
+        await bcs_parser(client, chat_id, httpx_client, source, bcs_link, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: bcs-express.ru parser is down\n' + str(e)
         await client.send_message(entity=int(chat_id), message=message, parse_mode='html', link_preview=False)
@@ -22,14 +22,13 @@ async def bcs_wrapper(client, chat_id, source, bcs_link, posted_q):
 async def bcs_parser(
         client,
         chat_id,
+        httpx_client,
         source,
         bcs_link,
         posted_q,
         key=KEY_SEARCH_LENGTH_CHARS,
         timeout=TIMEOUT
 ):
-    httpx_client = httpx.AsyncClient()
-
     while True:
         try:
             response = await httpx_client.get(bcs_link, headers=random_user_agent_headers())
@@ -77,7 +76,9 @@ if __name__ == "__main__":
     client = TelegramClient('bot', api_id, api_hash)
     client.start(password=password, bot_token=bot_token)
 
+    httpx_client = httpx.AsyncClient()
+
     posted_q = deque(maxlen=20)
 
     for source, bcs_link in bcs_channels.items():
-        asyncio.run(bcs_parser(client, chat_id, source, bcs_link, posted_q))
+        asyncio.run(bcs_parser(client, chat_id, httpx_client, source, bcs_link, posted_q))

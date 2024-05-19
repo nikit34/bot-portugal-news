@@ -1,5 +1,6 @@
 from collections import deque
 
+import httpx
 from telethon import TelegramClient
 
 from parsers.bcs import bcs_wrapper
@@ -22,6 +23,8 @@ if __name__ == '__main__':
     client = TelegramClient('bot', api_id, api_hash)
     client.start(password=password, bot_token=bot_token)
 
+    httpx_client = httpx.AsyncClient()
+
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
 
     with client:
@@ -39,6 +42,7 @@ if __name__ == '__main__':
             client.loop.create_task(bcs_wrapper(
                 client=client,
                 chat_id=chat_id,
+                httpx_client=httpx_client,
                 source=source,
                 bcs_link=bcs_link,
                 posted_q=posted_q
@@ -48,6 +52,7 @@ if __name__ == '__main__':
             client.loop.create_task(rss_wrapper(
                 client=client,
                 chat_id=chat_id,
+                httpx_client=httpx_client,
                 source=source,
                 rss_link=rss_link,
                 posted_q=posted_q
@@ -59,3 +64,6 @@ if __name__ == '__main__':
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
             feature = client.send_message(entity=int(chat_id), message=message, parse_mode='html', link_preview=False)
             client.loop.run_until_complete(feature)
+        finally:
+            client.loop.run_until_complete(httpx_client.aclose())
+            client.loop.close()
