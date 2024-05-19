@@ -18,3 +18,10 @@ if __name__ == '__main__':
     with client:
         history = get_messages_history(client, chat_id)
         client.loop.run_until_complete(history)
+
+        try:
+            client.run_until_disconnected()
+        except Exception as e:
+            message = '&#9888; ERROR: Parsers is down\n' + str(e)
+            feature = client.send_message(entity=chat_id, message=message, parse_mode='html', link_preview=False)
+            client.loop.run_until_complete(feature)
