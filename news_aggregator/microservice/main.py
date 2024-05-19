@@ -34,25 +34,26 @@ rss_channels = {
 
 def check_pattern_func(text):
     '''Вибирай только посты или статьи про газпром или газ'''
-    words = text.lower().split()
-
-    key_words = [
-        'газп',     # газпром
-        'газо',     # газопровод, газофикация...
-        'поток',    # сервеный поток, северный поток 2, южный поток
-        'спг',      # спг - сжиженный природный газ
-        'gazp',
-    ]
-
-    for word in words:
-        if 'газ' in word and len(word) < 6:  # газ, газу, газом, газа
-            return True
-
-        for key in key_words:
-            if key in word:
-                return True
-
-    return False
+    # words = text.lower().split()
+    #
+    # key_words = [
+    #     'газп',     # газпром
+    #     'газо',     # газопровод, газофикация...
+    #     'поток',    # сервеный поток, северный поток 2, южный поток
+    #     'спг',      # спг - сжиженный природный газ
+    #     'gazp',
+    # ]
+    #
+    # for word in words:
+    #     if 'газ' in word and len(word) < 6:  # газ, газу, газом, газа
+    #         return True
+    #
+    #     for key in key_words:
+    #         if key in word:
+    #             return True
+    #
+    # return False
+    return True
 
 
 ###########################
@@ -96,7 +97,7 @@ async def send_message_func(text):
 
 # Телеграм парсер
 client = telegram_parser('gazp', api_id, api_hash, telegram_channels, posted_q,
-                         n_test_chars, True, send_message_func,
+                         n_test_chars, check_pattern_func, send_message_func,
                          tele_logger, loop)
 
 
@@ -115,7 +116,7 @@ for source, rss_link in rss_channels.items():
     async def wrapper(source, rss_link):
         try:
             await rss_parser(httpx_client, source, rss_link, posted_q,
-                             n_test_chars, timeout, True,
+                             n_test_chars, timeout, check_pattern_func,
                              send_message_func, logger)
         except Exception as e:
             message = f'&#9888; ERROR: {source} parser is down! \n{e}'
@@ -128,7 +129,7 @@ for source, rss_link in rss_channels.items():
 async def bcs_wrapper():
     try:
         await bcs_parser(httpx_client, posted_q, n_test_chars, timeout,
-                         True, send_message_func, logger)
+                         check_pattern_func, send_message_func, logger)
     except Exception as e:
         message = f'&#9888; ERROR: bcs-express.ru parser is down! \n{e}'
         await send_error_message(message, bot_token, gazp_chat_id, logger)
