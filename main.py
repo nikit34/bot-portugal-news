@@ -41,6 +41,7 @@ if __name__ == '__main__':
         for source, bcs_link in bcs_channels.items():
             client.loop.create_task(bcs_wrapper(
                 client=client,
+                bot_token=bot_token,
                 chat_id=chat_id,
                 httpx_client=httpx_client,
                 source=source,
@@ -51,6 +52,7 @@ if __name__ == '__main__':
         for source, rss_link in rss_channels.items():
             client.loop.create_task(rss_wrapper(
                 client=client,
+                bot_token=bot_token,
                 chat_id=chat_id,
                 httpx_client=httpx_client,
                 source=source,

@@ -8,15 +8,16 @@ from telethon import TelegramClient
 from properties_reader import get_secret_key
 from static.settings import KEY_SEARCH_LENGTH_CHARS, TIMEOUT
 from static.sources import bcs_channels
+from telegram_api import send_message
 from user_agents_manager import random_user_agent_headers
 
 
-async def bcs_wrapper(client, chat_id, httpx_client, source, bcs_link, posted_q):
+async def bcs_wrapper(client, bot_token, chat_id, httpx_client, source, bcs_link, posted_q):
     try:
         await bcs_parser(client, chat_id, httpx_client, source, bcs_link, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: bcs-express.ru parser is down\n' + str(e)
-        await client.send_message(entity=int(chat_id), message=message, parse_mode='html', link_preview=False)
+        await send_message(message, bot_token, chat_id)
 
 
 async def bcs_parser(
