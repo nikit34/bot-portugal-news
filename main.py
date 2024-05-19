@@ -8,7 +8,7 @@ from parsers.telegram import telegram_parser
 from properties_reader import get_secret_key
 from history_manager import get_messages_history
 from static.settings import COUNT_UNIQUE_MESSAGES
-from static.sources import rss_channels
+from static.sources import rss_channels, bcs_channels
 
 
 if __name__ == '__main__':
@@ -35,11 +35,14 @@ if __name__ == '__main__':
             posted_q=posted_q
         )
 
-        client.loop.create_task(bcs_wrapper(
-            client=client,
-            chat_id=chat_id,
-            posted_q=posted_q
-        ))
+        for source, bcs_link in bcs_channels.items():
+            client.loop.create_task(bcs_wrapper(
+                client=client,
+                chat_id=chat_id,
+                source=source,
+                bcs_link=bcs_link,
+                posted_q=posted_q
+            ))
 
         for source, rss_link in rss_channels.items():
             client.loop.create_task(rss_wrapper(

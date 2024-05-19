@@ -7,12 +7,13 @@ from telethon import TelegramClient
 
 from properties_reader import get_secret_key
 from static.settings import KEY_SEARCH_LENGTH_CHARS, TIMEOUT
+from static.sources import bcs_channels
 from user_agents_manager import random_user_agent_headers
 
 
-async def bcs_wrapper(client, chat_id, posted_q):
+async def bcs_wrapper(client, chat_id, source, bcs_link, posted_q):
     try:
-        await bcs_parser(client, chat_id, posted_q)
+        await bcs_parser(client, chat_id, source, bcs_link, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: bcs-express.ru parser is down\n' + str(e)
         await client.send_message(entity=int(chat_id), message=message, parse_mode='html', link_preview=False)
@@ -21,12 +22,12 @@ async def bcs_wrapper(client, chat_id, posted_q):
 async def bcs_parser(
         client,
         chat_id,
+        source,
+        bcs_link,
         posted_q,
         key=KEY_SEARCH_LENGTH_CHARS,
         timeout=TIMEOUT
 ):
-    bcs_link = 'https://bcs-express.ru/category'
-    source = 'www.bcs-express.ru'
     httpx_client = httpx.AsyncClient()
 
     while True:
@@ -78,4 +79,5 @@ if __name__ == "__main__":
 
     posted_q = deque(maxlen=20)
 
-    asyncio.run(bcs_parser(client, chat_id, posted_q))
+    for source, bcs_link in bcs_channels.items():
+        asyncio.run(bcs_parser(client, chat_id, source, bcs_link, posted_q))

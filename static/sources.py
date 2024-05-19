@@ -4,7 +4,7 @@ telegram_channels = {
     1101170442: 'https://t.me/rian_ru',
     1133408457: 'https://t.me/prime1',
     1149896996: 'https://t.me/interfaxonline',
-    # 1001029560: 'https://t.me/bcs_express',
+    1001029560: 'https://t.me/bcs_express',
     1203560567: 'https://t.me/markettwits'
 }
 
@@ -13,4 +13,8 @@ rss_channels = {
     'www.ria.ru': 'https://ria.ru/export/rss2/archive/index.xml',
     'www.1prime.ru': 'https://1prime.ru/export/rss2/index.xml',
     'www.interfax.ru': 'https://www.interfax.ru/rss.asp'
+}
+
+bcs_channels = {
+    'www.bcs-express.ru': 'https://bcs-express.ru/category'
 }

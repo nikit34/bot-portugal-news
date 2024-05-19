@@ -71,5 +71,5 @@ if __name__ == "__main__":
 
     posted_q = deque(maxlen=20)
 
-    source, rss_link = list(rss_channels.items())[0]
-    asyncio.run(rss_parser(client, chat_id, source, rss_link, posted_q))
+    for source, rss_link in rss_channels.items():
+        asyncio.run(rss_parser(client, chat_id, source, rss_link, posted_q))
