@@ -1,71 +1,48 @@
 from collections import deque
 from telethon import TelegramClient, events
 
-from config import api_id, api_hash
+from properties_reader import get_secret_key
+from static.settings import KEY_SEARCH_LENGTH_CHARS
+from static.sources import telegram_channels
 
 
-def telegram_parser(session, api_id, api_hash, telegram_channels, posted_q,
-                    n_test_chars=50, check_pattern_func=None,
-                    send_message_func=None, logger=None, loop=None):
-    '''Телеграм парсер'''
-
-    # Ссылки на телеграмм каналы
+def telegram_parser(client, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
     telegram_channels_links = list(telegram_channels.values())
-
-    client = TelegramClient(session, api_id, api_hash,
-                            base_logger=logger, loop=loop)
-    client.start()
 
     @client.on(events.NewMessage(chats=telegram_channels_links))
     async def handler(event):
-        '''Забирает посты из телеграмм каналов и посылает их в наш канал'''
         if event.raw_text == '':
             return
 
-        news_text = ' '.join(event.raw_text.split('\n')[:2])
+        message = event.raw_text
 
-        if not (check_pattern_func is None):
-            if not check_pattern_func(news_text):
-                return
-
-        head = news_text[:n_test_chars].strip()
-
+        head = message[:key].strip()
         if head in posted_q:
             return
+        posted_q.appendleft(head)
 
         source = telegram_channels[event.message.peer_id.channel_id]
-
-        link = f'{source}/{event.message.id}'
-
+        link = source + '/' + str(event.message.id)
         channel = '@' + source.split('/')[-1]
+        post = '<a href="' + link + '">' + channel + '</a>\n' + message
 
-        post = f'<b>{channel}</b>\n{link}\n{news_text}'
-
-        if send_message_func is None:
-            print(post, '\n')
-        else:
-            await send_message_func(post)
-
-        posted_q.appendleft(head)
+        await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
 
     return client
 
 
 if __name__ == "__main__":
+    api_id = get_secret_key('..', 'API_ID')
+    api_hash = get_secret_key('..', 'API_HASH')
+    password = get_secret_key('..', 'PASSWORD')
+    bot_token = get_secret_key('..', 'TOKEN_BOT')
+    chat_id = get_secret_key('..', 'CHAT_ID')
 
-    telegram_channels = {
-        1099860397: 'https://t.me/rbc_news',
-        1428717522: 'https://t.me/gazprom',
-        1101170442: 'https://t.me/rian_ru',
-        1133408457: 'https://t.me/prime1',
-        1149896996: 'https://t.me/interfaxonline',
-        # 1001029560: 'https://t.me/bcs_express',
-        1203560567: 'https://t.me/markettwits',
-    }
+    client = TelegramClient('bot', api_id, api_hash)
+    client.start(password=password, bot_token=bot_token)
 
-    # Очередь из уже опубликованных постов, чтобы их не дублировать
     posted_q = deque(maxlen=20)
 
-    client = telegram_parser('gazp', api_id, api_hash, telegram_channels, posted_q)
-
-    client.run_until_disconnected()
+    with client:
+        client = telegram_parser(client=client, chat_id=chat_id, posted_q=posted_q)
+        client.run_until_disconnected()

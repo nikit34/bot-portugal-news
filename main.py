@@ -1,7 +1,11 @@
+from collections import deque
+
 from telethon import TelegramClient
 
+from parsers.telegram import telegram_parser
 from properties_reader import get_secret_key
 from history_manager import get_messages_history
+from static.settings import COUNT_UNIQUE_MESSAGES, KEY_SEARCH_LENGTH_CHARS
 
 
 if __name__ == '__main__':
@@ -18,6 +22,14 @@ if __name__ == '__main__':
     with client:
         history = get_messages_history(client, chat_id)
         client.loop.run_until_complete(history)
+
+        posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
+
+        client = telegram_parser(
+            client=client,
+            chat_id=chat_id,
+            posted_q=posted_q
+        )
 
         try:
             client.run_until_disconnected()
