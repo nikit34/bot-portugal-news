@@ -3,10 +3,12 @@ from collections import deque
 from telethon import TelegramClient
 
 from parsers.bcs import bcs_wrapper
+from parsers.rss import rss_wrapper
 from parsers.telegram import telegram_parser
 from properties_reader import get_secret_key
 from history_manager import get_messages_history
-from static.settings import COUNT_UNIQUE_MESSAGES, KEY_SEARCH_LENGTH_CHARS
+from static.settings import COUNT_UNIQUE_MESSAGES
+from static.sources import rss_channels
 
 
 if __name__ == '__main__':
@@ -38,6 +40,15 @@ if __name__ == '__main__':
             chat_id=chat_id,
             posted_q=posted_q
         ))
+
+        for source, rss_link in rss_channels.items():
+            client.loop.create_task(rss_wrapper(
+                client=client,
+                chat_id=chat_id,
+                source=source,
+                rss_link=rss_link,
+                posted_q=posted_q
+            ))
 
         try:
             client.run_until_disconnected()
