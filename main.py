@@ -10,6 +10,7 @@ from properties_reader import get_secret_key
 from history_manager import get_messages_history
 from static.settings import COUNT_UNIQUE_MESSAGES
 from static.sources import rss_channels, bcs_channels
+from telegram_api import send_message
 
 
 if __name__ == '__main__':
@@ -64,7 +65,7 @@ if __name__ == '__main__':
             client.run_until_disconnected()
         except Exception as e:
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
-            feature = client.send_message(entity=int(chat_id), message=message, parse_mode='html', link_preview=False)
+            feature = send_message(text=message, bot_token=bot_token, chat_id=chat_id)
             client.loop.run_until_complete(feature)
         finally:
             client.loop.run_until_complete(httpx_client.aclose())
