@@ -1,4 +1,4 @@
-from settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES
+from static.settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES
 
 
 async def get_messages_history(client, chat_id, key=KEY_SEARCH_LENGTH_CHARS, count=COUNT_UNIQUE_MESSAGES):
