@@ -3,26 +3,39 @@ import asyncio
 from collections import deque
 import httpx
 from scrapy.selector import Selector
+from telethon import TelegramClient
 
-from utils import random_user_agent_headers
+from properties_reader import get_secret_key
+from static.settings import KEY_SEARCH_LENGTH_CHARS, TIMEOUT
+from user_agents_manager import random_user_agent_headers
 
 
-async def bcs_parser(httpx_client, posted_q, n_test_chars=50, 
-                     timeout=2, check_pattern_func=None, 
-                     send_message_func=None, logger=None):
-    '''Кастомный парсер сайта bcs-express.ru'''
+async def bcs_wrapper(client, chat_id, posted_q):
+    try:
+        await bcs_parser(client, chat_id, posted_q)
+    except Exception as e:
+        message = '&#9888; ERROR: bcs-express.ru parser is down\n' + str(e)
+        feature = client.send_message(entity=chat_id, message=message, parse_mode='html', link_preview=False)
+        client.loop.run_until_complete(feature)
+
+
+async def bcs_parser(
+        client,
+        chat_id,
+        posted_q,
+        key=KEY_SEARCH_LENGTH_CHARS,
+        timeout=TIMEOUT
+):
     bcs_link = 'https://bcs-express.ru/category'
     source = 'www.bcs-express.ru'
+    httpx_client = httpx.AsyncClient()
 
     while True:
         try:
             response = await httpx_client.get(bcs_link, headers=random_user_agent_headers())
             response.raise_for_status()
-        except Exception as e:
-            if not (logger is None):
-                logger.error(f'{source} error pass\n{e}')
-
-            await asyncio.sleep(timeout*2 + random.uniform(0, 0.5))
+        except Exception:
+            await asyncio.sleep(timeout * 2 + random.uniform(0, 0.5))
             continue
 
         selector = Selector(text=response.text)
@@ -33,43 +46,37 @@ async def bcs_parser(httpx_client, posted_q, n_test_chars=50,
 
             title = raw_text[3] if len(raw_text) > 3 else ''
             summary = raw_text[5] if len(raw_text) > 5 else ''
-            if 'ксперт' in summary:  # Эксперт
+            if 'ксперт' in summary:
                 title = f'{title}, {summary}'
                 summary = raw_text[11] if len(raw_text) > 11 else ''
 
-            news_text = f'{title}\n{summary}'
-
-            if not (check_pattern_func is None):
-                if not check_pattern_func(news_text):
-                    continue
-
-            head = news_text[:n_test_chars].strip()
-
+            message = f'{title}\n{summary}'
+            head = message[:key].strip()
             if head in posted_q:
                 continue
+            posted_q.appendleft(head)
 
             raw_link = row.xpath('a/@href').extract()
             link = raw_link[0] if len(raw_link) > 0 else ''
             if 'author' in link:
                 link = raw_link[1] if len(raw_link) > 1 else ''
 
-            post = f'<b>{source}</b>\n{source + link}\n{news_text}'
-
-            if send_message_func is None:
-                print(post, '\n')
-            else:
-                await send_message_func(post)
-
-            posted_q.appendleft(head)
+            post = '<a href="' + source + link + '">' + source + '</a>\n' + message
+            await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
 
         await asyncio.sleep(timeout + random.uniform(0, 0.5))
 
 
 if __name__ == "__main__":
+    api_id = get_secret_key('..', 'API_ID')
+    api_hash = get_secret_key('..', 'API_HASH')
+    password = get_secret_key('..', 'PASSWORD')
+    bot_token = get_secret_key('..', 'TOKEN_BOT')
+    chat_id = get_secret_key('..', 'CHAT_ID')
 
-    # Очередь из уже опубликованных постов, чтобы их не дублировать
+    client = TelegramClient('bot', api_id, api_hash)
+    client.start(password=password, bot_token=bot_token)
+
     posted_q = deque(maxlen=20)
 
-    httpx_client = httpx.AsyncClient()
-
-    asyncio.run(bcs_parser(httpx_client, posted_q))
+    asyncio.run(bcs_parser(client, chat_id, posted_q))

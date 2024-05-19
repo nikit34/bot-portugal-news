@@ -2,6 +2,7 @@ from collections import deque
 
 from telethon import TelegramClient
 
+from parsers.bcs import bcs_wrapper
 from parsers.telegram import telegram_parser
 from properties_reader import get_secret_key
 from history_manager import get_messages_history
@@ -19,17 +20,24 @@ if __name__ == '__main__':
     client = TelegramClient('bot', api_id, api_hash)
     client.start(password=password, bot_token=bot_token)
 
-    with client:
-        history = get_messages_history(client, chat_id)
-        client.loop.run_until_complete(history)
+    posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
 
-        posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
+    with client:
+        feature_history = get_messages_history(client, chat_id)
+        history = client.loop.run_until_complete(feature_history)
+        posted_q.extend(history)
 
         client = telegram_parser(
             client=client,
             chat_id=chat_id,
             posted_q=posted_q
         )
+
+        client.loop.create_task(bcs_wrapper(
+            client=client,
+            chat_id=chat_id,
+            posted_q=posted_q
+        ))
 
         try:
             client.run_until_disconnected()
