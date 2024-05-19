@@ -54,5 +54,5 @@ if __name__ == '__main__':
             client.run_until_disconnected()
         except Exception as e:
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
-            feature = client.send_message(entity=chat_id, message=message, parse_mode='html', link_preview=False)
+            feature = client.send_message(entity=int(chat_id), message=message, parse_mode='html', link_preview=False)
             client.loop.run_until_complete(feature)
