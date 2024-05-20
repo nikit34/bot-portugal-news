@@ -1,3 +1,4 @@
+import asyncio
 from collections import deque
 from telethon import TelegramClient, events
 
@@ -38,7 +39,10 @@ if __name__ == "__main__":
     bot_token = get_secret_key('..', 'TOKEN_BOT')
     chat_id = get_secret_key('..', 'CHAT_ID')
 
-    client = TelegramClient('bot', api_id, api_hash)
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
+    client = TelegramClient('bot', api_id, api_hash, loop=loop)
     client.start(password=password, bot_token=bot_token)
 
     posted_q = deque(maxlen=20)

@@ -1,3 +1,4 @@
+import asyncio
 from collections import deque
 
 import httpx
@@ -21,7 +22,10 @@ if __name__ == '__main__':
     bot_token = get_secret_key('.', 'TOKEN_BOT')
     chat_id = get_secret_key('.', 'CHAT_ID')
 
-    client = TelegramClient('bot', api_id, api_hash)
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
+    client = TelegramClient('bot', api_id, api_hash, loop=loop)
     client.start(password=password, bot_token=bot_token)
 
     httpx_client = httpx.AsyncClient()
@@ -44,7 +48,7 @@ if __name__ == '__main__':
         )
 
         for source, bcs_link in bcs_channels.items():
-            client.loop.create_task(bcs_wrapper(
+            loop.create_task(bcs_wrapper(
                 bot_token=bot_token,
                 chat_id=chat_id,
                 httpx_client=httpx_client,
@@ -55,7 +59,7 @@ if __name__ == '__main__':
             ))
 
         for source, rss_link in rss_channels.items():
-            client.loop.create_task(rss_wrapper(
+            loop.create_task(rss_wrapper(
                 bot_token=bot_token,
                 chat_id=chat_id,
                 httpx_client=httpx_client,
@@ -70,7 +74,7 @@ if __name__ == '__main__':
         except Exception as e:
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
             feature = send_message_api(text=message, bot_token=bot_token, chat_id=chat_id)
-            client.loop.run_until_complete(feature)
+            loop.run_until_complete(feature)
         finally:
-            client.loop.run_until_complete(httpx_client.aclose())
-            client.loop.close()
+            loop.run_until_complete(httpx_client.aclose())
+            loop.close()
