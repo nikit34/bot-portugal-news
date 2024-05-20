@@ -16,7 +16,7 @@ async def bcs_wrapper(bot_token, chat_id, httpx_client, source, bcs_link, send_m
     try:
         await bcs_parser(httpx_client, source, bcs_link, send_message_callback, posted_q)
     except Exception as e:
-        message = '&#9888; ERROR: bcs-express.ru parser is down\n' + str(e)
+        message = '&#9888; ERROR: ' + source + ' parser is down\n' + str(e)
         await send_message_api(message, bot_token, chat_id)
 
 
