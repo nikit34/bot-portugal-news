@@ -8,24 +8,23 @@ from telethon import TelegramClient
 from properties_reader import get_secret_key
 from static.settings import KEY_SEARCH_LENGTH_CHARS, TIMEOUT
 from static.sources import rss_channels
-from telegram_api import send_message
+from telegram_api import send_message_api
 from user_agents_manager import random_user_agent_headers
 
 
-async def rss_wrapper(client, bot_token, chat_id, httpx_client, source, rss_link, posted_q):
+async def rss_wrapper(bot_token, chat_id, httpx_client, source, rss_link, send_message_callback, posted_q):
     try:
-        await rss_parser(client, chat_id, httpx_client, source, rss_link, posted_q)
+        await rss_parser(httpx_client, source, rss_link, send_message_callback, posted_q)
     except Exception as e:
-        message = '&#9888; ERROR: www.rbc.ru parser is down\n' + str(e)
-        await send_message(message, bot_token, chat_id)
+        message = '&#9888; ERROR: ' + source + ' parser is down\n' + str(e)
+        await send_message_api(message, bot_token, chat_id)
 
 
 async def rss_parser(
-        client,
-        chat_id,
         httpx_client,
         source,
         rss_link,
+        send_message_callback,
         posted_q,
         key=KEY_SEARCH_LENGTH_CHARS,
         timeout=TIMEOUT
@@ -54,7 +53,7 @@ async def rss_parser(
 
             link = entry['link'] if 'link' in entry else ''
             post = '<a href="' + link + '">' + source + '</a>\n' + message
-            await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+            await send_message_callback(post)
 
         await asyncio.sleep(timeout - random.uniform(0, 0.5))
 
@@ -73,5 +72,8 @@ if __name__ == "__main__":
 
     posted_q = deque(maxlen=20)
 
+    async def send_message_callback(post):
+        await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+
     for source, rss_link in rss_channels.items():
-        asyncio.run(rss_parser(client, chat_id, httpx_client, source, rss_link, posted_q))
+        asyncio.run(rss_parser(httpx_client, source, rss_link, send_message_callback, posted_q))

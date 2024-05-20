@@ -8,24 +8,23 @@ from telethon import TelegramClient
 from properties_reader import get_secret_key
 from static.settings import KEY_SEARCH_LENGTH_CHARS, TIMEOUT
 from static.sources import bcs_channels
-from telegram_api import send_message
+from telegram_api import send_message_api
 from user_agents_manager import random_user_agent_headers
 
 
-async def bcs_wrapper(client, bot_token, chat_id, httpx_client, source, bcs_link, posted_q):
+async def bcs_wrapper(bot_token, chat_id, httpx_client, source, bcs_link, send_message_callback, posted_q):
     try:
-        await bcs_parser(client, chat_id, httpx_client, source, bcs_link, posted_q)
+        await bcs_parser(httpx_client, source, bcs_link, send_message_callback, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: bcs-express.ru parser is down\n' + str(e)
-        await send_message(message, bot_token, chat_id)
+        await send_message_api(message, bot_token, chat_id)
 
 
 async def bcs_parser(
-        client,
-        chat_id,
         httpx_client,
         source,
         bcs_link,
+        send_message_callback,
         posted_q,
         key=KEY_SEARCH_LENGTH_CHARS,
         timeout=TIMEOUT
@@ -47,10 +46,10 @@ async def bcs_parser(
             title = raw_text[3] if len(raw_text) > 3 else ''
             summary = raw_text[5] if len(raw_text) > 5 else ''
             if 'ксперт' in summary:
-                title = f'{title}, {summary}'
+                title = title + ', ' + summary
                 summary = raw_text[11] if len(raw_text) > 11 else ''
 
-            message = f'{title}\n{summary}'
+            message = title + '\n' + summary
             head = message[:key].strip()
             if head in posted_q:
                 continue
@@ -62,7 +61,7 @@ async def bcs_parser(
                 link = raw_link[1] if len(raw_link) > 1 else ''
 
             post = '<a href="' + source + link + '">' + source + '</a>\n' + message
-            await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+            await send_message_callback(post)
 
         await asyncio.sleep(timeout + random.uniform(0, 0.5))
 
@@ -81,5 +80,8 @@ if __name__ == "__main__":
 
     posted_q = deque(maxlen=20)
 
+    async def send_message_callback(post):
+        await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+
     for source, bcs_link in bcs_channels.items():
-        asyncio.run(bcs_parser(client, chat_id, httpx_client, source, bcs_link, posted_q))
+        asyncio.run(bcs_parser(httpx_client, source, bcs_link, send_message_callback, posted_q))

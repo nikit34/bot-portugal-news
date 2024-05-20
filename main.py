@@ -10,7 +10,7 @@ from properties_reader import get_secret_key
 from history_manager import get_messages_history
 from static.settings import COUNT_UNIQUE_MESSAGES
 from static.sources import rss_channels, bcs_channels
-from telegram_api import send_message
+from telegram_api import send_message_api
 
 
 if __name__ == '__main__':
@@ -29,6 +29,10 @@ if __name__ == '__main__':
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
 
     with client:
+
+        async def send_message_callback(post):
+            await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+
         feature_history = get_messages_history(client, chat_id)
         history = client.loop.run_until_complete(feature_history)
         posted_q.extend(history)
@@ -41,23 +45,23 @@ if __name__ == '__main__':
 
         for source, bcs_link in bcs_channels.items():
             client.loop.create_task(bcs_wrapper(
-                client=client,
                 bot_token=bot_token,
                 chat_id=chat_id,
                 httpx_client=httpx_client,
                 source=source,
                 bcs_link=bcs_link,
+                send_message_callback=send_message_callback,
                 posted_q=posted_q
             ))
 
         for source, rss_link in rss_channels.items():
             client.loop.create_task(rss_wrapper(
-                client=client,
                 bot_token=bot_token,
                 chat_id=chat_id,
                 httpx_client=httpx_client,
                 source=source,
                 rss_link=rss_link,
+                send_message_callback=send_message_callback,
                 posted_q=posted_q
             ))
 
@@ -65,7 +69,7 @@ if __name__ == '__main__':
             client.run_until_disconnected()
         except Exception as e:
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
-            feature = send_message(text=message, bot_token=bot_token, chat_id=chat_id)
+            feature = send_message_api(text=message, bot_token=bot_token, chat_id=chat_id)
             client.loop.run_until_complete(feature)
         finally:
             client.loop.run_until_complete(httpx_client.aclose())

@@ -1,7 +1,7 @@
 import httpx
 
 
-async def send_message(text, bot_token, chat_id):
+async def send_message_api(text, bot_token, chat_id):
     url = 'https://api.telegram.org/bot' + bot_token + '/sendMessage'
 
     params = {
