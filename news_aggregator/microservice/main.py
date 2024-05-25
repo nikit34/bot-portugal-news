@@ -4,11 +4,11 @@ import logging
 from collections import deque
 from telethon import TelegramClient
 
+from parsers.bcs import bcs_wrapper
+from parsers.telegram import telegram_parser
 from static.settings import COUNT_UNIQUE_MESSAGES
 from static.sources import rss_channels, telegram_channels, bcs_channels
-from telegram_parser import telegram_parser
 from rss_parser import rss_parser
-from bcs_parser import bcs_parser, bcs_wrapper
 from utils import create_logger, get_history, send_error_message
 from config import api_id, api_hash, chat_id, bot_token
 
