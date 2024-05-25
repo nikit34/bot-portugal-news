@@ -4,11 +4,11 @@ from collections import deque
 import httpx
 from scrapy.selector import Selector
 
+from static.settings import TIMEOUT, KEY_SEARCH_LENGTH_CHARS
 from utils import random_user_agent_headers
 
 
-async def bcs_parser(httpx_client, posted_q, n_test_chars=50, 
-                     timeout=2, check_pattern_func=None, 
+async def bcs_parser(httpx_client, posted_q, check_pattern_func=None,
                      send_message_func=None, logger=None):
     '''Кастомный парсер сайта bcs-express.ru'''
     bcs_link = 'https://bcs-express.ru/category'
@@ -22,7 +22,7 @@ async def bcs_parser(httpx_client, posted_q, n_test_chars=50,
             if not (logger is None):
                 logger.error(f'{source} error pass\n{e}')
 
-            await asyncio.sleep(timeout*2 + random.uniform(0, 0.5))
+            await asyncio.sleep(TIMEOUT*2 + random.uniform(0, 0.5))
             continue
 
         selector = Selector(text=response.text)
@@ -43,7 +43,7 @@ async def bcs_parser(httpx_client, posted_q, n_test_chars=50,
                 if not check_pattern_func(news_text):
                     continue
 
-            head = news_text[:n_test_chars].strip()
+            head = news_text[:KEY_SEARCH_LENGTH_CHARS].strip()
 
             if head in posted_q:
                 continue
@@ -62,7 +62,7 @@ async def bcs_parser(httpx_client, posted_q, n_test_chars=50,
 
             posted_q.appendleft(head)
 
-        await asyncio.sleep(timeout + random.uniform(0, 0.5))
+        await asyncio.sleep(TIMEOUT + random.uniform(0, 0.5))
 
 
 if __name__ == "__main__":

@@ -4,11 +4,11 @@ from collections import deque
 import httpx
 import feedparser
 
+from static.settings import TIMEOUT, KEY_SEARCH_LENGTH_CHARS
 from utils import random_user_agent_headers
 
 
-async def rss_parser(httpx_client, source, rss_link, posted_q, n_test_chars=50, 
-                     timeout=2, check_pattern_func=None, 
+async def rss_parser(httpx_client, source, rss_link, posted_q, check_pattern_func=None,
                      send_message_func=None, logger=None):
     '''Парсер rss ленты'''
 
@@ -20,7 +20,7 @@ async def rss_parser(httpx_client, source, rss_link, posted_q, n_test_chars=50,
             if not (logger is None):
                 logger.error(f'{source} rss error pass\n{e}')
 
-            await asyncio.sleep(timeout*2 - random.uniform(0, 0.5))
+            await asyncio.sleep(TIMEOUT * 2 - random.uniform(0, 0.5))
             continue
 
         feed = feedparser.parse(response.text)
@@ -38,7 +38,7 @@ async def rss_parser(httpx_client, source, rss_link, posted_q, n_test_chars=50,
                 if not check_pattern_func(news_text):
                     continue
 
-            head = news_text[:n_test_chars].strip()
+            head = news_text[:KEY_SEARCH_LENGTH_CHARS].strip()
 
             if head in posted_q:
                 continue
@@ -54,7 +54,7 @@ async def rss_parser(httpx_client, source, rss_link, posted_q, n_test_chars=50,
 
             posted_q.appendleft(head)
 
-        await asyncio.sleep(timeout - random.uniform(0, 0.5))
+        await asyncio.sleep(TIMEOUT - random.uniform(0, 0.5))
 
 
 if __name__ == "__main__":

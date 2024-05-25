@@ -2,10 +2,11 @@ from collections import deque
 from telethon import TelegramClient, events
 
 from config import api_id, api_hash
+from static.settings import KEY_SEARCH_LENGTH_CHARS
 
 
 def telegram_parser(session, api_id, api_hash, telegram_channels, posted_q,
-                    n_test_chars=50, check_pattern_func=None,
+                    check_pattern_func=None,
                     send_message_func=None, logger=None, loop=None):
     '''Телеграм парсер'''
 
@@ -28,7 +29,7 @@ def telegram_parser(session, api_id, api_hash, telegram_channels, posted_q,
             if not check_pattern_func(news_text):
                 return
 
-        head = news_text[:n_test_chars].strip()
+        head = news_text[:KEY_SEARCH_LENGTH_CHARS].strip()
 
         if head in posted_q:
             return

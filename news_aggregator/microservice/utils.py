@@ -3,6 +3,7 @@ import sys
 import random
 import httpx
 
+from static.settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES
 from user_agents import user_agent_list  # список из значений user-agent
 
 
@@ -20,11 +21,10 @@ def create_logger(name, level=logging.INFO):
     return logger
 
 
-async def get_history(client, chat_id, n_test_chars=50, amount_messages=50):
-    '''Забирает из канала уже опубликованные посты для того, чтобы их не дублировать'''
+async def get_history(client, chat_id, key=KEY_SEARCH_LENGTH_CHARS, count=COUNT_UNIQUE_MESSAGES):
     history = []
 
-    messages = await client.get_messages(chat_id, amount_messages)
+    messages = await client.get_messages(int(chat_id), count)
 
     for message in messages:
         if message.raw_text is None:
@@ -34,7 +34,7 @@ async def get_history(client, chat_id, n_test_chars=50, amount_messages=50):
         # Выкидывет источник и ссылку из поста, оставляя только текст
         text = '\n'.join(post[2:])
 
-        history.append(text[:n_test_chars].strip())
+        history.append(text[:key].strip())
 
     return history
 

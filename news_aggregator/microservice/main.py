@@ -4,6 +4,8 @@ import logging
 from collections import deque
 from telethon import TelegramClient
 
+from static.settings import COUNT_UNIQUE_MESSAGES
+from static.sources import rss_channels, telegram_channels
 from telegram_parser import telegram_parser
 from rss_parser import rss_parser
 from bcs_parser import bcs_parser
@@ -13,23 +15,6 @@ from config import api_id, api_hash, gazp_chat_id, bot_token
 
 ###########################
 # Можно добавить телеграм канал, rss ссылку или изменить фильтр новостей
-
-telegram_channels = {
-    1099860397: 'https://t.me/rbc_news',
-    1428717522: 'https://t.me/gazprom',
-    1101170442: 'https://t.me/rian_ru',
-    1133408457: 'https://t.me/prime1',
-    1149896996: 'https://t.me/interfaxonline',
-    # 1001029560: 'https://t.me/bcs_express',
-    1203560567: 'https://t.me/markettwits',  # Канал аггрегатор новостей
-}
-
-rss_channels = {
-    'www.rbc.ru': 'https://rssexport.rbc.ru/rbcnews/news/20/full.rss',
-    'www.ria.ru': 'https://ria.ru/export/rss2/archive/index.xml',
-    'www.1prime.ru': 'https://1prime.ru/export/rss2/index.xml',
-    'www.interfax.ru': 'https://www.interfax.ru/rss.asp',
-}
 
 
 def check_pattern_func(text):
@@ -56,20 +41,10 @@ def check_pattern_func(text):
     return True
 
 
-###########################
-# Если у парсеров много ошибок или появляются повторные новости
 
-# 50 первых символов от поста - это ключ для поиска повторных постов
-n_test_chars = 50
 
-# Количество уже опубликованных постов, чтобы их не повторять
-amount_messages = 50
+posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
 
-# Очередь уже опубликованных постов
-posted_q = deque(maxlen=amount_messages)
-
-# +/- интервал между запросами у rss и кастомного парсеров в секундах
-timeout = 2
 
 ###########################
 
@@ -96,14 +71,12 @@ async def send_message_func(text):
 
 
 # Телеграм парсер
-client = telegram_parser('gazp', api_id, api_hash, telegram_channels, posted_q,
-                         n_test_chars, check_pattern_func, send_message_func,
+client = telegram_parser('gazp', api_id, api_hash, telegram_channels, posted_q, check_pattern_func, send_message_func,
                          tele_logger, loop)
 
 
 # Список из уже опубликованных постов, чтобы их не дублировать
-history = loop.run_until_complete(get_history(client, gazp_chat_id,
-                                              n_test_chars, amount_messages))
+history = loop.run_until_complete(get_history(client, gazp_chat_id))
 
 posted_q.extend(history)
 
@@ -116,7 +89,7 @@ for source, rss_link in rss_channels.items():
     async def wrapper(source, rss_link):
         try:
             await rss_parser(httpx_client, source, rss_link, posted_q,
-                             n_test_chars, timeout, check_pattern_func,
+                             check_pattern_func,
                              send_message_func, logger)
         except Exception as e:
             message = f'&#9888; ERROR: {source} parser is down! \n{e}'
@@ -128,7 +101,7 @@ for source, rss_link in rss_channels.items():
 # Добавляй в текущий event_loop кастомный парсер
 async def bcs_wrapper():
     try:
-        await bcs_parser(httpx_client, posted_q, n_test_chars, timeout,
+        await bcs_parser(httpx_client, posted_q,
                          check_pattern_func, send_message_func, logger)
     except Exception as e:
         message = f'&#9888; ERROR: bcs-express.ru parser is down! \n{e}'
