@@ -37,13 +37,13 @@ if __name__ == '__main__':
         async def send_message_callback(post):
             await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
 
-        client = telegram_parser(
+        telegram_client = telegram_parser(
             client=client,
             chat_id=chat_id,
             posted_q=posted_q
         )
 
-        feature_history = get_messages_history(client, chat_id)
+        feature_history = get_messages_history(telegram_client, chat_id)
         history = loop.run_until_complete(feature_history)
         posted_q.extend(history)
 
@@ -70,7 +70,7 @@ if __name__ == '__main__':
             ))
 
         try:
-            client.run_until_disconnected()
+            telegram_client.run_until_disconnected()
         except Exception as e:
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
             feature = send_message_api(text=message, bot_token=bot_token, chat_id=chat_id)
