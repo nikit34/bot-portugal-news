@@ -13,41 +13,7 @@ from static.sources import rss_channels, telegram_channels, bcs_channels
 from config import api_id, api_hash, chat_id, bot_token
 
 
-###########################
-# Можно добавить телеграм канал, rss ссылку или изменить фильтр новостей
-
-
-def check_pattern_func(text):
-    '''Вибирай только посты или статьи про газпром или газ'''
-    # words = text.lower().split()
-    #
-    # key_words = [
-    #     'газп',     # газпром
-    #     'газо',     # газопровод, газофикация...
-    #     'поток',    # сервеный поток, северный поток 2, южный поток
-    #     'спг',      # спг - сжиженный природный газ
-    #     'gazp',
-    # ]
-    #
-    # for word in words:
-    #     if 'газ' in word and len(word) < 6:  # газ, газу, газом, газа
-    #         return True
-    #
-    #     for key in key_words:
-    #         if key in word:
-    #             return True
-    #
-    # return False
-    return True
-
-
-
-
 posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
-
-
-###########################
-
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
@@ -61,19 +27,9 @@ async def send_message_callback(post):
     await bot.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
 
 
-async def send_message_func(text):
-    '''Отправляет посты в канал через бот'''
-    await bot.send_message(entity=chat_id,
-                           parse_mode='html', link_preview=False, message=text)
-
-
-
-# Телеграм парсер
-client = telegram_parser('gazp', api_id, api_hash, telegram_channels, posted_q, check_pattern_func, send_message_func,
+client = telegram_parser('gazp', api_id, api_hash, telegram_channels, posted_q, send_message_callback,
                          loop)
 
-
-# Список из уже опубликованных постов, чтобы их не дублировать
 history = loop.run_until_complete(get_messages_history(client, chat_id))
 
 posted_q.extend(history)

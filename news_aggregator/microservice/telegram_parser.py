@@ -6,7 +6,6 @@ from static.settings import KEY_SEARCH_LENGTH_CHARS
 
 
 def telegram_parser(session, api_id, api_hash, telegram_channels, posted_q,
-                    check_pattern_func=None,
                     send_message_func=None, loop=None):
     '''Телеграм парсер'''
 
@@ -24,10 +23,6 @@ def telegram_parser(session, api_id, api_hash, telegram_channels, posted_q,
             return
 
         news_text = ' '.join(event.raw_text.split('\n')[:2])
-
-        if not (check_pattern_func is None):
-            if not check_pattern_func(news_text):
-                return
 
         head = news_text[:KEY_SEARCH_LENGTH_CHARS].strip()
 
