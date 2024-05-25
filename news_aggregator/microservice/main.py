@@ -4,12 +4,12 @@ from collections import deque
 from telethon import TelegramClient
 
 from history_manager import get_messages_history
+from parsers.rss import rss_wrapper
 from telegram_api import send_message_api
 from telegram_parser import telegram_parser
 from parsers.bcs import bcs_wrapper
 from static.settings import COUNT_UNIQUE_MESSAGES
 from static.sources import rss_channels, telegram_channels, bcs_channels
-from rss_parser import rss_parser
 from config import api_id, api_hash, chat_id, bot_token
 
 
@@ -80,21 +80,16 @@ posted_q.extend(history)
 
 httpx_client = httpx.AsyncClient()
 
-# Добавляй в текущий event_loop rss парсеры
 for source, rss_link in rss_channels.items():
-
-    # https://docs.python-guide.org/writing/gotchas/#late-binding-closures
-    async def wrapper(source, rss_link):
-        try:
-            await rss_parser(httpx_client, source, rss_link, posted_q,
-                             check_pattern_func,
-                             send_message_func)
-        except Exception as e:
-            message = f'&#9888; ERROR: {source} parser is down! \n{e}'
-            await send_message_api(message, bot_token, chat_id)
-
-    loop.create_task(wrapper(source, rss_link))
-
+    loop.create_task(rss_wrapper(
+        bot_token=bot_token,
+        chat_id=chat_id,
+        httpx_client=httpx_client,
+        source=source,
+        rss_link=rss_link,
+        send_message_callback=send_message_callback,
+        posted_q=posted_q
+    ))
 
 for source, bcs_link in bcs_channels.items():
     loop.create_task(bcs_wrapper(
