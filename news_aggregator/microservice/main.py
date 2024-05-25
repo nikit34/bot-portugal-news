@@ -5,12 +5,12 @@ from collections import deque
 from telethon import TelegramClient
 
 from static.settings import COUNT_UNIQUE_MESSAGES
-from static.sources import rss_channels, telegram_channels
+from static.sources import rss_channels, telegram_channels, bcs_channels
 from telegram_parser import telegram_parser
 from rss_parser import rss_parser
-from bcs_parser import bcs_parser
+from bcs_parser import bcs_parser, bcs_wrapper
 from utils import create_logger, get_history, send_error_message
-from config import api_id, api_hash, gazp_chat_id, bot_token
+from config import api_id, api_hash, chat_id, bot_token
 
 
 ###########################
@@ -62,9 +62,13 @@ bot = TelegramClient('bot', api_id, api_hash,
 bot.start(bot_token=bot_token)
 
 
+async def send_message_callback(post):
+    await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+
+
 async def send_message_func(text):
     '''Отправляет посты в канал через бот'''
-    await bot.send_message(entity=gazp_chat_id,
+    await bot.send_message(entity=chat_id,
                            parse_mode='html', link_preview=False, message=text)
 
     logger.info(text)
@@ -76,7 +80,7 @@ client = telegram_parser('gazp', api_id, api_hash, telegram_channels, posted_q, 
 
 
 # Список из уже опубликованных постов, чтобы их не дублировать
-history = loop.run_until_complete(get_history(client, gazp_chat_id))
+history = loop.run_until_complete(get_history(client, chat_id))
 
 posted_q.extend(history)
 
@@ -93,21 +97,21 @@ for source, rss_link in rss_channels.items():
                              send_message_func, logger)
         except Exception as e:
             message = f'&#9888; ERROR: {source} parser is down! \n{e}'
-            await send_error_message(message, bot_token, gazp_chat_id, logger)
+            await send_error_message(message, bot_token, chat_id, logger)
 
     loop.create_task(wrapper(source, rss_link))
 
 
-# Добавляй в текущий event_loop кастомный парсер
-async def bcs_wrapper():
-    try:
-        await bcs_parser(httpx_client, posted_q,
-                         check_pattern_func, send_message_func, logger)
-    except Exception as e:
-        message = f'&#9888; ERROR: bcs-express.ru parser is down! \n{e}'
-        await send_error_message(message, bot_token, gazp_chat_id, logger)
-
-loop.create_task(bcs_wrapper())
+for source, bcs_link in bcs_channels.items():
+    loop.create_task(bcs_wrapper(
+        bot_token=bot_token,
+        chat_id=chat_id,
+        httpx_client=httpx_client,
+        source=source,
+        bcs_link=bcs_link,
+        send_message_callback=send_message_callback,
+        posted_q=posted_q
+    ))
 
 
 try:
@@ -117,7 +121,7 @@ try:
 except Exception as e:
     message = f'&#9888; ERROR: telegram parser (all parsers) is down! \n{e}'
     loop.run_until_complete(send_error_message(message, bot_token,
-                                               gazp_chat_id, logger))
+                                               chat_id, logger))
 finally:
     loop.run_until_complete(httpx_client.aclose())
     loop.close()
