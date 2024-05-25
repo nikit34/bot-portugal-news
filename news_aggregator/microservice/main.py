@@ -4,8 +4,8 @@ import logging
 from collections import deque
 from telethon import TelegramClient
 
+from telegram_parser import telegram_parser
 from parsers.bcs import bcs_wrapper
-from parsers.telegram import telegram_parser
 from static.settings import COUNT_UNIQUE_MESSAGES
 from static.sources import rss_channels, telegram_channels, bcs_channels
 from rss_parser import rss_parser
