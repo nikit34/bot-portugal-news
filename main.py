@@ -37,15 +37,15 @@ if __name__ == '__main__':
         async def send_message_callback(post):
             await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
 
-        feature_history = get_messages_history(client, chat_id)
-        history = client.loop.run_until_complete(feature_history)
-        posted_q.extend(history)
-
         client = telegram_parser(
             client=client,
             chat_id=chat_id,
             posted_q=posted_q
         )
+
+        feature_history = get_messages_history(client, chat_id)
+        history = loop.run_until_complete(feature_history)
+        posted_q.extend(history)
 
         for source, bcs_link in bcs_channels.items():
             loop.create_task(bcs_wrapper(

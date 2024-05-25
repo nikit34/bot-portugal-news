@@ -20,7 +20,6 @@ def telegram_parser(client, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
         head = message[:key].strip()
         if head in posted_q:
             return
-        posted_q.appendleft(head)
 
         source = telegram_channels[event.message.peer_id.channel_id]
         link = source + '/' + str(event.message.id)
@@ -29,6 +28,7 @@ def telegram_parser(client, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
 
         await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
 
+        posted_q.appendleft(head)
     return client
 
 

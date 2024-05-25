@@ -49,11 +49,12 @@ async def rss_parser(
             head = message[:key].strip()
             if head in posted_q:
                 continue
-            posted_q.appendleft(head)
 
             link = entry['link'] if 'link' in entry else ''
             post = '<a href="' + link + '">' + source + '</a>\n' + message
             await send_message_callback(post)
+
+            posted_q.appendleft(head)
 
         await asyncio.sleep(timeout - random.uniform(0, 0.5))
 

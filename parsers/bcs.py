@@ -53,7 +53,6 @@ async def bcs_parser(
             head = message[:key].strip()
             if head in posted_q:
                 continue
-            posted_q.appendleft(head)
 
             raw_link = row.xpath('a/@href').extract()
             link = raw_link[0] if len(raw_link) > 0 else ''
@@ -62,6 +61,8 @@ async def bcs_parser(
 
             post = '<a href="' + source + link + '">' + source + '</a>\n' + message
             await send_message_callback(post)
+
+            posted_q.appendleft(head)
 
         await asyncio.sleep(timeout + random.uniform(0, 0.5))
 
