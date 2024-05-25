@@ -3,12 +3,13 @@ import asyncio
 from collections import deque
 from telethon import TelegramClient
 
+from history_manager import get_messages_history
+from telegram_api import send_message_api
 from telegram_parser import telegram_parser
 from parsers.bcs import bcs_wrapper
 from static.settings import COUNT_UNIQUE_MESSAGES
 from static.sources import rss_channels, telegram_channels, bcs_channels
 from rss_parser import rss_parser
-from utils import get_history, send_error_message
 from config import api_id, api_hash, chat_id, bot_token
 
 
@@ -73,7 +74,7 @@ client = telegram_parser('gazp', api_id, api_hash, telegram_channels, posted_q, 
 
 
 # Список из уже опубликованных постов, чтобы их не дублировать
-history = loop.run_until_complete(get_history(client, chat_id))
+history = loop.run_until_complete(get_messages_history(client, chat_id))
 
 posted_q.extend(history)
 
@@ -90,7 +91,7 @@ for source, rss_link in rss_channels.items():
                              send_message_func)
         except Exception as e:
             message = f'&#9888; ERROR: {source} parser is down! \n{e}'
-            await send_error_message(message, bot_token, chat_id)
+            await send_message_api(message, bot_token, chat_id)
 
     loop.create_task(wrapper(source, rss_link))
 
@@ -113,7 +114,7 @@ try:
 
 except Exception as e:
     message = f'&#9888; ERROR: telegram parser (all parsers) is down! \n{e}'
-    loop.run_until_complete(send_error_message(message, bot_token,
+    loop.run_until_complete(send_message_api(message, bot_token,
                                                chat_id))
 finally:
     loop.run_until_complete(httpx_client.aclose())

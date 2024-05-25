@@ -5,7 +5,7 @@ import httpx
 import feedparser
 
 from static.settings import TIMEOUT, KEY_SEARCH_LENGTH_CHARS
-from utils import random_user_agent_headers
+from user_agents_manager import random_user_agent_headers
 
 
 async def rss_parser(httpx_client, source, rss_link, posted_q, check_pattern_func=None,
