@@ -4,21 +4,7 @@ import random
 import httpx
 
 from static.settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES
-from user_agents import user_agent_list  # список из значений user-agent
-
-
-def create_logger(name, level=logging.INFO):
-    logger = logging.getLogger(name)
-    logger.setLevel(level)
-
-    formatter = logging.Formatter(
-        '%(asctime)s - %(name)s - %(levelname)s \n%(message)s \n' + '-'*30)
-    handler = logging.StreamHandler(sys.stdout)
-
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-
-    return logger
+from user_agents import user_agent_list
 
 
 async def get_history(client, chat_id, key=KEY_SEARCH_LENGTH_CHARS, count=COUNT_UNIQUE_MESSAGES):
@@ -57,7 +43,7 @@ def random_user_agent_headers():
     return header
 
 
-async def send_error_message(text, bot_token, chat_id, logger=None):
+async def send_error_message(text, bot_token, chat_id):
     '''Через бот отправляет сообщение напрямую в канал через telegram api'''
     url = f'https://api.telegram.org/bot{bot_token}/sendMessage'
 
@@ -79,11 +65,6 @@ async def send_error_message(text, bot_token, chat_id, logger=None):
             response = await client.get(url, params=params, headers=headers)
             response.raise_for_status()
     except Exception as e:
-        if logger is None:
-            print(e)
-        else:
-            logger.error(e)
-
         return -1
 
     return response.status_code

@@ -7,14 +7,14 @@ from static.settings import KEY_SEARCH_LENGTH_CHARS
 
 def telegram_parser(session, api_id, api_hash, telegram_channels, posted_q,
                     check_pattern_func=None,
-                    send_message_func=None, logger=None, loop=None):
+                    send_message_func=None, loop=None):
     '''Телеграм парсер'''
 
     # Ссылки на телеграмм каналы
     telegram_channels_links = list(telegram_channels.values())
 
     client = TelegramClient(session, api_id, api_hash,
-                            base_logger=logger, loop=loop)
+                            loop=loop)
     client.start()
 
     @client.on(events.NewMessage(chats=telegram_channels_links))

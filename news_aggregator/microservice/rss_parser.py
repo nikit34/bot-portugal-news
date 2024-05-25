@@ -9,7 +9,7 @@ from utils import random_user_agent_headers
 
 
 async def rss_parser(httpx_client, source, rss_link, posted_q, check_pattern_func=None,
-                     send_message_func=None, logger=None):
+                     send_message_func=None):
     '''Парсер rss ленты'''
 
     while True:
@@ -17,9 +17,6 @@ async def rss_parser(httpx_client, source, rss_link, posted_q, check_pattern_fun
             response = await httpx_client.get(rss_link, headers=random_user_agent_headers())
             response.raise_for_status()
         except Exception as e:
-            if not (logger is None):
-                logger.error(f'{source} rss error pass\n{e}')
-
             await asyncio.sleep(TIMEOUT * 2 - random.uniform(0, 0.5))
             continue
 
