@@ -6,9 +6,8 @@ from telethon import TelegramClient
 
 from parsers.bcs import bcs_wrapper
 from parsers.rss import rss_wrapper
-from parsers.telegram import telegram_parser
+from parsers.telegram import telegram_parser, get_messages_history
 from properties_reader import get_secret_key
-from history_manager import get_messages_history
 from static.settings import COUNT_UNIQUE_MESSAGES
 from static.sources import rss_channels, bcs_channels
 from telegram_api import send_message_api
@@ -37,13 +36,17 @@ if __name__ == '__main__':
         async def send_message_callback(post):
             await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
 
-        telegram_client = telegram_parser(
-            client=client,
+
+        getter_client = telegram_parser(
+            session='getter_bot',
+            api_id=api_id,
+            api_hash=api_hash,
+            loop=loop,
             chat_id=chat_id,
             posted_q=posted_q
         )
 
-        feature_history = get_messages_history(telegram_client, chat_id)
+        feature_history = get_messages_history(getter_client, chat_id)
         history = loop.run_until_complete(feature_history)
         posted_q.extend(history)
 
@@ -70,7 +73,7 @@ if __name__ == '__main__':
             ))
 
         try:
-            telegram_client.run_until_disconnected()
+            getter_client.run_until_disconnected()
         except Exception as e:
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
             feature = send_message_api(text=message, bot_token=bot_token, chat_id=chat_id)

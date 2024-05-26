@@ -3,14 +3,30 @@ from collections import deque
 from telethon import TelegramClient, events
 
 from properties_reader import get_secret_key
-from static.settings import KEY_SEARCH_LENGTH_CHARS
+from static.settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES
 from static.sources import telegram_channels
 
 
-def telegram_parser(client, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
+async def get_messages_history(getter_client, chat_id, key=KEY_SEARCH_LENGTH_CHARS, count=COUNT_UNIQUE_MESSAGES):
+    history = []
+    messages = await getter_client.get_messages(int(chat_id), count)
+
+    for message in messages:
+        if message.raw_text is None:
+            continue
+        post = message.raw_text.replace('\n', '')
+        cropped_post = post[:key].strip()
+        history.append(cropped_post)
+    return history
+
+
+def telegram_parser(session, api_id, api_hash, loop, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
     telegram_channels_links = list(telegram_channels.values())
 
-    @client.on(events.NewMessage(chats=telegram_channels_links))
+    getter_client = TelegramClient(session, api_id, api_hash, loop=loop)
+    getter_client.start()
+
+    @getter_client.on(events.NewMessage(chats=telegram_channels_links))
     async def handler(event):
         if event.raw_text == '':
             return
@@ -26,10 +42,10 @@ def telegram_parser(client, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
         channel = '@' + source.split('/')[-1]
         post = '<a href="' + link + '">' + channel + '</a>\n' + message
 
-        await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+        await getter_client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
 
         posted_q.appendleft(head)
-    return client
+    return getter_client
 
 
 if __name__ == "__main__":
@@ -42,11 +58,7 @@ if __name__ == "__main__":
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
 
-    client = TelegramClient('bot', api_id, api_hash, loop=loop)
-    client.start(password=password, bot_token=bot_token)
-
     posted_q = deque(maxlen=20)
 
-    with client:
-        client = telegram_parser(client=client, chat_id=chat_id, posted_q=posted_q)
-        client.run_until_disconnected()
+    getter_client = telegram_parser(session='getter_bot', api_id=api_id, api_hash=api_hash, loop=loop, chat_id=chat_id, posted_q=posted_q)
+    getter_client.run_until_disconnected()
