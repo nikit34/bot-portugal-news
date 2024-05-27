@@ -2,6 +2,7 @@ from collections import deque
 
 import httpx
 from telethon import TelegramClient
+from googletrans import Translator
 
 from parsers.bcs import bcs_wrapper
 from parsers.rss import rss_wrapper
@@ -24,13 +25,15 @@ if __name__ == '__main__':
     client.start(password=password, bot_token=bot_token)
 
     httpx_client = httpx.AsyncClient()
+    translator = Translator(service_urls=['translate.googleapis.com'])
 
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
 
     with client:
 
         async def send_message_callback(post):
-            await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+            translated_post = translator.translate(post, dest='pt', src='ru')
+            await client.send_message(entity=int(chat_id), message=translated_post.text, parse_mode='html', link_preview=False)
 
         getter_client = TelegramClient('getter_bot', api_id, api_hash)
         getter_client.start()
