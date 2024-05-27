@@ -5,6 +5,8 @@ secret
 
 bot.session-journal
 getter_bot.session-journal
+parsers/bot.session
+parsers/bot.session-journal
 
 # TODO: remove after exclude news_aggregator
 news_aggregator/microservice/gazp.session

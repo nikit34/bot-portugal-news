@@ -31,9 +31,9 @@ if __name__ == '__main__':
 
     with client:
 
-        async def send_message_callback(post):
+        async def send_message_callback(post, image):
             translated_post = translator.translate(post, dest='pt', src='ru')
-            await client.send_message(entity=int(chat_id), message=translated_post.text, parse_mode='html', link_preview=False)
+            await client.send_message(entity=int(chat_id), message=translated_post.text, file=image, parse_mode='html', link_preview=False)
 
         getter_client = TelegramClient('getter_bot', api_id, api_hash)
         getter_client.start()
