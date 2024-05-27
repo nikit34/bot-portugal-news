@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
         getter_client = telegram_parser(
             getter_client=getter_client,
-            chat_id=chat_id,
+            send_message_callback=send_message_callback,
             posted_q=posted_q
         )
 

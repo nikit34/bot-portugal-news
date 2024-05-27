@@ -19,7 +19,7 @@ async def get_messages_history(getter_client, chat_id, key=KEY_SEARCH_LENGTH_CHA
     return history
 
 
-def telegram_parser(getter_client, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
+def telegram_parser(getter_client, send_message_callback, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
     telegram_channels_links = list(telegram_channels.values())
 
     @getter_client.on(events.NewMessage(chats=telegram_channels_links))
@@ -38,7 +38,7 @@ def telegram_parser(getter_client, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHAR
         channel = '@' + source.split('/')[-1]
         post = '<a href="' + link + '">' + channel + '</a>\n' + message
 
-        await getter_client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+        await send_message_callback(post)
 
         posted_q.appendleft(head)
     return getter_client
@@ -56,5 +56,8 @@ if __name__ == "__main__":
     getter_client = TelegramClient('getter_bot', api_id, api_hash)
     getter_client.start()
 
-    getter_client = telegram_parser(getter_client=getter_client, chat_id=chat_id, posted_q=posted_q)
+    async def send_message_callback(post):
+        await getter_client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+
+    getter_client = telegram_parser(getter_client=getter_client, send_message_callback=send_message_callback, posted_q=posted_q)
     getter_client.run_until_disconnected()
