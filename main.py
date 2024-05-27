@@ -1,4 +1,3 @@
-import asyncio
 from collections import deque
 
 import httpx
@@ -21,10 +20,7 @@ if __name__ == '__main__':
     bot_token = get_secret_key('.', 'TOKEN_BOT')
     chat_id = get_secret_key('.', 'CHAT_ID')
 
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-
-    client = TelegramClient('bot', api_id, api_hash, loop=loop)
+    client = TelegramClient('bot', api_id, api_hash)
     client.start(password=password, bot_token=bot_token)
 
     httpx_client = httpx.AsyncClient()
@@ -36,7 +32,7 @@ if __name__ == '__main__':
         async def send_message_callback(post):
             await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
 
-        getter_client = TelegramClient('getter_bot', api_id, api_hash, loop=loop)
+        getter_client = TelegramClient('getter_bot', api_id, api_hash)
         getter_client.start()
 
         getter_client = telegram_parser(
@@ -46,11 +42,11 @@ if __name__ == '__main__':
         )
 
         feature_history = get_messages_history(getter_client, chat_id)
-        history = loop.run_until_complete(feature_history)
+        history = getter_client.loop.run_until_complete(feature_history)
         posted_q.extend(history)
 
         for source, bcs_link in bcs_channels.items():
-            loop.create_task(bcs_wrapper(
+            client.loop.create_task(bcs_wrapper(
                 bot_token=bot_token,
                 chat_id=chat_id,
                 httpx_client=httpx_client,
@@ -61,7 +57,7 @@ if __name__ == '__main__':
             ))
 
         for source, rss_link in rss_channels.items():
-            loop.create_task(rss_wrapper(
+            client.loop.create_task(rss_wrapper(
                 bot_token=bot_token,
                 chat_id=chat_id,
                 httpx_client=httpx_client,
@@ -76,7 +72,7 @@ if __name__ == '__main__':
         except Exception as e:
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
             feature = send_message_api(text=message, bot_token=bot_token, chat_id=chat_id)
-            loop.run_until_complete(feature)
+            client.loop.run_until_complete(feature)
         finally:
-            loop.run_until_complete(httpx_client.aclose())
-            loop.close()
+            client.loop.run_until_complete(httpx_client.aclose())
+            client.loop.close()
