@@ -36,12 +36,11 @@ if __name__ == '__main__':
         async def send_message_callback(post):
             await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
 
+        getter_client = TelegramClient('getter_bot', api_id, api_hash, loop=loop)
+        getter_client.start()
 
         getter_client = telegram_parser(
-            session='getter_bot',
-            api_id=api_id,
-            api_hash=api_hash,
-            loop=loop,
+            getter_client=getter_client,
             chat_id=chat_id,
             posted_q=posted_q
         )

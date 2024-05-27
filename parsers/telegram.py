@@ -20,11 +20,8 @@ async def get_messages_history(getter_client, chat_id, key=KEY_SEARCH_LENGTH_CHA
     return history
 
 
-def telegram_parser(session, api_id, api_hash, loop, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
+def telegram_parser(getter_client, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
     telegram_channels_links = list(telegram_channels.values())
-
-    getter_client = TelegramClient(session, api_id, api_hash, loop=loop)
-    getter_client.start()
 
     @getter_client.on(events.NewMessage(chats=telegram_channels_links))
     async def handler(event):
@@ -60,5 +57,8 @@ if __name__ == "__main__":
 
     posted_q = deque(maxlen=20)
 
-    getter_client = telegram_parser(session='getter_bot', api_id=api_id, api_hash=api_hash, loop=loop, chat_id=chat_id, posted_q=posted_q)
+    getter_client = TelegramClient('getter_bot', api_id, api_hash, loop=loop)
+    getter_client.start()
+
+    getter_client = telegram_parser(getter_client=getter_client, chat_id=chat_id, posted_q=posted_q)
     getter_client.run_until_disconnected()
