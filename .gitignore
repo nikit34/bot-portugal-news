@@ -3,9 +3,7 @@ venv/
 
 secret
 
-bot.session
 bot.session-journal
-getter_bot.session
 getter_bot.session-journal
 
 # TODO: remove after exclude news_aggregator
