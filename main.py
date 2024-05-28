@@ -29,17 +29,13 @@ if __name__ == '__main__':
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
 
     with client:
-
-        async def send_message_callback(post, image=None):
-            translated_post = translator.translate(post, dest='pt', src='ru')
-            await client.send_message(entity=int(chat_id), message=translated_post.text, file=image, parse_mode='html', link_preview=False)
-
         getter_client = TelegramClient('getter_bot', api_id, api_hash)
         getter_client.start()
 
         getter_client = telegram_parser(
             getter_client=getter_client,
-            send_message_callback=send_message_callback,
+            translator=translator,
+            chat_id=chat_id,
             posted_q=posted_q
         )
 
@@ -49,12 +45,13 @@ if __name__ == '__main__':
 
         for source, rss_link in rss_channels.items():
             client.loop.create_task(rss_wrapper(
+                client=client,
+                translator=translator,
                 bot_token=bot_token,
                 chat_id=chat_id,
                 httpx_client=httpx_client,
                 source=source,
                 rss_link=rss_link,
-                send_message_callback=send_message_callback,
                 posted_q=posted_q
             ))
 

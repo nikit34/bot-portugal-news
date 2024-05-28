@@ -13,19 +13,21 @@ from telegram_api import send_message_api
 from user_agents_manager import random_user_agent_headers
 
 
-async def rss_wrapper(bot_token, chat_id, httpx_client, source, rss_link, send_message_callback, posted_q):
+async def rss_wrapper(client, translator, bot_token, chat_id, httpx_client, source, rss_link, posted_q):
     try:
-        await rss_parser(httpx_client, source, rss_link, send_message_callback, posted_q)
+        await rss_parser(client, translator, chat_id, httpx_client, source, rss_link, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: ' + source + ' parser is down\n' + str(e)
         await send_message_api(message, bot_token, chat_id)
 
 
 async def rss_parser(
+        client,
+        translator,
+        chat_id,
         httpx_client,
         source,
         rss_link,
-        send_message_callback,
         posted_q,
         key=KEY_SEARCH_LENGTH_CHARS,
         timeout=TIMEOUT
@@ -57,7 +59,14 @@ async def rss_parser(
             image = entry.get('rbc_news_url')
             post = '<a href="' + link + '">' + source + '</a>\n' + message
 
-            await send_message_callback(post, image)
+            translated_post = translator.translate(post, dest='pt', src='ru')
+            await client.send_message(
+                entity=int(chat_id),
+                message=translated_post.text,
+                file=image,
+                parse_mode='html',
+                link_preview=False
+            )
             posted_q.appendleft(head)
 
         await asyncio.sleep(timeout - random.uniform(0, 0.5))
@@ -79,15 +88,5 @@ if __name__ == "__main__":
 
     posted_q = deque(maxlen=20)
 
-    async def send_message_callback(post, image=None):
-        translated_post = translator.translate(post, dest='pt', src='ru')
-        await client.send_message(
-            entity=int(chat_id),
-            message=translated_post.text,
-            file=image,
-            parse_mode='html',
-            link_preview=False
-        )
-
     for source, rss_link in rss_channels.items():
-        asyncio.run(rss_parser(httpx_client, source, rss_link, send_message_callback, posted_q))
+        asyncio.run(rss_wrapper(client, translator, bot_token, chat_id, httpx_client, source, rss_link, posted_q))

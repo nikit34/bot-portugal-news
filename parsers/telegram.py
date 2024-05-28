@@ -21,7 +21,7 @@ async def get_messages_history(getter_client, chat_id, key=KEY_SEARCH_LENGTH_CHA
     return history
 
 
-def telegram_parser(getter_client, send_message_callback, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
+def telegram_parser(getter_client, translator, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
     telegram_channels_links = list(telegram_channels.values())
 
     @getter_client.on(events.NewMessage(chats=telegram_channels_links))
@@ -41,7 +41,14 @@ def telegram_parser(getter_client, send_message_callback, posted_q, key=KEY_SEAR
         channel = '@' + source.split('/')[-1]
         post = '<a href="' + link + '">' + channel + '</a>\n' + message
 
-        await send_message_callback(post, file.media)
+        translated_post = translator.translate(post, dest='pt', src='ru')
+        await getter_client.send_message(
+            entity=int(chat_id),
+            message=translated_post.text,
+            file=file.media,
+            parse_mode='html',
+            link_preview=False
+        )
 
         posted_q.appendleft(head)
     return getter_client
@@ -61,15 +68,5 @@ if __name__ == "__main__":
 
     translator = Translator(service_urls=['translate.googleapis.com'])
 
-    async def send_message_callback(post, image=None):
-        translated_post = translator.translate(post, dest='pt', src='ru')
-        await getter_client.send_message(
-            entity=int(chat_id),
-            message=translated_post.text,
-            file=image,
-            parse_mode='html',
-            link_preview=False
-        )
-
-    getter_client = telegram_parser(getter_client=getter_client, send_message_callback=send_message_callback, posted_q=posted_q)
+    getter_client = telegram_parser(getter_client=getter_client, translator=translator, chat_id=chat_id, posted_q=posted_q)
     getter_client.run_until_disconnected()
