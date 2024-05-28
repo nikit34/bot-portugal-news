@@ -28,16 +28,14 @@ async def rss_parser(
         httpx_client,
         source,
         rss_link,
-        posted_q,
-        key=KEY_SEARCH_LENGTH_CHARS,
-        timeout=TIMEOUT
+        posted_q
 ):
     while True:
         try:
             response = await httpx_client.get(rss_link, headers=random_user_agent_headers())
             response.raise_for_status()
         except Exception:
-            await asyncio.sleep(timeout * 2 - random.uniform(0, 0.5))
+            await asyncio.sleep(TIMEOUT * 2 - random.uniform(0, 0.5))
             continue
 
         feed = feedparser.parse(response.text)
@@ -58,7 +56,7 @@ async def rss_parser(
             translated_post = translator.translate(post, dest='pt', src='ru')
             translated_message = translated_post.text
 
-            head = translated_message[:key].strip()
+            head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
             if head in posted_q:
                 continue
             posted_q.appendleft(head)
@@ -71,7 +69,7 @@ async def rss_parser(
                 link_preview=False
             )
 
-        await asyncio.sleep(timeout - random.uniform(0, 0.5))
+        await asyncio.sleep(TIMEOUT - random.uniform(0, 0.5))
 
 
 if __name__ == "__main__":

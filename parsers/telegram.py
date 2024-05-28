@@ -8,7 +8,7 @@ from static.settings import KEY_SEARCH_LENGTH_CHARS
 from static.sources import telegram_channels
 
 
-def telegram_parser(getter_client, translator, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
+def telegram_parser(getter_client, translator, chat_id, posted_q):
     telegram_channels_links = list(telegram_channels.values())
 
     @getter_client.on(events.NewMessage(chats=telegram_channels_links))
@@ -27,7 +27,7 @@ def telegram_parser(getter_client, translator, chat_id, posted_q, key=KEY_SEARCH
         translated_post = translator.translate(post, dest='pt', src='ru')
         translated_message = translated_post.text
 
-        head = translated_message[:key].strip()
+        head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
         if head in posted_q:
             return
         posted_q.appendleft(head)
