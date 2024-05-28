@@ -40,19 +40,20 @@ async def rss_parser(
         feed = feedparser.parse(response.text)
 
         for entry in feed.entries[:20][::-1]:
-            if not any(key in entry for key in ('summary', 'title', 'rbc_news_url')):
+            required_keys = ('summary', 'title', 'rbc_news_url', 'link')
+            if not all(entry.get(key) for key in required_keys):
                 continue
 
-            summary = entry.get('summary', '')
-            title = entry.get('title', '')
+            summary = entry.get('summary')
+            title = entry.get('title')
             message = title + '\n' + summary
             head = message[:key].strip()
 
             if head in posted_q:
                 continue
 
-            link = entry.get('link', '')
-            image = entry.get('rbc_news_url', '')
+            link = entry.get('link')
+            image = entry.get('rbc_news_url')
             post = '<a href="' + link + '">' + source + '</a>\n' + message
 
             await send_message_callback(post, image)
