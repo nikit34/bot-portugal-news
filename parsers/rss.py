@@ -13,12 +13,12 @@ from telegram_api import send_message_api
 from user_agents_manager import random_user_agent_headers
 
 
-async def rss_wrapper(client, translator, bot_token, chat_id, httpx_client, source, rss_link, posted_q):
+async def rss_wrapper(client, translator, bot_token, chat_id, debug_chat_id, httpx_client, source, rss_link, posted_q):
     try:
         await rss_parser(client, translator, chat_id, httpx_client, source, rss_link, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: ' + source + ' parser is down\n' + str(e)
-        await send_message_api(message, bot_token, chat_id)
+        await send_message_api(message, bot_token, debug_chat_id)
 
 
 async def rss_parser(
@@ -79,6 +79,7 @@ if __name__ == "__main__":
     password = get_secret_key('..', 'PASSWORD')
     bot_token = get_secret_key('..', 'TOKEN_BOT')
     chat_id = get_secret_key('..', 'CHAT_ID')
+    debug_chat_id = get_secret_key('..', 'DEBUG_CHAT_ID')
 
     client = TelegramClient('bot', api_id, api_hash)
     client.start(password=password, bot_token=bot_token)
@@ -90,4 +91,4 @@ if __name__ == "__main__":
     posted_q = deque(maxlen=20)
 
     for source, rss_link in rss_channels.items():
-        asyncio.run(rss_wrapper(client, translator, bot_token, chat_id, httpx_client, source, rss_link, posted_q))
+        asyncio.run(rss_wrapper(client, translator, bot_token, chat_id, debug_chat_id, httpx_client, source, rss_link, posted_q))

@@ -20,6 +20,7 @@ if __name__ == '__main__':
     password = get_secret_key('.', 'PASSWORD')
     bot_token = get_secret_key('.', 'TOKEN_BOT')
     chat_id = get_secret_key('.', 'CHAT_ID')
+    debug_chat_id = get_secret_key('.', 'DEBUG_CHAT_ID')
 
     client = TelegramClient('bot', api_id, api_hash)
     client.start(password=password, bot_token=bot_token)
@@ -50,6 +51,7 @@ if __name__ == '__main__':
                 translator=translator,
                 bot_token=bot_token,
                 chat_id=chat_id,
+                debug_chat_id=debug_chat_id,
                 httpx_client=httpx_client,
                 source=source,
                 rss_link=rss_link,
@@ -60,7 +62,7 @@ if __name__ == '__main__':
             getter_client.run_until_disconnected()
         except Exception as e:
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
-            feature = send_message_api(text=message, bot_token=bot_token, chat_id=chat_id)
+            feature = send_message_api(message, bot_token, debug_chat_id)
             client.loop.run_until_complete(feature)
         finally:
             client.loop.run_until_complete(httpx_client.aclose())
