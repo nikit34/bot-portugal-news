@@ -5,7 +5,8 @@ from telethon import TelegramClient
 from googletrans import Translator
 
 from parsers.rss import rss_wrapper
-from parsers.telegram import telegram_parser, get_messages_history
+from parsers.telegram import telegram_parser
+from parsers.self_telegram import get_messages_history
 from properties_reader import get_secret_key
 from static.settings import COUNT_UNIQUE_MESSAGES
 from static.sources import rss_channels
@@ -32,16 +33,16 @@ if __name__ == '__main__':
         getter_client = TelegramClient('getter_bot', api_id, api_hash)
         getter_client.start()
 
+        feature_history = get_messages_history(getter_client, chat_id)
+        history = getter_client.loop.run_until_complete(feature_history)
+        posted_q.extend(history)
+
         getter_client = telegram_parser(
             getter_client=getter_client,
             translator=translator,
             chat_id=chat_id,
             posted_q=posted_q
         )
-
-        feature_history = get_messages_history(getter_client, chat_id)
-        history = getter_client.loop.run_until_complete(feature_history)
-        posted_q.extend(history)
 
         for source, rss_link in rss_channels.items():
             client.loop.create_task(rss_wrapper(

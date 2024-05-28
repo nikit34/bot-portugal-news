@@ -4,21 +4,8 @@ from googletrans import Translator
 from telethon import TelegramClient, events
 
 from properties_reader import get_secret_key
-from static.settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES
+from static.settings import KEY_SEARCH_LENGTH_CHARS
 from static.sources import telegram_channels
-
-
-async def get_messages_history(getter_client, chat_id, key=KEY_SEARCH_LENGTH_CHARS, count=COUNT_UNIQUE_MESSAGES):
-    history = []
-    messages = await getter_client.get_messages(int(chat_id), count)
-
-    for message in messages:
-        if message.raw_text is None:
-            continue
-        post = message.raw_text.replace('\n', '')
-        cropped_post = post[:key].strip()
-        history.append(cropped_post)
-    return history
 
 
 def telegram_parser(getter_client, translator, chat_id, posted_q, key=KEY_SEARCH_LENGTH_CHARS):
