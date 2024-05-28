@@ -3,6 +3,7 @@ import asyncio
 from collections import deque
 import feedparser
 import httpx
+from googletrans import Translator
 from telethon import TelegramClient
 
 from properties_reader import get_secret_key
@@ -72,12 +73,16 @@ if __name__ == "__main__":
     client = TelegramClient('bot', api_id, api_hash)
     client.start(password=password, bot_token=bot_token)
 
+    translator = Translator(service_urls=['translate.googleapis.com'])
+
     httpx_client = httpx.AsyncClient()
 
     posted_q = deque(maxlen=20)
 
-    async def send_message_callback(post):
-        await client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+    async def send_message_callback(post, image=None):
+        translated_post = translator.translate(post, dest='pt', src='ru')
+        await client.send_message(entity=int(chat_id), message=translated_post.text, file=image, parse_mode='html',
+                                  link_preview=False)
 
     for source, rss_link in rss_channels.items():
         asyncio.run(rss_parser(httpx_client, source, rss_link, send_message_callback, posted_q))
