@@ -30,18 +30,18 @@ if __name__ == '__main__':
 
     with client:
 
-        async def send_message_callback(post, image):
+        async def send_message_callback(post, image=None):
             translated_post = translator.translate(post, dest='pt', src='ru')
             await client.send_message(entity=int(chat_id), message=translated_post.text, file=image, parse_mode='html', link_preview=False)
 
         getter_client = TelegramClient('getter_bot', api_id, api_hash)
         getter_client.start()
 
-        # getter_client = telegram_parser(
-        #     getter_client=getter_client,
-        #     send_message_callback=send_message_callback,
-        #     posted_q=posted_q
-        # )
+        getter_client = telegram_parser(
+            getter_client=getter_client,
+            send_message_callback=send_message_callback,
+            posted_q=posted_q
+        )
 
         feature_history = get_messages_history(getter_client, chat_id)
         history = getter_client.loop.run_until_complete(feature_history)
