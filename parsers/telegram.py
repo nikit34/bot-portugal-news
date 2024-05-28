@@ -22,19 +22,20 @@ def telegram_parser(getter_client, translator, chat_id, posted_q):
         source = telegram_channels.get(event.message.peer_id.channel_id)
         link = source + '/' + str(event.message.id)
         channel = '@' + source.split('/')[-1]
-        post = '<a href="' + link + '">' + channel + '</a>\n' + message
 
-        translated_post = translator.translate(post, dest='pt', src='ru')
-        translated_message = translated_post.text
+        translated = translator.translate(message, dest='pt', src='ru')
+        translated_message = translated.text
 
         head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
         if head in posted_q:
             return
         posted_q.appendleft(head)
 
+        post = '<a href="' + link + '">' + channel + '</a>\n' + message
+
         await getter_client.send_message(
             entity=int(chat_id),
-            message=translated_post.text,
+            message=post,
             file=file.media,
             parse_mode='html',
             link_preview=False
