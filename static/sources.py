@@ -14,7 +14,3 @@ rss_channels = {
     'www.1prime.ru': 'https://1prime.ru/export/rss2/index.xml',
     'www.interfax.ru': 'https://www.interfax.ru/rss.asp'
 }
-
-bcs_channels = {
-    'www.bcs-express.ru': 'https://bcs-express.ru/category'
-}
