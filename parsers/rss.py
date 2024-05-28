@@ -6,6 +6,7 @@ import httpx
 from googletrans import Translator
 from telethon import TelegramClient
 
+from history_comparator import compare_messages
 from properties_reader import get_secret_key
 from static.settings import KEY_SEARCH_LENGTH_CHARS, TIMEOUT
 from static.sources import rss_channels
@@ -56,7 +57,7 @@ async def rss_parser(
             translated_message = translated.text
 
             head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
-            if head in posted_q:
+            if compare_messages(head, posted_q):
                 continue
             posted_q.appendleft(head)
 

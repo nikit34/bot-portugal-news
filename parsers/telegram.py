@@ -3,6 +3,7 @@ from collections import deque
 from googletrans import Translator
 from telethon import TelegramClient, events
 
+from history_comparator import compare_messages
 from properties_reader import get_secret_key
 from static.settings import KEY_SEARCH_LENGTH_CHARS
 from static.sources import telegram_channels
@@ -27,7 +28,7 @@ def telegram_parser(getter_client, translator, chat_id, posted_q):
         translated_message = translated.text
 
         head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
-        if head in posted_q:
+        if compare_messages(head, posted_q):
             return
         posted_q.appendleft(head)
 
