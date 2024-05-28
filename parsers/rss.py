@@ -51,19 +51,20 @@ async def rss_parser(
 
             link = entry.get('link')
             image = entry.get('rbc_news_url')
-            post = '<a href="' + link + '">' + source + '</a>\n' + message
 
-            translated_post = translator.translate(post, dest='pt', src='ru')
-            translated_message = translated_post.text
+            translated = translator.translate(message, dest='pt', src='ru')
+            translated_message = translated.text
 
             head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
             if head in posted_q:
                 continue
             posted_q.appendleft(head)
 
+            post = '<a href="' + link + '">' + source + '</a>\n' + translated_message
+
             await client.send_message(
                 entity=int(chat_id),
-                message=translated_message,
+                message=post,
                 file=image,
                 parse_mode='html',
                 link_preview=False
