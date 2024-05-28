@@ -81,8 +81,13 @@ if __name__ == "__main__":
 
     async def send_message_callback(post, image=None):
         translated_post = translator.translate(post, dest='pt', src='ru')
-        await client.send_message(entity=int(chat_id), message=translated_post.text, file=image, parse_mode='html',
-                                  link_preview=False)
+        await client.send_message(
+            entity=int(chat_id),
+            message=translated_post.text,
+            file=image,
+            parse_mode='html',
+            link_preview=False
+        )
 
     for source, rss_link in rss_channels.items():
         asyncio.run(rss_parser(httpx_client, source, rss_link, send_message_callback, posted_q))
