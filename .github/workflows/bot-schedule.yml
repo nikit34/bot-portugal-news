@@ -3,12 +3,13 @@ name: Bot Schedule
 on:
   schedule:
     - cron: '0/30 * * * *'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  build:
+  bot:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
