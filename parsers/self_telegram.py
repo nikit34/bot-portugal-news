@@ -11,9 +11,10 @@ async def get_messages_history(getter_client, chat_id):
     messages = await getter_client.get_messages(int(chat_id), COUNT_UNIQUE_MESSAGES)
 
     for message in messages:
-        if message.raw_text is None:
+        raw_message = message.raw_text
+        if raw_message is None:
             continue
-        post = message.raw_text.replace('\n', '')
+        post = raw_message.split('\n', maxsplit=1)[1]
         cropped_post = post[:KEY_SEARCH_LENGTH_CHARS].strip()
         history.append(cropped_post)
     return history
