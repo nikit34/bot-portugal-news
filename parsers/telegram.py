@@ -1,4 +1,6 @@
 from collections import deque
+
+from googletrans import Translator
 from telethon import TelegramClient, events
 
 from properties_reader import get_secret_key
@@ -24,21 +26,22 @@ def telegram_parser(getter_client, send_message_callback, posted_q, key=KEY_SEAR
 
     @getter_client.on(events.NewMessage(chats=telegram_channels_links))
     async def handler(event):
-        if event.raw_text == '':
-            return
-
         message = event.raw_text
+        file = event.file
+
+        if not message or file is None:
+            return
 
         head = message[:key].strip()
         if head in posted_q:
             return
 
-        source = telegram_channels[event.message.peer_id.channel_id]
+        source = telegram_channels.get(event.message.peer_id.channel_id)
         link = source + '/' + str(event.message.id)
         channel = '@' + source.split('/')[-1]
         post = '<a href="' + link + '">' + channel + '</a>\n' + message
 
-        await send_message_callback(post)
+        await send_message_callback(post, file.media)
 
         posted_q.appendleft(head)
     return getter_client
@@ -56,8 +59,17 @@ if __name__ == "__main__":
     getter_client = TelegramClient('getter_bot', api_id, api_hash)
     getter_client.start()
 
-    async def send_message_callback(post):
-        await getter_client.send_message(entity=int(chat_id), message=post, parse_mode='html', link_preview=False)
+    translator = Translator(service_urls=['translate.googleapis.com'])
+
+    async def send_message_callback(post, image=None):
+        translated_post = translator.translate(post, dest='pt', src='ru')
+        await getter_client.send_message(
+            entity=int(chat_id),
+            message=translated_post.text,
+            file=image,
+            parse_mode='html',
+            link_preview=False
+        )
 
     getter_client = telegram_parser(getter_client=getter_client, send_message_callback=send_message_callback, posted_q=posted_q)
     getter_client.run_until_disconnected()
