@@ -50,24 +50,26 @@ async def rss_parser(
             summary = entry.get('summary')
             title = entry.get('title')
             message = title + '\n' + summary
-            head = message[:key].strip()
-
-            if head in posted_q:
-                continue
 
             link = entry.get('link')
             image = entry.get('rbc_news_url')
             post = '<a href="' + link + '">' + source + '</a>\n' + message
 
             translated_post = translator.translate(post, dest='pt', src='ru')
+            translated_message = translated_post.text
+
+            head = translated_message[:key].strip()
+            if head in posted_q:
+                continue
+            posted_q.appendleft(head)
+
             await client.send_message(
                 entity=int(chat_id),
-                message=translated_post.text,
+                message=translated_message,
                 file=image,
                 parse_mode='html',
                 link_preview=False
             )
-            posted_q.appendleft(head)
 
         await asyncio.sleep(timeout - random.uniform(0, 0.5))
 

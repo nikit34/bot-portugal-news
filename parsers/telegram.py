@@ -19,16 +19,19 @@ def telegram_parser(getter_client, translator, chat_id, posted_q, key=KEY_SEARCH
         if not message or file is None:
             return
 
-        head = message[:key].strip()
-        if head in posted_q:
-            return
-
         source = telegram_channels.get(event.message.peer_id.channel_id)
         link = source + '/' + str(event.message.id)
         channel = '@' + source.split('/')[-1]
         post = '<a href="' + link + '">' + channel + '</a>\n' + message
 
         translated_post = translator.translate(post, dest='pt', src='ru')
+        translated_message = translated_post.text
+
+        head = translated_message[:key].strip()
+        if head in posted_q:
+            return
+        posted_q.appendleft(head)
+
         await getter_client.send_message(
             entity=int(chat_id),
             message=translated_post.text,
@@ -37,7 +40,6 @@ def telegram_parser(getter_client, translator, chat_id, posted_q, key=KEY_SEARCH
             link_preview=False
         )
 
-        posted_q.appendleft(head)
     return getter_client
 
 
