@@ -31,7 +31,7 @@ jobs:
         echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
     - name: Run bot
       run: python main.py
-      timeout-minutes: 3
+      timeout-minutes: 1
       continue-on-error: true
       env:
         TOKEN_BOT: ${{ secrets.TOKEN_BOT }}
