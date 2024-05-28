@@ -21,3 +21,10 @@ jobs:
     - name: Run bot
       run: python main.py
       timeout-minutes: 3
+      env:
+        TOKEN_BOT: ${{ secrets.TOKEN_BOT }}
+        API_ID: ${{ secrets.API_ID }}
+        API_HASH: ${{ secrets.API_HASH }}
+        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+        CHAT_ID: '-1002106461489'
+        PASSWORD: ${{ secrets.PASSWORD }}
