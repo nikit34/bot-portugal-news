@@ -5,8 +5,7 @@ from telethon import TelegramClient
 
 from history_comparator import compare_messages
 from properties_reader import get_secret_key
-from static.settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES, MAX_LENGTH_MESSAGE, \
-    MAX_NUMBER_TAKEN_MESSAGES
+from static.settings import KEY_SEARCH_LENGTH_CHARS, MAX_LENGTH_MESSAGE, MAX_NUMBER_TAKEN_MESSAGES
 from static.sources import telegram_channels
 from text_editor import trunc_str
 
@@ -15,9 +14,7 @@ async def telegram_parser(getter_client, translator, chat_id, posted_q):
     telegram_channels_chat_ids = list(telegram_channels.keys())
 
     for telegram_channels_chat_id in telegram_channels_chat_ids:
-        messages = await getter_client.get_messages(int(telegram_channels_chat_id), MAX_NUMBER_TAKEN_MESSAGES)
-
-        for message in messages:
+        async for message in getter_client.iter_messages(str(telegram_channels_chat_id), limit=MAX_NUMBER_TAKEN_MESSAGES):
 
             message_text = message.raw_text
             file = message.file
