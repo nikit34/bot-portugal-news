@@ -8,9 +8,7 @@ from static.settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES
 
 async def get_messages_history(getter_client, chat_id):
     history = []
-    messages = await getter_client.get_messages(int(chat_id), COUNT_UNIQUE_MESSAGES)
-
-    for message in messages:
+    async for message in getter_client.iter_messages(int(str(chat_id)[3:]), limit=COUNT_UNIQUE_MESSAGES):
         raw_message = message.raw_text
         if raw_message is None:
             continue
