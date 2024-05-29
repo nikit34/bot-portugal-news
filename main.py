@@ -38,12 +38,12 @@ if __name__ == '__main__':
         history = getter_client.loop.run_until_complete(feature_history)
         posted_q.extend(history)
 
-        getter_client = telegram_parser(
+        client.loop.create_task(telegram_parser(
             getter_client=getter_client,
             translator=translator,
             chat_id=chat_id,
             posted_q=posted_q
-        )
+        ))
 
         for source, rss_link in rss_channels.items():
             client.loop.create_task(rss_wrapper(

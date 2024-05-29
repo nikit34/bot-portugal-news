@@ -1,48 +1,51 @@
 from collections import deque
 
 from googletrans import Translator
-from telethon import TelegramClient, events
+from telethon import TelegramClient
 
 from history_comparator import compare_messages
 from properties_reader import get_secret_key
-from static.settings import KEY_SEARCH_LENGTH_CHARS
+from static.settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES, MAX_LENGTH_MESSAGE
 from static.sources import telegram_channels
+from text_editor import trunc_str
 
 
-def telegram_parser(getter_client, translator, chat_id, posted_q):
-    telegram_channels_links = list(telegram_channels.values())
+async def telegram_parser(getter_client, translator, chat_id, posted_q):
+    telegram_channels_chat_ids = list(telegram_channels.keys())
 
-    @getter_client.on(events.NewMessage(chats=telegram_channels_links))
-    async def handler(event):
-        message = event.raw_text
-        file = event.file
+    for telegram_channels_chat_id in telegram_channels_chat_ids:
+        messages = await getter_client.get_messages(int(telegram_channels_chat_id), COUNT_UNIQUE_MESSAGES)
 
-        if not message or file is None:
-            return
+        for message in messages:
 
-        source = telegram_channels.get(event.message.peer_id.channel_id)
-        link = source + '/' + str(event.message.id)
-        channel = '@' + source.split('/')[-1]
+            message_text = message.raw_text
+            file = message.file
 
-        translated = translator.translate(message, dest='pt', src='ru')
-        translated_message = translated.text
+            if not message_text or file is None:
+                continue
 
-        head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
-        if compare_messages(head, posted_q):
-            return
-        posted_q.appendleft(head)
+            source = telegram_channels.get(message.peer_id.channel_id)
+            link = source + '/' + str(message.id)
+            channel = '@' + source.split('/')[-1]
 
-        post = '<a href="' + link + '">' + channel + '</a>\n' + message
+            translated = translator.translate(message_text, dest='pt', src='ru')
+            translated_message = translated.text
 
-        await getter_client.send_message(
-            entity=int(chat_id),
-            message=post,
-            file=file.media,
-            parse_mode='html',
-            link_preview=False
-        )
+            head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
+            if compare_messages(head, posted_q):
+                continue
+            posted_q.appendleft(head)
 
-    return getter_client
+            title_post = '<a href="' + link + '">' + channel + '</a>\n'
+            post = title_post + trunc_str(translated_message, MAX_LENGTH_MESSAGE)
+
+            await getter_client.send_message(
+                entity=int(chat_id),
+                message=post,
+                file=file.media,
+                parse_mode='html',
+                link_preview=False
+            )
 
 
 if __name__ == "__main__":

@@ -8,9 +8,10 @@ from telethon import TelegramClient
 
 from history_comparator import compare_messages
 from properties_reader import get_secret_key
-from static.settings import KEY_SEARCH_LENGTH_CHARS, TIMEOUT
+from static.settings import KEY_SEARCH_LENGTH_CHARS, TIMEOUT, MAX_LENGTH_MESSAGE
 from static.sources import rss_channels
 from telegram_api import send_message_api
+from text_editor import trunc_str
 from user_agents_manager import random_user_agent_headers
 
 
@@ -61,7 +62,8 @@ async def rss_parser(
                 continue
             posted_q.appendleft(head)
 
-            post = '<a href="' + link + '">' + source + '</a>\n' + translated_message
+            title_post = '<a href="' + link + '">' + source + '</a>\n'
+            post = title_post + trunc_str(translated_message, MAX_LENGTH_MESSAGE)
 
             await client.send_message(
                 entity=int(chat_id),
