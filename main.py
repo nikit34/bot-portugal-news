@@ -34,7 +34,7 @@ if __name__ == '__main__':
         getter_client = TelegramClient('getter_bot', api_id, api_hash)
         getter_client.start()
 
-        feature_history = get_messages_history(getter_client, chat_id)
+        feature_history = get_messages_history(getter_client)
         history = getter_client.loop.run_until_complete(feature_history)
         posted_q.extend(history)
 
