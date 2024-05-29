@@ -7,7 +7,6 @@ telegram_channels = {
     1133408457: 'https://t.me/prime1',
     1149896996: 'https://t.me/interfaxonline',
     1001029560: 'https://t.me/bcs_express',
-    1203560567: 'https://t.me/markettwits',
     2178707665: 'https://t.me/+M-LLGrMDui1hZjhi'
 }
 
