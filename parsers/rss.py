@@ -8,7 +8,7 @@ from telethon import TelegramClient
 
 from history_comparator import compare_messages
 from properties_reader import get_secret_key
-from static.settings import KEY_SEARCH_LENGTH_CHARS, TIMEOUT, MAX_LENGTH_MESSAGE
+from static.settings import KEY_SEARCH_LENGTH_CHARS, TIMEOUT, MAX_LENGTH_MESSAGE, MAX_NUMBER_TAKEN_MESSAGES
 from static.sources import rss_channels
 from telegram_api import send_message_api
 from text_editor import trunc_str
@@ -42,7 +42,8 @@ async def rss_parser(
 
         feed = feedparser.parse(response.text)
 
-        for entry in feed.entries[:20][::-1]:
+        limit = max(MAX_NUMBER_TAKEN_MESSAGES, len(feed.entries))
+        for entry in feed.entries[:limit][::-1]:
             required_keys = ('summary', 'title', 'rbc_news_url', 'link')
             if not all(entry.get(key) for key in required_keys):
                 continue
