@@ -3,6 +3,11 @@ import asyncio
 import feedparser
 
 from history_comparator import compare_messages
+from parsers.channels.pt.abola import (
+    check_abola_pt,
+    parse_abola_pt
+)
+from parsers.channels.ru.sport import check_sport_ru, parse_sport_ru
 from static.settings import KEY_SEARCH_LENGTH_CHARS, MAX_LENGTH_MESSAGE, MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT
 from telegram_api import send_message_api
 from text_editor import trunc_str
@@ -50,16 +55,17 @@ async def _rss_parser(
 
     limit = max(MAX_NUMBER_TAKEN_MESSAGES, len(feed.entries))
     for entry in feed.entries[:limit][::-1]:
-        required_keys = ('summary', 'title', 'rbc_news_url', 'link')
-        if not all(entry.get(key) for key in required_keys):
-            continue
-
-        summary = entry.get('summary')
-        title = entry.get('title')
-        message = title + '\n' + summary
-
-        link = entry.get('link')
-        image = entry.get('rbc_news_url')
+        message = ''
+        link = ''
+        image = ''
+        if source == 'sport.ru':
+            if check_sport_ru(entry):
+                continue
+            message, link, image = parse_sport_ru(entry)
+        elif 'abola.pt' in source:
+            if check_abola_pt(entry):
+                continue
+            message, link, image = parse_abola_pt(entry)
 
         translated = translator.translate(message, dest='pt', src='ru')
         translated_message = translated.text

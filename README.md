@@ -1,1 +1,1 @@
-#### Bot for parsing news, translating into Portuguese and publishing in a telegram channel: [@lisboanews](https://t.me/lisboanews)
+#### Bot for parsing news, translating into Portuguese and publishing in a telegram channel: [@sportportugal](https://t.me/sportportugal)

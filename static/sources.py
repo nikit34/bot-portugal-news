@@ -1,18 +1,14 @@
-self_telegram_channel = 'https://t.me/lisboanews'
+self_telegram_channel = 'https://t.me/sportportugal'
 
 telegram_channels = {
-    1099860397: 'https://t.me/rbc_news',
-    1428717522: 'https://t.me/gazprom',
-    1101170442: 'https://t.me/rian_ru',
-    1133408457: 'https://t.me/prime1',
-    1149896996: 'https://t.me/interfaxonline',
-    1001029560: 'https://t.me/bcs_express',
-    2178707665: 'https://t.me/+M-LLGrMDui1hZjhi' # For debug
+    # 2178707665: 'https://t.me/+M-LLGrMDui1hZjhi'  # For debug
 }
 
 rss_channels = {
-    'www.rbc.ru': 'https://rssexport.rbc.ru/rbcnews/news/50/full.rss',
-    'www.ria.ru': 'https://ria.ru/export/rss2/archive/index.xml',
-    'www.1prime.ru': 'https://1prime.ru/export/rss2/index.xml',
-    'www.interfax.ru': 'https://www.interfax.ru/rss.asp'
+    'sport.ru': 'https://www.sport.ru/rssfeeds/news.rss',
+    'abola.pt': 'https://www.abola.pt/api/rss',
+    'abola.pt/nacional': 'https://www.abola.pt/rss/nacional',
+    'abola.pt/internacional': 'https://www.abola.pt/rss/internacional',
+    'abola.pt/modalidades': 'https://www.abola.pt/rss/modalidades',
+    'abola.pt/motores': 'https://www.abola.pt/rss/motores'
 }
