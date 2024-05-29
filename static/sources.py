@@ -11,7 +11,7 @@ telegram_channels = {
 }
 
 rss_channels = {
-    'www.rbc.ru': 'https://rssexport.rbc.ru/rbcnews/news/20/full.rss',
+    'www.rbc.ru': 'https://rssexport.rbc.ru/rbcnews/news/50/full.rss',
     'www.ria.ru': 'https://ria.ru/export/rss2/archive/index.xml',
     'www.1prime.ru': 'https://1prime.ru/export/rss2/index.xml',
     'www.interfax.ru': 'https://www.interfax.ru/rss.asp'
