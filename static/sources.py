@@ -1,6 +1,7 @@
 self_telegram_channel = 'https://t.me/sportportugal'
 
 telegram_channels = {
+    1006869491: 'https://t.me/sportsru',
     # 2178707665: 'https://t.me/+M-LLGrMDui1hZjhi'  # For debug
 }
 
