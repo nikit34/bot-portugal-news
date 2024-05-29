@@ -11,10 +11,10 @@ from text_editor import trunc_str
 
 
 async def telegram_parser(getter_client, translator, chat_id, posted_q):
-    telegram_channels_chat_ids = list(telegram_channels.keys())
+    channels = list(telegram_channels.values())
 
-    for telegram_channels_chat_id in telegram_channels_chat_ids:
-        async for message in getter_client.iter_messages(telegram_channels_chat_id, limit=MAX_NUMBER_TAKEN_MESSAGES):
+    for channel in channels:
+        async for message in getter_client.iter_messages(channel, limit=MAX_NUMBER_TAKEN_MESSAGES):
 
             message_text = message.raw_text
             file = message.file
@@ -56,9 +56,9 @@ if __name__ == "__main__":
     posted_q = deque(maxlen=20)
 
     getter_client = TelegramClient('getter_bot', api_id, api_hash)
-    getter_client.start()
+    getter_client.start(password=password, bot_token=bot_token)
 
     translator = Translator(service_urls=['translate.googleapis.com'])
 
-    getter_client = telegram_parser(getter_client=getter_client, translator=translator, chat_id=chat_id, posted_q=posted_q)
-    getter_client.run_until_disconnected()
+    with getter_client:
+        telegram_parser(getter_client=getter_client, translator=translator, chat_id=chat_id, posted_q=posted_q)

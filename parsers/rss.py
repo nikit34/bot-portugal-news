@@ -94,5 +94,6 @@ if __name__ == "__main__":
 
     posted_q = deque(maxlen=20)
 
-    for source, rss_link in rss_channels.items():
-        asyncio.run(rss_wrapper(client, translator, bot_token, chat_id, debug_chat_id, httpx_client, source, rss_link, posted_q))
+    with client:
+        for source, rss_link in rss_channels.items():
+            asyncio.run(rss_wrapper(client, translator, bot_token, chat_id, debug_chat_id, httpx_client, source, rss_link, posted_q))

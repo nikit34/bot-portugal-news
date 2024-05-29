@@ -4,11 +4,12 @@ from telethon import TelegramClient
 
 from properties_reader import get_secret_key
 from static.settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES
+from static.sources import self_telegram_channel
 
 
-async def get_messages_history(getter_client, chat_id):
+async def get_messages_history(getter_client):
     history = []
-    async for message in getter_client.iter_messages(int(str(chat_id)[3:]), limit=COUNT_UNIQUE_MESSAGES):
+    async for message in getter_client.iter_messages(self_telegram_channel, limit=COUNT_UNIQUE_MESSAGES):
         raw_message = message.raw_text
         if raw_message is None:
             continue
@@ -23,13 +24,12 @@ if __name__ == "__main__":
     api_hash = get_secret_key('..', 'API_HASH')
     password = get_secret_key('..', 'PASSWORD')
     bot_token = get_secret_key('..', 'TOKEN_BOT')
-    chat_id = get_secret_key('..', 'CHAT_ID')
 
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
 
     getter_client = TelegramClient('getter_bot', api_id, api_hash)
-    getter_client.start()
+    getter_client.start(password=password, bot_token=bot_token)
 
-    feature_history = get_messages_history(getter_client, chat_id)
+    feature_history = get_messages_history(getter_client)
     history = getter_client.loop.run_until_complete(feature_history)
     posted_q.extend(history)

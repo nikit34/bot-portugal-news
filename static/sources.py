@@ -1,3 +1,5 @@
+self_telegram_channel = 'https://t.me/lisboanews'
+
 telegram_channels = {
     1099860397: 'https://t.me/rbc_news',
     1428717522: 'https://t.me/gazprom',
