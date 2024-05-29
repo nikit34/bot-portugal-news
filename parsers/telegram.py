@@ -14,7 +14,7 @@ async def telegram_parser(getter_client, translator, chat_id, posted_q):
     telegram_channels_chat_ids = list(telegram_channels.keys())
 
     for telegram_channels_chat_id in telegram_channels_chat_ids:
-        async for message in getter_client.iter_messages(str(telegram_channels_chat_id), limit=MAX_NUMBER_TAKEN_MESSAGES):
+        async for message in getter_client.iter_messages(telegram_channels_chat_id, limit=MAX_NUMBER_TAKEN_MESSAGES):
 
             message_text = message.raw_text
             file = message.file
