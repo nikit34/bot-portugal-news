@@ -10,7 +10,7 @@ def parse_sport_ru(entry):
     summary = entry.get('summary')
     title = entry.get('title')
     message = title + '\n' + summary
-    cleaned_message = re.sub(r'</?div>|<br/?>', '', message)
+    cleaned_message = re.sub(r'<.*?>', '', message)
 
     link = entry.get('link')
     image = entry.get('media_content')[0].get('url')
