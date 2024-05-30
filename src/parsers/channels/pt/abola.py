@@ -23,6 +23,5 @@ def parse_abola_pt(entry):
         if 'image' in link_item.get('type'):
             image = link_item.get('href')
             image = re.sub(r"fit\(\d+:\d+\)", "fit(960:640)", image)
-            if '.jpeg' in image:
-                image = change_format_image(image)
+            image = change_format_image(image)
     return message, link, image
