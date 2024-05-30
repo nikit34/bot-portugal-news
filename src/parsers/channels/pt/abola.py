@@ -1,5 +1,7 @@
 import re
 
+from src.parsers.channels.formatter import change_format_image
+
 
 def check_abola_pt(entry):
     required_keys = ('summary', 'title', 'links', 'link')
@@ -20,5 +22,7 @@ def parse_abola_pt(entry):
     for link_item in entry.get('links'):
         if 'image' in link_item.get('type'):
             image = link_item.get('href')
-            resized_image = re.sub(r"fit\(\d+:\d+\)", "fit(960:640)", image)
-    return message, link, resized_image
+            image = re.sub(r"fit\(\d+:\d+\)", "fit(960:640)", image)
+            if '.jpeg' in image:
+                image = change_format_image(image)
+    return message, link, image

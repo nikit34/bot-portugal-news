@@ -1,7 +1,6 @@
 import re
-from PIL import Image
-import requests
-from io import BytesIO
+
+from src.parsers.channels.formatter import change_format_image
 
 
 def check_bbc_com(entry):
@@ -19,11 +18,7 @@ def parse_bbc_com(entry):
 
     link = entry.get('link')
     image = entry.get('media_thumbnail')[0].get('url')
-    pattern = re.compile(r"/\d+/cpsprodpb")
-    resize_image = re.sub(pattern, f'/960/cpsprodpb', image)
-    if resize_image[-4:] == '.png':
-        response = requests.get(resize_image)
-        im = Image.open(BytesIO(response.content))
-        im.save('tmp/image.jpg')
-        resize_image = 'tmp/image.jpg'
-    return message, link, resize_image
+    image = re.sub(r"/\d+/cpsprodpb", f'/960/cpsprodpb', image)
+    if image[-4:] == '.png':
+        image = change_format_image(image)
+    return message, link, image
