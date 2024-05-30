@@ -44,5 +44,7 @@ async def _telegram_parser(getter_client, translator, chat_id, channel, posted_q
             parse_mode='html',
             link_preview=False
         )
-        second_translated_message = translator.translate(translated_message, dest='ru')
-        await message_sent.respond('🇷🇺 ' + trunc_str(second_translated_message.text, MAX_LENGTH_MESSAGE), comment_to=message_sent.id)
+        second_translated_message = translator.translate(translated_message, dest='en')
+        await message_sent.respond('🇬🇧 ' + trunc_str(second_translated_message.text, MAX_LENGTH_MESSAGE), comment_to=message_sent.id)
+        third_translated_message = translator.translate(translated_message, dest='ru')
+        await message_sent.respond('🇷🇺 ' + trunc_str(third_translated_message.text, MAX_LENGTH_MESSAGE), comment_to=message_sent.id)
