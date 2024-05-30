@@ -26,7 +26,7 @@ async def _telegram_parser(getter_client, translator, chat_id, channel, posted_q
         link = source + '/' + str(message.id)
         channel = '@' + source.split('/')[-1]
 
-        translated = translator.translate(message_text, dest='pt', src='ru')
+        translated = translator.translate(message_text, dest='pt')
         translated_message = translated.text
 
         head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
@@ -37,10 +37,12 @@ async def _telegram_parser(getter_client, translator, chat_id, channel, posted_q
         title_post = '<a href="' + link + '">' + channel + '</a>\n'
         post = title_post + trunc_str(translated_message, MAX_LENGTH_MESSAGE)
 
-        await getter_client.send_message(
+        message_sent = await getter_client.send_message(
             entity=int(chat_id),
             message=post,
             file=file.media,
             parse_mode='html',
             link_preview=False
         )
+        second_translated_message = translator.translate(translated_message, dest='ru')
+        await message_sent.respond('🇷🇺 ' + trunc_str(second_translated_message.text, MAX_LENGTH_MESSAGE), comment_to=message_sent.id)

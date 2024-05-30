@@ -55,19 +55,19 @@ async def _rss_parser(
 
     limit = max(MAX_NUMBER_TAKEN_MESSAGES, len(feed.entries))
     for entry in feed.entries[:limit][::-1]:
-        message = ''
+        message_text = ''
         link = ''
         image = ''
         if source == 'sport.ru':
             if check_sport_ru(entry):
                 continue
-            message, link, image = parse_sport_ru(entry)
+            message_text, link, image = parse_sport_ru(entry)
         elif 'abola.pt' in source:
             if check_abola_pt(entry):
                 continue
-            message, link, image = parse_abola_pt(entry)
+            message_text, link, image = parse_abola_pt(entry)
 
-        translated = translator.translate(message, dest='pt', src='ru')
+        translated = translator.translate(message_text, dest='pt')
         translated_message = translated.text
 
         head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
@@ -78,10 +78,12 @@ async def _rss_parser(
         title_post = '<a href="' + link + '">' + source + '</a>\n'
         post = title_post + trunc_str(translated_message, MAX_LENGTH_MESSAGE)
 
-        await client.send_message(
+        message_sent = await client.send_message(
             entity=int(chat_id),
             message=post,
             file=image,
             parse_mode='html',
             link_preview=False
         )
+        second_translated_message = translator.translate(translated_message, dest='ru')
+        await message_sent.respond('🇷🇺 ' + trunc_str(second_translated_message.text, MAX_LENGTH_MESSAGE), comment_to=message_sent.id)
