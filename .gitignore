@@ -5,6 +5,3 @@ secret
 
 bot.session-journal
 getter_bot.session-journal
-
-tmp/**
-!tmp/**/.gitkeep
