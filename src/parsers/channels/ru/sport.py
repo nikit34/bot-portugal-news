@@ -1,5 +1,7 @@
 import re
 
+from src.parsers.channels.formatter import change_format_image
+
 
 def check_sport_ru(entry):
     required_keys = ('summary', 'title', 'media_content', 'link')
@@ -14,4 +16,5 @@ def parse_sport_ru(entry):
 
     link = entry.get('link')
     image = entry.get('media_content')[0].get('url')
+    image = change_format_image(image)
     return cleaned_message, link, image
