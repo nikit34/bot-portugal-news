@@ -24,6 +24,6 @@ def parse_bbc_com(entry):
     if resize_image[-4:] == '.png':
         response = requests.get(resize_image)
         im = Image.open(BytesIO(response.content))
-        im.save('image.jpg')
-        resize_image = 'image.jpg'
+        im.save('tmp/image.jpg')
+        resize_image = 'tmp/image.jpg'
     return message, link, resize_image
