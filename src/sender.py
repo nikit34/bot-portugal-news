@@ -1,17 +1,19 @@
 from src.history_comparator import is_duplicate_message
+from src.parsers.channels.formatter import change_format_image
 from src.static.settings import MAX_LENGTH_MESSAGE
 from src.text_editor import trunc_str
 
 
-async def process_and_send_message(client, translator, chat_id, posted_q, source, message_text, link, file):
+async def process_and_send_message(client, translator, chat_id, posted_q, source, message_text, link, image):
     translated_message = _translate_message(translator, message_text, 'pt')
 
     if is_duplicate_message(translated_message, posted_q):
         return
 
     post = _prepare_post(translated_message, source, link)
+    formatted_image = change_format_image(image)
 
-    message_sent = await _send_message(client, chat_id, post, file)
+    message_sent = await _send_message(client, chat_id, post, formatted_image)
     await _send_translated_responses(translator, message_sent, translated_message)
 
 

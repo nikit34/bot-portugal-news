@@ -1,7 +1,5 @@
 import re
 
-from src.parsers.channels.formatter import change_format_image
-
 
 def check_bbc_com(entry):
     required_keys = ('summary', 'title', 'media_thumbnail', 'link')
@@ -14,10 +12,10 @@ def check_bbc_com(entry):
 def parse_bbc_com(entry):
     summary = entry.get('summary')
     title = entry.get('title')
-    message = title + '\n' + summary
 
+    message = title + '\n' + summary
     link = entry.get('link')
     image = entry.get('media_thumbnail')[0].get('url')
     image = re.sub(r"/\d+/cpsprodpb", f'/960/cpsprodpb', image)
-    image = change_format_image(image)
+
     return message, link, image
