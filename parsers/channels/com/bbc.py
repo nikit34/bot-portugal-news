@@ -16,6 +16,6 @@ def parse_bbc_com(entry):
 
     link = entry.get('link')
     image = entry.get('media_thumbnail')[0].get('url')
-    pattern = re.compile(r"standard/\d+/cpsprodpb")
-    resize_image = re.sub(pattern, f'standard/960/cpsprodpb', image)
+    pattern = re.compile(r"/\d+/cpsprodpb")
+    resize_image = re.sub(pattern, f'/960/cpsprodpb', image)
     return message, link, resize_image
