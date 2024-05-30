@@ -1,11 +1,19 @@
 import difflib
 
-from src.static.settings import THRESHOLD
+from src.static.settings import THRESHOLD, KEY_SEARCH_LENGTH_CHARS
 
 
-def compare_messages(message, posted_q):
+def _compare_messages(message, posted_q):
     for post in posted_q:
         similarity = difflib.SequenceMatcher(None, message, post).ratio()
         if similarity >= THRESHOLD:
             return True
+    return False
+
+
+def is_duplicate_message(translated_message, posted_q):
+    head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
+    if _compare_messages(head, posted_q):
+        return True
+    posted_q.appendleft(head)
     return False
