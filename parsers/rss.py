@@ -3,10 +3,8 @@ import asyncio
 import feedparser
 
 from history_comparator import compare_messages
-from parsers.channels.pt.abola import (
-    check_abola_pt,
-    parse_abola_pt
-)
+from parsers.channels.com.bbc import check_bbc_com, parse_bbc_com
+from parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
 from parsers.channels.ru.sport import check_sport_ru, parse_sport_ru
 from static.settings import KEY_SEARCH_LENGTH_CHARS, MAX_LENGTH_MESSAGE, MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT
 from telegram_api import send_message_api
@@ -66,6 +64,10 @@ async def _rss_parser(
             if check_abola_pt(entry):
                 continue
             message_text, link, image = parse_abola_pt(entry)
+        elif 'bbc.com' in source:
+            if check_bbc_com(entry):
+                continue
+            message_text, link, image = parse_bbc_com(entry)
 
         translated = translator.translate(message_text, dest='pt')
         translated_message = translated.text
