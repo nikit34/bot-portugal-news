@@ -1,6 +1,6 @@
 import difflib
 
-from static.settings import THRESHOLD
+from src.static.settings import THRESHOLD
 
 
 def compare_messages(message, posted_q):

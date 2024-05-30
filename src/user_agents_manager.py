@@ -1,5 +1,5 @@
 from random import randint
-from static.user_agents import user_agents
+from src.static.user_agents import user_agents
 
 
 def random_user_agent_headers():
