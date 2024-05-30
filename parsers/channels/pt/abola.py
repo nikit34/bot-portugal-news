@@ -1,3 +1,6 @@
+import re
+
+
 def check_abola_pt(entry):
     required_keys = ('summary', 'title', 'links', 'link')
     if not all(entry.get(key) for key in required_keys):
@@ -17,4 +20,5 @@ def parse_abola_pt(entry):
     for link_item in entry.get('links'):
         if 'image' in link_item.get('type'):
             image = link_item.get('href')
-    return message, link, image
+            resized_image = re.sub(r"fit\(\d+:\d+\)", "fit(960:640)", image)
+    return message, link, resized_image
