@@ -1,8 +1,8 @@
-from history_comparator import compare_messages
-from static.settings import KEY_SEARCH_LENGTH_CHARS, MAX_LENGTH_MESSAGE, MAX_NUMBER_TAKEN_MESSAGES
-from static.sources import telegram_channels
-from telegram_api import send_message_api
-from text_editor import trunc_str
+from src.history_comparator import compare_messages
+from src.static.settings import KEY_SEARCH_LENGTH_CHARS, MAX_LENGTH_MESSAGE, MAX_NUMBER_TAKEN_MESSAGES
+from src.static.sources import telegram_channels
+from src.telegram_api import send_message_api
+from src.text_editor import trunc_str
 
 
 async def telegram_wrapper(getter_client, translator, bot_token, chat_id, debug_chat_id, httpx_client, channel, posted_q):

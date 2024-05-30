@@ -5,13 +5,13 @@ import httpx
 from telethon import TelegramClient
 from googletrans import Translator
 
-from parsers.rss import rss_wrapper
-from parsers.telegram import telegram_wrapper
-from parsers.self_telegram import get_messages_history
-from properties_reader import get_secret_key
-from static.settings import COUNT_UNIQUE_MESSAGES
-from static.sources import rss_channels, telegram_channels
-from telegram_api import send_message_api
+from src.parsers.rss import rss_wrapper
+from src.parsers.telegram import telegram_wrapper
+from src.parsers.self_telegram import get_messages_history
+from src.properties_reader import get_secret_key
+from src.static.settings import COUNT_UNIQUE_MESSAGES
+from src.static.sources import rss_channels, telegram_channels
+from src.telegram_api import send_message_api
 
 
 async def main():

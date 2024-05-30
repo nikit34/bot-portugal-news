@@ -2,14 +2,14 @@ import asyncio
 
 import feedparser
 
-from history_comparator import compare_messages
-from parsers.channels.com.bbc import check_bbc_com, parse_bbc_com
-from parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
-from parsers.channels.ru.sport import check_sport_ru, parse_sport_ru
-from static.settings import KEY_SEARCH_LENGTH_CHARS, MAX_LENGTH_MESSAGE, MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT
-from telegram_api import send_message_api
-from text_editor import trunc_str
-from user_agents_manager import random_user_agent_headers
+from src.history_comparator import compare_messages
+from src.parsers.channels.com.bbc import check_bbc_com, parse_bbc_com
+from src.parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
+from src.parsers.channels.ru.sport import check_sport_ru, parse_sport_ru
+from src.static.settings import KEY_SEARCH_LENGTH_CHARS, MAX_LENGTH_MESSAGE, MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT
+from src.telegram_api import send_message_api
+from src.text_editor import trunc_str
+from src.user_agents_manager import random_user_agent_headers
 
 
 async def rss_wrapper(client, translator, bot_token, chat_id, debug_chat_id, httpx_client, source, rss_link, posted_q):

@@ -1,5 +1,5 @@
-from static.settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES
-from static.sources import self_telegram_channel
+from src.static.settings import KEY_SEARCH_LENGTH_CHARS, COUNT_UNIQUE_MESSAGES
+from src.static.sources import self_telegram_channel
 
 
 async def get_messages_history(getter_client):
