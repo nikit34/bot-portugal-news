@@ -19,6 +19,5 @@ def parse_bbc_com(entry):
     link = entry.get('link')
     image = entry.get('media_thumbnail')[0].get('url')
     image = re.sub(r"/\d+/cpsprodpb", f'/960/cpsprodpb', image)
-    if image[-4:] == '.png':
-        image = change_format_image(image)
+    image = change_format_image(image)
     return message, link, image
