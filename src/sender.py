@@ -39,4 +39,4 @@ async def _send_translated_responses(translator, message_sent, translated_messag
     translations = {'🇬🇧': 'en', '🇷🇺': 'ru'}
     for flag, lang in translations.items():
         translated_text = _translate_message(translator, translated_message, lang)
-        await message_sent.respond(f'{flag} ' + trunc_str(translated_text, MAX_LENGTH_MESSAGE), comment_to=message_sent.id)
+        await message_sent.respond(flag + ' ' + trunc_str(translated_text, MAX_LENGTH_MESSAGE), comment_to=message_sent.id)
