@@ -5,11 +5,6 @@ secret
 
 bot.session-journal
 getter_bot.session-journal
-parsers/bot.session
-parsers/bot.session-journal
-parsers/getter_bot.session
-parsers/getter_bot.session-journal
 
-# TODO: remove after exclude news_aggregator
-news_aggregator/microservice/gazp.session
-news_aggregator/microservice/config.py
+tmp/**
+!tmp/**/.gitkeep
