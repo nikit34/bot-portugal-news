@@ -55,7 +55,7 @@ async def main():
 
             for source, rss_link in rss_channels.items():
                 task = rss_wrapper(
-                    client=client,
+                    client=getter_client,
                     translator=translator,
                     bot_token=bot_token,
                     chat_id=chat_id,
