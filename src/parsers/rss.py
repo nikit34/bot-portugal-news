@@ -31,7 +31,7 @@ async def _make_request(rss_link, bot_token, debug_chat_id, repeat=REPEAT_REQUES
         if repeat > 0:
             await asyncio.sleep(TIMEOUT)
             repeat -= 1
-            await _make_request(rss_link, bot_token, debug_chat_id, repeat)
+            return await _make_request(rss_link, bot_token, debug_chat_id, repeat)
         else:
             message = '&#9888; ERROR: ' + rss_link + ' request is down\n' + str(e)
             await send_message_api(message, bot_token, debug_chat_id)

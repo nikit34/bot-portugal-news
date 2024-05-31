@@ -41,7 +41,7 @@ async def _send_message(client, chat_id, post, file, repeat=REPEAT_REQUESTS):
         if repeat > 0:
             await asyncio.sleep(TIMEOUT)
             repeat -= 1
-            await _send_message(client, chat_id, post, file, repeat)
+            return await _send_message(client, chat_id, post, file, repeat)
 
 
 async def _send_translated_responses(translator, message_sent, translated_message):
