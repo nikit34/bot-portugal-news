@@ -7,7 +7,7 @@ from src.parsers.channels.com.bbc import check_bbc_com, parse_bbc_com
 from src.parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
 from src.parsers.channels.ru.sport import check_sport_ru, parse_sport_ru
 from src.sender import process_and_send_message
-from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT
+from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
 from src.telegram_api import send_message_api
 from src.user_agents_manager import random_user_agent_headers
 
@@ -20,24 +20,24 @@ async def rss_wrapper(client, translator, bot_token, chat_id, debug_chat_id, sou
         await send_message_api(message, bot_token, debug_chat_id)
 
 
-async def _make_request(rss_link, bot_token, debug_chat_id):
+async def _make_request(rss_link, bot_token, debug_chat_id, repeat=REPEAT_REQUESTS):
     response = None
-    repeat = 20
-
     httpx_client = httpx.AsyncClient()
-    while repeat > 0:
-        try:
-            response = await httpx_client.get(rss_link, headers=random_user_agent_headers())
-            response.raise_for_status()
-            break
-        except Exception as e:
-            message = '&#9888; ERROR: ' + rss_link + ' request is down\n' + str(e)
-            await send_message_api(message, bot_token, debug_chat_id)
+
+    try:
+        response = await httpx_client.get(rss_link, headers=random_user_agent_headers())
+        response.raise_for_status()
+    except Exception as e:
+        if repeat > 0:
             await asyncio.sleep(TIMEOUT)
             repeat -= 1
-            continue
-        finally:
-            await httpx_client.aclose()
+            await _make_request(rss_link, bot_token, debug_chat_id, repeat)
+        else:
+            message = '&#9888; ERROR: ' + rss_link + ' request is down\n' + str(e)
+            await send_message_api(message, bot_token, debug_chat_id)
+    finally:
+        await httpx_client.aclose()
+
     return response
 
 

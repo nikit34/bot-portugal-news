@@ -1,7 +1,7 @@
 import asyncio
 
 from src.history_comparator import is_duplicate_message
-from src.static.settings import MAX_LENGTH_MESSAGE, TIMEOUT
+from src.static.settings import MAX_LENGTH_MESSAGE, TIMEOUT, REPEAT_REQUESTS
 from src.text_editor import trunc_str
 
 
@@ -13,7 +13,7 @@ async def process_and_send_message(client, translator, chat_id, posted_q, source
 
     post = _prepare_post(translated_message, source, link)
 
-    message_sent = await _send_message(client, chat_id, post, image, 5)
+    message_sent = await _send_message(client, chat_id, post, image)
     if message_sent:
         await _send_translated_responses(translator, message_sent, translated_message)
 
@@ -28,7 +28,7 @@ def _prepare_post(translated_message, source, link):
     return title_post + trunc_str(translated_message, MAX_LENGTH_MESSAGE)
 
 
-async def _send_message(client, chat_id, post, file, repeat):
+async def _send_message(client, chat_id, post, file, repeat=REPEAT_REQUESTS):
     try:
         return await client.send_message(
             entity=int(chat_id),
