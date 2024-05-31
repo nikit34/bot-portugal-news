@@ -14,7 +14,8 @@ async def process_and_send_message(client, translator, chat_id, posted_q, source
     post = _prepare_post(translated_message, source, link)
 
     message_sent = await _send_message(client, chat_id, post, image, 5)
-    await _send_translated_responses(translator, message_sent, translated_message)
+    if message_sent:
+        await _send_translated_responses(translator, message_sent, translated_message)
 
 
 def _translate_message(translator, message_text, dest_lang):
