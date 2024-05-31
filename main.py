@@ -24,7 +24,6 @@ async def main():
 
     client = TelegramClient('bot', api_id, api_hash)
 
-    httpx_client = httpx.AsyncClient()
     translator = Translator(service_urls=['translate.googleapis.com'])
 
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
@@ -47,7 +46,6 @@ async def main():
                     bot_token=bot_token,
                     chat_id=chat_id,
                     debug_chat_id=debug_chat_id,
-                    httpx_client=httpx_client,
                     channel=channel,
                     posted_q=posted_q
                 )
@@ -60,7 +58,6 @@ async def main():
                     bot_token=bot_token,
                     chat_id=chat_id,
                     debug_chat_id=debug_chat_id,
-                    httpx_client=httpx_client,
                     source=source,
                     rss_link=rss_link,
                     posted_q=posted_q
@@ -70,9 +67,7 @@ async def main():
             await asyncio.gather(*tasks)
         except Exception as e:
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
-            await send_message_api(httpx_client, message, bot_token, debug_chat_id)
-        finally:
-            await httpx_client.aclose()
+            await send_message_api(message, bot_token, debug_chat_id)
 
 
 if __name__ == '__main__':

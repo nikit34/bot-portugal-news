@@ -1,6 +1,7 @@
+import httpx
 
 
-async def send_message_api(httpx_client, text, bot_token, chat_id):
+async def send_message_api(text, bot_token, chat_id):
     url = 'https://api.telegram.org/bot' + bot_token + '/sendMessage'
 
     params = {
@@ -16,5 +17,9 @@ async def send_message_api(httpx_client, text, bot_token, chat_id):
         "Content-Type": "application/json"
     }
 
-    response = await httpx_client.get(url, params=params, headers=headers)
-    response.raise_for_status()
+    httpx_client = httpx.AsyncClient()
+    try:
+        response = await httpx_client.get(url, params=params, headers=headers)
+        response.raise_for_status()
+    finally:
+        await httpx_client.aclose()
