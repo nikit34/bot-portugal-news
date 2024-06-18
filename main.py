@@ -30,7 +30,7 @@ async def main():
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
 
     async with client:
-        await client.start(telegram_password=telegram_password, telegram_bot_token=telegram_bot_token)
+        await client.start(password=telegram_password, bot_token=telegram_bot_token)
         getter_client = TelegramClient('getter_bot', telegram_api_id, telegram_api_hash)
         await getter_client.start()
 
