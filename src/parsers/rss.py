@@ -6,9 +6,9 @@ import httpx
 from src.parsers.channels.com.bbc import check_bbc_com, parse_bbc_com
 from src.parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
 from src.parsers.channels.ru.sport import check_sport_ru, parse_sport_ru
-from src.senders.telegram.sender import process_and_send_message
+from src.producers.telegram.producer import process_and_send_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
-from src.senders.telegram.telegram_api import send_message_api
+from src.producers.telegram.telegram_api import send_message_api
 from src.user_agents_manager import random_user_agent_headers
 
 

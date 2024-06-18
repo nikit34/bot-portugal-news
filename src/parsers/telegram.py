@@ -1,7 +1,7 @@
-from src.senders.telegram.sender import process_and_send_message
+from src.producers.telegram.producer import process_and_send_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES
 from src.static.sources import telegram_channels
-from src.senders.telegram.telegram_api import send_message_api
+from src.producers.telegram.telegram_api import send_message_api
 
 
 async def telegram_wrapper(getter_client, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, channel, posted_q):

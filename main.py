@@ -10,7 +10,7 @@ from src.parsers.self_telegram import get_messages_history
 from src.properties_reader import get_secret_key
 from src.static.settings import COUNT_UNIQUE_MESSAGES
 from src.static.sources import rss_channels, telegram_channels
-from src.senders.telegram.telegram_api import send_message_api
+from src.producers.telegram.telegram_api import send_message_api
 
 
 async def main():
