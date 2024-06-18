@@ -4,15 +4,15 @@ from src.static.sources import telegram_channels
 from src.senders.telegram.telegram_api import send_message_api
 
 
-async def telegram_wrapper(getter_client, translator, bot_token, chat_id, debug_chat_id, channel, posted_q):
+async def telegram_wrapper(getter_client, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, channel, posted_q):
     try:
-        await _telegram_parser(getter_client, translator, chat_id, channel, posted_q)
+        await _telegram_parser(getter_client, translator, telegram_chat_id, channel, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: ' + channel + ' parser is down\n' + str(e)
-        await send_message_api(message, bot_token, debug_chat_id)
+        await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
 
 
-async def _telegram_parser(getter_client, translator, chat_id, channel, posted_q):
+async def _telegram_parser(getter_client, translator, telegram_chat_id, channel, posted_q):
     async for message in getter_client.iter_messages(channel, limit=MAX_NUMBER_TAKEN_MESSAGES):
 
         message_text = message.raw_text
@@ -25,4 +25,4 @@ async def _telegram_parser(getter_client, translator, chat_id, channel, posted_q
         link = source + '/' + str(message.id)
         channel = '@' + source.split('/')[-1]
 
-        await process_and_send_message(getter_client, translator, chat_id, posted_q, channel, message_text, link, file.media)
+        await process_and_send_message(getter_client, translator, telegram_chat_id, posted_q, channel, message_text, link, file.media)

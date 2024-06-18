@@ -12,15 +12,15 @@ from src.senders.telegram.telegram_api import send_message_api
 from src.user_agents_manager import random_user_agent_headers
 
 
-async def rss_wrapper(client, translator, bot_token, chat_id, debug_chat_id, source, rss_link, posted_q):
+async def rss_wrapper(client, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q):
     try:
-        await _rss_parser(client, translator, bot_token, chat_id, debug_chat_id, source, rss_link, posted_q)
+        await _rss_parser(client, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: ' + source + ' parser is down\n' + str(e)
-        await send_message_api(message, bot_token, debug_chat_id)
+        await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
 
 
-async def _make_request(rss_link, bot_token, debug_chat_id, repeat=REPEAT_REQUESTS):
+async def _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id, repeat=REPEAT_REQUESTS):
     response = None
     httpx_client = httpx.AsyncClient()
 
@@ -31,10 +31,10 @@ async def _make_request(rss_link, bot_token, debug_chat_id, repeat=REPEAT_REQUES
         if repeat > 0:
             await asyncio.sleep(TIMEOUT)
             repeat -= 1
-            return await _make_request(rss_link, bot_token, debug_chat_id, repeat)
+            return await _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id, repeat)
         else:
             message = '&#9888; ERROR: ' + rss_link + ' request is down\n' + str(e)
-            await send_message_api(message, bot_token, debug_chat_id)
+            await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
     finally:
         await httpx_client.aclose()
 
@@ -44,14 +44,14 @@ async def _make_request(rss_link, bot_token, debug_chat_id, repeat=REPEAT_REQUES
 async def _rss_parser(
         client,
         translator,
-        bot_token,
-        chat_id,
-        debug_chat_id,
+        telegram_bot_token,
+        telegram_chat_id,
+        telegram_debug_chat_id,
         source,
         rss_link,
         posted_q
 ):
-    response = await _make_request(rss_link, bot_token, debug_chat_id)
+    response = await _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id)
     feed = feedparser.parse(response.text)
 
     limit = max(MAX_NUMBER_TAKEN_MESSAGES, len(feed.entries))
@@ -71,4 +71,4 @@ async def _rss_parser(
             if check_bbc_com(entry):
                 continue
             message_text, link, image = parse_bbc_com(entry)
-        await process_and_send_message(client, translator, chat_id, posted_q, source, message_text, link, image)
+        await process_and_send_message(client, translator, telegram_chat_id, posted_q, source, message_text, link, image)

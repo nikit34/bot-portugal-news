@@ -1,8 +1,8 @@
 import httpx
 
 
-async def send_message_api(text, bot_token, chat_id):
-    url = 'https://api.telegram.org/bot' + bot_token + '/sendMessage'
+async def send_message_api(text, telegram_bot_token, telegram_chat_id):
+    url = 'https://api.telegram.org/bot' + telegram_bot_token + '/sendMessage'
 
     params = {
         'text': text,
@@ -10,7 +10,7 @@ async def send_message_api(text, bot_token, chat_id):
         "disable_web_page_preview": True,
         "disable_notification": False,
         "reply_to_message_id": None,
-        "chat_id": str(chat_id)
+        "telegram_chat_id": str(telegram_chat_id)
     }
     headers = {
         "Accept": "application/json",
