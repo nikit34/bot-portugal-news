@@ -1,3 +1,5 @@
+import asyncio
+
 from src.history_comparator import is_duplicate_message
 from src.producers.facebook.producer import (
     facebook_prepare_post,
@@ -20,14 +22,21 @@ async def send_message(client, graph, translator, telegram_chat_id, posted_q, so
     telegram_post = telegram_prepare_post(translated_message, source, link)
     facebook_post = facebook_prepare_post(translated_message, link)
 
-    telegram_message_sent = await telegram_send_message(client, telegram_chat_id, telegram_post, image)
-    facebook_message_sent = await facebook_send_message(graph, facebook_post, image)
+    telegram_task = telegram_send_message(client, telegram_chat_id, telegram_post, image)
+    facebook_task = facebook_send_message(graph, facebook_post, image)
+
+    telegram_message_sent, facebook_message_sent = await asyncio.gather(telegram_task, facebook_task)
     if telegram_message_sent:
         translations = {'🇬🇧': 'en', '🇷🇺': 'ru'}
+        translation_tasks = []
+
         for flag, lang in translations.items():
             translated_text = translate_message(translator, translated_message, lang)
-            await telegram_send_translated_respond(flag, telegram_message_sent, translated_text)
-            await facebook_send_translated_respond(graph, flag, facebook_message_sent, translated_text)
+            translation_tasks.append(telegram_send_translated_respond(flag, telegram_message_sent, translated_text))
+            translation_tasks.append(
+                facebook_send_translated_respond(graph, flag, facebook_message_sent, translated_text))
+
+        await asyncio.gather(*translation_tasks)
 
 
 def translate_message(translator, message_text, dest_lang):
