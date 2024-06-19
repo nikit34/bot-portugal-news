@@ -38,6 +38,7 @@ async def main():
     facebook_access_token = get_secret_key('.', 'FACEBOOK_ACCESS_TOKEN')
 
     client = TelegramClient('bot', telegram_api_id, telegram_api_hash)
+    getter_client = TelegramClient('getter_bot', telegram_api_id, telegram_api_hash)
 
     graph = fb.GraphAPI(access_token=facebook_access_token)
 
@@ -46,53 +47,54 @@ async def main():
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
     map_images = deque()
 
-    async with client:
-        await client.start(password=telegram_password, bot_token=telegram_bot_token)
-        getter_client = TelegramClient('getter_bot', telegram_api_id, telegram_api_hash)
-        await getter_client.start()
+    tasks = [
+        client.start(password=telegram_password, bot_token=telegram_bot_token),
+        getter_client.start()
+    ]
+    await asyncio.gather(*tasks)
 
-        try:
-            history = await get_messages_history(getter_client)
-            posted_q.extend(history)
+    try:
+        history = await get_messages_history(getter_client)
+        posted_q.extend(history)
 
-            tasks = []
+        tasks = []
 
-            for channel in telegram_channels.values():
-                task = telegram_wrapper(
-                    getter_client=getter_client,
-                    graph=graph,
-                    translator=translator,
-                    telegram_bot_token=telegram_bot_token,
-                    telegram_chat_id=telegram_chat_id,
-                    telegram_debug_chat_id=telegram_debug_chat_id,
-                    channel=channel,
-                    posted_q=posted_q,
-                    map_images=map_images
-                )
-                tasks.append(task)
+        for channel in telegram_channels.values():
+            task = telegram_wrapper(
+                getter_client=getter_client,
+                graph=graph,
+                translator=translator,
+                telegram_bot_token=telegram_bot_token,
+                telegram_chat_id=telegram_chat_id,
+                telegram_debug_chat_id=telegram_debug_chat_id,
+                channel=channel,
+                posted_q=posted_q,
+                map_images=map_images
+            )
+            tasks.append(task)
 
-            for source, rss_link in rss_channels.items():
-                task = rss_wrapper(
-                    client=getter_client,
-                    graph=graph,
-                    translator=translator,
-                    telegram_bot_token=telegram_bot_token,
-                    telegram_chat_id=telegram_chat_id,
-                    telegram_debug_chat_id=telegram_debug_chat_id,
-                    source=source,
-                    rss_link=rss_link,
-                    posted_q=posted_q,
-                    map_images=map_images
-                )
-                tasks.append(task)
+        for source, rss_link in rss_channels.items():
+            task = rss_wrapper(
+                client=getter_client,
+                graph=graph,
+                translator=translator,
+                telegram_bot_token=telegram_bot_token,
+                telegram_chat_id=telegram_chat_id,
+                telegram_debug_chat_id=telegram_debug_chat_id,
+                source=source,
+                rss_link=rss_link,
+                posted_q=posted_q,
+                map_images=map_images
+            )
+            tasks.append(task)
 
-            await asyncio.gather(*tasks)
-        except Exception as e:
-            message = '&#9888; ERROR: Parsers is down\n' + str(e)
-            logger.error(message)
-            await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
-        finally:
-            clean_tmp_folder()
+        await asyncio.gather(*tasks)
+    except Exception as e:
+        message = '&#9888; ERROR: Parsers is down\n' + str(e)
+        logger.error(message)
+        await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
+    finally:
+        clean_tmp_folder()
 
 
 if __name__ == '__main__':
