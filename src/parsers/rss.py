@@ -1,20 +1,16 @@
 import asyncio
 import os
-import time
-from io import BytesIO
 
 import feedparser
 import httpx
-import requests
-from PIL import Image
 
+from src.files_manager import save_image_tmp_from_url
 from src.parsers.channels.com.bbc import check_bbc_com, parse_bbc_com
 from src.parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
 from src.parsers.channels.ru.sport import check_sport_ru, parse_sport_ru
 from src.producers.processor import send_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
 from src.producers.telegram.telegram_api import send_message_api
-from src.static.sources import tmp_folder
 from src.user_agents_manager import random_user_agent_headers
 
 
@@ -80,21 +76,10 @@ async def _rss_parser(
                 continue
             message_text, link, image = parse_bbc_com(entry)
 
-        image_path = await _save_image_from_url(image, save_path=tmp_folder)
+        image_path = await save_image_tmp_from_url(image)
         map_images.appendleft(image_path)
 
         await send_message(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image_path)
 
         map_images.remove(image_path)
         os.remove(image_path)
-
-
-async def _save_image_from_url(url, save_path):
-    response = requests.get(url)
-    response.raise_for_status()
-
-    image = Image.open(BytesIO(response.content))
-
-    image_path = save_path + '/' + str(time.time()) + '.png'
-    image.save(image_path)
-    return image_path
