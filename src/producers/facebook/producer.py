@@ -1,13 +1,8 @@
-import logging
-from time import sleep
-
 import pyshorteners
 
-from src.static.settings import TIMEOUT, FACEBOOK_MAX_LENGTH_MESSAGE, REPEAT_REQUESTS
+from src.producers.repeater import retry
+from src.static.settings import FACEBOOK_MAX_LENGTH_MESSAGE
 from src.text_editor import trunc_str
-
-
-logger = logging.getLogger(__name__)
 
 
 def facebook_prepare_post(translated_message, link):
@@ -16,23 +11,11 @@ def facebook_prepare_post(translated_message, link):
     return trunc_str(translated_message, FACEBOOK_MAX_LENGTH_MESSAGE) + '\n\n' + shorted_link
 
 
-async def facebook_send_message(graph, message, file, repeat=REPEAT_REQUESTS):
-    try:
-        return graph.put_photo(image=open(file, 'rb'), message=message)
-    except Exception as e:
-        if repeat > 0:
-            logger.warning("Request 'facebook_send_message' failed, " + str(repeat) + " times left: " + str(e))
-            sleep(TIMEOUT)
-            repeat -= 1
-            return await facebook_send_message(graph, message, file, repeat)
+@retry()
+async def facebook_send_message(graph, message, file):
+    return graph.put_photo(image=open(file, 'rb'), message=message)
 
 
-async def facebook_send_translated_respond(graph, flag, post, translated_text, repeat=REPEAT_REQUESTS):
-    try:
-        graph.put_object(parent_object=post.get('id'), connection_name="comments", message=flag + ' ' + trunc_str(translated_text, FACEBOOK_MAX_LENGTH_MESSAGE))
-    except Exception as e:
-        if repeat > 0:
-            logger.warning("Request 'facebook_send_translated_respond' failed, " + str(repeat) + " times left: " + str(e))
-            sleep(TIMEOUT)
-            repeat -= 1
-            await facebook_send_translated_respond(graph, flag, post, translated_text, repeat)
+@retry()
+async def facebook_send_translated_respond(graph, flag, post, translated_text):
+    graph.put_object(parent_object=post.get('id'), connection_name="comments", message=flag + ' ' + trunc_str(translated_text, FACEBOOK_MAX_LENGTH_MESSAGE))
