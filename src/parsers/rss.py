@@ -1,20 +1,25 @@
 import asyncio
+import os
+import time
+from io import BytesIO
 
 import feedparser
 import httpx
+import requests
+from PIL import Image
 
 from src.parsers.channels.com.bbc import check_bbc_com, parse_bbc_com
 from src.parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
 from src.parsers.channels.ru.sport import check_sport_ru, parse_sport_ru
-from src.producers.telegram.producer import process_and_send_message
+from src.producers.processor import send_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
 from src.producers.telegram.telegram_api import send_message_api
 from src.user_agents_manager import random_user_agent_headers
 
 
-async def rss_wrapper(client, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q):
+async def rss_wrapper(client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q, map_images):
     try:
-        await _rss_parser(client, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q)
+        await _rss_parser(client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q, map_images)
     except Exception as e:
         message = '&#9888; ERROR: ' + source + ' parser is down\n' + str(e)
         await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
@@ -43,13 +48,15 @@ async def _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id, re
 
 async def _rss_parser(
         client,
+        graph,
         translator,
         telegram_bot_token,
         telegram_chat_id,
         telegram_debug_chat_id,
         source,
         rss_link,
-        posted_q
+        posted_q,
+        map_images
 ):
     response = await _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id)
     feed = feedparser.parse(response.text)
@@ -71,4 +78,22 @@ async def _rss_parser(
             if check_bbc_com(entry):
                 continue
             message_text, link, image = parse_bbc_com(entry)
-        await process_and_send_message(client, translator, telegram_chat_id, posted_q, source, message_text, link, image)
+
+        image_path = await _save_image_from_url(image, save_path=os.getcwd() + '/tmp')
+        map_images.appendleft(image_path)
+
+        await send_message(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image_path)
+
+        map_images.remove(image_path)
+        os.remove(image_path)
+
+
+async def _save_image_from_url(url, save_path):
+    response = requests.get(url)
+    response.raise_for_status()
+
+    image = Image.open(BytesIO(response.content))
+
+    image_path = save_path + '/' + str(time.time()) + '.png'
+    image.save(image_path)
+    return image_path

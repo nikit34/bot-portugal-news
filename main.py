@@ -3,6 +3,7 @@ from collections import deque
 
 from telethon import TelegramClient
 from googletrans import Translator
+import facebook as fb
 
 from src.parsers.rss import rss_wrapper
 from src.parsers.telegram import telegram_wrapper
@@ -21,13 +22,16 @@ async def main():
     telegram_chat_id = get_secret_key('.', 'TELEGRAM_CHAT_ID')
     telegram_debug_chat_id = get_secret_key('.', 'TELEGRAM_DEBUG_CHAT_ID')
 
-    access_token = get_secret_key('.', 'ACCESS_TOKEN')
+    access_token = get_secret_key('.', 'FACEBOOK_ACCESS_TOKEN')
 
     client = TelegramClient('bot', telegram_api_id, telegram_api_hash)
+
+    graph = fb.GraphAPI(access_token=access_token)
 
     translator = Translator(service_urls=['translate.googleapis.com'])
 
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
+    map_images = deque()
 
     async with client:
         await client.start(password=telegram_password, bot_token=telegram_bot_token)
@@ -43,29 +47,31 @@ async def main():
             for channel in telegram_channels.values():
                 task = telegram_wrapper(
                     getter_client=getter_client,
+                    graph=graph,
                     translator=translator,
                     telegram_bot_token=telegram_bot_token,
                     telegram_chat_id=telegram_chat_id,
                     telegram_debug_chat_id=telegram_debug_chat_id,
                     channel=channel,
-                    posted_q=posted_q
+                    posted_q=posted_q,
+                    map_images=map_images
                 )
                 tasks.append(task)
 
             for source, rss_link in rss_channels.items():
                 task = rss_wrapper(
                     client=getter_client,
+                    graph=graph,
                     translator=translator,
                     telegram_bot_token=telegram_bot_token,
                     telegram_chat_id=telegram_chat_id,
                     telegram_debug_chat_id=telegram_debug_chat_id,
                     source=source,
                     rss_link=rss_link,
-                    posted_q=posted_q
+                    posted_q=posted_q,
+                    map_images=map_images
                 )
                 tasks.append(task)
-
-
 
             await asyncio.gather(*tasks)
         except Exception as e:
