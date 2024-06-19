@@ -27,5 +27,12 @@ async def facebook_send_message(graph, message, file, repeat=REPEAT_REQUESTS):
             return await facebook_send_message(graph, message, file, repeat)
 
 
-async def facebook_send_translated_respond(graph, flag, post, translated_text):
-    graph.put_object(parent_object=post.get('id'), connection_name="comments", message=flag + ' ' + trunc_str(translated_text, FACEBOOK_MAX_LENGTH_MESSAGE))
+async def facebook_send_translated_respond(graph, flag, post, translated_text, repeat=REPEAT_REQUESTS):
+    try:
+        graph.put_object(parent_object=post.get('id'), connection_name="comments", message=flag + ' ' + trunc_str(translated_text, FACEBOOK_MAX_LENGTH_MESSAGE))
+    except Exception as e:
+        if repeat > 0:
+            logger.warning("Request 'facebook_send_translated_respond' failed, " + repeat + " times left: " + str(e))
+            sleep(TIMEOUT)
+            repeat -= 1
+            await facebook_send_translated_respond(graph, flag, post, translated_text, repeat)
