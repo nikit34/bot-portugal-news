@@ -1,4 +1,9 @@
+import logging
+
 import httpx
+
+
+logger = logging.getLogger(__name__)
 
 
 async def send_message_api(text, telegram_bot_token, telegram_chat_id):
@@ -21,5 +26,7 @@ async def send_message_api(text, telegram_bot_token, telegram_chat_id):
     try:
         response = await httpx_client.get(url, params=params, headers=headers)
         response.raise_for_status()
+    except Exception as e:
+        logger.warning("Request 'send_message_api' failed: " + str(e))
     finally:
         await httpx_client.aclose()

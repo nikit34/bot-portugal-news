@@ -1,9 +1,13 @@
+import logging
 from time import sleep
 
 import pyshorteners
 
 from src.static.settings import TIMEOUT, FACEBOOK_MAX_LENGTH_MESSAGE, REPEAT_REQUESTS
 from src.text_editor import trunc_str
+
+
+logger = logging.getLogger(__name__)
 
 
 def facebook_prepare_post(translated_message, link):
@@ -15,8 +19,9 @@ def facebook_prepare_post(translated_message, link):
 async def facebook_send_message(graph, message, file, repeat=REPEAT_REQUESTS):
     try:
         return graph.put_photo(image=open(file, 'rb'), message=message)
-    except Exception:
+    except Exception as e:
         if repeat > 0:
+            logger.warning("Request 'facebook_send_message' failed, " + repeat + " times left: " + str(e))
             sleep(TIMEOUT)
             repeat -= 1
             return await facebook_send_message(graph, message, file, repeat)

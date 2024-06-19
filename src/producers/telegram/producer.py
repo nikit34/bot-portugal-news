@@ -1,7 +1,11 @@
 import asyncio
+import logging
 
 from src.static.settings import TELEGRAM_MAX_LENGTH_MESSAGE, TIMEOUT, REPEAT_REQUESTS
 from src.text_editor import trunc_str
+
+
+logger = logging.getLogger(__name__)
 
 
 def telegram_prepare_post(translated_message, source, link):
@@ -18,8 +22,9 @@ async def telegram_send_message(client, telegram_chat_id, post, file, repeat=REP
             parse_mode='html',
             link_preview=False
         )
-    except Exception:
+    except Exception as e:
         if repeat > 0:
+            logger.warning("Request 'telegram_send_message' failed, " + repeat + " times left: " + str(e))
             await asyncio.sleep(TIMEOUT)
             repeat -= 1
             return await telegram_send_message(client, telegram_chat_id, post, file, repeat)
