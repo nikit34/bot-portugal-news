@@ -24,7 +24,7 @@ async def telegram_send_message(client, telegram_chat_id, post, file, repeat=REP
         )
     except Exception as e:
         if repeat > 0:
-            logger.warning("Request 'telegram_send_message' failed, " + repeat + " times left: " + str(e))
+            logger.warning("Request 'telegram_send_message' failed, " + str(repeat) + " times left: " + str(e))
             await asyncio.sleep(TIMEOUT)
             repeat -= 1
             return await telegram_send_message(client, telegram_chat_id, post, file, repeat)
@@ -35,7 +35,7 @@ async def telegram_send_translated_respond(flag, message_sent, translated_text, 
         await message_sent.respond(flag + ' ' + trunc_str(translated_text, TELEGRAM_MAX_LENGTH_MESSAGE), comment_to=message_sent.id)
     except Exception as e:
         if repeat > 0:
-            logger.warning("Request 'telegram_send_translated_respond' failed, " + repeat + " times left: " + str(e))
+            logger.warning("Request 'telegram_send_translated_respond' failed, " + str(repeat) + " times left: " + str(e))
             await asyncio.sleep(TIMEOUT)
             repeat -= 1
             await telegram_send_translated_respond(flag, message_sent, translated_text, repeat)

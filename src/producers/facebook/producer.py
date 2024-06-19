@@ -21,7 +21,7 @@ async def facebook_send_message(graph, message, file, repeat=REPEAT_REQUESTS):
         return graph.put_photo(image=open(file, 'rb'), message=message)
     except Exception as e:
         if repeat > 0:
-            logger.warning("Request 'facebook_send_message' failed, " + repeat + " times left: " + str(e))
+            logger.warning("Request 'facebook_send_message' failed, " + str(repeat) + " times left: " + str(e))
             sleep(TIMEOUT)
             repeat -= 1
             return await facebook_send_message(graph, message, file, repeat)
@@ -32,7 +32,7 @@ async def facebook_send_translated_respond(graph, flag, post, translated_text, r
         graph.put_object(parent_object=post.get('id'), connection_name="comments", message=flag + ' ' + trunc_str(translated_text, FACEBOOK_MAX_LENGTH_MESSAGE))
     except Exception as e:
         if repeat > 0:
-            logger.warning("Request 'facebook_send_translated_respond' failed, " + repeat + " times left: " + str(e))
+            logger.warning("Request 'facebook_send_translated_respond' failed, " + str(repeat) + " times left: " + str(e))
             sleep(TIMEOUT)
             repeat -= 1
             await facebook_send_translated_respond(graph, flag, post, translated_text, repeat)
