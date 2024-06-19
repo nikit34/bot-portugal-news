@@ -1,12 +1,15 @@
 from time import sleep
 
+import pyshorteners
+
 from src.static.settings import TIMEOUT, MAX_LENGTH_MESSAGE, REPEAT_REQUESTS
 from src.text_editor import trunc_str
 
 
-def facebook_prepare_post(translated_message, source, link):
-    title_post = '<a href="' + link + '">' + source + '</a>\n'
-    return title_post + trunc_str(translated_message, MAX_LENGTH_MESSAGE)
+def facebook_prepare_post(translated_message, link):
+    shortener = pyshorteners.Shortener()
+    shorted_link = shortener.tinyurl.short(link)
+    return shorted_link + trunc_str(translated_message, MAX_LENGTH_MESSAGE)
 
 
 async def facebook_send_message(graph, message, file, repeat=REPEAT_REQUESTS):

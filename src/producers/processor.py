@@ -1,8 +1,14 @@
 from src.history_comparator import is_duplicate_message
-from src.producers.facebook.producer import facebook_prepare_post, facebook_send_message, \
+from src.producers.facebook.producer import (
+    facebook_prepare_post,
+    facebook_send_message,
     facebook_send_translated_respond
-from src.producers.telegram.producer import telegram_send_translated_respond, telegram_send_message, \
+)
+from src.producers.telegram.producer import (
+    telegram_send_translated_respond,
+    telegram_send_message,
     telegram_prepare_post
+)
 
 
 async def send_message(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image):
@@ -12,7 +18,7 @@ async def send_message(client, graph, translator, telegram_chat_id, posted_q, so
         return
 
     telegram_post = telegram_prepare_post(translated_message, source, link)
-    facebook_post = facebook_prepare_post(translated_message, source, link)
+    facebook_post = facebook_prepare_post(translated_message, link)
 
     telegram_message_sent = await telegram_send_message(client, telegram_chat_id, telegram_post, image)
     facebook_message_sent = await facebook_send_message(graph, facebook_post, image)
