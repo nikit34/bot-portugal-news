@@ -1,3 +1,5 @@
+import logging
+
 from src.files_manager import save_image_tmp_from_telegram, remove_tmp_file
 from src.producers.processor import send_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES
@@ -5,11 +7,15 @@ from src.static.sources import telegram_channels
 from src.producers.telegram.telegram_api import send_message_api
 
 
+logger = logging.getLogger(__name__)
+
+
 async def telegram_wrapper(getter_client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, channel, posted_q, map_images):
     try:
         await _telegram_parser(getter_client, graph, translator, telegram_chat_id, channel, posted_q, map_images)
     except Exception as e:
         message = '&#9888; ERROR: ' + channel + ' parser is down\n' + str(e)
+        logger.debug(message)
         await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
 
 

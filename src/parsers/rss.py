@@ -1,4 +1,5 @@
 import asyncio
+import logging
 
 import feedparser
 import httpx
@@ -13,11 +14,15 @@ from src.producers.telegram.telegram_api import send_message_api
 from src.user_agents_manager import random_user_agent_headers
 
 
+logger = logging.getLogger(__name__)
+
+
 async def rss_wrapper(client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q, map_images):
     try:
         await _rss_parser(client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q, map_images)
     except Exception as e:
         message = '&#9888; ERROR: ' + source + ' parser is down\n' + str(e)
+        logger.debug(message)
         await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
 
 
@@ -35,6 +40,7 @@ async def _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id, re
             return await _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id, repeat)
         else:
             message = '&#9888; ERROR: ' + rss_link + ' request is down\n' + str(e)
+            logger.debug(message)
             await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
     finally:
         await httpx_client.aclose()

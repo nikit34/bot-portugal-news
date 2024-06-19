@@ -1,4 +1,5 @@
 import asyncio
+import logging
 from collections import deque
 
 from telethon import TelegramClient
@@ -13,6 +14,17 @@ from src.properties_reader import get_secret_key
 from src.static.settings import COUNT_UNIQUE_MESSAGES
 from src.static.sources import rss_channels, telegram_channels
 from src.producers.telegram.telegram_api import send_message_api
+
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger(__name__)
 
 
 async def main():
@@ -77,6 +89,7 @@ async def main():
             await asyncio.gather(*tasks)
         except Exception as e:
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
+            logger.debug(message)
             await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
         finally:
             clean_tmp_folder()
