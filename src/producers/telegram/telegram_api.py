@@ -22,11 +22,9 @@ async def send_message_api(text, telegram_bot_token, telegram_chat_id):
         "Content-Type": "application/json"
     }
 
-    httpx_client = httpx.AsyncClient()
-    try:
-        response = await httpx_client.get(url, params=params, headers=headers)
-        response.raise_for_status()
-    except Exception as e:
-        logger.warning("Request 'send_message_api' failed: " + str(e))
-    finally:
-        await httpx_client.aclose()
+    async with httpx.AsyncClient() as httpx_client:
+        try:
+            response = await httpx_client.get(url, params=params, headers=headers)
+            response.raise_for_status()
+        except Exception as e:
+            logger.warning("Request 'send_message_api' failed: " + str(e))
