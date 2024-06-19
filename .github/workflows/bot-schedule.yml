@@ -34,10 +34,11 @@ jobs:
       timeout-minutes: 2
       continue-on-error: true
       env:
-        TOKEN_BOT: ${{ secrets.TOKEN_BOT }}
-        API_ID: ${{ secrets.API_ID }}
-        API_HASH: ${{ secrets.API_HASH }}
-        BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-        CHAT_ID: '-1002106461489'
-        DEBUG_CHAT_ID: '-1002178707665'
-        PASSWORD: ${{ secrets.PASSWORD }}
+        TELEGRAM_TOKEN_BOT: ${{ secrets.TOKEN_BOT }}
+        TELEGRAM_API_ID: ${{ secrets.API_ID }}
+        TELEGRAM_API_HASH: ${{ secrets.API_HASH }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+        TELEGRAM_CHAT_ID: '-1002106461489'
+        TELEGRAM_DEBUG_CHAT_ID: '-1002178707665'
+        TELEGRAM_PASSWORD: ${{ secrets.PASSWORD }}
+        FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}

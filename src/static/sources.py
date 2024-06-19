@@ -1,3 +1,5 @@
+import os
+
 self_telegram_channel = 'https://t.me/sportportugal'
 
 telegram_channels = {
@@ -14,3 +16,5 @@ rss_channels = {
     'abola.pt/motores': 'https://www.abola.pt/rss/motores',
     'bbc.com/football': 'https://feeds.bbci.co.uk/sport/football/rss.xml'
 }
+
+tmp_folder = os.getcwd() + '/tmp'

@@ -1,18 +1,26 @@
-from src.sender import process_and_send_message
+import logging
+
+from src.files_manager import save_image_tmp_from_telegram, remove_tmp_file
+from src.producers.processor import send_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES
 from src.static.sources import telegram_channels
-from src.telegram_api import send_message_api
+from src.producers.telegram.telegram_api import send_message_api
 
 
-async def telegram_wrapper(getter_client, translator, bot_token, chat_id, debug_chat_id, channel, posted_q):
+logger = logging.getLogger(__name__)
+
+
+async def telegram_wrapper(getter_client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, channel, posted_q, map_images):
     try:
-        await _telegram_parser(getter_client, translator, chat_id, channel, posted_q)
+        await _telegram_parser(getter_client, graph, translator, telegram_chat_id, channel, posted_q, map_images)
     except Exception as e:
-        message = '&#9888; ERROR: ' + channel + ' parser is down\n' + str(e)
-        await send_message_api(message, bot_token, debug_chat_id)
+        message = '&#9888; ERROR: ' + channel + ' telegram parser is down\n' + str(e)
+        logger.error(message)
+        await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
 
 
-async def _telegram_parser(getter_client, translator, chat_id, channel, posted_q):
+@remove_tmp_file
+async def _telegram_parser(getter_client, graph, translator, telegram_chat_id, channel, posted_q, map_images):
     async for message in getter_client.iter_messages(channel, limit=MAX_NUMBER_TAKEN_MESSAGES):
 
         message_text = message.raw_text
@@ -25,4 +33,10 @@ async def _telegram_parser(getter_client, translator, chat_id, channel, posted_q
         link = source + '/' + str(message.id)
         channel = '@' + source.split('/')[-1]
 
-        await process_and_send_message(getter_client, translator, chat_id, posted_q, channel, message_text, link, file.media)
+        image_path = await save_image_tmp_from_telegram(getter_client, message)
+        map_images.appendleft(image_path)
+
+        await send_message(getter_client, graph, translator, telegram_chat_id, posted_q, channel, message_text, link, image_path)
+
+        map_images.remove(image_path)
+        return image_path
