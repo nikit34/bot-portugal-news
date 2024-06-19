@@ -19,7 +19,7 @@ async def facebook_send_message(graph, message, file, repeat=REPEAT_REQUESTS):
         if repeat > 0:
             sleep(TIMEOUT)
             repeat -= 1
-            return facebook_send_message(graph, message, file, repeat)
+            return await facebook_send_message(graph, message, file, repeat)
 
 
 async def facebook_send_translated_respond(graph, flag, post, translated_text):
