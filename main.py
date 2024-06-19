@@ -35,11 +35,11 @@ async def main():
     telegram_chat_id = get_secret_key('.', 'TELEGRAM_CHAT_ID')
     telegram_debug_chat_id = get_secret_key('.', 'TELEGRAM_DEBUG_CHAT_ID')
 
-    access_token = get_secret_key('.', 'FACEBOOK_ACCESS_TOKEN')
+    facebook_access_token = get_secret_key('.', 'FACEBOOK_ACCESS_TOKEN')
 
     client = TelegramClient('bot', telegram_api_id, telegram_api_hash)
 
-    graph = fb.GraphAPI(access_token=access_token)
+    graph = fb.GraphAPI(access_token=facebook_access_token)
 
     translator = Translator(service_urls=['translate.googleapis.com'])
 
