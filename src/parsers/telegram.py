@@ -15,7 +15,7 @@ async def telegram_wrapper(getter_client, graph, translator, telegram_bot_token,
         await _telegram_parser(getter_client, graph, translator, telegram_chat_id, channel, posted_q, map_images)
     except Exception as e:
         message = '&#9888; ERROR: ' + channel + ' parser is down\n' + str(e)
-        logger.debug(message)
+        logger.error(message)
         await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
 
 

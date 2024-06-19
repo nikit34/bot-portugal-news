@@ -22,7 +22,7 @@ async def rss_wrapper(client, graph, translator, telegram_bot_token, telegram_ch
         await _rss_parser(client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q, map_images)
     except Exception as e:
         message = '&#9888; ERROR: ' + source + ' parser is down\n' + str(e)
-        logger.debug(message)
+        logger.error(message)
         await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
 
 
@@ -40,7 +40,7 @@ async def _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id, re
             return await _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id, repeat)
         else:
             message = '&#9888; ERROR: ' + rss_link + ' request is down\n' + str(e)
-            logger.debug(message)
+            logger.error(message)
             await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
     finally:
         await httpx_client.aclose()
@@ -84,6 +84,7 @@ async def _rss_parser(
 
         image_path = await save_image_tmp_from_url(image)
         map_images.appendleft(image_path)
+        print(image_path)
 
         await send_message(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image_path)
 

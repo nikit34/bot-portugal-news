@@ -17,7 +17,7 @@ from src.producers.telegram.telegram_api import send_message_api
 
 
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.WARNING,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler()
@@ -89,7 +89,7 @@ async def main():
             await asyncio.gather(*tasks)
         except Exception as e:
             message = '&#9888; ERROR: Parsers is down\n' + str(e)
-            logger.debug(message)
+            logger.error(message)
             await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
         finally:
             clean_tmp_folder()
