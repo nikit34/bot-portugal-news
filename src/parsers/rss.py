@@ -84,7 +84,6 @@ async def _rss_parser(
 
         image_path = await save_image_tmp_from_url(image)
         map_images.appendleft(image_path)
-        print(image_path)
 
         await send_message(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image_path)
 
