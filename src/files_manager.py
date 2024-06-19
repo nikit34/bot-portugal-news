@@ -35,5 +35,6 @@ def remove_tmp_file(func):
     @wraps(func)
     async def wrapper(*args, **kwargs):
         image_path = await func(*args, **kwargs)
-        os.remove(image_path)
+        if image_path is not None:
+            os.remove(image_path)
     return wrapper
