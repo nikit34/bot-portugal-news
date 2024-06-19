@@ -21,7 +21,7 @@ async def rss_wrapper(client, graph, translator, telegram_bot_token, telegram_ch
     try:
         await _rss_parser(client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q, map_images)
     except Exception as e:
-        message = '&#9888; ERROR: ' + source + ' parser is down\n' + str(e)
+        message = '&#9888; ERROR: ' + source + ' rss parser is down\n' + str(e)
         logger.error(message)
         await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
 
