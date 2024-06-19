@@ -1,6 +1,4 @@
-import os
-
-from src.files_manager import save_image_tmp_from_telegram
+from src.files_manager import save_image_tmp_from_telegram, remove_tmp_file
 from src.producers.processor import send_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES
 from src.static.sources import telegram_channels
@@ -15,6 +13,7 @@ async def telegram_wrapper(getter_client, graph, translator, telegram_bot_token,
         await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
 
 
+@remove_tmp_file
 async def _telegram_parser(getter_client, graph, translator, telegram_chat_id, channel, posted_q, map_images):
     async for message in getter_client.iter_messages(channel, limit=MAX_NUMBER_TAKEN_MESSAGES):
 
@@ -34,4 +33,4 @@ async def _telegram_parser(getter_client, graph, translator, telegram_chat_id, c
         await send_message(getter_client, graph, translator, telegram_chat_id, posted_q, channel, message_text, link, image_path)
 
         map_images.remove(image_path)
-        os.remove(image_path)
+        return image_path

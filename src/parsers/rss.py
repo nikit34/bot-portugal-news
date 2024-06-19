@@ -1,10 +1,9 @@
 import asyncio
-import os
 
 import feedparser
 import httpx
 
-from src.files_manager import save_image_tmp_from_url
+from src.files_manager import save_image_tmp_from_url, remove_tmp_file
 from src.parsers.channels.com.bbc import check_bbc_com, parse_bbc_com
 from src.parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
 from src.parsers.channels.ru.sport import check_sport_ru, parse_sport_ru
@@ -43,6 +42,7 @@ async def _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id, re
     return response
 
 
+@remove_tmp_file
 async def _rss_parser(
         client,
         graph,
@@ -82,4 +82,4 @@ async def _rss_parser(
         await send_message(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image_path)
 
         map_images.remove(image_path)
-        os.remove(image_path)
+        return image_path
