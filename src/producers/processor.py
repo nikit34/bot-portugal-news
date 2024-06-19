@@ -32,9 +32,12 @@ async def send_message(client, graph, translator, telegram_chat_id, posted_q, so
 
         for flag, lang in translations.items():
             translated_text = translate_message(translator, translated_message, lang)
-            translation_tasks.append(telegram_send_translated_respond(flag, telegram_message_sent, translated_text))
             translation_tasks.append(
-                facebook_send_translated_respond(graph, flag, facebook_message_sent, translated_text))
+                telegram_send_translated_respond(flag, telegram_message_sent, translated_text)
+            )
+            translation_tasks.append(
+                facebook_send_translated_respond(graph, flag, facebook_message_sent, translated_text)
+            )
 
         await asyncio.gather(*translation_tasks)
 
