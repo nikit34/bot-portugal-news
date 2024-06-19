@@ -2,7 +2,7 @@ import os
 
 from src.producers.processor import send_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES
-from src.static.sources import telegram_channels
+from src.static.sources import telegram_channels, tmp_folder
 from src.producers.telegram.telegram_api import send_message_api
 
 
@@ -27,7 +27,7 @@ async def _telegram_parser(getter_client, graph, translator, telegram_chat_id, c
         link = source + '/' + str(message.id)
         channel = '@' + source.split('/')[-1]
 
-        image_path = await getter_client.download_media(message.media, file=os.getcwd() + '/tmp')
+        image_path = await getter_client.download_media(message.media, file=tmp_folder)
         map_images.appendleft(image_path)
 
         await send_message(getter_client, graph, translator, telegram_chat_id, posted_q, channel, message_text, link, image_path)

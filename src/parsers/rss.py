@@ -14,6 +14,7 @@ from src.parsers.channels.ru.sport import check_sport_ru, parse_sport_ru
 from src.producers.processor import send_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
 from src.producers.telegram.telegram_api import send_message_api
+from src.static.sources import tmp_folder
 from src.user_agents_manager import random_user_agent_headers
 
 
@@ -79,7 +80,7 @@ async def _rss_parser(
                 continue
             message_text, link, image = parse_bbc_com(entry)
 
-        image_path = await _save_image_from_url(image, save_path=os.getcwd() + '/tmp')
+        image_path = await _save_image_from_url(image, save_path=tmp_folder)
         map_images.appendleft(image_path)
 
         await send_message(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image_path)
