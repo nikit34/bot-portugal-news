@@ -5,12 +5,12 @@ async def send_message_api(text, telegram_bot_token, telegram_chat_id):
     url = 'https://api.telegram.org/bot' + telegram_bot_token + '/sendMessage'
 
     params = {
-        'text': text,
+        "text": text,
         "parse_mode": "HTML",
         "disable_web_page_preview": True,
         "disable_notification": False,
         "reply_to_message_id": None,
-        "telegram_chat_id": str(telegram_chat_id)
+        "chat_id": str(telegram_chat_id)
     }
     headers = {
         "Accept": "application/json",
