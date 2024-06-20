@@ -18,3 +18,8 @@ rss_channels = {
 }
 
 tmp_folder = os.getcwd() + '/tmp'
+
+translations = {
+    '🇷🇺': 'ru',
+    '🇬🇧': 'en'
+}

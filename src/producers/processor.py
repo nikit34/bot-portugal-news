@@ -11,6 +11,7 @@ from src.producers.telegram.producer import (
     telegram_send_message,
     telegram_prepare_post
 )
+from src.static.sources import translations
 
 
 async def send_message(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image):
@@ -27,7 +28,6 @@ async def send_message(client, graph, translator, telegram_chat_id, posted_q, so
 
     telegram_message_sent, facebook_message_sent = await asyncio.gather(telegram_task, facebook_task)
     if telegram_message_sent:
-        translations = {'🇬🇧': 'en', '🇷🇺': 'ru'}
         translation_tasks = []
 
         for flag, lang in translations.items():
