@@ -5,7 +5,7 @@ def check_abola_pt(entry):
     required_keys = ('summary', 'title', 'links', 'link')
     if not all(entry.get(key) for key in required_keys):
         for link_item in entry.get('links'):
-            if 'image' in link_item.get('type'):
+            if 'image' in link_item.get('type') and link_item.get('href'):
                 return True
     return False
 

@@ -3,10 +3,7 @@ import re
 
 def check_bbc_com(entry):
     required_keys = ('summary', 'title', 'media_thumbnail', 'link')
-    if not all(entry.get(key) for key in required_keys):
-        if len(entry.get('media_thumbnail')) > 0:
-            return True
-    return False
+    return not (all(entry.get(key) for key in required_keys) or entry.get('media_thumbnail')[0].get('url'))
 
 
 def parse_bbc_com(entry):
