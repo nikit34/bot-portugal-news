@@ -3,7 +3,7 @@ import re
 
 def check_sport_ru(entry):
     required_keys = ('summary', 'title', 'media_content', 'link')
-    return not all(entry.get(key) for key in required_keys)
+    return not (all(entry.get(key) for key in required_keys) or entry.get('media_content')[0].get('url'))
 
 
 def parse_sport_ru(entry):
