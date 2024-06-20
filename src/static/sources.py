@@ -3,6 +3,7 @@ import os
 self_telegram_channel = 'https://t.me/sportportugal'
 
 telegram_channels = {
+    1646641886: "https://t.me/sportingcp_oficial",
     # 2178707665: 'https://t.me/+M-LLGrMDui1hZjhi'  # For debug
 }
 
