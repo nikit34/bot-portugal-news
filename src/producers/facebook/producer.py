@@ -5,6 +5,7 @@ from src.static.settings import FACEBOOK_MAX_LENGTH_MESSAGE
 from src.text_editor import trunc_str
 
 
+@retry(timeout=3)
 def facebook_prepare_post(translated_message, link):
     shortener = pyshorteners.Shortener()
     shorted_link = shortener.tinyurl.short(link)
