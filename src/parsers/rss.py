@@ -7,7 +7,6 @@ import httpx
 from src.files_manager import save_image_tmp_from_url, remove_tmp_file
 from src.parsers.channels.com.bbc import check_bbc_com, parse_bbc_com
 from src.parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
-from src.parsers.channels.ru.sport import check_sport_ru, parse_sport_ru
 from src.producers.processor import send_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
 from src.producers.telegram.telegram_api import send_message_api
@@ -69,11 +68,7 @@ async def _rss_parser(
         message_text = ''
         link = ''
         image = ''
-        if source == 'sport.ru':
-            if check_sport_ru(entry):
-                continue
-            message_text, link, image = parse_sport_ru(entry)
-        elif 'abola.pt' in source:
+        if 'abola.pt' in source:
             if check_abola_pt(entry):
                 continue
             message_text, link, image = parse_abola_pt(entry)
