@@ -1,6 +1,7 @@
 import os
 
 self_telegram_channel = 'https://t.me/sportportugal'
+self_facebook_page_id = '348454375016310'
 
 telegram_channels = {
     1646641886: "https://t.me/sportingcp_oficial",

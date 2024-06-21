@@ -1,7 +1,9 @@
 import pyshorteners
+import requests
 
 from src.producers.repeater import retry, async_retry
 from src.static.settings import FACEBOOK_MAX_LENGTH_MESSAGE
+from src.static.sources import self_facebook_page_id
 from src.text_editor import trunc_str
 
 
@@ -13,10 +15,29 @@ def facebook_prepare_post(translated_message, link):
 
 
 @async_retry()
-async def facebook_send_message(graph, message, file):
-    return graph.put_photo(image=open(file, 'rb'), message=message)
+async def facebook_send_message(graph, message, image):
+    if not image.endswith(".mp4"):
+        return graph.put_photo(image=open(image, 'rb'), message=message)
+    return send_video(graph, message, image)
 
 
 @async_retry()
 async def facebook_send_translated_respond(graph, flag, post, translated_text):
     graph.put_object(parent_object=post.get('id'), connection_name="comments", message=flag + ' ' + trunc_str(translated_text, FACEBOOK_MAX_LENGTH_MESSAGE))
+
+
+@retry()
+def send_video(graph, message, video_path):
+    url = 'https://graph.facebook.com/v20.0/' + self_facebook_page_id + '/videos'
+
+    video_data = {
+        'description': message,
+        'access_token': graph.access_token,
+    }
+    with open(video_path, 'rb') as file:
+        files = {
+            'file': file
+        }
+        response = requests.post(url, data=video_data, files=files)
+
+    return response.json()
