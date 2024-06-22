@@ -10,7 +10,7 @@ from src.parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
 from src.producers.processor import send_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
 from src.producers.telegram.telegram_api import send_message_api
-from src.user_agents_manager import random_user_agent_headers
+from src.parsers.rss.user_agents_manager import random_user_agent_headers
 
 
 logger = logging.getLogger(__name__)

@@ -7,9 +7,9 @@ from googletrans import Translator
 import facebook as fb
 
 from src.files_manager import clean_tmp_folder
-from src.parsers.rss import rss_wrapper
-from src.parsers.telegram import telegram_wrapper
-from src.parsers.self_telegram import get_messages_history
+from src.parsers.rss.parser import rss_wrapper
+from src.parsers.telegram.parser import telegram_wrapper
+from src.parsers.telegram.self_parser import get_messages_history
 from src.properties_reader import get_secret_key
 from src.static.settings import COUNT_UNIQUE_MESSAGES
 from src.static.sources import rss_channels, telegram_channels
