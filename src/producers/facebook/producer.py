@@ -7,7 +7,7 @@ from src.static.sources import self_facebook_page_id
 from src.text_editor import trunc_str
 
 
-@retry(timeout=3)
+@retry(timeout=4)
 def facebook_prepare_post(translated_message, link):
     shortener = pyshorteners.Shortener()
     shorted_link = shortener.tinyurl.short(link)
