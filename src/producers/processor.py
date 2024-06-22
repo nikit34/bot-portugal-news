@@ -1,6 +1,6 @@
 import asyncio
 
-from src.history_comparator import is_duplicate_message
+from src.producers.history_comparator import is_duplicate_message
 from src.producers.facebook.producer import (
     facebook_prepare_post,
     facebook_send_message,
