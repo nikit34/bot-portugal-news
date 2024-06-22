@@ -23,7 +23,11 @@ async def facebook_send_message(graph, message, image):
 
 @async_retry()
 async def facebook_send_translated_respond(graph, flag, post, translated_text):
-    graph.put_object(parent_object=post.get('id'), connection_name="comments", message=flag + ' ' + trunc_str(translated_text, FACEBOOK_MAX_LENGTH_MESSAGE))
+    graph.put_object(
+        parent_object=post.get('id'),
+        connection_name="comments",
+        message=flag + ' ' + trunc_str(translated_text, FACEBOOK_MAX_LENGTH_MESSAGE)
+    )
 
 
 @retry()

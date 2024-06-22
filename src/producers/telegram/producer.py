@@ -21,4 +21,7 @@ async def telegram_send_message(client, telegram_chat_id, post, file):
 
 @async_retry()
 async def telegram_send_translated_respond(flag, message_sent, translated_text):
-    await message_sent.respond(flag + ' ' + trunc_str(translated_text, TELEGRAM_MAX_LENGTH_MESSAGE), comment_to=message_sent.id)
+    await message_sent.respond(
+        flag + ' ' + trunc_str(translated_text, TELEGRAM_MAX_LENGTH_MESSAGE),
+        comment_to=message_sent.id
+    )
