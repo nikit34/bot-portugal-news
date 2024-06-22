@@ -1,6 +1,6 @@
 from src.producers.repeater import async_retry
 from src.static.settings import TELEGRAM_MAX_LENGTH_MESSAGE
-from src.text_editor import trunc_str
+from src.producers.text_editor import trunc_str
 
 
 def telegram_prepare_post(translated_message, source, link):

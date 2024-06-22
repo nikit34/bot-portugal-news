@@ -4,7 +4,7 @@ import requests
 from src.producers.repeater import retry, async_retry
 from src.static.settings import FACEBOOK_MAX_LENGTH_MESSAGE
 from src.static.sources import self_facebook_page_id
-from src.text_editor import trunc_str
+from src.producers.text_editor import trunc_str
 
 
 @retry(timeout=4)
