@@ -1,7 +1,7 @@
 import logging
 import os
 
-from src.files_manager import save_image_tmp_from_telegram
+from src.files_manager import save_file_tmp_from_telegram
 from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES
 from src.static.sources import telegram_channels
@@ -33,7 +33,7 @@ async def _telegram_parser(getter_client, graph, translator, telegram_chat_id, c
         link = source + '/' + str(message.id)
         channel = '@' + source.split('/')[-1]
 
-        file_path = await save_image_tmp_from_telegram(getter_client, message)
+        file_path = await save_file_tmp_from_telegram(getter_client, message)
 
         await serve(getter_client, graph, translator, telegram_chat_id, posted_q, channel, message_text, link, file_path)
 

@@ -26,5 +26,5 @@ async def save_file_tmp_from_url(url):
     return image_path
 
 
-async def save_image_tmp_from_telegram(getter_client, message):
+async def save_file_tmp_from_telegram(getter_client, message):
     return await getter_client.download_media(message.media, file=tmp_folder)
