@@ -18,7 +18,7 @@ def facebook_prepare_post(translated_message, link):
 async def facebook_send_message(graph, message, image):
     if not image.lower().endswith(".mp4"):
         return graph.put_photo(image=open(image, 'rb'), message=message)
-    return send_video(graph, message, image)
+    return _send_video(graph, message, image)
 
 
 @async_retry()
@@ -31,7 +31,7 @@ async def facebook_send_translated_respond(graph, flag, post, translated_text):
 
 
 @retry()
-def send_video(graph, message, video_path):
+def _send_video(graph, message, video_path):
     url = 'https://graph.facebook.com/v20.0/' + self_facebook_page_id + '/videos'
 
     video_data = {
