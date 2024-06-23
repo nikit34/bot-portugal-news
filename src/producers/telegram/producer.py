@@ -9,11 +9,11 @@ def telegram_prepare_post(translated_message, source, link):
 
 
 @async_retry()
-async def telegram_send_message(client, telegram_chat_id, post, file):
+async def telegram_send_message(client, telegram_chat_id, post, file_path):
     return await client.send_message(
         entity=int(telegram_chat_id),
         message=post,
-        file=file,
+        file=file_path,
         parse_mode='html',
         link_preview=False
     )
