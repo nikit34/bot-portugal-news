@@ -16,7 +16,7 @@ def facebook_prepare_post(translated_message, link):
 
 @async_retry()
 async def facebook_send_message(graph, message, image):
-    if not image.endswith(".mp4"):
+    if not image.lower().endswith(".mp4"):
         return graph.put_photo(image=open(image, 'rb'), message=message)
     return send_video(graph, message, image)
 
