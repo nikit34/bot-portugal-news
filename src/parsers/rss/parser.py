@@ -1,10 +1,11 @@
 import asyncio
 import logging
+import os
 
 import feedparser
 import httpx
 
-from src.files_manager import save_image_tmp_from_url, remove_tmp_file
+from src.files_manager import save_image_tmp_from_url
 from src.parsers.rss.channels.com.bbc import check_bbc_com, parse_bbc_com
 from src.parsers.rss.channels.pt.abola import check_abola_pt, parse_abola_pt
 from src.processor.service import serve
@@ -16,9 +17,9 @@ from src.parsers.rss.user_agents_manager import random_user_agent_headers
 logger = logging.getLogger(__name__)
 
 
-async def rss_wrapper(client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q, map_images):
+async def rss_wrapper(client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q):
     try:
-        await _rss_parser(client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q, map_images)
+        await _rss_parser(client, graph, translator, telegram_bot_token, telegram_chat_id, telegram_debug_chat_id, source, rss_link, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: ' + source + ' rss parser is down\n' + str(e)
         logger.error(message)
@@ -47,7 +48,6 @@ async def _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id, re
     return response
 
 
-@remove_tmp_file
 async def _rss_parser(
         client,
         graph,
@@ -57,8 +57,7 @@ async def _rss_parser(
         telegram_debug_chat_id,
         source,
         rss_link,
-        posted_q,
-        map_images
+        posted_q
 ):
     response = await _make_request(rss_link, telegram_bot_token, telegram_debug_chat_id)
     feed = feedparser.parse(response.text)
@@ -78,9 +77,8 @@ async def _rss_parser(
             message_text, link, image = parse_bbc_com(entry)
 
         image_path = await save_image_tmp_from_url(image)
-        map_images.appendleft(image_path)
 
         await serve(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image_path)
 
-        map_images.remove(image_path)
-        return image_path
+        if image_path is not None:
+            os.remove(image_path)

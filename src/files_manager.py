@@ -4,7 +4,6 @@ import requests
 import time
 from io import BytesIO
 from PIL import Image
-from functools import wraps
 
 from src.static.sources import tmp_folder
 
@@ -29,12 +28,3 @@ async def save_image_tmp_from_url(url):
 
 async def save_image_tmp_from_telegram(getter_client, message):
     return await getter_client.download_media(message.media, file=tmp_folder)
-
-
-def remove_tmp_file(func):
-    @wraps(func)
-    async def wrapper(*args, **kwargs):
-        image_path = await func(*args, **kwargs)
-        if image_path is not None:
-            os.remove(image_path)
-    return wrapper

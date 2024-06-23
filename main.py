@@ -45,7 +45,6 @@ async def main():
     translator = Translator(service_urls=['translate.googleapis.com'])
 
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
-    map_images = deque()
 
     tasks = [
         client.start(password=telegram_password, bot_token=telegram_bot_token),
@@ -68,8 +67,7 @@ async def main():
                 telegram_chat_id=telegram_chat_id,
                 telegram_debug_chat_id=telegram_debug_chat_id,
                 channel=channel,
-                posted_q=posted_q,
-                map_images=map_images
+                posted_q=posted_q
             )
             tasks.append(task)
 
@@ -83,8 +81,7 @@ async def main():
                 telegram_debug_chat_id=telegram_debug_chat_id,
                 source=source,
                 rss_link=rss_link,
-                posted_q=posted_q,
-                map_images=map_images
+                posted_q=posted_q
             )
             tasks.append(task)
 
