@@ -1,7 +1,7 @@
 import logging
 
 from src.files_manager import save_image_tmp_from_telegram, remove_tmp_file
-from src.producers.processor import send_message
+from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES
 from src.static.sources import telegram_channels
 from src.producers.telegram.telegram_api import send_message_api
@@ -36,7 +36,7 @@ async def _telegram_parser(getter_client, graph, translator, telegram_chat_id, c
         image_path = await save_image_tmp_from_telegram(getter_client, message)
         map_images.appendleft(image_path)
 
-        await send_message(getter_client, graph, translator, telegram_chat_id, posted_q, channel, message_text, link, image_path)
+        await serve(getter_client, graph, translator, telegram_chat_id, posted_q, channel, message_text, link, image_path)
 
         map_images.remove(image_path)
         return image_path

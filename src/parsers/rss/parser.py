@@ -7,7 +7,7 @@ import httpx
 from src.files_manager import save_image_tmp_from_url, remove_tmp_file
 from src.parsers.channels.com.bbc import check_bbc_com, parse_bbc_com
 from src.parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
-from src.producers.processor import send_message
+from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
 from src.producers.telegram.telegram_api import send_message_api
 from src.parsers.rss.user_agents_manager import random_user_agent_headers
@@ -80,7 +80,7 @@ async def _rss_parser(
         image_path = await save_image_tmp_from_url(image)
         map_images.appendleft(image_path)
 
-        await send_message(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image_path)
+        await serve(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image_path)
 
         map_images.remove(image_path)
         return image_path
