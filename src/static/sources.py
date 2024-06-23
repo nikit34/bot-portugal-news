@@ -9,12 +9,12 @@ telegram_channels = {
 }
 
 rss_channels = {
-    'abola.pt': 'https://www.abola.pt/api/rss',
-    'abola.pt/nacional': 'https://www.abola.pt/rss/nacional',
-    'abola.pt/internacional': 'https://www.abola.pt/rss/internacional',
-    'abola.pt/modalidades': 'https://www.abola.pt/rss/modalidades',
-    'abola.pt/motores': 'https://www.abola.pt/rss/motores',
-    'bbc.com/football': 'https://feeds.bbci.co.uk/sport/football/rss.xml'
+    # 'abola.pt': 'https://www.abola.pt/api/rss',
+    # 'abola.pt/nacional': 'https://www.abola.pt/rss/nacional',
+    # 'abola.pt/internacional': 'https://www.abola.pt/rss/internacional',
+    # 'abola.pt/modalidades': 'https://www.abola.pt/rss/modalidades',
+    # 'abola.pt/motores': 'https://www.abola.pt/rss/motores',
+    # 'bbc.com/football': 'https://feeds.bbci.co.uk/sport/football/rss.xml'
 }
 
 tmp_folder = os.getcwd() + '/tmp'

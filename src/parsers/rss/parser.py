@@ -5,8 +5,8 @@ import feedparser
 import httpx
 
 from src.files_manager import save_image_tmp_from_url, remove_tmp_file
-from src.parsers.channels.com.bbc import check_bbc_com, parse_bbc_com
-from src.parsers.channels.pt.abola import check_abola_pt, parse_abola_pt
+from src.parsers.rss.channels.com.bbc import check_bbc_com, parse_bbc_com
+from src.parsers.rss.channels.pt.abola import check_abola_pt, parse_abola_pt
 from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
 from src.producers.telegram.telegram_api import send_message_api
