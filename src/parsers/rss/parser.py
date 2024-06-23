@@ -76,9 +76,9 @@ async def _rss_parser(
                 continue
             message_text, link, image = parse_bbc_com(entry)
 
-        image_path = await save_image_tmp_from_url(image)
+        file_path = await save_image_tmp_from_url(image)
 
-        await serve(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image_path)
+        await serve(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, file_path)
 
-        if image_path is not None:
-            os.remove(image_path)
+        if file_path is not None:
+            os.remove(file_path)

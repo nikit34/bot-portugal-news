@@ -14,7 +14,7 @@ from src.producers.telegram.producer import (
 from src.static.sources import translations
 
 
-async def serve(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, image):
+async def serve(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, file_path):
     translated_message = translate_message(translator, message_text, 'pt')
 
     if is_duplicate_message(translated_message, posted_q):
@@ -23,8 +23,8 @@ async def serve(client, graph, translator, telegram_chat_id, posted_q, source, m
     telegram_post = telegram_prepare_post(translated_message, source, link)
     facebook_post = facebook_prepare_post(translated_message, link)
 
-    telegram_task = telegram_send_message(client, telegram_chat_id, telegram_post, image)
-    facebook_task = facebook_send_message(graph, facebook_post, image)
+    telegram_task = telegram_send_message(client, telegram_chat_id, telegram_post, file_path)
+    facebook_task = facebook_send_message(graph, facebook_post, file_path)
 
     telegram_message_sent, facebook_message_sent = await asyncio.gather(telegram_task, facebook_task)
     if telegram_message_sent:
