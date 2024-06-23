@@ -15,7 +15,7 @@ def clean_tmp_folder():
             os.remove(file_path)
 
 
-async def save_image_tmp_from_url(url):
+async def save_file_tmp_from_url(url):
     response = requests.get(url)
     response.raise_for_status()
 

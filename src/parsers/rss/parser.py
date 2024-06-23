@@ -5,7 +5,7 @@ import os
 import feedparser
 import httpx
 
-from src.files_manager import save_image_tmp_from_url
+from src.files_manager import save_file_tmp_from_url
 from src.parsers.rss.channels.com.bbc import check_bbc_com, parse_bbc_com
 from src.parsers.rss.channels.pt.abola import check_abola_pt, parse_abola_pt
 from src.processor.service import serve
@@ -76,7 +76,7 @@ async def _rss_parser(
                 continue
             message_text, link, image = parse_bbc_com(entry)
 
-        file_path = await save_image_tmp_from_url(image)
+        file_path = await save_file_tmp_from_url(image)
 
         await serve(client, graph, translator, telegram_chat_id, posted_q, source, message_text, link, file_path)
 
