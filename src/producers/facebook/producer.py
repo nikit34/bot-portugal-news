@@ -30,7 +30,6 @@ async def facebook_send_translated_respond(graph, flag, post, translated_text):
     )
 
 
-@retry()
 def send_video(graph, message, video_path):
     url = 'https://graph.facebook.com/v20.0/' + self_facebook_page_id + '/videos'
 
