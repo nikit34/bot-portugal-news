@@ -6,6 +6,11 @@ from src.producers.facebook.producer import (
     facebook_send_message,
     facebook_send_translated_respond
 )
+from src.producers.instagram.producer import (
+    instagram_prepare_post,
+    instagram_send_message,
+    instagram_send_translated_respond
+)
 from src.producers.telegram.producer import (
     telegram_send_translated_respond,
     telegram_send_message,
@@ -22,11 +27,15 @@ async def serve(client, graph, translator, telegram_chat_id, posted_q, source, m
 
     telegram_post = telegram_prepare_post(translated_message, source, link)
     facebook_post = facebook_prepare_post(translated_message, link)
+    instagram_post = instagram_prepare_post(translated_message, link)
 
     telegram_task = telegram_send_message(client, telegram_chat_id, telegram_post, file_path)
     facebook_task = facebook_send_message(graph, facebook_post, file_path)
+    instagram_task = instagram_send_message(graph, instagram_post, file_path)
 
-    telegram_message_sent, facebook_message_sent = await asyncio.gather(telegram_task, facebook_task)
+    telegram_message_sent, facebook_message_sent, instagram_message_sent = await asyncio.gather(
+        telegram_task, facebook_task, instagram_task
+    )
     if telegram_message_sent:
         translation_tasks = []
 
@@ -37,6 +46,9 @@ async def serve(client, graph, translator, telegram_chat_id, posted_q, source, m
             )
             translation_tasks.append(
                 facebook_send_translated_respond(graph, flag, facebook_message_sent, translated_text)
+            )
+            translation_tasks.append(
+                instagram_send_translated_respond(graph, flag, instagram_message_sent, translated_text)
             )
 
         await asyncio.gather(*translation_tasks)
