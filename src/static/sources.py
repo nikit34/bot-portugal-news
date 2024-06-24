@@ -1,6 +1,8 @@
 import os
 
 self_telegram_channel = 'https://t.me/sportportugal'
+telegram_chat_id = '-1002106461489'
+telegram_debug_chat_id = '-1002178707665'
 self_facebook_page_id = '348454375016310'
 
 telegram_channels = {

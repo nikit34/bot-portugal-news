@@ -1,6 +1,7 @@
 from src.producers.repeater import async_retry
 from src.static.settings import TELEGRAM_MAX_LENGTH_MESSAGE
 from src.producers.text_editor import trunc_str
+from src.static.sources import telegram_chat_id
 
 
 def telegram_prepare_post(translated_message, source, link):
@@ -9,9 +10,9 @@ def telegram_prepare_post(translated_message, source, link):
 
 
 @async_retry()
-async def telegram_send_message(client, telegram_chat_id, post, file):
+async def telegram_send_message(client, post, file):
     return await client.send_message(
-        entity=int(telegram_chat_id),
+        entity=telegram_chat_id,
         message=post,
         file=file,
         parse_mode='html',
