@@ -32,8 +32,6 @@ async def main():
     telegram_api_hash = get_secret_key('.', 'TELEGRAM_API_HASH')
     telegram_password = get_secret_key('.', 'TELEGRAM_PASSWORD')
     telegram_bot_token = get_secret_key('.', 'TELEGRAM_TOKEN_BOT')
-    telegram_chat_id = get_secret_key('.', 'TELEGRAM_CHAT_ID')
-    telegram_debug_chat_id = get_secret_key('.', 'TELEGRAM_DEBUG_CHAT_ID')
 
     facebook_access_token = get_secret_key('.', 'FACEBOOK_ACCESS_TOKEN')
 
@@ -64,8 +62,6 @@ async def main():
                 graph=graph,
                 translator=translator,
                 telegram_bot_token=telegram_bot_token,
-                telegram_chat_id=telegram_chat_id,
-                telegram_debug_chat_id=telegram_debug_chat_id,
                 channel=channel,
                 posted_q=posted_q
             )
@@ -77,8 +73,6 @@ async def main():
                 graph=graph,
                 translator=translator,
                 telegram_bot_token=telegram_bot_token,
-                telegram_chat_id=telegram_chat_id,
-                telegram_debug_chat_id=telegram_debug_chat_id,
                 source=source,
                 rss_link=rss_link,
                 posted_q=posted_q
@@ -89,7 +83,7 @@ async def main():
     except Exception as e:
         message = '&#9888; ERROR: Parsers is down\n' + str(e)
         logger.error(message)
-        await send_message_api(message, telegram_bot_token, telegram_debug_chat_id)
+        await send_message_api(message, telegram_bot_token)
     finally:
         clean_tmp_folder()
 
