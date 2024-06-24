@@ -43,5 +43,5 @@ def send_video(graph, message, video_path):
             'file': file
         }
         response = requests.post(url, data=video_data, files=files)
-
+    response.raise_for_status()
     return response.json()
