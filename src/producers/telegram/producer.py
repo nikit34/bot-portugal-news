@@ -12,7 +12,7 @@ def telegram_prepare_post(translated_message, source, link):
 @async_retry()
 async def telegram_send_message(client, post, file):
     return await client.send_message(
-        entity=telegram_chat_id,
+        entity=int(telegram_chat_id),
         message=post,
         file=file,
         parse_mode='html',
