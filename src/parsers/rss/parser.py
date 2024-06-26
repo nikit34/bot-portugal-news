@@ -78,7 +78,7 @@ async def _rss_parser(
 
         translated_message = translate_message(translator, message_text, 'pt')
 
-        if is_duplicate_message(translated_message, posted_q) and low_semantic_load(nlp, translated_message):
+        if is_duplicate_message(translated_message, posted_q) or low_semantic_load(nlp, translated_message):
             continue
 
         url_path = await save_file_tmp_from_url(image)
