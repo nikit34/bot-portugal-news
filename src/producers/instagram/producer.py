@@ -18,6 +18,7 @@ async def _upload_media(access_token, message, media_url):
         'access_token': access_token,
     }
     response = requests.post(upload_url, data=data)
+    response.raise_for_status()
     return response.json().get('id')
 
 
@@ -28,6 +29,7 @@ async def _publish_media(access_token, media_id):
         'access_token': access_token
     }
     response = requests.post(publish_url, data=params)
+    response.raise_for_status()
     return response.json()
 
 
@@ -37,7 +39,8 @@ async def _add_comment(access_token, media_id, message):
         'message': message,
         'access_token': access_token
     }
-    requests.post(url, data=params)
+    response = requests.post(url, data=params)
+    response.raise_for_status()
 
 
 @retry(timeout=4)
