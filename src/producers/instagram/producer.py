@@ -10,17 +10,14 @@ from src.static.sources import self_instagram_channel
 logger = logging.getLogger(__name__)
 
 
-async def _upload_media(access_token, message, file_path):
+async def _upload_media(access_token, message, media_url):
     upload_url = 'https://graph.facebook.com/v20.0/' + self_instagram_channel + '/media'
-    with open(file_path, 'rb') as file:
-        files = {
-            'file': file,
-        }
-        data = {
-            'caption': message,
-            'access_token': access_token,
-        }
-        response = requests.post(upload_url, files=files, data=data)
+    data = {
+        'image_url': media_url,
+        'caption': message,
+        'access_token': access_token,
+    }
+    response = requests.post(upload_url, data=data)
     return response.json().get('id')
 
 
@@ -51,9 +48,10 @@ def instagram_prepare_post(translated_message, link):
 
 
 @async_retry()
-async def instagram_send_message(graph, message, file_path):
+async def instagram_send_message(graph, message, url_path):
     access_token = graph.get('access_token')
-    media_id = await _upload_media(access_token, message, file_path)
+    media_url = url_path.get('url')
+    media_id = await _upload_media(access_token, message, media_url)
     return _publish_media(access_token, media_id)
 
 

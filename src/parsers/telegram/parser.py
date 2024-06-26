@@ -33,9 +33,10 @@ async def _telegram_parser(getter_client, graph, translator, channel, posted_q):
         link = source + '/' + str(message.id)
         channel = '@' + source.split('/')[-1]
 
-        file_path = await save_file_tmp_from_telegram(getter_client, message)
+        url_path = await save_file_tmp_from_telegram(getter_client, message)
 
-        await serve(getter_client, graph, translator, posted_q, channel, message_text, link, file_path)
+        await serve(getter_client, graph, translator, posted_q, channel, message_text, link, url_path)
 
+        file_path = url_path.get('path')
         if file_path is not None:
             os.remove(file_path)
