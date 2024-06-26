@@ -1,5 +1,8 @@
+import asyncio
 import logging
+import signal
 
+from src.files_manager import SaveFileTelegram
 from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES
 from src.static.sources import telegram_channels
@@ -30,4 +33,8 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
         link = source + '/' + str(message.id)
         channel = '@' + source.split('/')[-1]
 
-        await serve(getter_client, graph, nlp, translator, message_text, channel, link, message, posted_q)
+        handler = SaveFileTelegram(getter_client, message)
+        loop = asyncio.get_event_loop()
+        loop.add_signal_handler(signal.SIGUSR1, handler)
+
+        await serve(getter_client, graph, nlp, translator, message_text, channel, link, handler, posted_q)

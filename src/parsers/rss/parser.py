@@ -1,9 +1,11 @@
 import asyncio
 import logging
+import signal
 
 import feedparser
 import httpx
 
+from src.files_manager import SaveFileUrl
 from src.parsers.rss.channels.com.bbc import check_bbc_com, parse_bbc_com
 from src.parsers.rss.channels.pt.abola import check_abola_pt, parse_abola_pt
 from src.processor.service import serve
@@ -73,4 +75,8 @@ async def _rss_parser(
                 continue
             message_text, link, image = parse_bbc_com(entry)
 
-        await serve(client, graph, nlp, translator, message_text, source, link, image, posted_q)
+        handler = SaveFileUrl(image)
+        loop = asyncio.get_event_loop()
+        loop.add_signal_handler(signal.SIGUSR1, handler)
+
+        await serve(client, graph, nlp, translator, message_text, source, link, handler, posted_q)

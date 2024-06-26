@@ -15,25 +15,34 @@ def clean_tmp_folder():
             os.remove(file_path)
 
 
-async def save_file_tmp_from_url(url):
-    response = requests.get(url)
-    response.raise_for_status()
+class SaveFileUrl:
+    def __init__(self, url):
+        self.url = url
 
-    image = Image.open(BytesIO(response.content))
+    def __call__(self):
+        response = requests.get(self.url)
+        response.raise_for_status()
 
-    image_path = tmp_folder + '/' + str(time.time()) + '.png'
-    image.save(image_path)
-    url_path = {
-        "url": url,
-        "path": image_path
-    }
-    return url_path
+        image = Image.open(BytesIO(response.content))
+
+        image_path = tmp_folder + '/' + str(time.time()) + '.png'
+        image.save(image_path)
+        url_path = {
+            "url": self.url,
+            "path": image_path
+        }
+        return url_path
 
 
-async def save_file_tmp_from_telegram(getter_client, message):
-    url = message.media
-    url_path = {
-        "url": url,
-        "path": await getter_client.download_media(url, file=tmp_folder)
-    }
-    return url_path
+class SaveFileTelegram:
+    def __init__(self, getter_client, message):
+        self.getter_client = getter_client
+        self.message = message
+
+    async def __call__(self):
+        url = self.message.media
+        url_path = {
+            "url": url,
+            "path": await self.getter_client.download_media(url, file=tmp_folder)
+        }
+        return url_path
