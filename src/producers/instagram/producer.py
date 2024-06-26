@@ -49,7 +49,7 @@ def instagram_prepare_post(translated_message, link):
 
 @async_retry()
 async def instagram_send_message(graph, message, url_path):
-    access_token = graph.get('access_token')
+    access_token = graph.access_token
     media_url = url_path.get('url')
     media_id = await _upload_media(access_token, message, media_url)
     return _publish_media(access_token, media_id)
