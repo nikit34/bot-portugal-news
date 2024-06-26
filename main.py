@@ -2,6 +2,7 @@ import asyncio
 import logging
 from collections import deque
 
+import spacy
 from telethon import TelegramClient
 from googletrans import Translator
 import facebook as fb
@@ -40,6 +41,7 @@ async def main():
 
     graph = fb.GraphAPI(access_token=facebook_access_token)
 
+    nlp = spacy.load('pt_core_news_sm')
     translator = Translator(service_urls=['translate.googleapis.com'])
 
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
@@ -60,6 +62,7 @@ async def main():
             task = telegram_wrapper(
                 getter_client=getter_client,
                 graph=graph,
+                nlp=nlp,
                 translator=translator,
                 telegram_bot_token=telegram_bot_token,
                 channel=channel,
@@ -71,6 +74,7 @@ async def main():
             task = rss_wrapper(
                 client=getter_client,
                 graph=graph,
+                nlp=nlp,
                 translator=translator,
                 telegram_bot_token=telegram_bot_token,
                 source=source,

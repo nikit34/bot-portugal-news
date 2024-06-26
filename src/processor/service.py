@@ -15,6 +15,7 @@ from src.producers.telegram.producer import (
     telegram_send_message,
     telegram_prepare_post
 )
+from src.static.settings import MINIMUM_NUMBER_KEYWORDS
 from src.static.sources import translations
 
 
@@ -51,3 +52,15 @@ async def serve(client, graph, translator, translated_message, source, link, url
 def translate_message(translator, message_text, dest_lang):
     translated = translator.translate(message_text, dest=dest_lang)
     return translated.text
+
+
+def _extract_keywords(nlp, text):
+    doc = nlp(text)
+    keywords = [token.text for token in doc if token.is_stop != True and token.is_punct != True]
+    return keywords
+
+
+def low_semantic_load(nlp, message):
+    keywords = _extract_keywords(nlp, message)
+    return len(keywords) < MINIMUM_NUMBER_KEYWORDS
+
