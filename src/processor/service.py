@@ -1,6 +1,5 @@
 import asyncio
 
-from src.processor.history_comparator import is_duplicate_message
 from src.producers.facebook.producer import (
     facebook_prepare_post,
     facebook_send_message,
@@ -19,12 +18,7 @@ from src.producers.telegram.producer import (
 from src.static.sources import translations
 
 
-async def serve(client, graph, translator, posted_q, source, message_text, link, url_path):
-    translated_message = translate_message(translator, message_text, 'pt')
-
-    if is_duplicate_message(translated_message, posted_q):
-        return
-
+async def serve(client, graph, translator, translated_message, source, link, url_path):
     telegram_post = telegram_prepare_post(translated_message, source, link)
     facebook_post = facebook_prepare_post(translated_message, link)
     instagram_post = instagram_prepare_post(translated_message, link)
