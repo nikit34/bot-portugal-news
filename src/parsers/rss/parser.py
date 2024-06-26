@@ -1,15 +1,12 @@
 import asyncio
 import logging
-import os
 
 import feedparser
 import httpx
 
-from src.files_manager import save_file_tmp_from_url
 from src.parsers.rss.channels.com.bbc import check_bbc_com, parse_bbc_com
 from src.parsers.rss.channels.pt.abola import check_abola_pt, parse_abola_pt
-from src.processor.history_comparator import is_duplicate_message
-from src.processor.service import serve, translate_message, low_semantic_load
+from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
 from src.producers.telegram.telegram_api import send_message_api
 from src.parsers.rss.user_agents_manager import random_user_agent_headers
@@ -76,15 +73,4 @@ async def _rss_parser(
                 continue
             message_text, link, image = parse_bbc_com(entry)
 
-        translated_message = translate_message(translator, message_text, 'pt')
-
-        if is_duplicate_message(translated_message, posted_q) or low_semantic_load(nlp, translated_message):
-            continue
-
-        url_path = await save_file_tmp_from_url(image)
-
-        await serve(client, graph, translator, translated_message, source, link, url_path)
-
-        file_path = url_path.get('path')
-        if file_path is not None:
-            os.remove(file_path)
+        await serve(client, graph, nlp, translator, message_text, source, link, image, posted_q)

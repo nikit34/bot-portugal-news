@@ -1,5 +1,8 @@
 import asyncio
+import os
 
+from src.files_manager import save_file_tmp_from_url, save_file_tmp_from_telegram
+from src.processor.history_comparator import is_duplicate_message
 from src.producers.facebook.producer import (
     facebook_prepare_post,
     facebook_send_message,
@@ -19,7 +22,17 @@ from src.static.settings import MINIMUM_NUMBER_KEYWORDS
 from src.static.sources import translations
 
 
-async def serve(client, graph, translator, translated_message, source, link, url_path):
+async def serve(client, graph, nlp, translator, message_text, source, link, image, posted_q):
+    translated_message = translate_message(translator, message_text, 'pt')
+
+    if is_duplicate_message(translated_message, posted_q) or low_semantic_load(nlp, translated_message):
+        return
+
+    if isinstance(image, str):
+        url_path = await save_file_tmp_from_url(image)
+    else:
+        url_path = await save_file_tmp_from_telegram(client, image)
+
     telegram_post = telegram_prepare_post(translated_message, source, link)
     facebook_post = facebook_prepare_post(translated_message, link)
     instagram_post = instagram_prepare_post(translated_message, link)
@@ -47,6 +60,10 @@ async def serve(client, graph, translator, translated_message, source, link, url
             )
 
         await asyncio.gather(*translation_tasks)
+
+    file_path = url_path.get('path')
+    if file_path is not None:
+        os.remove(file_path)
 
 
 def translate_message(translator, message_text, dest_lang):

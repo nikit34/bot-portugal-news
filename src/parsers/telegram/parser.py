@@ -1,9 +1,6 @@
 import logging
-import os
 
-from src.files_manager import save_file_tmp_from_telegram
-from src.processor.history_comparator import is_duplicate_message
-from src.processor.service import serve, translate_message, low_semantic_load
+from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES
 from src.static.sources import telegram_channels
 from src.producers.telegram.telegram_api import send_message_api
@@ -25,24 +22,12 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
     async for message in getter_client.iter_messages(channel, limit=MAX_NUMBER_TAKEN_MESSAGES):
 
         message_text = message.raw_text
-        file = message.file
 
-        if not message_text or file is None:
+        if not message_text or message.media is None:
             continue
 
         source = telegram_channels.get(message.peer_id.channel_id)
         link = source + '/' + str(message.id)
         channel = '@' + source.split('/')[-1]
 
-        translated_message = translate_message(translator, message_text, 'pt')
-
-        if is_duplicate_message(translated_message, posted_q) or low_semantic_load(nlp, translated_message):
-            continue
-
-        url_path = await save_file_tmp_from_telegram(getter_client, message)
-
-        await serve(getter_client, graph, translator, translated_message, channel, link, url_path)
-
-        file_path = url_path.get('path')
-        if file_path is not None:
-            os.remove(file_path)
+        await serve(getter_client, graph, nlp, translator, message_text, channel, link, message, posted_q)
