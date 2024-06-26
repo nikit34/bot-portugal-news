@@ -31,7 +31,7 @@ jobs:
         echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
     - name: Run bot
       run: python main.py
-      timeout-minutes: 5
+      timeout-minutes: 10
       continue-on-error: true
       env:
         TELEGRAM_TOKEN_BOT: ${{ secrets.TOKEN_BOT }}
