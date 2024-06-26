@@ -2,7 +2,8 @@ import logging
 import os
 
 from src.files_manager import save_file_tmp_from_telegram
-from src.processor.service import serve
+from src.processor.history_comparator import is_duplicate_message
+from src.processor.service import serve, translate_message
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES
 from src.static.sources import telegram_channels
 from src.producers.telegram.telegram_api import send_message_api
@@ -33,9 +34,14 @@ async def _telegram_parser(getter_client, graph, translator, channel, posted_q):
         link = source + '/' + str(message.id)
         channel = '@' + source.split('/')[-1]
 
-        file_path = await save_file_tmp_from_telegram(getter_client, message)
+        translated_message = translate_message(translator, message_text, 'pt')
+        if is_duplicate_message(translated_message, posted_q):
+            continue
 
-        await serve(getter_client, graph, translator, posted_q, channel, message_text, link, file_path)
+        url_path = await save_file_tmp_from_telegram(getter_client, message)
 
+        await serve(getter_client, graph, translator, translated_message, channel, link, url_path)
+
+        file_path = url_path.get('path')
         if file_path is not None:
             os.remove(file_path)

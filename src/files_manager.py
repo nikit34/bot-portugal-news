@@ -23,8 +23,17 @@ async def save_file_tmp_from_url(url):
 
     image_path = tmp_folder + '/' + str(time.time()) + '.png'
     image.save(image_path)
-    return image_path
+    url_path = {
+        "url": url,
+        "path": image_path
+    }
+    return url_path
 
 
 async def save_file_tmp_from_telegram(getter_client, message):
-    return await getter_client.download_media(message.media, file=tmp_folder)
+    url = message.media
+    url_path = {
+        "url": url,
+        "path": await getter_client.download_media(url, file=tmp_folder)
+    }
+    return url_path
