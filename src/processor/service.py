@@ -30,7 +30,7 @@ async def serve(client, graph, translator, translated_message, source, link, url
     telegram_message_sent, facebook_message_sent, instagram_message_sent = await asyncio.gather(
         telegram_task, facebook_task, instagram_task
     )
-    if telegram_message_sent:
+    if telegram_message_sent and facebook_message_sent and instagram_message_sent:
         translation_tasks = []
 
         for flag, lang in translations.items():
