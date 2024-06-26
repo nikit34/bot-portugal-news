@@ -36,7 +36,7 @@ async def _telegram_parser(getter_client, graph, translator, channel, posted_q):
 
         translated_message = translate_message(translator, message_text, 'pt')
         if is_duplicate_message(translated_message, posted_q):
-            return
+            continue
 
         url_path = await save_file_tmp_from_telegram(getter_client, message)
 
