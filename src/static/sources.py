@@ -26,3 +26,9 @@ translations = {
     '🇷🇺': 'ru',
     '🇬🇧': 'en'
 }
+
+platforms = {
+    'telegram': True,
+    'facebook': True,
+    'instagram': False,
+}

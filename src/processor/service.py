@@ -18,7 +18,7 @@ from src.producers.telegram.producer import (
     telegram_prepare_post
 )
 from src.static.settings import MINIMUM_NUMBER_KEYWORDS
-from src.static.sources import translations
+from src.static.sources import translations, platforms
 
 
 async def serve(client, graph, nlp, translator, message_text, source, link, handler, posted_q):
@@ -29,31 +29,44 @@ async def serve(client, graph, nlp, translator, message_text, source, link, hand
 
     url_path = handler()
 
-    telegram_post = telegram_prepare_post(translated_message, source, link)
-    facebook_post = facebook_prepare_post(translated_message, link)
-    instagram_post = instagram_prepare_post(translated_message, link)
+    tasks = {}
 
-    telegram_task = telegram_send_message(client, telegram_post, url_path)
-    facebook_task = facebook_send_message(graph, facebook_post, url_path)
-    instagram_task = instagram_send_message(graph, instagram_post, url_path)
+    if platforms.get('telegram', False):
+        telegram_post = telegram_prepare_post(translated_message, source, link)
+        tasks['telegram'] = telegram_send_message(client, telegram_post, url_path)
 
-    telegram_message_sent, facebook_message_sent, instagram_message_sent = await asyncio.gather(
-        telegram_task, facebook_task, instagram_task
-    )
-    if telegram_message_sent and facebook_message_sent and instagram_message_sent:
+    if platforms.get('facebook', False):
+        facebook_post = facebook_prepare_post(translated_message, link)
+        tasks['facebook'] = facebook_send_message(graph, facebook_post, url_path)
+
+    if platforms.get('instagram', False):
+        instagram_post = instagram_prepare_post(translated_message, link)
+        tasks['instagram'] = instagram_send_message(graph, instagram_post, url_path)
+
+    results = await asyncio.gather(*tasks.values())
+
+    all_messages_sent = all(results)
+
+    if all_messages_sent:
         translation_tasks = []
 
         for flag, lang in translations.items():
             translated_text = translate_message(translator, translated_message, lang)
-            translation_tasks.append(
-                telegram_send_translated_respond(flag, telegram_message_sent, translated_text)
-            )
-            translation_tasks.append(
-                facebook_send_translated_respond(graph, flag, facebook_message_sent, translated_text)
-            )
-            translation_tasks.append(
-                instagram_send_translated_respond(graph, flag, instagram_message_sent, translated_text)
-            )
+
+            for platform, message_sent in zip(list(tasks.keys()), results):
+                if platforms.get(platform, False):
+                    if platform == 'telegram':
+                        translation_tasks.append(
+                            telegram_send_translated_respond(flag, message_sent, translated_text)
+                        )
+                    elif platform == 'facebook':
+                        translation_tasks.append(
+                            facebook_send_translated_respond(graph, flag, message_sent, translated_text)
+                        )
+                    elif platform == 'instagram':
+                        translation_tasks.append(
+                            instagram_send_translated_respond(graph, flag, message_sent, translated_text)
+                        )
 
         await asyncio.gather(*translation_tasks)
 
@@ -76,4 +89,3 @@ def _extract_keywords(nlp, text):
 def low_semantic_load(nlp, message):
     keywords = _extract_keywords(nlp, message)
     return len(keywords) < MINIMUM_NUMBER_KEYWORDS
-
