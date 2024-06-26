@@ -10,12 +10,12 @@ def telegram_prepare_post(translated_message, source, link):
 
 
 @async_retry()
-async def telegram_send_message(client, post, file):
+async def telegram_send_message(client, post, url_path):
     return await client.send_message(
         entity=int(telegram_chat_id),
         message=post,
-        file=file,
-        parse_mode='html',
+        file=url_path.get("url"),
+        parse_mode="html",
         link_preview=False
     )
 
