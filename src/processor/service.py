@@ -27,7 +27,7 @@ async def serve(client, graph, nlp, translator, message_text, source, link, hand
     if is_duplicate_message(translated_message, posted_q) or low_semantic_load(nlp, translated_message):
         return
 
-    url_path = handler()
+    url_path = await handler()
 
     tasks = {}
 

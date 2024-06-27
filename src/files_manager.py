@@ -19,7 +19,7 @@ class SaveFileUrl:
     def __init__(self, url):
         self.url = url
 
-    def __call__(self):
+    async def __call__(self):
         response = requests.get(self.url)
         response.raise_for_status()
 
