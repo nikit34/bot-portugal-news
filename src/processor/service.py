@@ -1,5 +1,6 @@
 import asyncio
 import os
+from functools import wraps
 
 from src.processor.history_comparator import is_duplicate_message
 from src.producers.facebook.producer import (
@@ -24,10 +25,18 @@ from src.static.sources import translations, platforms
 async def serve(client, graph, nlp, translator, message_text, source, link, handler, posted_q):
     translated_message = translate_message(translator, message_text, 'pt')
 
-    if is_duplicate_message(translated_message, posted_q) or low_semantic_load(nlp, translated_message):
+    if is_duplicate_message(translated_message, posted_q):
         return
 
-    url_path = await handler()
+    cache_handler = CacheHandler()
+    cached_handler = cache_handler.cache(handler)
+
+    if low_semantic_load(nlp, translated_message):
+        url_path = await cached_handler()
+        if not await is_video(url_path):
+            return
+
+    url_path = await cached_handler()
 
     tasks = {}
 
@@ -89,3 +98,20 @@ def _extract_keywords(nlp, text):
 def low_semantic_load(nlp, message):
     keywords = _extract_keywords(nlp, message)
     return len(keywords) < MINIMUM_NUMBER_KEYWORDS
+
+
+class CacheHandler:
+    def __init__(self):
+        self.cache = None
+
+    def cached(self, func):
+        @wraps(func)
+        async def wrapper():
+            if self.cache is None:
+                self.cache = await func()
+            return self.cache
+        return wrapper
+
+
+async def is_video(url_path):
+    return url_path.get('path').lower().endswith('.mp4')
