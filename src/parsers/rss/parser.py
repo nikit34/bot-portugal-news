@@ -59,6 +59,7 @@ async def _rss_parser(
         posted_q
 ):
     response = await _make_request(rss_link, telegram_bot_token)
+    response.raise_for_status()
     feed = feedparser.parse(response.text)
 
     limit = max(MAX_NUMBER_TAKEN_MESSAGES, len(feed.entries))
