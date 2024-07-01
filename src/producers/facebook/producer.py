@@ -22,15 +22,6 @@ async def facebook_send_message(graph, message, url_path):
     return _send_video(graph, message, file_path)
 
 
-@async_retry()
-async def facebook_send_translated_respond(graph, flag, post, translated_text):
-    graph.put_object(
-        parent_object=post.get('id'),
-        connection_name="comments",
-        message=flag + ' ' + trunc_str(translated_text, FACEBOOK_MAX_LENGTH_MESSAGE)
-    )
-
-
 def _send_video(graph, message, file_path):
     url = 'https://graph.facebook.com/v20.0/' + self_facebook_page_id + '/videos'
 

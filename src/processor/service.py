@@ -5,13 +5,11 @@ from functools import wraps
 from src.processor.history_comparator import is_duplicate_message
 from src.producers.facebook.producer import (
     facebook_prepare_post,
-    facebook_send_message,
-    facebook_send_translated_respond
+    facebook_send_message
 )
 from src.producers.instagram.producer import (
     instagram_prepare_post,
-    instagram_send_message,
-    instagram_send_translated_respond
+    instagram_send_message
 )
 from src.producers.telegram.producer import (
     telegram_send_translated_respond,
@@ -38,44 +36,30 @@ async def serve(client, graph, nlp, translator, message_text, source, link, hand
 
     url_path = await cached_handler()
 
-    tasks = {}
-
-    if platforms.get('telegram', False):
-        telegram_post = telegram_prepare_post(translated_message, source, link)
-        tasks['telegram'] = telegram_send_message(client, telegram_post, url_path)
+    tasks = []
+    telegram_post = telegram_prepare_post(translated_message, source, link)
+    tasks.append(telegram_send_message(client, telegram_post, url_path))
 
     if platforms.get('facebook', False):
         facebook_post = facebook_prepare_post(translated_message, link)
-        tasks['facebook'] = facebook_send_message(graph, facebook_post, url_path)
+        tasks.append(facebook_send_message(graph, facebook_post, url_path))
 
     if platforms.get('instagram', False):
         instagram_post = instagram_prepare_post(translated_message, link)
-        tasks['instagram'] = instagram_send_message(graph, instagram_post, url_path)
+        tasks.append(instagram_send_message(graph, instagram_post, url_path))
 
-    results = await asyncio.gather(*tasks.values())
+    results = await asyncio.gather(*tasks)
 
-    all_messages_sent = all(results)
+    telegram_messages_sent = results[0]
 
-    if all_messages_sent:
+    if telegram_messages_sent:
         translation_tasks = []
 
         for flag, lang in translations.items():
             translated_text = translate_message(translator, translated_message, lang)
-
-            for platform, message_sent in zip(list(tasks.keys()), results):
-                if platforms.get(platform, False):
-                    if platform == 'telegram':
-                        translation_tasks.append(
-                            telegram_send_translated_respond(flag, message_sent, translated_text)
-                        )
-                    elif platform == 'facebook':
-                        translation_tasks.append(
-                            facebook_send_translated_respond(graph, flag, message_sent, translated_text)
-                        )
-                    elif platform == 'instagram':
-                        translation_tasks.append(
-                            instagram_send_translated_respond(graph, flag, message_sent, translated_text)
-                        )
+            translation_tasks.append(
+                telegram_send_translated_respond(flag, telegram_messages_sent, translated_text)
+            )
 
         await asyncio.gather(*translation_tasks)
 

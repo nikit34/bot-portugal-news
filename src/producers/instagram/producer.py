@@ -56,11 +56,3 @@ async def instagram_send_message(graph, message, url_path):
     media_url = url_path.get('url')
     media_id = await _upload_media(access_token, message, media_url)
     return await _publish_media(access_token, media_id)
-
-
-@async_retry()
-async def instagram_send_translated_respond(graph, flag, message_sent, translated_text):
-    access_token = graph.access_token
-    message_id = message_sent.get('id')
-    message = flag + ' ' + trunc_str(translated_text, INSTAGRAM_MAX_LENGTH_MESSAGE)
-    await _add_comment(access_token, message_id, message)

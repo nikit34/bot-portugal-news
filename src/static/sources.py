@@ -28,7 +28,6 @@ translations = {
 }
 
 platforms = {
-    'telegram': True,
     'facebook': True,
     'instagram': False,
 }
