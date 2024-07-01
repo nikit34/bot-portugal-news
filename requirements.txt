@@ -31,7 +31,7 @@ h2==3.2.0
 hpack==3.0.0
 hstspreload==2024.5.1
 httpcore==0.9.1
-httpx==0.23.0
+httpx==0.13.3
 hyperframe==5.2.0
 hyperlink==21.0.0
 idna==3.7
