@@ -14,13 +14,6 @@ async def save_published_message(lock, text):
     async with lock:
         conn = sqlite3.connect(storage)
         cursor = conn.cursor()
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS messages (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                text TEXT NOT NULL UNIQUE
-            )
-        ''')
-        conn.commit()
 
         cursor.execute('INSERT OR IGNORE INTO messages (text) VALUES (?)', (text,))
         conn.commit()
