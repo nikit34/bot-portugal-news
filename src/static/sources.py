@@ -21,11 +21,7 @@ rss_channels = {
 }
 
 tmp_folder = os.getcwd() + '/tmp'
-
-translations = {
-    '🇷🇺': 'ru',
-    '🇬🇧': 'en'
-}
+storage = os.getcwd() + '/db.sqlite3'
 
 platforms = {
     'facebook': True,

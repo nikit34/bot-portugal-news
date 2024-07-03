@@ -45,3 +45,12 @@ jobs:
         TELEGRAM_BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         TELEGRAM_PASSWORD: ${{ secrets.PASSWORD }}
         FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+    - name: Commit updated db
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: db.sqlite3
+        author_name: nikit34
+        author_email: permikov134@mail.ru
+        commit: --signoff
+        message: 'Update db'
+        pathspec_error_handling: exitAtEnd
