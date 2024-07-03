@@ -17,9 +17,9 @@ from src.parsers.rss.user_agents_manager import random_user_agent_headers
 logger = logging.getLogger(__name__)
 
 
-async def rss_wrapper(client, graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q):
+async def rss_wrapper(graph, nlp, translator, lock, telegram_bot_token, source, rss_link, posted_q):
     try:
-        await _rss_parser(client, graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q)
+        await _rss_parser(graph, nlp, translator, lock, telegram_bot_token, source, rss_link, posted_q)
     except Exception as e:
         message = '&#9888; ERROR: ' + source + ' rss parser is down\n' + str(e)
         logger.error(message)
@@ -49,10 +49,10 @@ async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
 
 
 async def _rss_parser(
-        client,
         graph,
         nlp,
         translator,
+        lock,
         telegram_bot_token,
         source,
         rss_link,
@@ -80,4 +80,4 @@ async def _rss_parser(
         loop = asyncio.get_event_loop()
         loop.add_signal_handler(signal.SIGUSR1, handler)
 
-        await serve(client, graph, nlp, translator, message_text, source, link, handler, posted_q)
+        await serve(graph, nlp, translator, lock, message_text, link, handler, posted_q)
