@@ -45,7 +45,7 @@ jobs:
     - name: Commit updated db
       uses: EndBug/add-and-commit@v9
       with:
-        add: db.sqlite3
+        add: 'db.sqlite3'
         author_name: nikit34
         author_email: permikov134@mail.ru
         commit: --signoff
