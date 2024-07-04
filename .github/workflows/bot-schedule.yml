@@ -35,7 +35,8 @@ jobs:
       uses: actions/cache@v3
       with:
         path: db.sqlite3
-        key: db
+        key: db-${{ hashFiles('db.sqlite3') }}
+        restore-keys: db-
     - name: Run bot
       run: python main.py
       timeout-minutes: 10
