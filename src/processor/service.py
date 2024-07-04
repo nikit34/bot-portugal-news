@@ -19,10 +19,6 @@ from src.static.sources import platforms
 async def serve(graph, nlp, translator, lock, message_text, link, handler, posted_q):
     translated_message = translate_message(translator, message_text, 'pt')
 
-    head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
-    if is_duplicate_message(head, posted_q):
-        return
-
     cache_handler = CacheHandler()
     cached_handler = cache_handler.cached(handler)
 
@@ -30,6 +26,10 @@ async def serve(graph, nlp, translator, lock, message_text, link, handler, poste
         url_path = await cached_handler()
         if not await is_video(url_path):
             return
+
+    head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
+    if is_duplicate_message(head, posted_q):
+        return
 
     posted_q.appendleft(head)
     await save_published_message(lock, head)
