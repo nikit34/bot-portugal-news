@@ -47,3 +47,8 @@ jobs:
         TELEGRAM_BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         TELEGRAM_PASSWORD: ${{ secrets.PASSWORD }}
         FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+    - name: Download db
+      uses: actions/download-artifact@v3
+      with:
+        name: db
+        path: db.sqlite3
