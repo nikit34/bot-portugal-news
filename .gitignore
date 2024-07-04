@@ -2,7 +2,6 @@
 venv/
 
 secret
-db.sqlite3
 
 bot.session-journal
 getter_bot.session-journal
