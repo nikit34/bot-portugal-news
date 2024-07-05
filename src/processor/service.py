@@ -2,7 +2,6 @@ import asyncio
 import os
 from functools import wraps
 
-from src.files_manager import save_published_message
 from src.processor.history_comparator import is_duplicate_message
 from src.producers.facebook.producer import (
     facebook_prepare_post,
@@ -16,7 +15,7 @@ from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS
 from src.static.sources import platforms
 
 
-async def serve(graph, nlp, translator, lock, message_text, link, handler, posted_q):
+async def serve(graph, nlp, translator, message_text, link, handler, posted_q):
     translated_message = translate_message(translator, message_text, 'pt')
 
     cache_handler = CacheHandler()
@@ -32,7 +31,6 @@ async def serve(graph, nlp, translator, lock, message_text, link, handler, poste
         return
 
     posted_q.appendleft(head)
-    await save_published_message(lock, head)
 
     url_path = await cached_handler()
 

@@ -7,7 +7,8 @@ from telethon import TelegramClient
 from googletrans import Translator
 import facebook as fb
 
-from src.files_manager import clean_tmp_folder, get_published_messages
+from src.files_manager import clean_tmp_folder
+from src.parsers.facebook.parser import get_published_messages
 from src.parsers.rss.parser import rss_wrapper
 from src.parsers.telegram.parser import telegram_wrapper
 from src.properties_reader import get_secret_key
@@ -43,8 +44,6 @@ async def main():
     nlp = spacy.load('pt_core_news_sm')
     translator = Translator(service_urls=['translate.googleapis.com'])
 
-    lock = asyncio.Lock()
-
     posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
 
     tasks = [
@@ -54,7 +53,7 @@ async def main():
     await asyncio.gather(*tasks)
 
     try:
-        history = get_published_messages()
+        history = get_published_messages(graph, COUNT_UNIQUE_MESSAGES)
         posted_q.extend(history)
 
         tasks = []
@@ -65,7 +64,6 @@ async def main():
                 graph=graph,
                 nlp=nlp,
                 translator=translator,
-                lock=lock,
                 telegram_bot_token=telegram_bot_token,
                 channel=channel,
                 posted_q=posted_q
@@ -77,7 +75,6 @@ async def main():
                 graph=graph,
                 nlp=nlp,
                 translator=translator,
-                lock=lock,
                 telegram_bot_token=telegram_bot_token,
                 source=source,
                 rss_link=rss_link,

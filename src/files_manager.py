@@ -1,48 +1,11 @@
 import os
-import sqlite3
 
 import requests
 import time
 from io import BytesIO
 from PIL import Image
 
-from src.static.settings import COUNT_UNIQUE_MESSAGES
-from src.static.sources import tmp_folder, storage
-
-
-async def save_published_message(lock, text):
-    async with lock:
-        conn = sqlite3.connect(storage)
-        cursor = conn.cursor()
-
-        cursor.execute('INSERT OR IGNORE INTO messages (text) VALUES (?)', (text,))
-        conn.commit()
-
-        cursor.execute('SELECT COUNT(text) FROM messages')
-        count_unique = cursor.fetchone()[0]
-
-        if count_unique > COUNT_UNIQUE_MESSAGES:
-            excess = count_unique - COUNT_UNIQUE_MESSAGES
-            cursor.execute('''
-                DELETE FROM messages
-                WHERE id IN (
-                    SELECT id FROM messages
-                    ORDER BY id ASC
-                    LIMIT ?
-                )
-            ''', (excess,))
-            conn.commit()
-        conn.close()
-
-
-def get_published_messages():
-    conn = sqlite3.connect(storage)
-    cursor = conn.cursor()
-    cursor.execute('SELECT text FROM messages')
-    rows = cursor.fetchall()
-    messages = [row[0] for row in rows]
-    conn.close()
-    return messages
+from src.static.sources import tmp_folder
 
 
 def clean_tmp_folder():

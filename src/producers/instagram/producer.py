@@ -43,7 +43,7 @@ async def _add_comment(access_token, media_id, message):
     response.raise_for_status()
 
 
-@retry(timeout=4)
+@retry()
 def instagram_prepare_post(translated_message, link):
     shortener = pyshorteners.Shortener()
     shorted_link = shortener.tinyurl.short(link)
