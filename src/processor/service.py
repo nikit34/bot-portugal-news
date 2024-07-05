@@ -39,7 +39,7 @@ async def serve(graph, nlp, translator, message_text, link, handler, posted_q):
     tasks = []
 
     if platforms.get('facebook', False):
-        facebook_post = facebook_prepare_post(translated_message, link)
+        facebook_post = facebook_prepare_post(nlp, translated_message, link)
         tasks.append(facebook_send_message(graph, facebook_post, url_path))
 
     if platforms.get('instagram', False):
