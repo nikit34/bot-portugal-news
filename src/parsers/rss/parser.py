@@ -61,7 +61,7 @@ async def _rss_parser(
     response.raise_for_status()
     feed = feedparser.parse(response.text)
 
-    limit = max(MAX_NUMBER_TAKEN_MESSAGES, len(feed.entries))
+    limit = min(MAX_NUMBER_TAKEN_MESSAGES, len(feed.entries))
     for entry in feed.entries[:limit][::-1]:
         message_text = ''
         link = ''
