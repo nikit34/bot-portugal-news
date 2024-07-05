@@ -11,23 +11,25 @@ from src.producers.instagram.producer import (
     instagram_prepare_post,
     instagram_send_message
 )
-from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS
+from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS, MAX_VIDEO_SIZE_MB
 from src.static.sources import platforms
 
 
 async def serve(graph, nlp, translator, message_text, link, handler, posted_q):
-    translated_message = translate_message(translator, message_text, 'pt')
+    translated_message = _translate_message(translator, message_text, 'pt')
 
-    cache_handler = CacheHandler()
+    cache_handler = _CacheHandler()
     cached_handler = cache_handler.cached(handler)
 
     head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
     if is_duplicate_message(head, posted_q):
         return
 
-    if low_semantic_load(nlp, translated_message):
+    if _low_semantic_load(nlp, translated_message):
         url_path = await cached_handler()
-        if not await is_video(url_path):
+        if not await _is_video(url_path):
+            return
+        elif _large_video_size(url_path):
             return
 
     posted_q.appendleft(head)
@@ -51,7 +53,7 @@ async def serve(graph, nlp, translator, message_text, link, handler, posted_q):
         os.remove(file_path)
 
 
-def translate_message(translator, message_text, dest_lang):
+def _translate_message(translator, message_text, dest_lang):
     translated = translator.translate(message_text, dest=dest_lang)
     return translated.text
 
@@ -62,12 +64,12 @@ def _extract_keywords(nlp, text):
     return keywords
 
 
-def low_semantic_load(nlp, message):
+def _low_semantic_load(nlp, message):
     keywords = _extract_keywords(nlp, message)
     return len(keywords) < MINIMUM_NUMBER_KEYWORDS
 
 
-class CacheHandler:
+class _CacheHandler:
     def __init__(self):
         self.cache = None
 
@@ -80,5 +82,12 @@ class CacheHandler:
         return wrapper
 
 
-async def is_video(url_path):
+async def _is_video(url_path):
     return url_path.get('path').lower().endswith('.mp4')
+
+
+def _large_video_size(url_path):
+    file_path = url_path.get('path')
+    size = os.path.getsize(file_path)
+    size_mb = size / (1024 * 1024)
+    return size_mb > MAX_VIDEO_SIZE_MB
