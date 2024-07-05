@@ -21,14 +21,14 @@ async def serve(graph, nlp, translator, message_text, link, handler, posted_q):
     cache_handler = CacheHandler()
     cached_handler = cache_handler.cached(handler)
 
+    head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
+    if is_duplicate_message(head, posted_q):
+        return
+
     if low_semantic_load(nlp, translated_message):
         url_path = await cached_handler()
         if not await is_video(url_path):
             return
-
-    head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
-    if is_duplicate_message(head, posted_q):
-        return
 
     posted_q.appendleft(head)
 
