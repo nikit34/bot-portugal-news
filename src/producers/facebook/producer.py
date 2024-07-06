@@ -13,7 +13,7 @@ def facebook_prepare_post(nlp, translated_message, link):
     shortener = pyshorteners.Shortener()
     shorted_link = shortener.tinyurl.short(link)
     text_link = trunc_str(translated_message, FACEBOOK_MAX_LENGTH_MESSAGE) + '\n\n' + shorted_link
-    candidate_keywords = _extract_keywords(nlp, text_link)
+    candidate_keywords = _extract_keywords(nlp, translated_message)
     keywords = _processing_keywords(candidate_keywords)
     return _add_keywords_text(text_link, keywords)
 
