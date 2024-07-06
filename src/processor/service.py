@@ -11,12 +11,12 @@ from src.producers.instagram.producer import (
     instagram_prepare_post,
     instagram_send_message
 )
-from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS, MAX_VIDEO_SIZE_MB
+from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS, MAX_VIDEO_SIZE_MB, TARGET_LANGUAGE
 from src.static.sources import platforms
 
 
 async def serve(graph, nlp, translator, message_text, link, handler, posted_q):
-    translated_message = _translate_message(translator, message_text, 'pt')
+    translated_message = _translate_message(translator, message_text, TARGET_LANGUAGE)
 
     cache_handler = _CacheHandler()
     cached_handler = cache_handler.cached(handler)
