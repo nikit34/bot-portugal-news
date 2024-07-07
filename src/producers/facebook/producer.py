@@ -55,8 +55,9 @@ def _processing_keywords(candidate_keywords):
     keywords = []
     for item in candidate_keywords:
         if item[1] >= WEIGHT_KEYWORDS_THRESHOLD:
-            keyword = item[0]
-            if len(keyword) > 2:
+            raw_keyword = item[0]
+            if len(raw_keyword) > 2:
+                keyword = raw_keyword.replace('-', '').lower()
                 keywords.append(keyword)
     return keywords
 
