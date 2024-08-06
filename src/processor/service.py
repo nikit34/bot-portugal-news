@@ -16,7 +16,7 @@ from src.static.sources import platforms
 
 
 async def serve(graph, nlp, translator, message_text, link, handler, posted_q):
-    translated_message = _translate_message(translator, message_text, TARGET_LANGUAGE)
+    translated_message = _translate_message(translator, message_text)
 
     cache_handler = _CacheHandler()
     cached_handler = cache_handler.cached(handler)
@@ -53,8 +53,8 @@ async def serve(graph, nlp, translator, message_text, link, handler, posted_q):
         os.remove(file_path)
 
 
-def _translate_message(translator, message_text, dest_lang):
-    translated = translator.translate(message_text, dest=dest_lang)
+def _translate_message(translator, message_text):
+    translated = translator.translate(message_text, dest=TARGET_LANGUAGE)
     return translated.text
 
 
