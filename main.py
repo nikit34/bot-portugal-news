@@ -84,7 +84,7 @@ async def main():
 
         await asyncio.gather(*tasks)
     except Exception as e:
-        message = '&#9888; ERROR: Parsers is down\n' + str(e) + ', response: ' + e.response if hasattr(e, 'response') else ''
+        message = '&#9888; ERROR: Parsers is down\n' + str(e) + ', response: ' + getattr(e, 'response', {}).get('content', '')
         logger.error(message)
         await send_message_api(message, telegram_bot_token)
     finally:
