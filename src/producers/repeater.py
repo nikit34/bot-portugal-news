@@ -19,7 +19,8 @@ def async_retry(repeat=REPEAT_REQUESTS, timeout=TIMEOUT):
                     if attempts > 0:
                         logger.warning(
                             "Request '" + func.__name__ + "' failed, " +
-                            str(attempts) + "  attempts left, parameters: " + str(args) + ", error: " + str(e)
+                            str(attempts) + "  attempts left, parameters: " + str(args) + ", error: " + str(e) +
+                            ", response: " + str(e.response.content) if hasattr(e, 'response') else ""
                         )
                         sleep(timeout)
                     else:
@@ -40,7 +41,8 @@ def retry(repeat=REPEAT_REQUESTS, timeout=TIMEOUT):
                     if attempts > 0:
                         logger.warning(
                             "Request '" + func.__name__ + "' failed, " +
-                            str(attempts) + "  attempts left, parameters: " + str(args) + ", error: " + str(e)
+                            str(attempts) + "  attempts left, parameters: " + str(args) + ", error: " + str(e) +
+                            ", response: " + str(e.response.content) if hasattr(e, 'response') else ""
                         )
                         sleep(timeout)
                     else:

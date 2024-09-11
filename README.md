@@ -23,13 +23,10 @@ Graph returned an error: (#200) This endpoint is deprecated since the required p
 
 1. Open [Graph API Explorer](https://developers.facebook.com/tools/explorer/)
 2. Select App from the top right dropdown menu
-3. Select "Get User Access Token" from dropdown (right of access token field) 
+3. Select item in "Page Access Token" section from dropdown (right of access token field) 
 4. Select needed permissions (38 items)
 5. Copy user access token
 6. Open [Access Token Debugger](https://developers.facebook.com/tools/debug/accesstoken/)
 7. Paste copied token and press "Debug"
 8. Press "Extend Access Token" and copy the generated long-lived user access token
-9. Open [Graph API Explorer](https://developers.facebook.com/tools/explorer/)
-10. Paste copied token into the "Access Token" field
-11. Make a GET request with "PAGE_ID?fields=access_token"
-12. Find the permanent page access token in the response (node "access_token")
+Use copied token
