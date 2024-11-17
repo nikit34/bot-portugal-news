@@ -39,7 +39,9 @@ async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
             repeat -= 1
             return await _make_request(rss_link, telegram_bot_token, repeat)
         else:
-            message = 'ERROR: ' + rss_link + ' request is down\n' + str(e) + ', response: ' + getattr(e, 'response', {}).get('content', '')
+            response_content = getattr(e, 'response', None)
+            response_text = response_content.content if response_content else ''
+            message = f'&#9888; ERROR: {rss_link} request is down\n{e}, response: {response_text}'
             logger.error(message)
             await send_message_api(message, telegram_bot_token)
     finally:
