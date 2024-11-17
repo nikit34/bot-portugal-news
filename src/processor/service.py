@@ -15,7 +15,7 @@ from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS
 from src.static.sources import platforms
 
 
-async def serve(graph, nlp, translator, message_text, link, handler, posted_q):
+async def serve(graph, nlp, translator, message_text, handler, posted_q):
     translated_message = _translate_message(translator, message_text)
 
     cache_handler = _CacheHandler()
@@ -39,11 +39,11 @@ async def serve(graph, nlp, translator, message_text, link, handler, posted_q):
     tasks = []
 
     if platforms.get('facebook', False):
-        facebook_post = facebook_prepare_post(nlp, translated_message, link)
+        facebook_post = facebook_prepare_post(nlp, translated_message)
         tasks.append(facebook_send_message(graph, facebook_post, url_path))
 
     if platforms.get('instagram', False):
-        instagram_post = instagram_prepare_post(translated_message, link)
+        instagram_post = instagram_prepare_post(translated_message)
         tasks.append(instagram_send_message(graph, instagram_post, url_path))
 
     await asyncio.gather(*tasks)

@@ -30,11 +30,10 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
             continue
 
         source = telegram_channels.get(message.peer_id.channel_id)
-        link = source + '/' + str(message.id)
         channel = '@' + source.split('/')[-1]
 
         handler = SaveFileTelegram(getter_client, message)
         loop = asyncio.get_event_loop()
         loop.add_signal_handler(signal.SIGUSR1, handler)
 
-        await serve(graph, nlp, translator, message_text, link, handler, posted_q)
+        await serve(graph, nlp, translator, message_text, handler, posted_q)
