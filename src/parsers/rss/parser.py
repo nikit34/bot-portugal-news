@@ -64,19 +64,18 @@ async def _rss_parser(
     limit = min(MAX_NUMBER_TAKEN_MESSAGES, len(feed.entries))
     for entry in feed.entries[:limit][::-1]:
         message_text = ''
-        link = ''
         image = ''
         if 'abola.pt' in source:
             if check_abola_pt(entry):
                 continue
-            message_text, link, image = parse_abola_pt(entry)
+            message_text, image = parse_abola_pt(entry)
         elif 'bbc.com' in source:
             if check_bbc_com(entry):
                 continue
-            message_text, link, image = parse_bbc_com(entry)
+            message_text, image = parse_bbc_com(entry)
 
         handler = SaveFileUrl(image)
         loop = asyncio.get_event_loop()
         loop.add_signal_handler(signal.SIGUSR1, handler)
 
-        await serve(graph, nlp, translator, message_text, link, handler, posted_q)
+        await serve(graph, nlp, translator, message_text, handler, posted_q)

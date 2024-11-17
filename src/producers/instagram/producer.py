@@ -1,4 +1,3 @@
-import pyshorteners
 import requests
 import logging
 
@@ -44,10 +43,8 @@ async def _add_comment(access_token, media_id, message):
 
 
 @retry()
-def instagram_prepare_post(translated_message, link):
-    shortener = pyshorteners.Shortener()
-    shorted_link = shortener.tinyurl.short(link)
-    return trunc_str(translated_message, INSTAGRAM_MAX_LENGTH_MESSAGE) + '\n\n' + shorted_link
+def instagram_prepare_post(translated_message):
+    return trunc_str(translated_message, INSTAGRAM_MAX_LENGTH_MESSAGE)
 
 
 @async_retry()
