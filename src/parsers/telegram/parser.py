@@ -26,7 +26,7 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
 
         message_text = message.raw_text
 
-        if not message_text or message.media is None or not hasattr(message.media, 'document') or message.media.document.mime_type != 'video/mp4':
+        if not message_text or message.media is None:
             continue
 
         source = telegram_channels.get(message.peer_id.channel_id)

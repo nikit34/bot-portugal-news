@@ -1,3 +1,4 @@
+import asyncio
 import os
 from functools import wraps
 
@@ -6,7 +7,11 @@ from src.producers.facebook.producer import (
     facebook_prepare_post,
     facebook_send_message
 )
-from src.static.settings import KEY_SEARCH_LENGTH_CHARS, MAX_VIDEO_SIZE_MB, TARGET_LANGUAGE
+from src.producers.instagram.producer import (
+    instagram_prepare_post,
+    instagram_send_message
+)
+from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS, MAX_VIDEO_SIZE_MB, TARGET_LANGUAGE
 from src.static.sources import platforms
 
 
@@ -20,17 +25,28 @@ async def serve(graph, nlp, translator, message_text, handler, posted_q):
     if is_duplicate_message(head, posted_q):
         return
 
-    url_path = await cached_handler()
-    if not await _is_video(url_path):
-        return
-    elif _large_video_size(url_path):
-        return
+    if _low_semantic_load(nlp, translated_message):
+        url_path = await cached_handler()
+        if not await _is_video(url_path):
+            return
+        elif _large_video_size(url_path):
+            return
 
     posted_q.appendleft(head)
 
+    url_path = await cached_handler()
+
+    tasks = []
+
     if platforms.get('facebook', False):
         facebook_post = facebook_prepare_post(nlp, translated_message)
-        await facebook_send_message(graph, facebook_post, url_path)
+        tasks.append(facebook_send_message(graph, facebook_post, url_path))
+
+    if platforms.get('instagram', False):
+        instagram_post = instagram_prepare_post(translated_message)
+        tasks.append(instagram_send_message(graph, instagram_post, url_path))
+
+    await asyncio.gather(*tasks)
 
     file_path = url_path.get('path')
     if file_path is not None:
@@ -40,6 +56,17 @@ async def serve(graph, nlp, translator, message_text, handler, posted_q):
 def _translate_message(translator, message_text):
     translated = translator.translate(message_text, dest=TARGET_LANGUAGE)
     return translated.text
+
+
+def _extract_keywords(nlp, text):
+    doc = nlp(text)
+    keywords = [token.text for token in doc if token.is_stop != True and token.is_punct != True]
+    return keywords
+
+
+def _low_semantic_load(nlp, message):
+    keywords = _extract_keywords(nlp, message)
+    return len(keywords) < MINIMUM_NUMBER_KEYWORDS
 
 
 class _CacheHandler:
