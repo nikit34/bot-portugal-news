@@ -22,5 +22,5 @@ tmp_folder = os.getcwd() + '/tmp'
 
 platforms = {
     'facebook': True,
-    'instagram': True,
+    'instagram': False,
 }
