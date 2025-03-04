@@ -5,3 +5,5 @@ secret
 
 bot.session-journal
 getter_bot.session-journal
+
+**/__pycache__/
