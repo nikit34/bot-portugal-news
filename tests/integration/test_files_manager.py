@@ -6,7 +6,7 @@ from unittest.mock import patch
 
 class TestFilesManager:
     @pytest.mark.asyncio
-    async def test_save_file_url(self, test_image_path):
+    async def test_save_file_url_success(self, test_image_path):
         test_url = "https://example.com/test.jpg"
         saver = SaveFileUrl(test_url)
         
@@ -22,6 +22,17 @@ class TestFilesManager:
             assert result['path'].startswith(tmp_folder)
             
             os.remove(result['path'])
+            
+    @pytest.mark.asyncio
+    async def test_save_file_url_failure(self):
+        test_url = "https://example.com/nonexistent.jpg"
+        saver = SaveFileUrl(test_url)
+        
+        with patch('requests.get') as mock_get:
+            mock_get.return_value.raise_for_status.side_effect = Exception("HTTP Error")
+            
+            with pytest.raises(Exception):
+                await saver()
 
     def test_clean_tmp_folder(self, test_image_path):
         test_file = os.path.join(tmp_folder, 'test.txt')
