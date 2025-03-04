@@ -45,7 +45,7 @@ language_data==1.2.0
 lxml==5.2.2
 marisa-trie==1.2.0
 markdown-it-py==3.0.0
-MarkupSafe==2.1.5
+MarkupSafe==2.1.0
 mdurl==0.1.2
 memory-profiler==0.61.0
 multidict==6.0.5
@@ -100,3 +100,6 @@ weasel==0.4.1
 wrapt==1.16.0
 yarl==1.9.4
 zope.interface==6.4
+pytest==8.0.0
+pytest-asyncio==0.23.5
+pytest-mock==3.12.0
