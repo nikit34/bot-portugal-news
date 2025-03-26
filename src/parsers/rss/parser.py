@@ -21,7 +21,9 @@ async def rss_wrapper(graph, nlp, translator, telegram_bot_token, source, rss_li
     try:
         await _rss_parser(graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q)
     except Exception as e:
-        message = 'ERROR: ' + source + ' rss parser is down\n' + str(e) + ', response: ' + getattr(e, 'response', {}).get('content', '')
+        response = getattr(e, 'response', None)
+        response_content = response.content if response else ''
+        message = 'ERROR: ' + source + ' rss parser is down\n' + str(e) + ', response: ' + response_content
         logger.error(message)
         await send_message_api(message, telegram_bot_token)
 
@@ -40,8 +42,8 @@ async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
             return await _make_request(rss_link, telegram_bot_token, repeat)
         else:
             response_content = getattr(e, 'response', None)
-            response_text = response_content.content if response_content else ''
-            message = 'ERROR: ' + rss_link + ' request is down\n' + str(e) + ', response: ' + response_text
+            response_text = ', response: ' + response_content.content if response_content else ''
+            message = 'ERROR: ' + rss_link + ' request is down\n' + str(e) + response_text
             logger.error(message)
             await send_message_api(message, telegram_bot_token)
     finally:
