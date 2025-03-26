@@ -25,8 +25,9 @@ Graph returned an error: (#200) This endpoint is deprecated since the required p
 2. Select App from the top right dropdown menu
 3. Select item in "Page Access Token" section from dropdown (right of access token field) 
 4. Select needed permissions (38 items)
-5. Copy user access token
-6. Open [Access Token Debugger](https://developers.facebook.com/tools/debug/accesstoken/)
-7. Paste copied token and press "Debug"
-8. Press "Extend Access Token" and copy the generated long-lived user access token
+5. Tap on "Generate Access Token" and generated new token
+6. Copy access token
+7. Open [Access Token Debugger](https://developers.facebook.com/tools/debug/accesstoken/)
+8. Paste copied token and press "Debug"
+9. Press "Extend Access Token" and copy the generated long-lived user access token
 Use copied token
