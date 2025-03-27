@@ -23,7 +23,7 @@ Graph returned an error: (#200) This endpoint is deprecated since the required p
 
 1. Open [Graph API Explorer](https://developers.facebook.com/tools/explorer/)
 2. Select App from the top right dropdown menu
-3. Select item in "Page Access Token" section from dropdown (right of access token field) 
+3. Select item in "Page Access Token" section from dropdown, not User Token (pages_read_engagement,	pages_manage_posts) 
 4. Select needed permissions (38 items)
 5. Tap on "Generate Access Token" and generated new token
 6. Copy access token
