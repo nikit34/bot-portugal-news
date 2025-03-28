@@ -66,6 +66,6 @@ jobs:
       if: failure()
       run: |
         curl -s -X POST https://api.telegram.org/bot${{ secrets.TOKEN_BOT }}/sendMessage \
-          -d chat_id=${{ secrets.API_ID }} \
+          -d chat_id=2178707665 \
           -d parse_mode=Markdown \
           -d text="❌ *CI упал!*\n[Открыть логи CI](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
