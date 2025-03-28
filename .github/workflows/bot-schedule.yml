@@ -25,47 +25,47 @@ jobs:
   bot:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Check Facebook token
-      run: |
-        response=$(curl -s "https://graph.facebook.com/v18.0/me?access_token=${{ secrets.FACEBOOK_ACCESS_TOKEN }}")
-        if echo "$response" | grep -q "error"; then
-          echo "Facebook token is invalid: $response"
-          exit 1
-        fi
-        echo "Facebook token is valid"
-    - uses: actions/setup-python@v5
-      with:
-        python-version: "3.11"
-    - name: Cache pip
-      uses: actions/cache@v3
-      with:
-        path: venv
-        key: pip-${{ hashFiles('requirements.txt') }}
-        restore-keys: pip-
-    - name: Install dependencies
-      run: |
-        python -m venv venv
-        source venv/bin/activate
-        python -m pip install -r requirements.txt
-        python -m spacy download pt_core_news_sm
-        echo "$VIRTUAL_ENV/bin" >> $GITHUB_PATH
-        echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
-    - name: Run bot
-      run: python main.py
-      timeout-minutes: 10
-      continue-on-error: true
-      env:
-        TELEGRAM_TOKEN_BOT: ${{ secrets.TOKEN_BOT }}
-        TELEGRAM_API_ID: ${{ secrets.API_ID }}
-        TELEGRAM_API_HASH: ${{ secrets.API_HASH }}
-        TELEGRAM_PASSWORD: ${{ secrets.PASSWORD }}
-        FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
-        LOG_LEVEL: ${{ github.event_name == 'schedule' && 'WARNING' || inputs.log_level || 'DEBUG' }}
-    - name: Notify Telegram on failure
-      if: failure()
-      run: |
-        curl -s -X POST 'https://api.telegram.org/bot${{ secrets.TOKEN_BOT }}/sendMessage' \
-          -d chat_id=-1002178707665 \
-          -d parse_mode=Markdown \
-          -d text="❌ *CI бота упал!* [Открыть логи CI](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+      - uses: actions/checkout@v4
+      - name: Check Facebook token
+        run: |
+          response=$(curl -s "https://graph.facebook.com/v18.0/me?access_token=${{ secrets.FACEBOOK_ACCESS_TOKEN }}")
+          if echo "$response" | grep -q "error"; then
+            echo "Facebook token is invalid: $response"
+            exit 1
+          fi
+          echo "Facebook token is valid"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Cache pip
+        uses: actions/cache@v3
+        with:
+          path: venv
+          key: pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: pip-
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          python -m pip install -r requirements.txt
+          python -m spacy download pt_core_news_sm
+          echo "$VIRTUAL_ENV/bin" >> $GITHUB_PATH
+          echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
+      - name: Run bot
+        run: python main.py
+        timeout-minutes: 10
+        continue-on-error: true
+        env:
+          TELEGRAM_TOKEN_BOT: ${{ secrets.TOKEN_BOT }}
+          TELEGRAM_API_ID: ${{ secrets.API_ID }}
+          TELEGRAM_API_HASH: ${{ secrets.API_HASH }}
+          TELEGRAM_PASSWORD: ${{ secrets.PASSWORD }}
+          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          LOG_LEVEL: ${{ github.event_name == 'schedule' && 'WARNING' || inputs.log_level || 'DEBUG' }}
+      - name: Notify Telegram on failure
+        if: failure()
+        run: |
+          curl -s -X POST 'https://api.telegram.org/bot${{ secrets.TOKEN_BOT }}/sendMessage' \
+            -d chat_id=-1002178707665 \
+            -d parse_mode=Markdown \
+            -d text="❌ *CI бота упал!* [Открыть логи CI](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
