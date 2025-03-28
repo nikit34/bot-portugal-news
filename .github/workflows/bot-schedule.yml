@@ -12,7 +12,7 @@ on:
       log_level:
         description: 'Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)'
         required: false
-        default: 'WARNING'
+        default: 'DEBUG'
         type: choice
         options:
           - DEBUG
@@ -61,4 +61,4 @@ jobs:
         TELEGRAM_API_HASH: ${{ secrets.API_HASH }}
         TELEGRAM_PASSWORD: ${{ secrets.PASSWORD }}
         FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
-        LOG_LEVEL: ${{ inputs.log_level || 'WARNING' }}
+        LOG_LEVEL: ${{ github.event_name == 'schedule' && 'WARNING' || inputs.log_level || 'DEBUG' }}
