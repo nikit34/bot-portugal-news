@@ -65,7 +65,7 @@ jobs:
     - name: Notify Telegram on failure
       if: failure()
       run: |
-        curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN_BOT }}/sendMessage \
-          -d chat_id=${{ secrets.TELEGRAM_API_ID }} \
+        curl -s -X POST https://api.telegram.org/bot${{ secrets.TOKEN_BOT }}/sendMessage \
+          -d chat_id=${{ secrets.API_ID }} \
           -d parse_mode=Markdown \
           -d text="❌ *CI упал!*\n[Открыть логи CI](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
