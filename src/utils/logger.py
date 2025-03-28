@@ -1,7 +1,6 @@
 import logging
 import os
 import sys
-from datetime import datetime
 
 def get_log_level():
     level_str = os.getenv('LOG_LEVEL', 'DEBUG').upper()
