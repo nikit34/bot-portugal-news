@@ -62,3 +62,10 @@ jobs:
         TELEGRAM_PASSWORD: ${{ secrets.PASSWORD }}
         FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
         LOG_LEVEL: ${{ github.event_name == 'schedule' && 'WARNING' || inputs.log_level || 'DEBUG' }}
+    - name: Notify Telegram on failure
+      if: failure()
+      run: |
+        curl -s -X POST https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN_BOT }}/sendMessage \
+          -d chat_id=${{ secrets.TELEGRAM_API_ID }} \
+          -d parse_mode=Markdown \
+          -d text="❌ *CI упал!*\n[Открыть логи CI](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
