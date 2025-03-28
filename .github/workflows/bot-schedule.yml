@@ -28,7 +28,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: Check Facebook token
       run: |
-        response=$(curl -s "https://graph.facebook.com/v18.0/me?access_token=${{ secrets.FACEBOOK_ACCESS_TOKEN }}fr")
+        response=$(curl -s "https://graph.facebook.com/v18.0/me?access_token=${{ secrets.FACEBOOK_ACCESS_TOKEN }}")
         if echo "$response" | grep -q "error"; then
           echo "Facebook token is invalid: $response"
           exit 1
