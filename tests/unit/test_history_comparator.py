@@ -1,6 +1,4 @@
-from collections import deque
 from src.processor.history_comparator import is_duplicate_message
-from src.static.settings import COUNT_UNIQUE_MESSAGES
 
 def test_is_duplicate_message_with_exact_match(posted_q):
     message = "Test message"
