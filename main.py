@@ -17,7 +17,7 @@ from src.static.sources import rss_channels, telegram_channels
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.logger import setup_logging
 
-log_file = setup_logging()
+setup_logging()
 logger = logging.getLogger(__name__)
 
 logger.info("Starting bot application")
