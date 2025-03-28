@@ -11,7 +11,10 @@ def parse_bbc_com(entry):
     title = entry.get('title')
 
     message = title + '\n' + summary
-    image = entry.get('media_thumbnail')[0].get('url')
-    image = re.sub(r"/\d+/cpsprodpb", '/960/cpsprodpb', image)
+    media_thumbnail = entry.get('media_thumbnail', [])
+    image = media_thumbnail[0].get('url') if media_thumbnail else ''
+    if image:
+        image = re.sub(r"/\d+/cpsprodpb", '/960/cpsprodpb', image)
+
 
     return message, image

@@ -6,6 +6,8 @@ self_instagram_channel = '17841467413345329'
 
 telegram_channels = {
     # 2178707665: 'https://t.me/+M-LLGrMDui1hZjhi'  # For debug
+
+    # TODO A/B test
     # 1655707093: 'https://t.me/FutebolDaZoeira',
     # 1170720309: 'https://t.me/MemesFutebol',
     # 2223606055: 'https://t.me/AO_VIVO_Futebol',

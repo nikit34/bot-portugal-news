@@ -16,9 +16,12 @@ def parse_abola_pt(entry):
 
     message = title + '\n' + summary
     image = ''
-    for link_item in entry.get('links'):
-        if 'image' in link_item.get('type'):
-            image = link_item.get('href')
-            image = re.sub(r"fit\(\d+:\d+\)", "fit(960:640)", image)
+    links = entry.get('links', [])
+    for link_item in links:
+        if link_item and 'image' in link_item.get('type', ''):
+            image = link_item.get('href', '')
+            if image:
+                image = re.sub(r"fit\(\d+:\d+\)", "fit(960:640)", image)
+            break
 
     return message, image
