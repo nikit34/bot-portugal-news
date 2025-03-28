@@ -45,6 +45,7 @@ def setup_logging():
         'facebook': logging.WARNING,
         'spacy': logging.WARNING,
         'googletrans': logging.WARNING,
+        'hpack': logging.WARNING,
         
         'PIL': logging.WARNING,
         'feedparser': logging.WARNING
