@@ -71,8 +71,6 @@ async def main():
         tasks = []
 
         logger.info(f"Adding tasks for {len(telegram_channels)} Telegram channels")
-        run_url = get_ci_run_url()
-        
         for channel_name, channel in telegram_channels.items():
             logger.debug(f"Adding task for Telegram channel: {channel_name}")
             task = telegram_wrapper(
@@ -82,8 +80,7 @@ async def main():
                 translator=translator,
                 telegram_bot_token=telegram_bot_token,
                 channel=channel,
-                posted_q=posted_q,
-                run_url=run_url
+                posted_q=posted_q
             )
             tasks.append(task)
 
@@ -97,8 +94,7 @@ async def main():
                 telegram_bot_token=telegram_bot_token,
                 source=source,
                 rss_link=rss_link,
-                posted_q=posted_q,
-                run_url=run_url
+                posted_q=posted_q
             )
             tasks.append(task)
 
@@ -112,7 +108,7 @@ async def main():
         run_url = get_ci_run_url()
         message = (
             f'ERROR: Parsers is down\n{str(e)}{response_content}'
-            f'\n<a href="{run_url}">Открыть логи CI</a>' if run_url else ''
+            f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
         )
         logger.error(message)
         await send_message_api(message, telegram_bot_token)
