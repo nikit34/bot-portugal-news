@@ -25,28 +25,42 @@ jobs:
   run-bot:
     runs-on: ubuntu-latest
     
-    # Добавляем Redis сервис
-    services:
-      redis:
-        image: redis:alpine
-        # Указываем порты
-        ports:
-          - 6379:6379
-        # Опции для персистентности данных
-        volumes:
-          - redis_data:/data
-        # Команда для включения персистентности
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-          --mount type=volume,source=redis_data,target=/data
-          --mount type=bind,source=/redis.conf,target=/usr/local/etc/redis/redis.conf
-          redis-server /usr/local/etc/redis/redis.conf
-
     steps:
       - uses: actions/checkout@v4
+      
+      # Создаем конфиг Redis до запуска сервиса
+      - name: Create Redis config
+        run: |
+          echo "appendonly yes" > redis.conf
+          echo "dir /data" >> redis.conf
+          echo "save 900 1" >> redis.conf
+          echo "save 300 10" >> redis.conf
+          echo "save 60 10000" >> redis.conf
+          
+      # Настраиваем Redis сервис
+      - name: Start Redis
+        run: |
+          docker run -d \
+            --name redis \
+            -p 6379:6379 \
+            -v ${{ github.workspace }}/redis.conf:/usr/local/etc/redis/redis.conf \
+            -v redis_data:/data \
+            redis:alpine \
+            redis-server /usr/local/etc/redis/redis.conf
+            
+      # Проверяем что Redis запустился
+      - name: Check Redis connection
+        run: |
+          docker exec redis redis-cli ping
+          
+      - name: Cache Redis data
+        uses: actions/cache@v3
+        with:
+          path: redis_data
+          key: ${{ runner.os }}-redis-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-redis-
+
       - name: Check Facebook token
         run: |
           response=$(curl -s "https://graph.facebook.com/v18.0/me?access_token=${{ secrets.FACEBOOK_ACCESS_TOKEN }}")
@@ -55,24 +69,9 @@ jobs:
             exit 1
           fi
           echo "Facebook token is valid"
-      - name: Create Redis config
-        run: |
-          echo "appendonly yes" > redis.conf
-          echo "dir /data" >> redis.conf
-          echo "save 900 1" >> redis.conf
-          echo "save 300 10" >> redis.conf
-          echo "save 60 10000" >> redis.conf
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      - name: Cache Redis data
-        uses: actions/cache@v3
-        with:
-          path: |
-            redis_data
-          key: ${{ runner.os }}-redis-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-redis-
       - name: Install dependencies
         run: |
           python -m venv venv
@@ -82,19 +81,29 @@ jobs:
           echo "$VIRTUAL_ENV/bin" >> $GITHUB_PATH
           echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
       - name: Run bot
-        run: python main.py
-        timeout-minutes: 10
-        continue-on-error: true
         env:
+          REDIS_HOST: localhost
+          REDIS_PORT: 6379
+          REDIS_DB: 0
           TELEGRAM_TOKEN_BOT: ${{ secrets.TOKEN_BOT }}
           TELEGRAM_API_ID: ${{ secrets.API_ID }}
           TELEGRAM_API_HASH: ${{ secrets.API_HASH }}
           TELEGRAM_PASSWORD: ${{ secrets.PASSWORD }}
           FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           LOG_LEVEL: ${{ github.event_name == 'schedule' && 'WARNING' || inputs.log_level || 'DEBUG' }}
-          REDIS_HOST: localhost
-          REDIS_PORT: 6379
-          REDIS_DB: 0
+        run: python main.py
+        timeout-minutes: 10
+        continue-on-error: true
+      - name: Save Redis data
+        if: always()
+        run: |
+          docker exec redis redis-cli save
+          
+      - name: Stop Redis
+        if: always()
+        run: |
+          docker stop redis
+          docker rm redis
       - name: Notify Telegram on failure
         if: failure()
         run: |
