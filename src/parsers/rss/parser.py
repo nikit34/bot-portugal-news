@@ -18,20 +18,29 @@ from src.utils.ci import get_ci_run_url
 logger = logging.getLogger(__name__)
 
 
-async def rss_wrapper(graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q):
+async def rss_wrapper(
+        graph,
+        nlp,
+        translator,
+        telegram_bot_token,
+        source,
+        rss_link,
+        storage
+):
+    logger.info(f"Starting RSS parser for {source}")
     try:
-        logger.info(f"Starting RSS parser for source: {source}")
-        logger.debug(f"RSS link: {rss_link}")
-        await _rss_parser(graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q)
+        await _rss_parser(graph, nlp, translator, telegram_bot_token, source, rss_link, storage)
+        logger.info(f"RSS parser completed successfully for {source}")
     except Exception as e:
+        logger.error(f"Error in RSS parser for {source}", exc_info=True)
         response = getattr(e, 'response', None)
         response_content = ', response: ' + response.content if response else ''
         run_url = get_ci_run_url()
         message = (
-            f'ERROR: {source} rss parser is down\n{str(e)}{response_content}'
+            f'ERROR: {source} RSS parser is down\n{str(e)}{response_content}'
             f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
         )
-        logger.error(message, exc_info=True)
+        logger.error(message)
         await send_message_api(message, telegram_bot_token)
 
 
@@ -73,7 +82,7 @@ async def _rss_parser(
         telegram_bot_token,
         source,
         rss_link,
-        posted_q
+        storage
 ):
     logger.info(f"Starting RSS parser for {source}")
     response = await _make_request(rss_link, telegram_bot_token, REPEAT_REQUESTS)
@@ -104,4 +113,4 @@ async def _rss_parser(
         loop = asyncio.get_event_loop()
         loop.add_signal_handler(signal.SIGUSR1, handler)
 
-        await serve(graph, nlp, translator, message_text, handler, posted_q)
+        await serve(graph, nlp, translator, message_text, handler, storage)

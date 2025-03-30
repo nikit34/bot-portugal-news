@@ -18,6 +18,7 @@ from src.static.sources import rss_channels, telegram_channels
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.logger import setup_logging
 from src.utils.ci import get_ci_run_url
+from src.storage.post_history_storage import PostHistoryStorage
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -49,9 +50,9 @@ async def main():
     translator = Translator(service_urls=['translate.googleapis.com'])
     logger.debug("NLP model and translator loaded successfully")
 
-    logger.info(f"Initializing message queue with max length: {COUNT_UNIQUE_MESSAGES}")
-    posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
-    logger.debug("Message queue initialized")
+    logger.info("Initializing Redis storage")
+    storage = PostHistoryStorage()
+    logger.debug("Redis storage initialized")
 
     logger.info("Starting Telegram clients")
     tasks = [
@@ -64,7 +65,6 @@ async def main():
     try:
         logger.info("Fetching message history from Facebook")
         history = get_published_messages(graph, COUNT_UNIQUE_MESSAGES)
-        posted_q.extend(history)
         logger.info(f"Loaded {len(history)} messages from Facebook history")
 
         logger.info("Preparing parsing tasks")
@@ -80,7 +80,7 @@ async def main():
                 translator=translator,
                 telegram_bot_token=telegram_bot_token,
                 channel=channel,
-                posted_q=posted_q
+                storage=storage
             )
             tasks.append(task)
 
@@ -94,7 +94,7 @@ async def main():
                 telegram_bot_token=telegram_bot_token,
                 source=source,
                 rss_link=rss_link,
-                posted_q=posted_q
+                storage=storage
             )
             tasks.append(task)
 

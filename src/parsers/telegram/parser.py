@@ -12,10 +12,18 @@ from src.utils.ci import get_ci_run_url
 logger = logging.getLogger(__name__)
 
 
-async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_token, channel, posted_q):
+async def telegram_wrapper(
+        getter_client,
+        graph,
+        nlp,
+        translator,
+        telegram_bot_token,
+        channel,
+        storage
+):
     logger.info(f"Starting Telegram parser for channel: {channel}")
     try:
-        await _telegram_parser(getter_client, graph, nlp, translator, channel, posted_q)
+        await _telegram_parser(getter_client, graph, nlp, translator, channel, storage)
         logger.info(f"Telegram parser completed successfully for channel: {channel}")
     except Exception as e:
         logger.error(f"Error in Telegram parser for channel {channel}", exc_info=True)
@@ -30,7 +38,14 @@ async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_t
         await send_message_api(message, telegram_bot_token)
 
 
-async def _telegram_parser(getter_client, graph, nlp, translator, channel, posted_q):
+async def _telegram_parser(
+        getter_client,
+        graph,
+        nlp,
+        translator,
+        channel,
+        storage
+):
     logger.debug(f"Initializing message iteration for channel: {channel}")
     message_count = 0
     processed_count = 0
@@ -64,7 +79,7 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
             loop.add_signal_handler(signal.SIGUSR1, handler)
             logger.debug(f"Created file handler for message {message_id}")
 
-            await serve(graph, nlp, translator, message_text, handler, posted_q)
+            await serve(graph, nlp, translator, message_text, handler, storage)
             processed_count += 1
             logger.debug(f"Successfully processed message {message_id}")
         except Exception as e:
