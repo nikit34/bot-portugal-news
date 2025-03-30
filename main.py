@@ -17,12 +17,12 @@ from src.static.settings import COUNT_UNIQUE_MESSAGES
 from src.static.sources import rss_channels, telegram_channels
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.logger import setup_logging
+from src.utils.ci import get_ci_run_url
 
 setup_logging()
 logger = logging.getLogger(__name__)
 
 logger.info("Starting bot application")
-
 
 async def main():
     logger.info("Initializing main application")
@@ -71,7 +71,7 @@ async def main():
         tasks = []
 
         logger.info(f"Adding tasks for {len(telegram_channels)} Telegram channels")
-        run_url = os.environ.get('GITHUB_SERVER_URL', '') + os.environ.get('GITHUB_REPOSITORY', '') + '/actions/runs/' + os.environ.get('GITHUB_RUN_ID', '')
+        run_url = get_ci_run_url()
         
         for channel_name, channel in telegram_channels.items():
             logger.debug(f"Adding task for Telegram channel: {channel_name}")
@@ -105,13 +105,11 @@ async def main():
         logger.info(f"Starting {len(tasks)} parsing tasks")
         await asyncio.gather(*tasks)
         logger.info("All parsing tasks completed successfully")
-
-        raise Exception("Test CI error reporting for Abola parser")
     except Exception as e:
         logger.error("Critical error occurred during execution", exc_info=True)
         response = getattr(e, 'response', None)
         response_content = ', response: ' + response.content if response else ''
-        run_url = os.environ.get('GITHUB_SERVER_URL', '') + os.environ.get('GITHUB_REPOSITORY', '') + '/actions/runs/' + os.environ.get('GITHUB_RUN_ID', '')
+        run_url = get_ci_run_url()
         message = (
             f'ERROR: Parsers is down\n{str(e)}{response_content}'
             f'\n<a href="{run_url}">Открыть логи CI</a>' if run_url else ''
