@@ -4,13 +4,13 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def check_bbc_com(entry):
+def is_valid_bbc_com_entry(entry):
     required_keys = ('summary', 'title', 'media_thumbnail')
     has_required = all(entry.get(key) for key in required_keys)
     has_thumbnail = bool(entry.get('media_thumbnail') and entry.get('media_thumbnail')[0].get('url'))
     
     logger.debug(f"BBC entry check - has_required: {has_required}, has_thumbnail: {has_thumbnail}")
-    return not (has_required or has_thumbnail)
+    return (has_required or has_thumbnail)
 
 
 def parse_bbc_com(entry):

@@ -4,7 +4,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def check_abola_pt(entry):
+def is_valid_abola_entry(entry):
     required_keys = ('summary', 'title', 'links')
     has_required = all(entry.get(key) for key in required_keys)
     

@@ -6,8 +6,8 @@ import feedparser
 import httpx
 
 from src.files_manager import SaveFileUrl
-from src.parsers.rss.channels.com.bbc import check_bbc_com, parse_bbc_com
-from src.parsers.rss.channels.pt.abola import check_abola_pt, parse_abola_pt
+from src.parsers.rss.channels.com.bbc import is_valid_bbc_com_entry, parse_bbc_com
+from src.parsers.rss.channels.pt.abola import is_valid_abola_entry, parse_abola_pt
 from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
 from src.producers.telegram.telegram_api import send_message_api
@@ -81,13 +81,13 @@ async def _rss_parser(
         logger.debug(f"Processing entry: {entry.get('title', 'No title')}")
         
         if 'abola.pt' in source:
-            if check_abola_pt(entry):
-                logger.debug("Entry skipped by check_abola_pt")
+            if not is_valid_abola_entry(entry):
+                logger.debug("Entry skipped - invalid Abola entry")
                 continue
             message_text, image = parse_abola_pt(entry)
         elif 'bbc.com' in source:
-            if check_bbc_com(entry):
-                logger.debug("Entry skipped by check_bbc_com")
+            if not is_valid_bbc_com_entry(entry):
+                logger.debug("Entry skipped - invalid BBC entry")
                 continue
             message_text, image = parse_bbc_com(entry)
 
