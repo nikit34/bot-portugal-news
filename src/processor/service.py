@@ -13,16 +13,17 @@ from src.producers.instagram.producer import (
 )
 from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS, MAX_VIDEO_SIZE_MB, TARGET_LANGUAGE
 from src.static.sources import platforms
+from src.storage.redis_client import PostHistoryStorage
 
 
-async def serve(graph, nlp, translator, message_text, handler, posted_q):
+async def serve(graph, nlp, translator, message_text, handler, storage):
     translated_message = _translate_message(translator, message_text)
 
     cache_handler = _CacheHandler()
     cached_handler = cache_handler.cached(handler)
 
     head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
-    if is_duplicate_message(head, posted_q):
+    if is_duplicate_message(head, storage):
         return
 
     if _low_semantic_load(nlp, translated_message):
@@ -32,7 +33,7 @@ async def serve(graph, nlp, translator, message_text, handler, posted_q):
         elif _large_video_size(url_path):
             return
 
-    posted_q.appendleft(head)
+    storage.add_post(head)
 
     url_path = await cached_handler()
 

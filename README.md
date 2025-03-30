@@ -31,3 +31,27 @@ Graph returned an error: (#200) This endpoint is deprecated since the required p
 8. Paste copied token and press "Debug"
 9. Press "Extend Access Token" and copy the generated long-lived user access token
 Use copied token
+
+## Redis Configuration
+
+### Local Development
+1. Install Redis:
+```bash
+sudo apt-get install redis-server  # For Ubuntu
+brew install redis                 # For MacOS
+```
+
+2. Start Redis server:
+```bash
+redis-server
+```
+
+3. Set environment variables:
+```bash
+export REDIS_HOST=localhost
+export REDIS_PORT=6379
+export REDIS_DB=0
+```
+
+### CI/CD Environment
+Redis persistence is automatically configured in GitHub Actions using service containers and caching.

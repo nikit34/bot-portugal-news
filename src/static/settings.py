@@ -1,3 +1,5 @@
+import os
+
 KEY_SEARCH_LENGTH_CHARS = 50
 COUNT_UNIQUE_MESSAGES = 1000
 TIMEOUT = 4
@@ -13,3 +15,9 @@ TARGET_LANGUAGE = 'pt'
 TELEGRAM_MAX_LENGTH_MESSAGE = 1000
 FACEBOOK_MAX_LENGTH_MESSAGE = 6000
 INSTAGRAM_MAX_LENGTH_MESSAGE = 5000
+
+# Redis settings
+REDIS_HOST = os.getenv('REDIS_HOST', 'localhost')
+REDIS_PORT = int(os.getenv('REDIS_PORT', 6379))
+REDIS_DB = int(os.getenv('REDIS_DB', 0))
+REDIS_PASSWORD = os.getenv('REDIS_PASSWORD', None)  # Для безопасности в продакшене

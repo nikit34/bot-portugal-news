@@ -22,8 +22,29 @@ on:
           - CRITICAL
 
 jobs:
-  bot:
+  run-bot:
     runs-on: ubuntu-latest
+    
+    # Добавляем Redis сервис
+    services:
+      redis:
+        image: redis:alpine
+        # Указываем порты
+        ports:
+          - 6379:6379
+        # Опции для персистентности данных
+        volumes:
+          - redis_data:/data
+        # Команда для включения персистентности
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+          --mount type=volume,source=redis_data,target=/data
+          --mount type=bind,source=/redis.conf,target=/usr/local/etc/redis/redis.conf
+          redis-server /usr/local/etc/redis/redis.conf
+
     steps:
       - uses: actions/checkout@v4
       - name: Check Facebook token
@@ -34,15 +55,24 @@ jobs:
             exit 1
           fi
           echo "Facebook token is valid"
-      - uses: actions/setup-python@v5
+      - name: Create Redis config
+        run: |
+          echo "appendonly yes" > redis.conf
+          echo "dir /data" >> redis.conf
+          echo "save 900 1" >> redis.conf
+          echo "save 300 10" >> redis.conf
+          echo "save 60 10000" >> redis.conf
+      - uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
-      - name: Cache pip
+          python-version: '3.10'
+      - name: Cache Redis data
         uses: actions/cache@v3
         with:
-          path: venv
-          key: pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: pip-
+          path: |
+            redis_data
+          key: ${{ runner.os }}-redis-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-redis-
       - name: Install dependencies
         run: |
           python -m venv venv
@@ -62,6 +92,9 @@ jobs:
           TELEGRAM_PASSWORD: ${{ secrets.PASSWORD }}
           FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           LOG_LEVEL: ${{ github.event_name == 'schedule' && 'WARNING' || inputs.log_level || 'DEBUG' }}
+          REDIS_HOST: localhost
+          REDIS_PORT: 6379
+          REDIS_DB: 0
       - name: Notify Telegram on failure
         if: failure()
         run: |
