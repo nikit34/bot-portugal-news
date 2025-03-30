@@ -106,6 +106,7 @@ async def main():
         await asyncio.gather(*tasks)
         logger.info("All parsing tasks completed successfully")
 
+        raise Exception("Test CI error reporting for Abola parser")
     except Exception as e:
         logger.error("Critical error occurred during execution", exc_info=True)
         response = getattr(e, 'response', None)
