@@ -1,6 +1,7 @@
 import asyncio
 import logging
 from collections import deque
+import os
 
 import spacy
 from telethon import TelegramClient
@@ -70,6 +71,8 @@ async def main():
         tasks = []
 
         logger.info(f"Adding tasks for {len(telegram_channels)} Telegram channels")
+        run_url = os.environ.get('GITHUB_SERVER_URL', '') + os.environ.get('GITHUB_REPOSITORY', '') + '/actions/runs/' + os.environ.get('GITHUB_RUN_ID', '')
+        
         for channel_name, channel in telegram_channels.items():
             logger.debug(f"Adding task for Telegram channel: {channel_name}")
             task = telegram_wrapper(
@@ -79,7 +82,8 @@ async def main():
                 translator=translator,
                 telegram_bot_token=telegram_bot_token,
                 channel=channel,
-                posted_q=posted_q
+                posted_q=posted_q,
+                run_url=run_url
             )
             tasks.append(task)
 
@@ -93,7 +97,8 @@ async def main():
                 telegram_bot_token=telegram_bot_token,
                 source=source,
                 rss_link=rss_link,
-                posted_q=posted_q
+                posted_q=posted_q,
+                run_url=run_url
             )
             tasks.append(task)
 
@@ -105,7 +110,11 @@ async def main():
         logger.error("Critical error occurred during execution", exc_info=True)
         response = getattr(e, 'response', None)
         response_content = ', response: ' + response.content if response else ''
-        message = 'ERROR: Parsers is down\n' + str(e) + response_content
+        run_url = os.environ.get('GITHUB_SERVER_URL', '') + os.environ.get('GITHUB_REPOSITORY', '') + '/actions/runs/' + os.environ.get('GITHUB_RUN_ID', '')
+        message = (
+            f'ERROR: Parsers is down\n{str(e)}{response_content}'
+            f'\n<a href="{run_url}">Открыть логи CI</a>' if run_url else ''
+        )
         logger.error(message)
         await send_message_api(message, telegram_bot_token)
     finally:

@@ -17,20 +17,23 @@ from src.parsers.rss.user_agents_manager import random_user_agent_headers
 logger = logging.getLogger(__name__)
 
 
-async def rss_wrapper(graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q):
+async def rss_wrapper(graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q, run_url=''):
     try:
         logger.info(f"Starting RSS parser for source: {source}")
         logger.debug(f"RSS link: {rss_link}")
-        await _rss_parser(graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q)
+        await _rss_parser(graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q, run_url)
     except Exception as e:
         response = getattr(e, 'response', None)
         response_content = ', response: ' + response.content if response else ''
-        message = 'ERROR: ' + source + ' rss parser is down\n' + str(e) + response_content
+        message = (
+            f'ERROR: {source} rss parser is down\n{str(e)}{response_content}'
+            f'\n<a href="{run_url}">Открыть логи CI</a>' if run_url else ''
+        )
         logger.error(message, exc_info=True)
         await send_message_api(message, telegram_bot_token)
 
 
-async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
+async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS, run_url=''):
     response = None
     httpx_client = httpx.AsyncClient()
     logger.debug(f"Making request to {rss_link} (attempts left: {repeat})")
@@ -44,11 +47,14 @@ async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
             logger.warning(f"Request failed, retrying in {TIMEOUT} seconds. Error: {str(e)}")
             await asyncio.sleep(TIMEOUT)
             repeat -= 1
-            return await _make_request(rss_link, telegram_bot_token, repeat)
+            return await _make_request(rss_link, telegram_bot_token, repeat, run_url)
         else:
             response_content = getattr(e, 'response', None)
             response_text = ', response: ' + response_content.content if response_content else ''
-            message = 'ERROR: ' + rss_link + ' request is down\n' + str(e) + response_text
+            message = (
+                f'ERROR: {rss_link} request is down\n{str(e)}{response_text}'
+                f'\n<a href="{run_url}">Открыть логи CI</a>' if run_url else ''
+            )
             logger.error(message, exc_info=True)
             await send_message_api(message, telegram_bot_token)
     finally:
@@ -64,10 +70,11 @@ async def _rss_parser(
         telegram_bot_token,
         source,
         rss_link,
-        posted_q
+        posted_q,
+        run_url=''
 ):
     logger.info(f"Starting RSS parser for {source}")
-    response = await _make_request(rss_link, telegram_bot_token)
+    response = await _make_request(rss_link, telegram_bot_token, REPEAT_REQUESTS, run_url)
     response.raise_for_status()
     feed = feedparser.parse(response.text)
     logger.debug(f"Feed parsed successfully, found {len(feed.entries)} entries")

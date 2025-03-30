@@ -12,7 +12,7 @@ from src.producers.telegram.telegram_api import send_message_api
 logger = logging.getLogger(__name__)
 
 
-async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_token, channel, posted_q):
+async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_token, channel, posted_q, run_url=''):
     logger.info(f"Starting Telegram parser for channel: {channel}")
     try:
         await _telegram_parser(getter_client, graph, nlp, translator, channel, posted_q)
@@ -21,7 +21,10 @@ async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_t
         logger.error(f"Error in Telegram parser for channel {channel}", exc_info=True)
         response = getattr(e, 'response', None)
         response_content = ', response: ' + response.content if response else ''
-        message = 'ERROR: ' + channel + ' telegram parser is down\n' + str(e) + response_content
+        message = (
+            f'ERROR: {channel} telegram parser is down\n{str(e)}{response_content}'
+            f'\n<a href="{run_url}">Открыть логи CI</a>' if run_url else ''
+        )
         logger.error(message)
         await send_message_api(message, telegram_bot_token)
 
