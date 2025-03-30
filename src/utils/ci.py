@@ -5,7 +5,6 @@ logger = logging.getLogger(__name__)
 
 
 def get_ci_run_url():
-    """Формирует URL для логов CI из переменных окружения GitHub Actions."""
     server_url = os.environ.get('GITHUB_SERVER_URL', '')
     repository = os.environ.get('GITHUB_REPOSITORY', '')
     run_id = os.environ.get('GITHUB_RUN_ID', '')
