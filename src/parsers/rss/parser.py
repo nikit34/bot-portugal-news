@@ -46,7 +46,7 @@ async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
         logger.debug(f"Request successful, status code: {response.status_code}")
     except Exception as e:
         if repeat > 0:
-            logger.warning(f"Request failed, retrying in {TIMEOUT} seconds. Error: {str(e)}")
+            logger.warning(f"Request failed, retrying in {repeat} seconds. Error: {str(e)}")
             await asyncio.sleep(TIMEOUT)
             repeat -= 1
             return await _make_request(rss_link, telegram_bot_token, repeat)
