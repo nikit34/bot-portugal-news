@@ -45,8 +45,12 @@ async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
         response.raise_for_status()
         logger.debug(f"Request successful, status code: {response.status_code}")
     except Exception as e:
+        error_message = f"Request failed, retrying in {repeat} seconds. Error: {str(e)}"
+        if hasattr(e, 'response'):
+            error_message += f", Status code: {e.response.status_code}"
+        logger.warning(error_message)
+        
         if repeat > 0:
-            logger.warning(f"Request failed, retrying in {repeat} seconds. Error: {str(e)}")
             await asyncio.sleep(TIMEOUT)
             repeat -= 1
             return await _make_request(rss_link, telegram_bot_token, repeat)
@@ -76,7 +80,7 @@ async def _rss_parser(
         posted_q
 ):
     logger.info(f"Starting RSS parser for {source}")
-    response = await _make_request(rss_link, telegram_bot_token, REPEAT_REQUESTS)
+    response = await _make_request(rss_link, telegram_bot_token)
     response.raise_for_status()
     feed = feedparser.parse(response.text)
     logger.debug(f"Feed parsed successfully, found {len(feed.entries)} entries")
