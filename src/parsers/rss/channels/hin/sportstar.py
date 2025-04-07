@@ -29,15 +29,32 @@ def parse_sportstar_entry(entry: Dict[str, Any]) -> Tuple[str, str]:
         logger.warning("Sportstar entry missing title or description")
         return '', ''
 
-    description = re.sub(r'<[^>]+>', '', description)
-    
+    # Удаляем HTML-теги из описания
+    description = re.sub(r'<[^>]+>', '', description).strip()
     message = f"{title}\n\n{description}"
-    
+
+    # Попытка найти изображение
     image = ''
-    if 'media_content' in entry:
-        for media in entry['media_content']:
-            if media.get('medium') == 'image':
-                image = media.get('url', '')
+
+    # 1. media:content
+    media_content = entry.get('media_content', [])
+    for media in media_content:
+        if media.get('medium') in ('image', 'video'):
+            image = media.get('url', '')
+            if image:
                 break
-    
+
+    # 2. media:thumbnail
+    if not image and 'media_thumbnail' in entry:
+        thumbnails = entry['media_thumbnail']
+        if isinstance(thumbnails, list) and thumbnails:
+            image = thumbnails[0].get('url', '')
+
+    # 3. enclosure (иногда бывает)
+    if not image and 'links' in entry:
+        for link in entry['links']:
+            if link.get('rel') == 'enclosure' and link.get('type', '').startswith('image/'):
+                image = link.get('href', '')
+                break
+
     return message, image
