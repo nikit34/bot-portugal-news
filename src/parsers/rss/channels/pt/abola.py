@@ -25,18 +25,15 @@ def parse_abola_pt(entry):
 
     message = title + '\n' + summary
     image = ''
-    links = entry.get('links', [])
+    links = entry.get('links')
     
     for link_item in links:
-        if link_item and 'image' in link_item.get('type', ''):
-            image = link_item.get('href', '')
-            if image:
-                logger.debug(f"Found Abola image URL: {image}")
-                image = re.sub(r"fit\(\d+:\d+\)", "fit(960:640)", image)
-                logger.debug(f"Modified Abola image URL: {image}")
-                break
-        else:
-            logger.debug(f"Skipping non-image link: {link_item.get('type', 'unknown type')}")
+        if link_item.get('href') and 'image' in link_item.get('type'):
+            image = link_item.get('href')
+            logger.debug(f"Found Abola image URL: {image}")
+            image = re.sub(r"fit\(\d+:\d+\)", "fit(960:640)", image)
+            logger.debug(f"Modified Abola image URL: {image}")
+            break
 
     if not image:
         logger.warning("No image found in Abola entry")

@@ -18,29 +18,13 @@ def is_valid_sportstar_entry(entry: Dict[str, Any]) -> bool:
 def parse_sportstar_entry(entry: Dict[str, Any]) -> Tuple[str, str]:
     logger.debug("Parsing Sportstar entry")
     title = entry.get('title')
-    description = entry.get('description')
+    raw_description = entry.get('description')
+    description = re.sub(r'<[^>]+>', '', raw_description).strip()
 
-    description = re.sub(r'<[^>]+>', '', description).strip()
-    message = f"{title}\n\n{description}"
+    message = title + '\n' + description
 
-    image = ''
-
-    media_content = entry.get('media_content', [])
-    for media in media_content:
-        if media.get('medium') in ('image', 'video'):
-            image = media.get('url', '')
-            if image:
-                break
-
-    if not image and 'media_thumbnail' in entry:
-        thumbnails = entry['media_thumbnail']
-        if isinstance(thumbnails, list) and thumbnails:
-            image = thumbnails[0].get('url', '')
-
-    if not image and 'links' in entry:
-        for link in entry['links']:
-            if link.get('rel') == 'enclosure' and link.get('type', '').startswith('image/'):
-                image = link.get('href', '')
-                break
+    media_content = entry.get('media_content')
+    image = media_content[0].get('url')
+    logger.debug(f"Found Sportstar image URL: {image}")
 
     return message, image
