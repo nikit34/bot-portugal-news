@@ -7,10 +7,6 @@ logger = logging.getLogger(__name__)
 def is_valid_abola_entry(entry):
     required_keys = ('summary', 'title', 'links')
     has_required = all(entry.get(key) for key in required_keys)
-    
-    if not has_required:
-        logger.debug("Abola entry missing required keys")
-        return False
         
     links = entry.get('links', [])
     has_image = any(
@@ -19,17 +15,13 @@ def is_valid_abola_entry(entry):
     )
     
     logger.debug(f"Abola entry check - has_required: {has_required}, has_image: {has_image}")
-    return has_image
+    return( has_required or has_image)
 
 
 def parse_abola_pt(entry):
     logger.debug("Parsing Abola entry")
     summary = entry.get('summary')
     title = entry.get('title')
-    
-    if not summary or not title:
-        logger.warning("Abola entry missing summary or title")
-        return '', ''
 
     message = title + '\n' + summary
     image = ''

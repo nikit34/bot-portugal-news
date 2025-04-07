@@ -17,10 +17,6 @@ def parse_bbc_com(entry):
     logger.debug("Parsing BBC entry")
     summary = entry.get('summary')
     title = entry.get('title')
-    
-    if not summary or not title:
-        logger.warning("BBC entry missing summary or title")
-        return '', ''
 
     message = title + '\n' + summary
     media_thumbnail = entry.get('media_thumbnail', [])
