@@ -8,11 +8,11 @@ logger = logging.getLogger(__name__)
 
 def is_valid_sportstar_entry(entry: Dict[str, Any]) -> bool:
     required_keys = ('title', 'description', 'media_content')
-    has_required = all(entry.get(key) for key in required_keys)
-    has_content = bool(entry.get('media_content') and entry.get('media_content')[0].get('url'))
+    has_text = all(entry.get(key) for key in required_keys)
+    has_media = bool(entry.get('media_content') and entry.get('media_content')[0].get('url'))
         
-    logger.debug(f"Sportstar entry check - has_required: {has_required}, has_content: {has_content}")
-    return has_required or has_content
+    logger.debug(f"Sportstar entry check - has_text: {has_text}, has_media: {has_media}")
+    return (has_text or has_media)
 
 
 def parse_sportstar_entry(entry: Dict[str, Any]) -> Tuple[str, str]:

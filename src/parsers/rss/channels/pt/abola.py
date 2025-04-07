@@ -6,16 +6,16 @@ logger = logging.getLogger(__name__)
 
 def is_valid_abola_entry(entry):
     required_keys = ('summary', 'title', 'links')
-    has_required = all(entry.get(key) for key in required_keys)
+    has_text = all(entry.get(key) for key in required_keys)
         
     links = entry.get('links', [])
-    has_image = any(
+    has_media = any(
         'image' in link_item.get('type', '') and link_item.get('href')
         for link_item in links
     )
     
-    logger.debug(f"Abola entry check - has_required: {has_required}, has_image: {has_image}")
-    return( has_required or has_image)
+    logger.debug(f"Abola entry check - has_text: {has_text}, has_media: {has_media}")
+    return (has_text or has_media)
 
 
 def parse_abola_pt(entry):
