@@ -22,7 +22,8 @@ rss_channels = {
     # 'abola.pt/motores': 'https://www.abola.pt/rss/motores',
     'bbc.com/football': 'https://feeds.bbci.co.uk/sport/football/rss.xml',
     'sportstar.thehindu.com/football': 'https://sportstar.thehindu.com/football/feeder/default.rss',
-    'sportstar.thehindu.com/football-highlights': 'https://sportstar.thehindu.com/football-highlights/feeder/default.rss'
+    'sportstar.thehindu.com/football-highlights': 'https://sportstar.thehindu.com/football-highlights/feeder/default.rss',
+    'sportstar.thehindu.com/football-videos': 'https://sportstar.thehindu.com/football-videos/feeder/default.rss',
 }
 
 tmp_folder = os.getcwd() + '/tmp'
