@@ -8,6 +8,7 @@ import httpx
 from src.files_manager import SaveFileUrl
 from src.parsers.rss.channels.com.bbc import is_valid_bbc_com_entry, parse_bbc_com
 from src.parsers.rss.channels.pt.abola import is_valid_abola_entry, parse_abola_pt
+from src.parsers.rss.channels.hin.sportstar import is_valid_sportstar_entry, parse_sportstar_entry
 from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS
 from src.producers.telegram.telegram_api import send_message_api
@@ -103,6 +104,11 @@ async def _rss_parser(
                 logger.debug("Entry skipped - invalid BBC entry")
                 continue
             message_text, image = parse_bbc_com(entry)
+        elif 'sportstar.thehindu.com' in source:
+            if not is_valid_sportstar_entry(entry):
+                logger.debug("Entry skipped - invalid Sportstar entry")
+                continue
+            message_text, image = parse_sportstar_entry(entry)
 
         handler = SaveFileUrl(image)
         loop = asyncio.get_event_loop()
