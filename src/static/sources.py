@@ -20,7 +20,9 @@ rss_channels = {
     'abola.pt/internacional': 'https://www.abola.pt/rss/internacional',
     # 'abola.pt/modalidades': 'https://www.abola.pt/rss/modalidades',
     # 'abola.pt/motores': 'https://www.abola.pt/rss/motores',
-    'bbc.com/football': 'https://feeds.bbci.co.uk/sport/football/rss.xml'
+    'bbc.com/football': 'https://feeds.bbci.co.uk/sport/football/rss.xml',
+    'sportstar.thehindu.com/football': 'https://sportstar.thehindu.com/football/feeder/default.rss',
+    'sportstar.thehindu.com/football-highlights': 'https://sportstar.thehindu.com/football-highlights/feeder/default.rss'
 }
 
 tmp_folder = os.getcwd() + '/tmp'
