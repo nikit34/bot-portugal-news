@@ -5,8 +5,8 @@ logger = logging.getLogger(__name__)
 
 
 def is_valid_abola_entry(entry):
-    required_keys = ('summary', 'title', 'links')
-    has_text = all(entry.get(key) for key in required_keys)
+    required_keys = ('summary', 'title')
+    has_text = any(entry.get(key) for key in required_keys)
         
     links = entry.get('links', [])
     has_media = any(
@@ -15,17 +15,17 @@ def is_valid_abola_entry(entry):
     )
     
     logger.debug(f"Abola entry check - has_text: {has_text}, has_media: {has_media}")
-    return (has_text or has_media)
+    return (has_text and has_media)
 
 
 def parse_abola_pt(entry):
     logger.debug("Parsing Abola entry")
-    summary = entry.get('summary')
-    title = entry.get('title')
+    summary = entry.get('summary', '')
+    title = entry.get('title', '')
 
-    message = title + '\n' + summary
+    message = title + ('\n' if title else '') + summary
     image = ''
-    links = entry.get('links')
+    links = entry.get('links', [])
     
     for link_item in links:
         if link_item.get('href') and 'image' in link_item.get('type'):
@@ -35,7 +35,7 @@ def parse_abola_pt(entry):
             logger.debug(f"Modified Abola image URL: {image}")
             break
 
-    if not image:
-        logger.warning("No image found in Abola entry")
+    if not image or not message:
+        logger.error("No image or message found in Abola entry")
 
     return message, image
