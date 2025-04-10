@@ -23,7 +23,7 @@ def parse_abola_pt(entry):
     summary = entry.get('summary', '')
     title = entry.get('title', '')
 
-    message = title + ('\n' if title else '') + summary
+    message = title + ('\n' if title and summary else '') + summary
     image = ''
     links = entry.get('links', [])
     

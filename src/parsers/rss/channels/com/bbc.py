@@ -15,15 +15,18 @@ def is_valid_bbc_com_entry(entry):
 
 def parse_bbc_com(entry):
     logger.debug("Parsing BBC entry")
-    summary = entry.get('summary')
-    title = entry.get('title')
+    summary = entry.get('summary', '')
+    title = entry.get('title', '')
 
-    message = title + '\n' + summary
-    media_thumbnail = entry.get('media_thumbnail')
-    image = media_thumbnail[0].get('url')
+    message = title + ('\n' if title and summary else '') + summary
+    media_thumbnail = entry.get('media_thumbnail', [])
+    image = media_thumbnail[0].get('url') if media_thumbnail else ''
     
     logger.debug(f"Found BBC image URL: {image}")
     image = re.sub(r"/\d+/cpsprodpb", '/960/cpsprodpb', image)
     logger.debug(f"Modified BBC image URL: {image}")
+
+    if not image or not message:
+        logger.error("No image or message found in BBC entry")
 
     return message, image

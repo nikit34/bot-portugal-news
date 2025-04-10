@@ -60,7 +60,7 @@ def test_is_valid_abola_entry(entry, expected):
     ({
         'title': 'Test title',
         'links': [{'type': 'image', 'href': 'http://example.com/image.jpg'}]
-    }, 'Test title\n', 'http://example.com/image.jpg'),
+    }, 'Test title', 'http://example.com/image.jpg'),
     
     # Only summary and image
     ({
