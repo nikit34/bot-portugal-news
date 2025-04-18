@@ -34,23 +34,8 @@ jobs:
             exit 1
           fi
           echo "Facebook token is valid"
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - name: Cache pip
-        uses: actions/cache@v3
-        with:
-          path: venv
-          key: pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: pip-
-      - name: Install dependencies
-        run: |
-          python -m venv venv
-          . venv/bin/activate
-          pip install -r requirements.txt
-          python -m spacy download pt_core_news_sm
-          echo "$VIRTUAL_ENV/bin" >> $GITHUB_PATH
-          echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
+      - name: Setup Python environment
+        uses: ./.github/workflows/setup-python-env.yml
       - name: Run bot
         run: python main.py
         timeout-minutes: 10
