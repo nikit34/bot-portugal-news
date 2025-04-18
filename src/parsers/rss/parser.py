@@ -136,7 +136,7 @@ async def _rss_parser(
             skipped_count += 1
 
     logger.info(
-        f"[RSS] RSS parser statistics for {source}: "
+        f"[RSS] RSS parser statistics for {source}, RSS link: {rss_link}: "
         f"Total entries: {limit}, "
         f"Processed: {message_count - skipped_count}, "
         f"Skipped: {skipped_count}"
