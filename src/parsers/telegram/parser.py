@@ -34,16 +34,15 @@ async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_t
 
 
 async def _process_message_chunk(
-    messages: List[Any],
+    message_chunk: List[Any],
     getter_client,
     graph,
     nlp,
     translator,
-    channel,
     posted_q
 ) -> int:
     skipped_count = 0
-    for message in messages:
+    for message in message_chunk:
         message_text = message.raw_text
 
         if not message_text or message.media is None:
@@ -76,28 +75,26 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
     app_logger.info(f"[Telegram] Initializing message iteration for channel: {channel}")
     message_count = 0
     skipped_count = 0
-    current_chunk = []
-    chunks = []
+    current_message_chunk = []
+    message_chunks = []
     
     async for message in getter_client.iter_messages(channel, limit=MAX_NUMBER_TAKEN_MESSAGES):
         message_count += 1
-        current_chunk.append(message)
+        current_message_chunk.append(message)
         
-        if len(current_chunk) >= CHUNK_SIZE:
-            chunks.append(current_chunk)
-            current_chunk = []
+        if len(current_message_chunk) >= CHUNK_SIZE:
+            message_chunks.append(current_message_chunk)
+            current_message_chunk = []
     
-    # Добавляем последний чанк, если он не пустой
-    if current_chunk:
-        chunks.append(current_chunk)
+    if current_message_chunk:
+        message_chunks.append(current_message_chunk)
     
-    # Параллельная обработка всех чанков
-    if chunks:
-        app_logger.debug(f"[Telegram] Processing {len(chunks)} chunks in parallel")
+    if message_chunks:
+        app_logger.debug(f"[Telegram] Processing {len(message_chunks)} chunks in parallel")
         chunk_results = await asyncio.gather(*[
             _process_message_chunk(
-                chunk, getter_client, graph, nlp, translator, channel, posted_q
-            ) for chunk in chunks
+                message_chunk, getter_client, graph, nlp, translator, posted_q
+            ) for message_chunk in message_chunks
         ])
         skipped_count = sum(chunk_results)
 
