@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Setup Python environment
-        uses: ./.github/workflows/setup-python-env.yml
+        uses: ./.github/actions/setup-python-env   
       - name: Run tests
         run: |
           pytest tests/ -v
