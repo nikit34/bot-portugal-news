@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import signal
+from typing import List, Any
 
 from src.files_manager import SaveFileTelegram
 from src.processor.service import serve
@@ -12,6 +13,7 @@ from src.utils.ci import get_ci_run_url
 app_logger = logging.getLogger('app')
 stats_logger = logging.getLogger('stats')
 
+CHUNK_SIZE = 10 
 
 async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_token, channel, posted_q):
     app_logger.info(f"[Telegram] Starting Telegram parser for channel: {channel}")
@@ -31,15 +33,17 @@ async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_t
         await send_message_api(message, telegram_bot_token)
 
 
-async def _telegram_parser(getter_client, graph, nlp, translator, channel, posted_q):
-    app_logger.info(f"[Telegram] Initializing message iteration for channel: {channel}")
-    message_count = 0
+async def _process_message_chunk(
+    messages: List[Any],
+    getter_client,
+    graph,
+    nlp,
+    translator,
+    channel,
+    posted_q
+) -> int:
     skipped_count = 0
-
-    async for message in getter_client.iter_messages(channel, limit=MAX_NUMBER_TAKEN_MESSAGES):
-        message_count += 1
-        app_logger.debug(f"[Telegram] Processing message {message_count}/{MAX_NUMBER_TAKEN_MESSAGES} from channel {channel}")
-
+    for message in messages:
         message_text = message.raw_text
 
         if not message_text or message.media is None:
@@ -53,8 +57,6 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
             app_logger.error(f"[Telegram] Channel ID {message.peer_id.channel_id} not found in telegram_channels")
             continue
 
-        name_channel = '@' + source.split('/')[-1]
-
         try:
             handler = SaveFileTelegram(getter_client, message)
             loop = asyncio.get_event_loop()
@@ -66,7 +68,40 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
         except Exception as e:
             app_logger.error(f"[Telegram] Error processing message: {message_text}", exc_info=True)
             skipped_count += 1
+    
+    return skipped_count
 
+
+async def _telegram_parser(getter_client, graph, nlp, translator, channel, posted_q):
+    app_logger.info(f"[Telegram] Initializing message iteration for channel: {channel}")
+    message_count = 0
+    skipped_count = 0
+    current_chunk = []
+    chunks = []
+    
+    async for message in getter_client.iter_messages(channel, limit=MAX_NUMBER_TAKEN_MESSAGES):
+        message_count += 1
+        current_chunk.append(message)
+        
+        if len(current_chunk) >= CHUNK_SIZE:
+            chunks.append(current_chunk)
+            current_chunk = []
+    
+    # Добавляем последний чанк, если он не пустой
+    if current_chunk:
+        chunks.append(current_chunk)
+    
+    # Параллельная обработка всех чанков
+    if chunks:
+        app_logger.debug(f"[Telegram] Processing {len(chunks)} chunks in parallel")
+        chunk_results = await asyncio.gather(*[
+            _process_message_chunk(
+                chunk, getter_client, graph, nlp, translator, channel, posted_q
+            ) for chunk in chunks
+        ])
+        skipped_count = sum(chunk_results)
+
+    name_channel = '@' + telegram_channels.get(channel).split('/')[-1]
     stats_logger.info(
         f"[Telegram] Telegram parser statistics for channel {channel}, name: {name_channel}: "
         f"Total messages: {message_count}, "
