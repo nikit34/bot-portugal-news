@@ -25,12 +25,14 @@ async def serve(graph, nlp, translator, message_text, handler, posted_q):
     if is_duplicate_message(head, posted_q):
         return
 
-    if _low_semantic_load(nlp, translated_message):
-        url_path = await cached_handler()
-        if not await _is_video(url_path):
-            return
-        elif _large_video_size(url_path):
-            return
+    url_path = await cached_handler()
+    is_video = await _is_video(url_path)
+    
+    if not is_video and _low_semantic_load(nlp, translated_message):
+        return
+    
+    if is_video and _large_video_size(url_path):
+        return
 
     posted_q.appendleft(head)
 
