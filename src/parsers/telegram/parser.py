@@ -5,7 +5,7 @@ from typing import List, Any
 
 from src.files_manager import SaveFileTelegram
 from src.processor.service import serve
-from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES
+from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, MESSAGE_CHUNK_SIZE
 from src.static.sources import telegram_channels
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.ci import get_ci_run_url
@@ -13,7 +13,6 @@ from src.utils.ci import get_ci_run_url
 app_logger = logging.getLogger('app')
 stats_logger = logging.getLogger('stats')
 
-CHUNK_SIZE = 10 
 
 async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_token, channel, posted_q):
     app_logger.info(f"[Telegram] Starting Telegram parser for channel: {channel}")
@@ -82,7 +81,7 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
         message_count += 1
         current_message_chunk.append(message)
         
-        if len(current_message_chunk) >= CHUNK_SIZE:
+        if len(current_message_chunk) >= MESSAGE_CHUNK_SIZE:
             message_chunks.append(current_message_chunk)
             current_message_chunk = []
     
