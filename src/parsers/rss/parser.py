@@ -89,7 +89,12 @@ async def _rss_parser(
     limit = min(MAX_NUMBER_TAKEN_MESSAGES, len(feed.entries))
     logger.info(f"Processing {limit} entries from {source}")
     
+    processed_count = 0
+    skipped_count = 0
+    
     for entry in feed.entries[:limit][::-1]:
+        processed_count += 1
+        logger.debug(f"Processing entry {processed_count}/{limit} from {source}")
         message_text = ''
         image = ''
         logger.debug(f"Processing entry: {entry.get('title', 'No title')}")
@@ -97,6 +102,7 @@ async def _rss_parser(
         if 'abola.pt' in source:
             if not is_valid_abola_entry(entry):
                 logger.debug("Entry skipped - invalid Abola entry")
+                skipped_count += 1
                 continue
             message_text, image = parse_abola_pt(entry)
         elif 'bbc.com' in source:
@@ -115,3 +121,10 @@ async def _rss_parser(
         loop.add_signal_handler(signal.SIGUSR1, handler)
 
         await serve(graph, nlp, translator, message_text, handler, posted_q)
+
+    logger.info(
+        f"RSS parser statistics for {source}: "
+        f"Total entries: {limit}, "
+        f"Processed: {processed_count}, "
+        f"Skipped: {skipped_count}"
+    )
