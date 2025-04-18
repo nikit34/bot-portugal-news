@@ -35,7 +35,7 @@ jobs:
           fi
           echo "Facebook token is valid"
       - name: Setup Python environment
-        uses: ./.github/workflows/setup-python-env.yml
+        uses: ./.github/actions/setup-python-env      
       - name: Run bot
         run: python main.py
         timeout-minutes: 10
