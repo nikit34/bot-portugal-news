@@ -1,6 +1,7 @@
 import logging
 import os
 import sys
+from datetime import datetime
 
 def get_log_level():
     level_str = os.getenv('LOG_LEVEL', 'DEBUG').upper()
@@ -19,19 +20,31 @@ def setup_logging():
     )
 
     log_level = get_log_level()
-    logger = logging.getLogger()
-    logger.info(f"Setting up logging with level: {logging.getLevelName(log_level)}")
+    
+    log_dir = "logs"
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+
+    stats_log_file = os.path.join(log_dir, f"stats_{datetime.now().strftime('%Y-%m-%d')}.log")
+    stats_handler = logging.FileHandler(stats_log_file)
+    stats_handler.setFormatter(log_format)
+    stats_handler.setLevel(logging.INFO)
+    
+    stats_logger = logging.getLogger('stats')
+    stats_logger.setLevel(logging.INFO)
+    stats_logger.handlers = []
+    stats_logger.addHandler(stats_handler)
+    stats_logger.propagate = False
 
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(log_format)
     console_handler.setLevel(log_level)
-
-    root_logger = logging.getLogger()
-    root_logger.setLevel(log_level)
     
-    root_logger.handlers = []
-    
-    root_logger.addHandler(console_handler)
+    app_logger = logging.getLogger('app')
+    app_logger.setLevel(log_level)
+    app_logger.handlers = []
+    app_logger.addHandler(console_handler)
+    app_logger.propagate = False
 
     loggers_config = {
         'src.parsers': log_level,
@@ -54,6 +67,6 @@ def setup_logging():
     for logger_name, level in loggers_config.items():
         logging.getLogger(logger_name).setLevel(level)
 
-    root_logger.info("Logging system initialized")
-    root_logger.debug(f"Log level: {logging.getLevelName(log_level)}")
-    root_logger.debug(f"Log format: {log_format._fmt}")
+    app_logger.info("Logging system initialized")
+    app_logger.debug(f"Log level: {logging.getLevelName(log_level)}")
+    app_logger.debug(f"Log format: {log_format._fmt}")
