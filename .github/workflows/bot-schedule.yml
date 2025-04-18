@@ -62,3 +62,4 @@ jobs:
           name: parser-logs
           path: logs/
           retention-days: 7
+          compression-level: 0
