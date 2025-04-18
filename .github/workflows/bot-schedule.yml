@@ -35,7 +35,9 @@ jobs:
           fi
           echo "Facebook token is valid"
       - name: Setup Python environment
-        uses: ./.github/actions/setup-python-env      
+        uses: ./.github/actions/setup-python-env
+      - name: Create logs directory
+        run: mkdir -p logs
       - name: Run bot
         run: python main.py
         timeout-minutes: 10
@@ -54,3 +56,9 @@ jobs:
             -d chat_id=-1002178707665 \
             -d parse_mode=Markdown \
             -d text="❌ *CI бота упал!* [Открыть логи CI](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+      - name: Upload logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: parser-logs
+          path: logs/
+          retention-days: 7
