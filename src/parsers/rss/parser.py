@@ -21,10 +21,11 @@ logger = logging.getLogger(__name__)
 
 async def rss_wrapper(graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q):
     try:
-        logger.info(f"[RSS] Starting RSS parser for source: {source}")
-        logger.debug(f"[RSS] RSS link: {rss_link}")
+        logger.info(f"[RSS] Starting RSS parser for source: {source}, RSS link: {rss_link}")
         await _rss_parser(graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q)
+        logger.info(f"[RSS] RSS parser completed successfully for source: {source}, RSS link: {rss_link}")
     except Exception as e:
+        logger.error(f"[RSS] Error in RSS parser for source: {source}, RSS link: {rss_link}", exc_info=True)
         response = getattr(e, 'response', None)
         response_content = ', response: ' + response.content if response else ''
         run_url = get_ci_run_url()
@@ -80,7 +81,7 @@ async def _rss_parser(
         rss_link,
         posted_q
 ):
-    logger.info(f"[RSS] Starting RSS parser for {source}")
+    logger.info(f"[RSS] Starting RSS parser for {source}, RSS link: {rss_link}")
     response = await _make_request(rss_link, telegram_bot_token)
     response.raise_for_status()
     feed = feedparser.parse(response.text)
@@ -97,7 +98,6 @@ async def _rss_parser(
         logger.debug(f"[RSS] Processing entry {message_count}/{limit} from {source}")
         message_text = ''
         image = ''
-        logger.debug(f"[RSS] Processing entry: {entry.get('title', 'No title')}")
         
         if 'abola.pt' in source:
             if not is_valid_abola_entry(entry):

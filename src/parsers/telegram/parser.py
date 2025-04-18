@@ -31,7 +31,7 @@ async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_t
 
 
 async def _telegram_parser(getter_client, graph, nlp, translator, channel, posted_q):
-    logger.debug(f"[Telegram] Initializing message iteration for channel: {channel}")
+    logger.info(f"[Telegram] Initializing message iteration for channel: {channel}")
     message_count = 0
     skipped_count = 0
 
@@ -40,21 +40,19 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
         logger.debug(f"[Telegram] Processing message {message_count}/{MAX_NUMBER_TAKEN_MESSAGES} from channel {channel}")
 
         message_text = message.raw_text
-        logger.debug(f"[Telegram] Message: {message_text}")
 
         if not message_text or message.media is None:
             skipped_count += 1
-            logger.debug(f"[Telegram] Skipping message {message_text}")
+            logger.debug(f"[Telegram] Skipping message: {'No text' if not message_text else 'No media'}")
             continue
 
         source = telegram_channels.get(message.peer_id.channel_id)
         if not source:
             skipped_count += 1
-            logger.warning(f"[Telegram] Channel ID {message.peer_id.channel_id} not found in telegram_channels")
+            logger.error(f"[Telegram] Channel ID {message.peer_id.channel_id} not found in telegram_channels")
             continue
 
-        channel = '@' + source.split('/')[-1]
-        logger.debug(f"[Telegram] Processing message from channel: {channel}")
+        name_channel = '@' + source.split('/')[-1]
 
         try:
             handler = SaveFileTelegram(getter_client, message)
@@ -69,7 +67,7 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
             skipped_count += 1
 
     logger.info(
-        f"[Telegram] Telegram parser statistics for channel {channel}: "
+        f"[Telegram] Telegram parser statistics for channel {channel}, name: {name_channel}: "
         f"Total messages: {message_count}, "
         f"Processed: {message_count - skipped_count}, "
         f"Skipped: {skipped_count}"
