@@ -21,8 +21,8 @@ logger = logging.getLogger(__name__)
 
 async def rss_wrapper(graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q):
     try:
-        logger.info(f"Starting RSS parser for source: {source}")
-        logger.debug(f"RSS link: {rss_link}")
+        logger.info(f"[RSS] Starting RSS parser for source: {source}")
+        logger.debug(f"[RSS] RSS link: {rss_link}")
         await _rss_parser(graph, nlp, translator, telegram_bot_token, source, rss_link, posted_q)
     except Exception as e:
         response = getattr(e, 'response', None)
@@ -39,14 +39,14 @@ async def rss_wrapper(graph, nlp, translator, telegram_bot_token, source, rss_li
 async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
     response = None
     httpx_client = httpx.AsyncClient()
-    logger.debug(f"Making request to {rss_link} (attempts left: {repeat})")
+    logger.debug(f"[RSS] Making request to {rss_link} (attempts left: {repeat})")
 
     try:
         response = await httpx_client.get(rss_link, headers=random_user_agent_headers())
         response.raise_for_status()
-        logger.debug(f"Request successful, status code: {response.status_code}")
+        logger.debug(f"[RSS] Request successful, status code: {response.status_code}")
     except Exception as e:
-        error_message = f"Request failed, retrying in {repeat} seconds. Error: {str(e)}"
+        error_message = f"[RSS] Request failed, retrying in {repeat} seconds. Error: {str(e)}"
         if hasattr(e, 'response'):
             error_message += f", Status code: {e.response.status_code}"
         logger.warning(error_message)
@@ -80,24 +80,24 @@ async def _rss_parser(
         rss_link,
         posted_q
 ):
-    logger.info(f"Starting RSS parser for {source}")
+    logger.info(f"[RSS] Starting RSS parser for {source}")
     response = await _make_request(rss_link, telegram_bot_token)
     response.raise_for_status()
     feed = feedparser.parse(response.text)
-    logger.debug(f"Feed parsed successfully, found {len(feed.entries)} entries")
+    logger.debug(f"[RSS] Feed parsed successfully, found {len(feed.entries)} entries")
 
     limit = min(MAX_NUMBER_TAKEN_MESSAGES, len(feed.entries))
-    logger.info(f"Processing {limit} entries from {source}")
+    logger.info(f"[RSS] Processing {limit} entries from {source}")
     
-    processed_count = 0
+    message_count = 0
     skipped_count = 0
     
     for entry in feed.entries[:limit][::-1]:
-        processed_count += 1
-        logger.debug(f"Processing entry {processed_count}/{limit} from {source}")
+        message_count += 1
+        logger.debug(f"[RSS] Processing entry {message_count}/{limit} from {source}")
         message_text = ''
         image = ''
-        logger.debug(f"Processing entry: {entry.get('title', 'No title')}")
+        logger.debug(f"[RSS] Processing entry: {entry.get('title', 'No title')}")
         
         if 'abola.pt' in source:
             if not is_valid_abola_entry(entry):
@@ -108,23 +108,36 @@ async def _rss_parser(
         elif 'bbc.com' in source:
             if not is_valid_bbc_com_entry(entry):
                 logger.debug("Entry skipped - invalid BBC entry")
+                skipped_count += 1
                 continue
             message_text, image = parse_bbc_com(entry)
         elif 'sportstar.thehindu.com' in source:
             if not is_valid_sportstar_entry(entry):
                 logger.debug("Entry skipped - invalid Sportstar entry")
+                skipped_count += 1
                 continue
             message_text, image = parse_sportstar_entry(entry)
 
-        handler = SaveFileUrl(image)
-        loop = asyncio.get_event_loop()
-        loop.add_signal_handler(signal.SIGUSR1, handler)
+        if not message_text or not image:
+            skipped_count += 1
+            logger.debug(f"[RSS] Skipping entry: {'No text' if not message_text else 'No image'}")
+            continue
 
-        await serve(graph, nlp, translator, message_text, handler, posted_q)
+        try:
+            handler = SaveFileUrl(image)
+            loop = asyncio.get_event_loop()
+            loop.add_signal_handler(signal.SIGUSR1, handler)
+            logger.debug(f"[RSS] Created file handler for entry: {message_text}")
+
+            await serve(graph, nlp, translator, message_text, handler, posted_q)
+            logger.debug(f"[RSS] Successfully processed entry: {message_text}")
+        except Exception as e:
+            logger.error(f"[RSS] Error processing entry: {message_text}", exc_info=True)
+            skipped_count += 1
 
     logger.info(
-        f"RSS parser statistics for {source}: "
+        f"[RSS] RSS parser statistics for {source}: "
         f"Total entries: {limit}, "
-        f"Processed: {processed_count}, "
+        f"Processed: {message_count - skipped_count}, "
         f"Skipped: {skipped_count}"
     )
