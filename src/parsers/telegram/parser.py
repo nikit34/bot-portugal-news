@@ -58,12 +58,12 @@ async def _process_message_chunk(
             continue
 
         try:
-            handler = SaveFileTelegram(getter_client, message)
+            handler_url_path = SaveFileTelegram(getter_client, message)
             loop = asyncio.get_event_loop()
-            loop.add_signal_handler(signal.SIGUSR1, handler)
+            loop.add_signal_handler(signal.SIGUSR1, handler_url_path)
             app_logger.debug(f"[Telegram] Created file handler for message: {message_text}")
 
-            await serve(graph, nlp, translator, message_text, handler, posted_q)
+            await serve(graph, nlp, translator, message_text, handler_url_path, posted_q)
             app_logger.debug(f"[Telegram] Successfully processed message: {message_text}")
         except Exception as e:
             app_logger.error(f"[Telegram] Error processing message: {message_text}", exc_info=True)

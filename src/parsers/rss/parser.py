@@ -125,12 +125,12 @@ async def _rss_parser(
             continue
 
         try:
-            handler = SaveFileUrl(image)
+            handler_url_path = SaveFileUrl(image)
             loop = asyncio.get_event_loop()
-            loop.add_signal_handler(signal.SIGUSR1, handler)
+            loop.add_signal_handler(signal.SIGUSR1, handler_url_path)
             app_logger.debug(f"[RSS] Created file handler for entry: {message_text}")
 
-            await serve(graph, nlp, translator, message_text, handler, posted_q)
+            await serve(graph, nlp, translator, message_text, handler_url_path, posted_q)
             app_logger.debug(f"[RSS] Successfully processed entry: {message_text}")
         except Exception as e:
             app_logger.error(f"[RSS] Error processing entry: {message_text}", exc_info=True)
