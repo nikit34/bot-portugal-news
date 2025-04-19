@@ -6,7 +6,6 @@ from typing import List, Any
 from src.files_manager import SaveFileTelegram
 from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, MESSAGE_CHUNK_SIZE
-from src.static.sources import telegram_channels
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.ci import get_ci_run_url
 
@@ -14,18 +13,18 @@ app_logger = logging.getLogger('app')
 stats_logger = logging.getLogger('stats')
 
 
-async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_token, channel, posted_q):
-    app_logger.info(f"[Telegram] Starting Telegram parser for channel: {channel}")
+async def telegram_wrapper(getter_client, graph, nlp, translator, telegram_bot_token, channel_link, posted_q):
+    app_logger.info(f"[Telegram] Starting Telegram parser for channel: {channel_link}")
     try:
-        await _telegram_parser(getter_client, graph, nlp, translator, channel, posted_q)
-        app_logger.info(f"[Telegram] Telegram parser completed successfully for channel: {channel}")
+        await _telegram_parser(getter_client, graph, nlp, translator, channel_link, posted_q)
+        app_logger.info(f"[Telegram] Telegram parser completed successfully for channel: {channel_link}")
     except Exception as e:
-        app_logger.error(f"[Telegram] Error in Telegram parser for channel {channel}", exc_info=True)
+        app_logger.error(f"[Telegram] Error in Telegram parser for channel {channel_link}", exc_info=True)
         response = getattr(e, 'response', None)
         response_content = ', response: ' + response.content if response else ''
         run_url = get_ci_run_url()
         message = (
-            f'ERROR: {channel} telegram parser is down\n{str(e)}{response_content}'
+            f'ERROR: {channel_link} telegram parser is down\n{str(e)}{response_content}'
             f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
         )
         app_logger.error(message)
@@ -49,12 +48,6 @@ async def _process_message_chunk(
             app_logger.debug(f"[Telegram] Skipping message: {'No text' if not message_text else 'No media'}")
             continue
 
-        source = telegram_channels.get(message.peer_id.channel_id)
-        if not source:
-            skipped_count += 1
-            app_logger.error(f"[Telegram] Channel ID {message.peer_id.channel_id} not found in telegram_channels")
-            continue
-
         try:
             handler_url_path = SaveFileTelegram(getter_client, message)
             loop = asyncio.get_event_loop()
@@ -70,14 +63,14 @@ async def _process_message_chunk(
     return skipped_count
 
 
-async def _telegram_parser(getter_client, graph, nlp, translator, channel, posted_q):
-    app_logger.info(f"[Telegram] Initializing message iteration for channel: {channel}")
+async def _telegram_parser(getter_client, graph, nlp, translator, channel_link, posted_q):
+    app_logger.info(f"[Telegram] Initializing message iteration for channel: {channel_link}")
     message_count = 0
     skipped_count = 0
     current_message_chunk = []
     message_chunks = []
     
-    async for message in getter_client.iter_messages(channel, limit=MAX_NUMBER_TAKEN_MESSAGES):
+    async for message in getter_client.iter_messages(channel_link, limit=MAX_NUMBER_TAKEN_MESSAGES):
         message_count += 1
         current_message_chunk.append(message)
         
@@ -97,9 +90,9 @@ async def _telegram_parser(getter_client, graph, nlp, translator, channel, poste
         ])
         skipped_count = sum(chunk_results)
 
-    name_channel = '@' + telegram_channels.get(channel).split('/')[-1]
+    name_channel = '@' + channel_link.split('/')[-1]
     stats_logger.info(
-        f"[Telegram] Telegram parser statistics for channel {channel}, name: {name_channel}: "
+        f"[Telegram] Telegram parser statistics for channel {channel_link}, name: {name_channel}: "
         f"Total messages: {message_count}, "
         f"Processed: {message_count - skipped_count}, "
         f"Skipped: {skipped_count}"
