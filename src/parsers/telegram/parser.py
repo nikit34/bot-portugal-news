@@ -44,7 +44,7 @@ async def _process_message_chunk(
     for message in message_chunk:
         message_text = message.raw_text
 
-        if not message_text or not isinstance(message.media, MessageMediaWebPage):
+        if not message_text or isinstance(message.media, MessageMediaWebPage):
             skipped_count += 1
             app_logger.debug(f"[Telegram] Skipping message: {'No text' if not message_text else 'No media'}")
             continue
