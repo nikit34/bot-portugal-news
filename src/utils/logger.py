@@ -16,7 +16,7 @@ def get_log_level():
 
 def setup_logging():
     log_format = logging.Formatter(
-        '%(asctime)s | %(levelname)-8s | %(name)s | %(filename)s:%(lineno)d | %(funcName)s | %(message)s'
+        '%(asctime)s | %(levelname)-8s | %(filename)s:%(lineno)d | %(funcName)s | %(message)s'
     )
 
     log_level = get_log_level()
