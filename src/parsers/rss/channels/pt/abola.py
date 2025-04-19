@@ -1,7 +1,7 @@
 import re
 import logging
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('app')
 
 
 def is_valid_abola_entry(entry):

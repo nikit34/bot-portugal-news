@@ -7,7 +7,7 @@ from PIL import Image
 
 from src.static.sources import tmp_folder
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('app')
 
 
 def clean_tmp_folder():

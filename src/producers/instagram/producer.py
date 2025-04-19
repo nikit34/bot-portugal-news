@@ -6,7 +6,7 @@ from src.producers.text_editor import trunc_str
 from src.static.settings import INSTAGRAM_MAX_LENGTH_MESSAGE
 from src.static.sources import self_instagram_channel
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('app')
 
 
 async def _upload_media(access_token, message, media_url):
