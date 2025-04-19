@@ -15,17 +15,17 @@ from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS
 from src.static.sources import platforms
 
 
-async def serve(graph, nlp, translator, message_text, handler, posted_q):
+async def serve(graph, nlp, translator, message_text, handler_url_path, posted_q):
     translated_message = _translate_message(translator, message_text)
 
     cache_handler = _CacheHandler()
-    cached_handler = cache_handler.cached(handler)
+    cached_handler_url_path = cache_handler.cached(handler_url_path)
 
     head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
     if is_duplicate_message(head, posted_q):
         return
 
-    url_path = await cached_handler()
+    url_path = await cached_handler_url_path()
     is_video = await _is_video(url_path)
     
     if not is_video and _low_semantic_load(nlp, translated_message):
@@ -35,8 +35,6 @@ async def serve(graph, nlp, translator, message_text, handler, posted_q):
         return
 
     posted_q.appendleft(head)
-
-    url_path = await cached_handler()
 
     tasks = []
 

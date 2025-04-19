@@ -5,7 +5,7 @@ from time import sleep
 from src.static.settings import REPEAT_REQUESTS, TIMEOUT
 
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('app')
 
 
 def log_error(func, attempts, args, e):

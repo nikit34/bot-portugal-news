@@ -71,22 +71,22 @@ async def main():
         tasks = []
 
         app_logger.info(f"Adding tasks for {len(telegram_channels)} Telegram channels")
-        for channel_name, channel in telegram_channels.items():
-            app_logger.debug(f"Adding task for Telegram channel: {channel_name}")
+        for channel_link in telegram_channels:
+            app_logger.debug(f"Adding task for Telegram channel: {channel_link}")
             task = telegram_wrapper(
                 getter_client=getter_client,
                 graph=graph,
                 nlp=nlp,
                 translator=translator,
                 telegram_bot_token=telegram_bot_token,
-                channel=channel,
+                channel_link=channel_link,
                 posted_q=posted_q
             )
             tasks.append(task)
 
         app_logger.info(f"Adding tasks for {len(rss_channels)} RSS channels")
         for source, rss_link in rss_channels.items():
-            app_logger.debug(f"Adding task for RSS source: {source}")
+            app_logger.debug(f"Adding task for RSS source: {rss_link}")
             task = rss_wrapper(
                 graph=graph,
                 nlp=nlp,

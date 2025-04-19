@@ -4,16 +4,16 @@ telegram_debug_chat_id = '-1002178707665'
 self_facebook_page_id = '348454375016310'
 self_instagram_channel = '17841467413345329'
 
-telegram_channels = {
-    # 2178707665: 'https://t.me/+M-LLGrMDui1hZjhi'  # For debug
+telegram_channels = [
+    # 'https://t.me/+M-LLGrMDui1hZjhi'  # For debug
 
-    # 1193946403: "https://t.me/euro_football_ru",
-    # 1170720309: 'https://t.me/MemesFutebol',
-    2223606055: 'https://t.me/AO_VIVO_Futebol',
-    1655707093: 'https://t.me/FutebolDaZoeira',
-    1315512265: 'https://t.me/futebol_portugues',
-    1445085437: 'https://t.me/Futebol_Brasileirao',
-}
+    # "https://t.me/euro_football_ru",
+    # 'https://t.me/MemesFutebol',
+    'https://t.me/AO_VIVO_Futebol',
+    'https://t.me/FutebolDaZoeira',
+    'https://t.me/futebol_portugues',
+    'https://t.me/Futebol_Brasileirao',
+]
 
 rss_channels = {
     'abola.pt': 'https://www.abola.pt/api/rss',

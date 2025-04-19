@@ -5,7 +5,7 @@ import httpx
 from src.static.sources import telegram_debug_chat_id
 
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('app')
 
 
 async def send_message_api(text, telegram_bot_token):

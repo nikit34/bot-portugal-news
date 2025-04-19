@@ -3,7 +3,7 @@ import logging
 from typing import Dict, Any, Tuple
 from datetime import datetime
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('app')
 
 
 def is_valid_sportstar_entry(entry: Dict[str, Any]) -> bool:
