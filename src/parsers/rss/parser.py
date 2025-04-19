@@ -118,8 +118,8 @@ async def _process_entry(
         app_logger.error(f"[RSS] Error processing entry: {message_text}", exc_info=True)
         return False
 
-async def _process_chunk(
-    chunk: List[Dict[str, Any]],
+async def _process_entry_chunk(
+    entry_chunk: List[Dict[str, Any]],
     source: str,
     graph,
     nlp,
@@ -129,7 +129,7 @@ async def _process_chunk(
     processed_count = 0
     tasks = []
     
-    for entry in chunk:
+    for entry in entry_chunk:
         task = _process_entry(entry, source, graph, nlp, translator, posted_q)
         tasks.append(task)
     
@@ -157,15 +157,15 @@ async def _rss_parser(
     app_logger.info(f"[RSS] Processing {limit} entries from {source}")
     
     entries = feed.entries[:limit][::-1]
-    chunks = [entries[i:i + MESSAGE_CHUNK_SIZE] for i in range(0, len(entries), MESSAGE_CHUNK_SIZE)]
+    entries_chunks = [entries[i:i + MESSAGE_CHUNK_SIZE] for i in range(0, len(entries), MESSAGE_CHUNK_SIZE)]
     
     processed_count = 0
     skipped_count = 0
     
-    for chunk in chunks:
-        processed = await _process_chunk(chunk, source, graph, nlp, translator, posted_q)
+    for entry_chunk in entries_chunks:
+        processed = await _process_entry_chunk(entry_chunk, source, graph, nlp, translator, posted_q)
         processed_count += processed
-        skipped_count += len(chunk) - processed
+        skipped_count += len(entry_chunk) - processed
 
     stats_logger.info(
         f"[RSS] RSS parser statistics for {source}, RSS link: {rss_link}: "
