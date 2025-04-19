@@ -3,6 +3,7 @@ import logging
 import signal
 from typing import List, Any
 
+from telethon.tl.types import MessageMediaWebPage
 from src.files_manager import SaveFileTelegram
 from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, MESSAGE_CHUNK_SIZE
@@ -43,7 +44,7 @@ async def _process_message_chunk(
     for message in message_chunk:
         message_text = message.raw_text
 
-        if not message_text or message.media is None:
+        if not message_text or not isinstance(message.media, MessageMediaWebPage):
             skipped_count += 1
             app_logger.debug(f"[Telegram] Skipping message: {'No text' if not message_text else 'No media'}")
             continue
