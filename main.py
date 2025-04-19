@@ -86,7 +86,7 @@ async def main():
 
         app_logger.info(f"Adding tasks for {len(rss_channels)} RSS channels")
         for source, rss_link in rss_channels.items():
-            app_logger.debug(f"Adding task for RSS source: {source}")
+            app_logger.debug(f"Adding task for RSS source: {rss_link}")
             task = rss_wrapper(
                 graph=graph,
                 nlp=nlp,
