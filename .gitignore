@@ -1,6 +1,7 @@
 .idea/
 .vscode/
-venv/, .venv/
+venv/
+.venv/
 
 secret
 
