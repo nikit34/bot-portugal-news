@@ -1,7 +1,6 @@
 import asyncio
 import logging
 from collections import deque
-import os
 
 import spacy
 from telethon import TelegramClient
