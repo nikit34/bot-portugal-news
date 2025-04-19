@@ -126,7 +126,7 @@ async def _process_entry_chunk(
     translator,
     posted_q
 ) -> int:
-    processed_count = 0
+    skipped_count = 0
     tasks = []
     
     for entry in entry_chunk:
@@ -134,9 +134,9 @@ async def _process_entry_chunk(
         tasks.append(task)
     
     results = await asyncio.gather(*tasks)
-    processed_count = sum(1 for result in results if result)
+    skipped_count = sum(1 for result in results if not result)
     
-    return processed_count
+    return skipped_count
 
 async def _rss_parser(
         graph,
@@ -159,17 +159,14 @@ async def _rss_parser(
     entries = feed.entries[:limit][::-1]
     entries_chunks = [entries[i:i + MESSAGE_CHUNK_SIZE] for i in range(0, len(entries), MESSAGE_CHUNK_SIZE)]
     
-    processed_count = 0
     skipped_count = 0
     
     for entry_chunk in entries_chunks:
-        processed = await _process_entry_chunk(entry_chunk, source, graph, nlp, translator, posted_q)
-        processed_count += processed
-        skipped_count += len(entry_chunk) - processed
+        skipped_count += await _process_entry_chunk(entry_chunk, source, graph, nlp, translator, posted_q)
 
     stats_logger.info(
         f"[RSS] RSS parser statistics for {source}, RSS link: {rss_link}: "
         f"Total entries: {limit}, "
-        f"Processed: {processed_count}, "
+        f"Processed: {limit - skipped_count}, "
         f"Skipped: {skipped_count}"
     )
