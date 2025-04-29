@@ -6,7 +6,7 @@ concurrency:
 
 on:
   schedule:
-    - cron: '55 23,2,5,8,11 * * *'
+    - cron: '55 22,23,2,5,8,11 * * *'
   workflow_dispatch:
     inputs:
       log_level:
