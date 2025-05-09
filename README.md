@@ -4,6 +4,28 @@
 - [t.me/sportportugal](https://t.me/sportportugal)
 - [facebook.com/desportportugal](https://www.facebook.com/desportportugal)
 
+
+## Steps to Run the Project
+
+1. Create a virtual environment:
+
+   `python -m venv venv`
+
+2.	Activate the virtual environment:
+
+    On macOS/Linux: `source venv/bin/activate`
+
+    On Windows: `venv\Scripts\activate`
+
+3.	Install dependencies:
+
+    `pip install -r requirements.txt`
+
+4.	Create a file named secret and add your credentials to it.
+5.	Run the application:
+
+    `python main.py`
+
 ## Troubleshooting
 
 ### One session files are accessed by two different IP addresses
