@@ -9,10 +9,17 @@ logger = logging.getLogger('app')
 
 
 def log_error(func, attempts, args, e):
+    response_content = ''
+    if hasattr(e, 'response') and e.response is not None:
+        try:
+            response_content = e.response.content.decode('utf-8')
+        except:
+            response_content = str(e.response.content)
+    
     logger.warning(
         "Request '" + func.__name__ + "' failed, " +
         str(attempts) + "  attempts left, parameters: " + str(args) + ", error: " + str(e) +
-        ", response: " + getattr(e, 'response', {}).get('content', '')
+        ", response: " + response_content
     )
 
 

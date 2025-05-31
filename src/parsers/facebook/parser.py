@@ -4,28 +4,38 @@ import requests
 from src.producers.repeater import retry
 from src.static.settings import KEY_SEARCH_LENGTH_CHARS
 from src.static.sources import self_facebook_page_id
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def get_published_messages(graph, max_posts):
-    url = "https://graph.facebook.com/v20.0/" + self_facebook_page_id + "/posts"
+    url = "https://graph.facebook.com/v18.0/" + self_facebook_page_id + "/posts"
     params = {
         'access_token': graph.access_token,
-        'limit': 50
+        'limit': 50,
+        'fields': 'message,created_time'
     }
 
     messages = []
 
     while max_posts > 0:
-        data = _fetch_posts(url, params)
-        posts = data.get('data', [])
+        try:
+            data = _fetch_posts(url, params)
+            posts = data.get('data', [])
 
-        new_messages, max_posts = _extract_messages(posts, max_posts)
-        messages.extend(new_messages)
+            new_messages, max_posts = _extract_messages(posts, max_posts)
+            messages.extend(new_messages)
 
-        if 'paging' in data and 'next' in data['paging']:
-            url = data['paging']['next']
-            params = {}
-        else:
+            if 'paging' in data and 'next' in data['paging']:
+                url = data['paging']['next']
+                params = {}
+            else:
+                break
+        except Exception as e:
+            logger.error(f"Error fetching Facebook posts: {str(e)}")
+            if hasattr(e, 'response') and e.response is not None:
+                logger.error(f"Response content: {e.response.content}")
             break
 
     return messages
