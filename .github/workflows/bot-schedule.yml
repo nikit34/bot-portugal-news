@@ -40,7 +40,7 @@ jobs:
         run: mkdir -p logs
       - name: Run bot
         run: python main.py
-        timeout-minutes: 10
+        timeout-minutes: 50
         continue-on-error: true
         env:
           TELEGRAM_TOKEN_BOT: ${{ secrets.TELEGRAM_TOKEN_BOT }}
