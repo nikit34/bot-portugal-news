@@ -24,7 +24,7 @@ async def facebook_send_message(graph, message, url_path):
 
 
 def _send_video(graph, message, file_path):
-    url = 'https://graph.facebook.com/v20.0/' + self_facebook_page_id + '/videos'
+    url = 'https://graph.facebook.com/v18.0/' + self_facebook_page_id + '/videos'
 
     video_data = {
         'description': message,
