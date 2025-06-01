@@ -53,3 +53,20 @@ Graph returned an error: (#200) This endpoint is deprecated since the required p
 8. Paste copied token and press "Debug"
 9. Press "Extend Access Token" and copy the generated long-lived user access token
 Use copied token
+
+
+### Recreate Facebook app
+```commandline
+error: (#200) this endpoint is deprecated since the required permission publish_actions is deprecated
+```
+1. Open Graph API Explorer https://developers.facebook.com/tools/explorer/ 
+2. Select your MetaApp 
+3. Select "User Token" 
+4. Set below permissions and Create Access Token 
+5. Pass FB Authentication 
+6. Select "Page Token" 
+7. Pass FB Authentication (select your page during Authentication) 
+8. Now you will find your page name inside the token combo at the bottom! Just select it and the page token will appear above. (Do NOT click Create Access Token)
+
+Permissions: pages_manage_cta pages_manage_instant_articles pages_show_list business_management pages_messaging pages_messaging_subscriptions page_events pages_read_engagement pages_manage_metadata pages_read_user_content pages_manage_ads pages_manage_posts pages_manage_engagement
+
