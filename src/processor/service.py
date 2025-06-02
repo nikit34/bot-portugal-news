@@ -2,7 +2,7 @@ import asyncio
 import os
 from functools import wraps
 
-from src.processor.history_comparator import is_duplicate_message
+from src.processor.history_comparator import is_duplicate_message, _is_ignored_prefix
 from src.producers.facebook.producer import (
     facebook_prepare_post,
     facebook_send_message
@@ -22,6 +22,11 @@ async def serve(graph, nlp, translator, message_text, handler_url_path, posted_q
     cached_handler_url_path = cache_handler.cached(handler_url_path)
 
     head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
+    
+    
+    if _is_ignored_prefix(head):
+        return
+            
     if is_duplicate_message(head, posted_q):
         return
 

@@ -25,6 +25,9 @@
 5.	Run the application:
 
     `python main.py`
+6. Run tests:
+
+    `pytest`
 
 ## Troubleshooting
 

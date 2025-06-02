@@ -1,4 +1,16 @@
-from src.processor.history_comparator import is_duplicate_message
+from src.processor.history_comparator import is_duplicate_message, _is_ignored_prefix
+from src.static.ignore_list import IGNORE_POSTS
+
+def test_is_ignored_prefix():
+    IGNORE_POSTS.append("Breaking news:")
+    assert _is_ignored_prefix("Breaking news: Something happened")
+    
+    assert _is_ignored_prefix("Breaking newz: Something happened")
+    assert _is_ignored_prefix("Breaking news! Something happened")
+    
+    assert not _is_ignored_prefix("Regular news: Something happened")
+    
+    assert not _is_ignored_prefix("Today's breaking news: Something happened")
 
 def test_is_duplicate_message_with_exact_match(posted_q):
     message = "Test message"
