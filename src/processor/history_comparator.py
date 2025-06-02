@@ -9,7 +9,9 @@ def _is_ignored_prefix(head):
         prefix_length = len(ignored_prefix)
         head_prefix = head[:prefix_length]
         similarity = difflib.SequenceMatcher(None, head_prefix, ignored_prefix).ratio()
-        return similarity >= MESSAGE_SIMILARITY_THRESHOLD
+        if similarity >= MESSAGE_SIMILARITY_THRESHOLD:
+            return True
+    return False
 
 
 def is_duplicate_message(head, posted_q):
