@@ -31,7 +31,6 @@ async def main():
     app_logger.debug("Loading secret keys")
     telegram_api_id = get_secret_key('.', 'TELEGRAM_API_ID')
     telegram_api_hash = get_secret_key('.', 'TELEGRAM_API_HASH')
-    telegram_password = get_secret_key('.', 'TELEGRAM_PASSWORD')
     telegram_bot_token = get_secret_key('.', 'TELEGRAM_TOKEN_BOT')
     facebook_access_token = get_secret_key('.', 'FACEBOOK_ACCESS_TOKEN')
     app_logger.debug("Secret keys loaded successfully")
@@ -56,7 +55,7 @@ async def main():
 
     app_logger.info("Starting Telegram clients")
     tasks = [
-        client.start(password=telegram_password, bot_token=telegram_bot_token),
+        client.start(),
         getter_client.start()
     ]
     await asyncio.gather(*tasks)
