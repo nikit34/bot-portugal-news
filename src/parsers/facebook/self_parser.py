@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def get_published_messages(graph, max_posts):
+def get_facebook_published_messages(graph, max_posts):
     url = "https://graph.facebook.com/v18.0/" + self_facebook_page_id + "/posts"
     params = {
         'access_token': graph.access_token,

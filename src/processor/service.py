@@ -2,7 +2,7 @@ import asyncio
 import os
 from functools import wraps
 
-from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish
+from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms
 from src.producers.facebook.producer import (
     facebook_prepare_post,
     facebook_send_message
@@ -30,8 +30,9 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     
     if is_ignored_prefix(head):
         return
-            
-    if is_duplicate_publish(head, posted_q, platforms):
+
+    decisions_publish_platforms = get_decisions_publish_platforms(head, posted_q, platforms) 
+    if is_duplicate_publish(decisions_publish_platforms):
         return
 
     url_path = await cached_handler_url_path()

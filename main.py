@@ -8,8 +8,8 @@ from googletrans import Translator
 import facebook as fb
 
 from src.files_manager import clean_tmp_folder
-from src.parsers.facebook.self_parser import get_published_messages
-from src.parsers.telegram.self_parser import get_published_messages
+from src.parsers.facebook.self_parser import get_facebook_published_messages
+from src.parsers.telegram.self_parser import get_telegram_published_messages
 from src.processor.history_comparator import process_post_histories
 from src.parsers.rss.parser import rss_wrapper
 from src.parsers.telegram.parser import telegram_wrapper
@@ -64,9 +64,9 @@ async def main():
 
     try:
         app_logger.info("Fetching message history from Facebook and Telegram")
-        facebook_history = get_published_messages(graph, COUNT_UNIQUE_MESSAGES)
+        facebook_history = get_facebook_published_messages(graph, COUNT_UNIQUE_MESSAGES)
         app_logger.info(f"Loaded {len(facebook_history)} messages from Facebook history")
-        telegram_history = get_published_messages(client, COUNT_UNIQUE_MESSAGES)
+        telegram_history = get_telegram_published_messages(client, COUNT_UNIQUE_MESSAGES)
         app_logger.info(f"Loaded {len(telegram_history)} messages from Telegram history")
         
         posted_q = process_post_histories(facebook_history, telegram_history)

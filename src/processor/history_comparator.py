@@ -23,7 +23,7 @@ def _is_duplicate_message(head, posted_q):
     return False
 
 
-def _get_decisions_publish_platforms(head, posted_q, decisions_publish_platforms):
+def get_decisions_publish_platforms(head, posted_q, decisions_publish_platforms):
     duplicated_general = _is_duplicate_message(head, posted_q.get('general', []))
     duplicated_telegram = _is_duplicate_message(head, posted_q.get('telegram', []))
     duplicated_facebook = _is_duplicate_message(head, posted_q.get('facebook', []))
@@ -45,8 +45,7 @@ def _get_decisions_publish_platforms(head, posted_q, decisions_publish_platforms
 
     return decisions_publish_platforms
 
-def is_duplicate_publish(head, posted_q, decisions_publish_platforms):
-    decisions_publish_platforms = _get_decisions_publish_platforms(head, posted_q, decisions_publish_platforms)
+def is_duplicate_publish(decisions_publish_platforms):
     return not any(decisions_publish_platforms.get(p) for p in ['Facebook', 'Telegram', 'Instagram'])
 
 
