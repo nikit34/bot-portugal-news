@@ -8,7 +8,9 @@ from googletrans import Translator
 import facebook as fb
 
 from src.files_manager import clean_tmp_folder
-from src.parsers.facebook.parser import get_published_messages
+from src.parsers.facebook.self_parser import get_published_messages
+from src.parsers.telegram.self_parser import get_published_messages
+from src.processor.history_comparator import process_post_histories
 from src.parsers.rss.parser import rss_wrapper
 from src.parsers.telegram.parser import telegram_wrapper
 from src.properties_reader import get_secret_key
@@ -61,10 +63,13 @@ async def main():
     app_logger.info("Telegram clients started successfully")
 
     try:
-        app_logger.info("Fetching message history from Facebook")
-        history = get_published_messages(graph, COUNT_UNIQUE_MESSAGES)
-        posted_q.extend(history)
-        app_logger.info(f"Loaded {len(history)} messages from Facebook history")
+        app_logger.info("Fetching message history from Facebook and Telegram")
+        facebook_history = get_published_messages(graph, COUNT_UNIQUE_MESSAGES)
+        app_logger.info(f"Loaded {len(facebook_history)} messages from Facebook history")
+        telegram_history = get_published_messages(client, COUNT_UNIQUE_MESSAGES)
+        app_logger.info(f"Loaded {len(telegram_history)} messages from Telegram history")
+        
+        posted_q = process_post_histories(facebook_history, telegram_history)
 
         app_logger.info("Preparing parsing tasks")
         tasks = []
@@ -73,6 +78,7 @@ async def main():
         for channel_link in telegram_channels:
             app_logger.debug(f"Adding task for Telegram channel: {channel_link}")
             task = telegram_wrapper(
+                client=client,
                 getter_client=getter_client,
                 graph=graph,
                 nlp=nlp,
@@ -87,6 +93,7 @@ async def main():
         for source, rss_link in rss_channels.items():
             app_logger.debug(f"Adding task for RSS source: {rss_link}")
             task = rss_wrapper(
+                client=client,
                 graph=graph,
                 nlp=nlp,
                 translator=translator,

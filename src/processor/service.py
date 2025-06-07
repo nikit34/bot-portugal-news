@@ -2,7 +2,7 @@ import asyncio
 import os
 from functools import wraps
 
-from src.processor.history_comparator import is_duplicate_message, _is_ignored_prefix
+from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish
 from src.producers.facebook.producer import (
     facebook_prepare_post,
     facebook_send_message
@@ -11,11 +11,15 @@ from src.producers.instagram.producer import (
     instagram_prepare_post,
     instagram_send_message
 )
+from src.producers.telegram.producer import (
+    telegram_prepare_post,
+    telegram_send_message
+)
 from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS, MAX_VIDEO_SIZE_MB, TARGET_LANGUAGE
 from src.static.sources import platforms
 
 
-async def serve(graph, nlp, translator, message_text, handler_url_path, posted_q):
+async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_q):
     translated_message = _translate_message(translator, message_text)
 
     cache_handler = _CacheHandler()
@@ -24,10 +28,10 @@ async def serve(graph, nlp, translator, message_text, handler_url_path, posted_q
     head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
     
     
-    if _is_ignored_prefix(head):
+    if is_ignored_prefix(head):
         return
             
-    if is_duplicate_message(head, posted_q):
+    if is_duplicate_publish(head, posted_q, platforms):
         return
 
     url_path = await cached_handler_url_path()
@@ -43,13 +47,17 @@ async def serve(graph, nlp, translator, message_text, handler_url_path, posted_q
 
     tasks = []
 
-    if platforms.get('facebook', False):
+    if decisions_publish_platforms.get('facebook', False):
         facebook_post = facebook_prepare_post(nlp, translated_message)
         tasks.append(facebook_send_message(graph, facebook_post, url_path))
 
-    if platforms.get('instagram', False):
+    if decisions_publish_platforms.get('instagram', False):
         instagram_post = instagram_prepare_post(translated_message)
         tasks.append(instagram_send_message(graph, instagram_post, url_path))
+
+    if decisions_publish_platforms.get('telegram', False):
+        telegram_post = telegram_prepare_post(translated_message)
+        tasks.append(telegram_send_message(client, telegram_post, url_path))
 
     await asyncio.gather(*tasks)
 

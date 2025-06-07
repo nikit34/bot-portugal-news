@@ -1,5 +1,6 @@
 import os
 
+telegram_chat_id = '-1002106461489'
 telegram_debug_chat_id = '-1002178707665'
 self_facebook_page_id = '348454375016310'
 self_instagram_channel = '17841467413345329'
@@ -26,6 +27,7 @@ rss_channels = {
 tmp_folder = os.getcwd() + '/tmp'
 
 platforms = {
+    'telegram': True,
     'facebook': True,
     'instagram': False,
 }
