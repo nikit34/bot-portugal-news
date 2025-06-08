@@ -2,7 +2,7 @@
     "platforms": {
         "ALL": null,
         "TELEGRAM": true,
-        "FACEBOOK": false,
+        "FACEBOOK": true,
         "INSTAGRAM": true
     },
     "self": {
