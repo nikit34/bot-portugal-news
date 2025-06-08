@@ -6,6 +6,14 @@ from PIL import Image
 from src.static.settings import COUNT_UNIQUE_MESSAGES
 
 @pytest.fixture
+def posted_d():
+    return {
+        'general': deque(maxlen=COUNT_UNIQUE_MESSAGES),
+        'facebook': deque(maxlen=COUNT_UNIQUE_MESSAGES),
+        'telegram': deque(maxlen=COUNT_UNIQUE_MESSAGES),
+    }
+
+@pytest.fixture
 def posted_q():
     return deque(maxlen=COUNT_UNIQUE_MESSAGES)
 

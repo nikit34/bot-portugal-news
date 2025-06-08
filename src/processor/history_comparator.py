@@ -15,18 +15,18 @@ def is_ignored_prefix(head):
     return False
 
 
-def _is_duplicate_message(head, posted_q):
-    for post in posted_q:
+def _is_duplicate_message(head, posted_l):
+    for post in posted_l:
         similarity = difflib.SequenceMatcher(None, head, post).ratio()
         if similarity >= MESSAGE_SIMILARITY_THRESHOLD:
             return True
     return False
 
 
-def get_decisions_publish_platforms(head, posted_q, decisions_publish_platforms):
-    duplicated_general = _is_duplicate_message(head, posted_q.get('general', []))
-    duplicated_telegram = _is_duplicate_message(head, posted_q.get('telegram', []))
-    duplicated_facebook = _is_duplicate_message(head, posted_q.get('facebook', []))
+def get_decisions_publish_platforms(head, posted_d, decisions_publish_platforms):
+    duplicated_general = _is_duplicate_message(head, posted_d.get('general', []))
+    duplicated_telegram = _is_duplicate_message(head, posted_d.get('telegram', []))
+    duplicated_facebook = _is_duplicate_message(head, posted_d.get('facebook', []))
 
     if duplicated_general:
         decisions_publish_platforms['facebook'] = False

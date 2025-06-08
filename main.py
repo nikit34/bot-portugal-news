@@ -50,7 +50,7 @@ async def main():
     app_logger.debug("NLP model and translator loaded successfully")
 
     app_logger.info(f"Initializing message queue with max length: {COUNT_UNIQUE_MESSAGES}")
-    posted_q = deque(maxlen=COUNT_UNIQUE_MESSAGES)
+    posted_d = deque(maxlen=COUNT_UNIQUE_MESSAGES)
     app_logger.debug("Message queue initialized")
 
     app_logger.info("Starting Telegram clients")
@@ -68,7 +68,7 @@ async def main():
         telegram_history = await get_telegram_published_messages(client, COUNT_UNIQUE_MESSAGES)
         app_logger.info(f"Loaded {len(telegram_history)} messages from Telegram history")
         
-        posted_q = process_post_histories(facebook_history, telegram_history)
+        posted_d = process_post_histories(facebook_history, telegram_history)
 
         app_logger.info("Preparing parsing tasks")
         tasks = []
@@ -84,7 +84,7 @@ async def main():
                 translator=translator,
                 telegram_bot_token=telegram_bot_token,
                 channel_link=channel_link,
-                posted_q=posted_q
+                posted_d=posted_d
             )
             tasks.append(task)
 
@@ -99,7 +99,7 @@ async def main():
                 telegram_bot_token=telegram_bot_token,
                 source=source,
                 rss_link=rss_link,
-                posted_q=posted_q
+                posted_d=posted_d
             )
             tasks.append(task)
 

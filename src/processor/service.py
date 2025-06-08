@@ -19,7 +19,7 @@ from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS
 from src.static.sources import platforms
 
 
-async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_q):
+async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d):
     translated_message = _translate_message(translator, message_text)
 
     cache_handler = _CacheHandler()
@@ -31,7 +31,7 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     if is_ignored_prefix(head):
         return
 
-    decisions_publish_platforms = get_decisions_publish_platforms(head, posted_q, platforms) 
+    decisions_publish_platforms = get_decisions_publish_platforms(head, posted_d, platforms) 
     if is_duplicate_publish(decisions_publish_platforms):
         return
 
@@ -44,7 +44,7 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     if is_video and _large_video_size(url_path):
         return
 
-    posted_q.get('general').appendleft(head)
+    posted_d.get('general').appendleft(head)
 
     tasks = []
 
