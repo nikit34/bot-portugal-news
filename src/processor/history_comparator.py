@@ -24,25 +24,31 @@ def _is_duplicate_message(head, posted_l):
     return False
 
 
-def get_decisions_publish_platforms(head, posted_d, decisions_publish_platforms):
+def get_decisions_publish_platforms(head, posted_d, platforms):
     duplicated_general = _is_duplicate_message(head, posted_d.get(Platform.ALL, []))
     duplicated_telegram = _is_duplicate_message(head, posted_d.get(Platform.TELEGRAM, []))
     duplicated_facebook = _is_duplicate_message(head, posted_d.get(Platform.FACEBOOK, []))
 
+    decisions_publish_platforms = {
+        Platform.FACEBOOK: None,
+        Platform.INSTAGRAM: None,
+        Platform.TELEGRAM: None,
+    }
+
     if duplicated_general:
         decisions_publish_platforms[Platform.FACEBOOK] = False
-        decisions_publish_platforms[Platform.TELEGRAM] = False
         decisions_publish_platforms[Platform.INSTAGRAM] = False
+        decisions_publish_platforms[Platform.TELEGRAM] = False
     elif duplicated_telegram:
-        decisions_publish_platforms[Platform.FACEBOOK] = True
-        decisions_publish_platforms[Platform.INSTAGRAM] = True
+        decisions_publish_platforms[Platform.FACEBOOK] = platforms[Platform.FACEBOOK]
+        decisions_publish_platforms[Platform.INSTAGRAM] = platforms[Platform.INSTAGRAM]
         decisions_publish_platforms[Platform.TELEGRAM] = False
     elif duplicated_facebook:
-        decisions_publish_platforms[Platform.TELEGRAM] = True
         decisions_publish_platforms[Platform.FACEBOOK] = False
         decisions_publish_platforms[Platform.INSTAGRAM] = False
+        decisions_publish_platforms[Platform.TELEGRAM] = platforms[Platform.TELEGRAM]
     else:
-        pass
+        decisions_publish_platforms = platforms
 
     return decisions_publish_platforms
 
