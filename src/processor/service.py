@@ -44,7 +44,7 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     if is_video and _large_video_size(url_path):
         return
 
-    posted_q.appendleft(head)
+    posted_q.get('general').appendleft(head)
 
     tasks = []
 
