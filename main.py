@@ -73,6 +73,7 @@ async def main():
         app_logger.info(f"Loaded {len(telegram_history)} messages from Telegram history")
         
         posted_d = process_post_histories(facebook_history, telegram_history)
+        app_logger.info(f"ALL: {len(posted_d[Platform.ALL])}, Facebook: {len(posted_d[Platform.FACEBOOK])}, Telegram: {len(posted_d[Platform.TELEGRAM])}")
 
         app_logger.info("Preparing parsing tasks")
         tasks = []
