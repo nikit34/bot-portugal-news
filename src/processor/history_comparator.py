@@ -46,7 +46,7 @@ def get_decisions_publish_platforms(head, posted_q, decisions_publish_platforms)
     return decisions_publish_platforms
 
 def is_duplicate_publish(decisions_publish_platforms):
-    return not any(decisions_publish_platforms.get(p) for p in ['Facebook', 'Telegram', 'Instagram'])
+    return not any(decisions_publish_platforms.get(p) for p in ['facebook', 'telegram', 'instagram'])
 
 
 
