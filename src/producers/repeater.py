@@ -1,6 +1,7 @@
 import asyncio
 import logging
 from time import sleep
+from telethon.errors import FloodWaitError
 
 from src.static.settings import REPEAT_REQUESTS, TIMEOUT
 
@@ -29,6 +30,11 @@ def async_retry(repeat=REPEAT_REQUESTS, timeout=TIMEOUT):
             attempts = repeat
             while attempts > 0:
                 try:
+                    return await func(*args, **kwargs)
+                except FloodWaitError as e:
+                    wait_time = e.seconds
+                    logger.warning(f"FloodWaitError: waiting {wait_time} seconds before retry")
+                    await asyncio.sleep(wait_time)
                     return await func(*args, **kwargs)
                 except Exception as e:
                     attempts -= 1
