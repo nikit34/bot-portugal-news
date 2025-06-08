@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import argparse
 from collections import deque
 
 import spacy
@@ -15,7 +16,7 @@ from src.parsers.rss.parser import rss_wrapper
 from src.parsers.telegram.parser import telegram_wrapper
 from src.properties_reader import get_secret_key
 from src.static.settings import COUNT_UNIQUE_MESSAGES
-from src.static.sources import rss_channels, telegram_channels, Platform
+from src.static.sources import get_config, Platform
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.logger import setup_logging
 from src.utils.ci import get_ci_run_url
@@ -25,8 +26,10 @@ app_logger = logging.getLogger('app')
 
 app_logger.info("Starting bot application")
 
-async def main():
-    app_logger.info("Initializing main application")
+async def main(config_name):
+    app_logger.info(f"Initializing main application with config: {config_name}")
+    
+    context = get_config(config_name)
     
     app_logger.debug("Loading secret keys")
     telegram_api_id = get_secret_key('.', 'TELEGRAM_API_ID')
@@ -67,9 +70,9 @@ async def main():
 
     try:
         app_logger.info("Fetching message history from Facebook and Telegram")
-        facebook_history = get_facebook_published_messages(graph, COUNT_UNIQUE_MESSAGES)
+        facebook_history = get_facebook_published_messages(graph, context, COUNT_UNIQUE_MESSAGES)
         app_logger.info(f"Loaded {len(facebook_history)} messages from Facebook history")
-        telegram_history = await get_telegram_published_messages(client, COUNT_UNIQUE_MESSAGES)
+        telegram_history = await get_telegram_published_messages(client, COUNT_UNIQUE_MESSAGES, context)
         app_logger.info(f"Loaded {len(telegram_history)} messages from Telegram history")
         
         posted_d = process_post_histories(facebook_history, telegram_history)
@@ -78,8 +81,8 @@ async def main():
         app_logger.info("Preparing parsing tasks")
         tasks = []
 
-        app_logger.info(f"Adding tasks for {len(telegram_channels)} Telegram channels")
-        for channel_link in telegram_channels:
+        app_logger.info(f"Adding tasks for {len(context['telegram_channels'])} Telegram channels")
+        for channel_link in context['telegram_channels']:
             app_logger.debug(f"Adding task for Telegram channel: {channel_link}")
             task = telegram_wrapper(
                 client=client,
@@ -89,12 +92,13 @@ async def main():
                 translator=translator,
                 telegram_bot_token=telegram_bot_token,
                 channel_link=channel_link,
-                posted_d=posted_d
+                posted_d=posted_d,
+                context=context
             )
             tasks.append(task)
 
-        app_logger.info(f"Adding tasks for {len(rss_channels)} RSS channels")
-        for source, rss_link in rss_channels.items():
+        app_logger.info(f"Adding tasks for {len(context['rss_channels'])} RSS channels")
+        for source, rss_link in context['rss_channels'].items():
             app_logger.debug(f"Adding task for RSS source: {rss_link}")
             task = rss_wrapper(
                 client=client,
@@ -104,7 +108,8 @@ async def main():
                 telegram_bot_token=telegram_bot_token,
                 source=source,
                 rss_link=rss_link,
-                posted_d=posted_d
+                posted_d=posted_d,
+                context=context
             )
             tasks.append(task)
 
@@ -121,7 +126,7 @@ async def main():
             f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
         )
         app_logger.error(message)
-        await send_message_api(message, telegram_bot_token)
+        await send_message_api(message, telegram_bot_token, context)
     finally:
         app_logger.info("Cleaning up temporary files")
         clean_tmp_folder()
@@ -130,8 +135,13 @@ async def main():
 
 if __name__ == '__main__':
     try:
+        parser = argparse.ArgumentParser(description='Bot for collecting and posting news')
+        parser.add_argument('--config', type=str, default='football',
+                          help='Configuration to use (football or food)')
+        args = parser.parse_args()
+
         app_logger.info("Starting application")
-        asyncio.run(main())
+        asyncio.run(main(args.config))
         app_logger.info("Application completed successfully")
     except KeyboardInterrupt:
         app_logger.info("Application interrupted by user")

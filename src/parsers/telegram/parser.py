@@ -1,7 +1,6 @@
 import asyncio
 import logging
 import signal
-from typing import List, Any
 
 from telethon.tl.types import MessageMediaWebPage
 from src.files_manager import SaveFileTelegram
@@ -14,10 +13,10 @@ app_logger = logging.getLogger('app')
 stats_logger = logging.getLogger('stats')
 
 
-async def telegram_wrapper(client, getter_client, graph, nlp, translator, telegram_bot_token, channel_link, posted_d):
+async def telegram_wrapper(client, getter_client, graph, nlp, translator, telegram_bot_token, channel_link, posted_d, context):
     app_logger.info(f"[Telegram] Starting Telegram parser for channel: {channel_link}")
     try:
-        await _telegram_parser(client, getter_client, graph, nlp, translator, channel_link, posted_d)
+        await _telegram_parser(client, getter_client, graph, nlp, translator, channel_link, posted_d, context)
         app_logger.info(f"[Telegram] Telegram parser completed successfully for channel: {channel_link}")
     except Exception as e:
         app_logger.error(f"[Telegram] Error in Telegram parser for channel {channel_link}", exc_info=True)
@@ -29,18 +28,19 @@ async def telegram_wrapper(client, getter_client, graph, nlp, translator, telegr
             f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
         )
         app_logger.error(message)
-        await send_message_api(message, telegram_bot_token)
+        await send_message_api(message, telegram_bot_token, context)
 
 
 async def _process_message_chunk(
-    message_chunk: List[Any],
+    message_chunk,
     client,
     getter_client,
     graph,
     nlp,
     translator,
-    posted_d
-) -> int:
+    posted_d,
+    context
+):
     skipped_count = 0
     for message in message_chunk:
         message_text = message.raw_text
@@ -56,7 +56,7 @@ async def _process_message_chunk(
             loop.add_signal_handler(signal.SIGUSR1, handler_url_path)
             app_logger.debug(f"[Telegram] Created file handler for message: {message_text}")
 
-            await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d)
+            await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context)
             app_logger.debug(f"[Telegram] Successfully processed message: {message_text}")
         except Exception as e:
             app_logger.error(f"[Telegram] Error processing message: {message_text}", exc_info=True)
@@ -65,7 +65,7 @@ async def _process_message_chunk(
     return skipped_count
 
 
-async def _telegram_parser(client, getter_client, graph, nlp, translator, channel_link, posted_d):
+async def _telegram_parser(client, getter_client, graph, nlp, translator, channel_link, posted_d, context):
     app_logger.info(f"[Telegram] Initializing message iteration for channel: {channel_link}")
     message_count = 0
     skipped_count = 0
@@ -87,7 +87,7 @@ async def _telegram_parser(client, getter_client, graph, nlp, translator, channe
         app_logger.debug(f"[Telegram] Processing {len(message_chunks)} chunks in parallel")
         chunk_results = await asyncio.gather(*[
             _process_message_chunk(
-                message_chunk, client, getter_client, graph, nlp, translator, posted_d
+                message_chunk, client, getter_client, graph, nlp, translator, posted_d, context
             ) for message_chunk in message_chunks
         ])
         skipped_count = sum(chunk_results)

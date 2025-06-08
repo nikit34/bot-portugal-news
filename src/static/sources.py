@@ -1,5 +1,7 @@
 import os
+import json
 from enum import Enum, auto
+
 
 class Platform(Enum):
     ALL = auto()
@@ -7,36 +9,29 @@ class Platform(Enum):
     FACEBOOK = auto()
     INSTAGRAM = auto()
 
-self_telegram_channel = 'https://t.me/sportportugal'
-telegram_chat_id = '-1002106461489'
-telegram_debug_chat_id = '-1002178707665'
-self_facebook_page_id = '348454375016310'
-self_instagram_channel = '17841467413345329'
+def _load_config(config_name):
+    config_path = os.path.join(os.path.dirname(__file__), 'configs', f'{config_name}.json')
+    with open(config_path, 'r') as f:
+        config = json.load(f)
+    return config
 
-telegram_channels = [
-    # 'https://t.me/+M-LLGrMDui1hZjhi'  # For debug
-
-    'https://t.me/AO_VIVO_Futebol',
-    'https://t.me/FutebolDaZoeira',
-    'https://t.me/futebol_portugues',
-    'https://t.me/Futebol_Brasileirao',
-]
-
-rss_channels = {
-    'abola.pt': 'https://www.abola.pt/api/rss',
-    'abola.pt/nacional': 'https://www.abola.pt/rss/nacional',
-    'abola.pt/internacional': 'https://www.abola.pt/rss/internacional',
-    'bbc.com/football': 'https://feeds.bbci.co.uk/sport/football/rss.xml',
-    'sportstar.thehindu.com/football': 'https://sportstar.thehindu.com/football/feeder/default.rss',
-    'sportstar.thehindu.com/football-highlights': 'https://sportstar.thehindu.com/football-highlights/feeder/default.rss',
-    'sportstar.thehindu.com/football-videos': 'https://sportstar.thehindu.com/football-videos/feeder/default.rss',
-}
+def get_config(config_name):
+    config = _load_config(config_name)
+    
+    platforms = {}
+    for platform, value in config['platforms'].items():
+        platforms[getattr(Platform, platform)] = value
+    
+    return {
+        'platforms': platforms,
+        'self_telegram_channel': config['self']['telegram_channel'],
+        'telegram_chat_id': config['self']['telegram_chat_id'],
+        'telegram_debug_chat_id': config['self']['telegram_debug_chat_id'],
+        'self_facebook_page_id': config['self']['facebook_page_id'],
+        'self_instagram_channel': config['self']['instagram_channel'],
+        'telegram_channels': config['telegram_channels'],
+        'rss_channels': config['rss_channels'],
+    }
 
 tmp_folder = os.getcwd() + '/tmp'
 
-platforms = {
-    Platform.ALL: None,
-    Platform.TELEGRAM: True,
-    Platform.FACEBOOK: False,
-    Platform.INSTAGRAM: True,
-}

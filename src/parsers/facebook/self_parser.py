@@ -3,14 +3,13 @@ import re
 import requests
 from src.producers.repeater import retry
 from src.static.settings import KEY_SEARCH_LENGTH_CHARS
-from src.static.sources import self_facebook_page_id
 import logging
 
 logger = logging.getLogger(__name__)
 
 
-def get_facebook_published_messages(graph, max_posts):
-    url = "https://graph.facebook.com/v18.0/" + self_facebook_page_id + "/posts"
+def get_facebook_published_messages(graph, context, max_posts):
+    url = "https://graph.facebook.com/v18.0/" + context['self']['facebook_page_id'] + "/posts"
     params = {
         'access_token': graph.access_token,
         'limit': 50,

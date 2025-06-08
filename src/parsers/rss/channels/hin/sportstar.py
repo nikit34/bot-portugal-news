@@ -1,12 +1,10 @@
 import re
 import logging
-from typing import Dict, Any, Tuple
-from datetime import datetime
 
 logger = logging.getLogger('app')
 
 
-def is_valid_sportstar_entry(entry: Dict[str, Any]) -> bool:
+def is_valid_sportstar_entry(entry):
     required_keys = ('title', 'description')
     has_text = any(entry.get(key) for key in required_keys)
     has_media = bool(entry.get('media_content') and entry.get('media_content')[0].get('url'))
@@ -15,7 +13,7 @@ def is_valid_sportstar_entry(entry: Dict[str, Any]) -> bool:
     return (has_text and has_media)
 
 
-def parse_sportstar_entry(entry: Dict[str, Any]) -> Tuple[str, str]:
+def parse_sportstar_entry(entry):
     logger.debug("Parsing Sportstar entry")
     title = entry.get('title', '')
     raw_description = entry.get('description', '')
