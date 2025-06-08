@@ -37,6 +37,6 @@ tmp_folder = os.getcwd() + '/tmp'
 platforms = {
     Platform.ALL: None,
     Platform.TELEGRAM: True,
-    Platform.FACEBOOK: True,
-    Platform.INSTAGRAM: False,
+    Platform.FACEBOOK: False,
+    Platform.INSTAGRAM: True,
 }
