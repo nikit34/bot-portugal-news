@@ -14,7 +14,7 @@ async def send_message_api(text, telegram_bot_token, context):
         "disable_web_page_preview": True,
         "disable_notification": False,
         "reply_to_message_id": None,
-        "chat_id": context['self']['telegram_debug_chat_id']
+        "chat_id": context['telegram_debug_chat_id']
     }
     headers = {
         "Accept": "application/json",

@@ -9,7 +9,7 @@ logger = logging.getLogger('app')
 
 
 async def _upload_media(access_token, message, media_url, context):
-    upload_url = 'https://graph.facebook.com/v18.0/' + context['self']['instagram_channel'] + '/media'
+    upload_url = 'https://graph.facebook.com/v18.0/' + context['self_instagram_channel'] + '/media'
     data = {
         'image_url': media_url,
         'caption': message,
@@ -21,7 +21,7 @@ async def _upload_media(access_token, message, media_url, context):
 
 
 async def _publish_media(access_token, media_id, context):
-    publish_url = 'https://graph.facebook.com/v18.0/' + context['self']['instagram_channel'] + '/media_publish'
+    publish_url = 'https://graph.facebook.com/v18.0/' + context['self_instagram_channel'] + '/media_publish'
     params = {
         'creation_id': media_id,
         'access_token': access_token
