@@ -10,7 +10,7 @@ logger = logging.getLogger('app')
 
 
 async def _upload_media(access_token, message, media_url):
-    upload_url = 'https://graph.facebook.com/v20.0/' + self_instagram_channel + '/media'
+    upload_url = 'https://graph.facebook.com/v18.0/' + self_instagram_channel + '/media'
     data = {
         'image_url': media_url,
         'caption': message,
@@ -22,7 +22,7 @@ async def _upload_media(access_token, message, media_url):
 
 
 async def _publish_media(access_token, media_id):
-    publish_url = 'https://graph.facebook.com/v20.0/' + self_instagram_channel + '/media_publish'
+    publish_url = 'https://graph.facebook.com/v18.0/' + self_instagram_channel + '/media_publish'
     params = {
         'creation_id': media_id,
         'access_token': access_token
@@ -30,16 +30,6 @@ async def _publish_media(access_token, media_id):
     response = requests.post(publish_url, data=params)
     response.raise_for_status()
     return response.json()
-
-
-async def _add_comment(access_token, media_id, message):
-    url = 'https://graph.facebook.com/v20.0/' + media_id + '/comments'
-    params = {
-        'message': message,
-        'access_token': access_token
-    }
-    response = requests.post(url, data=params)
-    response.raise_for_status()
 
 
 @retry()
