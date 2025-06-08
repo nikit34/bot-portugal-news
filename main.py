@@ -50,7 +50,11 @@ async def main():
     app_logger.debug("NLP model and translator loaded successfully")
 
     app_logger.info(f"Initializing message queue with max length: {COUNT_UNIQUE_MESSAGES}")
-    posted_d = deque(maxlen=COUNT_UNIQUE_MESSAGES)
+    posted_d = {
+        'general': deque(maxlen=COUNT_UNIQUE_MESSAGES),
+        'telegram': deque(maxlen=COUNT_UNIQUE_MESSAGES),
+        'facebook': deque(maxlen=COUNT_UNIQUE_MESSAGES)
+    }
     app_logger.debug("Message queue initialized")
 
     app_logger.info("Starting Telegram clients")
