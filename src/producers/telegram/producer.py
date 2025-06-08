@@ -10,7 +10,7 @@ def telegram_prepare_post(translated_message):
 @async_retry()
 async def telegram_send_message(client, post, url_path, context):
     return await client.send_message(
-        entity=int(context['self']['telegram_chat_id']),
+        entity=int(context['self_telegram_chat_id']),
         message=post,
         file=url_path.get("url"),
         parse_mode="html",
