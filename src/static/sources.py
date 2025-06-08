@@ -1,4 +1,11 @@
 import os
+from enum import Enum, auto
+
+class Platform(Enum):
+    ALL = auto()
+    TELEGRAM = auto()
+    FACEBOOK = auto()
+    INSTAGRAM = auto()
 
 self_telegram_channel = 'https://t.me/sportportugal'
 telegram_chat_id = '-1002106461489'
@@ -28,7 +35,8 @@ rss_channels = {
 tmp_folder = os.getcwd() + '/tmp'
 
 platforms = {
-    'telegram': True,
-    'facebook': True,
-    'instagram': False,
+    Platform.ALL: None,
+    Platform.TELEGRAM: True,
+    Platform.FACEBOOK: True,
+    Platform.INSTAGRAM: False,
 }

@@ -16,7 +16,7 @@ from src.producers.telegram.producer import (
     telegram_send_message
 )
 from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS, MAX_VIDEO_SIZE_MB, TARGET_LANGUAGE
-from src.static.sources import platforms
+from src.static.sources import platforms, Platform
 
 
 async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d):
@@ -26,7 +26,6 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     cached_handler_url_path = cache_handler.cached(handler_url_path)
 
     head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
-    
     
     if is_ignored_prefix(head):
         return
@@ -44,19 +43,19 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     if is_video and _large_video_size(url_path):
         return
 
-    posted_d.get('general').appendleft(head)
+    posted_d.get(Platform.ALL).appendleft(head)
 
     tasks = []
 
-    if decisions_publish_platforms.get('facebook', False):
+    if decisions_publish_platforms.get(Platform.FACEBOOK, False):
         facebook_post = facebook_prepare_post(nlp, translated_message)
         tasks.append(facebook_send_message(graph, facebook_post, url_path))
 
-    if decisions_publish_platforms.get('instagram', False):
+    if decisions_publish_platforms.get(Platform.INSTAGRAM, False):
         instagram_post = instagram_prepare_post(translated_message)
         tasks.append(instagram_send_message(graph, instagram_post, url_path))
 
-    if decisions_publish_platforms.get('telegram', False):
+    if decisions_publish_platforms.get(Platform.TELEGRAM, False):
         telegram_post = telegram_prepare_post(translated_message)
         tasks.append(telegram_send_message(client, telegram_post, url_path))
 

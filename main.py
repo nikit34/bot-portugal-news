@@ -15,7 +15,7 @@ from src.parsers.rss.parser import rss_wrapper
 from src.parsers.telegram.parser import telegram_wrapper
 from src.properties_reader import get_secret_key
 from src.static.settings import COUNT_UNIQUE_MESSAGES
-from src.static.sources import rss_channels, telegram_channels
+from src.static.sources import rss_channels, telegram_channels, Platform
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.logger import setup_logging
 from src.utils.ci import get_ci_run_url
@@ -51,9 +51,9 @@ async def main():
 
     app_logger.info(f"Initializing message queue with max length: {COUNT_UNIQUE_MESSAGES}")
     posted_d = {
-        'general': deque(maxlen=COUNT_UNIQUE_MESSAGES),
-        'telegram': deque(maxlen=COUNT_UNIQUE_MESSAGES),
-        'facebook': deque(maxlen=COUNT_UNIQUE_MESSAGES)
+        Platform.ALL: deque(maxlen=COUNT_UNIQUE_MESSAGES),
+        Platform.TELEGRAM: deque(maxlen=COUNT_UNIQUE_MESSAGES),
+        Platform.FACEBOOK: deque(maxlen=COUNT_UNIQUE_MESSAGES)
     }
     app_logger.debug("Message queue initialized")
 

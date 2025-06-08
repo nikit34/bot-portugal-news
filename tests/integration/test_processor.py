@@ -5,6 +5,7 @@ from telethon import TelegramClient
 
 from src.processor.service import serve
 from src.static.settings import TARGET_LANGUAGE
+from src.static.sources import Platform
 
 @pytest.mark.asyncio
 async def test_serve_integration(posted_d, test_image_path):
@@ -45,9 +46,9 @@ async def test_serve_integration_with_duplicate():
     
     message_text = "Test message"
     posted_d = {
-        'general': ["Duplicate text"],
-        'facebook': [],
-        'telegram': [],
+        Platform.ALL: ["Duplicate text"],
+        Platform.FACEBOOK: [],
+        Platform.TELEGRAM: [],
     }
     
     mock_handler = Mock()
