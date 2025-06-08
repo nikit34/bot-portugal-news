@@ -58,7 +58,7 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
 
     if decisions_publish_platforms.get(Platform.TELEGRAM, False):
         telegram_post = telegram_prepare_post(translated_message)
-        tasks.append(telegram_send_message(client, telegram_post, url_path))
+        tasks.append(telegram_send_message(client, telegram_post, url_path, context))
 
     await asyncio.gather(*tasks)
 
