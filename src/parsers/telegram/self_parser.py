@@ -8,10 +8,6 @@ async def get_telegram_published_messages(getter_client, limit):
         raw_message = message.raw_text
         if not raw_message:
             continue
-        lines = raw_message.split('\n', maxsplit=1)
-        if len(lines) < 2:
-            continue
-        post = lines[1]
-        cropped_post = post[:KEY_SEARCH_LENGTH_CHARS].strip()
+        cropped_post = raw_message[:KEY_SEARCH_LENGTH_CHARS].strip()
         history.append(cropped_post)
     return history
