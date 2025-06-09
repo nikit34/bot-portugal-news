@@ -25,8 +25,8 @@ def get_config(config_name):
     return {
         'platforms': platforms,
         'self_telegram_channel': config['self']['telegram_channel'],
-        'telegram_chat_id': config['self']['telegram_chat_id'],
-        'telegram_debug_chat_id': config['self']['telegram_debug_chat_id'],
+        'self_telegram_chat_id': config['self']['telegram_chat_id'],
+        'self_telegram_debug_chat_id': config['self']['telegram_debug_chat_id'],
         'self_facebook_page_id': config['self']['facebook_page_id'],
         'self_instagram_channel': config['self']['instagram_channel'],
         'telegram_channels': config['telegram_channels'],
