@@ -3,7 +3,6 @@ from collections import Counter
 
 from src.producers.repeater import retry, async_retry
 from src.static.settings import FACEBOOK_MAX_LENGTH_MESSAGE, WEIGHT_KEYWORDS_THRESHOLD, MAX_COUNT_KEYWORDS
-from src.static.sources import self_facebook_page_id
 from src.producers.text_editor import trunc_str
 
 
@@ -16,15 +15,15 @@ def facebook_prepare_post(nlp, translated_message):
 
 
 @async_retry()
-async def facebook_send_message(graph, message, url_path):
+async def facebook_send_message(graph, message, url_path, context):
     file_path = url_path.get("path")
     if not file_path.lower().endswith(".mp4"):
         return graph.put_photo(image=open(file_path, 'rb'), message=message)
-    return _send_video(graph, message, file_path)
+    return _send_video(graph, message, file_path, context)
 
 
-def _send_video(graph, message, file_path):
-    url = 'https://graph.facebook.com/v18.0/' + self_facebook_page_id + '/videos'
+def _send_video(graph, message, file_path, context):
+    url = 'https://graph.facebook.com/v18.0/' + context['self_facebook_page_id'] + '/videos'
 
     video_data = {
         'description': message,

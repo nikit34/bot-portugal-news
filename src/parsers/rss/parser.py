@@ -1,7 +1,6 @@
 import asyncio
 import logging
 import signal
-from typing import List, Dict, Any
 
 import feedparser
 import httpx
@@ -21,10 +20,10 @@ app_logger = logging.getLogger('app')
 stats_logger = logging.getLogger('stats')
 
 
-async def rss_wrapper(client, graph, nlp, translator, telegram_bot_token, source, rss_link, posted_d):
+async def rss_wrapper(client, graph, nlp, translator, telegram_bot_token, source, rss_link, posted_d, context):
     try:
         app_logger.info(f"[RSS] Starting RSS parser for source: {source}, RSS link: {rss_link}")
-        await _rss_parser(client, graph, nlp, translator, telegram_bot_token, source, rss_link, posted_d)
+        await _rss_parser(client, graph, nlp, translator, telegram_bot_token, source, rss_link, posted_d, context)
         app_logger.info(f"[RSS] RSS parser completed successfully for source: {source}, RSS link: {rss_link}")
     except Exception as e:
         app_logger.error(f"[RSS] Error in RSS parser for source: {source}, RSS link: {rss_link}", exc_info=True)
@@ -36,10 +35,10 @@ async def rss_wrapper(client, graph, nlp, translator, telegram_bot_token, source
             f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
         )
         app_logger.error(message, exc_info=True)
-        await send_message_api(message, telegram_bot_token)
+        await send_message_api(message, telegram_bot_token, context)
 
 
-async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
+async def _make_request(rss_link, telegram_bot_token, context, repeat=REPEAT_REQUESTS):
     response = None
     httpx_client = httpx.AsyncClient()
     app_logger.debug(f"[RSS] Making request to {rss_link} (attempts left: {repeat})")
@@ -57,7 +56,7 @@ async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
         if repeat > 0:
             await asyncio.sleep(TIMEOUT)
             repeat -= 1
-            return await _make_request(rss_link, telegram_bot_token, repeat)
+            return await _make_request(rss_link, telegram_bot_token, context, repeat)
         else:
             response_content = getattr(e, 'response', None)
             response_text = ', response: ' + response_content.content if response_content else ''
@@ -67,7 +66,7 @@ async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
                 f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
             )
             app_logger.error(message, exc_info=True)
-            await send_message_api(message, telegram_bot_token)
+            await send_message_api(message, telegram_bot_token, context)
     finally:
         await httpx_client.aclose()
 
@@ -75,14 +74,15 @@ async def _make_request(rss_link, telegram_bot_token, repeat=REPEAT_REQUESTS):
 
 
 async def _process_entry(
-    entry: Dict[str, Any],
-    source: str,
+    entry,
+    source,
     client,
     graph,
     nlp,
     translator,
-    posted_d
-) -> bool:
+    posted_d,
+    context
+):
     message_text = ''
     image = ''
     
@@ -112,7 +112,7 @@ async def _process_entry(
         loop.add_signal_handler(signal.SIGUSR1, handler_url_path)
         app_logger.debug(f"[RSS] Created file handler for entry: {message_text}")
 
-        await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d)
+        await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context)
         app_logger.debug(f"[RSS] Successfully processed entry: {message_text}")
         return True
     except Exception as e:
@@ -120,19 +120,20 @@ async def _process_entry(
         return False
 
 async def _process_entry_chunk(
-    entry_chunk: List[Dict[str, Any]],
-    source: str,
+    entry_chunk,
+    source,
     client,
     graph,
     nlp,
     translator,
-    posted_d
-) -> int:
+    posted_d,
+    context
+):
     skipped_count = 0
     tasks = []
     
     for entry in entry_chunk:
-        task = _process_entry(entry, source, client, graph, nlp, translator, posted_d)
+        task = _process_entry(entry, source, client, graph, nlp, translator, posted_d, context)
         tasks.append(task)
     
     results = await asyncio.gather(*tasks)
@@ -148,10 +149,11 @@ async def _rss_parser(
         telegram_bot_token,
         source,
         rss_link,
-        posted_d
+        posted_d,
+        context
 ):
     app_logger.info(f"[RSS] Starting RSS parser for {source}, RSS link: {rss_link}")
-    response = await _make_request(rss_link, telegram_bot_token)
+    response = await _make_request(rss_link, telegram_bot_token, context)
     response.raise_for_status()
     feed = feedparser.parse(response.text)
     app_logger.debug(f"[RSS] Feed parsed successfully, found {len(feed.entries)} entries")
@@ -165,7 +167,7 @@ async def _rss_parser(
     skipped_count = 0
     
     for entry_chunk in entries_chunks:
-        skipped_count += await _process_entry_chunk(entry_chunk, source, client, graph, nlp, translator, posted_d)
+        skipped_count += await _process_entry_chunk(entry_chunk, source, client, graph, nlp, translator, posted_d, context)
 
     stats_logger.info(
         f"[RSS] RSS parser statistics for {source}, RSS link: {rss_link}: "

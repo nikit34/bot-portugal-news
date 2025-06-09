@@ -1,0 +1,25 @@
+{
+    "platforms": {
+        "ALL": null,
+        "TELEGRAM": true,
+        "FACEBOOK": true,
+        "INSTAGRAM": true
+    },
+    "self": {
+        "telegram_channel": "https://t.me/foodportugal",
+        "telegram_chat_id": "-1002106461489",
+        "telegram_debug_chat_id": "-1002178707665",
+        "facebook_page_id": "348454375016310",
+        "instagram_channel": "17841467413345329"
+    },
+    "telegram_channels": [
+        "https://t.me/portuguesefood",
+        "https://t.me/portugueserecipes",
+        "https://t.me/portuguesecuisine"
+    ],
+    "rss_channels": {
+        "portugueserecipes.com": "https://portugueserecipes.com/feed",
+        "portuguesefood.com": "https://portuguesefood.com/feed",
+        "portuguesecuisine.com": "https://portuguesecuisine.com/feed"
+    }
+} 

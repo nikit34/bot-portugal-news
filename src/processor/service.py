@@ -2,6 +2,7 @@ import asyncio
 import os
 from functools import wraps
 
+
 from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms
 from src.producers.facebook.producer import (
     facebook_prepare_post,
@@ -16,10 +17,10 @@ from src.producers.telegram.producer import (
     telegram_send_message
 )
 from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS, MAX_VIDEO_SIZE_MB, TARGET_LANGUAGE
-from src.static.sources import platforms, Platform
+from src.static.sources import Platform
 
 
-async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d):
+async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context):
     translated_message = _translate_message(translator, message_text)
 
     cache_handler = _CacheHandler()
@@ -30,7 +31,7 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     if is_ignored_prefix(head):
         return
 
-    decisions_publish_platforms = get_decisions_publish_platforms(head, posted_d, platforms) 
+    decisions_publish_platforms = get_decisions_publish_platforms(head, posted_d, context['platforms']) 
     if is_duplicate_publish(decisions_publish_platforms):
         return
 
@@ -49,15 +50,15 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
 
     if decisions_publish_platforms.get(Platform.FACEBOOK, False):
         facebook_post = facebook_prepare_post(nlp, translated_message)
-        tasks.append(facebook_send_message(graph, facebook_post, url_path))
+        tasks.append(facebook_send_message(graph, facebook_post, url_path, context))
 
     if decisions_publish_platforms.get(Platform.INSTAGRAM, False):
         instagram_post = instagram_prepare_post(translated_message)
-        tasks.append(instagram_send_message(graph, instagram_post, url_path))
+        tasks.append(instagram_send_message(graph, instagram_post, url_path, context))
 
     if decisions_publish_platforms.get(Platform.TELEGRAM, False):
         telegram_post = telegram_prepare_post(translated_message)
-        tasks.append(telegram_send_message(client, telegram_post, url_path))
+        tasks.append(telegram_send_message(client, telegram_post, url_path, context))
 
     await asyncio.gather(*tasks)
 

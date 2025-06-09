@@ -1,14 +1,11 @@
 import logging
-
 import httpx
-
-from src.static.sources import telegram_debug_chat_id
 
 
 logger = logging.getLogger('app')
 
 
-async def send_message_api(text, telegram_bot_token):
+async def send_message_api(text, telegram_bot_token, context):
     url = 'https://api.telegram.org/bot' + telegram_bot_token + '/sendMessage'
 
     params = {
@@ -17,7 +14,7 @@ async def send_message_api(text, telegram_bot_token):
         "disable_web_page_preview": True,
         "disable_notification": False,
         "reply_to_message_id": None,
-        "chat_id": telegram_debug_chat_id
+        "chat_id": context['self_telegram_debug_chat_id']
     }
     headers = {
         "Accept": "application/json",
