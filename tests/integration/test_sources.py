@@ -3,6 +3,7 @@ import json
 import pytest
 from src.static.sources import _load_config, get_config, Platform
 
+
 def test_load_config_file_not_found():
     with pytest.raises(FileNotFoundError):
         _load_config('non_existent_config')
