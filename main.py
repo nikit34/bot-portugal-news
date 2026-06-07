@@ -53,7 +53,7 @@ async def main(config_name):
 
     app_logger.info("Starting Telegram clients")
     tasks = [
-        client.start(bot_token=telegram_bot_token),
+        client.start(),
         getter_client.start()
     ]
     await asyncio.gather(*tasks)
