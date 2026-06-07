@@ -20,7 +20,7 @@ async def telegram_wrapper(client, getter_client, graph, nlp, translator, telegr
     except Exception as e:
         app_logger.error(f"[Telegram] Error in Telegram parser for channel {channel_link}", exc_info=True)
         response = getattr(e, 'response', None)
-        response_content = ', response: ' + response.content if response else ''
+        response_content = ', response: ' + response.text if response else ''
         run_url = get_ci_run_url()
         message = (
             f'ERROR: {channel_link} telegram parser is down\n{str(e)}{response_content}'

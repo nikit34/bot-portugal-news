@@ -27,7 +27,7 @@ async def rss_wrapper(client, graph, nlp, translator, telegram_bot_token, source
     except Exception as e:
         app_logger.error(f"[RSS] Error in RSS parser for source: {source}, RSS link: {rss_link}", exc_info=True)
         response = getattr(e, 'response', None)
-        response_content = ', response: ' + response.content if response else ''
+        response_content = ', response: ' + response.text if response else ''
         run_url = get_ci_run_url()
         message = (
             f'ERROR: {source} rss parser is down\n{str(e)}{response_content}'
@@ -57,7 +57,7 @@ async def _make_request(rss_link, telegram_bot_token, context, repeat=REPEAT_REQ
                     await asyncio.sleep(TIMEOUT)
                 else:
                     response_content = getattr(e, 'response', None)
-                    response_text = ', response: ' + response_content.content if response_content else ''
+                    response_text = ', response: ' + response_content.text if response_content else ''
                     run_url = get_ci_run_url()
                     message = (
                         f'ERROR: {rss_link} request is down\n{str(e)}{response_text}'

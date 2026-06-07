@@ -53,7 +53,7 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
         facebook_post = facebook_prepare_post(translated_message, doc)
         tasks.append(facebook_send_message(graph, facebook_post, url_path, context))
 
-    if decisions_publish_platforms.get(Platform.INSTAGRAM, False):
+    if decisions_publish_platforms.get(Platform.INSTAGRAM, False) and isinstance(url_path.get('url'), str):
         instagram_post = instagram_prepare_post(translated_message)
         tasks.append(instagram_send_message(graph, instagram_post, url_path, context))
 

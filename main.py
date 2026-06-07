@@ -110,7 +110,7 @@ async def main(config_name):
     except Exception as e:
         app_logger.error("Critical error occurred during execution", exc_info=True)
         response = getattr(e, 'response', None)
-        response_content = ', response: ' + response.content if response else ''
+        response_content = ', response: ' + response.text if response else ''
         run_url = get_ci_run_url()
         message = (
             f'ERROR: Parsers is down\n{str(e)}{response_content}'
