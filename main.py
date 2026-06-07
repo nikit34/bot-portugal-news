@@ -63,7 +63,7 @@ async def main(config_name):
         app_logger.info("Fetching message history from Facebook and Telegram")
         facebook_history = get_facebook_published_messages(graph, context, COUNT_UNIQUE_MESSAGES)
         app_logger.info(f"Loaded {len(facebook_history)} messages from Facebook history")
-        telegram_history = await get_telegram_published_messages(client, COUNT_UNIQUE_MESSAGES, context)
+        telegram_history = await get_telegram_published_messages(getter_client, COUNT_UNIQUE_MESSAGES, context)
         app_logger.info(f"Loaded {len(telegram_history)} messages from Telegram history")
         
         posted_d = process_post_histories(facebook_history, telegram_history)
