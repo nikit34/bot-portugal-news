@@ -1,3 +1,4 @@
+import asyncio
 import requests
 import logging
 
@@ -15,7 +16,7 @@ async def _upload_media(access_token, message, media_url, context):
         'caption': message,
         'access_token': access_token,
     }
-    response = requests.post(upload_url, data=data)
+    response = await asyncio.to_thread(requests.post, upload_url, data=data)
     response.raise_for_status()
     return response.json().get('id')
 
@@ -26,7 +27,7 @@ async def _publish_media(access_token, media_id, context):
         'creation_id': media_id,
         'access_token': access_token
     }
-    response = requests.post(publish_url, data=params)
+    response = await asyncio.to_thread(requests.post, publish_url, data=params)
     response.raise_for_status()
     return response.json()
 

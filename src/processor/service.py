@@ -1,6 +1,5 @@
 import asyncio
 import os
-from functools import wraps
 
 
 from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms
@@ -21,26 +20,26 @@ from src.static.sources import Platform
 
 
 async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context):
-    translated_message = _translate_message(translator, message_text)
-
-    cache_handler = _CacheHandler()
-    cached_handler_url_path = cache_handler.cached(handler_url_path)
+    translated_message = await asyncio.to_thread(_translate_message, translator, message_text)
 
     head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
-    
+
     if is_ignored_prefix(head):
         return
 
-    decisions_publish_platforms = get_decisions_publish_platforms(head, posted_d, context['platforms']) 
+    decisions_publish_platforms = get_decisions_publish_platforms(head, posted_d, context['platforms'])
     if is_duplicate_publish(decisions_publish_platforms):
         return
 
-    url_path = await cached_handler_url_path()
-    is_video = await _is_video(url_path)
-    
-    if not is_video and _low_semantic_load(nlp, translated_message):
-        return
-    
+    url_path = await handler_url_path()
+    is_video = _is_video(url_path)
+
+    doc = None
+    if not is_video:
+        doc = nlp(translated_message)
+        if _low_semantic_load(doc):
+            return
+
     if is_video and _large_video_size(url_path):
         return
 
@@ -49,7 +48,9 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     tasks = []
 
     if decisions_publish_platforms.get(Platform.FACEBOOK, False):
-        facebook_post = facebook_prepare_post(nlp, translated_message)
+        if doc is None:
+            doc = nlp(translated_message)
+        facebook_post = facebook_prepare_post(translated_message, doc)
         tasks.append(facebook_send_message(graph, facebook_post, url_path, context))
 
     if decisions_publish_platforms.get(Platform.INSTAGRAM, False):
@@ -72,31 +73,12 @@ def _translate_message(translator, message_text):
     return translated.text
 
 
-def _extract_keywords(nlp, text):
-    doc = nlp(text)
-    keywords = [token.text for token in doc if token.is_stop != True and token.is_punct != True]
-    return keywords
-
-
-def _low_semantic_load(nlp, message):
-    keywords = _extract_keywords(nlp, message)
+def _low_semantic_load(doc):
+    keywords = [token.text for token in doc if not token.is_stop and not token.is_punct]
     return len(keywords) < MINIMUM_NUMBER_KEYWORDS
 
 
-class _CacheHandler:
-    def __init__(self):
-        self.cache = None
-
-    def cached(self, func):
-        @wraps(func)
-        async def wrapper():
-            if self.cache is None:
-                self.cache = await func()
-            return self.cache
-        return wrapper
-
-
-async def _is_video(url_path):
+def _is_video(url_path):
     return url_path.get('path').lower().endswith('.mp4')
 
 

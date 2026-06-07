@@ -1,3 +1,4 @@
+import asyncio
 import os
 import logging
 import requests
@@ -29,16 +30,19 @@ class SaveFileUrl:
         logger.debug(f"Initialized SaveFileUrl with URL: {url}")
 
     async def __call__(self):
+        return await asyncio.to_thread(self._download_and_save)
+
+    def _download_and_save(self):
         try:
             logger.info(f"Downloading file from URL: {self.url}")
             response = requests.get(self.url)
             response.raise_for_status()
 
             image = Image.open(BytesIO(response.content))
-            image_path = tmp_folder + '/' + str(time.time()) + '.png'
+            image_path = tmp_folder + '/' + str(time.time_ns()) + '.png'
             image.save(image_path)
             logger.info(f"File successfully saved to: {image_path}")
-            
+
             url_path = {
                 "url": self.url,
                 "path": image_path

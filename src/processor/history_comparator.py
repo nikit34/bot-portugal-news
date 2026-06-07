@@ -1,7 +1,7 @@
 import difflib
 from collections import deque
 
-from src.static.settings import MESSAGE_SIMILARITY_THRESHOLD
+from src.static.settings import MESSAGE_SIMILARITY_THRESHOLD, COUNT_UNIQUE_MESSAGES
 from src.static.ignore_list import IGNORE_POSTS
 from src.static.sources import Platform
 
@@ -17,53 +17,51 @@ def is_ignored_prefix(head):
 
 
 def _is_duplicate_message(head, posted_l):
+    matcher = difflib.SequenceMatcher()
+    matcher.set_seq1(head)
     for post in posted_l:
-        similarity = difflib.SequenceMatcher(None, head, post).ratio()
-        if similarity >= MESSAGE_SIMILARITY_THRESHOLD:
+        matcher.set_seq2(post)
+        if (matcher.real_quick_ratio() >= MESSAGE_SIMILARITY_THRESHOLD
+                and matcher.quick_ratio() >= MESSAGE_SIMILARITY_THRESHOLD
+                and matcher.ratio() >= MESSAGE_SIMILARITY_THRESHOLD):
             return True
     return False
 
 
 def get_decisions_publish_platforms(head, posted_d, platforms):
-    duplicated_general = _is_duplicate_message(head, posted_d.get(Platform.ALL, []))
-    duplicated_telegram = _is_duplicate_message(head, posted_d.get(Platform.TELEGRAM, []))
-    duplicated_facebook = _is_duplicate_message(head, posted_d.get(Platform.FACEBOOK, []))
-
     decisions_publish_platforms = {
-        Platform.FACEBOOK: None,
-        Platform.INSTAGRAM: None,
-        Platform.TELEGRAM: None,
+        Platform.FACEBOOK: False,
+        Platform.INSTAGRAM: False,
+        Platform.TELEGRAM: False,
     }
 
-    if duplicated_general:
-        decisions_publish_platforms[Platform.FACEBOOK] = False
-        decisions_publish_platforms[Platform.INSTAGRAM] = False
-        decisions_publish_platforms[Platform.TELEGRAM] = False
-    elif duplicated_telegram:
+    if _is_duplicate_message(head, posted_d.get(Platform.ALL, [])):
+        return decisions_publish_platforms
+
+    if _is_duplicate_message(head, posted_d.get(Platform.TELEGRAM, [])):
         decisions_publish_platforms[Platform.FACEBOOK] = platforms[Platform.FACEBOOK]
         decisions_publish_platforms[Platform.INSTAGRAM] = platforms[Platform.INSTAGRAM]
-        decisions_publish_platforms[Platform.TELEGRAM] = False
-    elif duplicated_facebook:
-        decisions_publish_platforms[Platform.FACEBOOK] = False
-        decisions_publish_platforms[Platform.INSTAGRAM] = False
-        decisions_publish_platforms[Platform.TELEGRAM] = platforms[Platform.TELEGRAM]
-    else:
-        decisions_publish_platforms = platforms
+        return decisions_publish_platforms
 
-    return decisions_publish_platforms
+    if _is_duplicate_message(head, posted_d.get(Platform.FACEBOOK, [])):
+        decisions_publish_platforms[Platform.TELEGRAM] = platforms[Platform.TELEGRAM]
+        return decisions_publish_platforms
+
+    return platforms
 
 
 def is_duplicate_publish(decisions_publish_platforms):
     return not any(decisions_publish_platforms.get(p) for p in [Platform.FACEBOOK, Platform.TELEGRAM, Platform.INSTAGRAM])
 
 
-def process_post_histories(facebook_history, telegram_history):
+def process_post_histories(facebook_history, telegram_history, maxlen=COUNT_UNIQUE_MESSAGES):
     fb_set = set(facebook_history)
     tg_set = set(telegram_history)
+    general_set = fb_set & tg_set
 
-    general_posted_q = deque(fb_set & tg_set)
-    telegram_posted_q = deque([post for post in telegram_history if post not in general_posted_q])
-    facebook_posted_q = deque([post for post in facebook_history if post not in general_posted_q])
+    general_posted_q = deque(general_set, maxlen=maxlen)
+    telegram_posted_q = deque((post for post in telegram_history if post not in general_set), maxlen=maxlen)
+    facebook_posted_q = deque((post for post in facebook_history if post not in general_set), maxlen=maxlen)
 
     return {
         Platform.ALL: general_posted_q,
