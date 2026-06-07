@@ -9,6 +9,19 @@ from src.static.settings import REPEAT_REQUESTS, TIMEOUT
 logger = logging.getLogger('app')
 
 
+def is_rate_limited(e):
+    code = getattr(e, 'code', None)
+    if code in (4, 17, 32, 368, 613):
+        return True
+    text = (str(getattr(e, 'message', '') or '') + ' ' + str(e)).lower()
+    markers = (
+        'ограничива', 'защитить наше сообщество', 'спам',
+        'rate limit', 'too many requests', 'reduce the amount',
+        'temporarily blocked', 'action blocked', '#368',
+    )
+    return any(marker in text for marker in markers)
+
+
 def log_error(func, attempts, args, e):
     response_content = ''
     if hasattr(e, 'response') and e.response is not None:
@@ -37,6 +50,9 @@ def async_retry(repeat=REPEAT_REQUESTS, timeout=TIMEOUT):
                     await asyncio.sleep(wait_time)
                     return await func(*args, **kwargs)
                 except Exception as e:
+                    if is_rate_limited(e):
+                        logger.warning("Rate limited on '" + func.__name__ + "', not retrying: " + str(e))
+                        raise
                     attempts -= 1
                     if attempts > 0:
                         log_error(func, attempts, args, e)
@@ -55,6 +71,9 @@ def retry(repeat=REPEAT_REQUESTS, timeout=TIMEOUT):
                 try:
                     return func(*args, **kwargs)
                 except Exception as e:
+                    if is_rate_limited(e):
+                        logger.warning("Rate limited on '" + func.__name__ + "', not retrying: " + str(e))
+                        raise
                     attempts -= 1
                     if attempts > 0:
                         log_error(func, attempts, args, e)

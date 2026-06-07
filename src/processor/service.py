@@ -15,12 +15,27 @@ from src.producers.telegram.producer import (
     telegram_prepare_post,
     telegram_send_message
 )
-from src.static.settings import MINIMUM_NUMBER_KEYWORDS, KEY_SEARCH_LENGTH_CHARS, MAX_VIDEO_SIZE_MB, TARGET_LANGUAGE
+from src.static.settings import (
+    MINIMUM_NUMBER_KEYWORDS,
+    KEY_SEARCH_LENGTH_CHARS,
+    MAX_VIDEO_SIZE_MB,
+    TARGET_LANGUAGE,
+    MAX_POSTS_PER_RUN,
+    POST_DELAY_SECONDS,
+)
 from src.static.sources import Platform
 
 
+# Shared per-run publish throttle: serialize publishing and cap posts per run
+# to avoid bursts that trigger platform rate limits / spam bans.
+_publish_lock = asyncio.Lock()
+_published_count = 0
+
+
 async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context):
-    translated_message = await asyncio.to_thread(_translate_message, translator, message_text)
+    global _published_count
+
+    translated_message = _translate_message(translator, message_text)
 
     head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
 
@@ -29,6 +44,9 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
 
     decisions_publish_platforms = get_decisions_publish_platforms(head, posted_d, context['platforms'])
     if is_duplicate_publish(decisions_publish_platforms):
+        return
+
+    if _published_count >= MAX_POSTS_PER_RUN:
         return
 
     url_path = await handler_url_path()
@@ -42,8 +60,6 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
 
     if is_video and _large_video_size(url_path):
         return
-
-    posted_d.get(Platform.ALL).appendleft(head)
 
     tasks = []
 
@@ -61,10 +77,16 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
         telegram_post = telegram_prepare_post(translated_message)
         tasks.append(telegram_send_message(client, telegram_post, url_path, context))
 
-    await asyncio.gather(*tasks)
+    if tasks:
+        async with _publish_lock:
+            if _published_count < MAX_POSTS_PER_RUN:
+                _published_count += 1
+                posted_d.get(Platform.ALL).appendleft(head)
+                await asyncio.gather(*tasks)
+                await asyncio.sleep(POST_DELAY_SECONDS)
 
     file_path = url_path.get('path')
-    if file_path is not None:
+    if file_path is not None and os.path.exists(file_path):
         os.remove(file_path)
 
 
