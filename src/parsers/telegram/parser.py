@@ -1,6 +1,5 @@
 import asyncio
 import logging
-import signal
 
 from telethon.tl.types import MessageMediaWebPage
 from src.files_manager import SaveFileTelegram
@@ -52,8 +51,6 @@ async def _process_message_chunk(
 
         try:
             handler_url_path = SaveFileTelegram(getter_client, message)
-            loop = asyncio.get_event_loop()
-            loop.add_signal_handler(signal.SIGUSR1, handler_url_path)
             app_logger.debug(f"[Telegram] Created file handler for message: {message_text}")
 
             await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context)

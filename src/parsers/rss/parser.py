@@ -1,6 +1,5 @@
 import asyncio
 import logging
-import signal
 
 import feedparser
 import httpx
@@ -39,38 +38,37 @@ async def rss_wrapper(client, graph, nlp, translator, telegram_bot_token, source
 
 
 async def _make_request(rss_link, telegram_bot_token, context, repeat=REPEAT_REQUESTS):
-    response = None
     httpx_client = httpx.AsyncClient()
-    app_logger.debug(f"[RSS] Making request to {rss_link} (attempts left: {repeat})")
-
     try:
-        response = await httpx_client.get(rss_link, headers=random_user_agent_headers())
-        response.raise_for_status()
-        app_logger.debug(f"[RSS] Request successful, status code: {response.status_code}")
-    except Exception as e:
-        error_message = f"[RSS] Request failed, retrying in {repeat} seconds. Error: {str(e)}"
-        if hasattr(e, 'response'):
-            error_message += f", Status code: {e.response.status_code}"
-        app_logger.warning(error_message)
-        
-        if repeat > 0:
-            await asyncio.sleep(TIMEOUT)
-            repeat -= 1
-            return await _make_request(rss_link, telegram_bot_token, context, repeat)
-        else:
-            response_content = getattr(e, 'response', None)
-            response_text = ', response: ' + response_content.content if response_content else ''
-            run_url = get_ci_run_url()
-            message = (
-                f'ERROR: {rss_link} request is down\n{str(e)}{response_text}'
-                f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
-            )
-            app_logger.error(message, exc_info=True)
-            await send_message_api(message, telegram_bot_token, context)
+        for attempt in range(repeat + 1):
+            app_logger.debug(f"[RSS] Making request to {rss_link} (attempt {attempt + 1}/{repeat + 1})")
+            try:
+                response = await httpx_client.get(rss_link, headers=random_user_agent_headers())
+                response.raise_for_status()
+                app_logger.debug(f"[RSS] Request successful, status code: {response.status_code}")
+                return response
+            except Exception as e:
+                error_message = f"[RSS] Request failed (attempt {attempt + 1}/{repeat + 1}). Error: {str(e)}"
+                if hasattr(e, 'response') and e.response is not None:
+                    error_message += f", Status code: {e.response.status_code}"
+                app_logger.warning(error_message)
+
+                if attempt < repeat:
+                    await asyncio.sleep(TIMEOUT)
+                else:
+                    response_content = getattr(e, 'response', None)
+                    response_text = ', response: ' + response_content.content if response_content else ''
+                    run_url = get_ci_run_url()
+                    message = (
+                        f'ERROR: {rss_link} request is down\n{str(e)}{response_text}'
+                        f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
+                    )
+                    app_logger.error(message, exc_info=True)
+                    await send_message_api(message, telegram_bot_token, context)
     finally:
         await httpx_client.aclose()
 
-    return response
+    return None
 
 
 async def _process_entry(
@@ -108,8 +106,6 @@ async def _process_entry(
 
     try:
         handler_url_path = SaveFileUrl(image)
-        loop = asyncio.get_event_loop()
-        loop.add_signal_handler(signal.SIGUSR1, handler_url_path)
         app_logger.debug(f"[RSS] Created file handler for entry: {message_text}")
 
         await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context)
@@ -154,7 +150,9 @@ async def _rss_parser(
 ):
     app_logger.info(f"[RSS] Starting RSS parser for {source}, RSS link: {rss_link}")
     response = await _make_request(rss_link, telegram_bot_token, context)
-    response.raise_for_status()
+    if response is None:
+        app_logger.error(f"[RSS] No response received for {source}, RSS link: {rss_link}; skipping")
+        return
     feed = feedparser.parse(response.text)
     app_logger.debug(f"[RSS] Feed parsed successfully, found {len(feed.entries)} entries")
 

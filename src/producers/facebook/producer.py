@@ -1,3 +1,4 @@
+import asyncio
 import requests
 from collections import Counter
 
@@ -7,9 +8,9 @@ from src.producers.text_editor import trunc_str
 
 
 @retry()
-def facebook_prepare_post(nlp, translated_message):
+def facebook_prepare_post(translated_message, doc):
     text_link = trunc_str(translated_message, FACEBOOK_MAX_LENGTH_MESSAGE)
-    candidate_keywords = _extract_keywords(nlp, translated_message)
+    candidate_keywords = _extract_keywords(doc)
     keywords = _processing_keywords(candidate_keywords)
     return _add_keywords_text(text_link, keywords)
 
@@ -18,8 +19,13 @@ def facebook_prepare_post(nlp, translated_message):
 async def facebook_send_message(graph, message, url_path, context):
     file_path = url_path.get("path")
     if not file_path.lower().endswith(".mp4"):
-        return graph.put_photo(image=open(file_path, 'rb'), message=message)
-    return _send_video(graph, message, file_path, context)
+        return await asyncio.to_thread(_send_photo, graph, message, file_path)
+    return await asyncio.to_thread(_send_video, graph, message, file_path, context)
+
+
+def _send_photo(graph, message, file_path):
+    with open(file_path, 'rb') as file:
+        return graph.put_photo(image=file, message=message)
 
 
 def _send_video(graph, message, file_path, context):
@@ -38,8 +44,7 @@ def _send_video(graph, message, file_path, context):
     return response.json()
 
 
-def _extract_keywords(nlp, text):
-    doc = nlp(text)
+def _extract_keywords(doc):
     candidate_words = [token.text for token in doc if token.pos_ in ['NOUN', 'PROPN', 'ADJ']]
     named_entities = [ent.text for ent in doc.ents]
     all_keywords = candidate_words + named_entities

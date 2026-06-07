@@ -1,7 +1,6 @@
 import asyncio
 import logging
 import argparse
-from collections import deque
 
 import spacy
 from telethon import TelegramClient
@@ -51,14 +50,6 @@ async def main(config_name):
     nlp = spacy.load('pt_core_news_sm')
     translator = Translator(service_urls=['translate.googleapis.com'])
     app_logger.debug("NLP model and translator loaded successfully")
-
-    app_logger.info(f"Initializing message queue with max length: {COUNT_UNIQUE_MESSAGES}")
-    posted_d = {
-        Platform.ALL: deque(maxlen=COUNT_UNIQUE_MESSAGES),
-        Platform.TELEGRAM: deque(maxlen=COUNT_UNIQUE_MESSAGES),
-        Platform.FACEBOOK: deque(maxlen=COUNT_UNIQUE_MESSAGES)
-    }
-    app_logger.debug("Message queue initialized")
 
     app_logger.info("Starting Telegram clients")
     tasks = [
