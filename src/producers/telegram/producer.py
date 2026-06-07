@@ -12,7 +12,7 @@ async def telegram_send_message(client, post, url_path, context):
     return await client.send_message(
         entity=context['self_telegram_channel'],
         message=post,
-        file=url_path.get("url"),
+        file=url_path.get("path"),
         parse_mode="html",
         link_preview=False
     )
