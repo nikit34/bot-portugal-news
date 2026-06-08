@@ -4,7 +4,7 @@ import argparse
 
 import spacy
 from telethon import TelegramClient
-from googletrans import Translator
+from deep_translator import GoogleTranslator
 import facebook as fb
 
 from src.files_manager import clean_tmp_folder
@@ -15,7 +15,7 @@ from src.processor.image_filter import image_filter_summary
 from src.parsers.rss.parser import rss_wrapper
 from src.parsers.telegram.parser import telegram_wrapper
 from src.properties_reader import get_secret_key
-from src.static.settings import COUNT_UNIQUE_MESSAGES
+from src.static.settings import COUNT_UNIQUE_MESSAGES, TARGET_LANGUAGE
 from src.static.sources import get_config, Platform
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.logger import setup_logging
@@ -49,7 +49,7 @@ async def main(config_name):
 
     app_logger.info("Loading NLP model and translator")
     nlp = spacy.load('pt_core_news_sm')
-    translator = Translator(service_urls=['translate.googleapis.com'])
+    translator = GoogleTranslator(source='auto', target=TARGET_LANGUAGE)
     app_logger.debug("NLP model and translator loaded successfully")
 
     app_logger.info("Starting Telegram clients")

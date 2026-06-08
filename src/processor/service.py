@@ -23,7 +23,6 @@ from src.static.settings import (
     MINIMUM_NUMBER_KEYWORDS,
     KEY_SEARCH_LENGTH_CHARS,
     MAX_VIDEO_SIZE_MB,
-    TARGET_LANGUAGE,
     MAX_POSTS_PER_RUN,
     POST_DELAY_SECONDS,
     CONTENT_FILTER_ENABLED,
@@ -158,8 +157,7 @@ def _mark_posted(posted_d, head, decisions, platforms, succeeded):
 
 
 def _translate_message(translator, message_text):
-    translated = translator.translate(message_text, dest=TARGET_LANGUAGE)
-    return translated.text
+    return translator.translate(message_text)
 
 
 def _low_semantic_load(doc):
