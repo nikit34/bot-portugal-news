@@ -1,12 +1,22 @@
+import asyncio
 import logging
 
 import httpx
 from bs4 import BeautifulSoup
 
 from src.parsers.rss.user_agents_manager import random_user_agent_headers
-from src.static.settings import HTTP_REQUEST_TIMEOUT
+from src.static.settings import (
+    HTTP_REQUEST_TIMEOUT,
+    ABOLA_FETCH_CONCURRENCY,
+    ABOLA_FETCH_RETRIES,
+    ABOLA_FETCH_RETRY_DELAY,
+)
 
 logger = logging.getLogger('app')
+
+# abola.pt resets connections when hit with many simultaneous article fetches, so cap
+# the number of in-flight requests across all entries of a single run.
+_fetch_semaphore = asyncio.Semaphore(ABOLA_FETCH_CONCURRENCY)
 
 
 def is_valid_abola_entry(entry):
@@ -23,6 +33,27 @@ def _extract_og(soup, prop):
     return content.strip() if content else ''
 
 
+async def _fetch_article(article_url):
+    last_error = None
+    for attempt in range(ABOLA_FETCH_RETRIES + 1):
+        try:
+            async with _fetch_semaphore:
+                async with httpx.AsyncClient(follow_redirects=True, timeout=HTTP_REQUEST_TIMEOUT) as client:
+                    response = await client.get(article_url, headers=random_user_agent_headers())
+                    response.raise_for_status()
+                    return response.text
+        except Exception as error:
+            last_error = error
+            if attempt < ABOLA_FETCH_RETRIES:
+                await asyncio.sleep(ABOLA_FETCH_RETRY_DELAY)
+
+    logger.warning(
+        f"[RSS] Failed to fetch Abola article {article_url}: "
+        f"{type(last_error).__name__}: {last_error}"
+    )
+    return None
+
+
 async def parse_abola_pt(entry):
     logger.debug("Parsing Abola entry")
     title = entry.get('title', '')
@@ -34,16 +65,12 @@ async def parse_abola_pt(entry):
         # abola.pt dropped per-item media and descriptions from its RSS feed (it now
         # carries only title/link/pubDate). The article page still exposes Open Graph
         # tags, so fetch it to recover the image and the summary.
-        try:
-            async with httpx.AsyncClient(follow_redirects=True, timeout=HTTP_REQUEST_TIMEOUT) as client:
-                response = await client.get(article_url, headers=random_user_agent_headers())
-                response.raise_for_status()
-            soup = BeautifulSoup(response.text, 'html.parser')
+        html = await _fetch_article(article_url)
+        if html is not None:
+            soup = BeautifulSoup(html, 'html.parser')
             image = _extract_og(soup, 'og:image')
             summary = _extract_og(soup, 'og:description')
             logger.debug(f"Found Abola image URL: {image}")
-        except Exception:
-            logger.warning(f"[RSS] Failed to fetch Abola article: {article_url}", exc_info=True)
 
     message = title + ('\n' if title and summary else '') + summary
 

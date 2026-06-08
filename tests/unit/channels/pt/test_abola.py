@@ -1,7 +1,17 @@
+import asyncio
+
 import pytest
 
 import src.parsers.rss.channels.pt.abola as abola
 from src.parsers.rss.channels.pt.abola import is_valid_abola_entry, parse_abola_pt
+
+
+@pytest.fixture(autouse=True)
+def _fresh_semaphore():
+    # pytest-asyncio uses a fresh event loop per test; recreate the module-level
+    # semaphore so it binds to the current loop instead of a previous one.
+    abola._fetch_semaphore = asyncio.Semaphore(abola.ABOLA_FETCH_CONCURRENCY)
+    yield
 
 
 @pytest.mark.parametrize("entry,expected", [
@@ -32,7 +42,7 @@ class _FakeClient:
     def __init__(self, text=None, raise_on_get=False):
         self._text = text
         self._raise_on_get = raise_on_get
-        self.get_called = False
+        self.get_calls = 0
 
     async def __aenter__(self):
         return self
@@ -41,7 +51,7 @@ class _FakeClient:
         return False
 
     async def get(self, url, headers=None):
-        self.get_called = True
+        self.get_calls += 1
         if self._raise_on_get:
             raise RuntimeError("boom")
         return _FakeResponse(self._text)
@@ -99,14 +109,20 @@ async def test_parse_abola_pt_no_link_skips_fetch(mocker):
 
     assert message == 'Title'
     assert image == ''
-    assert client.get_called is False
+    assert client.get_calls == 0
 
 
 async def test_parse_abola_pt_fetch_failure_is_graceful(mocker):
-    _patch_client(mocker, _FakeClient(raise_on_get=True))
+    async def _instant_sleep(*args, **kwargs):
+        return None
+    mocker.patch.object(abola.asyncio, 'sleep', _instant_sleep)
+    client = _FakeClient(raise_on_get=True)
+    _patch_client(mocker, client)
     entry = {'title': 'Title', 'link': 'https://www.abola.pt/noticias/x'}
 
     message, image = await parse_abola_pt(entry)
 
     assert message == 'Title'
     assert image == ''
+    # initial attempt + ABOLA_FETCH_RETRIES retries
+    assert client.get_calls == abola.ABOLA_FETCH_RETRIES + 1
