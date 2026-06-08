@@ -157,7 +157,9 @@ def _mark_posted(posted_d, head, decisions, platforms, succeeded):
 
 
 def _translate_message(translator, message_text):
-    return translator.translate(message_text)
+    # deep-translator returns None for untranslatable input (e.g. emoji-only);
+    # fall back to '' so it gets filtered out instead of crashing serve()
+    return translator.translate(message_text) or ''
 
 
 def _low_semantic_load(doc):
