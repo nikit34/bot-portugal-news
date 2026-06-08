@@ -16,6 +16,8 @@ _UNSAFE_CLASSES = {
 }
 
 _detector = None
+_checked = 0
+_blocked = 0
 
 
 def _get_detector():
@@ -23,20 +25,28 @@ def _get_detector():
     if _detector is None:
         from nudenet import NudeDetector
         _detector = NudeDetector()
+        logger.info("[ImageFilter] NudeDetector loaded")
     return _detector
 
 
 def is_unsafe_image(image_path):
     # Fail-open: любая ошибка детектора (нет зависимости, битый файл и т.п.)
     # не должна ронять публикацию — просто не фильтруем эту картинку.
+    global _checked, _blocked
     try:
         detections = _get_detector().detect(image_path)
     except Exception:
         logger.warning("[ImageFilter] detector unavailable; skipping NSFW check", exc_info=True)
         return False
 
+    _checked += 1
     for detection in detections:
         if detection.get('class') in _UNSAFE_CLASSES and detection.get('score', 0) >= NSFW_SCORE_THRESHOLD:
+            _blocked += 1
             logger.debug(f"[ImageFilter] Unsafe image: {detection['class']} {detection['score']:.2f}")
             return True
     return False
+
+
+def image_filter_summary():
+    return f"[ImageFilter] images checked: {_checked}, blocked NSFW: {_blocked}"

@@ -11,6 +11,7 @@ from src.files_manager import clean_tmp_folder
 from src.parsers.facebook.self_parser import get_facebook_published_messages
 from src.parsers.telegram.self_parser import get_telegram_published_messages
 from src.processor.history_comparator import process_post_histories
+from src.processor.image_filter import image_filter_summary
 from src.parsers.rss.parser import rss_wrapper
 from src.parsers.telegram.parser import telegram_wrapper
 from src.properties_reader import get_secret_key
@@ -107,6 +108,7 @@ async def main(config_name):
         app_logger.info(f"Starting {len(tasks)} parsing tasks")
         await asyncio.gather(*tasks)
         app_logger.info("All parsing tasks completed successfully")
+        app_logger.info(image_filter_summary())
     except Exception as e:
         app_logger.error("Critical error occurred during execution", exc_info=True)
         response = getattr(e, 'response', None)
