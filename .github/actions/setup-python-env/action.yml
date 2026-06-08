@@ -26,12 +26,17 @@ runs:
       run: |
         python -m venv venv
         . venv/bin/activate
+        # Устанавливаем всё, КРОМЕ spaCy-модели (она прописана прямым URL на
+        # GitHub Releases). pip перекачивает URL-зависимости на каждом прогоне,
+        # поэтому при кэш-хите (модель уже в venv) пропускаем скачивание и
+        # переживаем 504-сбои GitHub. requirements.txt при этом не меняется.
+        grep -v 'pt-core-news-sm' requirements.txt > /tmp/reqs-no-model.txt
         n=0
-        until pip install -r requirements.txt; do
+        until pip install -r /tmp/reqs-no-model.txt; do
           n=$((n+1))
           if [ "$n" -ge 5 ]; then echo "pip install failed after $n attempts"; exit 1; fi
           echo "pip install failed (transient download?), retry $n/5 in 15s..."; sleep 15
         done
-        python -m spacy download pt_core_news_sm || true
+        python -c "import pt_core_news_sm" 2>/dev/null || python -m spacy download pt_core_news_sm
         echo "$VIRTUAL_ENV/bin" >> $GITHUB_PATH
         echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV 
