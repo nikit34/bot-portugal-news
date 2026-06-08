@@ -122,6 +122,12 @@ async def main(config_name):
         app_logger.info("Cleaning up temporary files")
         clean_tmp_folder()
         app_logger.info("Cleanup completed")
+        for tg_client in (client, getter_client):
+            try:
+                await tg_client.disconnect()
+            except Exception:
+                app_logger.warning("Error disconnecting Telegram client", exc_info=True)
+        app_logger.info("Telegram clients disconnected")
 
 
 if __name__ == '__main__':
