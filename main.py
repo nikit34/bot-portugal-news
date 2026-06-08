@@ -20,6 +20,7 @@ from src.static.sources import get_config, Platform
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.logger import setup_logging
 from src.utils.ci import get_ci_run_url
+from src.utils.notify import build_error_message
 
 setup_logging()
 app_logger = logging.getLogger('app')
@@ -111,13 +112,7 @@ async def main(config_name):
         app_logger.info(image_filter_summary())
     except Exception as e:
         app_logger.error("Critical error occurred during execution", exc_info=True)
-        response = getattr(e, 'response', None)
-        response_content = ', response: ' + response.text if response else ''
-        run_url = get_ci_run_url()
-        message = (
-            f'ERROR: Parsers is down\n{str(e)}{response_content}'
-            f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
-        )
+        message = build_error_message('ERROR: Parsers is down', e, get_ci_run_url())
         app_logger.error(message)
         await send_message_api(message, telegram_bot_token, context)
     finally:

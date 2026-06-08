@@ -1,111 +1,112 @@
 import pytest
+
+import src.parsers.rss.channels.pt.abola as abola
 from src.parsers.rss.channels.pt.abola import is_valid_abola_entry, parse_abola_pt
 
 
 @pytest.mark.parametrize("entry,expected", [
-    # Valid case with both text and image
-    ({
-        'summary': 'Test summary',
-        'title': 'Test title',
-        'links': [{'type': 'image', 'href': 'http://example.com/image.jpg'}]
-    }, True),
-    
-    # Valid case with only title and image
-    ({
-        'title': 'Test title',
-        'links': [{'type': 'image', 'href': 'http://example.com/image.jpg'}]
-    }, True),
-    
-    # Valid case with only summary and image
-    ({
-        'summary': 'Test summary',
-        'links': [{'type': 'image', 'href': 'http://example.com/image.jpg'}]
-    }, True),
-    
-    # Invalid case - no text
-    ({
-        'links': [{'type': 'image', 'href': 'http://example.com/image.jpg'}]
-    }, False),
-    
-    # Invalid case - no image
-    ({
-        'summary': 'Test summary',
-        'title': 'Test title',
-        'links': []
-    }, False),
-    
-    # Invalid case - image without href
-    ({
-        'summary': 'Test summary',
-        'title': 'Test title',
-        'links': [{'type': 'image'}]
-    }, False),
-    
-    # Invalid case - empty entry
+    # Valid: has both title and article link
+    ({'title': 'Test title', 'link': 'https://www.abola.pt/noticias/x'}, True),
+    # Invalid: no link
+    ({'title': 'Test title'}, False),
+    # Invalid: no title
+    ({'link': 'https://www.abola.pt/noticias/x'}, False),
+    # Invalid: empty entry
     ({}, False),
 ])
 def test_is_valid_abola_entry(entry, expected):
     assert is_valid_abola_entry(entry) == expected
 
 
-@pytest.mark.parametrize("entry,expected_message,expected_image", [
-    # Full valid case
-    ({
-        'summary': 'Test summary',
-        'title': 'Test title',
-        'links': [{'type': 'image', 'href': 'http://example.com/image.jpg'}]
-    }, 'Test title\nTest summary', 'http://example.com/image.jpg'),
-    
-    # Only title and image
-    ({
-        'title': 'Test title',
-        'links': [{'type': 'image', 'href': 'http://example.com/image.jpg'}]
-    }, 'Test title', 'http://example.com/image.jpg'),
-    
-    # Only summary and image
-    ({
-        'summary': 'Test summary',
-        'links': [{'type': 'image', 'href': 'http://example.com/image.jpg'}]
-    }, 'Test summary', 'http://example.com/image.jpg'),
-    
-    # Image with fit parameter
-    ({
-        'summary': 'Test summary',
-        'title': 'Test title',
-        'links': [{'type': 'image', 'href': 'http://example.com/image.jpg?fit(100:100)'}]
-    }, 'Test title\nTest summary', 'http://example.com/image.jpg?fit(960:640)'),
-    
-    # Multiple links, first is image
-    ({
-        'summary': 'Test summary',
-        'title': 'Test title',
-        'links': [
-            {'type': 'image', 'href': 'http://example.com/image.jpg'},
-            {'type': 'other', 'href': 'http://example.com/other'}
-        ]
-    }, 'Test title\nTest summary', 'http://example.com/image.jpg'),
-    
-    # Multiple links, second is image
-    ({
-        'summary': 'Test summary',
-        'title': 'Test title',
-        'links': [
-            {'type': 'other', 'href': 'http://example.com/other'},
-            {'type': 'image', 'href': 'http://example.com/image.jpg'}
-        ]
-    }, 'Test title\nTest summary', 'http://example.com/image.jpg'),
-    
-    # No image
-    ({
-        'summary': 'Test summary',
-        'title': 'Test title',
-        'links': []
-    }, 'Test title\nTest summary', ''),
-    
-    # Empty entry
-    ({}, '', ''),
-])
-def test_parse_abola_pt(entry, expected_message, expected_image):
-    message, image = parse_abola_pt(entry)
-    assert message == expected_message
-    assert image == expected_image
+class _FakeResponse:
+    def __init__(self, text):
+        self.text = text
+
+    def raise_for_status(self):
+        pass
+
+
+class _FakeClient:
+    """Minimal async-context-manager stand-in for httpx.AsyncClient."""
+
+    def __init__(self, text=None, raise_on_get=False):
+        self._text = text
+        self._raise_on_get = raise_on_get
+        self.get_called = False
+
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, *exc):
+        return False
+
+    async def get(self, url, headers=None):
+        self.get_called = True
+        if self._raise_on_get:
+            raise RuntimeError("boom")
+        return _FakeResponse(self._text)
+
+
+def _patch_client(mocker, client):
+    return mocker.patch.object(abola.httpx, 'AsyncClient', return_value=client)
+
+
+_ARTICLE_HTML = """
+<html><head>
+<meta property="og:image" content="https://img.example.com/pic.webp">
+<meta property="og:description" content="Resumo do artigo">
+</head><body></body></html>
+"""
+
+
+async def test_parse_abola_pt_full(mocker):
+    _patch_client(mocker, _FakeClient(text=_ARTICLE_HTML))
+    entry = {'title': 'Title', 'link': 'https://www.abola.pt/noticias/x'}
+
+    message, image = await parse_abola_pt(entry)
+
+    assert message == 'Title\nResumo do artigo'
+    assert image == 'https://img.example.com/pic.webp'
+
+
+async def test_parse_abola_pt_image_only(mocker):
+    html = '<html><head><meta property="og:image" content="https://img.example.com/pic.webp"></head></html>'
+    _patch_client(mocker, _FakeClient(text=html))
+    entry = {'title': 'Title', 'link': 'https://www.abola.pt/noticias/x'}
+
+    message, image = await parse_abola_pt(entry)
+
+    assert message == 'Title'
+    assert image == 'https://img.example.com/pic.webp'
+
+
+async def test_parse_abola_pt_no_image(mocker):
+    html = '<html><head><meta property="og:description" content="Resumo"></head></html>'
+    _patch_client(mocker, _FakeClient(text=html))
+    entry = {'title': 'Title', 'link': 'https://www.abola.pt/noticias/x'}
+
+    message, image = await parse_abola_pt(entry)
+
+    assert message == 'Title\nResumo'
+    assert image == ''
+
+
+async def test_parse_abola_pt_no_link_skips_fetch(mocker):
+    client = _FakeClient(text=_ARTICLE_HTML)
+    _patch_client(mocker, client)
+
+    message, image = await parse_abola_pt({'title': 'Title'})
+
+    assert message == 'Title'
+    assert image == ''
+    assert client.get_called is False
+
+
+async def test_parse_abola_pt_fetch_failure_is_graceful(mocker):
+    _patch_client(mocker, _FakeClient(raise_on_get=True))
+    entry = {'title': 'Title', 'link': 'https://www.abola.pt/noticias/x'}
+
+    message, image = await parse_abola_pt(entry)
+
+    assert message == 'Title'
+    assert image == ''

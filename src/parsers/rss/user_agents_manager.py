@@ -8,7 +8,9 @@ def random_user_agent_headers():
         'User-Agent': user_agents[rnd_index],
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
         'Accept-Language': 'en-US,en;q=0.5',
-        'Accept-Encoding': 'gzip, deflate, br',
+        # No 'br': httpx has no brotli decoder here, so advertising it makes servers
+        # return undecodable bodies (garbled text, missing tags). gzip/deflate are native.
+        'Accept-Encoding': 'gzip, deflate',
         'DNT': '1',
         'Sec-Fetch-Dest': 'document',
         'Sec-Fetch-Mode': 'navigate',

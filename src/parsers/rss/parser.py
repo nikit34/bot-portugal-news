@@ -13,6 +13,7 @@ from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUE
 from src.producers.telegram.telegram_api import send_message_api
 from src.parsers.rss.user_agents_manager import random_user_agent_headers
 from src.utils.ci import get_ci_run_url
+from src.utils.notify import build_error_message
 
 
 app_logger = logging.getLogger('app')
@@ -26,13 +27,7 @@ async def rss_wrapper(client, graph, nlp, translator, telegram_bot_token, source
         app_logger.info(f"[RSS] RSS parser completed successfully for source: {source}, RSS link: {rss_link}")
     except Exception as e:
         app_logger.error(f"[RSS] Error in RSS parser for source: {source}, RSS link: {rss_link}", exc_info=True)
-        response = getattr(e, 'response', None)
-        response_content = ', response: ' + response.text if response else ''
-        run_url = get_ci_run_url()
-        message = (
-            f'ERROR: {source} rss parser is down\n{str(e)}{response_content}'
-            f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
-        )
+        message = build_error_message(f'ERROR: {source} rss parser is down', e, get_ci_run_url())
         app_logger.error(message, exc_info=True)
         await send_message_api(message, telegram_bot_token, context)
 
@@ -56,13 +51,7 @@ async def _make_request(rss_link, telegram_bot_token, context, repeat=REPEAT_REQ
                 if attempt < repeat:
                     await asyncio.sleep(TIMEOUT)
                 else:
-                    response_content = getattr(e, 'response', None)
-                    response_text = ', response: ' + response_content.text if response_content else ''
-                    run_url = get_ci_run_url()
-                    message = (
-                        f'ERROR: {rss_link} request is down\n{str(e)}{response_text}'
-                        f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
-                    )
+                    message = build_error_message(f'ERROR: {rss_link} request is down', e, get_ci_run_url())
                     app_logger.error(message, exc_info=True)
                     await send_message_api(message, telegram_bot_token, context)
     finally:
@@ -88,7 +77,7 @@ async def _process_entry(
         if not is_valid_abola_entry(entry):
             app_logger.debug("Entry skipped - invalid Abola entry")
             return False
-        message_text, image = parse_abola_pt(entry)
+        message_text, image = await parse_abola_pt(entry)
     elif 'bbc.com' in source:
         if not is_valid_bbc_com_entry(entry):
             app_logger.debug("Entry skipped - invalid BBC entry")
