@@ -1,4 +1,5 @@
 import logging
+import time
 
 from src.static.settings import NSFW_SCORE_THRESHOLD
 
@@ -18,6 +19,7 @@ _UNSAFE_CLASSES = {
 _detector = None
 _checked = 0
 _blocked = 0
+_elapsed = 0.0
 
 
 def _get_detector():
@@ -32,9 +34,11 @@ def _get_detector():
 def is_unsafe_image(image_path):
     # Fail-open: любая ошибка детектора (нет зависимости, битый файл и т.п.)
     # не должна ронять публикацию — просто не фильтруем эту картинку.
-    global _checked, _blocked
+    global _checked, _blocked, _elapsed
     try:
+        started = time.monotonic()
         detections = _get_detector().detect(image_path)
+        _elapsed += time.monotonic() - started
     except Exception:
         logger.warning("[ImageFilter] detector unavailable; skipping NSFW check", exc_info=True)
         return False
@@ -49,4 +53,5 @@ def is_unsafe_image(image_path):
 
 
 def image_filter_summary():
-    return f"[ImageFilter] images checked: {_checked}, blocked NSFW: {_blocked}"
+    return (f"[ImageFilter] images checked: {_checked}, blocked NSFW: {_blocked}, "
+            f"detector time: {_elapsed:.1f}s")
