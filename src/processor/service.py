@@ -3,6 +3,7 @@ import os
 
 
 from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms
+from src.processor.content_filter import is_blocked_content
 from src.producers.facebook.producer import (
     facebook_prepare_post,
     facebook_send_message
@@ -22,6 +23,7 @@ from src.static.settings import (
     TARGET_LANGUAGE,
     MAX_POSTS_PER_RUN,
     POST_DELAY_SECONDS,
+    CONTENT_FILTER_ENABLED,
 )
 from src.static.sources import Platform
 
@@ -40,6 +42,9 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
 
     if is_ignored_prefix(head):
+        return
+
+    if CONTENT_FILTER_ENABLED and is_blocked_content(message_text, translated_message):
         return
 
     decisions_publish_platforms = get_decisions_publish_platforms(head, posted_d, context['platforms'])
