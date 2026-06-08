@@ -1,3 +1,5 @@
+import os
+
 # Максимальная длина поискового запроса в символах
 KEY_SEARCH_LENGTH_CHARS = 50
 
@@ -49,9 +51,10 @@ INSTAGRAM_MAX_LENGTH_MESSAGE = 5000
 # Контент-фильтр: пропускать посты с запрещённой лексикой/рекламой (см. blocklist.py)
 CONTENT_FILTER_ENABLED = True
 
-# Троттлинг публикаций (защита от рейт-лимитов и банов)
+# Троттлинг публикаций (защита от рейт-лимитов и банов). Настраивается через env
+# (и через workflow_dispatch inputs), чтобы крутить значения без правок кода.
 # Максимальное число постов за один запуск — бэклог сливается плавно, без всплесков
-MAX_POSTS_PER_RUN = 6
+MAX_POSTS_PER_RUN = int(os.getenv('MAX_POSTS_PER_RUN', '3'))
 
 # Пауза между публикациями в секундах — разносит посты во времени
-POST_DELAY_SECONDS = 15
+POST_DELAY_SECONDS = int(os.getenv('POST_DELAY_SECONDS', '40'))

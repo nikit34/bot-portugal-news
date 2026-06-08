@@ -20,6 +20,14 @@ on:
           - WARNING
           - ERROR
           - CRITICAL
+      max_posts_per_run:
+        description: 'Max posts per run (throttle cap)'
+        required: false
+        default: '3'
+      post_delay_seconds:
+        description: 'Delay between posts, seconds'
+        required: false
+        default: '40'
 
 jobs:
   bot:
@@ -48,6 +56,8 @@ jobs:
           TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
           FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           LOG_LEVEL: ${{ github.event_name == 'schedule' && 'WARNING' || inputs.log_level || 'DEBUG' }}
+          MAX_POSTS_PER_RUN: ${{ inputs.max_posts_per_run || '3' }}
+          POST_DELAY_SECONDS: ${{ inputs.post_delay_seconds || '40' }}
       - name: Notify Telegram on failure
         if: failure()
         run: |
