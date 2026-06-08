@@ -1,0 +1,42 @@
+import logging
+
+from src.static.settings import NSFW_SCORE_THRESHOLD
+
+logger = logging.getLogger('app')
+
+# Классы детектора nudenet, считающиеся NSFW. Обнажённый мужской торс
+# (MALE_BREAST_EXPOSED — частый кадр в футболе: празднования без футболки)
+# и любые *_COVERED НЕ блокируем, чтобы не резать легитимный контент.
+_UNSAFE_CLASSES = {
+    'FEMALE_GENITALIA_EXPOSED',
+    'MALE_GENITALIA_EXPOSED',
+    'FEMALE_BREAST_EXPOSED',
+    'BUTTOCKS_EXPOSED',
+    'ANUS_EXPOSED',
+}
+
+_detector = None
+
+
+def _get_detector():
+    global _detector
+    if _detector is None:
+        from nudenet import NudeDetector
+        _detector = NudeDetector()
+    return _detector
+
+
+def is_unsafe_image(image_path):
+    # Fail-open: любая ошибка детектора (нет зависимости, битый файл и т.п.)
+    # не должна ронять публикацию — просто не фильтруем эту картинку.
+    try:
+        detections = _get_detector().detect(image_path)
+    except Exception:
+        logger.warning("[ImageFilter] detector unavailable; skipping NSFW check", exc_info=True)
+        return False
+
+    for detection in detections:
+        if detection.get('class') in _UNSAFE_CLASSES and detection.get('score', 0) >= NSFW_SCORE_THRESHOLD:
+            logger.debug(f"[ImageFilter] Unsafe image: {detection['class']} {detection['score']:.2f}")
+            return True
+    return False

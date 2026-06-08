@@ -51,6 +51,11 @@ INSTAGRAM_MAX_LENGTH_MESSAGE = 5000
 # Контент-фильтр: пропускать посты с запрещённой лексикой/рекламой (см. blocklist.py)
 CONTENT_FILTER_ENABLED = True
 
+# NSFW-фильтр картинок через nudenet (локально). При ошибке детектора — fail-open.
+IMAGE_NSFW_ENABLED = os.getenv('IMAGE_NSFW_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+# Порог уверенности детектора для блокировки (0..1)
+NSFW_SCORE_THRESHOLD = float(os.getenv('NSFW_SCORE_THRESHOLD', '0.5'))
+
 # Троттлинг публикаций (защита от рейт-лимитов и банов). Настраивается через env
 # (и через workflow_dispatch inputs), чтобы крутить значения без правок кода.
 # Максимальное число постов за один запуск — бэклог сливается плавно, без всплесков

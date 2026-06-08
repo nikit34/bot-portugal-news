@@ -2,9 +2,11 @@ import re
 import logging
 import unicodedata
 
-from src.static.blocklist import BLOCKLIST
+from src.static.blocklist import BLOCKLIST, PROMO_FOOTERS
 
 logger = logging.getLogger('app')
+
+_PROMO_PATTERNS = [re.compile(pattern, re.IGNORECASE) for pattern in PROMO_FOOTERS]
 
 # Раскрытие частой обфускации (car@lho -> caralho, p0rra -> porra, $ -> s)
 _LEET = str.maketrans({'@': 'a', '0': 'o', '1': 'i', '3': 'e', '4': 'a', '5': 's', '$': 's'})
@@ -32,3 +34,12 @@ def is_blocked_content(*texts):
                 logger.debug(f"[ContentFilter] Blocked by pattern '{pattern.pattern}'")
                 return True
     return False
+
+
+def strip_promo(text):
+    if not text:
+        return text
+    kept = [line for line in text.split('\n')
+            if not any(pattern.search(line) for pattern in _PROMO_PATTERNS)]
+    cleaned = re.sub(r'\n{3,}', '\n\n', '\n'.join(kept)).strip()
+    return cleaned

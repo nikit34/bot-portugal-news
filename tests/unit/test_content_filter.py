@@ -1,4 +1,4 @@
-from src.processor.content_filter import is_blocked_content, _normalize
+from src.processor.content_filter import is_blocked_content, strip_promo, _normalize
 
 
 def test_blocks_profanity():
@@ -50,3 +50,27 @@ def test_handles_empty_and_none():
 def test_normalize_strips_accents_and_leet():
     assert _normalize("CAR@LHO") == "caralho"
     assert _normalize("bônus") == "bonus"
+
+
+def test_strip_promo_removes_footer_keeps_attribution():
+    text = "Benfica venceu o Porto por 2 a 1\n🗞 @geglobo\n| AO VIVO | Inscreva-se no canal"
+    out = strip_promo(text)
+    assert "Benfica venceu" in out
+    assert "@geglobo" in out            # легитимная атрибуция сохраняется
+    assert "Inscreva-se" not in out
+    assert "AO VIVO" not in out
+
+
+def test_strip_promo_removes_telegram_promo():
+    out = strip_promo("Noticia importante de futebol\nCanais no Telegram para te fortalecerem")
+    assert "Noticia importante" in out
+    assert "Telegram" not in out
+
+
+def test_strip_promo_keeps_clean_text():
+    text = "Cristiano Ronaldo marcou um hat-trick\nGolo decisivo aos 90 minutos"
+    assert strip_promo(text) == text
+
+
+def test_strip_promo_empty():
+    assert strip_promo("") == ""

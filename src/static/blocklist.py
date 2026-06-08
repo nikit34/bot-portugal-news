@@ -39,3 +39,17 @@ ADS_GAMBLING = [
 ]
 
 BLOCKLIST = PROFANITY + SLURS + ADS_GAMBLING
+
+# Промо-«хвосты» чужих каналов: строки, совпавшие с этими паттернами, ВЫРЕЗАЮТСЯ
+# из текста перед публикацией (а не блокируют весь пост). Регистронезависимо.
+# Легитимную атрибуцию вида "🗞 @источник" не трогаем.
+PROMO_FOOTERS = [
+    r"inscreva[\s-]*se",            # Inscreva-se / Inscreva se (no canal)
+    r"se\s+inscreva",
+    r"\|\s*ao\s+vivo\s*\|",         # | AO VIVO | (именно в пайпах — точный футер)
+    r"canais?\s+no\s+telegram",
+    r"entre\s+no\s+(grupo|canal)",
+    r"clique\s+no\s+link",
+    r"link\s+na\s+bio",
+    r"\bsubscribe\b",
+]

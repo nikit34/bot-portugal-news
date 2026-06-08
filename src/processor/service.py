@@ -4,7 +4,8 @@ import os
 
 
 from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms
-from src.processor.content_filter import is_blocked_content
+from src.processor.content_filter import is_blocked_content, strip_promo
+from src.processor.image_filter import is_unsafe_image
 from src.producers.repeater import is_rate_limited
 from src.producers.facebook.producer import (
     facebook_prepare_post,
@@ -26,6 +27,7 @@ from src.static.settings import (
     MAX_POSTS_PER_RUN,
     POST_DELAY_SECONDS,
     CONTENT_FILTER_ENABLED,
+    IMAGE_NSFW_ENABLED,
 )
 from src.static.sources import Platform
 
@@ -46,6 +48,9 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
 
     translated_message = _translate_message(translator, message_text)
 
+    if CONTENT_FILTER_ENABLED:
+        translated_message = strip_promo(translated_message)
+
     head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
 
     if is_ignored_prefix(head):
@@ -63,6 +68,9 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
 
     url_path = await handler_url_path()
     is_video = _is_video(url_path)
+
+    if not is_video and IMAGE_NSFW_ENABLED and is_unsafe_image(url_path.get('path')):
+        return
 
     doc = None
     if not is_video:

@@ -50,6 +50,7 @@ mdurl==0.1.2
 memory-profiler==0.61.0
 multidict==6.0.5
 murmurhash==1.0.10
+nudenet==3.4.2
 numpy==1.26.4
 packaging==24.0
 parsel==1.9.1
