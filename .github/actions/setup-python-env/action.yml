@@ -26,7 +26,12 @@ runs:
       run: |
         python -m venv venv
         . venv/bin/activate
-        pip install -r requirements.txt
-        python -m spacy download pt_core_news_sm
+        n=0
+        until pip install -r requirements.txt; do
+          n=$((n+1))
+          if [ "$n" -ge 5 ]; then echo "pip install failed after $n attempts"; exit 1; fi
+          echo "pip install failed (transient download?), retry $n/5 in 15s..."; sleep 15
+        done
+        python -m spacy download pt_core_news_sm || true
         echo "$VIRTUAL_ENV/bin" >> $GITHUB_PATH
         echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV 
