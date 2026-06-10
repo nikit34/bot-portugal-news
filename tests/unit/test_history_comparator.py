@@ -1,7 +1,38 @@
-from src.processor.history_comparator import _is_duplicate_message, is_ignored_prefix, get_decisions_publish_platforms, is_duplicate_publish, process_post_histories
+from src.processor.history_comparator import _is_duplicate_message, is_ignored_prefix, get_decisions_publish_platforms, is_duplicate_publish, process_post_histories, make_head
 from src.static.ignore_list import IGNORE_POSTS
 from src.static.sources import Platform
 from collections import deque
+
+
+def test_make_head_collapses_newlines_and_strips_urls():
+    # The first 50 chars carry a title/newline and a link; the normalized key
+    # must not depend on either, so the FB readback (which strips both) and the
+    # raw TG readback produce the same key.
+    raw = "Benfica vence o Porto\nVeja em https://abola.pt/x apos jogo intenso"
+    head = make_head(raw)
+    assert "\n" not in head
+    assert "http" not in head
+    assert head == "Benfica vence o Porto Veja em apos jogo intenso"
+
+
+def test_post_on_both_platforms_lands_in_all_despite_newline():
+    # Regression: a post published to both FB (keywords + url-stripped) and TG
+    # (raw) used to yield different keys when the first 50 chars had a newline,
+    # so it never entered Platform.ALL and was republished every run.
+    translated = "Benfica vence o Porto\nApos um jogo intenso o Benfica garantiu a vitoria"
+    tg_head = make_head(translated)                       # TG publishes raw text
+    fb_head = make_head(translated + "\n#benfica #porto")  # FB appends keywords
+
+    assert tg_head == fb_head
+
+    posted_d = process_post_histories([fb_head], [tg_head])
+    assert tg_head in posted_d[Platform.ALL]
+    assert len(posted_d[Platform.TELEGRAM]) == 0
+    assert len(posted_d[Platform.FACEBOOK]) == 0
+
+    platforms = {Platform.FACEBOOK: True, Platform.TELEGRAM: True, Platform.INSTAGRAM: True}
+    decision = get_decisions_publish_platforms(make_head(translated), posted_d, platforms)
+    assert is_duplicate_publish(decision)
 
 
 def test_is_ignored_prefix():

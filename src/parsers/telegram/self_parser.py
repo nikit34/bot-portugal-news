@@ -1,4 +1,4 @@
-from src.static.settings import KEY_SEARCH_LENGTH_CHARS
+from src.processor.history_comparator import make_head
 
 
 async def get_telegram_published_messages(getter_client, limit, context):
@@ -7,6 +7,5 @@ async def get_telegram_published_messages(getter_client, limit, context):
         raw_message = message.raw_text
         if not raw_message:
             continue
-        cropped_post = raw_message[:KEY_SEARCH_LENGTH_CHARS].strip()
-        history.append(cropped_post)
+        history.append(make_head(raw_message))
     return history

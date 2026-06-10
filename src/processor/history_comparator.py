@@ -1,9 +1,29 @@
+import re
 import difflib
 from collections import deque
 
-from src.static.settings import MESSAGE_SIMILARITY_THRESHOLD, COUNT_UNIQUE_MESSAGES
+from src.static.settings import MESSAGE_SIMILARITY_THRESHOLD, COUNT_UNIQUE_MESSAGES, KEY_SEARCH_LENGTH_CHARS
 from src.static.ignore_list import IGNORE_POSTS
 from src.static.sources import Platform
+
+
+_URL_PATTERN = re.compile(r'http[s]?://\S+')
+_WHITESPACE_PATTERN = re.compile(r'\s+')
+
+
+def make_head(text):
+    # Canonical dedup key. MUST be computed identically at publish time and when
+    # reading FB/TG history back — otherwise the same post yields a different key
+    # per platform and process_post_histories' exact-match `fb_set & tg_set`
+    # never puts it in Platform.ALL, so it gets republished to the "missing"
+    # platform on every run. Strip URLs and collapse all whitespace (incl.
+    # newlines) before cropping so a leading title/newline or link can't shift
+    # the prefix.
+    if not text:
+        return ''
+    text = _URL_PATTERN.sub('', text)
+    text = _WHITESPACE_PATTERN.sub(' ', text).strip()
+    return text[:KEY_SEARCH_LENGTH_CHARS].strip()
 
 
 def is_ignored_prefix(head):

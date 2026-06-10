@@ -3,7 +3,7 @@ import logging
 import os
 
 
-from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms
+from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms, make_head
 from src.processor.content_filter import is_blocked_content, strip_promo
 from src.processor.image_filter import is_unsafe_image
 from src.producers.repeater import is_rate_limited
@@ -21,7 +21,6 @@ from src.producers.telegram.producer import (
 )
 from src.static.settings import (
     MINIMUM_NUMBER_KEYWORDS,
-    KEY_SEARCH_LENGTH_CHARS,
     MAX_VIDEO_SIZE_MB,
     MAX_POSTS_PER_RUN,
     POST_DELAY_SECONDS,
@@ -50,7 +49,7 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     if CONTENT_FILTER_ENABLED:
         translated_message = strip_promo(translated_message)
 
-    head = translated_message[:KEY_SEARCH_LENGTH_CHARS].strip()
+    head = make_head(translated_message)
 
     if is_ignored_prefix(head):
         return
@@ -80,17 +79,21 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     if is_video and _large_video_size(url_path):
         return
 
-    targets = []
-    if decisions_publish_platforms.get(Platform.FACEBOOK, False):
-        targets.append(Platform.FACEBOOK)
-    if decisions_publish_platforms.get(Platform.INSTAGRAM, False) and isinstance(url_path.get('url'), str):
-        targets.append(Platform.INSTAGRAM)
-    if decisions_publish_platforms.get(Platform.TELEGRAM, False):
-        targets.append(Platform.TELEGRAM)
+    targets = _targets_from_decisions(decisions_publish_platforms, url_path)
 
     if targets:
         async with _publish_lock:
-            if _published_count < MAX_POSTS_PER_RUN:
+            # Re-derive the decision under the lock. The dedup check above runs
+            # unlocked while media download / NSFW / NLP happen, so two parallel
+            # serve() calls for the same story (split across chunks or sources)
+            # can both pass it and both publish. Re-checking here — after any
+            # concurrent _mark_posted — keeps check-and-publish atomic and stops
+            # the same post going out twice in one run.
+            decisions_publish_platforms = get_decisions_publish_platforms(
+                head, posted_d, context['platforms'])
+            targets = _targets_from_decisions(decisions_publish_platforms, url_path)
+
+            if targets and _published_count < MAX_POSTS_PER_RUN:
                 # skip Meta targets while the circuit is open (don't hammer a rate-limited account)
                 active = [
                     platform for platform in targets
@@ -133,6 +136,17 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     file_path = url_path.get('path')
     if file_path is not None and os.path.exists(file_path):
         os.remove(file_path)
+
+
+def _targets_from_decisions(decisions, url_path):
+    targets = []
+    if decisions.get(Platform.FACEBOOK, False):
+        targets.append(Platform.FACEBOOK)
+    if decisions.get(Platform.INSTAGRAM, False) and isinstance(url_path.get('url'), str):
+        targets.append(Platform.INSTAGRAM)
+    if decisions.get(Platform.TELEGRAM, False):
+        targets.append(Platform.TELEGRAM)
+    return targets
 
 
 def _mark_posted(posted_d, head, decisions, platforms, succeeded):

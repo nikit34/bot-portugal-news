@@ -1,8 +1,6 @@
-import re
-
 import requests
 from src.producers.repeater import retry
-from src.static.settings import KEY_SEARCH_LENGTH_CHARS
+from src.processor.history_comparator import make_head
 import logging
 
 logger = logging.getLogger(__name__)
@@ -51,16 +49,8 @@ def _extract_messages(posts, max_posts):
     messages = []
     for post in posts:
         if 'message' in post:
-            head = _process_message(post)
-            messages.append(head)
+            messages.append(make_head(post['message']))
             max_posts -= 1
             if max_posts == 0:
                 break
     return messages, max_posts
-
-
-def _process_message(post):
-    message = post['message']
-    message_without_url = re.sub(r'http[s]?://\S+', '', message)
-    cleaned_message = re.sub(r'\n+', ' ', message_without_url).strip()
-    return cleaned_message[:KEY_SEARCH_LENGTH_CHARS].strip()
