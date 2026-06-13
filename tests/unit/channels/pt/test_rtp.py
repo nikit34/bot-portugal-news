@@ -34,11 +34,12 @@ def test_is_valid_rtp_entry(entry, expected):
         'summary': '<img src="http://example.com/image.jpg" /> Estrela da Amadora'
     }, 'Pepa é o novo treinador\nEstrela da Amadora', 'http://example.com/image.jpg'),
 
-    # HTML-escaped query separators in the image URL are unescaped
+    # HTML-escaped query separators are unescaped AND the resizer w/q are bumped up
+    # so RTP serves a full-size, higher-quality image instead of a ~350px thumbnail.
     ({
         'title': 'Title',
         'summary': '<img src="http://example.com/i?w=350&amp;q=50&amp;auto=format" /> Body'
-    }, 'Title\nBody', 'http://example.com/i?w=350&q=50&auto=format'),
+    }, 'Title\nBody', 'http://example.com/i?w=1200&q=80&auto=format'),
 
     # Whitespace from stripped tags is collapsed
     ({

@@ -9,8 +9,10 @@ from src.parsers.rss.channels.pt.abola import is_valid_abola_entry, parse_abola_
 @pytest.fixture(autouse=True)
 def _fresh_semaphore():
     # pytest-asyncio uses a fresh event loop per test; recreate the module-level
-    # semaphore so it binds to the current loop instead of a previous one.
+    # semaphore so it binds to the current loop instead of a previous one, and reset
+    # the lazily-cached shared httpx client so each test picks up its own patched one.
     abola._fetch_semaphore = asyncio.Semaphore(abola.ABOLA_FETCH_CONCURRENCY)
+    abola._client = None
     yield
 
 

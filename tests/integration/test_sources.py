@@ -1,7 +1,39 @@
 import os
 import json
 import pytest
-from src.static.sources import _load_config, get_config, Platform
+from src.static.sources import _load_config, get_config, Platform, _validate_config
+
+
+_OK_SELF = {'telegram_channel': 'x', 'telegram_debug_chat_id': 'x',
+            'facebook_page_id': 'x', 'instagram_channel': 'x'}
+
+
+def _cfg(**overrides):
+    cfg = {'platforms': {'FACEBOOK': True}, 'self': dict(_OK_SELF),
+           'telegram_channels': [], 'rss_channels': {}}
+    cfg.update(overrides)
+    return cfg
+
+
+def test_validate_config_ok():
+    _validate_config('ok', _cfg())  # no raise
+
+
+def test_validate_config_missing_top_key():
+    bad = _cfg()
+    del bad['platforms']
+    with pytest.raises(ValueError):
+        _validate_config('bad', bad)
+
+
+def test_validate_config_missing_self_key():
+    with pytest.raises(ValueError):
+        _validate_config('bad', _cfg(self={'telegram_channel': 'x'}))
+
+
+def test_validate_config_unknown_platform():
+    with pytest.raises(ValueError):
+        _validate_config('bad', _cfg(platforms={'NOPE': True}))
 
 
 def test_load_config_file_not_found():

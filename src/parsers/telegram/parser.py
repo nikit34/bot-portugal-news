@@ -3,10 +3,11 @@ import logging
 
 from telethon.tl.types import MessageMediaWebPage
 from src.files_manager import SaveFileTelegram
-from src.processor.service import serve, budget_remaining
+from src.processor.service import serve, should_stop
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, MESSAGE_CHUNK_SIZE
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.ci import get_ci_run_url
+from src.utils.notify import build_error_message
 
 app_logger = logging.getLogger('app')
 stats_logger = logging.getLogger('stats')
@@ -19,13 +20,7 @@ async def telegram_wrapper(client, getter_client, graph, nlp, translator, telegr
         app_logger.info(f"[Telegram] Telegram parser completed successfully for channel: {channel_link}")
     except Exception as e:
         app_logger.error(f"[Telegram] Error in Telegram parser for channel {channel_link}", exc_info=True)
-        response = getattr(e, 'response', None)
-        response_content = ', response: ' + response.text if response else ''
-        run_url = get_ci_run_url()
-        message = (
-            f'ERROR: {channel_link} telegram parser is down\n{str(e)}{response_content}'
-            f'\n<a href="{run_url}">Open CI logs</a>' if run_url else ''
-        )
+        message = build_error_message(f'ERROR: {channel_link} telegram parser is down', e, get_ci_run_url())
         app_logger.error(message)
         await send_message_api(message, telegram_bot_token, context)
 
@@ -43,8 +38,8 @@ async def _process_message_chunk(
 ):
     skipped_count = 0
     for message in message_chunk:
-        # Publish budget filled this run — stop downloading/serving further media.
-        if budget_remaining() <= 0:
+        # Stop once the post budget is filled or the per-run time budget is exhausted.
+        if should_stop():
             break
 
         message_text = message.raw_text

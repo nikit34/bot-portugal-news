@@ -9,7 +9,16 @@ def _first_img(summary_html):
     # RTP carries no media tags; the article image is embedded in the description HTML,
     # where the URL keeps HTML-escaped query separators (&amp;) that break the download.
     match = re.search(r'<img[^>]+src="([^"]+)"', summary_html)
-    return html.unescape(match.group(1)) if match else ''
+    return _upscale(html.unescape(match.group(1))) if match else ''
+
+
+def _upscale(url):
+    # RTP serves images through a resizer CDN (cdn-images.rtp.pt) that bakes a small
+    # w=350&q=50 into the feed URL — ~350px, looks bad in the feed. The CDN honours a
+    # larger w/q, so request a full-size, higher-quality render from the same source.
+    url = re.sub(r'([?&]w=)\d+', r'\g<1>1200', url)
+    url = re.sub(r'([?&]q=)\d+', r'\g<1>80', url)
+    return url
 
 
 def is_valid_rtp_entry(entry):

@@ -5,6 +5,9 @@ venv/
 
 secret
 
+# Telethon session files are credentials — never commit them. CI auth uses the
+# TELEGRAM_SESSION secret (StringSession); local dev uses the on-disk file.
+*.session
 bot.session-journal
 getter_bot.session-journal
 

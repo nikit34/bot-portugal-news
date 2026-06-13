@@ -7,7 +7,7 @@ logger = logging.getLogger('app')
 
 
 def _empty_state():
-    return {'version': 1, 'pending': [], 'sources': {}, 'hours': {}}
+    return {'version': 1, 'pending': [], 'sources': {}, 'hours': {}, 'ig_quota': {'day': '', 'posts': 0}}
 
 
 def load_state(path):
@@ -20,10 +20,24 @@ def load_state(path):
         state.setdefault('pending', [])
         state.setdefault('sources', {})
         state.setdefault('hours', {})
+        state.setdefault('ig_quota', {'day': '', 'posts': 0})
         return state
     except (FileNotFoundError, ValueError, OSError) as e:
         logger.info(f"[learning] no usable state at {path} ({e}); starting fresh")
         return _empty_state()
+
+
+def ig_posts_today(state, today):
+    quota = state.get('ig_quota') or {}
+    return quota.get('posts', 0) if quota.get('day') == today else 0
+
+
+def add_ig_posts(state, today, n):
+    quota = state.setdefault('ig_quota', {'day': today, 'posts': 0})
+    if quota.get('day') != today:
+        quota['day'] = today
+        quota['posts'] = 0
+    quota['posts'] = quota.get('posts', 0) + n
 
 
 def save_state(path, state):
@@ -56,8 +70,8 @@ def update_scores(state, reach_by_head, now, maturation_seconds, max_age_seconds
         ts = post.get('ts', 0)
         age = now - ts
         head = post.get('head', '')
-        if age >= maturation_seconds and head in reach_by_head:
-            reach = reach_by_head[head]
+        reach = _reach_for(head, reach_by_head) if age >= maturation_seconds else None
+        if reach is not None:
             _update_avg(sources, post.get('source', ''), reach, alpha)
             _update_avg(hours, _hour_of(ts), reach, alpha)
         elif age < max_age_seconds:
@@ -65,6 +79,22 @@ def update_scores(state, reach_by_head, now, maturation_seconds, max_age_seconds
         # else: matured but never matched within max_age → prune (can't attribute)
     state['pending'] = still_pending
     return state
+
+
+def _reach_for(head, reach_by_head):
+    # Match the publish head to a reach key. In caption mode the IG caption is the
+    # publish text PLUS appended hashtags, so for a short post the read-back head is
+    # `head + " #tags"` — i.e. the reach key STARTS WITH the publish head. Require
+    # exactly that prefix relationship (not loose 0.7 similarity) so distinct
+    # templated headlines don't steal each other's reach.
+    if not head:
+        return None
+    if head in reach_by_head:
+        return reach_by_head[head]
+    for key, reach in reach_by_head.items():
+        if key.startswith(head):
+            return reach
+    return None
 
 
 def _hour_of(ts):

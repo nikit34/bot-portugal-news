@@ -9,7 +9,8 @@ DAY = 24 * HOUR
 
 def test_load_state_missing_file_returns_fresh(tmp_path):
     state = learning.load_state(str(tmp_path / 'nope.json'))
-    assert state == {'version': 1, 'pending': [], 'sources': {}, 'hours': {}}
+    assert state == {'version': 1, 'pending': [], 'sources': {}, 'hours': {},
+                     'ig_quota': {'day': '', 'posts': 0}}
 
 
 def test_load_state_corrupt_file_returns_fresh(tmp_path):
@@ -22,7 +23,8 @@ def test_load_state_corrupt_file_returns_fresh(tmp_path):
 def test_save_then_load_roundtrip(tmp_path):
     path = str(tmp_path / 'sub' / 'state.json')  # nested dir must be created
     state = {'version': 1, 'pending': [{'head': 'h', 'source': 's', 'ts': 1}],
-             'sources': {'s': {'reach_avg': 10.0, 'n': 2}}, 'hours': {'8': {'reach_avg': 10.0, 'n': 2}}}
+             'sources': {'s': {'reach_avg': 10.0, 'n': 2}}, 'hours': {'8': {'reach_avg': 10.0, 'n': 2}},
+             'ig_quota': {'day': '2026-06-13', 'posts': 4}}
     learning.save_state(path, state)
     assert os.path.exists(path)
     assert learning.load_state(path) == state
@@ -53,10 +55,26 @@ def test_update_scores_attributes_matured_reach_and_prunes():
 
     # matured + matched => scored, removed from pending
     assert state['sources']['abola.pt'] == {'reach_avg': 500.0, 'n': 1}
+    # the unmatched post must NOT steal the matched post's reach (regression: a loose
+    # fuzzy match used to credit rtp.pt here silently)
+    assert 'rtp.pt' not in state['sources']
     heads_left = {p['head'] for p in state['pending']}
     assert 'matured_matched' not in heads_left
     assert 'too_fresh' in heads_left              # not matured yet -> kept
     assert 'matured_unmatched_old' not in heads_left  # past max_age, unmatched -> pruned
+
+
+def test_reach_not_attributed_to_similar_but_distinct_head():
+    # Two distinct templated headlines share boilerplate (high fuzzy similarity) but
+    # neither is a prefix of the other => no cross-attribution.
+    now = 100 * DAY
+    state = {'pending': [{'head': 'Benfica vence o Sporting por 2-1 na Luz', 'source': 'rtp.pt',
+                          'ts': now - 2 * DAY}], 'sources': {}, 'hours': {}}
+    reach_by_head = {'Benfica vence o Porto por 3-0 na Luz': 900}
+
+    learning.update_scores(state, reach_by_head, now, DAY, 7 * DAY, alpha=0.3)
+
+    assert state['sources'] == {}  # not a prefix => not attributed
 
 
 def test_update_scores_ew_average_on_repeat():
@@ -117,6 +135,32 @@ def test_hour_budget_full_when_insufficient_or_unseen_data():
     # current hour under-sampled -> full cap (keep sampling it)
     hours3 = dict(hours, **{'12': {'reach_avg': 500.0, 'n': 5}, '14': {'reach_avg': 50.0, 'n': 1}})
     assert learning.hour_budget(hours3, 14, base_cap=3, min_samples=3) == 3
+
+
+def test_update_scores_fuzzy_match_when_head_shifted():
+    # Item 8: reach key differs from the publish head (hashtags shifted the read-back
+    # head) but is_similar => still attributed.
+    now = 100 * DAY
+    state = {'pending': [{'head': 'Benfica vence o Porto na Luz', 'source': 'abola.pt', 'ts': now - 2 * DAY}],
+             'sources': {}, 'hours': {}}
+    reach_by_head = {'Benfica vence o Porto na Luz #benfica #porto': 700}
+
+    learning.update_scores(state, reach_by_head, now, DAY, 7 * DAY, alpha=0.3)
+
+    assert state['sources']['abola.pt'] == {'reach_avg': 700.0, 'n': 1}
+    assert state['pending'] == []  # attributed and dropped
+
+
+def test_ig_quota_today_and_add():
+    state = {'ig_quota': {'day': '2026-06-13', 'posts': 5}}
+    assert learning.ig_posts_today(state, '2026-06-13') == 5
+    assert learning.ig_posts_today(state, '2026-06-14') == 0  # different day -> 0
+
+    learning.add_ig_posts(state, '2026-06-13', 2)
+    assert state['ig_quota'] == {'day': '2026-06-13', 'posts': 7}
+
+    learning.add_ig_posts(state, '2026-06-14', 1)  # new day resets the counter
+    assert state['ig_quota'] == {'day': '2026-06-14', 'posts': 1}
 
 
 def test_top_sources_only_scored_sorted_desc():

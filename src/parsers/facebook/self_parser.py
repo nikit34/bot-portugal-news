@@ -30,9 +30,15 @@ def get_facebook_published_messages(graph, context, max_posts):
             else:
                 break
         except Exception as e:
+            # Pagination can't continue without this page, so we stop with a partial
+            # history. Warn loudly: an incomplete FB history weakens dedup and risks
+            # re-posting to FB (mitigated by TG/IG histories also feeding dedup).
             logger.error(f"Error fetching Facebook posts: {str(e)}")
             if hasattr(e, 'response') and e.response is not None:
                 logger.error(f"Response content: {e.response.content}")
+            logger.warning(
+                f"[facebook] history INCOMPLETE — only {len(messages)} posts read before error; "
+                f"dedup may be weaker this run")
             break
 
     return messages

@@ -1,3 +1,4 @@
+import os
 import asyncio
 import logging
 import argparse
@@ -5,6 +6,7 @@ import time
 
 import spacy
 from telethon import TelegramClient
+from telethon.sessions import StringSession
 from deep_translator import GoogleTranslator
 import facebook as fb
 
@@ -15,16 +17,24 @@ from src.parsers.telegram.self_parser import get_telegram_published_messages
 from src.processor.history_comparator import process_post_histories
 from src.processor.image_filter import image_filter_summary
 from src.parsers.rss.parser import rss_wrapper
+from src.parsers.rss.channels.pt.abola import close_client as close_abola_client
 from src.parsers.telegram.parser import telegram_wrapper
 from src.parsers.insights import report_insights, should_report_insights, get_instagram_reach_by_head
 from src.processor import learning
-from src.processor.service import get_publish_records, budget_remaining, set_run_cap
+from src.processor.service import (
+    get_publish_records, should_stop, set_run_cap,
+    set_ig_daily, set_deadline, ig_posts_this_run, get_run_stats,
+)
+from src.producers.instagram.producer import get_failure_counts
 from src.properties_reader import get_secret_key
 from src.static.settings import (
     COUNT_UNIQUE_MESSAGES,
     TARGET_LANGUAGE,
     INSIGHTS_MEDIA_LIMIT,
     MAX_POSTS_PER_RUN,
+    INSTAGRAM_DAILY_POST_LIMIT,
+    RUN_TIME_BUDGET_SECONDS,
+    RUN_SUMMARY_ENABLED,
     LEARNING_STATE_PATH,
     LEARNING_BIAS_ENABLED,
     LEARNING_DEFAULT_PRIOR,
@@ -38,7 +48,7 @@ from src.static.sources import get_config
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.logger import setup_logging
 from src.utils.ci import get_ci_run_url
-from src.utils.notify import build_error_message
+from src.utils.notify import build_error_message, build_run_summary
 
 setup_logging()
 app_logger = logging.getLogger('app')
@@ -59,7 +69,12 @@ async def main(config_name):
 
     app_logger.info("Initializing Telegram clients")
     client = TelegramClient('bot', telegram_api_id, telegram_api_hash)
-    getter_client = TelegramClient('getter_bot', telegram_api_id, telegram_api_hash)
+    # User-account session: prefer the TELEGRAM_SESSION secret (StringSession) so the
+    # credential lives in CI secrets, not in a committed .session file; fall back to
+    # the local 'getter_bot' file session for local development.
+    telegram_session = os.environ.get('TELEGRAM_SESSION')
+    getter_session = StringSession(telegram_session) if telegram_session else 'getter_bot'
+    getter_client = TelegramClient(getter_session, telegram_api_id, telegram_api_hash)
     app_logger.debug("Telegram clients created")
 
     app_logger.info("Initializing Facebook Graph API")
@@ -80,6 +95,11 @@ async def main(config_name):
     app_logger.info("Telegram clients started successfully")
 
     try:
+        # Per-run wall-clock budget so "nothing fresh" runs don't scrape every source
+        # to the very end and trip the CI timeout (item 12).
+        set_deadline(time.monotonic() + RUN_TIME_BUDGET_SECONDS)
+        today = time.strftime('%Y-%m-%d', time.gmtime())
+
         app_logger.info("Fetching message history from Facebook, Instagram and Telegram")
         # Fetch the three histories concurrently so adding Instagram doesn't extend
         # startup: FB/IG are blocking `requests` calls (offloaded to threads), TG is async.
@@ -96,6 +116,10 @@ async def main(config_name):
         app_logger.info(f"Dedup history: {len(posted_d)} unique heads")
 
         state = learning.load_state(LEARNING_STATE_PATH)
+
+        # Seed today's Instagram post count so serve stops publishing to IG before
+        # tripping Meta's daily limit (item 9).
+        set_ig_daily(learning.ig_posts_today(state, today), INSTAGRAM_DAILY_POST_LIMIT)
 
         if LEARNING_TIME_BIAS_ENABLED:
             current_hour = time.gmtime().tm_hour
@@ -130,8 +154,8 @@ async def main(config_name):
             source_jobs.sort(key=lambda job: rank[job[0]])
             app_logger.info(f"Learning bias ON — processing sources by reach: {ordered}")
             for name, factory in source_jobs:
-                if budget_remaining() <= 0:
-                    app_logger.info("Publish budget filled; skipping remaining lower-ranked sources")
+                if should_stop():
+                    app_logger.info("Post or time budget exhausted; skipping remaining lower-ranked sources")
                     break
                 await factory()
         else:
@@ -144,6 +168,9 @@ async def main(config_name):
         # Attribute this run's publishes to their sources for the learning loop.
         for record in get_publish_records():
             learning.record_publish(state, record['head'], record['source'], record['ts'])
+
+        # Persist today's Instagram post count for the daily quota (item 9).
+        learning.add_ig_posts(state, today, ig_posts_this_run())
 
         if should_report_insights():
             app_logger.info("Scoring sources on matured reach and building insights digest")
@@ -160,6 +187,15 @@ async def main(config_name):
                 hour_ranking=learning.top_sources(state['hours']))
 
         learning.save_state(LEARNING_STATE_PATH, state)
+
+        # Surface what happened this run (and any silent best-effort degradations:
+        # failed first comments / Stories) to the debug chat — only when noteworthy.
+        if RUN_SUMMARY_ENABLED:
+            stats = get_run_stats()
+            failures = get_failure_counts()
+            if stats['posts'] or any(failures.values()) or stats['meta_circuit_open']:
+                summary = build_run_summary(stats, failures, image_filter_summary())
+                await send_message_api(summary, telegram_bot_token, context)
     except Exception as e:
         app_logger.error("Critical error occurred during execution", exc_info=True)
         message = build_error_message('ERROR: Parsers is down', e, get_ci_run_url())
@@ -168,6 +204,10 @@ async def main(config_name):
     finally:
         app_logger.info("Cleaning up temporary files")
         clean_tmp_folder()
+        try:
+            await close_abola_client()
+        except Exception:
+            app_logger.warning("Error closing abola HTTP client", exc_info=True)
         app_logger.info("Cleanup completed")
         for tg_client in (client, getter_client):
             try:
@@ -181,7 +221,7 @@ if __name__ == '__main__':
     try:
         parser = argparse.ArgumentParser(description='Bot for collecting and posting news')
         parser.add_argument('--config', type=str, default='football',
-                          help='Configuration to use (football or food)')
+                          help='Configuration name under src/static/configs (default: football)')
         args = parser.parse_args()
 
         app_logger.info("Starting application")

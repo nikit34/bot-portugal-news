@@ -94,6 +94,13 @@ INSTAGRAM_VIDEO_POLL_INTERVAL = float(os.getenv('INSTAGRAM_VIDEO_POLL_INTERVAL',
 # Контент-фильтр: пропускать посты с запрещённой лексикой/рекламой (см. blocklist.py)
 CONTENT_FILTER_ENABLED = True
 
+# Фильтр низкокачественных картинок: отсекаем мелкие превью/миниатюры (напр.
+# 142x100 из RSS-фида), которые в ленте выглядят плохо. Порог по сторонам в px,
+# fail-open: не смогли прочитать размер — не фильтруем. Настраивается через env.
+IMAGE_QUALITY_FILTER_ENABLED = os.getenv('IMAGE_QUALITY_FILTER_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+IMAGE_MIN_WIDTH = int(os.getenv('IMAGE_MIN_WIDTH', '500'))
+IMAGE_MIN_HEIGHT = int(os.getenv('IMAGE_MIN_HEIGHT', '300'))
+
 # NSFW-фильтр картинок через nudenet (локально). При ошибке детектора — fail-open.
 IMAGE_NSFW_ENABLED = os.getenv('IMAGE_NSFW_ENABLED', 'true').lower() not in ('0', 'false', 'no')
 # Порог уверенности детектора для блокировки (0..1)
@@ -142,3 +149,19 @@ MAX_POSTS_PER_RUN = int(os.getenv('MAX_POSTS_PER_RUN', '3'))
 
 # Пауза между публикациями в секундах — разносит посты во времени
 POST_DELAY_SECONDS = int(os.getenv('POST_DELAY_SECONDS', '40'))
+
+# Суточный лимит постов в Instagram (по UTC-дню, копится в state-файле). Каждый
+# IG-пост — это feed + (если включено) Stories = ~2 публикации к лимиту IG ~25/24ч.
+# При достижении лимита IG пропускаем (FB/TG продолжают), чтобы не словить рейт-лимит
+# Meta и не открыть общий circuit breaker, который зарежет и Facebook.
+INSTAGRAM_DAILY_POST_LIMIT = int(os.getenv('INSTAGRAM_DAILY_POST_LIMIT', '12'))
+
+# Бюджет времени на прогон (секунды). «Пустые» прогоны (нет свежего контента) иначе
+# скрейпят все источники до упора; по истечении бюджета парсеры перестают брать
+# новые записи. Меньше CI-таймаута (15м), с запасом на дайджест/сохранение состояния.
+RUN_TIME_BUDGET_SECONDS = int(os.getenv('RUN_TIME_BUDGET_SECONDS', '540'))
+
+# Слать ли краткий итог прогона в debug-чат (что/куда опубликовано, что отфильтровано
+# и что молча упало — первый комментарий, Stories, права на insights). По умолчанию вкл;
+# шлём только когда есть о чём (были публикации или сбои), чтобы не спамить пустыми.
+RUN_SUMMARY_ENABLED = os.getenv('RUN_SUMMARY_ENABLED', 'true').lower() not in ('0', 'false', 'no')

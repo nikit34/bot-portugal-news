@@ -4,6 +4,7 @@ from time import sleep
 from telethon.errors import FloodWaitError
 
 from src.static.settings import REPEAT_REQUESTS, TIMEOUT
+from src.utils.notify import redact_secrets
 
 
 logger = logging.getLogger('app')
@@ -30,11 +31,11 @@ def log_error(func, attempts, args, e):
         except:
             response_content = str(e.response.content)
     
-    logger.warning(
+    logger.warning(redact_secrets(
         "Request '" + func.__name__ + "' failed, " +
         str(attempts) + "  attempts left, parameters: " + str(args) + ", error: " + str(e) +
         ", response: " + response_content
-    )
+    ))
 
 
 def async_retry(repeat=REPEAT_REQUESTS, timeout=TIMEOUT):

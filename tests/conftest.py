@@ -23,7 +23,6 @@ def config_file(tmp_path):
         },
         "self": {
             "telegram_channel": "test_channel",
-            "telegram_chat_id": "test_chat_id",
             "telegram_debug_chat_id": "test_debug_chat_id",
             "facebook_page_id": "test_facebook_id",
             "instagram_channel": "test_instagram_id"

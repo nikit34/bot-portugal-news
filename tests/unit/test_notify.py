@@ -1,5 +1,46 @@
 from src.static.settings import MAX_ERROR_RESPONSE_CHARS
-from src.utils.notify import build_error_message
+from src.utils.notify import build_error_message, build_run_summary, redact_secrets
+
+
+def test_redact_secrets_scrubs_access_token_and_oauth():
+    url = '400 Bad Request for url: https://graph.facebook.com/v18.0/me/photos?fields=x&access_token=EAABsecret123&y=1'
+    out = redact_secrets(url)
+    assert 'EAABsecret123' not in out
+    assert 'access_token=***' in out
+    assert 'fields=x' in out and 'y=1' in out  # other params preserved
+
+    out2 = redact_secrets("Authorization: OAuth EAABsecrettoken")
+    assert 'EAABsecrettoken' not in out2 and 'OAuth ***' in out2
+
+
+def test_build_error_message_redacts_token():
+    class _Resp:
+        text = 'body access_token=SECRETTOKEN extra'
+    err = type('E', (Exception,), {})('boom for url ...?access_token=SECRETTOKEN')
+    err.response = _Resp()
+    msg = build_error_message('ERROR: x', err, '')
+    assert 'SECRETTOKEN' not in msg
+    assert 'access_token=***' in msg
+
+
+def test_build_run_summary_reports_publishes_and_failures():
+    stats = {'posts': 2, 'platforms': {'FACEBOOK': 2, 'TELEGRAM': 2, 'INSTAGRAM': 1},
+             'ig_today': 5, 'ig_limit': 12, 'ig_this_run': 1, 'meta_circuit_open': False}
+    out = build_run_summary(stats, {'comment': 2, 'story': 0}, '[ImageFilter] images checked: 3')
+
+    assert 'опубликовано 2' in out
+    assert 'FACEBOOK:2' in out and 'INSTAGRAM:1' in out
+    assert 'IG за сутки: 5/12 (+1' in out
+    assert 'первый комментарий IG не отправлен: 2' in out
+    assert 'Stories не опубликованы' not in out   # story=0 -> no line
+    assert '[ImageFilter]' in out
+
+
+def test_build_run_summary_flags_circuit_open():
+    stats = {'posts': 0, 'platforms': {}, 'ig_today': 0, 'ig_limit': 12,
+             'ig_this_run': 0, 'meta_circuit_open': True}
+    out = build_run_summary(stats, {'comment': 0, 'story': 0}, '')
+    assert 'Meta circuit open' in out
 
 
 class _FakeResponse:

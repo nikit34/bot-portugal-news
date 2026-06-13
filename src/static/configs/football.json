@@ -7,7 +7,6 @@
     },
     "self": {
         "telegram_channel": "https://t.me/sportportugal",
-        "telegram_chat_id": "-1002106461489",
         "telegram_debug_chat_id": "-1002178707665",
         "facebook_page_id": "348454375016310",
         "instagram_channel": "17841467413345329"
@@ -21,12 +20,10 @@
     "rss_channels": {
         "abola.pt": "https://www.abola.pt/rss-articles.xml",
         "zerozero.pt": "https://www.zerozero.pt/rss/noticias.php",
-        "record.pt": "https://www.record.pt/rss",
         "rtp.pt/desporto": "https://www.rtp.pt/noticias/rss/desporto",
         "bbc.com/football": "https://feeds.bbci.co.uk/sport/football/rss.xml",
         "ge.globo.com": "https://ge.globo.com/rss/ge/",
         "trivela.com.br": "https://trivela.com.br/feed/",
-        "gazetaesportiva.com": "https://www.gazetaesportiva.com/feed/",
-        "uol.com.br/esporte": "https://rss.uol.com.br/feed/esporte.xml"
+        "gazetaesportiva.com": "https://www.gazetaesportiva.com/feed/"
     }
 } 

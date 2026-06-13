@@ -18,6 +18,27 @@ logger = logging.getLogger('app')
 # the number of in-flight requests across all entries of a single run.
 _fetch_semaphore = asyncio.Semaphore(ABOLA_FETCH_CONCURRENCY)
 
+# One shared client for the whole run: connection pooling/keep-alive instead of a
+# fresh TCP+TLS handshake per article. Created lazily inside the event loop; the
+# check-and-set has no await between them, so it's safe without a lock.
+_client = None
+
+
+def _get_client():
+    global _client
+    if _client is None:
+        _client = httpx.AsyncClient(follow_redirects=True, timeout=HTTP_REQUEST_TIMEOUT)
+    return _client
+
+
+async def close_client():
+    # Close the shared client at end of run (frees sockets, no ResourceWarning) and
+    # unbinds it from the event loop so a later run/loop gets a fresh one.
+    global _client
+    if _client is not None:
+        await _client.aclose()
+        _client = None
+
 
 def is_valid_abola_entry(entry):
     has_title = bool(entry.get('title'))
@@ -38,10 +59,9 @@ async def _fetch_article(article_url):
     for attempt in range(ABOLA_FETCH_RETRIES + 1):
         try:
             async with _fetch_semaphore:
-                async with httpx.AsyncClient(follow_redirects=True, timeout=HTTP_REQUEST_TIMEOUT) as client:
-                    response = await client.get(article_url, headers=random_user_agent_headers())
-                    response.raise_for_status()
-                    return response.text
+                response = await _get_client().get(article_url, headers=random_user_agent_headers())
+                response.raise_for_status()
+                return response.text
         except Exception as error:
             last_error = error
             if attempt < ABOLA_FETCH_RETRIES:

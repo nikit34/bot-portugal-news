@@ -18,6 +18,15 @@ from src.static.settings import (
 
 logger = logging.getLogger('app')
 
+# Per-run counters for the debug-chat summary: these failures are best-effort and
+# only logged as WARNING otherwise, so they'd silently degrade reach without it.
+comment_failures = 0
+story_failures = 0
+
+
+def get_failure_counts():
+    return {'comment': comment_failures, 'story': story_failures}
+
 
 async def _upload_media(access_token, message, media_url, context):
     upload_url = 'https://graph.facebook.com/v18.0/' + context['self_instagram_channel'] + '/media'
@@ -167,6 +176,8 @@ async def _publish_story(access_token, story, context):
         await _publish_media(access_token, container_id, context)
         logger.info("[instagram] story published")
     except Exception as e:
+        global story_failures
+        story_failures += 1
         logger.warning(f"[instagram] story publish failed: {e}")
 
 
@@ -197,6 +208,8 @@ async def _post_first_comment(access_token, media_id, comment):
         response = await asyncio.to_thread(requests.post, url, data=data)
         response.raise_for_status()
     except Exception as e:
+        global comment_failures
+        comment_failures += 1
         logger.warning(f"[instagram] first comment failed for media {media_id}: {e}")
 
 
