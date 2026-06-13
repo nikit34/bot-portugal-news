@@ -7,7 +7,13 @@ import httpx
 from src.files_manager import SaveFileUrl
 from src.parsers.rss.channels.com.bbc import is_valid_bbc_com_entry, parse_bbc_com
 from src.parsers.rss.channels.pt.abola import is_valid_abola_entry, parse_abola_pt
-from src.parsers.rss.channels.hin.sportstar import is_valid_sportstar_entry, parse_sportstar_entry
+from src.parsers.rss.channels.pt.zerozero import is_valid_zerozero_entry, parse_zerozero_pt
+from src.parsers.rss.channels.pt.record import is_valid_record_entry, parse_record_pt
+from src.parsers.rss.channels.pt.rtp import is_valid_rtp_entry, parse_rtp_pt
+from src.parsers.rss.channels.br.ge_globo import is_valid_ge_globo_entry, parse_ge_globo
+from src.parsers.rss.channels.br.trivela import is_valid_trivela_entry, parse_trivela
+from src.parsers.rss.channels.br.gazeta import is_valid_gazeta_entry, parse_gazeta
+from src.parsers.rss.channels.br.uol import is_valid_uol_entry, parse_uol
 from src.processor.service import serve
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS, MESSAGE_CHUNK_SIZE
 from src.producers.telegram.telegram_api import send_message_api
@@ -78,16 +84,46 @@ async def _process_entry(
             app_logger.debug("Entry skipped - invalid Abola entry")
             return False
         message_text, image = await parse_abola_pt(entry)
+    elif 'zerozero.pt' in source:
+        if not is_valid_zerozero_entry(entry):
+            app_logger.debug("Entry skipped - invalid Zerozero entry")
+            return False
+        message_text, image = parse_zerozero_pt(entry)
+    elif 'record.pt' in source:
+        if not is_valid_record_entry(entry):
+            app_logger.debug("Entry skipped - invalid Record entry")
+            return False
+        message_text, image = parse_record_pt(entry)
+    elif 'rtp.pt' in source:
+        if not is_valid_rtp_entry(entry):
+            app_logger.debug("Entry skipped - invalid RTP entry")
+            return False
+        message_text, image = parse_rtp_pt(entry)
     elif 'bbc.com' in source:
         if not is_valid_bbc_com_entry(entry):
             app_logger.debug("Entry skipped - invalid BBC entry")
             return False
         message_text, image = parse_bbc_com(entry)
-    elif 'sportstar.thehindu.com' in source:
-        if not is_valid_sportstar_entry(entry):
-            app_logger.debug("Entry skipped - invalid Sportstar entry")
+    elif 'ge.globo.com' in source:
+        if not is_valid_ge_globo_entry(entry):
+            app_logger.debug("Entry skipped - invalid ge.globo entry")
             return False
-        message_text, image = parse_sportstar_entry(entry)
+        message_text, image = parse_ge_globo(entry)
+    elif 'trivela.com.br' in source:
+        if not is_valid_trivela_entry(entry):
+            app_logger.debug("Entry skipped - invalid Trivela entry")
+            return False
+        message_text, image = parse_trivela(entry)
+    elif 'gazetaesportiva.com' in source:
+        if not is_valid_gazeta_entry(entry):
+            app_logger.debug("Entry skipped - invalid Gazeta entry")
+            return False
+        message_text, image = parse_gazeta(entry)
+    elif 'uol.com.br' in source:
+        if not is_valid_uol_entry(entry):
+            app_logger.debug("Entry skipped - invalid UOL entry")
+            return False
+        message_text, image = parse_uol(entry)
 
     if not message_text or not image:
         app_logger.debug(f"[RSS] Skipping entry: {'No text' if not message_text else 'No image'}")
