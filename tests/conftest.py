@@ -1,23 +1,8 @@
 import os
 import pytest
-from collections import deque
 from PIL import Image
 import json
 
-from src.static.settings import COUNT_UNIQUE_MESSAGES
-from src.static.sources import Platform
-
-@pytest.fixture
-def posted_d():
-    return {
-        Platform.ALL: deque(maxlen=COUNT_UNIQUE_MESSAGES),
-        Platform.FACEBOOK: deque(maxlen=COUNT_UNIQUE_MESSAGES),
-        Platform.TELEGRAM: deque(maxlen=COUNT_UNIQUE_MESSAGES),
-    }
-
-@pytest.fixture
-def posted_q():
-    return deque(maxlen=COUNT_UNIQUE_MESSAGES)
 
 @pytest.fixture
 def image_path(tmp_path):

@@ -46,6 +46,16 @@ jobs:
         uses: ./.github/actions/setup-python-env
       - name: Create logs directory
         run: mkdir -p logs
+      - name: Restore/seed learning state
+        # Persists state/insights_state.json across runs without external infra.
+        # Unique key per run => always saves a fresh cache at job end; restore-keys
+        # pulls the most recent prior state. Evict-tolerant: a miss just cold-starts.
+        uses: actions/cache@v4
+        with:
+          path: state
+          key: insights-state-${{ github.run_id }}
+          restore-keys: |
+            insights-state-
       - name: Run bot
         run: python main.py
         timeout-minutes: 10

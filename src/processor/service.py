@@ -1,9 +1,10 @@
 import asyncio
 import logging
 import os
+import time
 
 
-from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms, make_head
+from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms, make_head, mark_posted
 from src.processor.content_filter import is_blocked_content, strip_promo
 from src.processor.image_filter import is_unsafe_image
 from src.producers.repeater import is_rate_limited
@@ -39,9 +40,28 @@ _published_count = 0
 # Circuit breaker: once Meta (Facebook/Instagram) returns a rate limit, stop
 # sending to it for the rest of the run instead of hammering it.
 _meta_circuit_open = False
+# Per-run attribution log: (head, source, ts) for posts published this run, so the
+# learning loop can later tie each post's reach back to the source that produced it.
+_publish_records = []
+# Effective cap for THIS run. Defaults to the static MAX_POSTS_PER_RUN; main may
+# lower it for weak time slots when the optimal-time learning bias is enabled.
+_run_cap = MAX_POSTS_PER_RUN
 
 
-async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context):
+def set_run_cap(cap):
+    global _run_cap
+    _run_cap = cap
+
+
+def budget_remaining():
+    return _run_cap - _published_count
+
+
+def get_publish_records():
+    return _publish_records
+
+
+async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context, source=None):
     global _published_count, _meta_circuit_open
 
     translated_message = _translate_message(translator, message_text)
@@ -61,7 +81,7 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     if is_duplicate_publish(decisions_publish_platforms):
         return
 
-    if _published_count >= MAX_POSTS_PER_RUN:
+    if _published_count >= _run_cap:
         return
 
     url_path = await handler_url_path()
@@ -87,13 +107,13 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
             # unlocked while media download / NSFW / NLP happen, so two parallel
             # serve() calls for the same story (split across chunks or sources)
             # can both pass it and both publish. Re-checking here — after any
-            # concurrent _mark_posted — keeps check-and-publish atomic and stops
+            # concurrent mark_posted — keeps check-and-publish atomic and stops
             # the same post going out twice in one run.
             decisions_publish_platforms = get_decisions_publish_platforms(
                 head, posted_d, context['platforms'])
             targets = _targets_from_decisions(decisions_publish_platforms, url_path)
 
-            if targets and _published_count < MAX_POSTS_PER_RUN:
+            if targets and _published_count < _run_cap:
                 # skip Meta targets while the circuit is open (don't hammer a rate-limited account)
                 active = [
                     platform for platform in targets
@@ -108,8 +128,11 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
                             coros.append(facebook_send_message(
                                 graph, facebook_prepare_post(translated_message, doc), url_path, context))
                         elif platform is Platform.INSTAGRAM:
+                            if doc is None:
+                                doc = nlp(translated_message)
+                            ig_caption, ig_comment = instagram_prepare_post(translated_message, doc)
                             coros.append(instagram_send_message(
-                                graph, instagram_prepare_post(translated_message), url_path, context))
+                                graph, ig_caption, ig_comment, url_path, context))
                         else:
                             coros.append(telegram_send_message(
                                 client, telegram_prepare_post(translated_message), url_path, context))
@@ -130,7 +153,9 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
 
                     if succeeded:
                         _published_count += 1
-                        _mark_posted(posted_d, head, decisions_publish_platforms, context['platforms'], succeeded)
+                        mark_posted(posted_d, head, succeeded)
+                        if source:
+                            _publish_records.append({'head': head, 'source': source, 'ts': time.time()})
                         await asyncio.sleep(POST_DELAY_SECONDS)
 
     file_path = url_path.get('path')
@@ -142,32 +167,19 @@ def _targets_from_decisions(decisions, url_path):
     targets = []
     if decisions.get(Platform.FACEBOOK, False):
         targets.append(Platform.FACEBOOK)
-    if decisions.get(Platform.INSTAGRAM, False) and isinstance(url_path.get('url'), str):
+    if decisions.get(Platform.INSTAGRAM, False) and _instagram_publishable(url_path):
         targets.append(Platform.INSTAGRAM)
     if decisions.get(Platform.TELEGRAM, False):
         targets.append(Platform.TELEGRAM)
     return targets
 
 
-def _mark_posted(posted_d, head, decisions, platforms, succeeded):
-    # Record where the post now lives so a failed platform retries next run
-    # instead of being marked done. Deques are mutually exclusive:
-    # ALL = on both FB and TG, TELEGRAM = TG only, FACEBOOK = FB only.
-    def located(platform):
-        if platform in succeeded:
-            return True
-        # decision False while the platform is enabled => it was already there (dup)
-        return not decisions.get(platform, False) and bool(platforms.get(platform))
-
-    on_facebook = located(Platform.FACEBOOK)
-    on_telegram = located(Platform.TELEGRAM)
-
-    if on_facebook and on_telegram:
-        posted_d.get(Platform.ALL).appendleft(head)
-    elif on_telegram:
-        posted_d.get(Platform.TELEGRAM).appendleft(head)
-    elif on_facebook:
-        posted_d.get(Platform.FACEBOOK).appendleft(head)
+def _instagram_publishable(url_path):
+    # Видео идёт как Reel через resumable upload локального .mp4. Фото — по
+    # публичному image_url: если он есть (RSS), берём как есть; если нет (фото из
+    # Telegram), URL чеканится через FB CDN из локального файла. Значит для IG
+    # достаточно иметь скачанный локальный файл.
+    return bool(url_path.get('path'))
 
 
 def _translate_message(translator, message_text):

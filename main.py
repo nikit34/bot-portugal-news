@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import argparse
+import time
 
 import spacy
 from telethon import TelegramClient
@@ -9,14 +10,31 @@ import facebook as fb
 
 from src.files_manager import clean_tmp_folder
 from src.parsers.facebook.self_parser import get_facebook_published_messages
+from src.parsers.instagram.self_parser import get_instagram_published_messages
 from src.parsers.telegram.self_parser import get_telegram_published_messages
 from src.processor.history_comparator import process_post_histories
 from src.processor.image_filter import image_filter_summary
 from src.parsers.rss.parser import rss_wrapper
 from src.parsers.telegram.parser import telegram_wrapper
+from src.parsers.insights import report_insights, should_report_insights, get_instagram_reach_by_head
+from src.processor import learning
+from src.processor.service import get_publish_records, budget_remaining, set_run_cap
 from src.properties_reader import get_secret_key
-from src.static.settings import COUNT_UNIQUE_MESSAGES, TARGET_LANGUAGE
-from src.static.sources import get_config, Platform
+from src.static.settings import (
+    COUNT_UNIQUE_MESSAGES,
+    TARGET_LANGUAGE,
+    INSIGHTS_MEDIA_LIMIT,
+    MAX_POSTS_PER_RUN,
+    LEARNING_STATE_PATH,
+    LEARNING_BIAS_ENABLED,
+    LEARNING_DEFAULT_PRIOR,
+    LEARNING_MATURATION_SECONDS,
+    LEARNING_MAX_AGE_SECONDS,
+    LEARNING_ALPHA,
+    LEARNING_TIME_BIAS_ENABLED,
+    LEARNING_HOUR_MIN_SAMPLES,
+)
+from src.static.sources import get_config
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.logger import setup_logging
 from src.utils.ci import get_ci_run_url
@@ -62,54 +80,86 @@ async def main(config_name):
     app_logger.info("Telegram clients started successfully")
 
     try:
-        app_logger.info("Fetching message history from Facebook and Telegram")
-        facebook_history = get_facebook_published_messages(graph, context, COUNT_UNIQUE_MESSAGES)
-        app_logger.info(f"Loaded {len(facebook_history)} messages from Facebook history")
-        telegram_history = await get_telegram_published_messages(getter_client, COUNT_UNIQUE_MESSAGES, context)
-        app_logger.info(f"Loaded {len(telegram_history)} messages from Telegram history")
-        
-        posted_d = process_post_histories(facebook_history, telegram_history)
-        app_logger.info(f"ALL: {len(posted_d[Platform.ALL])}, Facebook: {len(posted_d[Platform.FACEBOOK])}, Telegram: {len(posted_d[Platform.TELEGRAM])}")
+        app_logger.info("Fetching message history from Facebook, Instagram and Telegram")
+        # Fetch the three histories concurrently so adding Instagram doesn't extend
+        # startup: FB/IG are blocking `requests` calls (offloaded to threads), TG is async.
+        facebook_history, instagram_history, telegram_history = await asyncio.gather(
+            asyncio.to_thread(get_facebook_published_messages, graph, context, COUNT_UNIQUE_MESSAGES),
+            asyncio.to_thread(get_instagram_published_messages, graph, context, COUNT_UNIQUE_MESSAGES),
+            get_telegram_published_messages(getter_client, COUNT_UNIQUE_MESSAGES, context),
+        )
+        app_logger.info(
+            f"Loaded history — Facebook: {len(facebook_history)}, "
+            f"Instagram: {len(instagram_history)}, Telegram: {len(telegram_history)}")
+
+        posted_d = process_post_histories(facebook_history, telegram_history, instagram_history)
+        app_logger.info(f"Dedup history: {len(posted_d)} unique heads")
+
+        state = learning.load_state(LEARNING_STATE_PATH)
+
+        if LEARNING_TIME_BIAS_ENABLED:
+            current_hour = time.gmtime().tm_hour
+            cap = learning.hour_budget(
+                state['hours'], current_hour, MAX_POSTS_PER_RUN, LEARNING_HOUR_MIN_SAMPLES)
+            set_run_cap(cap)
+            app_logger.info(
+                f"Time bias ON — hour {current_hour:02d} UTC => post budget {cap}/{MAX_POSTS_PER_RUN}")
 
         app_logger.info("Preparing parsing tasks")
-        tasks = []
+        # (source_name, factory): lazy coroutines so the learning bias can run
+        # sources in score order and stop once the per-run budget is filled,
+        # skipping the fetch of the remaining lower-ranked sources.
+        source_jobs = []
 
-        app_logger.info(f"Adding tasks for {len(context['telegram_channels'])} Telegram channels")
         for channel_link in context['telegram_channels']:
-            app_logger.debug(f"Adding task for Telegram channel: {channel_link}")
-            task = telegram_wrapper(
-                client=client,
-                getter_client=getter_client,
-                graph=graph,
-                nlp=nlp,
-                translator=translator,
-                telegram_bot_token=telegram_bot_token,
-                channel_link=channel_link,
-                posted_d=posted_d,
-                context=context
-            )
-            tasks.append(task)
+            source_jobs.append((channel_link, lambda channel_link=channel_link: telegram_wrapper(
+                client=client, getter_client=getter_client, graph=graph, nlp=nlp,
+                translator=translator, telegram_bot_token=telegram_bot_token,
+                channel_link=channel_link, posted_d=posted_d, context=context)))
 
-        app_logger.info(f"Adding tasks for {len(context['rss_channels'])} RSS channels")
         for source, rss_link in context['rss_channels'].items():
-            app_logger.debug(f"Adding task for RSS source: {rss_link}")
-            task = rss_wrapper(
-                client=client,
-                graph=graph,
-                nlp=nlp,
-                translator=translator,
-                telegram_bot_token=telegram_bot_token,
-                source=source,
-                rss_link=rss_link,
-                posted_d=posted_d,
-                context=context
-            )
-            tasks.append(task)
+            source_jobs.append((source, lambda source=source, rss_link=rss_link: rss_wrapper(
+                client=client, graph=graph, nlp=nlp, translator=translator,
+                telegram_bot_token=telegram_bot_token, source=source, rss_link=rss_link,
+                posted_d=posted_d, context=context)))
 
-        app_logger.info(f"Starting {len(tasks)} parsing tasks")
-        await asyncio.gather(*tasks)
+        if LEARNING_BIAS_ENABLED:
+            ordered = learning.order_sources(
+                [name for name, _ in source_jobs], state['sources'], LEARNING_DEFAULT_PRIOR)
+            rank = {name: i for i, name in enumerate(ordered)}
+            source_jobs.sort(key=lambda job: rank[job[0]])
+            app_logger.info(f"Learning bias ON — processing sources by reach: {ordered}")
+            for name, factory in source_jobs:
+                if budget_remaining() <= 0:
+                    app_logger.info("Publish budget filled; skipping remaining lower-ranked sources")
+                    break
+                await factory()
+        else:
+            app_logger.info(f"Starting {len(source_jobs)} parsing tasks")
+            await asyncio.gather(*[factory() for _, factory in source_jobs])
+
         app_logger.info("All parsing tasks completed successfully")
         app_logger.info(image_filter_summary())
+
+        # Attribute this run's publishes to their sources for the learning loop.
+        for record in get_publish_records():
+            learning.record_publish(state, record['head'], record['source'], record['ts'])
+
+        if should_report_insights():
+            app_logger.info("Scoring sources on matured reach and building insights digest")
+            now = time.time()
+            reach_by_head = await asyncio.to_thread(
+                get_instagram_reach_by_head, graph.access_token, context['self_instagram_channel'],
+                INSIGHTS_MEDIA_LIMIT, LEARNING_MATURATION_SECONDS, now)
+            learning.update_scores(
+                state, reach_by_head, now,
+                LEARNING_MATURATION_SECONDS, LEARNING_MAX_AGE_SECONDS, LEARNING_ALPHA)
+            await report_insights(
+                graph, telegram_bot_token, context,
+                source_ranking=learning.top_sources(state['sources']),
+                hour_ranking=learning.top_sources(state['hours']))
+
+        learning.save_state(LEARNING_STATE_PATH, state)
     except Exception as e:
         app_logger.error("Critical error occurred during execution", exc_info=True)
         message = build_error_message('ERROR: Parsers is down', e, get_ci_run_url())

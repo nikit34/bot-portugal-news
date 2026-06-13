@@ -133,7 +133,7 @@ async def _process_entry(
         handler_url_path = SaveFileUrl(image)
         app_logger.debug(f"[RSS] Created file handler for entry: {message_text}")
 
-        await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context)
+        await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context, source=source)
         app_logger.debug(f"[RSS] Successfully processed entry: {message_text}")
         return True
     except Exception as e:

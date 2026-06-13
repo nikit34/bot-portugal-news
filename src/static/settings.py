@@ -58,9 +58,38 @@ TELEGRAM_MAX_LENGTH_MESSAGE = 1000
 # Лимит на количество символов в одном посте Facebook
 FACEBOOK_MAX_LENGTH_MESSAGE = 6000
 
-# Максимальная длина сообщения для Instagram (в символах)
-# Максимально допустимое количество символов в посте Instagram
-INSTAGRAM_MAX_LENGTH_MESSAGE = 5000
+# Максимальная длина тела поста Instagram (в символах). Реальный лимит подписи
+# IG — 2200 символов; режем тело до 2000, оставляя запас под хэштеги (в режиме,
+# когда они дописываются в подпись), чтобы подпись не вышла за лимит.
+INSTAGRAM_MAX_LENGTH_MESSAGE = 2000
+
+# Размещение хэштегов в Instagram. True (по умолчанию) — публикуем чистую подпись,
+# а хэштеги кладём первым комментарием (best practice: подпись чище, охват тот же).
+# False — дописываем хэштеги прямо в подпись (как для Facebook). Комментарий
+# best-effort: если упадёт (например, нет права instagram_manage_comments), сам
+# пост остаётся, в логах WARNING — тогда переключаем на False без правок кода.
+INSTAGRAM_HASHTAGS_AS_COMMENT = (
+    os.getenv('INSTAGRAM_HASHTAGS_AS_COMMENT', 'true').lower() not in ('0', 'false', 'no'))
+
+# Дублировать каждый успешный пост IG ещё и в Stories (эфемерны, 24ч) — гонит
+# заходы в профиль. Best-effort: ошибка Stories не валит и не ретраит основную
+# публикацию. ВНИМАНИЕ: Stories — дополнительные публикации, тоже считаются к
+# лимитам IG; если ловите рейт-лимит (срабатывает circuit breaker) — выключите.
+INSTAGRAM_STORIES_ENABLED = (
+    os.getenv('INSTAGRAM_STORIES_ENABLED', 'true').lower() not in ('0', 'false', 'no'))
+
+# Instagram Content Publishing API обрабатывает медиа-контейнер асинхронно: Meta
+# сама скачивает image_url после POST /media. Публиковать (/media_publish) можно
+# только когда контейнер перешёл в status_code=FINISHED — иначе прилетает
+# 400 / code 9007 / subcode 2207027 ("Медиаданные не готовы к публикации").
+# Поэтому между созданием и публикацией опрашиваем статус контейнера.
+INSTAGRAM_MEDIA_POLL_ATTEMPTS = int(os.getenv('INSTAGRAM_MEDIA_POLL_ATTEMPTS', '15'))
+INSTAGRAM_MEDIA_POLL_INTERVAL = float(os.getenv('INSTAGRAM_MEDIA_POLL_INTERVAL', '2'))
+
+# Видео (Reels) Meta обрабатывает заметно дольше картинки (транскод), поэтому
+# ждём готовности контейнера дольше: по умолчанию 30 × 4с = до 120с.
+INSTAGRAM_VIDEO_POLL_ATTEMPTS = int(os.getenv('INSTAGRAM_VIDEO_POLL_ATTEMPTS', '30'))
+INSTAGRAM_VIDEO_POLL_INTERVAL = float(os.getenv('INSTAGRAM_VIDEO_POLL_INTERVAL', '4'))
 
 # Контент-фильтр: пропускать посты с запрещённой лексикой/рекламой (см. blocklist.py)
 CONTENT_FILTER_ENABLED = True
@@ -69,6 +98,42 @@ CONTENT_FILTER_ENABLED = True
 IMAGE_NSFW_ENABLED = os.getenv('IMAGE_NSFW_ENABLED', 'true').lower() not in ('0', 'false', 'no')
 # Порог уверенности детектора для блокировки (0..1)
 NSFW_SCORE_THRESHOLD = float(os.getenv('NSFW_SCORE_THRESHOLD', '0.5'))
+
+# Insights-дайджест (охваты/вовлечённость) в debug-чат. Бот stateless и крутится
+# каждые 2ч, поэтому шлём раз в сутки по совпадению UTC-часа (cron идёт по чётным
+# часам — час по умолчанию чётный). Метрики берём щадящие к версиям Graph API:
+# reach (endpoint insights, нужно право *_insights) + like_count/comments_count
+# (обычные поля media); чего нет/на что нет прав — пропускаем без падения.
+INSIGHTS_REPORT_ENABLED = os.getenv('INSIGHTS_REPORT_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+INSIGHTS_REPORT_HOUR = int(os.getenv('INSIGHTS_REPORT_HOUR', '8'))
+INSIGHTS_MEDIA_LIMIT = int(os.getenv('INSIGHTS_MEDIA_LIMIT', '25'))
+INSIGHTS_TOP_N = int(os.getenv('INSIGHTS_TOP_N', '10'))
+
+# Обучение на охватах. Бот копит за прогонами среднюю reach по каждому источнику
+# и (опционально) смещает отбор источников в пользу самых охватных. Состояние —
+# JSON-файл; в CI переживает прогоны через actions/cache (без новой инфры/секретов).
+LEARNING_STATE_PATH = os.getenv('LEARNING_STATE_PATH', 'state/insights_state.json')
+# EW-сглаживание per-source reach (вес нового замера), 0 < alpha <= 1.
+LEARNING_ALPHA = float(os.getenv('LEARNING_ALPHA', '0.3'))
+# Через сколько секунд после публикации reach считаем «созревшим» для учёта.
+LEARNING_MATURATION_SECONDS = int(os.getenv('LEARNING_MATURATION_SECONDS', str(24 * 3600)))
+# Сколько ждём reach по посту, прежде чем выкинуть его из ожидания как анметч.
+LEARNING_MAX_AGE_SECONDS = int(os.getenv('LEARNING_MAX_AGE_SECONDS', str(7 * 24 * 3600)))
+# Приоритет ещё не оценённого источника при сортировке: inf => сначала исследуем
+# новые источники, потом эксплуатируем выученные охваты.
+LEARNING_DEFAULT_PRIOR = float(os.getenv('LEARNING_DEFAULT_PRIOR', 'inf'))
+# Смещать ли отбор источников по выученным охватам. По умолчанию ВЫКЛ: данные
+# копятся и попадают в дайджест, но поведение публикации не меняется, пока не
+# накопится статистика и это не включат явно.
+LEARNING_BIAS_ENABLED = os.getenv('LEARNING_BIAS_ENABLED', 'false').lower() in ('1', 'true', 'yes')
+
+# Смещать ли число постов за прогон по выученному охвату ТЕКУЩЕГО часа (UTC): в
+# «хорошие» часы публикуем больше, в «слабые» — меньше (но не ноль, чтобы бэклог
+# дренировался и часы продолжали сэмплироваться). По умолчанию ВЫКЛ.
+LEARNING_TIME_BIAS_ENABLED = os.getenv('LEARNING_TIME_BIAS_ENABLED', 'false').lower() in ('1', 'true', 'yes')
+# Минимум замеров на час, чтобы учитывать его в смещении (иначе час считается
+# недосэмплированным и получает полный бюджет — исследуем).
+LEARNING_HOUR_MIN_SAMPLES = int(os.getenv('LEARNING_HOUR_MIN_SAMPLES', '3'))
 
 # Троттлинг публикаций (защита от рейт-лимитов и банов). Настраивается через env
 # (и через workflow_dispatch inputs), чтобы крутить значения без правок кода.
