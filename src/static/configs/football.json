@@ -19,7 +19,6 @@
     ],
     "rss_channels": {
         "abola.pt": "https://www.abola.pt/rss-articles.xml",
-        "zerozero.pt": "https://www.zerozero.pt/rss/noticias.php",
         "rtp.pt/desporto": "https://www.rtp.pt/noticias/rss/desporto",
         "bbc.com/football": "https://feeds.bbci.co.uk/sport/football/rss.xml",
         "ge.globo.com": "https://ge.globo.com/rss/ge/",

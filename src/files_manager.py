@@ -7,8 +7,20 @@ from io import BytesIO
 from PIL import Image
 
 from src.static.sources import tmp_folder
+from src.static.settings import HTTP_REQUEST_TIMEOUT
 
 logger = logging.getLogger('app')
+
+# A current browser User-Agent for image downloads. The bare request the bot used
+# before sent no UA; a modern UA is more widely accepted by image CDNs. (Note: this
+# does NOT defeat IP-based hotlink protection — e.g. zerozero.pt blocks datacenter
+# IPs outright, header-independent.)
+_IMAGE_DOWNLOAD_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+                  '(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+    'Accept': 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.9',
+}
 
 
 def clean_tmp_folder():
@@ -35,7 +47,9 @@ class SaveFileUrl:
     def _download_and_save(self):
         try:
             logger.info(f"Downloading file from URL: {self.url}")
-            response = requests.get(self.url)
+            # Send a modern UA and bound the request with a timeout (was unbounded).
+            response = requests.get(
+                self.url, headers=_IMAGE_DOWNLOAD_HEADERS, timeout=HTTP_REQUEST_TIMEOUT)
             response.raise_for_status()
 
             image = Image.open(BytesIO(response.content))
