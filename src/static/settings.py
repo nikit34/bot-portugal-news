@@ -63,13 +63,13 @@ FACEBOOK_MAX_LENGTH_MESSAGE = 6000
 # когда они дописываются в подпись), чтобы подпись не вышла за лимит.
 INSTAGRAM_MAX_LENGTH_MESSAGE = 2000
 
-# Размещение хэштегов в Instagram. True (по умолчанию) — публикуем чистую подпись,
-# а хэштеги кладём первым комментарием (best practice: подпись чище, охват тот же).
-# False — дописываем хэштеги прямо в подпись (как для Facebook). Комментарий
-# best-effort: если упадёт (например, нет права instagram_manage_comments), сам
-# пост остаётся, в логах WARNING — тогда переключаем на False без правок кода.
+# Размещение хэштегов в Instagram. False (по умолчанию) — дописываем хэштеги прямо
+# в подпись (как для Facebook). True — публикуем чистую подпись, а хэштеги кладём
+# первым комментарием (best practice). ВНИМАНИЕ: комментарий требует права
+# instagram_manage_comments; у текущего токена его нет (CI: 400 на /comments),
+# поэтому по умолчанию держим хэштеги в подписи. Выдадите право — включите True.
 INSTAGRAM_HASHTAGS_AS_COMMENT = (
-    os.getenv('INSTAGRAM_HASHTAGS_AS_COMMENT', 'true').lower() not in ('0', 'false', 'no'))
+    os.getenv('INSTAGRAM_HASHTAGS_AS_COMMENT', 'false').lower() not in ('0', 'false', 'no'))
 
 # Дублировать каждый успешный пост IG ещё и в Stories (эфемерны, 24ч) — гонит
 # заходы в профиль. Best-effort: ошибка Stories не валит и не ретраит основную

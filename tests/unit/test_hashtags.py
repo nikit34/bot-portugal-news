@@ -54,25 +54,26 @@ def test_append_hashtags_joins_with_newline():
     assert append_hashtags('texto', ['porto', 'golo']) == 'texto\n#porto #golo'
 
 
-def test_instagram_prepare_post_comment_mode_default():
-    # Default mode: clean caption, hashtags returned as the first-comment string.
+def test_instagram_prepare_post_caption_mode_default():
+    # Default: hashtags in the caption (first comment needs instagram_manage_comments,
+    # which the token lacks — confirmed by a 400 on /comments in CI).
     doc = _Doc([_Tok('Porto', 'PROPN'), _Tok('Porto', 'PROPN')])
     caption, comment = instagram_prepare_post('FC Porto venceu', doc)
-
-    assert caption == 'FC Porto venceu'
-    assert '#porto' in comment
-
-
-def test_instagram_prepare_post_caption_mode_toggle(monkeypatch):
-    # Toggle off: hashtags go back into the caption, no first comment.
-    import src.producers.instagram.producer as ig
-    monkeypatch.setattr(ig, 'INSTAGRAM_HASHTAGS_AS_COMMENT', False)
-    doc = _Doc([_Tok('Porto', 'PROPN'), _Tok('Porto', 'PROPN')])
-    caption, comment = ig.instagram_prepare_post('FC Porto venceu', doc)
 
     assert caption.startswith('FC Porto venceu')
     assert '#porto' in caption
     assert comment == ''
+
+
+def test_instagram_prepare_post_comment_mode_toggle(monkeypatch):
+    # Opt in: clean caption, hashtags returned as the first-comment string.
+    import src.producers.instagram.producer as ig
+    monkeypatch.setattr(ig, 'INSTAGRAM_HASHTAGS_AS_COMMENT', True)
+    doc = _Doc([_Tok('Porto', 'PROPN'), _Tok('Porto', 'PROPN')])
+    caption, comment = ig.instagram_prepare_post('FC Porto venceu', doc)
+
+    assert caption == 'FC Porto venceu'
+    assert '#porto' in comment
 
 
 def test_facebook_prepare_post_still_appends_hashtags():

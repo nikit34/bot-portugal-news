@@ -3,7 +3,7 @@ import logging
 
 from telethon.tl.types import MessageMediaWebPage
 from src.files_manager import SaveFileTelegram
-from src.processor.service import serve
+from src.processor.service import serve, budget_remaining
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, MESSAGE_CHUNK_SIZE
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.ci import get_ci_run_url
@@ -43,6 +43,10 @@ async def _process_message_chunk(
 ):
     skipped_count = 0
     for message in message_chunk:
+        # Publish budget filled this run — stop downloading/serving further media.
+        if budget_remaining() <= 0:
+            break
+
         message_text = message.raw_text
 
         if not message_text or isinstance(message.media, MessageMediaWebPage) or not message.media:

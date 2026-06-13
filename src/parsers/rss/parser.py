@@ -14,7 +14,7 @@ from src.parsers.rss.channels.br.ge_globo import is_valid_ge_globo_entry, parse_
 from src.parsers.rss.channels.br.trivela import is_valid_trivela_entry, parse_trivela
 from src.parsers.rss.channels.br.gazeta import is_valid_gazeta_entry, parse_gazeta
 from src.parsers.rss.channels.br.uol import is_valid_uol_entry, parse_uol
-from src.processor.service import serve
+from src.processor.service import serve, budget_remaining
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS, MESSAGE_CHUNK_SIZE
 from src.producers.telegram.telegram_api import send_message_api
 from src.parsers.rss.user_agents_manager import random_user_agent_headers
@@ -76,9 +76,14 @@ async def _process_entry(
     posted_d,
     context
 ):
+    # Publish budget filled this run — skip the expensive per-article scrape/serve.
+    # Remaining fresh content is picked up next run (dedup keeps it available).
+    if budget_remaining() <= 0:
+        return False
+
     message_text = ''
     image = ''
-    
+
     if 'abola.pt' in source:
         if not is_valid_abola_entry(entry):
             app_logger.debug("Entry skipped - invalid Abola entry")
