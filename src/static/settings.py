@@ -94,6 +94,10 @@ INSTAGRAM_VIDEO_POLL_INTERVAL = float(os.getenv('INSTAGRAM_VIDEO_POLL_INTERVAL',
 # Контент-фильтр: пропускать посты с запрещённой лексикой/рекламой (см. blocklist.py)
 CONTENT_FILTER_ENABLED = True
 
+# Тематический фильтр: бот про футбол, но часть RSS-фидов общеспортивные и тянут
+# F1/теннис/НБА и т.п. — отсекаем посты про другие виды спорта (см. topic_filter.py).
+TOPIC_FILTER_ENABLED = os.getenv('TOPIC_FILTER_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+
 # Фильтр низкокачественных картинок: отсекаем мелкие превью/миниатюры (напр.
 # 142x100 из RSS-фида), которые в ленте выглядят плохо. Порог по сторонам в px,
 # fail-open: не смогли прочитать размер — не фильтруем. Настраивается через env.
