@@ -53,7 +53,9 @@ def build_run_summary(stats, failures, image_summary):
     if failures.get('comment'):
         lines.append(f"⚠️ первый комментарий IG не отправлен: {failures['comment']}")
     if failures.get('story'):
-        lines.append(f"⚠️ Stories не опубликованы: {failures['story']}")
+        lines.append(f"⚠️ IG Stories не опубликованы: {failures['story']}")
+    if failures.get('fb_story'):
+        lines.append(f"⚠️ FB Stories не опубликованы: {failures['fb_story']}")
     if image_summary:
         lines.append(image_summary)
     return '\n'.join(lines)
