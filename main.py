@@ -26,6 +26,7 @@ from src.processor.service import (
     set_ig_daily, set_deadline, ig_posts_this_run, get_run_stats,
 )
 from src.producers.instagram.producer import get_failure_counts
+from src.producers.facebook.producer import get_failure_counts as get_facebook_failure_counts
 from src.properties_reader import get_secret_key
 from src.static.settings import (
     COUNT_UNIQUE_MESSAGES,
@@ -192,7 +193,7 @@ async def main(config_name):
         # failed first comments / Stories) to the debug chat — only when noteworthy.
         if RUN_SUMMARY_ENABLED:
             stats = get_run_stats()
-            failures = get_failure_counts()
+            failures = {**get_failure_counts(), **get_facebook_failure_counts()}
             if stats['posts'] or any(failures.values()) or stats['meta_circuit_open']:
                 summary = build_run_summary(stats, failures, image_filter_summary())
                 await send_message_api(summary, telegram_bot_token, context)
