@@ -6,6 +6,7 @@ import httpx
 
 from src.files_manager import SaveFileUrl
 from src.parsers.rss.channels.com.bbc import is_valid_bbc_com_entry, parse_bbc_com
+from src.parsers.rss.channels.com.guardian import is_valid_guardian_entry, parse_guardian
 from src.parsers.rss.channels.pt.abola import is_valid_abola_entry, parse_abola_pt
 from src.parsers.rss.channels.pt.zerozero import is_valid_zerozero_entry, parse_zerozero_pt
 from src.parsers.rss.channels.pt.record import is_valid_record_entry, parse_record_pt
@@ -111,6 +112,11 @@ async def _process_entry(
             app_logger.debug("Entry skipped - invalid BBC entry")
             return False
         message_text, image = parse_bbc_com(entry)
+    elif 'theguardian.com' in source:
+        if not is_valid_guardian_entry(entry):
+            app_logger.debug("Entry skipped - invalid Guardian entry")
+            return False
+        message_text, image = parse_guardian(entry)
     elif 'ge.globo.com' in source:
         if not is_valid_ge_globo_entry(entry):
             app_logger.debug("Entry skipped - invalid ge.globo entry")

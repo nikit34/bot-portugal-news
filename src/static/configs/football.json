@@ -21,6 +21,7 @@
         "abola.pt": "https://www.abola.pt/rss-articles.xml",
         "rtp.pt/desporto": "https://www.rtp.pt/noticias/rss/desporto",
         "bbc.com/football": "https://feeds.bbci.co.uk/sport/football/rss.xml",
+        "theguardian.com/football": "https://www.theguardian.com/football/rss",
         "ge.globo.com": "https://ge.globo.com/rss/ge/",
         "trivela.com.br": "https://trivela.com.br/feed/",
         "gazetaesportiva.com": "https://www.gazetaesportiva.com/feed/"
