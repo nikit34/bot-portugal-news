@@ -6,6 +6,7 @@ import logging
 from src.producers.repeater import async_retry, retry
 from src.producers.text_editor import trunc_str
 from src.producers.hashtags import extract_hashtags, append_hashtags, hashtags_line
+from src.producers.story_overlay import build_story_image, discard_overlay
 from src.static.settings import (
     INSTAGRAM_MAX_LENGTH_MESSAGE,
     INSTAGRAM_MEDIA_POLL_ATTEMPTS,
@@ -235,7 +236,8 @@ async def instagram_send_message(graph, message, comment, url_path, context):
     access_token = graph.access_token
     file_path = url_path.get('path')
     temp_photo_id = None
-    if _is_video_file(file_path):
+    is_video = _is_video_file(file_path)
+    if is_video:
         media_id = await _upload_reel(access_token, message, file_path, context)
         await _wait_until_ready(
             access_token, media_id, INSTAGRAM_VIDEO_POLL_ATTEMPTS, INSTAGRAM_VIDEO_POLL_INTERVAL)
@@ -247,10 +249,25 @@ async def instagram_send_message(graph, message, comment, url_path, context):
             media_url, temp_photo_id = await _mint_image_url(graph, file_path)
         media_id = await _upload_media(access_token, message, media_url, context)
         await _wait_until_ready(access_token, media_id)
-        story = ('image', media_url)  # переиспользуем тот же URL для Stories
+        story = ('image', media_url)  # по умолчанию — тот же URL, что и в ленте
     result = await _publish_media(access_token, media_id, context)
     await _post_first_comment(access_token, result.get('id'), comment)
+    story_photo_id = None
+    overlay_path = None
     if INSTAGRAM_STORIES_ENABLED:
+        if not is_video:
+            # Прожигаем заголовок в картинку: рендерим оверлей и чеканим под него
+            # ОТДЕЛЬНЫЙ image_url (лента остаётся с чистым фото). Сбой => плановый
+            # story с оригинальным media_url, основная публикация не страдает.
+            overlay_path = build_story_image(file_path, message)
+            if overlay_path:
+                try:
+                    story_url, story_photo_id = await _mint_image_url(graph, overlay_path)
+                    story = ('image', story_url)
+                except Exception as e:
+                    logger.warning(f"[instagram] story overlay mint failed, using plain media: {e}")
         await _publish_story(access_token, story, context)
     await _delete_photo(access_token, temp_photo_id)
+    await _delete_photo(access_token, story_photo_id)
+    discard_overlay(overlay_path)
     return result

@@ -1,4 +1,7 @@
+import os
+
 import pytest
+from PIL import Image
 
 import src.producers.instagram.producer as ig
 
@@ -305,6 +308,57 @@ async def test_video_story_published_after_reel(monkeypatch, tmp_path, context):
     assert media_types == ['REELS', 'STORIES']          # feed Reel, then Story
     assert len(uploads) == 2                            # bytes uploaded for both
     assert publishes == ['REELS_CONT', 'STORIES_CONT']
+
+
+async def test_image_story_uses_overlaid_url(monkeypatch, tmp_path, context):
+    # With a real local image and the overlay on, the IG Story is published from a
+    # SEPARATE minted url (headline burned in) — the feed keeps the clean photo —
+    # and the temp overlay photo + file are cleaned up afterwards.
+    monkeypatch.setattr(ig, 'INSTAGRAM_STORIES_ENABLED', True)
+    photo = tmp_path / 'p.png'
+    Image.new('RGB', (1200, 800), (30, 100, 50)).save(photo)
+
+    deleted = []
+    stories_created = []
+
+    class _Graph:
+        access_token = 'tok'
+
+        def put_photo(self, image=None, published=None, **kw):
+            assert published is False        # overlay minted as unpublished
+            return {'id': 'STORYPHOTO_1'}
+
+    def fake_get(url, params=None, **kwargs):
+        if url.endswith('/STORYPHOTO_1'):
+            return _FakeResponse({'images': [{'source': 'https://cdn/overlay.jpg'}]})
+        return _FakeResponse({'status_code': 'FINISHED'})  # container polls
+
+    def fake_post(url, data=None, **kwargs):
+        if url.endswith('/media'):
+            if data.get('media_type') == 'STORIES':
+                stories_created.append(data)
+                return _FakeResponse({'id': 'STORY_CONT'})
+            return _FakeResponse({'id': 'FEED_CONT'})
+        if url.endswith('/media_publish'):
+            return _FakeResponse({'id': data['creation_id'] + '_PUB'})
+        raise AssertionError(f'unexpected POST {url}')
+
+    def fake_delete(url, params=None, **kwargs):
+        deleted.append(url)
+        return _FakeResponse({'success': True})
+
+    monkeypatch.setattr(ig.requests, 'post', fake_post)
+    monkeypatch.setattr(ig.requests, 'get', fake_get)
+    monkeypatch.setattr(ig.requests, 'delete', fake_delete)
+
+    url_path = {'url': 'http://img', 'path': str(photo)}  # public feed url + local file
+    result = await ig.instagram_send_message(_Graph(), 'Benfica vence o Porto', '', url_path, context)
+
+    assert result == {'id': 'FEED_CONT_PUB'}                          # feed unchanged
+    assert len(stories_created) == 1
+    assert stories_created[0]['image_url'] == 'https://cdn/overlay.jpg'  # story used overlay
+    assert any(u.endswith('/STORYPHOTO_1') for u in deleted)          # temp overlay photo cleaned
+    assert not os.path.exists(os.path.splitext(str(photo))[0] + '.story.jpg')  # temp file cleaned
 
 
 async def test_story_failure_does_not_break_feed(monkeypatch, context):

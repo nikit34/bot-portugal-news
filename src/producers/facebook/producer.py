@@ -7,6 +7,7 @@ from src.producers.repeater import retry, async_retry
 from src.static.settings import FACEBOOK_MAX_LENGTH_MESSAGE, FACEBOOK_STORIES_ENABLED
 from src.producers.text_editor import trunc_str
 from src.producers.hashtags import extract_hashtags, append_hashtags
+from src.producers.story_overlay import build_story_image, discard_overlay
 
 logger = logging.getLogger('app')
 
@@ -35,7 +36,7 @@ async def facebook_send_message(graph, message, url_path, context):
     else:
         result = await asyncio.to_thread(_send_photo, graph, message, file_path)
     if FACEBOOK_STORIES_ENABLED:
-        await _publish_story(graph, file_path, is_video, context)
+        await _publish_story(graph, file_path, is_video, context, message)
     return result
 
 
@@ -60,14 +61,14 @@ def _send_video(graph, message, file_path, context):
     return response.json()
 
 
-async def _publish_story(graph, file_path, is_video, context):
+async def _publish_story(graph, file_path, is_video, context, message=None):
     # Дублируем пост в Stories тем же медиа. Best-effort: пост уже в ленте, поэтому
     # ошибку Stories НЕ пробрасываем — иначе @async_retry перевыложит ленту дублем.
     try:
         if is_video:
             await _publish_video_story(graph, file_path, context)
         else:
-            await _publish_photo_story(graph, file_path, context)
+            await _publish_photo_story(graph, file_path, context, message)
         logger.info("[facebook] story published")
     except Exception as e:
         global story_failures
@@ -75,15 +76,22 @@ async def _publish_story(graph, file_path, is_video, context):
         logger.warning(f"[facebook] story publish failed: {e}")
 
 
-async def _publish_photo_story(graph, file_path, context):
+async def _publish_photo_story(graph, file_path, context, message=None):
     # Фото-сторис двухшаговая: сначала грузим фото на страницу НЕопубликованным
     # (published=false, в ленте не появляется), затем публикуем его как Story по id.
-    photo_id = await asyncio.to_thread(_upload_unpublished_photo, graph, file_path)
-    url = 'https://graph.facebook.com/v18.0/' + context['self_facebook_page_id'] + '/photo_stories'
-    data = {'photo_id': photo_id, 'access_token': graph.access_token}
-    response = await asyncio.to_thread(requests.post, url, data=data)
-    response.raise_for_status()
-    return response.json()
+    # Если включён оверлей и заголовок прожёгся — грузим картинку с текстом,
+    # иначе оригинал (Stories API подпись/текст не принимает, см. story_overlay).
+    overlay_path = build_story_image(file_path, message)
+    try:
+        photo_id = await asyncio.to_thread(
+            _upload_unpublished_photo, graph, overlay_path or file_path)
+        url = 'https://graph.facebook.com/v18.0/' + context['self_facebook_page_id'] + '/photo_stories'
+        data = {'photo_id': photo_id, 'access_token': graph.access_token}
+        response = await asyncio.to_thread(requests.post, url, data=data)
+        response.raise_for_status()
+        return response.json()
+    finally:
+        discard_overlay(overlay_path)
 
 
 def _upload_unpublished_photo(graph, file_path):
