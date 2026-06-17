@@ -88,6 +88,18 @@ INSTAGRAM_HASHTAGS_AS_COMMENT = (
 INSTAGRAM_STORIES_ENABLED = (
     os.getenv('INSTAGRAM_STORIES_ENABLED', 'true').lower() not in ('0', 'false', 'no'))
 
+# Прожиг заголовка поста прямо в КАРТИНКУ сторис (FB photo_stories и IG image
+# stories). Эндпоинты Stories не принимают подпись/текст — единственный способ
+# дать сторис текст — отрендерить его в само изображение (Pillow, 9:16). Видео-
+# сторис не трогаем (нужен ffmpeg). Best-effort: ошибка рендера/неподходящее
+# медиа => грузим оригинал без текста, основная публикация в ленту не страдает.
+STORY_TEXT_OVERLAY_ENABLED = (
+    os.getenv('STORY_TEXT_OVERLAY_ENABLED', 'true').lower() not in ('0', 'false', 'no'))
+# Бренд-плашка (жёлтый кикер) над заголовком. Пусто => плашки нет, только заголовок.
+STORY_OVERLAY_BRAND = os.getenv('STORY_OVERLAY_BRAND', '')
+# Максимум символов заголовка на сторис (первая фраза поста, режется по слову).
+STORY_HEADLINE_MAX_CHARS = int(os.getenv('STORY_HEADLINE_MAX_CHARS', '90'))
+
 # Instagram Content Publishing API обрабатывает медиа-контейнер асинхронно: Meta
 # сама скачивает image_url после POST /media. Публиковать (/media_publish) можно
 # только когда контейнер перешёл в status_code=FINISHED — иначе прилетает
