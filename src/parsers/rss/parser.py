@@ -4,7 +4,8 @@ import logging
 import feedparser
 import httpx
 
-from src.files_manager import SaveFileUrl
+from src.files_manager import SaveFileUrl, SaveVideoUrl
+from src.parsers.rss.video import extract_video_url
 from src.parsers.rss.channels.com.bbc import is_valid_bbc_com_entry, parse_bbc_com
 from src.parsers.rss.channels.com.guardian import is_valid_guardian_entry, parse_guardian
 from src.parsers.rss.channels.pt.abola import is_valid_abola_entry, parse_abola_pt
@@ -16,7 +17,7 @@ from src.parsers.rss.channels.br.trivela import is_valid_trivela_entry, parse_tr
 from src.parsers.rss.channels.br.gazeta import is_valid_gazeta_entry, parse_gazeta
 from src.parsers.rss.channels.br.uol import is_valid_uol_entry, parse_uol
 from src.processor.service import serve, should_stop
-from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS, MESSAGE_CHUNK_SIZE
+from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS, MESSAGE_CHUNK_SIZE, RSS_VIDEO_ENABLED
 from src.producers.telegram.telegram_api import send_message_api
 from src.parsers.rss.user_agents_manager import random_user_agent_headers
 from src.utils.ci import get_ci_run_url
@@ -138,13 +139,22 @@ async def _process_entry(
             return False
         message_text, image = parse_uol(entry)
 
-    if not message_text or not image:
-        app_logger.debug(f"[RSS] Skipping entry: {'No text' if not message_text else 'No image'}")
+    # Если фид несёт прямое видео (mp4-enclosure / media:content medium="video"),
+    # постим видео (serve уже умеет .mp4 на всех платформах); картинка не нужна.
+    # Иначе — прежний путь по картинке.
+    video_url = extract_video_url(entry) if RSS_VIDEO_ENABLED else ''
+
+    if not message_text or (not image and not video_url):
+        app_logger.debug(f"[RSS] Skipping entry: {'No text' if not message_text else 'No media'}")
         return False
 
     try:
-        handler_url_path = SaveFileUrl(image)
-        app_logger.debug(f"[RSS] Created file handler for entry: {message_text}")
+        if video_url:
+            handler_url_path = SaveVideoUrl(video_url)
+            app_logger.debug(f"[RSS] Created VIDEO handler for entry: {message_text}")
+        else:
+            handler_url_path = SaveFileUrl(image)
+            app_logger.debug(f"[RSS] Created file handler for entry: {message_text}")
 
         await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context, source=source)
         app_logger.debug(f"[RSS] Successfully processed entry: {message_text}")

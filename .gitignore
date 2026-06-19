@@ -14,4 +14,7 @@ getter_bot.session-journal
 # Learning state — persisted across CI runs via actions/cache, never committed.
 state/
 
+# Runtime logs written by the logger.
+logs/
+
 **/__pycache__/

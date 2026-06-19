@@ -41,6 +41,45 @@ MINIMUM_NUMBER_KEYWORDS = 20
 # Максимальный размер видео в мегабайтах
 MAX_VIDEO_SIZE_MB = 50
 
+# === Видео-источники =========================================================
+# Главный выключатель видео-пайплайна. Публикация видео давно умеет всё (FB /videos
+# + /video_stories, IG Reels + video stories, Telegram нативно), а вот ДОБЫЧА видео
+# из источников появляется здесь. Видео из Telegram-каналов течёт всегда (telethon
+# скачивает любое медиа); флаги ниже включают новые каналы добычи.
+VIDEO_ENABLED = os.getenv('VIDEO_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+
+# Доставать прямое видео (mp4-enclosure / <media:content medium="video">) из RSS.
+# Дёшево и безопасно, но текущие новостные фиды (BBC/Guardian/RTP/ge.globo) прямого
+# видео НЕ отдают (только картинки) — сработает лишь если фид реально несёт mp4.
+RSS_VIDEO_ENABLED = os.getenv('RSS_VIDEO_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+
+# Тянуть видео с YouTube-каналов (RSS канала + скачивание через yt-dlp). По умолчанию
+# ВЫКЛ: (1) перезалив чужих кадров в FB/IG почти гарантированно ловит Content ID
+# (блок/мьют) и нарушает ToS — включать осознанно; (2) YouTube агрессивно режет
+# датацентровые IP (GitHub Actions) — в CI может стабильно падать на бот-челлендж,
+# поэтому скачивание fail-open (ошибка => пропуск, прогон не падает). При включении
+# можно подсунуть cookies (YOUTUBE_COOKIES_FILE), чтобы пройти бот-проверку.
+YOUTUBE_ENABLED = os.getenv('YOUTUBE_ENABLED', 'false').lower() in ('1', 'true', 'yes')
+# Сколько свежих роликов на канал рассматриваем за прогон (дедуп отсеет уже постнутые).
+YOUTUBE_MAX_ITEMS_PER_CHANNEL = int(os.getenv('YOUTUBE_MAX_ITEMS_PER_CHANNEL', '5'))
+# Пропускаем длинные ролики (полные матчи/обзоры): нам нужны клипы. Секунды.
+YOUTUBE_MAX_VIDEO_DURATION_SECONDS = int(os.getenv('YOUTUBE_MAX_VIDEO_DURATION_SECONDS', '600'))
+# Не рассматриваем ролики старше N дней (дренируем только свежак, не весь архив).
+YOUTUBE_MAX_AGE_DAYS = int(os.getenv('YOUTUBE_MAX_AGE_DAYS', '3'))
+# Селектор формата yt-dlp. По умолчанию — ПРОГРЕССИВНЫЙ mp4 (видео+аудио в одном
+# потоке, формат 18/22): не требует ffmpeg-склейки и доступен без JS-челленджа.
+# Ограничиваем высоту, чтобы файл влезал в MAX_VIDEO_SIZE_MB.
+YOUTUBE_FORMAT = os.getenv(
+    'YOUTUBE_FORMAT',
+    'best[ext=mp4][vcodec!=none][acodec!=none][height<=720]/'
+    'best[ext=mp4][height<=720]/best[height<=720]/best')
+# Необязательный путь к cookies.txt (Netscape-формат) для прохождения бот-проверки
+# YouTube из CI. Пусто => без cookies.
+YOUTUBE_COOKIES_FILE = os.getenv('YOUTUBE_COOKIES_FILE', '')
+# Таймаут на скачивание одного видео (секунды) — чтобы зависший download не съедал
+# весь бюджет прогона.
+VIDEO_DOWNLOAD_TIMEOUT_SECONDS = int(os.getenv('VIDEO_DOWNLOAD_TIMEOUT_SECONDS', '120'))
+
 # Максимальное количество ключевых слов для использования
 MAX_COUNT_KEYWORDS = 5
 
@@ -112,6 +151,28 @@ INSTAGRAM_MEDIA_POLL_INTERVAL = float(os.getenv('INSTAGRAM_MEDIA_POLL_INTERVAL',
 # ждём готовности контейнера дольше: по умолчанию 30 × 4с = до 120с.
 INSTAGRAM_VIDEO_POLL_ATTEMPTS = int(os.getenv('INSTAGRAM_VIDEO_POLL_ATTEMPTS', '30'))
 INSTAGRAM_VIDEO_POLL_INTERVAL = float(os.getenv('INSTAGRAM_VIDEO_POLL_INTERVAL', '4'))
+
+# === Уникализация контента (брендинг + анти-дубликат) =======================
+# Прожигаем в каждое медиа имя нашего канала (вотермарка) и слегка меняем само
+# изображение/видео (кроп, джиттер яркости/контраста/цвета, ре-энкод, срез EXIF/
+# метаданных), чтобы перцептивный хэш и реверс-поиск не сматчили наш репост с
+# оригиналом источника. Картинки — Pillow; видео — ffmpeg (бинарь из imageio-ffmpeg
+# или системный). Применяется в serve() ПОСЛЕ фильтров, ДО публикации; результат
+# уходит во все платформы (и в сторис-оверлей как основа).
+UNIQUIFY_ENABLED = os.getenv('UNIQUIFY_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+UNIQUIFY_IMAGE_ENABLED = os.getenv('UNIQUIFY_IMAGE_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+# Видео-уникализация требует ffmpeg и ре-энкода (десятки секунд) — отдельный флаг.
+UNIQUIFY_VIDEO_ENABLED = os.getenv('UNIQUIFY_VIDEO_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+
+# Вотермарка с именем канала. Пусто => берём @handle из self.telegram_channel.
+WATERMARK_ENABLED = os.getenv('WATERMARK_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+WATERMARK_TEXT = os.getenv('WATERMARK_TEXT', '')
+# Непрозрачность вотермарки 0..1 (0.55 = заметно, но не перекрывает кадр).
+WATERMARK_OPACITY = float(os.getenv('WATERMARK_OPACITY', '0.55'))
+
+# Таймаут ffmpeg-ре-энкода одного видео (секунды) — чтобы зависший процесс не съел
+# бюджет прогона; по истечении возвращаем оригинал (fail-open).
+VIDEO_UNIQUIFY_TIMEOUT_SECONDS = int(os.getenv('VIDEO_UNIQUIFY_TIMEOUT_SECONDS', '120'))
 
 # Контент-фильтр: пропускать посты с запрещённой лексикой/рекламой (см. blocklist.py)
 CONTENT_FILTER_ENABLED = True

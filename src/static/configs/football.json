@@ -25,5 +25,10 @@
         "ge.globo.com": "https://ge.globo.com/rss/ge/",
         "trivela.com.br": "https://trivela.com.br/feed/",
         "gazetaesportiva.com": "https://www.gazetaesportiva.com/feed/"
+    },
+    "youtube_channels": {
+        "youtube/benfica": "UC8zrah5cNf2c3jKKeD_Z3fw",
+        "youtube/sporting": "UCnJj6L93JX3Jrhzv81ayywA",
+        "youtube/fcporto": "UCQegzQwEExHgXvm_yHptzQg"
     }
 } 

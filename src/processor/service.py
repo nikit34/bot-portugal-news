@@ -5,6 +5,7 @@ import time
 from collections import Counter
 
 
+from src.files_manager import VideoSkip
 from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms, make_head, mark_posted
 from src.processor.content_filter import is_blocked_content, strip_promo
 from src.processor.topic_filter import is_off_topic
@@ -23,6 +24,7 @@ from src.producers.telegram.producer import (
     telegram_prepare_post,
     telegram_send_message
 )
+from src.producers.media_uniquify import apply_uniquify
 from src.static.settings import (
     MINIMUM_NUMBER_KEYWORDS,
     MAX_VIDEO_SIZE_MB,
@@ -33,6 +35,7 @@ from src.static.settings import (
     IMAGE_NSFW_ENABLED,
     IMAGE_QUALITY_FILTER_ENABLED,
     INSTAGRAM_DAILY_POST_LIMIT,
+    UNIQUIFY_ENABLED,
 )
 from src.static.sources import Platform
 
@@ -140,7 +143,13 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     if _published_count >= _run_cap:
         return
 
-    url_path = await handler_url_path()
+    try:
+        url_path = await handler_url_path()
+    except VideoSkip as e:
+        # Видео сознательно пропущено загрузчиком (длинное/большое/недоступный
+        # формат) — это не сбой, просто не постим эту запись.
+        app_logger.debug(f"[serve] video skipped from {source}: {e}")
+        return
     is_video = _is_video(url_path)
 
     if not is_video and IMAGE_QUALITY_FILTER_ENABLED and is_low_quality_image(url_path.get('path')):
@@ -158,6 +167,12 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
 
     if is_video and _large_video_size(url_path):
         return
+
+    # Уникализируем + брендируем медиа ПОСЛЕ всех фильтров (фильтры смотрят оригинал)
+    # и ДО публикации. Мутирует url_path: подменяет локальный файл и обнуляет 'url',
+    # чтобы IG тоже постил обработанный файл, а не оригинальную ссылку источника.
+    if UNIQUIFY_ENABLED:
+        await asyncio.to_thread(apply_uniquify, url_path, is_video, context)
 
     targets = _targets_from_decisions(decisions_publish_platforms, url_path)
 

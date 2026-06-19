@@ -57,6 +57,27 @@ def test_full_config_loading(config_file, monkeypatch):
     assert isinstance(config['platforms'], dict)
     assert isinstance(config['telegram_channels'], list)
     assert isinstance(config['rss_channels'], dict)
-    
+
+    # youtube_channels is optional — defaults to {} for configs without it
+    assert config['youtube_channels'] == {}
+
     assert all(isinstance(k, Platform) for k in config['platforms'].keys())
-    assert all(isinstance(v, (bool, type(None))) for v in config['platforms'].values()) 
+    assert all(isinstance(v, (bool, type(None))) for v in config['platforms'].values())
+
+
+def test_config_loading_with_youtube_channels(tmp_path, monkeypatch):
+    config_data = {
+        "platforms": {"FACEBOOK": True},
+        "self": {"telegram_channel": "x", "telegram_debug_chat_id": "x",
+                 "facebook_page_id": "x", "instagram_channel": "x"},
+        "telegram_channels": [],
+        "rss_channels": {},
+        "youtube_channels": {"youtube/benfica": "UC8zrah5cNf2c3jKKeD_Z3fw"},
+    }
+    config_path = tmp_path / "yt.json"
+    with open(config_path, 'w') as f:
+        json.dump(config_data, f)
+    monkeypatch.setattr(os.path, 'join', lambda *args: str(config_path))
+
+    config = get_config('football')
+    assert config['youtube_channels'] == {"youtube/benfica": "UC8zrah5cNf2c3jKKeD_Z3fw"}
