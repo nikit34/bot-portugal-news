@@ -12,10 +12,10 @@
         "instagram_channel": "17841467413345329"
     },
     "telegram_channels": [
-        "https://t.me/AO_VIVO_Futebol",
         "https://t.me/FutebolDaZoeira",
         "https://t.me/futebol_portugues",
-        "https://t.me/Futebol_Brasileirao"
+        "https://t.me/Futebol_Brasileirao",
+        "https://t.me/FCPorto_INF"
     ],
     "rss_channels": {
         "abola.pt": "https://www.abola.pt/rss-articles.xml",
@@ -25,10 +25,5 @@
         "ge.globo.com": "https://ge.globo.com/rss/ge/",
         "trivela.com.br": "https://trivela.com.br/feed/",
         "gazetaesportiva.com": "https://www.gazetaesportiva.com/feed/"
-    },
-    "youtube_channels": {
-        "youtube/benfica": "UC8zrah5cNf2c3jKKeD_Z3fw",
-        "youtube/sporting": "UCnJj6L93JX3Jrhzv81ayywA",
-        "youtube/fcporto": "UCQegzQwEExHgXvm_yHptzQg"
     }
 } 

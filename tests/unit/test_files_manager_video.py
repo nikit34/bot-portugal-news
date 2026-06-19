@@ -3,7 +3,7 @@ import pytest
 from unittest.mock import patch
 
 import src.files_manager as fm
-from src.files_manager import SaveVideoUrl, SaveYouTubeVideo, VideoSkip
+from src.files_manager import SaveVideoUrl, VideoSkip
 from src.static.sources import tmp_folder
 
 
@@ -58,72 +58,3 @@ async def test_save_video_url_size_cap_aborts_and_cleans_up(monkeypatch):
                 await saver()
     assert 'path' in captured
     assert not os.path.exists(captured['path'])  # cleaned up on abort
-
-
-# ---- SaveYouTubeVideo (yt-dlp mocked) ---------------------------------------
-
-class _FakeYDL:
-    """Подменяет yt_dlp.YoutubeDL: extract_info управляется тестом."""
-    info = None
-    raises = False
-
-    def __init__(self, opts):
-        self.opts = opts
-
-    def __enter__(self):
-        return self
-
-    def __exit__(self, *a):
-        return False
-
-    def extract_info(self, url, download=True):
-        if _FakeYDL.raises:
-            raise RuntimeError("bot check")
-        return _FakeYDL.info
-
-    def prepare_filename(self, info):
-        return (info or {}).get('_fallback', '')
-
-
-@pytest.mark.asyncio
-async def test_youtube_download_success(tmp_path):
-    mp4 = tmp_path / "vid.mp4"
-    mp4.write_bytes(b'\x00\x00')
-    _FakeYDL.raises = False
-    _FakeYDL.info = {'requested_downloads': [{'filepath': str(mp4)}]}
-    with patch('yt_dlp.YoutubeDL', _FakeYDL):
-        result = await SaveYouTubeVideo("https://youtube.com/watch?v=abc")()
-    assert result['path'] == str(mp4)
-    assert result['url'] == "https://youtube.com/watch?v=abc"
-
-
-@pytest.mark.asyncio
-async def test_youtube_download_filtered_no_file_raises_skip():
-    # match_filter / max_filesize отсёк формат → extract_info вернул None → VideoSkip
-    _FakeYDL.raises = False
-    _FakeYDL.info = None
-    with patch('yt_dlp.YoutubeDL', _FakeYDL):
-        with pytest.raises(VideoSkip):
-            await SaveYouTubeVideo("https://youtube.com/watch?v=abc")()
-
-
-@pytest.mark.asyncio
-async def test_youtube_download_non_mp4_raises_skip_and_removes(tmp_path):
-    webm = tmp_path / "vid.webm"
-    webm.write_bytes(b'\x00')
-    _FakeYDL.raises = False
-    _FakeYDL.info = {'requested_downloads': [{'filepath': str(webm)}]}
-    with patch('yt_dlp.YoutubeDL', _FakeYDL):
-        with pytest.raises(VideoSkip):
-            await SaveYouTubeVideo("https://youtube.com/watch?v=abc")()
-    assert not os.path.exists(str(webm))  # non-mp4 removed
-
-
-@pytest.mark.asyncio
-async def test_youtube_download_ytdlp_error_raises_skip():
-    _FakeYDL.raises = True
-    _FakeYDL.info = None
-    with patch('yt_dlp.YoutubeDL', _FakeYDL):
-        with pytest.raises(VideoSkip):
-            await SaveYouTubeVideo("https://youtube.com/watch?v=abc")()
-    _FakeYDL.raises = False

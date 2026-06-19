@@ -52,9 +52,6 @@ def get_config(config_name):
         'self_instagram_channel': config['self']['instagram_channel'],
         'telegram_channels': config['telegram_channels'],
         'rss_channels': config['rss_channels'],
-        # Необязательный: map "имя источника" -> YouTube channel_id (UC...). Источник
-        # видео, включается флагом YOUTUBE_ENABLED. Старые конфиги без ключа работают.
-        'youtube_channels': config.get('youtube_channels', {}),
     }
 
 tmp_folder = os.getcwd() + '/tmp'

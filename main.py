@@ -19,7 +19,6 @@ from src.processor.image_filter import image_filter_summary
 from src.parsers.rss.parser import rss_wrapper
 from src.parsers.rss.channels.pt.abola import close_client as close_abola_client
 from src.parsers.telegram.parser import telegram_wrapper
-from src.parsers.youtube.parser import youtube_wrapper
 from src.parsers.insights import report_insights, should_report_insights, get_instagram_reach_by_head
 from src.processor import learning
 from src.processor.service import (
@@ -35,7 +34,6 @@ from src.static.settings import (
     INSIGHTS_MEDIA_LIMIT,
     MAX_POSTS_PER_RUN,
     INSTAGRAM_DAILY_POST_LIMIT,
-    YOUTUBE_ENABLED,
     RUN_TIME_BUDGET_SECONDS,
     RUN_SUMMARY_ENABLED,
     LEARNING_STATE_PATH,
@@ -149,15 +147,6 @@ async def main(config_name):
                 client=client, graph=graph, nlp=nlp, translator=translator,
                 telegram_bot_token=telegram_bot_token, source=source, rss_link=rss_link,
                 posted_d=posted_d, context=context)))
-
-        # YouTube — источник видео (по флагу): RSS канала + скачивание через yt-dlp.
-        # Выключен по умолчанию (копирайт/Content ID + нестабильность из CI), см. settings.
-        if YOUTUBE_ENABLED:
-            for source, channel_id in context['youtube_channels'].items():
-                source_jobs.append((source, lambda source=source, channel_id=channel_id: youtube_wrapper(
-                    client=client, graph=graph, nlp=nlp, translator=translator,
-                    telegram_bot_token=telegram_bot_token, source=source, channel_id=channel_id,
-                    posted_d=posted_d, context=context)))
 
         if LEARNING_BIAS_ENABLED:
             ordered = learning.order_sources(
