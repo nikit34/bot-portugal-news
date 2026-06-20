@@ -160,6 +160,31 @@ async def test_ig_daily_quota_skips_instagram(monkeypatch):
     assert svc._ig_posts_this_run == 0
 
 
+async def test_ranker_pools_in_phase1_then_drains(monkeypatch):
+    # With the ranker ON, serve() pools candidates (publishes nothing); drain_pool
+    # then publishes them. Flag OFF behaviour is covered by all the other tests.
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    monkeypatch.setattr(svc, 'RANKER_POOL_FACTOR', 4)
+    svc._candidate_pool = []
+    calls = _mock_sends(monkeypatch)
+
+    posted = deque()
+    await svc.serve(None, object(), _nlp, _Translator(),
+                    'Benfica vence o Porto numa noite memoravel no estadio da luz',
+                    _url_path, posted, CONTEXT, source='abola.pt')
+    await svc.serve(None, object(), _nlp, _Translator(),
+                    'Sporting empata fora e segue lider isolado na tabela da liga portuguesa',
+                    _url_path, posted, CONTEXT, source='rtp.pt')
+
+    assert calls == []                       # phase 1 publishes nothing
+    assert len(svc._candidate_pool) == 2
+
+    await svc.drain_pool(None, object(), _nlp, {'sources': {}, 'hours': {}})
+
+    assert svc._published_count >= 1          # phase 2 published
+    assert svc._candidate_pool == []          # pool drained and cleared
+
+
 async def test_should_stop_on_budget_and_deadline():
     svc._published_count = 0
     svc._run_cap = 3

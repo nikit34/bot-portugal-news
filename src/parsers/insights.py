@@ -110,6 +110,82 @@ def get_instagram_reach_by_head(access_token, ig_user_id, limit, min_age_seconds
     return reach_by_head
 
 
+def get_instagram_metrics_by_head(access_token, ig_user_id, limit, min_age_seconds, now):
+    # Reward-путь: как get_instagram_reach_by_head, но возвращает полный набор
+    # метрик на пост {reach, likes, comments}. like_count/comments_count — обычные
+    # поля media (бесплатно, уже в выдаче _fetch_recent_media); reach — отдельный
+    # insights-вызов (нужно instagram_manage_insights). Только для зрелых постов.
+    media = _fetch_recent_media(access_token, ig_user_id, limit)
+    metrics_by_head = {}
+    for item in media:
+        caption = item.get('caption')
+        if not caption:
+            continue
+        ts = _parse_media_timestamp(item.get('timestamp'))
+        if ts is None or (now - ts) < min_age_seconds:
+            continue
+        metrics_by_head[make_head(caption)] = {
+            'reach': _fetch_media_reach(access_token, item.get('id')),
+            'likes': item.get('like_count', 0) or 0,
+            'comments': item.get('comments_count', 0) or 0,
+        }
+    return metrics_by_head
+
+
+def get_facebook_post_insights(access_token, post_id):
+    # Метрики на FB-пост по сохранённому page-post id. Best-effort, fail-open:
+    # reach (post_impressions_unique — нужно read_insights, может быть недоступно
+    # на v18) тянем отдельным try; вовлечённость берём ПОЛЯМИ объекта (shares,
+    # comments.summary, reactions.summary) — они НЕ задепрекейчены (в отличие от
+    # /insights метрик engagement). Любая часть может отсутствовать без падения.
+    metrics = {}
+    if not post_id:
+        return metrics
+    try:
+        url = _GRAPH + post_id + '/insights'
+        params = {'metric': 'post_impressions_unique', 'access_token': access_token}
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        for metric in response.json().get('data', []):
+            if metric.get('name') == 'post_impressions_unique':
+                values = metric.get('values') or [{}]
+                metrics['reach'] = values[-1].get('value')
+    except Exception as e:
+        logger.warning(f"[insights] FB post reach unavailable for {post_id}: {e}")
+    try:
+        url = _GRAPH + post_id
+        params = {
+            'fields': 'shares,comments.summary(true),reactions.summary(true)',
+            'access_token': access_token,
+        }
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        data = response.json()
+        metrics['shares'] = (data.get('shares') or {}).get('count', 0)
+        metrics['comments'] = ((data.get('comments') or {}).get('summary') or {}).get('total_count', 0)
+        metrics['likes'] = ((data.get('reactions') or {}).get('summary') or {}).get('total_count', 0)
+    except Exception as e:
+        logger.warning(f"[insights] FB post engagement unavailable for {post_id}: {e}")
+    return metrics
+
+
+def get_facebook_metrics_by_head(access_token, pending, now, min_age_seconds):
+    # FB-метрики, привязанные к посту по СОХРАНЁННОМУ fb_id (точная атрибуция, без
+    # матча по тексту). Только для зрелых pending-записей, у которых есть fb_id.
+    metrics_by_head = {}
+    for post in pending or []:
+        fb_id = post.get('fb_id')
+        head = post.get('head')
+        if not fb_id or not head:
+            continue
+        if (now - post.get('ts', 0)) < min_age_seconds:
+            continue
+        metrics = get_facebook_post_insights(access_token, fb_id)
+        if metrics:
+            metrics_by_head[head] = metrics
+    return metrics_by_head
+
+
 def get_facebook_page_insights(access_token, page_id):
     # Охват и вовлечённость страницы за сутки. Best-effort (нужно право read_insights).
     url = _GRAPH + page_id + '/insights'
@@ -130,7 +206,8 @@ def get_facebook_page_insights(access_token, page_id):
     return stats
 
 
-def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=None):
+def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=None,
+                          format_ranking=None, variant_ranking=None):
     lines = ['📊 <b>Insights</b>']
 
     fb_reach = fb_stats.get('page_impressions_unique')
@@ -160,13 +237,24 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
         for i, (hour, reach_avg, n) in enumerate(hour_ranking, 1):
             lines.append(f'{i}. {int(hour):02d}:00 — {round(reach_avg)} (n={n})')
 
+    if format_ranking:
+        lines.append('\n<b>Форматы по reward (средн.)</b>')
+        for name, reward_avg, n in format_ranking:
+            lines.append(f'• {html.escape(str(name))}: {round(reward_avg)} (n={n})')
+
+    if variant_ranking:
+        lines.append('\n<b>Хэштеги по reward (средн.)</b>')
+        for name, reward_avg, n in variant_ranking:
+            lines.append(f'• {html.escape(str(name))}: {round(reward_avg)} (n={n})')
+
     if len(lines) == 1:
         lines.append('\nданные недоступны (нет прав read_insights / instagram_manage_insights?)')
 
     return '\n'.join(lines)
 
 
-async def report_insights(graph, telegram_bot_token, context, source_ranking=None, hour_ranking=None):
+async def report_insights(graph, telegram_bot_token, context, source_ranking=None, hour_ranking=None,
+                          format_ranking=None, variant_ranking=None):
     ig_items = []
     fb_stats = {}
     ig_user_id = context.get('self_instagram_channel')
@@ -183,6 +271,7 @@ async def report_insights(graph, telegram_bot_token, context, source_ranking=Non
     except Exception as e:
         logger.warning(f"[insights] FB page insights failed: {e}")
 
-    report = build_insights_report(ig_items, fb_stats, source_ranking, hour_ranking)
+    report = build_insights_report(
+        ig_items, fb_stats, source_ranking, hour_ranking, format_ranking, variant_ranking)
     await send_message_api(report, telegram_bot_token, context)
     logger.info("[insights] report sent to debug chat")

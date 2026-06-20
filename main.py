@@ -19,11 +19,14 @@ from src.processor.image_filter import image_filter_summary
 from src.parsers.rss.parser import rss_wrapper
 from src.parsers.rss.channels.pt.abola import close_client as close_abola_client
 from src.parsers.telegram.parser import telegram_wrapper
-from src.parsers.insights import report_insights, should_report_insights, get_instagram_reach_by_head
+from src.parsers.insights import (
+    report_insights, should_report_insights, get_instagram_reach_by_head,
+    get_instagram_metrics_by_head, get_facebook_metrics_by_head,
+)
 from src.processor import learning
 from src.processor.service import (
     get_publish_records, should_stop, set_run_cap,
-    set_ig_daily, set_deadline, ig_posts_this_run, get_run_stats,
+    set_ig_daily, set_deadline, ig_posts_this_run, get_run_stats, drain_pool,
 )
 from src.producers.instagram.producer import get_failure_counts
 from src.producers.facebook.producer import get_failure_counts as get_facebook_failure_counts
@@ -44,6 +47,19 @@ from src.static.settings import (
     LEARNING_ALPHA,
     LEARNING_TIME_BIAS_ENABLED,
     LEARNING_HOUR_MIN_SAMPLES,
+    LEARNING_BANDIT_ENABLED,
+    LEARNING_UCB_C,
+    LEARNING_SOURCE_MIN_SAMPLES,
+    LEARNING_REWARD_ENABLED,
+    LEARNING_W_SHARE,
+    LEARNING_W_COMMENT,
+    LEARNING_W_LIKE,
+    LEARNING_W_REACH,
+    LEARNING_SCORE_BY_TTL_ENABLED,
+    LEARNING_SCORE_TTL_SECONDS,
+    FB_POST_INSIGHTS_ENABLED,
+    VARIANT_LOGGING_ENABLED,
+    RANKER_ENABLED,
 )
 from src.static.sources import get_config
 from src.producers.telegram.telegram_api import send_message_api
@@ -148,12 +164,24 @@ async def main(config_name):
                 telegram_bot_token=telegram_bot_token, source=source, rss_link=rss_link,
                 posted_d=posted_d, context=context)))
 
-        if LEARNING_BIAS_ENABLED:
+        # Source bias only kicks in once enough sources are well-sampled — otherwise
+        # the sequential stop-on-budget loop would starve thin-but-unscored sources.
+        bias_ready = (
+            LEARNING_BIAS_ENABLED
+            and learning.well_sampled_sources(state['sources'], LEARNING_SOURCE_MIN_SAMPLES)
+            >= LEARNING_SOURCE_MIN_SAMPLES)
+        if LEARNING_BIAS_ENABLED and not bias_ready:
+            app_logger.info(
+                "Learning bias requested but too few well-sampled sources; "
+                "running all sources in parallel (explore)")
+        if bias_ready:
+            ucb_c = LEARNING_UCB_C if LEARNING_BANDIT_ENABLED else 0.0
             ordered = learning.order_sources(
-                [name for name, _ in source_jobs], state['sources'], LEARNING_DEFAULT_PRIOR)
+                [name for name, _ in source_jobs], state['sources'], LEARNING_DEFAULT_PRIOR, ucb_c)
             rank = {name: i for i, name in enumerate(ordered)}
             source_jobs.sort(key=lambda job: rank[job[0]])
-            app_logger.info(f"Learning bias ON — processing sources by reach: {ordered}")
+            app_logger.info(
+                f"Learning bias ON (ucb_c={ucb_c}) — processing sources by reward: {ordered}")
             for name, factory in source_jobs:
                 if should_stop():
                     app_logger.info("Post or time budget exhausted; skipping remaining lower-ranked sources")
@@ -164,28 +192,70 @@ async def main(config_name):
             await asyncio.gather(*[factory() for _, factory in source_jobs])
 
         app_logger.info("All parsing tasks completed successfully")
+
+        # Candidate ranker phase 2: publish the best-scoring pooled candidates.
+        if RANKER_ENABLED:
+            await drain_pool(client, graph, nlp, state)
+
         app_logger.info(image_filter_summary())
 
         # Attribute this run's publishes to their sources for the learning loop.
+        # Carry the captured publish IDs + features so later scoring can attribute
+        # FB post metrics precisely (by id) and learn format/hashtag variants.
         for record in get_publish_records():
-            learning.record_publish(state, record['head'], record['source'], record['ts'])
+            learning.record_publish(
+                state, record['head'], record['source'], record['ts'],
+                fb_id=record.get('fb_id'), ig_id=record.get('ig_id'),
+                is_video=record.get('is_video'), hashtag_n=record.get('hashtag_n'))
 
         # Persist today's Instagram post count for the daily quota (item 9).
         learning.add_ig_posts(state, today, ig_posts_this_run())
 
-        if should_report_insights():
-            app_logger.info("Scoring sources on matured reach and building insights digest")
-            now = time.time()
-            reach_by_head = await asyncio.to_thread(
-                get_instagram_reach_by_head, graph.access_token, context['self_instagram_channel'],
-                INSIGHTS_MEDIA_LIMIT, LEARNING_MATURATION_SECONDS, now)
-            learning.update_scores(
-                state, reach_by_head, now,
-                LEARNING_MATURATION_SECONDS, LEARNING_MAX_AGE_SECONDS, LEARNING_ALPHA)
+        now = time.time()
+        send_digest = should_report_insights()
+        # Score on matured outcomes either at the daily digest hour or, when enabled,
+        # on any run past the scoring TTL (so a missed/failed digest run doesn't lose
+        # freshness). The digest itself still goes out only at INSIGHTS_REPORT_HOUR.
+        score_now = send_digest or (
+            LEARNING_SCORE_BY_TTL_ENABLED
+            and (now - state.get('last_scored_ts', 0)) > LEARNING_SCORE_TTL_SECONDS)
+
+        if score_now:
+            if LEARNING_REWARD_ENABLED:
+                app_logger.info("Scoring on matured engagement-weighted reward")
+                metrics_by_head = await asyncio.to_thread(
+                    get_instagram_metrics_by_head, graph.access_token,
+                    context['self_instagram_channel'], INSIGHTS_MEDIA_LIMIT,
+                    LEARNING_MATURATION_SECONDS, now)
+                if FB_POST_INSIGHTS_ENABLED:
+                    fb_metrics = await asyncio.to_thread(
+                        get_facebook_metrics_by_head, graph.access_token,
+                        state.get('pending', []), now, LEARNING_MATURATION_SECONDS)
+                    for head, metrics in fb_metrics.items():
+                        metrics_by_head.setdefault(head, {}).update(metrics)
+                weights = {'share': LEARNING_W_SHARE, 'comment': LEARNING_W_COMMENT,
+                           'like': LEARNING_W_LIKE, 'reach': LEARNING_W_REACH}
+                learning.update_scores_metrics(
+                    state, metrics_by_head, weights, now,
+                    LEARNING_MATURATION_SECONDS, LEARNING_MAX_AGE_SECONDS, LEARNING_ALPHA,
+                    log_variants=VARIANT_LOGGING_ENABLED)
+            else:
+                app_logger.info("Scoring sources on matured reach")
+                reach_by_head = await asyncio.to_thread(
+                    get_instagram_reach_by_head, graph.access_token, context['self_instagram_channel'],
+                    INSIGHTS_MEDIA_LIMIT, LEARNING_MATURATION_SECONDS, now)
+                learning.update_scores(
+                    state, reach_by_head, now,
+                    LEARNING_MATURATION_SECONDS, LEARNING_MAX_AGE_SECONDS, LEARNING_ALPHA)
+            state['last_scored_ts'] = now
+
+        if send_digest:
             await report_insights(
                 graph, telegram_bot_token, context,
                 source_ranking=learning.top_sources(state['sources']),
-                hour_ranking=learning.top_sources(state['hours']))
+                hour_ranking=learning.top_sources(state['hours']),
+                format_ranking=learning.top_sources(state.get('formats', {})),
+                variant_ranking=learning.top_sources(state.get('variants', {})))
 
         learning.save_state(LEARNING_STATE_PATH, state)
 

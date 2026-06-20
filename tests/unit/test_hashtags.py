@@ -10,8 +10,9 @@ class _Tok:
 
 
 class _Ent:
-    def __init__(self, text):
+    def __init__(self, text, label=''):
         self.text = text
+        self.label_ = label
 
 
 class _Doc:
@@ -84,3 +85,31 @@ def test_facebook_prepare_post_still_appends_hashtags():
 
     assert out.startswith('Resumo da jornada')
     assert '#liga' in out
+
+
+def test_entity_bias_surfaces_single_occurrence_entity():
+    # An ORG/PER entity mentioned ONCE must still become a hashtag (entity bias
+    # relaxes the count>=2 frequency gate that would otherwise drop it).
+    tokens = [_Tok('Cristiano', 'PROPN'), _Tok('Ronaldo', 'PROPN'), _Tok('marcou', 'VERB')]
+    ents = [_Ent('Cristiano Ronaldo', 'PER'), _Ent('Al-Nassr', 'ORG')]
+    tags = extract_hashtags(_Doc(tokens, ents))
+
+    assert 'cristianoronaldo' in tags
+    assert 'alnassr' in tags
+
+
+def test_unlabeled_entities_ignored_by_bias():
+    # An entity with no ORG/PER label, mentioned once, is NOT force-promoted — it
+    # still has to clear the count>=2 frequency gate like any plain noun.
+    tokens = [_Tok('jogo', 'NOUN')]                 # singleton -> dropped by frequency
+    ents = [_Ent('Alvalade')]                       # label '' -> not a bias candidate
+    assert extract_hashtags(_Doc(tokens, ents)) == []
+
+
+def test_fb_cap_limits_hashtag_count():
+    # FB caps at HASHTAG_MAX_FB (3) even when more keywords qualify.
+    tokens = []
+    for word in ['Benfica', 'Porto', 'Sporting', 'Braga', 'Guimaraes']:
+        tokens += [_Tok(word, 'PROPN'), _Tok(word, 'PROPN')]  # each repeats -> qualifies
+    out = facebook_prepare_post('Resumo da jornada', _Doc(tokens))
+    assert out.count('#') == 3

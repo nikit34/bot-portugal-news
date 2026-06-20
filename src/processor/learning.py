@@ -1,5 +1,6 @@
 import os
 import json
+import math
 import logging
 from datetime import datetime, timezone
 
@@ -51,12 +52,19 @@ def save_state(path, state):
     os.replace(tmp_path, path)
 
 
-def record_publish(state, head, source, ts):
+def record_publish(state, head, source, ts, **features):
     # Remember which source produced a just-published post so its reach can be
     # attributed back to that source once it matures (hours/days later, another run).
+    # **features (fb_id, ig_id, is_video, hashtag_n) are stored only when provided,
+    # so legacy pending entries / the reach-only path keep the minimal {head,source,ts}
+    # shape. fb_id is the FB *page-post* id ({page}_{post}) needed by /{post-id}/insights.
     if not head or not source:
         return
-    state.setdefault('pending', []).append({'head': head, 'source': source, 'ts': ts})
+    entry = {'head': head, 'source': source, 'ts': ts}
+    for key, value in features.items():
+        if value is not None:
+            entry[key] = value
+    state.setdefault('pending', []).append(entry)
 
 
 def update_scores(state, reach_by_head, now, maturation_seconds, max_age_seconds, alpha):
@@ -79,6 +87,67 @@ def update_scores(state, reach_by_head, now, maturation_seconds, max_age_seconds
         # else: matured but never matched within max_age → prune (can't attribute)
     state['pending'] = still_pending
     return state
+
+
+def reward_for(metrics, weights):
+    # Engagement-weighted reward: shares/comments валятся тяжелее лайков, reach —
+    # хвост. metrics — dict с любыми из {reach, likes, comments, shares}; отсутствующее
+    # считаем нулём. Aligns the optimizer with «meaningful interactions».
+    return (
+        weights.get('share', 0.0) * (metrics.get('shares') or 0)
+        + weights.get('comment', 0.0) * (metrics.get('comments') or 0)
+        + weights.get('like', 0.0) * (metrics.get('likes') or 0)
+        + weights.get('reach', 0.0) * (metrics.get('reach') or 0)
+    )
+
+
+def _bucket_hashtags(n):
+    if n <= 0:
+        return '0'
+    return '1-3' if n <= 3 else '4+'
+
+
+def update_scores_metrics(state, metrics_by_head, weights, now, maturation_seconds,
+                          max_age_seconds, alpha, log_variants=False):
+    # Reward-aware вариант update_scores: вместо чистого reach учитываем взвешенную
+    # вовлечённость и дополнительно копим reward по формату (video/photo) и (опц.)
+    # по числу хэштегов. Хранится в тех же {reach_avg, n} бакетах (имя ключа не
+    # меняем, чтобы дайджест/top_sources работали без правок). Используется только
+    # при LEARNING_REWARD_ENABLED — reach-путь (update_scores) остаётся как есть.
+    pending = state.get('pending', [])
+    sources = state.setdefault('sources', {})
+    hours = state.setdefault('hours', {})
+    formats = state.setdefault('formats', {})
+    variants = state.setdefault('variants', {})
+    still_pending = []
+    for post in pending:
+        ts = post.get('ts', 0)
+        age = now - ts
+        head = post.get('head', '')
+        metrics = _metrics_for(head, metrics_by_head) if age >= maturation_seconds else None
+        if metrics is not None:
+            reward = reward_for(metrics, weights)
+            _update_avg(sources, post.get('source', ''), reward, alpha)
+            _update_avg(hours, _hour_of(ts), reward, alpha)
+            _update_avg(formats, 'video' if post.get('is_video') else 'photo', reward, alpha)
+            if log_variants and post.get('hashtag_n') is not None:
+                _update_avg(variants, 'tags:' + _bucket_hashtags(post['hashtag_n']), reward, alpha)
+        elif age < max_age_seconds:
+            still_pending.append(post)
+    state['pending'] = still_pending
+    return state
+
+
+def _metrics_for(head, metrics_by_head):
+    # Same prefix-match contract as _reach_for, but returns the full metrics dict.
+    if not head:
+        return None
+    if head in metrics_by_head:
+        return metrics_by_head[head]
+    for key, metrics in metrics_by_head.items():
+        if key.startswith(head):
+            return metrics
+    return None
 
 
 def _reach_for(head, reach_by_head):
@@ -133,16 +202,33 @@ def hour_budget(hours_scores, current_hour, base_cap, min_samples):
     return 1
 
 
-def order_sources(source_names, source_scores, default_prior):
-    # Highest learned reach first; never-scored sources get default_prior (inf =>
+def order_sources(source_names, source_scores, default_prior, ucb_c=0.0):
+    # Highest learned reward first; never-scored sources get default_prior (inf =>
     # explored first). Stable sort keeps the original order among equals.
+    # ucb_c>0 adds a UCB exploration bonus c*mean_reward*sqrt(ln(total_n)/n) so
+    # thin-but-promising sources keep getting sampled; ucb_c=0 => pure greedy sort
+    # (unchanged default). Bonus is scaled by mean reward so it isn't swamped by the
+    # raw reward magnitude.
+    scored = [(name, e) for name, e in source_scores.items() if e.get('n', 0) > 0]
+    total_n = sum(e['n'] for _, e in scored)
+    mean_reward = (sum(e['reach_avg'] for _, e in scored) / len(scored)) if scored else 0.0
+
     def score(name):
         entry = source_scores.get(name)
         if entry and entry.get('n', 0) > 0:
-            return entry['reach_avg']
+            base = entry['reach_avg']
+            if ucb_c and total_n > 0:
+                base += ucb_c * mean_reward * math.sqrt(math.log(total_n) / entry['n'])
+            return base
         return default_prior
 
     return sorted(source_names, key=score, reverse=True)
+
+
+def well_sampled_sources(source_scores, min_samples):
+    # Сколько источников уже хорошо просэмплированы — порог, ниже которого биас
+    # источников не включаем (иначе при тонких данных нижние источники голодают).
+    return sum(1 for e in source_scores.values() if e.get('n', 0) >= min_samples)
 
 
 def top_sources(source_scores, limit=10):

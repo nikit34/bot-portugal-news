@@ -116,6 +116,74 @@ def test_parse_media_timestamp():
     assert ins._parse_media_timestamp(None) is None
 
 
+def test_get_instagram_metrics_by_head_returns_full_metrics(monkeypatch):
+    now = ins._parse_media_timestamp('2026-06-13T00:00:00+0000')
+    media = [
+        {'id': 'old', 'caption': 'matured post', 'timestamp': '2026-06-01T00:00:00+0000',
+         'like_count': 12, 'comments_count': 3},
+        {'id': 'fresh', 'caption': 'fresh post', 'timestamp': '2026-06-12T23:00:00+0000',
+         'like_count': 1, 'comments_count': 0},  # too fresh -> excluded
+    ]
+
+    def fake_get(url, params=None, **kwargs):
+        if url.endswith('/media'):
+            return _FakeResponse({'data': media})
+        if url.endswith('/insights'):
+            return _FakeResponse({'data': [{'name': 'reach', 'values': [{'value': 444}]}]})
+        raise AssertionError(url)
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+    result = ins.get_instagram_metrics_by_head('tok', 'IGID', limit=25, min_age_seconds=24 * 3600, now=now)
+
+    assert result == {ins.make_head('matured post'): {'reach': 444, 'likes': 12, 'comments': 3}}
+
+
+def test_get_facebook_post_insights_reads_reach_and_object_fields(monkeypatch):
+    def fake_get(url, params=None, **kwargs):
+        if url.endswith('/insights'):
+            return _FakeResponse({'data': [{'name': 'post_impressions_unique', 'values': [{'value': 500}]}]})
+        # object fields fetch (url ends with the post id)
+        return _FakeResponse({
+            'shares': {'count': 4},
+            'comments': {'summary': {'total_count': 7}},
+            'reactions': {'summary': {'total_count': 20}},
+        })
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+    metrics = ins.get_facebook_post_insights('tok', 'PAGE_POST_1')
+    assert metrics == {'reach': 500, 'shares': 4, 'comments': 7, 'likes': 20}
+
+
+def test_get_facebook_post_insights_fail_open_on_missing_scope(monkeypatch):
+    def fake_get(url, params=None, **kwargs):
+        raise Exception('(#10) requires read_insights')
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+    assert ins.get_facebook_post_insights('tok', 'PAGE_POST_1') == {}  # no crash, empty
+
+
+def test_get_facebook_metrics_by_head_only_matured_with_id(monkeypatch):
+    now = 100 * 24 * 3600
+    pending = [
+        {'head': 'h1', 'fb_id': 'P1', 'ts': now - 2 * 24 * 3600},   # matured + id -> fetched
+        {'head': 'h2', 'fb_id': None, 'ts': now - 2 * 24 * 3600},   # no id -> skipped
+        {'head': 'h3', 'fb_id': 'P3', 'ts': now - 3600},            # too fresh -> skipped
+    ]
+    monkeypatch.setattr(ins, 'get_facebook_post_insights',
+                        lambda tok, pid: {'reach': 100, 'shares': 1})
+
+    result = ins.get_facebook_metrics_by_head('tok', pending, now, min_age_seconds=24 * 3600)
+    assert result == {'h1': {'reach': 100, 'shares': 1}}
+
+
+def test_build_report_includes_format_and_variant_rankings():
+    report = ins.build_insights_report(
+        [], {}, format_ranking=[('video', 80.0, 4), ('photo', 30.0, 6)],
+        variant_ranking=[('tags:1-3', 70.0, 5)])
+    assert 'Форматы по reward' in report and 'video: 80 (n=4)' in report
+    assert 'Хэштеги по reward' in report and 'tags:1-3: 70 (n=5)' in report
+
+
 def test_reach_by_head_skips_fresh_and_captionless(monkeypatch):
     now = ins._parse_media_timestamp('2026-06-13T00:00:00+0000')
     media = [

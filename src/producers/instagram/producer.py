@@ -4,7 +4,7 @@ import requests
 import logging
 
 from src.producers.repeater import async_retry, retry
-from src.producers.text_editor import trunc_str
+from src.producers.text_editor import prepare_body
 from src.producers.hashtags import extract_hashtags, append_hashtags, hashtags_line
 from src.producers.story_overlay import build_story_image, discard_overlay
 from src.static.settings import (
@@ -224,7 +224,7 @@ def instagram_prepare_post(translated_message, doc):
     # что и для Facebook (общий extract_hashtags). Возвращаем (подпись, комментарий):
     # по умолчанию подпись чистая, а хэштеги уходят первым комментарием; при
     # INSTAGRAM_HASHTAGS_AS_COMMENT=False — хэштеги в подписи, комментарий пустой.
-    text = trunc_str(translated_message, INSTAGRAM_MAX_LENGTH_MESSAGE)
+    text = prepare_body(translated_message, doc, INSTAGRAM_MAX_LENGTH_MESSAGE)
     keywords = extract_hashtags(doc)
     if INSTAGRAM_HASHTAGS_AS_COMMENT:
         return text, hashtags_line(keywords)
@@ -232,7 +232,7 @@ def instagram_prepare_post(translated_message, doc):
 
 
 @async_retry()
-async def instagram_send_message(graph, message, comment, url_path, context):
+async def instagram_send_message(graph, message, comment, url_path, context, publish_story=True):
     access_token = graph.access_token
     file_path = url_path.get('path')
     temp_photo_id = None
@@ -254,7 +254,7 @@ async def instagram_send_message(graph, message, comment, url_path, context):
     await _post_first_comment(access_token, result.get('id'), comment)
     story_photo_id = None
     overlay_path = None
-    if INSTAGRAM_STORIES_ENABLED:
+    if INSTAGRAM_STORIES_ENABLED and publish_story:
         if not is_video:
             # Прожигаем заголовок в картинку: рендерим оверлей и чеканим под него
             # ОТДЕЛЬНЫЙ image_url (лента остаётся с чистым фото). Сбой => плановый

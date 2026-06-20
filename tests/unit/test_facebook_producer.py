@@ -209,6 +209,23 @@ async def test_photo_story_falls_back_to_original_when_overlay_fails(monkeypatch
     assert not os.path.exists(os.path.splitext(str(photo))[0] + '.story.jpg')
 
 
+async def test_no_story_when_gate_suppresses(monkeypatch, tmp_path, context):
+    # Story-gate: publish_story=False suppresses the Story even with stories enabled.
+    monkeypatch.setattr(fb, 'FACEBOOK_STORIES_ENABLED', True)
+    photo = tmp_path / 'p.jpg'
+    photo.write_bytes(b'jpeg')
+    graph = _FakeGraph()
+
+    def fake_post(url, **kwargs):
+        raise AssertionError('no Story POST expected when the gate suppresses it')
+
+    monkeypatch.setattr(fb.requests, 'post', fake_post)
+
+    await fb.facebook_send_message(graph, 'hello', {'path': str(photo)}, context, publish_story=False)
+
+    assert len(graph.put_photo_calls) == 1  # only the feed photo
+
+
 async def test_no_story_when_disabled(monkeypatch, tmp_path, context):
     # _stories_off fixture keeps FACEBOOK_STORIES_ENABLED False.
     photo = tmp_path / 'p.jpg'

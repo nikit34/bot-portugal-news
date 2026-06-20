@@ -25,6 +25,7 @@ from src.producers.telegram.producer import (
     telegram_send_message
 )
 from src.producers.media_uniquify import apply_uniquify
+from src.producers.hashtags import extract_hashtags
 from src.static.settings import (
     MINIMUM_NUMBER_KEYWORDS,
     MAX_VIDEO_SIZE_MB,
@@ -36,7 +37,15 @@ from src.static.settings import (
     IMAGE_QUALITY_FILTER_ENABLED,
     INSTAGRAM_DAILY_POST_LIMIT,
     UNIQUIFY_ENABLED,
+    VARIANT_LOGGING_ENABLED,
+    CARDS_ENABLED,
+    STORY_GATE_ENABLED,
+    STORY_GATE_IG_BUDGET_FRACTION,
+    RANKER_ENABLED,
+    RANKER_POOL_FACTOR,
 )
+from src.producers.cards import build_card_image
+from src.processor.ranker import candidate_score
 from src.static.sources import Platform
 
 
@@ -65,6 +74,9 @@ _ig_posts_this_run = 0
 _deadline = None
 # Per-run telemetry for the debug-chat summary.
 _platform_publishes = Counter()
+# Candidate ranker (RANKER_ENABLED): phase-1 buffers candidates here; drain_pool
+# scores them and publishes only the top ones. Capped so phase-1 stops scraping.
+_candidate_pool = []
 
 
 def set_run_cap(cap):
@@ -94,8 +106,31 @@ def time_budget_exceeded():
 def should_stop():
     # Parsers call this to stop taking new entries: either the per-run post budget
     # is filled, or the wall-clock budget is exhausted (avoids endless scraping on
-    # runs where nothing is fresh).
+    # runs where nothing is fresh). With the ranker on, also stop once the candidate
+    # pool is full — otherwise phase-1 (which never publishes) would scrape forever.
+    if RANKER_ENABLED and len(_candidate_pool) >= max(1, _run_cap) * RANKER_POOL_FACTOR:
+        return True
     return budget_remaining() <= 0 or time_budget_exceeded()
+
+
+async def drain_pool(client, graph, nlp, state):
+    # Phase 2 of the ranker: score the buffered candidates and publish the best ones
+    # first, until the per-run post budget or wall-clock deadline stops us. The
+    # heavy work (download/NSFW/uniquify/publish) happens only for drained items.
+    if not _candidate_pool:
+        return
+    current_hour = time.gmtime().tm_hour
+    ranked = sorted(_candidate_pool, key=lambda c: candidate_score(c, state, current_hour), reverse=True)
+    app_logger.info(f"[ranker] draining {len(ranked)} pooled candidates by score")
+    try:
+        for cand in ranked:
+            if should_stop():
+                break
+            await _download_and_publish(
+                client, graph, nlp, cand['text'], cand['handler_url_path'],
+                cand['posted_d'], cand['context'], cand['source'], cand['head'])
+    finally:
+        _candidate_pool.clear()
 
 
 def get_publish_records():
@@ -118,8 +153,9 @@ def get_run_stats():
 
 
 async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context, source=None):
-    global _published_count, _meta_circuit_open, _ig_daily_count, _ig_posts_this_run
-
+    # Phase-1 intake: cheap text-only filters + dedup + budget check. With the ranker
+    # OFF (default) we publish inline immediately (unchanged FIFO behavior); with it
+    # ON we pool the candidate and defer the expensive download/publish to drain_pool.
     translated_message = _translate_message(translator, message_text)
 
     if CONTENT_FILTER_ENABLED:
@@ -142,6 +178,25 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
 
     if _published_count >= _run_cap:
         return
+
+    if RANKER_ENABLED:
+        if len(_candidate_pool) < max(1, _run_cap) * RANKER_POOL_FACTOR:
+            _candidate_pool.append({
+                'head': head, 'source': source, 'text': translated_message,
+                'handler_url_path': handler_url_path, 'posted_d': posted_d, 'context': context,
+            })
+        return
+
+    await _download_and_publish(
+        client, graph, nlp, translated_message, handler_url_path, posted_d, context, source, head)
+
+
+async def _download_and_publish(client, graph, nlp, translated_message, handler_url_path,
+                                posted_d, context, source, head):
+    # Phase-2 core: download media, run media filters, build the original card,
+    # uniquify, then publish under the lock. Shared by the inline path (ranker off)
+    # and drain_pool (ranker on) so the publish/dedup/throttle logic lives in one place.
+    global _published_count, _meta_circuit_open, _ig_daily_count, _ig_posts_this_run
 
     try:
         url_path = await handler_url_path()
@@ -168,12 +223,26 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     if is_video and _large_video_size(url_path):
         return
 
+    # Карточка оригинальной графики (трансфер/сумма) как нативное фото — добавленная
+    # ценность против unoriginal-content демоута. Подменяем медиа на нашу карточку
+    # ДО уникализации; ошибка/неподходящая новость => публикуем оригинал (fail-open).
+    if CARDS_ENABLED and not is_video:
+        card_path = await asyncio.to_thread(
+            build_card_image, url_path.get('path'), translated_message, doc)
+        if card_path:
+            original = url_path.get('path')
+            url_path['path'] = card_path
+            url_path['url'] = None  # IG чеканит из локального файла, а не из ссылки источника
+            if original and original != card_path and os.path.exists(original):
+                os.remove(original)
+
     # Уникализируем + брендируем медиа ПОСЛЕ всех фильтров (фильтры смотрят оригинал)
     # и ДО публикации. Мутирует url_path: подменяет локальный файл и обнуляет 'url',
     # чтобы IG тоже постил обработанный файл, а не оригинальную ссылку источника.
     if UNIQUIFY_ENABLED:
         await asyncio.to_thread(apply_uniquify, url_path, is_video, context)
 
+    decisions_publish_platforms = get_decisions_publish_platforms(head, posted_d, context['platforms'])
     targets = _targets_from_decisions(decisions_publish_platforms, url_path)
 
     if targets:
@@ -200,19 +269,27 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
                     and not (platform is Platform.INSTAGRAM and _ig_daily_count >= _ig_daily_limit)
                 ]
                 if active:
+                    # Story-gate: when enabled, suppress the extra Story mirror once the
+                    # IG daily budget is tight (Stories don't reach non-followers and each
+                    # one burns a slot). Off by default => always mirror (current behavior).
+                    publish_story = True
+                    if STORY_GATE_ENABLED:
+                        publish_story = _ig_daily_count < STORY_GATE_IG_BUDGET_FRACTION * _ig_daily_limit
                     coros = []
                     for platform in active:
                         if platform is Platform.FACEBOOK:
                             if doc is None:
                                 doc = nlp(translated_message)
                             coros.append(facebook_send_message(
-                                graph, facebook_prepare_post(translated_message, doc), url_path, context))
+                                graph, facebook_prepare_post(translated_message, doc), url_path, context,
+                                publish_story=publish_story))
                         elif platform is Platform.INSTAGRAM:
                             if doc is None:
                                 doc = nlp(translated_message)
                             ig_caption, ig_comment = instagram_prepare_post(translated_message, doc)
                             coros.append(instagram_send_message(
-                                graph, ig_caption, ig_comment, url_path, context))
+                                graph, ig_caption, ig_comment, url_path, context,
+                                publish_story=publish_story))
                         else:
                             coros.append(telegram_send_message(
                                 client, telegram_prepare_post(translated_message), url_path, context))
@@ -220,6 +297,8 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
                     results = await asyncio.gather(*coros, return_exceptions=True)
 
                     succeeded = set()
+                    fb_post_id = None
+                    ig_media_id = None
                     for platform, result in zip(active, results):
                         if isinstance(result, Exception):
                             if platform in (Platform.FACEBOOK, Platform.INSTAGRAM) and is_rate_limited(result):
@@ -232,15 +311,26 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
                         else:
                             succeeded.add(platform)
                             _platform_publishes[platform.name] += 1
+                            # Capture publish IDs for precise per-post attribution later.
+                            # FB feed photo carries a page-post id ('post_id'); /videos
+                            # returns only 'id'. Insights need the page-post id.
+                            if platform is Platform.FACEBOOK and isinstance(result, dict):
+                                fb_post_id = result.get('post_id') or result.get('id')
                             if platform is Platform.INSTAGRAM:
                                 _ig_daily_count += 1
                                 _ig_posts_this_run += 1
+                                if isinstance(result, dict):
+                                    ig_media_id = result.get('id')
 
                     if succeeded:
                         _published_count += 1
                         mark_posted(posted_d, head, succeeded)
                         if source:
-                            _publish_records.append({'head': head, 'source': source, 'ts': time.time()})
+                            record = {'head': head, 'source': source, 'ts': time.time(),
+                                      'is_video': is_video, 'fb_id': fb_post_id, 'ig_id': ig_media_id}
+                            if VARIANT_LOGGING_ENABLED and doc is not None:
+                                record['hashtag_n'] = len(extract_hashtags(doc))
+                            _publish_records.append(record)
                         await asyncio.sleep(POST_DELAY_SECONDS)
 
     file_path = url_path.get('path')

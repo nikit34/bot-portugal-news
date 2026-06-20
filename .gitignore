@@ -11,8 +11,11 @@ secret
 bot.session-journal
 getter_bot.session-journal
 
-# Learning state — persisted across CI runs via actions/cache, never committed.
-state/
+# Learning state — persisted across CI runs via actions/cache (fast path) AND
+# committed back to the repo (durable backstop, survives cache eviction). Ignore
+# the dir but keep the single committed state file tracked.
+state/*
+!state/insights_state.json
 
 # Runtime logs written by the logger.
 logs/

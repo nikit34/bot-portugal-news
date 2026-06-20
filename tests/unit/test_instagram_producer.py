@@ -361,6 +361,32 @@ async def test_image_story_uses_overlaid_url(monkeypatch, tmp_path, context):
     assert not os.path.exists(os.path.splitext(str(photo))[0] + '.story.jpg')  # temp file cleaned
 
 
+async def test_story_gate_suppresses_story(monkeypatch, context):
+    # publish_story=False => no STORIES container is created even with stories on.
+    monkeypatch.setattr(ig, 'INSTAGRAM_STORIES_ENABLED', True)
+    media_types = []
+
+    def fake_post(url, data=None, **kwargs):
+        if url.endswith('/media'):
+            media_types.append(data.get('media_type'))
+            return _FakeResponse({'id': 'FEED_CONT'})
+        if url.endswith('/media_publish'):
+            return _FakeResponse({'id': 'FEED_MEDIA'})
+        raise AssertionError(f'unexpected POST {url}')
+
+    def fake_get(url, params=None, **kwargs):
+        return _FakeResponse({'status_code': 'FINISHED'})
+
+    monkeypatch.setattr(ig.requests, 'post', fake_post)
+    monkeypatch.setattr(ig.requests, 'get', fake_get)
+
+    result = await ig.instagram_send_message(
+        _FakeGraph(), 'caption', '', {'url': 'http://img'}, context, publish_story=False)
+
+    assert result == {'id': 'FEED_MEDIA'}
+    assert media_types == [None]  # only the feed container, no STORIES container
+
+
 async def test_story_failure_does_not_break_feed(monkeypatch, context):
     monkeypatch.setattr(ig, 'INSTAGRAM_STORIES_ENABLED', True)
 

@@ -224,3 +224,102 @@ RUN_TIME_BUDGET_SECONDS = int(os.getenv('RUN_TIME_BUDGET_SECONDS', '540'))
 # и что молча упало — первый комментарий, Stories, права на insights). По умолчанию вкл;
 # шлём только когда есть о чём (были публикации или сбои), чтобы не спамить пустыми.
 RUN_SUMMARY_ENABLED = os.getenv('RUN_SUMMARY_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+
+
+def _flag(name, default):
+    # Единый парсер булевых env-флагов: '1/true/yes/on' => True (без учёта регистра).
+    return os.getenv(name, default).lower() in ('1', 'true', 'yes', 'on')
+
+
+# === Оптимизация роста FB-канала ============================================
+# Набор рычагов «вытащить максимум охвата/подписчиков». Все НОВЫЕ поведения — за
+# флагами, по умолчанию ВЫКЛ (кроме чистых анти-демоут защит), чтобы включать и
+# откатывать через env без правок кода. Подробности — в memory/fb-growth-optimization.
+
+# --- Caption guard: чистим исходящую подпись от кликбейта/engagement-bait ----
+# Meta аккаунт-уайд режет страницы за bait ('comente SIM', 'marque um amigo',
+# КАПС-крик). Это анти-демоут защита, поэтому по умолчанию ВКЛ. Матчим по
+# нормализованной форме, режем по оригиналу (акценты/регистр публикации сохраняем).
+CAPTION_GUARD_ENABLED = _flag('CAPTION_GUARD_ENABLED', 'true')
+
+# --- Хэштеги: на FB режем до немногих, биасим на сущности (клуб/игрок) --------
+# На FB >5 меток читается как спам; 2-3 по делу — вторичный путь тематич. матча.
+HASHTAG_MAX_FB = int(os.getenv('HASHTAG_MAX_FB', '3'))
+# Поднимать распознанные сущности (ORG/PER) выше частотных существительных и
+# допускать их в метки даже при единичном упоминании (имена в новостях редко
+# повторяются). Пустой набор сущностей => поведение идентично прежнему.
+HASHTAG_ENTITY_BIAS_ENABLED = _flag('HASHTAG_ENTITY_BIAS_ENABLED', 'true')
+# Стабильная нишевая метка, добавляется первой (напр. лига/регион). Пусто => нет.
+HASHTAG_NICHE_TAG = os.getenv('HASHTAG_NICHE_TAG', '')
+
+# --- Hook-first: выносим в первую строку предложение с сущностью --------------
+# FB обрезает подпись на ~125 симв. и предсказывает dwell — сильный entity-first
+# лид поднимает stop-scroll. Консервативно: только переставляем существующее
+# предложение (без LLM не переписываем), дубль убираем. По умолчанию ВЫКЛ.
+HOOK_FIRST_ENABLED = _flag('HOOK_FIRST_ENABLED', 'false')
+
+# --- Карточки оригинальной графики (fee/transfer) -----------------------------
+# Своя сгенерированная графика — единственный бесплатный value-add против
+# unoriginal-content демоута и сама по себе save/share-worthy. v1: только карточки
+# трансферов/сумм (направление однозначно), счёт пока не рендерим. По умолчанию ВЫКЛ.
+CARDS_ENABLED = _flag('CARDS_ENABLED', 'false')
+
+# --- Opinion-CTA: живой вопрос под постом (драйвер комментариев) ---------------
+# FB ценит вдумчивые комменты выше лайков; живой открытый вопрос НЕ engagement-bait.
+# Гард зашит в саму библиотеку (никаких 'comente SIM'). По умолчанию ВЫКЛ (риск
+# выглядеть шаблонно/спамно — включать осознанно).
+CTA_ENABLED = _flag('CTA_ENABLED', 'false')
+
+# --- Story-gate: не зеркалить КАЖДЫЙ пост в сторис вслепую ---------------------
+# Сторис не доходят до НЕ-подписчиков (только retention) и каждая = доп.публикация
+# к лимиту IG. Гейтим сторис здоровьем суточного IG-бюджета (тесните лимит — режем
+# сторис первыми). По умолчанию ВЫКЛ (сохраняем текущее «зеркалим всё»).
+STORY_GATE_ENABLED = _flag('STORY_GATE_ENABLED', 'false')
+# Доля суточного IG-лимита, ВЫШЕ которой сторис подавляются (бережём слоты ленты).
+STORY_GATE_IG_BUDGET_FRACTION = float(os.getenv('STORY_GATE_IG_BUDGET_FRACTION', '0.75'))
+
+# --- Best-K ranker: тратим дефицитные слоты на лучшие новости -----------------
+# Сейчас публикуются первые MAX_POSTS_PER_RUN прошедших фильтры (FIFO). Ранкер
+# копит кандидатов и публикует топ-K по скору (выученный охват источника/часа +
+# видео-бонус + сущности/длина − кликбейт). Тяжёлая работа (uniquify) — только для
+# победителей. По умолчанию ВЫКЛ (поведение байт-в-байт = текущий FIFO).
+RANKER_ENABLED = _flag('RANKER_ENABLED', 'false')
+# Во сколько раз пул кандидатов больше бюджета постов (ограничивает скрейп в фазе 1).
+RANKER_POOL_FACTOR = int(os.getenv('RANKER_POOL_FACTOR', '4'))
+
+# --- Engagement-weighted reward (вместо чистого reach) ------------------------
+# reward = w_share*shares + w_comment*comments + w_like*likes + w_reach*reach.
+# По умолчанию ВЫКЛ: пока веса не подобраны и FB-инсайты не подтверждены правами,
+# учимся на reach (как сейчас). Начинаем reach-доминантно.
+LEARNING_REWARD_ENABLED = _flag('LEARNING_REWARD_ENABLED', 'false')
+LEARNING_W_SHARE = float(os.getenv('LEARNING_W_SHARE', '3.0'))
+LEARNING_W_COMMENT = float(os.getenv('LEARNING_W_COMMENT', '2.0'))
+LEARNING_W_LIKE = float(os.getenv('LEARNING_W_LIKE', '1.0'))
+LEARNING_W_REACH = float(os.getenv('LEARNING_W_REACH', '0.05'))
+
+# --- UCB-ранжирование источников (explore/exploit) ----------------------------
+# score = reward_avg + c * mean_reward * sqrt(ln(total_n)/n); c=0 => текущий greedy.
+# Требует LEARNING_BIAS_ENABLED. По умолчанию ВЫКЛ (greedy avg-sort как сейчас).
+LEARNING_BANDIT_ENABLED = _flag('LEARNING_BANDIT_ENABLED', 'false')
+LEARNING_UCB_C = float(os.getenv('LEARNING_UCB_C', '0.7'))
+# Минимум хорошо-сэмплированных источников, прежде чем биас начнёт отсекать
+# нижние (иначе при тонких данных источники голодают). Аналог LEARNING_HOUR_MIN_SAMPLES.
+LEARNING_SOURCE_MIN_SAMPLES = int(os.getenv('LEARNING_SOURCE_MIN_SAMPLES', '3'))
+
+# --- FB post-level инсайты по сохранённым ID ----------------------------------
+# GET /{post-id}/insights (post_impressions_unique) + поля объекта (shares,
+# comments.summary, reactions.summary). Нужно право read_insights; best-effort,
+# fail-open на IG-прокси. По умолчанию ВЫКЛ (права у токена не подтверждены).
+FB_POST_INSIGHTS_ENABLED = _flag('FB_POST_INSIGHTS_ENABLED', 'false')
+
+# --- A/B-логирование вариантов (measurement-only) -----------------------------
+# Копим reward по media_type и числу хэштегов, показываем в дайджесте. Только
+# измерение — в отбор не вмешивается. По умолчанию ВЫКЛ.
+VARIANT_LOGGING_ENABLED = _flag('VARIANT_LOGGING_ENABLED', 'false')
+
+# --- Scoring по TTL (не только в час дайджеста) -------------------------------
+# Скорить созревшие посты на любом прогоне, если с прошлого скоринга прошло больше
+# TTL — чтобы пропущенный/упавший прогон в час дайджеста не терял свежесть. Сам
+# дайджест по-прежнему раз в сутки. По умолчанию ВЫКЛ (как сейчас — в час дайджеста).
+LEARNING_SCORE_TTL_SECONDS = int(os.getenv('LEARNING_SCORE_TTL_SECONDS', str(20 * 3600)))
+LEARNING_SCORE_BY_TTL_ENABLED = _flag('LEARNING_SCORE_BY_TTL_ENABLED', 'false')

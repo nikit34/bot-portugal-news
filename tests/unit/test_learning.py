@@ -170,3 +170,72 @@ def test_top_sources_only_scored_sorted_desc():
         'c': {'reach_avg': 0.0, 'n': 0},  # never scored -> excluded
     }
     assert learning.top_sources(sources) == [('b', 500.0, 1), ('a', 50.0, 2)]
+
+
+# --- post-id / feature persistence ------------------------------------------
+
+def test_record_publish_stores_features_when_present():
+    state = {'pending': []}
+    learning.record_publish(state, 'h', 'abola.pt', 1000,
+                            fb_id='PAGE_1', ig_id='IG_1', is_video=True, hashtag_n=3)
+    assert state['pending'] == [{'head': 'h', 'source': 'abola.pt', 'ts': 1000,
+                                 'fb_id': 'PAGE_1', 'ig_id': 'IG_1', 'is_video': True, 'hashtag_n': 3}]
+
+
+def test_record_publish_omits_none_features():
+    # Backward-compat: no features -> the minimal legacy shape (no None keys).
+    state = {'pending': []}
+    learning.record_publish(state, 'h', 'abola.pt', 1000, fb_id=None, ig_id=None)
+    assert state['pending'] == [{'head': 'h', 'source': 'abola.pt', 'ts': 1000}]
+
+
+# --- engagement-weighted reward ---------------------------------------------
+
+def test_reward_for_weights_meaningful_interactions_above_reach():
+    weights = {'share': 3.0, 'comment': 2.0, 'like': 1.0, 'reach': 0.05}
+    reward = learning.reward_for({'shares': 1, 'comments': 2, 'likes': 10, 'reach': 1000}, weights)
+    assert reward == 3 * 1 + 2 * 2 + 1 * 10 + 0.05 * 1000  # 67.0
+
+
+def test_reward_for_tolerates_missing_metrics():
+    assert learning.reward_for({'reach': 200}, {'reach': 0.5}) == 100.0
+
+
+def test_update_scores_metrics_attributes_reward_and_format():
+    now = 100 * DAY
+    weights = {'share': 3.0, 'comment': 2.0, 'like': 1.0, 'reach': 0.05}
+    state = {'pending': [{'head': 'h', 'source': 'abola.pt', 'ts': now - 2 * DAY, 'is_video': True}],
+             'sources': {}, 'hours': {}}
+    metrics = {'h': {'shares': 1, 'comments': 2, 'likes': 10, 'reach': 1000}}
+
+    learning.update_scores_metrics(state, metrics, weights, now, DAY, 7 * DAY, alpha=0.3)
+
+    assert state['sources']['abola.pt'] == {'reach_avg': 67.0, 'n': 1}
+    assert state['formats']['video'] == {'reach_avg': 67.0, 'n': 1}
+    assert state['pending'] == []
+
+
+def test_update_scores_metrics_logs_variants_when_enabled():
+    now = 100 * DAY
+    weights = {'reach': 1.0}
+    state = {'pending': [{'head': 'h', 'source': 's', 'ts': now - 2 * DAY,
+                          'is_video': False, 'hashtag_n': 2}], 'sources': {}, 'hours': {}}
+    learning.update_scores_metrics(state, {'h': {'reach': 50}}, weights, now, DAY, 7 * DAY,
+                                   alpha=0.3, log_variants=True)
+    assert state['variants']['tags:1-3'] == {'reach_avg': 50.0, 'n': 1}
+    assert state['formats']['photo'] == {'reach_avg': 50.0, 'n': 1}
+
+
+# --- UCB source ordering + sample gate --------------------------------------
+
+def test_order_sources_ucb_prefers_under_sampled_on_tie():
+    sources = {'a': {'reach_avg': 100.0, 'n': 10}, 'b': {'reach_avg': 100.0, 'n': 1}}
+    # equal reward, b sampled far less -> exploration bonus lifts b above a
+    assert learning.order_sources(['a', 'b'], sources, 0.0, ucb_c=1.0) == ['b', 'a']
+    # c=0 reproduces the greedy avg-sort exactly (stable -> input order on ties)
+    assert learning.order_sources(['a', 'b'], sources, 0.0, ucb_c=0.0) == ['a', 'b']
+
+
+def test_well_sampled_sources_counts_above_threshold():
+    sources = {'a': {'reach_avg': 1, 'n': 3}, 'b': {'reach_avg': 1, 'n': 2}, 'c': {'reach_avg': 1, 'n': 5}}
+    assert learning.well_sampled_sources(sources, min_samples=3) == 2

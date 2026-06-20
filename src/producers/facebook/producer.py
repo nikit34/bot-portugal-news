@@ -4,8 +4,8 @@ import logging
 import requests
 
 from src.producers.repeater import retry, async_retry
-from src.static.settings import FACEBOOK_MAX_LENGTH_MESSAGE, FACEBOOK_STORIES_ENABLED
-from src.producers.text_editor import trunc_str
+from src.static.settings import FACEBOOK_MAX_LENGTH_MESSAGE, FACEBOOK_STORIES_ENABLED, HASHTAG_MAX_FB
+from src.producers.text_editor import prepare_body
 from src.producers.hashtags import extract_hashtags, append_hashtags
 from src.producers.story_overlay import build_story_image, discard_overlay
 
@@ -22,20 +22,22 @@ def get_failure_counts():
 
 @retry()
 def facebook_prepare_post(translated_message, doc):
-    text_link = trunc_str(translated_message, FACEBOOK_MAX_LENGTH_MESSAGE)
-    keywords = extract_hashtags(doc)
-    return append_hashtags(text_link, keywords)
+    text = prepare_body(translated_message, doc, FACEBOOK_MAX_LENGTH_MESSAGE)
+    keywords = extract_hashtags(doc, HASHTAG_MAX_FB)
+    return append_hashtags(text, keywords)
 
 
 @async_retry()
-async def facebook_send_message(graph, message, url_path, context):
+async def facebook_send_message(graph, message, url_path, context, publish_story=True):
     file_path = url_path.get("path")
     is_video = file_path.lower().endswith(".mp4")
     if is_video:
         result = await asyncio.to_thread(_send_video, graph, message, file_path, context)
     else:
         result = await asyncio.to_thread(_send_photo, graph, message, file_path)
-    if FACEBOOK_STORIES_ENABLED:
+    # publish_story=False lets the story-gate suppress the extra Story publish when
+    # the IG/FB daily budget is tight (story doesn't reach non-followers anyway).
+    if FACEBOOK_STORIES_ENABLED and publish_story:
         await _publish_story(graph, file_path, is_video, context, message)
     return result
 
