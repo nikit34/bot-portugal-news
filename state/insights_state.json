@@ -1,0 +1,799 @@
+{
+  "version": 1,
+  "pending": [
+    {
+      "head": "“Talvez a Itália se classifique” com 64 seleções n",
+      "source": "gazetaesportiva.com",
+      "ts": 1781318142.1804426
+    },
+    {
+      "head": "Santos bate Jabaquara com gol no fim e vence a seg",
+      "source": "gazetaesportiva.com",
+      "ts": 1781318203.1543698
+    },
+    {
+      "head": "Pouco aproveitado no Atlético de Madrid, Almada é",
+      "source": "gazetaesportiva.com",
+      "ts": 1781318262.7385364
+    },
+    {
+      "head": "Anfitrião, Canadá busca empate contra Bósnia pela",
+      "source": "gazetaesportiva.com",
+      "ts": 1781336471.4208088
+    },
+    {
+      "head": "Bastidores: França posa para a foto oficial da Cop",
+      "source": "gazetaesportiva.com",
+      "ts": 1781336531.2502775
+    },
+    {
+      "head": "Vinicius Jr. diz chegar à Copa “como sempre sonhou",
+      "source": "gazetaesportiva.com",
+      "ts": 1781336593.7823527
+    },
+    {
+      "head": "Lateral do Leverkusen, Arthur relembra duelo com M",
+      "source": "gazetaesportiva.com",
+      "ts": 1781346193.8594038
+    },
+    {
+      "head": "Meia dos EUA, McKennie marca pela Juventus diante",
+      "source": "gazetaesportiva.com",
+      "ts": 1781346250.0454226
+    },
+    {
+      "head": "Camisa 10 da seleção dos EUA, Pulisic fala sobre a",
+      "source": "gazetaesportiva.com",
+      "ts": 1781346303.7508996
+    },
+    {
+      "head": "Haiti x Escócia pela Copa do Mundo: veja prováveis",
+      "source": "gazetaesportiva.com",
+      "ts": 1781357348.0686316
+    },
+    {
+      "head": "Palmeiras x Audax: veja onde assistir ao jogo pelo",
+      "source": "gazetaesportiva.com",
+      "ts": 1781357405.0207207
+    },
+    {
+      "head": "Guarani x Caxias pela Série C: veja onde assistir",
+      "source": "gazetaesportiva.com",
+      "ts": 1781357462.593079
+    },
+    {
+      "head": "Justiça anula reunião e Romeu Tuma Jr. pode voltar",
+      "source": "gazetaesportiva.com",
+      "ts": 1781364482.1658864
+    },
+    {
+      "head": "São Paulo x Bandeirante: veja informações e onde a",
+      "source": "gazetaesportiva.com",
+      "ts": 1781364540.596829
+    },
+    {
+      "head": "Elenco do Brasil na Copa vale mais que a soma de M",
+      "source": "gazetaesportiva.com",
+      "ts": 1781364597.1126218
+    },
+    {
+      "head": "Semifinais da Copa do Nordeste: veja prováveis esc",
+      "source": "gazetaesportiva.com",
+      "ts": 1781370857.4451149
+    },
+    {
+      "head": "RB Bragantino x Carabobo pela Sul-Americana: veja",
+      "source": "gazetaesportiva.com",
+      "ts": 1781370902.5998068
+    },
+    {
+      "head": "Santos x Botafogo pelo Brasileirão Sub-20: veja pr",
+      "source": "gazetaesportiva.com",
+      "ts": 1781370948.1243412
+    },
+    {
+      "head": "Onde assistir aos jogos da seleção brasileira ao v",
+      "source": "trivela.com.br",
+      "ts": 1781377873.973889
+    },
+    {
+      "head": "Baixe a tabela da Copa do Mundo 2026 em PDF para i",
+      "source": "trivela.com.br",
+      "ts": 1781377917.146926
+    },
+    {
+      "head": "Marrocos roubou o trono? A disputa por trás do ape",
+      "source": "trivela.com.br",
+      "ts": 1781377961.4103506
+    },
+    {
+      "head": "Qual foi a melhor contratação do Santos no semestr",
+      "source": "gazetaesportiva.com",
+      "ts": 1781384707.535106
+    },
+    {
+      "head": "Veja quais contratações do São Paulo deram certo n",
+      "source": "gazetaesportiva.com",
+      "ts": 1781384753.6000805
+    },
+    {
+      "head": "Como Suíça construiu geração de ouro, que disputar",
+      "source": "trivela.com.br",
+      "ts": 1781384798.2217124
+    },
+    {
+      "head": "Argentino Martín Anselmi, ex-Botafogo, é o novo té",
+      "source": "gazetaesportiva.com",
+      "ts": 1781391392.2019062
+    },
+    {
+      "head": "Gana protesta ao Canadá após Partey ter visto nega",
+      "source": "gazetaesportiva.com",
+      "ts": 1781391438.414041
+    },
+    {
+      "head": "Árbitro da estreia do Brasil na Copa já foi detido",
+      "source": "gazetaesportiva.com",
+      "ts": 1781391484.586735
+    },
+    {
+      "head": "Bastidores: Portugal encerra preparação para Copa",
+      "source": "gazetaesportiva.com",
+      "ts": 1781405219.5019877
+    },
+    {
+      "head": "Senesi chega aos EUA e se apresenta à Argentina pe",
+      "source": "gazetaesportiva.com",
+      "ts": 1781405282.6425269
+    },
+    {
+      "head": "Com gol de pênalti nos acréscimos, Guarani vence C",
+      "source": "gazetaesportiva.com",
+      "ts": 1781405345.1906683
+    },
+    {
+      "head": "Esposa de Endrick posta carta em apoio ao jogador",
+      "source": "gazetaesportiva.com",
+      "ts": 1781424646.9953485
+    },
+    {
+      "head": "Sub-15 do Palmeiras goleia pelo Paulista, e jogo d",
+      "source": "gazetaesportiva.com",
+      "ts": 1781424704.1469197
+    },
+    {
+      "head": "Portugal desembarca nos Estados Unidos; confira os",
+      "source": "gazetaesportiva.com",
+      "ts": 1781424761.6039052
+    },
+    {
+      "head": "Suíça cede empate ao Catar no final em estreia e e",
+      "source": "gazetaesportiva.com",
+      "ts": 1781437847.617088
+    },
+    {
+      "head": "Com novidades, Ancelotti define Brasil para estrei",
+      "source": "gazetaesportiva.com",
+      "ts": 1781437903.44608
+    },
+    {
+      "head": "São Paulo goleia Bandeirante e se mantém entre os",
+      "source": "gazetaesportiva.com",
+      "ts": 1781437957.5312417
+    },
+    {
+      "head": "Palmeiras deseja sorte a Danilo antes da Copa e ag",
+      "source": "gazetaesportiva.com",
+      "ts": 1781443891.177382
+    },
+    {
+      "head": "Corinthians bate Portuguesa Santista e alcança seg",
+      "source": "gazetaesportiva.com",
+      "ts": 1781443952.4391947
+    },
+    {
+      "head": "Espanha mostra tecnologia utilizada para combater",
+      "source": "gazetaesportiva.com",
+      "ts": 1781444010.2694683
+    },
+    {
+      "head": "Vitória de Guimarães: Rui Rodrigues tem treinador",
+      "source": "abola.pt",
+      "ts": 1781451864.6726413
+    },
+    {
+      "head": "Torcida brasileira critica Ancelotti por deixar En",
+      "source": "gazetaesportiva.com",
+      "ts": 1781451908.3411922
+    },
+    {
+      "head": "Vini Jr. faz golaço, mas Brasil só empata com Marr",
+      "source": "gazetaesportiva.com",
+      "ts": 1781451951.7173965
+    },
+    {
+      "head": "Atlético-MG x Puerto Cabello-VEN pela Sul-American",
+      "source": "gazetaesportiva.com",
+      "ts": 1781457050.8139963
+    },
+    {
+      "head": "Corinthians x Platense pela Libertadores: onde ass",
+      "source": "gazetaesportiva.com",
+      "ts": 1781457097.7425683
+    },
+    {
+      "head": "Santos libera Brazão para procurar novo clube na j",
+      "source": "gazetaesportiva.com",
+      "ts": 1781457142.8337986
+    },
+    {
+      "head": "Com Memphis, Holanda estreia na Copa contra Japão",
+      "source": "gazetaesportiva.com",
+      "ts": 1781464333.326182
+    },
+    {
+      "head": "Escócia vence Haiti e larga na liderança do grupo",
+      "source": "gazetaesportiva.com",
+      "ts": 1781464379.528512
+    },
+    {
+      "head": "Ancelotti admite ansiedade, mas não vê Brasil desm",
+      "source": "gazetaesportiva.com",
+      "ts": 1781464425.5654848
+    },
+    {
+      "head": "Atuações do Brasil: Vini Jr. brilha, mas meio sofr",
+      "source": "gazetaesportiva.com",
+      "ts": 1781470899.968971
+    },
+    {
+      "head": "Mais Vini do que Brasil: empate com Marrocos deixa",
+      "source": "gazetaesportiva.com",
+      "ts": 1781470943.3849058
+    },
+    {
+      "head": "Austrália surpreende e vence Turquia pela estreia",
+      "source": "gazetaesportiva.com",
+      "ts": 1781470988.8217168
+    },
+    {
+      "head": "Vini Jr. revela pedido de Ancelotti no intervalo e",
+      "source": "gazetaesportiva.com",
+      "ts": 1781478073.293726
+    },
+    {
+      "head": "“Foi importante não perder o primeiro jogo”, diz L",
+      "source": "gazetaesportiva.com",
+      "ts": 1781478118.6809874
+    },
+    {
+      "head": "Qual reforço foi a maior decepção do Corinthians n",
+      "source": "gazetaesportiva.com",
+      "ts": 1781478164.333529
+    },
+    {
+      "head": "Irã chega aos EUA para Copa do Mundo em meio à ten",
+      "source": "gazetaesportiva.com",
+      "ts": 1781491885.91642
+    },
+    {
+      "head": "Com gol no último lance, Santa Cruz vence o Brusqu",
+      "source": "gazetaesportiva.com",
+      "ts": 1781491961.8090768
+    },
+    {
+      "head": "Alemanha arrasa Curaçao e repete placar histórico",
+      "source": "gazetaesportiva.com",
+      "ts": 1781492019.6443098
+    },
+    {
+      "head": "Após novo 7 a 1, Alemanha ultrapassa Brasil e se t",
+      "source": "gazetaesportiva.com",
+      "ts": 1781517244.4864051
+    },
+    {
+      "head": "Dupla do Corinthians se encontra em viagem de féri",
+      "source": "gazetaesportiva.com",
+      "ts": 1781517306.8596637
+    },
+    {
+      "head": "Seleção Brasileira faz treino regenerativo em hote",
+      "source": "gazetaesportiva.com",
+      "ts": 1781517365.5010316
+    },
+    {
+      "head": "Memphis sai do banco e vê Holanda ceder empate ao",
+      "source": "gazetaesportiva.com",
+      "ts": 1781537965.276567
+    },
+    {
+      "head": "Leila ameaça processar Bap e nega envolvimento com",
+      "source": "gazetaesportiva.com",
+      "ts": 1781538024.3672018
+    },
+    {
+      "head": "Ituano reage no segundo tempo e arranca empate con",
+      "source": "gazetaesportiva.com",
+      "ts": 1781538088.983669
+    },
+    {
+      "head": "Paulo Sérgio reprova improvisação de Ancelotti na",
+      "source": "gazetaesportiva.com",
+      "ts": 1781552385.7820606
+    },
+    {
+      "head": "Panamá nega que será ‘saco de pancadas’ de seus ri",
+      "source": "gazetaesportiva.com",
+      "ts": 1781552446.2804668
+    },
+    {
+      "head": "Miguel Oliveira em oitavo lugar na primeira corrid",
+      "source": "rtp.pt/desporto",
+      "ts": 1781552488.0723255
+    },
+    {
+      "head": "Real Madrid oficializa acordo com Marc Cucurella,",
+      "source": "gazetaesportiva.com",
+      "ts": 1781561530.9674182
+    },
+    {
+      "head": "Athletico-PR renova contrato de Bruno Gabriel até",
+      "source": "gazetaesportiva.com",
+      "ts": 1781561600.819068
+    },
+    {
+      "head": "Espanha e Uruguai estreiam na Copa do Mundo em mei",
+      "source": "gazetaesportiva.com",
+      "ts": 1781561660.734421
+    },
+    {
+      "head": "Veja os números da atuação histórica de Vozinha co",
+      "source": "gazetaesportiva.com",
+      "ts": 1781578417.3333673
+    },
+    {
+      "head": "Destaque de Cabo Verde, Vozinha vibra com estreia",
+      "source": "gazetaesportiva.com",
+      "ts": 1781578472.7236426
+    },
+    {
+      "head": "Mauricio entra em lista seleta ao marcar 11° gol d",
+      "source": "gazetaesportiva.com",
+      "ts": 1781578529.9510922
+    },
+    {
+      "head": "Atalanta anuncia Maurizio Sarri como novo técnico",
+      "source": "gazetaesportiva.com",
+      "ts": 1781601571.5722692
+    },
+    {
+      "head": "Fifa define trio de arbitragem feminino para Repúb",
+      "source": "gazetaesportiva.com",
+      "ts": 1781601634.1931016
+    },
+    {
+      "head": "Flamengo culpa Bielsa e Uruguai por lesão de Arras",
+      "source": "gazetaesportiva.com",
+      "ts": 1781601695.8435912
+    },
+    {
+      "head": "Após investigação, Fifa não vê gesto supremacista",
+      "source": "gazetaesportiva.com",
+      "ts": 1781622010.0055869
+    },
+    {
+      "head": "Criciúma x Palmeiras: saiba onde assistir ao jogo",
+      "source": "gazetaesportiva.com",
+      "ts": 1781622067.416426
+    },
+    {
+      "head": "Áustria x Jordânia pela Copa do Mundo: veja prováv",
+      "source": "gazetaesportiva.com",
+      "ts": 1781622126.659945
+    },
+    {
+      "head": "Corinthians entra em ‘dia D’ para quitar dívida co",
+      "source": "gazetaesportiva.com",
+      "ts": 1781634198.5533834
+    },
+    {
+      "head": "Relembre polêmicas de arbitragem envolvendo o São",
+      "source": "gazetaesportiva.com",
+      "ts": 1781634257.7403061
+    },
+    {
+      "head": "Meia dos EUA, Pulisic destaca ligação especial com",
+      "source": "gazetaesportiva.com",
+      "ts": 1781634317.0380685
+    },
+    {
+      "head": "Tunísia demite Sabri Lamouchi e anuncia Hervé Rena",
+      "source": "gazetaesportiva.com",
+      "ts": 1781638182.0167778
+    },
+    {
+      "head": "'Cartwheels no café da manhã' e chutando por Bosto",
+      "source": "bbc.com/football",
+      "ts": 1781638232.0431418
+    },
+    {
+      "head": "Pergunte aos especialistas McCann & Crichton suas",
+      "source": "bbc.com/football",
+      "ts": 1781638285.064821
+    },
+    {
+      "head": "Visto de jogador iraniano expira após entrada nos",
+      "source": "gazetaesportiva.com",
+      "ts": 1781647634.177711
+    },
+    {
+      "head": "Prova Ciclística Internacional 9 de Julho confirma",
+      "source": "gazetaesportiva.com",
+      "ts": 1781647685.8008566
+    },
+    {
+      "head": "Argentina tem desafio de compensar envelhecimento",
+      "source": "trivela.com.br",
+      "ts": 1781647740.0389888
+    },
+    {
+      "head": "Grêmio anuncia saída do volante Arthur após fim do",
+      "source": "gazetaesportiva.com",
+      "ts": 1781664556.699001
+    },
+    {
+      "head": "Haji Wright projeta jogo dos EUA contra a Austráli",
+      "source": "gazetaesportiva.com",
+      "ts": 1781664614.0409184
+    },
+    {
+      "head": "Donald Trump envia mensagem de apoio aos jogadores",
+      "source": "gazetaesportiva.com",
+      "ts": 1781664676.0869517
+    },
+    {
+      "head": "Palmeiras goleia Criciúma e se distancia na lidera",
+      "source": "gazetaesportiva.com",
+      "ts": 1781686550.7190065
+    },
+    {
+      "head": "Santos vence Bahia e entra no G8 do Brasileirão su",
+      "source": "gazetaesportiva.com",
+      "ts": 1781686609.6002047
+    },
+    {
+      "head": "Tunísia troca de selecionador em pleno Mundial O f",
+      "source": "rtp.pt/desporto",
+      "ts": 1781686666.184009
+    },
+    {
+      "head": "Next Generation 2025: 20 dos melhores talentos dos",
+      "source": "theguardian.com/football",
+      "ts": 1781703491.1950517
+    },
+    {
+      "head": "Aitana Bonmatí faz história entre os 100 melhores",
+      "source": "theguardian.com/football",
+      "ts": 1781703551.9347017
+    },
+    {
+      "head": "Ousmane Dembélé discretamente se torna o homem pri",
+      "source": "theguardian.com/football",
+      "ts": 1781703611.6387303
+    },
+    {
+      "head": "As 100 melhores jogadoras de futebol do mundo 2025",
+      "source": "theguardian.com/football",
+      "ts": 1781715194.8632421
+    },
+    {
+      "head": "O revés da Inglaterra na Copa do Mundo e a luta de",
+      "source": "theguardian.com/football",
+      "ts": 1781715257.6819146
+    },
+    {
+      "head": "A história de Cabo Verde enquanto a Espanha começa",
+      "source": "theguardian.com/football",
+      "ts": 1781715318.3955288
+    },
+    {
+      "head": "Real Madrid anuncia a contratação de Bernardo Silv",
+      "source": "gazetaesportiva.com",
+      "ts": 1781726562.78695
+    },
+    {
+      "head": "Meia dos EUA, Berhalter fala sobre a liderança de",
+      "source": "gazetaesportiva.com",
+      "ts": 1781726618.0132601
+    },
+    {
+      "head": "O ponto de acesso | ‘Esta pode ser a nossa última",
+      "source": "theguardian.com/football",
+      "ts": 1781726670.5210624
+    },
+    {
+      "head": "Carlos Alberto Parreira, ex-técnico da Seleção Bra",
+      "source": "gazetaesportiva.com",
+      "ts": 1781738347.5670152
+    },
+    {
+      "head": "Feyenoord anuncia Van Bronckhorst como novo técnic",
+      "source": "gazetaesportiva.com",
+      "ts": 1781738402.7073507
+    },
+    {
+      "head": "Bastidores do treino dos EUA para pegar a Austráli",
+      "source": "gazetaesportiva.com",
+      "ts": 1781738459.6510057
+    },
+    {
+      "head": "Santos aproveita pausa da Copa para fazer manutenç",
+      "source": "gazetaesportiva.com",
+      "ts": 1781750919.0141966
+    },
+    {
+      "head": "Morre Eric Roy, técnico do Brest, aos 58 anos O té",
+      "source": "gazetaesportiva.com",
+      "ts": 1781750988.2334125
+    },
+    {
+      "head": "Barcelona critica Florentino Peréz e pede “medidas",
+      "source": "gazetaesportiva.com",
+      "ts": 1781751082.623528
+    },
+    {
+      "head": "Jogadores livres do País de Gales se colocam na vi",
+      "source": "bbc.com/football",
+      "ts": 1781771999.3935025
+    },
+    {
+      "head": "O ponto de acesso | ‘Esta pode ser a nossa última",
+      "source": "theguardian.com/football",
+      "ts": 1781772072.3074977
+    },
+    {
+      "head": "‘Estaremos em um fuso horário louco e irreal da Co",
+      "source": "theguardian.com/football",
+      "ts": 1781772137.729865
+    },
+    {
+      "head": "Escócia empata com República Tcheca na primeira ro",
+      "source": "bbc.com/football",
+      "ts": 1781786892.9420564
+    },
+    {
+      "head": "Weir assina pelo Lyon, vice-campeão da Liga dos Ca",
+      "source": "bbc.com/football",
+      "ts": 1781786957.9692776
+    },
+    {
+      "head": "Quase o homem McInnes finalmente conseguiu o empre",
+      "source": "bbc.com/football",
+      "ts": 1781787024.2700052
+    },
+    {
+      "head": "Revisão da Premier League 2025-26: queixas da temp",
+      "source": "theguardian.com/football",
+      "ts": 1781801609.690758
+    },
+    {
+      "head": "A emocionante janela de transferências só irá agra",
+      "source": "theguardian.com/football",
+      "ts": 1781801671.474398
+    },
+    {
+      "head": "Se esta for a última Copa do Mundo de Messi, ele p",
+      "source": "theguardian.com/football",
+      "ts": 1781801735.0979905
+    },
+    {
+      "head": "Veja os menores públicos do Santos no primeiro sem",
+      "source": "gazetaesportiva.com",
+      "ts": 1781813649.583444
+    },
+    {
+      "head": "México e Coreia do Sul se enfrentam em Guadalajara",
+      "source": "gazetaesportiva.com",
+      "ts": 1781813707.1363835
+    },
+    {
+      "head": "“Ele não é mais o mesmo jogador de antes”, diz mei",
+      "source": "gazetaesportiva.com",
+      "ts": 1781813770.3048809
+    },
+    {
+      "head": "‘Eu pensei – meu Deus, ele vai ser um jogador’: a",
+      "source": "theguardian.com/football",
+      "ts": 1781825408.8504376
+    },
+    {
+      "head": "Revisão da temporada 2025-26 da Premier League: no",
+      "source": "theguardian.com/football",
+      "ts": 1781825464.5083408
+    },
+    {
+      "head": "Leoas enfrentarão a Grécia na repescagem da Copa d",
+      "source": "bbc.com/football",
+      "ts": 1781825525.2099073
+    },
+    {
+      "head": "Atlético-MG avança na construção de novo prédio da",
+      "source": "gazetaesportiva.com",
+      "ts": 1781839720.0370045
+    },
+    {
+      "head": "República Tcheca sai na frente, mas leva empate da",
+      "source": "gazetaesportiva.com",
+      "ts": 1781839781.898089
+    },
+    {
+      "head": "Francisco Chamorro confirma presença e tenta 5º tí",
+      "source": "gazetaesportiva.com",
+      "ts": 1781839852.6677752
+    },
+    {
+      "head": "Mbappé ganha camisa comemorativa após se tornar o",
+      "source": "gazetaesportiva.com",
+      "ts": 1781859639.6414082
+    },
+    {
+      "head": "Atlético-MG avança na construção de novo prédio da",
+      "source": "gazetaesportiva.com",
+      "ts": 1781859704.5929909
+    },
+    {
+      "head": "Cucurella fala sobre estreia na Copa e ida ao Real",
+      "source": "gazetaesportiva.com",
+      "ts": 1781859767.9190125
+    },
+    {
+      "head": "Palmeiras e Flamengo disputam sexta edição da Bras",
+      "source": "gazetaesportiva.com",
+      "ts": 1781875802.8447807
+    },
+    {
+      "head": "Cruzeiro anuncia contratação de lateral argentino",
+      "source": "gazetaesportiva.com",
+      "ts": 1781875871.5477118
+    },
+    {
+      "head": "Tottenham anuncia contratação de zagueiro da seleç",
+      "source": "gazetaesportiva.com",
+      "ts": 1781875942.242563
+    },
+    {
+      "head": "'Quero coragem, não medo' - técnico do País de Gal",
+      "source": "bbc.com/football",
+      "ts": 1781886590.0895557
+    },
+    {
+      "head": "‘Eu pensei – meu Deus, ele vai ser um jogador’: a",
+      "source": "theguardian.com/football",
+      "ts": 1781886649.4090776
+    },
+    {
+      "head": "Revisão da temporada 2025-26 da Premier League: no",
+      "source": "theguardian.com/football",
+      "ts": 1781886708.638
+    },
+    {
+      "head": "Montella questiona “caos” de críticas à Turquia an",
+      "source": "gazetaesportiva.com",
+      "ts": 1781897300.929033
+    },
+    {
+      "head": "No Z4 do Brasileirão, Vasco demite Renato Gaúcho O",
+      "source": "gazetaesportiva.com",
+      "ts": 1781897359.4118958
+    },
+    {
+      "head": "Ex-camisa 10 do Brasil cobra Raphinha na Seleção:",
+      "source": "gazetaesportiva.com",
+      "ts": 1781897417.0858457
+    },
+    {
+      "head": "“Muitos adorariam estar no nosso lugar”, diz técni",
+      "source": "gazetaesportiva.com",
+      "ts": 1781903002.7062857
+    },
+    {
+      "head": "Esperança de Marrocos, Hakimi divide atenção entre",
+      "source": "gazetaesportiva.com",
+      "ts": 1781903056.9629772
+    },
+    {
+      "head": "Ancelotti não cede à pressão e pede calma com Endr",
+      "source": "gazetaesportiva.com",
+      "ts": 1781903116.1506689
+    },
+    {
+      "head": "Atual Bola de Ouro, Dembélé segue sem encontrar me",
+      "source": "gazetaesportiva.com",
+      "ts": 1781909151.404988
+    },
+    {
+      "head": "E se os homens japoneses também limpassem suas cas",
+      "source": "gazetaesportiva.com",
+      "ts": 1781909209.1657958
+    },
+    {
+      "head": "Achraf Hakimi será julgado na França por acusação",
+      "source": "gazetaesportiva.com",
+      "ts": 1781909267.616095
+    },
+    {
+      "head": "Por que Países Baixos de van Dijk devem temer conf",
+      "source": "trivela.com.br",
+      "ts": 1781922875.4198546
+    },
+    {
+      "head": "Turquia x Paraguai: Como os paraguaios podem se re",
+      "source": "trivela.com.br",
+      "ts": 1781922944.1505516
+    },
+    {
+      "head": "Tim Vickery: A Copa do Mundo mudou. Como a obsessã",
+      "source": "trivela.com.br",
+      "ts": 1781923012.133224
+    },
+    {
+      "head": "Meia dos EUA, Aaronson fala sobre lidar com a pres",
+      "source": "gazetaesportiva.com",
+      "ts": 1781941511.6740334
+    },
+    {
+      "head": "Tyler Adams blinda o USA contra o salto alto e a e",
+      "source": "gazetaesportiva.com",
+      "ts": 1781941585.152851
+    },
+    {
+      "head": "Lula diz que Neymar está fazendo “home office” na",
+      "source": "gazetaesportiva.com",
+      "ts": 1781941662.7192574
+    },
+    {
+      "head": "Leoas enfrentarão a Grécia na repescagem da Copa d",
+      "source": "bbc.com/football",
+      "ts": 1781951331.5446167
+    },
+    {
+      "head": "Juiz de EUA x Austrália sente dores e recebe atend",
+      "source": "gazetaesportiva.com",
+      "ts": 1781951411.5691478
+    },
+    {
+      "head": "Koné passa por cirurgia e está fora da Copa do Mun",
+      "source": "gazetaesportiva.com",
+      "ts": 1781951489.345192
+    },
+    {
+      "head": "Alemanha x Costa do Marfim: veja prováveis escalaç",
+      "source": "gazetaesportiva.com",
+      "ts": 1781962324.000112,
+      "fb_id": "348454375016310_122241146666359689",
+      "ig_id": "18118970449694898",
+      "is_video": false
+    },
+    {
+      "head": "Tunísia x Japão pela Copa do Mundo: veja prováveis",
+      "source": "gazetaesportiva.com",
+      "ts": 1781962391.0878904,
+      "ig_id": "17900498397304857",
+      "is_video": false
+    },
+    {
+      "head": "Brasil terá duas mudanças para duelo com Haiti pel",
+      "source": "gazetaesportiva.com",
+      "ts": 1781962463.78589,
+      "fb_id": "348454375016310_122241147344359689",
+      "ig_id": "18071124677368434",
+      "is_video": false
+    }
+  ],
+  "sources": {},
+  "hours": {},
+  "ig_quota": {
+    "day": "2026-06-20",
+    "posts": 12
+  }
+}
