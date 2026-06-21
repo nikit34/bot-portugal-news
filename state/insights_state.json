@@ -799,13 +799,37 @@
       "fb_id": "348454375016310_122241272336359689",
       "ig_id": "18061026437545529",
       "is_video": false
+    },
+    {
+      "head": "Qual jogador marcou a maior porcentagem de gols de",
+      "source": "theguardian.com/football",
+      "ts": 1782056884.9137166,
+      "fb_id": "348454375016310_122241302828359689",
+      "ig_id": "18085572620641677",
+      "is_video": false
+    },
+    {
+      "head": "Catanduvense perde de 17 a 0 e sofre maior goleada",
+      "source": "gazetaesportiva.com",
+      "ts": 1782056959.1567464,
+      "fb_id": "348454375016310_122241303524359689",
+      "ig_id": "17959471109961656",
+      "is_video": false
+    },
+    {
+      "head": "Palmeiras faz 7 a 1 no América-MG e abre vantagem",
+      "source": "gazetaesportiva.com",
+      "ts": 1782057031.03768,
+      "fb_id": "348454375016310_122241303818359689",
+      "ig_id": "18113467774922776",
+      "is_video": false
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-06-21",
-    "posts": 9
+    "posts": 12
   },
   "last_scored_ts": 1782030388.5535774
 }
