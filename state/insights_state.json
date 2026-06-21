@@ -775,13 +775,37 @@
       "ts": 1782030345.7101815,
       "ig_id": "17910875004421208",
       "is_video": false
+    },
+    {
+      "head": "Corinthians bate o Cruzeiro e vence a terceira seg",
+      "source": "gazetaesportiva.com",
+      "ts": 1782043654.696715,
+      "fb_id": "348454375016310_122241271508359689",
+      "ig_id": "17944043160213441",
+      "is_video": false
+    },
+    {
+      "head": "Santos sofre dois gols no fim e é derrotado pelo B",
+      "source": "gazetaesportiva.com",
+      "ts": 1782043729.8906484,
+      "fb_id": "348454375016310_122241271934359689",
+      "ig_id": "17881817889665270",
+      "is_video": false
+    },
+    {
+      "head": "Neymar faz trabalho com bola e deve reforçar Seleç",
+      "source": "gazetaesportiva.com",
+      "ts": 1782043800.9030159,
+      "fb_id": "348454375016310_122241272336359689",
+      "ig_id": "18061026437545529",
+      "is_video": false
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-06-21",
-    "posts": 6
+    "posts": 9
   },
   "last_scored_ts": 1782030388.5535774
 }
