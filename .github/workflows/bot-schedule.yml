@@ -86,6 +86,13 @@ jobs:
           LEARNING_SCORE_BY_TTL_ENABLED: 'true'
           FB_POST_INSIGHTS_ENABLED: 'true'
           VARIANT_LOGGING_ENABLED: 'true'
+          # === TEMP scoring force (validate a fresh like flows into reward) ===
+          # Opens both scoring gates for ONE run: TTL=0 => score_now regardless of
+          # the 20h clock; MATURATION=600s => recent (liked) posts count as matured.
+          # REVERT immediately after the validation run. Unmatched pending posts are
+          # still kept until MAX_AGE (7d), so this only scores recent matched posts.
+          LEARNING_SCORE_TTL_SECONDS: '0'
+          LEARNING_MATURATION_SECONDS: '600'
       - name: Persist learning state to repo
         # Durable backstop for the learning model on top of actions/cache (which can
         # be evicted after 7 idle days). Runs even if the bot soft-failed (the bot
