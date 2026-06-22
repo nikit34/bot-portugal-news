@@ -252,12 +252,6 @@ HASHTAG_ENTITY_BIAS_ENABLED = _flag('HASHTAG_ENTITY_BIAS_ENABLED', 'true')
 # Стабильная нишевая метка, добавляется первой (напр. лига/регион). Пусто => нет.
 HASHTAG_NICHE_TAG = os.getenv('HASHTAG_NICHE_TAG', '')
 
-# --- Hook-first: выносим в первую строку предложение с сущностью --------------
-# FB обрезает подпись на ~125 симв. и предсказывает dwell — сильный entity-first
-# лид поднимает stop-scroll. Консервативно: только переставляем существующее
-# предложение (без LLM не переписываем), дубль убираем. По умолчанию ВЫКЛ.
-HOOK_FIRST_ENABLED = _flag('HOOK_FIRST_ENABLED', 'false')
-
 # --- Карточки оригинальной графики (fee/transfer) -----------------------------
 # Своя сгенерированная графика — единственный бесплатный value-add против
 # unoriginal-content демоута и сама по себе save/share-worthy. v1: только карточки
