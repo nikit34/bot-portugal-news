@@ -14,6 +14,22 @@ _TEMPLATES = [
     '{entity}: acerto ou erro? Queremos saber a sua leitura.',
     'Como avalia o momento de {entity}?',
     'Concorda com a análise sobre {entity}?',
+    'Que nota você dá para {entity} aqui?',
+    'O que {entity} precisa de mudar, na sua opinião?',
+    'Surpreendido com {entity}? Diga o que sentiu.',
+    'Na sua leitura, isto valoriza ou prejudica {entity}?',
+    'Qual o próximo passo de {entity}, na sua visão?',
+    '{entity} está no caminho certo? Argumente.',
+    'Você confia em {entity} para o que vem aí?',
+    'Justo ou exagerado o que se diz sobre {entity}?',
+    'Como você teria resolvido isto no lugar de {entity}?',
+    'Esse resultado muda a sua opinião sobre {entity}?',
+    'O que mais te marcou em {entity} aqui?',
+    'Dá para defender {entity} nesta? Conte.',
+    'Que expectativa você tem para {entity} agora?',
+    'Concorda que isto define a temporada de {entity}?',
+    'Ponto alto ou ponto baixo para {entity}? Explique.',
+    'Você apostaria em {entity} depois disto?',
 ]
 
 _ENTITY_LABELS = ('ORG', 'PER')
@@ -26,13 +42,15 @@ _FORBIDDEN = re.compile(
 
 def build_cta(doc):
     # Берём первую сущность ORG/PER как якорь; детерминированно (без random/Date —
-    # они недоступны/ломают воспроизводимость) выбираем шаблон по хешу её текста,
-    # чтобы вопрос менялся между постами. Нет сущности => нет CTA (не лепим
-    # обобщённый робо-вопрос на низко-сущностный пост).
+    # они недоступны/ломают воспроизводимость) выбираем шаблон по хешу ТЕКСТА ПОСТА,
+    # а не сущности — так один и тот же повторяющийся клуб (Benfica и т.п.) получает
+    # РАЗНЫЙ вопрос в разных постах, что снимает дословные повторы (главный риск
+    # демоута). Нет сущности => нет CTA (не лепим робо-вопрос на низко-сущностный пост).
     entities = [ent.text for ent in getattr(doc, 'ents', [])
                 if getattr(ent, 'label_', '') in _ENTITY_LABELS]
     if not entities:
         return ''
     entity = entities[0]
-    idx = sum(ord(c) for c in entity) % len(_TEMPLATES)
+    seed = getattr(doc, 'text', None) or entity
+    idx = sum(ord(c) for c in seed) % len(_TEMPLATES)
     return _TEMPLATES[idx].format(entity=entity)

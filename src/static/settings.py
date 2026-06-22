@@ -280,6 +280,11 @@ STORY_GATE_IG_BUDGET_FRACTION = float(os.getenv('STORY_GATE_IG_BUDGET_FRACTION',
 RANKER_ENABLED = _flag('RANKER_ENABLED', 'false')
 # Во сколько раз пул кандидатов больше бюджета постов (ограничивает скрейп в фазе 1).
 RANKER_POOL_FACTOR = int(os.getenv('RANKER_POOL_FACTOR', '4'))
+# Сколько секунд wall-clock резервируем под фазу 2 (drain: скачивание+публикация
+# топ-K) — фаза 1 (наполнение пула) останавливается раньше дедлайна на эту величину,
+# чтобы на контент-богатом прогоне точно осталось время опубликовать лучших, а не
+# упереться в дедлайн с полным пулом и нулём публикаций. ~K*(POST_DELAY+загрузка).
+RANKER_DRAIN_RESERVE_SECONDS = int(os.getenv('RANKER_DRAIN_RESERVE_SECONDS', '180'))
 
 # --- Engagement-weighted reward (вместо чистого reach) ------------------------
 # reward = w_share*shares + w_comment*comments + w_like*likes + w_reach*reach.

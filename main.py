@@ -26,7 +26,7 @@ from src.parsers.insights import (
 from src.processor import learning
 from src.processor.service import (
     get_publish_records, should_stop, set_run_cap,
-    set_ig_daily, set_deadline, ig_posts_this_run, get_run_stats, drain_pool,
+    set_ig_daily, set_deadline, set_drain_reserve, ig_posts_this_run, get_run_stats, drain_pool,
 )
 from src.producers.instagram.producer import get_failure_counts
 from src.producers.facebook.producer import get_failure_counts as get_facebook_failure_counts
@@ -61,6 +61,7 @@ from src.static.settings import (
     FB_POST_INSIGHTS_ENABLED,
     VARIANT_LOGGING_ENABLED,
     RANKER_ENABLED,
+    RANKER_DRAIN_RESERVE_SECONDS,
 )
 from src.static.sources import get_config
 from src.producers.telegram.telegram_api import send_message_api
@@ -116,6 +117,10 @@ async def main(config_name):
         # Per-run wall-clock budget so "nothing fresh" runs don't scrape every source
         # to the very end and trip the CI timeout (item 12).
         set_deadline(time.monotonic() + RUN_TIME_BUDGET_SECONDS)
+        # With the ranker on, reserve wall-clock for phase-2 drain so a content-rich
+        # run can't spend the whole budget pooling and then publish nothing.
+        if RANKER_ENABLED:
+            set_drain_reserve(RANKER_DRAIN_RESERVE_SECONDS)
         today = time.strftime('%Y-%m-%d', time.gmtime())
 
         app_logger.info("Fetching message history from Facebook, Instagram and Telegram")

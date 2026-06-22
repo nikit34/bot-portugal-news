@@ -72,6 +72,9 @@ _ig_daily_limit = INSTAGRAM_DAILY_POST_LIMIT
 _ig_posts_this_run = 0
 # Wall-clock deadline (time.monotonic()) after which parsers stop taking new work.
 _deadline = None
+# Seconds before _deadline at which phase-1 scraping must stop, leaving wall-clock
+# headroom for the ranker's phase-2 drain (download+publish). 0 => no reserve.
+_drain_reserve_seconds = 0
 # Per-run telemetry for the debug-chat summary.
 _platform_publishes = Counter()
 # Candidate ranker (RANKER_ENABLED): phase-1 buffers candidates here; drain_pool
@@ -95,6 +98,11 @@ def set_deadline(monotonic_deadline):
     _deadline = monotonic_deadline
 
 
+def set_drain_reserve(seconds):
+    global _drain_reserve_seconds
+    _drain_reserve_seconds = seconds
+
+
 def budget_remaining():
     return _run_cap - _published_count
 
@@ -103,14 +111,20 @@ def time_budget_exceeded():
     return _deadline is not None and time.monotonic() >= _deadline
 
 
+def _scrape_budget_exceeded():
+    # Phase-1 deadline: the full run deadline minus the drain reserve, so the ranker
+    # always keeps wall-clock for phase 2. With no reserve this equals the deadline.
+    return _deadline is not None and time.monotonic() >= (_deadline - _drain_reserve_seconds)
+
+
 def should_stop():
     # Parsers call this to stop taking new entries: either the per-run post budget
-    # is filled, or the wall-clock budget is exhausted (avoids endless scraping on
-    # runs where nothing is fresh). With the ranker on, also stop once the candidate
-    # pool is full — otherwise phase-1 (which never publishes) would scrape forever.
+    # is filled, or the (reserve-adjusted) wall-clock budget is exhausted. With the
+    # ranker on, also stop once the candidate pool is full — otherwise phase-1
+    # (which never publishes) would scrape until the deadline.
     if RANKER_ENABLED and len(_candidate_pool) >= max(1, _run_cap) * RANKER_POOL_FACTOR:
         return True
-    return budget_remaining() <= 0 or time_budget_exceeded()
+    return budget_remaining() <= 0 or _scrape_budget_exceeded()
 
 
 async def drain_pool(client, graph, nlp, state):
@@ -124,7 +138,9 @@ async def drain_pool(client, graph, nlp, state):
     app_logger.info(f"[ranker] draining {len(ranked)} pooled candidates by score")
     try:
         for cand in ranked:
-            if should_stop():
+            # Drain uses the FULL run deadline (not the reserve-adjusted scrape stop)
+            # so the headroom reserved away from phase 1 is actually spent publishing.
+            if budget_remaining() <= 0 or time_budget_exceeded():
                 break
             await _download_and_publish(
                 client, graph, nlp, cand['text'], cand['handler_url_path'],

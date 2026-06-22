@@ -71,6 +71,20 @@ jobs:
           LOG_LEVEL: ${{ github.event_name == 'schedule' && 'WARNING' || inputs.log_level || 'DEBUG' }}
           MAX_POSTS_PER_RUN: ${{ inputs.max_posts_per_run || '3' }}
           POST_DELAY_SECONDS: ${{ inputs.post_delay_seconds || '40' }}
+          # === FB-growth optimization: all levers ON (verified runtime-safe) ===
+          # Anti-demotion / content (CAPTION_GUARD + hashtag entity bias are ON by
+          # code default). Set the rest here so they're auditable and reversible.
+          CARDS_ENABLED: 'true'
+          CTA_ENABLED: 'true'
+          STORY_GATE_ENABLED: 'true'
+          RANKER_ENABLED: 'true'
+          LEARNING_BIAS_ENABLED: 'true'
+          LEARNING_TIME_BIAS_ENABLED: 'true'
+          LEARNING_BANDIT_ENABLED: 'true'
+          LEARNING_REWARD_ENABLED: 'true'
+          LEARNING_SCORE_BY_TTL_ENABLED: 'true'
+          FB_POST_INSIGHTS_ENABLED: 'true'
+          VARIANT_LOGGING_ENABLED: 'true'
       - name: Persist learning state to repo
         # Durable backstop for the learning model on top of actions/cache (which can
         # be evicted after 7 idle days). Runs even if the bot soft-failed (the bot

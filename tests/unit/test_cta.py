@@ -8,8 +8,10 @@ class _Ent:
 
 
 class _Doc:
-    def __init__(self, ents=()):
+    def __init__(self, ents=(), text=None):
         self.ents = list(ents)
+        if text is not None:
+            self.text = text
 
 
 def test_no_template_contains_engagement_bait():
@@ -40,3 +42,20 @@ def test_build_cta_varies_across_entities():
     a = build_cta(_Doc([_Ent('Benfica', 'ORG')]))
     b = build_cta(_Doc([_Ent('Sporting Clube de Portugal', 'ORG')]))
     assert a and b  # both produce a question
+
+
+def test_build_cta_varies_by_post_text_for_same_entity():
+    # The same recurring entity gets DIFFERENT questions across posts (template is
+    # picked by post text), which is what defuses verbatim-repetition demotion risk.
+    ent = [_Ent('Benfica', 'ORG')]
+    seen = set()
+    posts = [
+        'Benfica vence o Porto por 2-1 no classico da Luz',
+        'Benfica anuncia reforco para o meio-campo nesta janela',
+        'Benfica empata fora e perde a lideranca da liga',
+        'Benfica renova com o capitao ate 2030 oficialmente',
+    ]
+    for text in posts:
+        seen.add(build_cta(_Doc(ent, text=text)))
+    assert len(seen) >= 2          # at least two distinct questions across posts
+    assert all('Benfica' in q for q in seen)
