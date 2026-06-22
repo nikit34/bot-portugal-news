@@ -86,6 +86,10 @@ jobs:
           LEARNING_SCORE_BY_TTL_ENABLED: 'true'
           FB_POST_INSIGHTS_ENABLED: 'true'
           VARIANT_LOGGING_ENABLED: 'true'
+          # TEMP (validation of read_insights/scoring path): force scoring on this run
+          # and shorten maturation so the recent fb_id posts qualify. REVERT after.
+          LEARNING_SCORE_TTL_SECONDS: '0'
+          LEARNING_MATURATION_SECONDS: '600'
       - name: Persist learning state to repo
         # Durable backstop for the learning model on top of actions/cache (which can
         # be evicted after 7 idle days). Runs even if the bot soft-failed (the bot
