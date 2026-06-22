@@ -76,6 +76,7 @@ jobs:
           # code default). Set the rest here so they're auditable and reversible.
           CARDS_ENABLED: 'true'
           CTA_ENABLED: 'true'
+          CTA_EMISSION_RATE: '0.5'   # CTA on ~half of entity posts (anti-repetition)
           STORY_GATE_ENABLED: 'true'
           RANKER_ENABLED: 'true'
           LEARNING_BIAS_ENABLED: 'true'

@@ -1,5 +1,7 @@
 import re
 
+from src.static.settings import CTA_EMISSION_RATE
+
 # Библиотека ЖИВЫХ открытых вопросов (драйвер комментариев). FB ценит вдумчивые
 # комменты выше лайков, а открытый вопрос НЕ является engagement-bait (в отличие
 # от «comente SIM»). Гард зашит прямо сюда: ни один шаблон не содержит bait-фраз
@@ -52,5 +54,9 @@ def build_cta(doc):
         return ''
     entity = entities[0]
     seed = getattr(doc, 'text', None) or entity
-    idx = sum(ord(c) for c in seed) % len(_TEMPLATES)
+    seed_val = sum(ord(c) for c in seed)
+    # Дробный гейт: пропускаем CTA только на доле постов (детерминированно по seed).
+    if (seed_val % 100) >= round(CTA_EMISSION_RATE * 100):
+        return ''
+    idx = seed_val % len(_TEMPLATES)
     return _TEMPLATES[idx].format(entity=entity)

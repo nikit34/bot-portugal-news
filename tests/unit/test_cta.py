@@ -1,4 +1,6 @@
-from src.producers.cta import build_cta, _TEMPLATES, _FORBIDDEN
+import pytest
+
+import src.producers.cta as cta
 
 
 class _Ent:
@@ -14,34 +16,34 @@ class _Doc:
             self.text = text
 
 
+@pytest.fixture(autouse=True)
+def _full_emission(monkeypatch):
+    # Content tests assert a CTA is produced; isolate them from the fractional gate
+    # by forcing full emission. The gate itself is covered by test_emission_gate_*.
+    monkeypatch.setattr(cta, 'CTA_EMISSION_RATE', 1.0)
+
+
 def test_no_template_contains_engagement_bait():
     # The library IS the guard: not a single template may carry a bait phrasing.
-    for tmpl in _TEMPLATES:
-        assert _FORBIDDEN.search(tmpl) is None
+    for tmpl in cta._TEMPLATES:
+        assert cta._FORBIDDEN.search(tmpl) is None
         assert '{entity}' in tmpl  # every question is anchored to a real entity
 
 
 def test_build_cta_substitutes_entity():
-    cta = build_cta(_Doc([_Ent('Benfica', 'ORG')]))
-    assert 'Benfica' in cta
-    assert _FORBIDDEN.search(cta) is None
+    out = cta.build_cta(_Doc([_Ent('Benfica', 'ORG')]))
+    assert 'Benfica' in out
+    assert cta._FORBIDDEN.search(out) is None
 
 
 def test_build_cta_empty_without_entities():
-    assert build_cta(_Doc([])) == ''
-    assert build_cta(_Doc([_Ent('Lisboa', 'LOC')])) == ''  # LOC is not an anchor
+    assert cta.build_cta(_Doc([])) == ''
+    assert cta.build_cta(_Doc([_Ent('Lisboa', 'LOC')])) == ''  # LOC is not an anchor
 
 
-def test_build_cta_is_deterministic_per_entity():
-    doc = _Doc([_Ent('Cristiano Ronaldo', 'PER')])
-    assert build_cta(doc) == build_cta(doc)
-
-
-def test_build_cta_varies_across_entities():
-    # Different entities can map to different templates (entity-substituted variety).
-    a = build_cta(_Doc([_Ent('Benfica', 'ORG')]))
-    b = build_cta(_Doc([_Ent('Sporting Clube de Portugal', 'ORG')]))
-    assert a and b  # both produce a question
+def test_build_cta_is_deterministic_per_post():
+    doc = _Doc([_Ent('Cristiano Ronaldo', 'PER')], text='Cristiano Ronaldo marcou dois golos')
+    assert cta.build_cta(doc) == cta.build_cta(doc)
 
 
 def test_build_cta_varies_by_post_text_for_same_entity():
@@ -56,6 +58,22 @@ def test_build_cta_varies_by_post_text_for_same_entity():
         'Benfica renova com o capitao ate 2030 oficialmente',
     ]
     for text in posts:
-        seen.add(build_cta(_Doc(ent, text=text)))
+        seen.add(cta.build_cta(_Doc(ent, text=text)))
     assert len(seen) >= 2          # at least two distinct questions across posts
     assert all('Benfica' in q for q in seen)
+
+
+def test_emission_gate_off_and_full(monkeypatch):
+    ent = [_Ent('Benfica', 'ORG')]
+    monkeypatch.setattr(cta, 'CTA_EMISSION_RATE', 0.0)
+    assert all(cta.build_cta(_Doc(ent, text=f'post numero {i}')) == '' for i in range(20))
+    monkeypatch.setattr(cta, 'CTA_EMISSION_RATE', 1.0)
+    assert all(cta.build_cta(_Doc(ent, text=f'post numero {i}')) for i in range(20))
+
+
+def test_emission_gate_partial_fires_on_a_fraction(monkeypatch):
+    ent = [_Ent('Benfica', 'ORG')]
+    monkeypatch.setattr(cta, 'CTA_EMISSION_RATE', 0.5)
+    out = [cta.build_cta(_Doc(ent, text=f'post numero {i} sobre o jogo de ontem')) for i in range(40)]
+    emitted = [o for o in out if o]
+    assert 0 < len(emitted) < 40   # some posts get a CTA, some don't
