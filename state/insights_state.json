@@ -2,51 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Irã chega aos EUA para Copa do Mundo em meio à ten",
-      "source": "gazetaesportiva.com",
-      "ts": 1781491885.91642
-    },
-    {
-      "head": "Com gol no último lance, Santa Cruz vence o Brusqu",
-      "source": "gazetaesportiva.com",
-      "ts": 1781491961.8090768
-    },
-    {
-      "head": "Alemanha arrasa Curaçao e repete placar histórico",
-      "source": "gazetaesportiva.com",
-      "ts": 1781492019.6443098
-    },
-    {
-      "head": "Após novo 7 a 1, Alemanha ultrapassa Brasil e se t",
-      "source": "gazetaesportiva.com",
-      "ts": 1781517244.4864051
-    },
-    {
-      "head": "Dupla do Corinthians se encontra em viagem de féri",
-      "source": "gazetaesportiva.com",
-      "ts": 1781517306.8596637
-    },
-    {
-      "head": "Seleção Brasileira faz treino regenerativo em hote",
-      "source": "gazetaesportiva.com",
-      "ts": 1781517365.5010316
-    },
-    {
-      "head": "Memphis sai do banco e vê Holanda ceder empate ao",
-      "source": "gazetaesportiva.com",
-      "ts": 1781537965.276567
-    },
-    {
-      "head": "Leila ameaça processar Bap e nega envolvimento com",
-      "source": "gazetaesportiva.com",
-      "ts": 1781538024.3672018
-    },
-    {
-      "head": "Ituano reage no segundo tempo e arranca empate con",
-      "source": "gazetaesportiva.com",
-      "ts": 1781538088.983669
-    },
-    {
       "head": "Paulo Sérgio reprova improvisação de Ancelotti na",
       "source": "gazetaesportiva.com",
       "ts": 1781552385.7820606
@@ -470,133 +425,6 @@
       "head": "Tyler Adams blinda o USA contra o salto alto e a e",
       "source": "gazetaesportiva.com",
       "ts": 1781941585.152851
-    },
-    {
-      "head": "Festas de casamento, Mão de Deus e Lineker – O Gra",
-      "source": "theguardian.com/football",
-      "ts": 1782091393.5498996,
-      "ig_id": "18102998096035355",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "‘As pessoas pensam que desapareci’: Mary Earps sob",
-      "source": "theguardian.com/football",
-      "ts": 1782091465.6193516,
-      "ig_id": "18398717590085295",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Análise da Premier League 2025-26: o melhor e o pi",
-      "source": "theguardian.com/football",
-      "ts": 1782091539.581211,
-      "fb_id": "348454375016310_122241361190359689",
-      "ig_id": "18080632193222892",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Carrasquilla, o astro panamenho que sonha em enfre",
-      "source": "gazetaesportiva.com",
-      "ts": 1782096760.3056214,
-      "fb_id": "348454375016310_122241367676359689",
-      "ig_id": "18597400894015633",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Esposa de Raphinha apoia marido após lesão: “Volta",
-      "source": "gazetaesportiva.com",
-      "ts": 1782096844.2592008,
-      "fb_id": "348454375016310_122241368282359689",
-      "ig_id": "18057324359757474",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Avaí vence Cuiabá, mas segue no Z4 da Série B O Av",
-      "source": "gazetaesportiva.com",
-      "ts": 1782096919.35372,
-      "fb_id": "348454375016310_122241368660359689",
-      "ig_id": "17931683685317845",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "O que aconteceu em uma noite histórica para a Arge",
-      "source": "theguardian.com/football",
-      "ts": 1782121269.720809,
-      "fb_id": "348454375016310_122241411338359689",
-      "ig_id": "18107795645483482",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Os jogadores são seres humanos e os comentários na",
-      "source": "theguardian.com/football",
-      "ts": 1782121326.4953086,
-      "fb_id": "348454375016310_122241411632359689",
-      "ig_id": "18077335556309914",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Por que o futebol não lembra o nome do maior jogad",
-      "source": "theguardian.com/football",
-      "ts": 1782121383.4316998,
-      "fb_id": "348454375016310_122241411884359689",
-      "ig_id": "17934085767275030",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Paquetá lamenta lesão de Raphinha e celebra retorn",
-      "source": "gazetaesportiva.com",
-      "ts": 1782141280.0347493,
-      "fb_id": "348454375016310_122241451346359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Brusque vence Floresta pela Série C e encosta no l",
-      "source": "gazetaesportiva.com",
-      "ts": 1782141338.5271096,
-      "fb_id": "348454375016310_122241451502359689",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Com um a menos, Bélgica só empata com o Irã e segu",
-      "source": "gazetaesportiva.com",
-      "ts": 1782141389.5073638,
-      "fb_id": "348454375016310_122241451658359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Francisco Conceição elogia CR7, mas o considera “m",
-      "source": "gazetaesportiva.com",
-      "ts": 1782146394.5536547,
-      "fb_id": "348454375016310_122241466340359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Tuchel aumenta a intensidade da Inglaterra em Kans",
-      "source": "gazetaesportiva.com",
-      "ts": 1782146440.3293614,
-      "fb_id": "348454375016310_122241466514359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "São Bernardo perde para o Juventude e deixa lidera",
-      "source": "gazetaesportiva.com",
-      "ts": 1782146504.5545692,
-      "fb_id": "348454375016310_122241466898359689",
-      "is_video": false,
-      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -606,11 +434,11 @@
     },
     "gazetaesportiva.com": {
       "reach_avg": 0.0,
-      "n": 42
+      "n": 51
     },
     "theguardian.com/football": {
-      "reach_avg": 0.0,
-      "n": 6
+      "reach_avg": 0.3,
+      "n": 12
     }
   },
   "hours": {
@@ -632,7 +460,7 @@
     },
     "15": {
       "reach_avg": 0.0,
-      "n": 6
+      "n": 9
     },
     "17": {
       "reach_avg": 0.0,
@@ -648,7 +476,7 @@
     },
     "2": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 6
     },
     "8": {
       "reach_avg": 0.0,
@@ -661,13 +489,25 @@
     "0": {
       "reach_avg": 0.0,
       "n": 3
+    },
+    "1": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "9": {
+      "reach_avg": 0.3,
+      "n": 3
+    },
+    "16": {
+      "reach_avg": 0.0,
+      "n": 3
     }
   },
   "ig_quota": {
     "day": "2026-06-22",
     "posts": 12
   },
-  "last_scored_ts": 1782091579.5861285,
+  "last_scored_ts": 1782153477.5336397,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -740,18 +580,38 @@
     "0-0": {
       "reach_avg": 0.0,
       "n": 3
+    },
+    "0-1": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "0-2": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "0-9": {
+      "reach_avg": 0.3,
+      "n": 3
+    },
+    "0-15": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "0-16": {
+      "reach_avg": 0.0,
+      "n": 3
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.0,
-      "n": 50
+      "reach_avg": 0.03529469999999999,
+      "n": 65
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.0,
-      "n": 3
+      "reach_avg": 0.03529469999999999,
+      "n": 18
     }
   }
 }
