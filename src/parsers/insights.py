@@ -206,8 +206,20 @@ def get_facebook_page_insights(access_token, page_id):
     return stats
 
 
+_WEEKDAYS = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
+
+
+def _fmt_dow_hour(key):
+    # 'wday-hour' (напр. '2-14') -> 'Ср 14:00'. На непарсимый ключ — как есть.
+    try:
+        dow, hour = str(key).split('-')
+        return f'{_WEEKDAYS[int(dow)]} {int(hour):02d}:00'
+    except (ValueError, IndexError):
+        return str(key)
+
+
 def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=None,
-                          format_ranking=None, variant_ranking=None):
+                          format_ranking=None, variant_ranking=None, dow_hour_ranking=None):
     lines = ['📊 <b>Insights</b>']
 
     fb_reach = fb_stats.get('page_impressions_unique')
@@ -237,6 +249,11 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
         for i, (hour, reach_avg, n) in enumerate(hour_ranking, 1):
             lines.append(f'{i}. {int(hour):02d}:00 — {round(reach_avg)} (n={n})')
 
+    if dow_hour_ranking:
+        lines.append('\n<b>Лучшие слоты день×час (UTC, средн.)</b>')
+        for i, (key, reward_avg, n) in enumerate(dow_hour_ranking, 1):
+            lines.append(f'{i}. {_fmt_dow_hour(key)} — {round(reward_avg)} (n={n})')
+
     if format_ranking:
         lines.append('\n<b>Форматы по reward (средн.)</b>')
         for name, reward_avg, n in format_ranking:
@@ -254,7 +271,7 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
 
 
 async def report_insights(graph, telegram_bot_token, context, source_ranking=None, hour_ranking=None,
-                          format_ranking=None, variant_ranking=None):
+                          format_ranking=None, variant_ranking=None, dow_hour_ranking=None):
     ig_items = []
     fb_stats = {}
     ig_user_id = context.get('self_instagram_channel')
@@ -272,6 +289,7 @@ async def report_insights(graph, telegram_bot_token, context, source_ranking=Non
         logger.warning(f"[insights] FB page insights failed: {e}")
 
     report = build_insights_report(
-        ig_items, fb_stats, source_ranking, hour_ranking, format_ranking, variant_ranking)
+        ig_items, fb_stats, source_ranking, hour_ranking, format_ranking, variant_ranking,
+        dow_hour_ranking)
     await send_message_api(report, telegram_bot_token, context)
     logger.info("[insights] report sent to debug chat")

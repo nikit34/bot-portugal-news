@@ -176,6 +176,18 @@ def test_get_facebook_metrics_by_head_only_matured_with_id(monkeypatch):
     assert result == {'h1': {'reach': 100, 'shares': 1}}
 
 
+def test_build_report_includes_dow_hour_ranking():
+    report = ins.build_insights_report(
+        [], {}, dow_hour_ranking=[('2-14', 900.0, 5), ('5-20', 300.0, 4)])
+    assert 'Лучшие слоты день×час' in report
+    assert '1. Ср 14:00 — 900 (n=5)' in report   # weekday 2 == Ср (Wed)
+    assert '2. Сб 20:00 — 300 (n=4)' in report   # weekday 5 == Сб (Sat)
+
+
+def test_fmt_dow_hour_tolerates_bad_key():
+    assert ins._fmt_dow_hour('garbage') == 'garbage'
+
+
 def test_build_report_includes_format_and_variant_rankings():
     report = ins.build_insights_report(
         [], {}, format_ranking=[('video', 80.0, 4), ('photo', 30.0, 6)],

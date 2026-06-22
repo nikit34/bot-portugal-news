@@ -239,3 +239,48 @@ def test_order_sources_ucb_prefers_under_sampled_on_tie():
 def test_well_sampled_sources_counts_above_threshold():
     sources = {'a': {'reach_avg': 1, 'n': 3}, 'b': {'reach_avg': 1, 'n': 2}, 'c': {'reach_avg': 1, 'n': 5}}
     assert learning.well_sampled_sources(sources, min_samples=3) == 2
+
+
+# --- dow-hour buckets (day-of-week × hour) ----------------------------------
+
+def test_dow_hour_key_format():
+    # 1700000000 == 2023-11-14 22:13:20 UTC -> Tuesday(1) hour 22
+    assert learning._dow_hour_of(1_700_000_000) == '1-22'
+
+
+def test_update_scores_also_fills_dow_hours():
+    publish_ts = 1_700_000_000
+    state = {'pending': [{'head': 'h', 'source': 's', 'ts': publish_ts}],
+             'sources': {}, 'hours': {}}
+    learning.update_scores(state, {'h': 400}, publish_ts + 2 * DAY, DAY, 7 * DAY, alpha=0.3)
+    # both the coarse hour bucket and the fine dow-hour bucket are filled
+    assert state['hours'] == {str(learning._hour_of(publish_ts)): {'reach_avg': 400.0, 'n': 1}}
+    assert state['dow_hours'] == {learning._dow_hour_of(publish_ts): {'reach_avg': 400.0, 'n': 1}}
+
+
+def test_hour_budget_prefers_well_sampled_dow_hour():
+    # Tuesday(2) 14:00 is top-tier among dow-hour peers -> full cap, even though the
+    # coarse hour bucket alone would have too few entries to tier.
+    hours = {'14': {'reach_avg': 100.0, 'n': 5}}
+    dow = {'2-14': {'reach_avg': 900.0, 'n': 5},
+           '2-10': {'reach_avg': 500.0, 'n': 5},
+           '2-8': {'reach_avg': 100.0, 'n': 5}}
+    assert learning.hour_budget(hours, 14, 3, 3, dow_hours=dow, current_dow=2) == 3
+
+
+def test_hour_budget_falls_back_to_hour_when_dow_thin():
+    # Current dow-hour cell is under-sampled (n<3) -> partial pooling backs off to
+    # the coarse hour-only tiering (hour 12 is bottom tier -> 1).
+    hours = {'8': {'reach_avg': 900.0, 'n': 5},
+             '10': {'reach_avg': 500.0, 'n': 5},
+             '12': {'reach_avg': 100.0, 'n': 5}}
+    dow = {'2-12': {'reach_avg': 900.0, 'n': 1}}
+    assert learning.hour_budget(hours, 12, 3, 3, dow_hours=dow, current_dow=2) == 1
+
+
+def test_hour_budget_backward_compatible_without_dow():
+    # No dow args => identical to the old hour-only behavior.
+    hours = {'8': {'reach_avg': 900.0, 'n': 5}, '10': {'reach_avg': 500.0, 'n': 5},
+             '12': {'reach_avg': 100.0, 'n': 5}}
+    assert learning.hour_budget(hours, 8, 3, 3) == 3
+    assert learning.hour_budget(hours, 12, 3, 3) == 1

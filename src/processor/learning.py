@@ -73,6 +73,7 @@ def update_scores(state, reach_by_head, now, maturation_seconds, max_age_seconds
     pending = state.get('pending', [])
     sources = state.setdefault('sources', {})
     hours = state.setdefault('hours', {})
+    dow_hours = state.setdefault('dow_hours', {})
     still_pending = []
     for post in pending:
         ts = post.get('ts', 0)
@@ -82,6 +83,7 @@ def update_scores(state, reach_by_head, now, maturation_seconds, max_age_seconds
         if reach is not None:
             _update_avg(sources, post.get('source', ''), reach, alpha)
             _update_avg(hours, _hour_of(ts), reach, alpha)
+            _update_avg(dow_hours, _dow_hour_of(ts), reach, alpha)
         elif age < max_age_seconds:
             still_pending.append(post)
         # else: matured but never matched within max_age → prune (can't attribute)
@@ -117,6 +119,7 @@ def update_scores_metrics(state, metrics_by_head, weights, now, maturation_secon
     pending = state.get('pending', [])
     sources = state.setdefault('sources', {})
     hours = state.setdefault('hours', {})
+    dow_hours = state.setdefault('dow_hours', {})
     formats = state.setdefault('formats', {})
     variants = state.setdefault('variants', {})
     still_pending = []
@@ -129,6 +132,7 @@ def update_scores_metrics(state, metrics_by_head, weights, now, maturation_secon
             reward = reward_for(metrics, weights)
             _update_avg(sources, post.get('source', ''), reward, alpha)
             _update_avg(hours, _hour_of(ts), reward, alpha)
+            _update_avg(dow_hours, _dow_hour_of(ts), reward, alpha)
             _update_avg(formats, 'video' if post.get('is_video') else 'photo', reward, alpha)
             if log_variants and post.get('hashtag_n') is not None:
                 _update_avg(variants, 'tags:' + _bucket_hashtags(post['hashtag_n']), reward, alpha)
@@ -170,6 +174,12 @@ def _hour_of(ts):
     return datetime.fromtimestamp(ts, tz=timezone.utc).hour
 
 
+def _dow_hour_of(ts):
+    # 'wday-hour' UTC, wday 0=Mon..6=Sun (matches datetime.weekday() / time.tm_wday).
+    dt = datetime.fromtimestamp(ts, tz=timezone.utc)
+    return f"{dt.weekday()}-{dt.hour}"
+
+
 def _update_avg(bucket, key, reach, alpha):
     if key is None or key == '':
         return
@@ -183,23 +193,39 @@ def _update_avg(bucket, key, reach, alpha):
         entry['n'] = entry.get('n', 0) + 1
 
 
-def hour_budget(hours_scores, current_hour, base_cap, min_samples):
-    # Per-run post budget for the current UTC hour, from learned reach. Tiers the
-    # hour against well-sampled peers: top third => full cap, middle => ~half,
-    # bottom => 1 (never 0, so the backlog drains and every hour keeps sampling).
-    # Too little data, or an under-sampled current hour => full cap (explore).
-    scored = {int(h): v['reach_avg'] for h, v in hours_scores.items() if v.get('n', 0) >= min_samples}
-    if len(scored) < 3 or current_hour not in scored:
+def _tier_budget(scores, current_key, base_cap, min_samples):
+    # Per-run post budget: tier the current bucket against its well-sampled peers —
+    # top third => full cap, middle => ~half, bottom => 1 (never 0, so the backlog
+    # drains and every slot keeps sampling). Too little data, or an under-sampled
+    # current bucket => full cap (explore). String keys (no int()), so it works for
+    # both hour ('14') and dow-hour ('2-14') buckets.
+    current_key = str(current_key)
+    scored = {k: v['reach_avg'] for k, v in scores.items() if v.get('n', 0) >= min_samples}
+    if len(scored) < 3 or current_key not in scored:
         return base_cap
     avgs = sorted(scored.values())
     low = avgs[len(avgs) // 3]
     high = avgs[(2 * len(avgs)) // 3]
-    current = scored[current_hour]
+    current = scored[current_key]
     if current >= high:
         return base_cap
     if current >= low:
         return max(1, (base_cap + 1) // 2)
     return 1
+
+
+def hour_budget(hours_scores, current_hour, base_cap, min_samples, dow_hours=None, current_dow=None):
+    # Per-run post budget for the current time slot, from learned reach/reward.
+    # Partial pooling: prefer the fine (day-of-week × hour) bucket when it is itself
+    # well-sampled, otherwise fall back to the coarse hour-only bucket. dow-hour
+    # multiplies the slot space ~7x, so on a low-volume bot most dow-hour cells stay
+    # thin and we correctly back off to hour-only instead of overfitting to n=1.
+    if dow_hours is not None and current_dow is not None:
+        dow_key = f"{current_dow}-{current_hour}"
+        entry = dow_hours.get(dow_key)
+        if entry and entry.get('n', 0) >= min_samples:
+            return _tier_budget(dow_hours, dow_key, base_cap, min_samples)
+    return _tier_budget(hours_scores, current_hour, base_cap, min_samples)
 
 
 def order_sources(source_names, source_scores, default_prior, ucb_c=0.0):

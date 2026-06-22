@@ -47,6 +47,7 @@ from src.static.settings import (
     LEARNING_ALPHA,
     LEARNING_TIME_BIAS_ENABLED,
     LEARNING_HOUR_MIN_SAMPLES,
+    LEARNING_DOW_HOUR_ENABLED,
     LEARNING_BANDIT_ENABLED,
     LEARNING_UCB_C,
     LEARNING_SOURCE_MIN_SAMPLES,
@@ -139,12 +140,16 @@ async def main(config_name):
         set_ig_daily(learning.ig_posts_today(state, today), INSTAGRAM_DAILY_POST_LIMIT)
 
         if LEARNING_TIME_BIAS_ENABLED:
-            current_hour = time.gmtime().tm_hour
+            gm = time.gmtime()
+            current_hour = gm.tm_hour
             cap = learning.hour_budget(
-                state['hours'], current_hour, MAX_POSTS_PER_RUN, LEARNING_HOUR_MIN_SAMPLES)
+                state['hours'], current_hour, MAX_POSTS_PER_RUN, LEARNING_HOUR_MIN_SAMPLES,
+                dow_hours=state.get('dow_hours', {}) if LEARNING_DOW_HOUR_ENABLED else None,
+                current_dow=gm.tm_wday if LEARNING_DOW_HOUR_ENABLED else None)
             set_run_cap(cap)
             app_logger.info(
-                f"Time bias ON — hour {current_hour:02d} UTC => post budget {cap}/{MAX_POSTS_PER_RUN}")
+                f"Time bias ON — dow {gm.tm_wday} hour {current_hour:02d} UTC "
+                f"=> post budget {cap}/{MAX_POSTS_PER_RUN}")
 
         app_logger.info("Preparing parsing tasks")
         # (source_name, factory): lazy coroutines so the learning bias can run
@@ -254,6 +259,7 @@ async def main(config_name):
                 graph, telegram_bot_token, context,
                 source_ranking=learning.top_sources(state['sources']),
                 hour_ranking=learning.top_sources(state['hours']),
+                dow_hour_ranking=learning.top_sources(state.get('dow_hours', {})),
                 format_ranking=learning.top_sources(state.get('formats', {})),
                 variant_ranking=learning.top_sources(state.get('variants', {})))
 

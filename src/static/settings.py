@@ -291,6 +291,14 @@ LEARNING_W_COMMENT = float(os.getenv('LEARNING_W_COMMENT', '2.0'))
 LEARNING_W_LIKE = float(os.getenv('LEARNING_W_LIKE', '1.0'))
 LEARNING_W_REACH = float(os.getenv('LEARNING_W_REACH', '0.05'))
 
+# --- dow-hour бакеты времени (день недели × час) ------------------------------
+# Учим reward не только по часу UTC, но и по (день_недели × час) — вовлечённость
+# в FB заметно выше по выходным и Чт/Пт. Partial pooling: hour_budget берёт fine
+# dow-hour бакет, когда он хорошо просэмплирован, иначе откатывается на грубый
+# hour-only (на низко-объёмном боте dow-hour ×7 разрежён). Накопление dow_hours
+# идёт ВСЕГДА; влияет на бюджет только при LEARNING_TIME_BIAS_ENABLED.
+LEARNING_DOW_HOUR_ENABLED = _flag('LEARNING_DOW_HOUR_ENABLED', 'true')
+
 # --- UCB-ранжирование источников (explore/exploit) ----------------------------
 # score = reward_avg + c * mean_reward * sqrt(ln(total_n)/n); c=0 => текущий greedy.
 # Требует LEARNING_BIAS_ENABLED. По умолчанию ВЫКЛ (greedy avg-sort как сейчас).
