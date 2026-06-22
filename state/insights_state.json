@@ -522,6 +522,33 @@
       "ig_id": "17931683685317845",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "O que aconteceu em uma noite histórica para a Arge",
+      "source": "theguardian.com/football",
+      "ts": 1782121269.720809,
+      "fb_id": "348454375016310_122241411338359689",
+      "ig_id": "18107795645483482",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Os jogadores são seres humanos e os comentários na",
+      "source": "theguardian.com/football",
+      "ts": 1782121326.4953086,
+      "fb_id": "348454375016310_122241411632359689",
+      "ig_id": "18077335556309914",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Por que o futebol não lembra o nome do maior jogad",
+      "source": "theguardian.com/football",
+      "ts": 1782121383.4316998,
+      "fb_id": "348454375016310_122241411884359689",
+      "ig_id": "17934085767275030",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -590,7 +617,7 @@
   },
   "ig_quota": {
     "day": "2026-06-22",
-    "posts": 9
+    "posts": 12
   },
   "last_scored_ts": 1782091579.5861285,
   "dow_hours": {
