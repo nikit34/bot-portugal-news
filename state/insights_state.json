@@ -495,6 +495,33 @@
       "ig_id": "18080632193222892",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Carrasquilla, o astro panamenho que sonha em enfre",
+      "source": "gazetaesportiva.com",
+      "ts": 1782096760.3056214,
+      "fb_id": "348454375016310_122241367676359689",
+      "ig_id": "18597400894015633",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Esposa de Raphinha apoia marido após lesão: “Volta",
+      "source": "gazetaesportiva.com",
+      "ts": 1782096844.2592008,
+      "fb_id": "348454375016310_122241368282359689",
+      "ig_id": "18057324359757474",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Avaí vence Cuiabá, mas segue no Z4 da Série B O Av",
+      "source": "gazetaesportiva.com",
+      "ts": 1782096919.35372,
+      "fb_id": "348454375016310_122241368660359689",
+      "ig_id": "17931683685317845",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -563,7 +590,7 @@
   },
   "ig_quota": {
     "day": "2026-06-22",
-    "posts": 6
+    "posts": 9
   },
   "last_scored_ts": 1782091579.5861285,
   "dow_hours": {
