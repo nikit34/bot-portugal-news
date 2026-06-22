@@ -907,13 +907,40 @@
       "ts": 1782083070.5304801,
       "fb_id": "348454375016310_122241338366359689",
       "is_video": false
+    },
+    {
+      "head": "Rui Costa se pronuncia após demissão do São Paulo:",
+      "source": "gazetaesportiva.com",
+      "ts": 1782088637.3464456,
+      "fb_id": "348454375016310_122241357164359689",
+      "ig_id": "18118347223828030",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Fifa divulga arbitragem de jogo entre Brasil e Esc",
+      "source": "gazetaesportiva.com",
+      "ts": 1782088712.8126323,
+      "fb_id": "348454375016310_122241357560359689",
+      "ig_id": "18167249539437346",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Espanha e Uruguai voltam a campo e querem se junta",
+      "source": "gazetaesportiva.com",
+      "ts": 1782088790.8528736,
+      "fb_id": "348454375016310_122241357944359689",
+      "ig_id": "18110612797784564",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-06-21",
-    "posts": 12
+    "day": "2026-06-22",
+    "posts": 3
   },
   "last_scored_ts": 1782030388.5535774
 }
