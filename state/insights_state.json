@@ -2,81 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Paulo Sérgio reprova improvisação de Ancelotti na",
-      "source": "gazetaesportiva.com",
-      "ts": 1781552385.7820606
-    },
-    {
-      "head": "Panamá nega que será ‘saco de pancadas’ de seus ri",
-      "source": "gazetaesportiva.com",
-      "ts": 1781552446.2804668
-    },
-    {
-      "head": "Miguel Oliveira em oitavo lugar na primeira corrid",
-      "source": "rtp.pt/desporto",
-      "ts": 1781552488.0723255
-    },
-    {
-      "head": "Real Madrid oficializa acordo com Marc Cucurella,",
-      "source": "gazetaesportiva.com",
-      "ts": 1781561530.9674182
-    },
-    {
-      "head": "Athletico-PR renova contrato de Bruno Gabriel até",
-      "source": "gazetaesportiva.com",
-      "ts": 1781561600.819068
-    },
-    {
-      "head": "Espanha e Uruguai estreiam na Copa do Mundo em mei",
-      "source": "gazetaesportiva.com",
-      "ts": 1781561660.734421
-    },
-    {
-      "head": "Veja os números da atuação histórica de Vozinha co",
-      "source": "gazetaesportiva.com",
-      "ts": 1781578417.3333673
-    },
-    {
-      "head": "Destaque de Cabo Verde, Vozinha vibra com estreia",
-      "source": "gazetaesportiva.com",
-      "ts": 1781578472.7236426
-    },
-    {
-      "head": "Mauricio entra em lista seleta ao marcar 11° gol d",
-      "source": "gazetaesportiva.com",
-      "ts": 1781578529.9510922
-    },
-    {
-      "head": "Atalanta anuncia Maurizio Sarri como novo técnico",
-      "source": "gazetaesportiva.com",
-      "ts": 1781601571.5722692
-    },
-    {
-      "head": "Fifa define trio de arbitragem feminino para Repúb",
-      "source": "gazetaesportiva.com",
-      "ts": 1781601634.1931016
-    },
-    {
-      "head": "Flamengo culpa Bielsa e Uruguai por lesão de Arras",
-      "source": "gazetaesportiva.com",
-      "ts": 1781601695.8435912
-    },
-    {
-      "head": "Após investigação, Fifa não vê gesto supremacista",
-      "source": "gazetaesportiva.com",
-      "ts": 1781622010.0055869
-    },
-    {
-      "head": "Criciúma x Palmeiras: saiba onde assistir ao jogo",
-      "source": "gazetaesportiva.com",
-      "ts": 1781622067.416426
-    },
-    {
-      "head": "Áustria x Jordânia pela Copa do Mundo: veja prováv",
-      "source": "gazetaesportiva.com",
-      "ts": 1781622126.659945
-    },
-    {
       "head": "Corinthians entra em ‘dia D’ para quitar dívida co",
       "source": "gazetaesportiva.com",
       "ts": 1781634198.5533834
@@ -611,6 +536,22 @@
       "fb_id": "348454375016310_122241581078359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "London City Lionesses contrata Earps, ex-goleiro d",
+      "source": "bbc.com/football",
+      "ts": 1782236770.8771515,
+      "fb_id": "348454375016310_122241596930359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Médico pioneiro de Curaçao no grande palco do fute",
+      "source": "bbc.com/football",
+      "ts": 1782236815.394315,
+      "fb_id": "348454375016310_122241597128359689",
+      "is_video": false,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -693,7 +634,7 @@
     "day": "2026-06-23",
     "posts": 12
   },
-  "last_scored_ts": 1782153477.5336397,
+  "last_scored_ts": 1782236857.7652395,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
