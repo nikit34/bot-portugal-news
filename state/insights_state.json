@@ -524,6 +524,15 @@
       "ig_id": "18126079483639296",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Estádio da Filadélfia abre portões para jogo entre",
+      "source": "gazetaesportiva.com",
+      "ts": 1782199845.571332,
+      "fb_id": "348454375016310_122241528998359689",
+      "ig_id": "18132755341613400",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -604,7 +613,7 @@
   },
   "ig_quota": {
     "day": "2026-06-23",
-    "posts": 3
+    "posts": 4
   },
   "last_scored_ts": 1782153477.5336397,
   "dow_hours": {
