@@ -74,6 +74,26 @@ app_logger = logging.getLogger('app')
 
 app_logger.info("Starting bot application")
 
+
+def resolve_page_token(graph, page_id):
+    # FACEBOOK_ACCESS_TOKEN may be a User / System-User token, whose /me is the user,
+    # NOT the Page. But page posting (graph.put_photo -> me/photos lands on /me) and
+    # page-post insights both require a PAGE access token. Resolve it from /me/accounts
+    # for the configured page and swap it in. Best-effort: if the token is already a
+    # page token (no accounts returned) or the lookup fails, keep it as-is so the run
+    # still proceeds instead of crashing on startup.
+    try:
+        accounts = graph.get_connections('me', 'accounts', fields='id,access_token')
+        for acc in accounts.get('data', []):
+            if str(acc.get('id')) == str(page_id) and acc.get('access_token'):
+                app_logger.info("[facebook] resolved Page access token from /me/accounts")
+                return acc['access_token']
+        app_logger.info("[facebook] no matching page in /me/accounts; using token as-is")
+    except Exception as e:
+        app_logger.warning(f"[facebook] page-token resolution failed ({e}); using token as-is")
+    return graph.access_token
+
+
 async def main(config_name):
     app_logger.info(f"Initializing main application with config: {config_name}")
     
@@ -98,6 +118,7 @@ async def main(config_name):
 
     app_logger.info("Initializing Facebook Graph API")
     graph = fb.GraphAPI(access_token=facebook_access_token)
+    graph.access_token = resolve_page_token(graph, context['self_facebook_page_id'])
     app_logger.debug("Facebook Graph API initialized")
 
     app_logger.info("Loading NLP model and translator")

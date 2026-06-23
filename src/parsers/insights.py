@@ -133,25 +133,16 @@ def get_instagram_metrics_by_head(access_token, ig_user_id, limit, min_age_secon
 
 
 def get_facebook_post_insights(access_token, post_id):
-    # Метрики на FB-пост по сохранённому page-post id. Best-effort, fail-open:
-    # reach (post_impressions_unique — нужно read_insights, может быть недоступно
-    # на v18) тянем отдельным try; вовлечённость берём ПОЛЯМИ объекта (shares,
-    # comments.summary, reactions.summary) — они НЕ задепрекейчены (в отличие от
-    # /insights метрик engagement). Любая часть может отсутствовать без падения.
+    # Метрики на FB-пост по сохранённому page-post id. Best-effort, fail-open.
+    # Reach НЕ тянем: post-level reach/impressions метрики (post_impressions_unique
+    # и пр.) удалены Meta в v18 — отдают "(#100) not a valid insights metric" даже
+    # с Page-токеном и read_insights, так что запрашивать их бессмысленно (только
+    # спам в логах + лишние вызовы). Вовлечённость берём ПОЛЯМИ объекта (shares,
+    # comments.summary, reactions.summary) — они работают и без спец-прав. На FB
+    # сигнал оптимизатора держится на вовлечённости; reach закрывает Instagram.
     metrics = {}
     if not post_id:
         return metrics
-    try:
-        url = _GRAPH + post_id + '/insights'
-        params = {'metric': 'post_impressions_unique', 'access_token': access_token}
-        response = requests.get(url, params=params)
-        response.raise_for_status()
-        for metric in response.json().get('data', []):
-            if metric.get('name') == 'post_impressions_unique':
-                values = metric.get('values') or [{}]
-                metrics['reach'] = values[-1].get('value')
-    except Exception as e:
-        logger.warning(f"[insights] FB post reach unavailable for {post_id}: {e}")
     try:
         url = _GRAPH + post_id
         params = {

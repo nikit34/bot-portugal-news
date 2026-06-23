@@ -138,11 +138,14 @@ def test_get_instagram_metrics_by_head_returns_full_metrics(monkeypatch):
     assert result == {ins.make_head('matured post'): {'reach': 444, 'likes': 12, 'comments': 3}}
 
 
-def test_get_facebook_post_insights_reads_reach_and_object_fields(monkeypatch):
+def test_get_facebook_post_insights_reads_object_fields_only(monkeypatch):
+    # FB post reach metrics are deprecated in v18, so we no longer hit /insights —
+    # only the object-fields engagement fetch (shares/comments/reactions).
+    calls = []
+
     def fake_get(url, params=None, **kwargs):
-        if url.endswith('/insights'):
-            return _FakeResponse({'data': [{'name': 'post_impressions_unique', 'values': [{'value': 500}]}]})
-        # object fields fetch (url ends with the post id)
+        calls.append(url)
+        assert not url.endswith('/insights'), 'must not request deprecated post reach metric'
         return _FakeResponse({
             'shares': {'count': 4},
             'comments': {'summary': {'total_count': 7}},
@@ -151,7 +154,8 @@ def test_get_facebook_post_insights_reads_reach_and_object_fields(monkeypatch):
 
     monkeypatch.setattr(ins.requests, 'get', fake_get)
     metrics = ins.get_facebook_post_insights('tok', 'PAGE_POST_1')
-    assert metrics == {'reach': 500, 'shares': 4, 'comments': 7, 'likes': 20}
+    assert metrics == {'shares': 4, 'comments': 7, 'likes': 20}
+    assert len(calls) == 1  # single object fetch, no extra reach call
 
 
 def test_get_facebook_post_insights_fail_open_on_missing_scope(monkeypatch):
