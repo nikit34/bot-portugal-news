@@ -585,6 +585,32 @@
       "ig_id": "17932348092314249",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Santos libera quatro jogadores fora dos planos par",
+      "source": "gazetaesportiva.com",
+      "ts": 1782225042.377546,
+      "fb_id": "348454375016310_122241580664359689",
+      "ig_id": "18126570235633658",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Jogo entre França e Iraque pela Copa é paralisado",
+      "source": "gazetaesportiva.com",
+      "ts": 1782225109.3382204,
+      "fb_id": "348454375016310_122241580892359689",
+      "ig_id": "17998509338971062",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Julián Álvarez pede para deixar o Atlético de Madr",
+      "source": "gazetaesportiva.com",
+      "ts": 1782225157.85975,
+      "fb_id": "348454375016310_122241581078359689",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -665,7 +691,7 @@
   },
   "ig_quota": {
     "day": "2026-06-23",
-    "posts": 10
+    "posts": 12
   },
   "last_scored_ts": 1782153477.5336397,
   "dow_hours": {
