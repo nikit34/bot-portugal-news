@@ -533,6 +533,33 @@
       "ig_id": "18132755341613400",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "RB Leipzig anuncia argentino Martín Demichelis com",
+      "source": "gazetaesportiva.com",
+      "ts": 1782200523.1721392,
+      "fb_id": "348454375016310_122241529778359689",
+      "ig_id": "18018537575892898",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Martinelli destaca entrega coletiva e projeta esfo",
+      "source": "gazetaesportiva.com",
+      "ts": 1782200596.78977,
+      "fb_id": "348454375016310_122241530222359689",
+      "ig_id": "18004703006945852",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Após deixar concentração da Bélgica, Doku está em",
+      "source": "gazetaesportiva.com",
+      "ts": 1782200683.9044113,
+      "fb_id": "348454375016310_122241530570359689",
+      "ig_id": "18135877765503789",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -613,7 +640,7 @@
   },
   "ig_quota": {
     "day": "2026-06-23",
-    "posts": 4
+    "posts": 7
   },
   "last_scored_ts": 1782153477.5336397,
   "dow_hours": {
