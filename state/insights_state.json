@@ -497,6 +497,33 @@
       "fb_id": "348454375016310_122241494348359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Uruguai mantém tabu sem vitórias em Copas sem Suár",
+      "source": "gazetaesportiva.com",
+      "ts": 1782181682.7268825,
+      "fb_id": "348454375016310_122241509342359689",
+      "ig_id": "17921181114163304",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Seleção Brasileira foca na Escócia pela liderança",
+      "source": "gazetaesportiva.com",
+      "ts": 1782181756.696003,
+      "fb_id": "348454375016310_122241509750359689",
+      "ig_id": "18343515889222089",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Messi faz história, lidera vitória contra Áustria",
+      "source": "gazetaesportiva.com",
+      "ts": 1782181828.3688312,
+      "fb_id": "348454375016310_122241510128359689",
+      "ig_id": "18126079483639296",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -576,8 +603,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-06-22",
-    "posts": 12
+    "day": "2026-06-23",
+    "posts": 3
   },
   "last_scored_ts": 1782153477.5336397,
   "dow_hours": {
