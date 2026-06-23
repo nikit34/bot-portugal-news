@@ -560,6 +560,31 @@
       "ig_id": "18135877765503789",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "O ponto de acesso | O apoio de petrodólares da Ara",
+      "source": "theguardian.com/football",
+      "ts": 1782212231.9434433,
+      "ig_id": "18076894910287444",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "‘Aquele pênalti mudou minha vida’: o orgulho de Pa",
+      "source": "theguardian.com/football",
+      "ts": 1782212312.9096231,
+      "fb_id": "348454375016310_122241543476359689",
+      "ig_id": "18082987658242555",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Os jovens Socceroos oferecem algo novo e tentador:",
+      "source": "theguardian.com/football",
+      "ts": 1782212375.4828355,
+      "ig_id": "17932348092314249",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -640,7 +665,7 @@
   },
   "ig_quota": {
     "day": "2026-06-23",
-    "posts": 7
+    "posts": 10
   },
   "last_scored_ts": 1782153477.5336397,
   "dow_hours": {
