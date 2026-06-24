@@ -676,6 +676,33 @@
       "ig_id": "18010135292914610",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Técnico da Escócia busca, contra o Brasil, classif",
+      "source": "gazetaesportiva.com",
+      "ts": 1782297785.937204,
+      "fb_id": "348454375016310_122241661712359689",
+      "ig_id": "18344008363217915",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Lateral retorna antes ao Palmeiras e participa de",
+      "source": "gazetaesportiva.com",
+      "ts": 1782297855.1156998,
+      "fb_id": "348454375016310_122241662042359689",
+      "ig_id": "18010369886874657",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "São Paulo perde pênalti, mas vence Fortaleza sob c",
+      "source": "gazetaesportiva.com",
+      "ts": 1782297937.331668,
+      "fb_id": "348454375016310_122241662366359689",
+      "ig_id": "17894077287539991",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -756,7 +783,7 @@
   },
   "ig_quota": {
     "day": "2026-06-24",
-    "posts": 6
+    "posts": 9
   },
   "last_scored_ts": 1782236857.7652395,
   "dow_hours": {
