@@ -651,6 +651,31 @@
       "ig_id": "18123079015679216",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "O futuro das mulheres de Durham é salvo por um inv",
+      "source": "bbc.com/football",
+      "ts": 1782286493.0318635,
+      "ig_id": "17968110516109044",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Real contrata Schroeder na transferência feminina",
+      "source": "bbc.com/football",
+      "ts": 1782286568.160633,
+      "ig_id": "18098734045917648",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "'Rangers perto de assinar novamente com McCrorie'",
+      "source": "bbc.com/football",
+      "ts": 1782286642.7938242,
+      "fb_id": "348454375016310_122241649760359689",
+      "ig_id": "18010135292914610",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -731,7 +756,7 @@
   },
   "ig_quota": {
     "day": "2026-06-24",
-    "posts": 3
+    "posts": 6
   },
   "last_scored_ts": 1782236857.7652395,
   "dow_hours": {
