@@ -624,6 +624,33 @@
       "fb_id": "348454375016310_122241619034359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Brilho de Messi na Copa do Mundo será suficiente p",
+      "source": "gazetaesportiva.com",
+      "ts": 1782268166.8534684,
+      "fb_id": "348454375016310_122241630818359689",
+      "ig_id": "17927140953358277",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Empresária americana Michele Kang chega a acordo p",
+      "source": "gazetaesportiva.com",
+      "ts": 1782268255.5163615,
+      "fb_id": "348454375016310_122241631316359689",
+      "ig_id": "18187313095378632",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Cidade do México proíbe venda de álcool em jogo co",
+      "source": "gazetaesportiva.com",
+      "ts": 1782268334.7447636,
+      "fb_id": "348454375016310_122241631736359689",
+      "ig_id": "18123079015679216",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -703,8 +730,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-06-23",
-    "posts": 12
+    "day": "2026-06-24",
+    "posts": 3
   },
   "last_scored_ts": 1782236857.7652395,
   "dow_hours": {
