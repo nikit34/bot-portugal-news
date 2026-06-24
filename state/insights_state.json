@@ -2,96 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Corinthians entra em ‘dia D’ para quitar dívida co",
-      "source": "gazetaesportiva.com",
-      "ts": 1781634198.5533834
-    },
-    {
-      "head": "Relembre polêmicas de arbitragem envolvendo o São",
-      "source": "gazetaesportiva.com",
-      "ts": 1781634257.7403061
-    },
-    {
-      "head": "Meia dos EUA, Pulisic destaca ligação especial com",
-      "source": "gazetaesportiva.com",
-      "ts": 1781634317.0380685
-    },
-    {
-      "head": "Tunísia demite Sabri Lamouchi e anuncia Hervé Rena",
-      "source": "gazetaesportiva.com",
-      "ts": 1781638182.0167778
-    },
-    {
-      "head": "'Cartwheels no café da manhã' e chutando por Bosto",
-      "source": "bbc.com/football",
-      "ts": 1781638232.0431418
-    },
-    {
-      "head": "Pergunte aos especialistas McCann & Crichton suas",
-      "source": "bbc.com/football",
-      "ts": 1781638285.064821
-    },
-    {
-      "head": "Visto de jogador iraniano expira após entrada nos",
-      "source": "gazetaesportiva.com",
-      "ts": 1781647634.177711
-    },
-    {
-      "head": "Prova Ciclística Internacional 9 de Julho confirma",
-      "source": "gazetaesportiva.com",
-      "ts": 1781647685.8008566
-    },
-    {
-      "head": "Argentina tem desafio de compensar envelhecimento",
-      "source": "trivela.com.br",
-      "ts": 1781647740.0389888
-    },
-    {
-      "head": "Grêmio anuncia saída do volante Arthur após fim do",
-      "source": "gazetaesportiva.com",
-      "ts": 1781664556.699001
-    },
-    {
-      "head": "Haji Wright projeta jogo dos EUA contra a Austráli",
-      "source": "gazetaesportiva.com",
-      "ts": 1781664614.0409184
-    },
-    {
-      "head": "Donald Trump envia mensagem de apoio aos jogadores",
-      "source": "gazetaesportiva.com",
-      "ts": 1781664676.0869517
-    },
-    {
-      "head": "Palmeiras goleia Criciúma e se distancia na lidera",
-      "source": "gazetaesportiva.com",
-      "ts": 1781686550.7190065
-    },
-    {
-      "head": "Santos vence Bahia e entra no G8 do Brasileirão su",
-      "source": "gazetaesportiva.com",
-      "ts": 1781686609.6002047
-    },
-    {
-      "head": "Tunísia troca de selecionador em pleno Mundial O f",
-      "source": "rtp.pt/desporto",
-      "ts": 1781686666.184009
-    },
-    {
-      "head": "Next Generation 2025: 20 dos melhores talentos dos",
-      "source": "theguardian.com/football",
-      "ts": 1781703491.1950517
-    },
-    {
-      "head": "Aitana Bonmatí faz história entre os 100 melhores",
-      "source": "theguardian.com/football",
-      "ts": 1781703551.9347017
-    },
-    {
-      "head": "Ousmane Dembélé discretamente se torna o homem pri",
-      "source": "theguardian.com/football",
-      "ts": 1781703611.6387303
-    },
-    {
       "head": "As 100 melhores jogadoras de futebol do mundo 2025",
       "source": "theguardian.com/football",
       "ts": 1781715194.8632421
@@ -352,166 +262,6 @@
       "ts": 1781941585.152851
     },
     {
-      "head": "Os jovens Socceroos oferecem algo novo e tentador:",
-      "source": "theguardian.com/football",
-      "ts": 1782156012.5531628,
-      "fb_id": "348454375016310_122241479042359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Amorim concorda em se tornar técnico do Milan para",
-      "source": "theguardian.com/football",
-      "ts": 1782156066.7434952,
-      "fb_id": "348454375016310_122241479216359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "David Raya: ‘Quando você perde uma final da Liga d",
-      "source": "theguardian.com/football",
-      "ts": 1782156118.3841176,
-      "fb_id": "348454375016310_122241479414359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "O ponto de acesso | O apoio de petrodólares da Ara",
-      "source": "theguardian.com/football",
-      "ts": 1782165416.441432,
-      "fb_id": "348454375016310_122241486650359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Messi pode se tornar o maior artilheiro das Copas",
-      "source": "gazetaesportiva.com",
-      "ts": 1782165472.9789774,
-      "fb_id": "348454375016310_122241486932359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Lado direito, o pesadelo de Ancelotti na Copa do M",
-      "source": "gazetaesportiva.com",
-      "ts": 1782165529.968301,
-      "fb_id": "348454375016310_122241487124359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Internacional anuncia ex-preparador de goleiros do",
-      "source": "gazetaesportiva.com",
-      "ts": 1782170324.1688821,
-      "fb_id": "348454375016310_122241493898359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Ex-técnico do Santos, Vojvoda é anunciado por club",
-      "source": "gazetaesportiva.com",
-      "ts": 1782170370.4214697,
-      "fb_id": "348454375016310_122241494168359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Camisa do Brasil de 1986 é eleita a terceira mais",
-      "source": "gazetaesportiva.com",
-      "ts": 1782170414.5913088,
-      "fb_id": "348454375016310_122241494348359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Uruguai mantém tabu sem vitórias em Copas sem Suár",
-      "source": "gazetaesportiva.com",
-      "ts": 1782181682.7268825,
-      "fb_id": "348454375016310_122241509342359689",
-      "ig_id": "17921181114163304",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Seleção Brasileira foca na Escócia pela liderança",
-      "source": "gazetaesportiva.com",
-      "ts": 1782181756.696003,
-      "fb_id": "348454375016310_122241509750359689",
-      "ig_id": "18343515889222089",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Messi faz história, lidera vitória contra Áustria",
-      "source": "gazetaesportiva.com",
-      "ts": 1782181828.3688312,
-      "fb_id": "348454375016310_122241510128359689",
-      "ig_id": "18126079483639296",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Estádio da Filadélfia abre portões para jogo entre",
-      "source": "gazetaesportiva.com",
-      "ts": 1782199845.571332,
-      "fb_id": "348454375016310_122241528998359689",
-      "ig_id": "18132755341613400",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "RB Leipzig anuncia argentino Martín Demichelis com",
-      "source": "gazetaesportiva.com",
-      "ts": 1782200523.1721392,
-      "fb_id": "348454375016310_122241529778359689",
-      "ig_id": "18018537575892898",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Martinelli destaca entrega coletiva e projeta esfo",
-      "source": "gazetaesportiva.com",
-      "ts": 1782200596.78977,
-      "fb_id": "348454375016310_122241530222359689",
-      "ig_id": "18004703006945852",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Após deixar concentração da Bélgica, Doku está em",
-      "source": "gazetaesportiva.com",
-      "ts": 1782200683.9044113,
-      "fb_id": "348454375016310_122241530570359689",
-      "ig_id": "18135877765503789",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "O ponto de acesso | O apoio de petrodólares da Ara",
-      "source": "theguardian.com/football",
-      "ts": 1782212231.9434433,
-      "ig_id": "18076894910287444",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "‘Aquele pênalti mudou minha vida’: o orgulho de Pa",
-      "source": "theguardian.com/football",
-      "ts": 1782212312.9096231,
-      "fb_id": "348454375016310_122241543476359689",
-      "ig_id": "18082987658242555",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Os jovens Socceroos oferecem algo novo e tentador:",
-      "source": "theguardian.com/football",
-      "ts": 1782212375.4828355,
-      "ig_id": "17932348092314249",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
       "head": "Santos libera quatro jogadores fora dos planos par",
       "source": "gazetaesportiva.com",
       "ts": 1782225042.377546,
@@ -703,6 +453,32 @@
       "ig_id": "17894077287539991",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Amorim concorda em se tornar técnico do Milan para",
+      "source": "theguardian.com/football",
+      "ts": 1782310186.208917,
+      "ig_id": "17897634993469052",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Uma história de cartões vermelhos em Copas do Mund",
+      "source": "theguardian.com/football",
+      "ts": 1782310244.578953,
+      "fb_id": "348454375016310_122241689906359689",
+      "ig_id": "17991709649798220",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Julián Quiñones, Negritude no México e as complexi",
+      "source": "theguardian.com/football",
+      "ts": 1782310303.0080307,
+      "fb_id": "348454375016310_122241690224359689",
+      "ig_id": "18402177895154789",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -712,25 +488,25 @@
     },
     "gazetaesportiva.com": {
       "reach_avg": 0.0,
-      "n": 51
+      "n": 63
     },
     "theguardian.com/football": {
-      "reach_avg": 0.3,
-      "n": 12
+      "reach_avg": 0.024706289999999992,
+      "n": 19
     }
   },
   "hours": {
     "23": {
       "reach_avg": 0.0,
-      "n": 7
+      "n": 10
     },
     "7": {
       "reach_avg": 0.0,
-      "n": 1
+      "n": 5
     },
     "10": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 6
     },
     "13": {
       "reach_avg": 0.0,
@@ -746,15 +522,15 @@
     },
     "19": {
       "reach_avg": 0.0,
-      "n": 6
+      "n": 9
     },
     "21": {
       "reach_avg": 0.0,
-      "n": 6
+      "n": 9
     },
     "2": {
       "reach_avg": 0.0,
-      "n": 6
+      "n": 9
     },
     "8": {
       "reach_avg": 0.0,
@@ -783,9 +559,9 @@
   },
   "ig_quota": {
     "day": "2026-06-24",
-    "posts": 9
+    "posts": 12
   },
-  "last_scored_ts": 1782236857.7652395,
+  "last_scored_ts": 1782310343.021051,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -878,18 +654,46 @@
     "0-16": {
       "reach_avg": 0.0,
       "n": 3
+    },
+    "0-19": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "0-21": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "0-23": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "1-2": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "1-7": {
+      "reach_avg": 0.0,
+      "n": 4
+    },
+    "1-10": {
+      "reach_avg": 0.0,
+      "n": 3
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.03529469999999999,
-      "n": 65
+      "reach_avg": 4.0232058589918884e-05,
+      "n": 84
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.03529469999999999,
-      "n": 18
+      "reach_avg": 5.747436941416984e-05,
+      "n": 36
+    },
+    "tags:1-3": {
+      "reach_avg": 0.0,
+      "n": 1
     }
   }
 }
