@@ -2,81 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "As 100 melhores jogadoras de futebol do mundo 2025",
-      "source": "theguardian.com/football",
-      "ts": 1781715194.8632421
-    },
-    {
-      "head": "O revés da Inglaterra na Copa do Mundo e a luta de",
-      "source": "theguardian.com/football",
-      "ts": 1781715257.6819146
-    },
-    {
-      "head": "A história de Cabo Verde enquanto a Espanha começa",
-      "source": "theguardian.com/football",
-      "ts": 1781715318.3955288
-    },
-    {
-      "head": "Real Madrid anuncia a contratação de Bernardo Silv",
-      "source": "gazetaesportiva.com",
-      "ts": 1781726562.78695
-    },
-    {
-      "head": "Meia dos EUA, Berhalter fala sobre a liderança de",
-      "source": "gazetaesportiva.com",
-      "ts": 1781726618.0132601
-    },
-    {
-      "head": "O ponto de acesso | ‘Esta pode ser a nossa última",
-      "source": "theguardian.com/football",
-      "ts": 1781726670.5210624
-    },
-    {
-      "head": "Carlos Alberto Parreira, ex-técnico da Seleção Bra",
-      "source": "gazetaesportiva.com",
-      "ts": 1781738347.5670152
-    },
-    {
-      "head": "Feyenoord anuncia Van Bronckhorst como novo técnic",
-      "source": "gazetaesportiva.com",
-      "ts": 1781738402.7073507
-    },
-    {
-      "head": "Bastidores do treino dos EUA para pegar a Austráli",
-      "source": "gazetaesportiva.com",
-      "ts": 1781738459.6510057
-    },
-    {
-      "head": "Santos aproveita pausa da Copa para fazer manutenç",
-      "source": "gazetaesportiva.com",
-      "ts": 1781750919.0141966
-    },
-    {
-      "head": "Morre Eric Roy, técnico do Brest, aos 58 anos O té",
-      "source": "gazetaesportiva.com",
-      "ts": 1781750988.2334125
-    },
-    {
-      "head": "Barcelona critica Florentino Peréz e pede “medidas",
-      "source": "gazetaesportiva.com",
-      "ts": 1781751082.623528
-    },
-    {
-      "head": "Jogadores livres do País de Gales se colocam na vi",
-      "source": "bbc.com/football",
-      "ts": 1781771999.3935025
-    },
-    {
-      "head": "O ponto de acesso | ‘Esta pode ser a nossa última",
-      "source": "theguardian.com/football",
-      "ts": 1781772072.3074977
-    },
-    {
-      "head": "‘Estaremos em um fuso horário louco e irreal da Co",
-      "source": "theguardian.com/football",
-      "ts": 1781772137.729865
-    },
-    {
       "head": "Escócia empata com República Tcheca na primeira ro",
       "source": "bbc.com/football",
       "ts": 1781786892.9420564
@@ -262,172 +187,6 @@
       "ts": 1781941585.152851
     },
     {
-      "head": "Santos libera quatro jogadores fora dos planos par",
-      "source": "gazetaesportiva.com",
-      "ts": 1782225042.377546,
-      "fb_id": "348454375016310_122241580664359689",
-      "ig_id": "18126570235633658",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Jogo entre França e Iraque pela Copa é paralisado",
-      "source": "gazetaesportiva.com",
-      "ts": 1782225109.3382204,
-      "fb_id": "348454375016310_122241580892359689",
-      "ig_id": "17998509338971062",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Julián Álvarez pede para deixar o Atlético de Madr",
-      "source": "gazetaesportiva.com",
-      "ts": 1782225157.85975,
-      "fb_id": "348454375016310_122241581078359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "London City Lionesses contrata Earps, ex-goleiro d",
-      "source": "bbc.com/football",
-      "ts": 1782236770.8771515,
-      "fb_id": "348454375016310_122241596930359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Médico pioneiro de Curaçao no grande palco do fute",
-      "source": "bbc.com/football",
-      "ts": 1782236815.394315,
-      "fb_id": "348454375016310_122241597128359689",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Jordânia 1×2 Argélia: Bola parada gera virada de a",
-      "source": "trivela.com.br",
-      "ts": 1782244315.5754864,
-      "fb_id": "348454375016310_122241606626359689",
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Colômbia x RD Congo: As prováveis escalações para",
-      "source": "trivela.com.br",
-      "ts": 1782244362.1858375,
-      "fb_id": "348454375016310_122241606788359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Haaland entra para a história na Copa do Mundo e p",
-      "source": "trivela.com.br",
-      "ts": 1782244407.9443889,
-      "fb_id": "348454375016310_122241606938359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "O futuro das mulheres de Durham é salvo por um inv",
-      "source": "bbc.com/football",
-      "ts": 1782250073.0048563,
-      "fb_id": "348454375016310_122241613700359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Real contrata Schroeder na transferência feminina",
-      "source": "bbc.com/football",
-      "ts": 1782250120.658021,
-      "fb_id": "348454375016310_122241613826359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Ex-atacante escocês Miller nomeado técnico do Macc",
-      "source": "bbc.com/football",
-      "ts": 1782250166.5939922,
-      "fb_id": "348454375016310_122241614000359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "David Squires sobre… a Copa do Mundo dos Socceroos",
-      "source": "theguardian.com/football",
-      "ts": 1782255684.0409403,
-      "fb_id": "348454375016310_122241618506359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Gennaro Gattuso assina com a Lazio após fiasco na",
-      "source": "gazetaesportiva.com",
-      "ts": 1782255729.435012,
-      "fb_id": "348454375016310_122241618794359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Torcedor morre na Jordânia após tumulto durante jo",
-      "source": "gazetaesportiva.com",
-      "ts": 1782255787.6665125,
-      "fb_id": "348454375016310_122241619034359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Brilho de Messi na Copa do Mundo será suficiente p",
-      "source": "gazetaesportiva.com",
-      "ts": 1782268166.8534684,
-      "fb_id": "348454375016310_122241630818359689",
-      "ig_id": "17927140953358277",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Empresária americana Michele Kang chega a acordo p",
-      "source": "gazetaesportiva.com",
-      "ts": 1782268255.5163615,
-      "fb_id": "348454375016310_122241631316359689",
-      "ig_id": "18187313095378632",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Cidade do México proíbe venda de álcool em jogo co",
-      "source": "gazetaesportiva.com",
-      "ts": 1782268334.7447636,
-      "fb_id": "348454375016310_122241631736359689",
-      "ig_id": "18123079015679216",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "O futuro das mulheres de Durham é salvo por um inv",
-      "source": "bbc.com/football",
-      "ts": 1782286493.0318635,
-      "ig_id": "17968110516109044",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Real contrata Schroeder na transferência feminina",
-      "source": "bbc.com/football",
-      "ts": 1782286568.160633,
-      "ig_id": "18098734045917648",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "'Rangers perto de assinar novamente com McCrorie'",
-      "source": "bbc.com/football",
-      "ts": 1782286642.7938242,
-      "fb_id": "348454375016310_122241649760359689",
-      "ig_id": "18010135292914610",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
       "head": "Técnico da Escócia busca, contra o Brasil, classif",
       "source": "gazetaesportiva.com",
       "ts": 1782297785.937204,
@@ -610,30 +369,60 @@
       "ig_id": "17888419704397578",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "David Squires sobre… a Copa do Mundo dos Socceroos",
+      "source": "theguardian.com/football",
+      "ts": 1782383766.1728795,
+      "ig_id": "18093662954198874",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Brasil inicia contagem regressiva para a Copa do M",
+      "source": "gazetaesportiva.com",
+      "ts": 1782383835.5264337,
+      "fb_id": "348454375016310_122241770786359689",
+      "ig_id": "17947980195017270",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Pai, mãe e Flávio Bolsonaro desejam sorte a Neymar",
+      "source": "gazetaesportiva.com",
+      "ts": 1782383907.7096927,
+      "fb_id": "348454375016310_122241771074359689",
+      "ig_id": "17873779230523289",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
     "bbc.com/football": {
       "reach_avg": 0.0,
-      "n": 2
+      "n": 10
     },
     "gazetaesportiva.com": {
       "reach_avg": 0.0,
-      "n": 63
+      "n": 71
     },
     "theguardian.com/football": {
-      "reach_avg": 0.024706289999999992,
-      "n": 19
+      "reach_avg": 0.017294402999999993,
+      "n": 20
+    },
+    "trivela.com.br": {
+      "reach_avg": 0.0,
+      "n": 3
     }
   },
   "hours": {
     "23": {
       "reach_avg": 0.0,
-      "n": 10
+      "n": 13
     },
     "7": {
       "reach_avg": 0.0,
-      "n": 5
+      "n": 8
     },
     "10": {
       "reach_avg": 0.0,
@@ -649,19 +438,19 @@
     },
     "17": {
       "reach_avg": 0.0,
-      "n": 6
+      "n": 8
     },
     "19": {
       "reach_avg": 0.0,
-      "n": 9
+      "n": 12
     },
     "21": {
       "reach_avg": 0.0,
-      "n": 9
+      "n": 12
     },
     "2": {
       "reach_avg": 0.0,
-      "n": 9
+      "n": 12
     },
     "8": {
       "reach_avg": 0.0,
@@ -686,13 +475,17 @@
     "16": {
       "reach_avg": 0.0,
       "n": 3
+    },
+    "14": {
+      "reach_avg": 0.0,
+      "n": 3
     }
   },
   "ig_quota": {
     "day": "2026-06-25",
-    "posts": 4
+    "posts": 7
   },
-  "last_scored_ts": 1782310343.021051,
+  "last_scored_ts": 1782383947.712695,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -809,22 +602,50 @@
     "1-10": {
       "reach_avg": 0.0,
       "n": 3
+    },
+    "1-14": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "1-17": {
+      "reach_avg": 0.0,
+      "n": 2
+    },
+    "1-19": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "1-21": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "1-23": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "2-2": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "2-7": {
+      "reach_avg": 0.0,
+      "n": 3
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 4.0232058589918884e-05,
-      "n": 84
+      "reach_avg": 3.2102071327079316e-08,
+      "n": 104
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 5.747436941416984e-05,
-      "n": 36
+      "reach_avg": 9.359204468536246e-08,
+      "n": 54
     },
     "tags:1-3": {
       "reach_avg": 0.0,
-      "n": 1
+      "n": 3
     }
   }
 }
