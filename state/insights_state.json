@@ -395,6 +395,31 @@
       "ig_id": "17873779230523289",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "😳 Em geral, o apelido do Real Madrid é “cremoso”.",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782396441.8069983,
+      "ig_id": "18014428517907456",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "🇵🇹 Alex Amorim, ex-meio-campista do Arroca, estreo",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782396512.7405314,
+      "ig_id": "18115152781852965",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "🇵🇹Depois de o “Gil Vicente” no período de novembro",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782396570.7839801,
+      "fb_id": "348454375016310_122241801458359689",
+      "ig_id": "18105856486818356",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -483,7 +508,7 @@
   },
   "ig_quota": {
     "day": "2026-06-25",
-    "posts": 7
+    "posts": 10
   },
   "last_scored_ts": 1782383947.712695,
   "dow_hours": {
