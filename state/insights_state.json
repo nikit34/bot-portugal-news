@@ -602,6 +602,14 @@
       "ig_id": "17860649829645801",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Quais jogadores de futebol se recusaram a comemora",
+      "source": "theguardian.com/football",
+      "ts": 1782372996.9016192,
+      "ig_id": "17888419704397578",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -682,7 +690,7 @@
   },
   "ig_quota": {
     "day": "2026-06-25",
-    "posts": 3
+    "posts": 4
   },
   "last_scored_ts": 1782310343.021051,
   "dow_hours": {
