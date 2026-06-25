@@ -420,6 +420,31 @@
       "ig_id": "18105856486818356",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🇵🇹 O ex-meio-campista do Arroca, Alex Amorim, estr",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782410704.8353503,
+      "ig_id": "18013081295716112",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "O Manchester United foi eliminado de todas as comp",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782410773.4375901,
+      "fb_id": "1330193899275848",
+      "ig_id": "17955516854984588",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇵🇹Uma série de partidas sem vitórias, que se esten",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782410820.5347705,
+      "fb_id": "348454375016310_122241830378359689",
+      "is_video": false,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -508,7 +533,7 @@
   },
   "ig_quota": {
     "day": "2026-06-25",
-    "posts": 10
+    "posts": 12
   },
   "last_scored_ts": 1782383947.712695,
   "dow_hours": {
