@@ -575,6 +575,33 @@
       "fb_id": "348454375016310_122241725024359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Brasil terá Rayan titular e Neymar no banco contra",
+      "source": "gazetaesportiva.com",
+      "ts": 1782354658.6807013,
+      "fb_id": "348454375016310_122241740480359689",
+      "ig_id": "18004126844944949",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bósnia vence Catar e encaminha classificação inédi",
+      "source": "gazetaesportiva.com",
+      "ts": 1782354747.4107246,
+      "fb_id": "348454375016310_122241740870359689",
+      "ig_id": "18365226319235694",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Novo formato ressuscita fantasma da manipulação de",
+      "source": "gazetaesportiva.com",
+      "ts": 1782354828.1661737,
+      "fb_id": "348454375016310_122241741326359689",
+      "ig_id": "17860649829645801",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -654,8 +681,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-06-24",
-    "posts": 12
+    "day": "2026-06-25",
+    "posts": 3
   },
   "last_scored_ts": 1782310343.021051,
   "dow_hours": {
