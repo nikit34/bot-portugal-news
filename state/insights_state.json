@@ -305,6 +305,14 @@
       "ig_id": "17974179795104124",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "🇪🇺 Escalações iniciais de Braga e Estrela Zvezda 🇵",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782495127.5276365,
+      "ig_id": "17889143838568374",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -393,7 +401,7 @@
   },
   "ig_quota": {
     "day": "2026-06-26",
-    "posts": 11
+    "posts": 12
   },
   "last_scored_ts": 1782460044.157109,
   "dow_hours": {
