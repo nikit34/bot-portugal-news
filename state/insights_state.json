@@ -2,76 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Escócia empata com República Tcheca na primeira ro",
-      "source": "bbc.com/football",
-      "ts": 1781786892.9420564
-    },
-    {
-      "head": "Weir assina pelo Lyon, vice-campeão da Liga dos Ca",
-      "source": "bbc.com/football",
-      "ts": 1781786957.9692776
-    },
-    {
-      "head": "Quase o homem McInnes finalmente conseguiu o empre",
-      "source": "bbc.com/football",
-      "ts": 1781787024.2700052
-    },
-    {
-      "head": "Revisão da Premier League 2025-26: queixas da temp",
-      "source": "theguardian.com/football",
-      "ts": 1781801609.690758
-    },
-    {
-      "head": "A emocionante janela de transferências só irá agra",
-      "source": "theguardian.com/football",
-      "ts": 1781801671.474398
-    },
-    {
-      "head": "Se esta for a última Copa do Mundo de Messi, ele p",
-      "source": "theguardian.com/football",
-      "ts": 1781801735.0979905
-    },
-    {
-      "head": "Veja os menores públicos do Santos no primeiro sem",
-      "source": "gazetaesportiva.com",
-      "ts": 1781813649.583444
-    },
-    {
-      "head": "México e Coreia do Sul se enfrentam em Guadalajara",
-      "source": "gazetaesportiva.com",
-      "ts": 1781813707.1363835
-    },
-    {
-      "head": "“Ele não é mais o mesmo jogador de antes”, diz mei",
-      "source": "gazetaesportiva.com",
-      "ts": 1781813770.3048809
-    },
-    {
-      "head": "‘Eu pensei – meu Deus, ele vai ser um jogador’: a",
-      "source": "theguardian.com/football",
-      "ts": 1781825408.8504376
-    },
-    {
-      "head": "Revisão da temporada 2025-26 da Premier League: no",
-      "source": "theguardian.com/football",
-      "ts": 1781825464.5083408
-    },
-    {
-      "head": "Atlético-MG avança na construção de novo prédio da",
-      "source": "gazetaesportiva.com",
-      "ts": 1781839720.0370045
-    },
-    {
-      "head": "República Tcheca sai na frente, mas leva empate da",
-      "source": "gazetaesportiva.com",
-      "ts": 1781839781.898089
-    },
-    {
-      "head": "Francisco Chamorro confirma presença e tenta 5º tí",
-      "source": "gazetaesportiva.com",
-      "ts": 1781839852.6677752
-    },
-    {
       "head": "Mbappé ganha camisa comemorativa após se tornar o",
       "source": "gazetaesportiva.com",
       "ts": 1781859639.6414082
@@ -185,190 +115,6 @@
       "head": "Tyler Adams blinda o USA contra o salto alto e a e",
       "source": "gazetaesportiva.com",
       "ts": 1781941585.152851
-    },
-    {
-      "head": "Técnico da Escócia busca, contra o Brasil, classif",
-      "source": "gazetaesportiva.com",
-      "ts": 1782297785.937204,
-      "fb_id": "348454375016310_122241661712359689",
-      "ig_id": "18344008363217915",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Lateral retorna antes ao Palmeiras e participa de",
-      "source": "gazetaesportiva.com",
-      "ts": 1782297855.1156998,
-      "fb_id": "348454375016310_122241662042359689",
-      "ig_id": "18010369886874657",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "São Paulo perde pênalti, mas vence Fortaleza sob c",
-      "source": "gazetaesportiva.com",
-      "ts": 1782297937.331668,
-      "fb_id": "348454375016310_122241662366359689",
-      "ig_id": "17894077287539991",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Amorim concorda em se tornar técnico do Milan para",
-      "source": "theguardian.com/football",
-      "ts": 1782310186.208917,
-      "ig_id": "17897634993469052",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Uma história de cartões vermelhos em Copas do Mund",
-      "source": "theguardian.com/football",
-      "ts": 1782310244.578953,
-      "fb_id": "348454375016310_122241689906359689",
-      "ig_id": "17991709649798220",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Julián Quiñones, Negritude no México e as complexi",
-      "source": "theguardian.com/football",
-      "ts": 1782310303.0080307,
-      "fb_id": "348454375016310_122241690224359689",
-      "ig_id": "18402177895154789",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Quais jogadores de futebol se recusaram a comemora",
-      "source": "theguardian.com/football",
-      "ts": 1782323352.771613,
-      "fb_id": "348454375016310_122241707234359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Ancelotti faz mistério sobre substituto de Raphinh",
-      "source": "gazetaesportiva.com",
-      "ts": 1782323408.0216103,
-      "fb_id": "348454375016310_122241707474359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Com gol de letra, Criciúma bate América-MG e ampli",
-      "source": "gazetaesportiva.com",
-      "ts": 1782323459.6764593,
-      "fb_id": "348454375016310_122241707654359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Veja as seleções classificadas à segunda fase da C",
-      "source": "gazetaesportiva.com",
-      "ts": 1782329275.9846625,
-      "fb_id": "348454375016310_122241713384359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Técnico da República Tcheca faz autocrítica, mas c",
-      "source": "gazetaesportiva.com",
-      "ts": 1782329321.3734255,
-      "fb_id": "348454375016310_122241713624359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Maior goleador, Messi tem média inferior às de Pel",
-      "source": "gazetaesportiva.com",
-      "ts": 1782329365.3986413,
-      "fb_id": "348454375016310_122241713780359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Histórias de diversidade marcam a Copa do Mundo da",
-      "source": "gazetaesportiva.com",
-      "ts": 1782335895.228675,
-      "fb_id": "348454375016310_122241720998359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Entre vaias e dúvidas, o já classificado México bu",
-      "source": "gazetaesportiva.com",
-      "ts": 1782335946.4820585,
-      "fb_id": "348454375016310_122241721220359689",
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Última rodada da primeira fase da Copa começa e qu",
-      "source": "gazetaesportiva.com",
-      "ts": 1782336011.4386034,
-      "fb_id": "348454375016310_122241721436359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Torcedores da Inglaterra se frustram com empate di",
-      "source": "gazetaesportiva.com",
-      "ts": 1782342035.27533,
-      "fb_id": "348454375016310_122241724748359689",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Brasil desembarca em Miami para duelo contra a Esc",
-      "source": "gazetaesportiva.com",
-      "ts": 1782342083.8553672,
-      "fb_id": "348454375016310_122241724886359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Leweling: “Se formos campeões, vou fazer o corte d",
-      "source": "gazetaesportiva.com",
-      "ts": 1782342131.4497278,
-      "fb_id": "348454375016310_122241725024359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Brasil terá Rayan titular e Neymar no banco contra",
-      "source": "gazetaesportiva.com",
-      "ts": 1782354658.6807013,
-      "fb_id": "348454375016310_122241740480359689",
-      "ig_id": "18004126844944949",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Bósnia vence Catar e encaminha classificação inédi",
-      "source": "gazetaesportiva.com",
-      "ts": 1782354747.4107246,
-      "fb_id": "348454375016310_122241740870359689",
-      "ig_id": "18365226319235694",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Novo formato ressuscita fantasma da manipulação de",
-      "source": "gazetaesportiva.com",
-      "ts": 1782354828.1661737,
-      "fb_id": "348454375016310_122241741326359689",
-      "ig_id": "17860649829645801",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Quais jogadores de futebol se recusaram a comemora",
-      "source": "theguardian.com/football",
-      "ts": 1782372996.9016192,
-      "ig_id": "17888419704397578",
-      "is_video": false,
-      "hashtag_n": 5
     },
     {
       "head": "David Squires sobre… a Copa do Mundo dos Socceroos",
@@ -493,6 +239,32 @@
       "ig_id": "18458318476113804",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "😂 Durante os festejos de ontem, o Benfica quase pe",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782459861.5066676,
+      "ig_id": "17882609949599977",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "🗳️ Eleições presidenciais realizaram-se no Benfica",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782459935.1158447,
+      "fb_id": "348454375016310_122241888074359689",
+      "ig_id": "18416356120195378",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "🇵🇹 “Gil Vicente” continua a surpreender agradavelm",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782460004.1522033,
+      "fb_id": "348454375016310_122241888446359689",
+      "ig_id": "18134240773584722",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -502,11 +274,11 @@
     },
     "gazetaesportiva.com": {
       "reach_avg": 0.0,
-      "n": 71
+      "n": 88
     },
     "theguardian.com/football": {
-      "reach_avg": 0.017294402999999993,
-      "n": 20
+      "reach_avg": 0.008051670312209996,
+      "n": 25
     },
     "trivela.com.br": {
       "reach_avg": 0.0,
@@ -516,15 +288,15 @@
   "hours": {
     "23": {
       "reach_avg": 0.0,
-      "n": 13
+      "n": 16
     },
     "7": {
       "reach_avg": 0.0,
-      "n": 8
+      "n": 9
     },
     "10": {
       "reach_avg": 0.0,
-      "n": 6
+      "n": 9
     },
     "13": {
       "reach_avg": 0.0,
@@ -536,19 +308,19 @@
     },
     "17": {
       "reach_avg": 0.0,
-      "n": 8
+      "n": 11
     },
     "19": {
       "reach_avg": 0.0,
-      "n": 12
+      "n": 15
     },
     "21": {
       "reach_avg": 0.0,
-      "n": 12
+      "n": 15
     },
     "2": {
       "reach_avg": 0.0,
-      "n": 12
+      "n": 15
     },
     "8": {
       "reach_avg": 0.0,
@@ -575,15 +347,15 @@
       "n": 3
     },
     "14": {
-      "reach_avg": 0.0,
-      "n": 3
+      "reach_avg": 0.010499999999999999,
+      "n": 6
     }
   },
   "ig_quota": {
     "day": "2026-06-26",
-    "posts": 3
+    "posts": 6
   },
-  "last_scored_ts": 1782383947.712695,
+  "last_scored_ts": 1782460044.157109,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -728,22 +500,54 @@
     "2-7": {
       "reach_avg": 0.0,
       "n": 3
+    },
+    "2-10": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "2-14": {
+      "reach_avg": 0.010499999999999999,
+      "n": 3
+    },
+    "2-17": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "2-19": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "2-21": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "2-23": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "3-2": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "3-7": {
+      "reach_avg": 0.0,
+      "n": 1
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 3.2102071327079316e-08,
-      "n": 104
+      "reach_avg": 3.489458964941642e-05,
+      "n": 126
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 9.359204468536246e-08,
-      "n": 54
+      "reach_avg": 4.9849448129850905e-05,
+      "n": 75
     },
     "tags:1-3": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 4
     }
   }
 }
