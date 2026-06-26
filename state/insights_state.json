@@ -469,6 +469,30 @@
       "fb_id": "1006527455629600",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "🇵🇹Uma série de partidas sem vitórias, que se esten",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782441208.2792423,
+      "ig_id": "18121831141666201",
+      "is_video": false,
+      "hashtag_n": 2
+    },
+    {
+      "head": "🥲😮 Bem, isso é brilhante. Assim que começaram a tw",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782441282.731278,
+      "ig_id": "17921462679163653",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "🔝 Luis Suarez decide na embreagem pelo segundo rou",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782441359.1245284,
+      "ig_id": "18458318476113804",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -556,8 +580,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-06-25",
-    "posts": 12
+    "day": "2026-06-26",
+    "posts": 3
   },
   "last_scored_ts": 1782383947.712695,
   "dow_hours": {
