@@ -265,6 +265,30 @@
       "ig_id": "18134240773584722",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Bednarek, na briga por posição, foi longe demais a",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782470744.092972,
+      "ig_id": "18364877011238261",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "🇵🇹🏋️‍♂️O Braga continua a apresentar um resultado",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782470817.0953064,
+      "ig_id": "18012076244869424",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "🇵🇹 Mario Dorgeles lesionou-se em agosto e falhou u",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782470886.3616538,
+      "ig_id": "18104340269012413",
+      "is_video": false,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -353,7 +377,7 @@
   },
   "ig_quota": {
     "day": "2026-06-26",
-    "posts": 6
+    "posts": 9
   },
   "last_scored_ts": 1782460044.157109,
   "dow_hours": {
