@@ -289,6 +289,22 @@
       "ig_id": "18104340269012413",
       "is_video": false,
       "hashtag_n": 2
+    },
+    {
+      "head": "🇪🇺 Escalações iniciais de Nottingham Forrest e Por",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782482811.6714885,
+      "ig_id": "18057897185774945",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "😱 Afinal, existem juízes lendários na Primeira. Lu",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782483258.8817894,
+      "ig_id": "17974179795104124",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -377,7 +393,7 @@
   },
   "ig_quota": {
     "day": "2026-06-26",
-    "posts": 9
+    "posts": 11
   },
   "last_scored_ts": 1782460044.157109,
   "dow_hours": {
