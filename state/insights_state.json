@@ -167,6 +167,33 @@
       "ig_id": "18092388131625474",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Cidade argentina inaugura estátua de Messi mais al",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782559602.8171284,
+      "fb_id": "348454375016310_122242011986359689",
+      "ig_id": "17943750084252906",
+      "is_video": false,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Newcastle recusa proposta do Arsenal por Bruno Gui",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782559664.020289,
+      "fb_id": "348454375016310_122242012412359689",
+      "ig_id": "17895408849531628",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Joachim Klement, 'guru' alemão, que acertou campeã",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782559733.561352,
+      "fb_id": "348454375016310_122242012742359689",
+      "ig_id": "18059499593746601",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -263,7 +290,7 @@
   },
   "ig_quota": {
     "day": "2026-06-27",
-    "posts": 8
+    "posts": 11
   },
   "last_scored_ts": 1782543417.0158508,
   "dow_hours": {
