@@ -194,6 +194,31 @@
       "ig_id": "18059499593746601",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Cadela desaparecida por semanas é encontrada após",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782566014.289209,
+      "fb_id": "348454375016310_122242020296359689",
+      "ig_id": "18087678344572844",
+      "is_video": false,
+      "hashtag_n": 1
+    },
+    {
+      "head": "Segundo o portal El Espectador Deportes, Marcelo B",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782566061.1452494,
+      "fb_id": "348454375016310_122242020584359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇦🇷 Classificada, Argentina deve poupar principais",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782566109.5139122,
+      "fb_id": "348454375016310_122242020854359689",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -290,7 +315,7 @@
   },
   "ig_quota": {
     "day": "2026-06-27",
-    "posts": 11
+    "posts": 12
   },
   "last_scored_ts": 1782543417.0158508,
   "dow_hours": {
