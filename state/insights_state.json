@@ -2,111 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Mbappé ganha camisa comemorativa após se tornar o",
-      "source": "gazetaesportiva.com",
-      "ts": 1781859639.6414082
-    },
-    {
-      "head": "Atlético-MG avança na construção de novo prédio da",
-      "source": "gazetaesportiva.com",
-      "ts": 1781859704.5929909
-    },
-    {
-      "head": "Cucurella fala sobre estreia na Copa e ida ao Real",
-      "source": "gazetaesportiva.com",
-      "ts": 1781859767.9190125
-    },
-    {
-      "head": "Palmeiras e Flamengo disputam sexta edição da Bras",
-      "source": "gazetaesportiva.com",
-      "ts": 1781875802.8447807
-    },
-    {
-      "head": "Cruzeiro anuncia contratação de lateral argentino",
-      "source": "gazetaesportiva.com",
-      "ts": 1781875871.5477118
-    },
-    {
-      "head": "Tottenham anuncia contratação de zagueiro da seleç",
-      "source": "gazetaesportiva.com",
-      "ts": 1781875942.242563
-    },
-    {
-      "head": "'Quero coragem, não medo' - técnico do País de Gal",
-      "source": "bbc.com/football",
-      "ts": 1781886590.0895557
-    },
-    {
-      "head": "‘Eu pensei – meu Deus, ele vai ser um jogador’: a",
-      "source": "theguardian.com/football",
-      "ts": 1781886649.4090776
-    },
-    {
-      "head": "Revisão da temporada 2025-26 da Premier League: no",
-      "source": "theguardian.com/football",
-      "ts": 1781886708.638
-    },
-    {
-      "head": "Montella questiona “caos” de críticas à Turquia an",
-      "source": "gazetaesportiva.com",
-      "ts": 1781897300.929033
-    },
-    {
-      "head": "No Z4 do Brasileirão, Vasco demite Renato Gaúcho O",
-      "source": "gazetaesportiva.com",
-      "ts": 1781897359.4118958
-    },
-    {
-      "head": "Ex-camisa 10 do Brasil cobra Raphinha na Seleção:",
-      "source": "gazetaesportiva.com",
-      "ts": 1781897417.0858457
-    },
-    {
-      "head": "“Muitos adorariam estar no nosso lugar”, diz técni",
-      "source": "gazetaesportiva.com",
-      "ts": 1781903002.7062857
-    },
-    {
-      "head": "Esperança de Marrocos, Hakimi divide atenção entre",
-      "source": "gazetaesportiva.com",
-      "ts": 1781903056.9629772
-    },
-    {
-      "head": "Ancelotti não cede à pressão e pede calma com Endr",
-      "source": "gazetaesportiva.com",
-      "ts": 1781903116.1506689
-    },
-    {
-      "head": "Atual Bola de Ouro, Dembélé segue sem encontrar me",
-      "source": "gazetaesportiva.com",
-      "ts": 1781909151.404988
-    },
-    {
-      "head": "E se os homens japoneses também limpassem suas cas",
-      "source": "gazetaesportiva.com",
-      "ts": 1781909209.1657958
-    },
-    {
-      "head": "Achraf Hakimi será julgado na França por acusação",
-      "source": "gazetaesportiva.com",
-      "ts": 1781909267.616095
-    },
-    {
-      "head": "Por que Países Baixos de van Dijk devem temer conf",
-      "source": "trivela.com.br",
-      "ts": 1781922875.4198546
-    },
-    {
-      "head": "Turquia x Paraguai: Como os paraguaios podem se re",
-      "source": "trivela.com.br",
-      "ts": 1781922944.1505516
-    },
-    {
-      "head": "Tim Vickery: A Copa do Mundo mudou. Como a obsessã",
-      "source": "trivela.com.br",
-      "ts": 1781923012.133224
-    },
-    {
       "head": "Meia dos EUA, Aaronson fala sobre lidar com a pres",
       "source": "gazetaesportiva.com",
       "ts": 1781941511.6740334
@@ -115,90 +10,6 @@
       "head": "Tyler Adams blinda o USA contra o salto alto e a e",
       "source": "gazetaesportiva.com",
       "ts": 1781941585.152851
-    },
-    {
-      "head": "David Squires sobre… a Copa do Mundo dos Socceroos",
-      "source": "theguardian.com/football",
-      "ts": 1782383766.1728795,
-      "ig_id": "18093662954198874",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Brasil inicia contagem regressiva para a Copa do M",
-      "source": "gazetaesportiva.com",
-      "ts": 1782383835.5264337,
-      "fb_id": "348454375016310_122241770786359689",
-      "ig_id": "17947980195017270",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Pai, mãe e Flávio Bolsonaro desejam sorte a Neymar",
-      "source": "gazetaesportiva.com",
-      "ts": 1782383907.7096927,
-      "fb_id": "348454375016310_122241771074359689",
-      "ig_id": "17873779230523289",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "😳 Em geral, o apelido do Real Madrid é “cremoso”.",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1782396441.8069983,
-      "ig_id": "18014428517907456",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "🇵🇹 Alex Amorim, ex-meio-campista do Arroca, estreo",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1782396512.7405314,
-      "ig_id": "18115152781852965",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "🇵🇹Depois de o “Gil Vicente” no período de novembro",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1782396570.7839801,
-      "fb_id": "348454375016310_122241801458359689",
-      "ig_id": "18105856486818356",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🇵🇹 O ex-meio-campista do Arroca, Alex Amorim, estr",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1782410704.8353503,
-      "ig_id": "18013081295716112",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "O Manchester United foi eliminado de todas as comp",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1782410773.4375901,
-      "fb_id": "1330193899275848",
-      "ig_id": "17955516854984588",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🇵🇹Uma série de partidas sem vitórias, que se esten",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1782410820.5347705,
-      "fb_id": "348454375016310_122241830378359689",
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "🥲😮 Bem, isso é brilhante. Assim que começaram a tw",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1782422687.3977523,
-      "fb_id": "348454375016310_122241842678359689",
-      "is_video": false,
-      "hashtag_n": 3
     },
     {
       "head": "🎧 Chegamos na noite de sexta-feira com uma música",
@@ -215,30 +26,6 @@
       "fb_id": "1006527455629600",
       "is_video": true,
       "hashtag_n": 4
-    },
-    {
-      "head": "🇵🇹Uma série de partidas sem vitórias, que se esten",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1782441208.2792423,
-      "ig_id": "18121831141666201",
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "🥲😮 Bem, isso é brilhante. Assim que começaram a tw",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1782441282.731278,
-      "ig_id": "17921462679163653",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "🔝 Luis Suarez decide na embreagem pelo segundo rou",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1782441359.1245284,
-      "ig_id": "18458318476113804",
-      "is_video": false,
-      "hashtag_n": 5
     },
     {
       "head": "😂 Durante os festejos de ontem, o Benfica quase pe",
@@ -329,6 +116,30 @@
       "ig_id": "18100774019131360",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "🤩O jogo contra o Red Star foi o 165º de João Mouti",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782543200.242178,
+      "ig_id": "18028817498831583",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "📉Em setembro, o Centro Internacional de Estudos do",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782543270.1834877,
+      "ig_id": "18068683598413950",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "😱E como não voltar ao ar depois disso?!?? Trubin M",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782543377.0044954,
+      "ig_id": "17879512110478632",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -338,15 +149,19 @@
     },
     "gazetaesportiva.com": {
       "reach_avg": 0.0,
-      "n": 88
+      "n": 90
     },
     "theguardian.com/football": {
-      "reach_avg": 0.008051670312209996,
-      "n": 25
+      "reach_avg": 0.005636169218546997,
+      "n": 26
     },
     "trivela.com.br": {
       "reach_avg": 0.0,
       "n": 3
+    },
+    "https://t.me/futebol_portugues": {
+      "reach_avg": 0.31008914999999987,
+      "n": 10
     }
   },
   "hours": {
@@ -360,7 +175,7 @@
     },
     "10": {
       "reach_avg": 0.0,
-      "n": 9
+      "n": 12
     },
     "13": {
       "reach_avg": 0.0,
@@ -380,11 +195,11 @@
     },
     "21": {
       "reach_avg": 0.0,
-      "n": 15
+      "n": 16
     },
     "2": {
       "reach_avg": 0.0,
-      "n": 15
+      "n": 18
     },
     "8": {
       "reach_avg": 0.0,
@@ -411,15 +226,19 @@
       "n": 3
     },
     "14": {
-      "reach_avg": 0.010499999999999999,
-      "n": 6
+      "reach_avg": 0.003601499999999999,
+      "n": 9
+    },
+    "18": {
+      "reach_avg": 1.2914999999999999,
+      "n": 3
     }
   },
   "ig_quota": {
     "day": "2026-06-27",
-    "posts": 2
+    "posts": 5
   },
-  "last_scored_ts": 1782460044.157109,
+  "last_scored_ts": 1782543417.0158508,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -596,22 +415,46 @@
     "3-7": {
       "reach_avg": 0.0,
       "n": 1
+    },
+    "3-10": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "3-14": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "3-18": {
+      "reach_avg": 1.2914999999999999,
+      "n": 3
+    },
+    "3-21": {
+      "reach_avg": 0.0,
+      "n": 1
+    },
+    "4-2": {
+      "reach_avg": 0.0,
+      "n": 3
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 3.489458964941642e-05,
-      "n": 126
+      "reach_avg": 4.82986037098614e-07,
+      "n": 138
+    },
+    "video": {
+      "reach_avg": 6.15,
+      "n": 1
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 4.9849448129850905e-05,
-      "n": 75
+      "reach_avg": 1.2915020116050389,
+      "n": 84
     },
     "tags:1-3": {
       "reach_avg": 0.0,
-      "n": 4
+      "n": 8
     }
   }
 }
