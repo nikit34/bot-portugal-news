@@ -313,6 +313,22 @@
       "ig_id": "17889143838568374",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🔥 A batalha pelo sexto lugar na tabela de coeficie",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782527563.879466,
+      "ig_id": "17951562918195796",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "🤔Offtopic da Holanda de um finlandês com raízes po",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1782527684.7786155,
+      "ig_id": "18100774019131360",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -400,8 +416,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-06-26",
-    "posts": 12
+    "day": "2026-06-27",
+    "posts": 2
   },
   "last_scored_ts": 1782460044.157109,
   "dow_hours": {
