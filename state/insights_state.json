@@ -140,6 +140,33 @@
       "ig_id": "17879512110478632",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "🇦🇷 Enrique Macaya Márquez, jornalista argentino de",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782554314.8175323,
+      "fb_id": "348454375016310_122241999788359689",
+      "ig_id": "18008313983877985",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇫🇷 Dembélé faz pouco caso de hat-trick pela França",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782554394.2729132,
+      "fb_id": "348454375016310_122242000136359689",
+      "ig_id": "18078033785308253",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇯🇵 “Antes, para o Brasil, o Japão era um adversári",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782554471.239294,
+      "fb_id": "348454375016310_122242000490359689",
+      "ig_id": "18092388131625474",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -236,7 +263,7 @@
   },
   "ig_quota": {
     "day": "2026-06-27",
-    "posts": 5
+    "posts": 8
   },
   "last_scored_ts": 1782543417.0158508,
   "dow_hours": {
