@@ -246,6 +246,31 @@
       "ig_id": "18091907426368333",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "FIFA destaca recorde da CazéTV e enfraquece rumore",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782659638.9236374,
+      "fb_id": "348454375016310_122242171544359689",
+      "ig_id": "18086297522649719",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇦🇷 RECORDE HISTÓRICO! Messi se tornou o primeiro j",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782659686.1619823,
+      "fb_id": "348454375016310_122242171820359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Marcelo Bielsa como técnico em Copas do Mundo: 200",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782659732.4170685,
+      "fb_id": "348454375016310_122242172078359689",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -346,7 +371,7 @@
   },
   "ig_quota": {
     "day": "2026-06-28",
-    "posts": 11
+    "posts": 12
   },
   "last_scored_ts": 1782632915.402205,
   "dow_hours": {
