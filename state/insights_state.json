@@ -275,6 +275,33 @@
       "fb_id": "348454375016310_122242063160359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🇧🇷 O clima na chegada da Seleção Brasileira a Hous",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782614345.9142988,
+      "fb_id": "937249249335097",
+      "ig_id": "18070450205381137",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "5 bebês foram registrados com o nome Neymar no Bra",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782614414.2406714,
+      "fb_id": "348454375016310_122242092818359689",
+      "ig_id": "18095770658588546",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Everaldo Marques, na Globo: “A Croácia vai entrand",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782614484.6611094,
+      "fb_id": "348454375016310_122242093232359689",
+      "ig_id": "18146427568502895",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -370,8 +397,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-06-27",
-    "posts": 12
+    "day": "2026-06-28",
+    "posts": 3
   },
   "last_scored_ts": 1782543417.0158508,
   "dow_hours": {
