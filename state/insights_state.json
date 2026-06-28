@@ -202,6 +202,32 @@
       "ig_id": "17882309586604727",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Carlos Queiroz, técnico de Gana, detona Copa do Mu",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782642151.046827,
+      "fb_id": "348454375016310_122242144604359689",
+      "ig_id": "18052050731534366",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 ATENÇÃO! Definidos os confrontos da 2ª fase e o",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782642221.4062622,
+      "fb_id": "348454375016310_122242144958359689",
+      "ig_id": "17922785871390589",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "📃 Irã deixa carta no vestiário após jogo contra o",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782642294.3387372,
+      "ig_id": "18113792681501024",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -302,7 +328,7 @@
   },
   "ig_quota": {
     "day": "2026-06-28",
-    "posts": 6
+    "posts": 9
   },
   "last_scored_ts": 1782632915.402205,
   "dow_hours": {
