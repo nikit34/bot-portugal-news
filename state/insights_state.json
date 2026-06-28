@@ -228,6 +228,24 @@
       "ig_id": "18113792681501024",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "📅 ANOTE NA AGENDA! Datas e horários dos jogos da 2",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782652789.864404,
+      "fb_id": "348454375016310_122242161794359689",
+      "ig_id": "18141492655537519",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇦🇷 RECORDE HISTÓRICO! Messi se tornou o primeiro j",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782652852.3377998,
+      "fb_id": "348454375016310_122242161950359689",
+      "ig_id": "18091907426368333",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -328,7 +346,7 @@
   },
   "ig_quota": {
     "day": "2026-06-28",
-    "posts": 9
+    "posts": 11
   },
   "last_scored_ts": 1782632915.402205,
   "dow_hours": {
