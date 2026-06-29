@@ -351,6 +351,32 @@
       "fb_id": "348454375016310_122242209470359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Marquinhos fala sobre declaração do atacante japon",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782700778.457795,
+      "fb_id": "348454375016310_122242224752359689",
+      "ig_id": "18116780812868050",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Com aumento de preço, Palmeiras terá camisa 'padrã",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782700872.2126172,
+      "fb_id": "348454375016310_122242225118359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "As seleções eliminadas na fase de grupos da Copa d",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1782700951.9457161,
+      "fb_id": "348454375016310_122242225820359689",
+      "ig_id": "18091240055618168",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -450,8 +476,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-06-28",
-    "posts": 12
+    "day": "2026-06-29",
+    "posts": 2
   },
   "last_scored_ts": 1782632915.402205,
   "dow_hours": {
