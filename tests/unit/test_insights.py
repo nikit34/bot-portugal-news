@@ -158,6 +158,47 @@ def test_get_facebook_post_insights_reads_object_fields_only(monkeypatch):
     assert len(calls) == 1  # single object fetch, no extra reach call
 
 
+def test_get_facebook_post_insights_drops_shares_for_bare_media_id(monkeypatch):
+    # A bare numeric id (no '_') is a media object (video from /videos returns only
+    # 'id'); Video/Photo nodes have no 'shares' field, so requesting it 400s the
+    # whole call. We must omit shares for those, still read comments/reactions, and
+    # default shares to 0 — instead of losing all engagement signal.
+    captured = {}
+
+    def fake_get(url, params=None, **kwargs):
+        captured['fields'] = params['fields']
+        return _FakeResponse({
+            'comments': {'summary': {'total_count': 3}},
+            'reactions': {'summary': {'total_count': 9}},
+        })
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+    metrics = ins.get_facebook_post_insights('tok', '2412914399204739')
+
+    assert 'shares' not in captured['fields']          # no invalid field => no 400
+    assert metrics == {'shares': 0, 'comments': 3, 'likes': 9}
+
+
+def test_get_facebook_post_insights_redacts_token_in_warning(monkeypatch):
+    # requests stringifies the failing URL (with access_token) into the exception;
+    # the warning must scrub it so the live token never lands in CI logs/artifacts.
+    logged = []
+
+    def fake_get(url, params=None, **kwargs):
+        raise Exception(
+            '400 Client Error: Bad Request for url: '
+            'https://graph.facebook.com/v18.0/123_456?fields=shares&access_token=SECRETTOKEN')
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+    monkeypatch.setattr(ins.logger, 'warning', lambda m: logged.append(m))
+
+    ins.get_facebook_post_insights('tok', '123_456')
+
+    assert logged, 'expected a warning to be logged'
+    assert 'SECRETTOKEN' not in logged[0]
+    assert 'access_token=***' in logged[0]
+
+
 def test_get_facebook_post_insights_fail_open_on_missing_scope(monkeypatch):
     def fake_get(url, params=None, **kwargs):
         raise Exception('(#10) requires read_insights')

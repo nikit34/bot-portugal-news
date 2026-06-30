@@ -7,6 +7,7 @@ import requests
 
 from src.processor.history_comparator import make_head
 from src.producers.telegram.telegram_api import send_message_api
+from src.utils.notify import redact_secrets
 from src.static.settings import (
     INSIGHTS_REPORT_ENABLED,
     INSIGHTS_REPORT_HOUR,
@@ -78,7 +79,7 @@ def _fetch_media_reach(access_token, media_id):
                 values = metric.get('values') or [{}]
                 return values[0].get('value')
     except Exception as e:
-        logger.warning(f"[insights] IG reach unavailable for {media_id}: {e}")
+        logger.warning(redact_secrets(f"[insights] IG reach unavailable for {media_id}: {e}"))
     return None
 
 
@@ -143,10 +144,18 @@ def get_facebook_post_insights(access_token, post_id):
     metrics = {}
     if not post_id:
         return metrics
+    # Полноценный page-post id вида '{pageid}_{postid}' адресует story-узел поста —
+    # у него есть shares + comments + reactions. Голый числовой id — это media-объект
+    # (video из /videos отдаёт только 'id', без post_id): у Video/Photo НЕТ поля
+    # 'shares', и запрос его вызывает Graph error #100 → 400 на весь вызов, теряя и
+    # comments/reactions. Поэтому для голого id просим только то, что узел отдаёт.
+    is_page_post = '_' in str(post_id)
+    fields = ('shares,comments.summary(true),reactions.summary(true)' if is_page_post
+              else 'comments.summary(true),reactions.summary(true)')
     try:
         url = _GRAPH + post_id
         params = {
-            'fields': 'shares,comments.summary(true),reactions.summary(true)',
+            'fields': fields,
             'access_token': access_token,
         }
         response = requests.get(url, params=params)
@@ -156,7 +165,7 @@ def get_facebook_post_insights(access_token, post_id):
         metrics['comments'] = ((data.get('comments') or {}).get('summary') or {}).get('total_count', 0)
         metrics['likes'] = ((data.get('reactions') or {}).get('summary') or {}).get('total_count', 0)
     except Exception as e:
-        logger.warning(f"[insights] FB post engagement unavailable for {post_id}: {e}")
+        logger.warning(redact_secrets(f"[insights] FB post engagement unavailable for {post_id}: {e}"))
     return metrics
 
 
@@ -193,7 +202,7 @@ def get_facebook_page_insights(access_token, page_id):
             values = metric.get('values') or [{}]
             stats[metric.get('name')] = values[-1].get('value')
     except Exception as e:
-        logger.warning(f"[insights] FB page insights unavailable: {e}")
+        logger.warning(redact_secrets(f"[insights] FB page insights unavailable: {e}"))
     return stats
 
 
@@ -272,12 +281,12 @@ async def report_insights(graph, telegram_bot_token, context, source_ranking=Non
                 get_instagram_media_insights,
                 graph.access_token, ig_user_id, INSIGHTS_MEDIA_LIMIT, INSIGHTS_TOP_N)
         except Exception as e:
-            logger.warning(f"[insights] IG media insights failed: {e}")
+            logger.warning(redact_secrets(f"[insights] IG media insights failed: {e}"))
     try:
         fb_stats = await asyncio.to_thread(
             get_facebook_page_insights, graph.access_token, context['self_facebook_page_id'])
     except Exception as e:
-        logger.warning(f"[insights] FB page insights failed: {e}")
+        logger.warning(redact_secrets(f"[insights] FB page insights failed: {e}"))
 
     report = build_insights_report(
         ig_items, fb_stats, source_ranking, hour_ranking, format_ranking, variant_ranking,
