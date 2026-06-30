@@ -221,6 +221,14 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
         # формат) — это не сбой, просто не постим эту запись.
         app_logger.debug(f"[serve] video skipped from {source}: {e}")
         return
+
+    if not url_path or not url_path.get('path'):
+        # Загрузчик не вернул локальный файл — например, Telegram-медиа без
+        # скачиваемого файла (poll/geo/contact/dice): download_media отдаёт None.
+        # Постить нечего и все нижележащие фильтры ждут путь к файлу — пропускаем.
+        app_logger.debug(f"[serve] no media file downloaded from {source}; skipping")
+        return
+
     is_video = _is_video(url_path)
 
     if not is_video and IMAGE_QUALITY_FILTER_ENABLED and is_low_quality_image(url_path.get('path')):

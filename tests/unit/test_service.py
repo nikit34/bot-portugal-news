@@ -138,6 +138,25 @@ async def test_low_quality_image_skipped(monkeypatch):
     assert svc._published_count == 0
 
 
+async def test_missing_media_path_is_skipped(monkeypatch):
+    # Telegram media without a downloadable file (poll/geo/contact/dice) makes
+    # download_media return None => url_path['path'] is None. Must skip cleanly,
+    # not crash in _is_video on None.lower().
+    calls = _mock_sends(monkeypatch)
+
+    async def _no_file():
+        return {'url': 'tg://media', 'path': None}
+
+    posted = deque()
+    await svc.serve(None, object(), _nlp, _Translator(),
+                    'Benfica vence o Porto numa noite memoravel no estadio da luz',
+                    _no_file, posted, CONTEXT, source='t.me/x')
+
+    assert calls == []
+    assert svc._published_count == 0
+    assert len(posted) == 0
+
+
 async def test_meta_rate_limit_opens_circuit(monkeypatch):
     # FB rate-limited; IG+TG still publish, and the Meta circuit latches open.
     calls = _mock_sends(monkeypatch, fail={Platform.FACEBOOK: _RateLimited()})
