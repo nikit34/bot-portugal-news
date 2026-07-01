@@ -51,6 +51,32 @@
       "ig_id": "18078419156312258",
       "is_video": false,
       "hashtag_n": 3
+    },
+    {
+      "head": "Oligarca ucraniano, mulher e filho feridos após ex",
+      "source": "abola.pt",
+      "ts": 1782893186.1572182,
+      "fb_id": "348454375016310_122242499594359689",
+      "is_video": false,
+      "hashtag_n": 0
+    },
+    {
+      "head": "Nagelsmann não se demite após eliminação da Aleman",
+      "source": "abola.pt",
+      "ts": 1782893255.4414275,
+      "fb_id": "348454375016310_122242500122359689",
+      "ig_id": "18344921143174410",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "SC Braga defende eleições antecipadas na Liga Minh",
+      "source": "abola.pt",
+      "ts": 1782893323.5691552,
+      "fb_id": "348454375016310_122242500482359689",
+      "ig_id": "18077362397484489",
+      "is_video": false,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -167,9 +193,9 @@
   },
   "ig_quota": {
     "day": "2026-07-01",
-    "posts": 3
+    "posts": 5
   },
-  "last_scored_ts": 1782861285.862748,
+  "last_scored_ts": 1782893363.5706694,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
