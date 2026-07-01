@@ -236,15 +236,18 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
         return
 
     if not is_video and IMAGE_NSFW_ENABLED and await asyncio.to_thread(is_unsafe_image, url_path.get('path')):
+        app_logger.debug(f"[serve] skipping NSFW image from {source}")
         return
 
     doc = None
     if not is_video:
         doc = nlp(translated_message)
         if _low_semantic_load(doc):
+            app_logger.debug(f"[serve] skipping low-semantic-load post from {source}: head={head!r}")
             return
 
     if is_video and _large_video_size(url_path):
+        app_logger.debug(f"[serve] skipping oversized video from {source}")
         return
 
     # Карточка оригинальной графики (трансфер/сумма) как нативное фото — добавленная
@@ -268,6 +271,13 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
 
     decisions_publish_platforms = get_decisions_publish_platforms(head, posted_d, context['platforms'])
     targets = _targets_from_decisions(decisions_publish_platforms, url_path)
+    # Diagnostic: publish gate is otherwise fully silent. Log why a pooled candidate
+    # does/doesn't publish so a "no posts" stall can't hide (decisions vs targets).
+    app_logger.debug(
+        f"[serve] publish-gate {source}: head={head!r} decisions="
+        f"{ {p.name: v for p, v in decisions_publish_platforms.items()} } "
+        f"targets={[t.name for t in targets]} published={_published_count}/{_run_cap} "
+        f"ig={_ig_daily_count}/{_ig_daily_limit} circuit={_meta_circuit_open}")
 
     if targets:
         async with _publish_lock:
