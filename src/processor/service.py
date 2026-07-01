@@ -5,7 +5,7 @@ import time
 from collections import Counter
 
 
-from src.files_manager import VideoSkip
+from src.files_manager import VideoSkip, SaveVideoUrl
 from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms, make_head, mark_posted
 from src.processor.content_filter import is_blocked_content, strip_promo
 from src.processor.topic_filter import is_off_topic
@@ -193,6 +193,17 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
         return
 
     if _published_count >= _run_cap:
+        return
+
+    # Text-quality gate at phase-1 (previously phase-2 only): drop posts with too
+    # little text BEFORE they take a ranker pool slot. Otherwise a high-reward source
+    # of headline/emoji-only posts (e.g. some Telegram channels) fills the pool with
+    # candidates that phase-2 rejects, and should_stop() halts scraping before any
+    # text-rich source (RSS) is reached — starving the whole run to zero posts.
+    # Direct-video handlers are exempt (the value is the video, not the caption);
+    # Telegram video-ness isn't known until download, so those pass through the gate.
+    if not isinstance(handler_url_path, SaveVideoUrl) and _low_semantic_load(nlp(translated_message)):
+        app_logger.debug(f"[serve] skipping low-semantic-load post from {source}: head={head!r}")
         return
 
     if RANKER_ENABLED:

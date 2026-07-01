@@ -204,6 +204,24 @@ async def test_ranker_pools_in_phase1_then_drains(monkeypatch):
     assert svc._candidate_pool == []          # pool drained and cleared
 
 
+async def test_low_semantic_load_gated_before_pooling(monkeypatch):
+    # Regression: short/emoji-only posts (e.g. from headline-only Telegram channels)
+    # must be dropped at phase-1 so they can't fill the ranker pool and starve the
+    # run — which silently zeroed out all publishing for days.
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    monkeypatch.setattr(svc, 'RANKER_POOL_FACTOR', 4)
+    svc._candidate_pool = []
+    calls = _mock_sends(monkeypatch)
+    thin_nlp = lambda _text: _Doc(n=1)  # 1 keyword < MINIMUM_NUMBER_KEYWORDS -> low load
+
+    posted = deque()
+    await svc.serve(None, object(), thin_nlp, _Translator(),
+                    '🔥 FC Porto 🆚 Benfica', _url_path, posted, CONTEXT, source='t.me/x')
+
+    assert calls == []                    # nothing published
+    assert svc._candidate_pool == []      # and NOT pooled (would starve the run)
+
+
 async def test_should_stop_on_budget_and_deadline():
     svc._published_count = 0
     svc._run_cap = 3
