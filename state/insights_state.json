@@ -24,6 +24,33 @@
       "fb_id": "2067968320735405",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Reviravolta ao cair do pano mantém vivo o sonho do",
+      "source": "abola.pt",
+      "ts": 1782890410.8699412,
+      "fb_id": "348454375016310_122242490168359689",
+      "ig_id": "18011799818877041",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Perda de titularidade, a posição preferida e o «íd",
+      "source": "abola.pt",
+      "ts": 1782890484.5272348,
+      "fb_id": "348454375016310_122242490528359689",
+      "ig_id": "18111815300483331",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Haaland atribui favoritismo ao Brasil: «Temos pequ",
+      "source": "abola.pt",
+      "ts": 1782890568.1891978,
+      "fb_id": "348454375016310_122242490834359689",
+      "ig_id": "18078419156312258",
+      "is_video": false,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -140,7 +167,7 @@
   },
   "ig_quota": {
     "day": "2026-07-01",
-    "posts": 0
+    "posts": 3
   },
   "last_scored_ts": 1782861285.862748,
   "dow_hours": {
