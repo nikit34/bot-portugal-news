@@ -112,6 +112,32 @@
       "ig_id": "18071413742355380",
       "is_video": false,
       "hashtag_n": 3
+    },
+    {
+      "head": "Mateus Fernandes e Ramos fazem a lista se mexer: o",
+      "source": "abola.pt",
+      "ts": 1782934924.6685524,
+      "fb_id": "348454375016310_122242570028359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bellingham sonha ser o próximo James Bond: «Adorar",
+      "source": "abola.pt",
+      "ts": 1782934998.6510472,
+      "fb_id": "348454375016310_122242570556359689",
+      "ig_id": "18120369223693955",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Ronaldo deixa mensagem de despedida a Palm Beach e",
+      "source": "abola.pt",
+      "ts": 1782935056.493586,
+      "fb_id": "348454375016310_122242570904359689",
+      "ig_id": "18127417678633802",
+      "is_video": false,
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -228,7 +254,7 @@
   },
   "ig_quota": {
     "day": "2026-07-01",
-    "posts": 8
+    "posts": 10
   },
   "last_scored_ts": 1782893363.5706694,
   "dow_hours": {
