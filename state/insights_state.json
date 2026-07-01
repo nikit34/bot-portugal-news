@@ -138,6 +138,32 @@
       "ig_id": "18127417678633802",
       "is_video": false,
       "hashtag_n": 1
+    },
+    {
+      "head": "Em inglês, reviravolta se escreve Harry Kane (crôn",
+      "source": "abola.pt",
+      "ts": 1782940818.8537958,
+      "fb_id": "348454375016310_122242576568359689",
+      "ig_id": "18114231244926943",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Após divórcio polêmico, ex de astro do Marrocos en",
+      "source": "abola.pt",
+      "ts": 1782940876.4632385,
+      "fb_id": "348454375016310_122242576844359689",
+      "ig_id": "17915084706410702",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Mercado: Alejandro Marqués deixa o Estoril após qu",
+      "source": "abola.pt",
+      "ts": 1782940923.009303,
+      "fb_id": "348454375016310_122242576988359689",
+      "is_video": false,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -254,7 +280,7 @@
   },
   "ig_quota": {
     "day": "2026-07-01",
-    "posts": 10
+    "posts": 12
   },
   "last_scored_ts": 1782893363.5706694,
   "dow_hours": {
