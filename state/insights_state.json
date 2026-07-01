@@ -95,6 +95,23 @@
       "ig_id": "18474680779097925",
       "is_video": false,
       "hashtag_n": 3
+    },
+    {
+      "head": "Lamine Yamal: «Já assobiaram o Messi, o Cristiano,",
+      "source": "abola.pt",
+      "ts": 1782922822.5321877,
+      "fb_id": "348454375016310_122242553234359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Mundial 2026: gabinete do chanceler alemão admite",
+      "source": "abola.pt",
+      "ts": 1782922893.0480633,
+      "fb_id": "348454375016310_122242553846359689",
+      "ig_id": "18071413742355380",
+      "is_video": false,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -211,7 +228,7 @@
   },
   "ig_quota": {
     "day": "2026-07-01",
-    "posts": 7
+    "posts": 8
   },
   "last_scored_ts": 1782893363.5706694,
   "dow_hours": {
