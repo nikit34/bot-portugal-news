@@ -77,6 +77,24 @@
       "ig_id": "18077362397484489",
       "is_video": false,
       "hashtag_n": 4
+    },
+    {
+      "head": "Paraguai mata Alemanha com o próprio veneno e danç",
+      "source": "abola.pt",
+      "ts": 1782908976.5671442,
+      "fb_id": "348454375016310_122242531418359689",
+      "ig_id": "18606098059010125",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Mercado: Tottenham assegura Mateus Fernandes por q",
+      "source": "abola.pt",
+      "ts": 1782909047.4302812,
+      "fb_id": "348454375016310_122242531898359689",
+      "ig_id": "18474680779097925",
+      "is_video": false,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -193,7 +211,7 @@
   },
   "ig_quota": {
     "day": "2026-07-01",
-    "posts": 5
+    "posts": 7
   },
   "last_scored_ts": 1782893363.5706694,
   "dow_hours": {
