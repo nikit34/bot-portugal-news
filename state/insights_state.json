@@ -26,33 +26,6 @@
       "hashtag_n": 5
     },
     {
-      "head": "Reviravolta ao cair do pano mantém vivo o sonho do",
-      "source": "abola.pt",
-      "ts": 1782890410.8699412,
-      "fb_id": "348454375016310_122242490168359689",
-      "ig_id": "18011799818877041",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Perda de titularidade, a posição preferida e o «íd",
-      "source": "abola.pt",
-      "ts": 1782890484.5272348,
-      "fb_id": "348454375016310_122242490528359689",
-      "ig_id": "18111815300483331",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Haaland atribui favoritismo ao Brasil: «Temos pequ",
-      "source": "abola.pt",
-      "ts": 1782890568.1891978,
-      "fb_id": "348454375016310_122242490834359689",
-      "ig_id": "18078419156312258",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
       "head": "Oligarca ucraniano, mulher e filho feridos após ex",
       "source": "abola.pt",
       "ts": 1782893186.1572182,
@@ -214,6 +187,23 @@
       "ig_id": "17973723359904072",
       "is_video": false,
       "hashtag_n": 4
+    },
+    {
+      "head": "Pepê no primeiro treino do FC Porto. «É pra matar",
+      "source": "abola.pt",
+      "ts": 1782977123.3032684,
+      "fb_id": "348454375016310_122242618916359689",
+      "ig_id": "18120129208796896",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Oligarca ucraniano, mulher e filho feridos após ex",
+      "source": "abola.pt",
+      "ts": 1782977195.052898,
+      "ig_id": "18106542857043914",
+      "is_video": false,
+      "hashtag_n": 0
     }
   ],
   "sources": {
@@ -240,6 +230,10 @@
     "https://t.me/Futebol_Brasileirao": {
       "reach_avg": 1.3579320563598867,
       "n": 44
+    },
+    "abola.pt": {
+      "reach_avg": 0.0,
+      "n": 3
     }
   },
   "hours": {
@@ -248,8 +242,8 @@
       "n": 16
     },
     "7": {
-      "reach_avg": 0.0255,
-      "n": 14
+      "reach_avg": 0.008746499999999997,
+      "n": 17
     },
     "10": {
       "reach_avg": 3.2680626299999984,
@@ -330,9 +324,9 @@
   },
   "ig_quota": {
     "day": "2026-07-02",
-    "posts": 2
+    "posts": 4
   },
-  "last_scored_ts": 1782893363.5706694,
+  "last_scored_ts": 1782977235.059416,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -476,7 +470,7 @@
     },
     "2-7": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 6
     },
     "2-10": {
       "reach_avg": 0.0,
@@ -593,8 +587,8 @@
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.1967397362009137,
-      "n": 188
+      "reach_avg": 0.06748172951691339,
+      "n": 191
     },
     "video": {
       "reach_avg": 7.028721331499998,
@@ -603,12 +597,12 @@
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.19911053501795,
-      "n": 130
+      "reach_avg": 0.139377374512565,
+      "n": 131
     },
     "tags:1-3": {
-      "reach_avg": 2.32526472015,
-      "n": 20
+      "reach_avg": 1.1393797128735,
+      "n": 22
     }
   }
 }
