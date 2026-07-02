@@ -204,6 +204,33 @@
       "ig_id": "18106542857043914",
       "is_video": false,
       "hashtag_n": 0
+    },
+    {
+      "head": "Gonçalo Ramos é reforço do AC Milan por cinco époc",
+      "source": "rtp.pt/desporto",
+      "ts": 1782988260.2012994,
+      "fb_id": "348454375016310_122242637912359689",
+      "ig_id": "18107136755287792",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Sporting de Braga contrata zagueiro espanhol Sergi",
+      "source": "rtp.pt/desporto",
+      "ts": 1782988336.8964467,
+      "fb_id": "348454375016310_122242638296359689",
+      "ig_id": "18450551803143577",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Grimaldo assina por quatro temporadas com o Atléti",
+      "source": "rtp.pt/desporto",
+      "ts": 1782988407.6006067,
+      "fb_id": "348454375016310_122242638794359689",
+      "ig_id": "18240181078309167",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -324,7 +351,7 @@
   },
   "ig_quota": {
     "day": "2026-07-02",
-    "posts": 4
+    "posts": 7
   },
   "last_scored_ts": 1782977235.059416,
   "dow_hours": {
