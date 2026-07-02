@@ -249,6 +249,24 @@
       "ig_id": "18418695247177382",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Meia espanhol Sergi Altimira é reforço do Sporting",
+      "source": "rtp.pt/desporto",
+      "ts": 1783008116.7858942,
+      "fb_id": "348454375016310_122242672604359689",
+      "ig_id": "18123272011735493",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Clément Lenglet reforça o Benfica por empréstimo d",
+      "source": "rtp.pt/desporto",
+      "ts": 1783008179.5391483,
+      "fb_id": "348454375016310_122242672940359689",
+      "ig_id": "18028800803835059",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -369,7 +387,7 @@
   },
   "ig_quota": {
     "day": "2026-07-02",
-    "posts": 9
+    "posts": 11
   },
   "last_scored_ts": 1782977235.059416,
   "dow_hours": {
