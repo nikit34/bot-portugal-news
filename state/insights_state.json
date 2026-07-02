@@ -188,6 +188,32 @@
       "fb_id": "348454375016310_122242582490359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Error 500 (Server Error)!!1500.That’s an error.The",
+      "source": "https://t.me/FCPorto_INF",
+      "ts": 1782959425.1185915,
+      "fb_id": "348454375016310_122242599434359689",
+      "ig_id": "18122087569742366",
+      "is_video": false,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Sporting: as histórias e os segredos por trás do n",
+      "source": "abola.pt",
+      "ts": 1782959523.9635506,
+      "fb_id": "348454375016310_122242599716359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Euro sub-22: Portugal obrigado a 'missão impossíve",
+      "source": "abola.pt",
+      "ts": 1782959602.6258006,
+      "fb_id": "348454375016310_122242600280359689",
+      "ig_id": "17973723359904072",
+      "is_video": false,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -303,8 +329,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-01",
-    "posts": 12
+    "day": "2026-07-02",
+    "posts": 2
   },
   "last_scored_ts": 1782893363.5706694,
   "dow_hours": {
