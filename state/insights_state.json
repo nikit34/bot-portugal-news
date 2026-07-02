@@ -267,6 +267,23 @@
       "ig_id": "18028800803835059",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Diário da Seleção - Bernardo Silva pronto para aju",
+      "source": "rtp.pt/desporto",
+      "ts": 1783019505.8338675,
+      "fb_id": "348454375016310_122242697012359689",
+      "ig_id": "17954348742171514",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Mundial 2026. México - Equador O coanfitrião Méxic",
+      "source": "rtp.pt/desporto",
+      "ts": 1783019552.924459,
+      "fb_id": "348454375016310_122242697162359689",
+      "is_video": false,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -387,7 +404,7 @@
   },
   "ig_quota": {
     "day": "2026-07-02",
-    "posts": 11
+    "posts": 12
   },
   "last_scored_ts": 1782977235.059416,
   "dow_hours": {
