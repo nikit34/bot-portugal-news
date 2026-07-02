@@ -231,6 +231,24 @@
       "ig_id": "18240181078309167",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Último treino de Portugal em Palm Beach com todos",
+      "source": "rtp.pt/desporto",
+      "ts": 1782999691.3557396,
+      "fb_id": "348454375016310_122242659410359689",
+      "ig_id": "17947353204021765",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Erling Haaland decide passagem da Noruega para as",
+      "source": "rtp.pt/desporto",
+      "ts": 1782999775.649828,
+      "fb_id": "348454375016310_122242659848359689",
+      "ig_id": "18418695247177382",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -351,7 +369,7 @@
   },
   "ig_quota": {
     "day": "2026-07-02",
-    "posts": 7
+    "posts": 9
   },
   "last_scored_ts": 1782977235.059416,
   "dow_hours": {
