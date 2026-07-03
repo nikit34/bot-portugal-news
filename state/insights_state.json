@@ -255,6 +255,23 @@
       "ig_id": "18104197676035647",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "`Mata-mata` entre Portugal e Croácia A Seleção enf",
+      "source": "rtp.pt/desporto",
+      "ts": 1783093815.3327968,
+      "fb_id": "348454375016310_122242792334359689",
+      "ig_id": "18102897914126947",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Mateus Fernandes é reforço do Tottenham por quase",
+      "source": "rtp.pt/desporto",
+      "ts": 1783093861.7432716,
+      "fb_id": "348454375016310_122242792658359689",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -379,7 +396,7 @@
   },
   "ig_quota": {
     "day": "2026-07-03",
-    "posts": 11
+    "posts": 12
   },
   "last_scored_ts": 1783061967.5182211,
   "dow_hours": {
