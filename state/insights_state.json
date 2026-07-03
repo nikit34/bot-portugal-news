@@ -210,6 +210,33 @@
       "ig_id": "18119202727833240",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Mundial2026. Vitinha assume que Portugal tem que m",
+      "source": "rtp.pt/desporto",
+      "ts": 1783074510.6911478,
+      "fb_id": "348454375016310_122242765712359689",
+      "ig_id": "18119254495839463",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Mundial2026. Martínez garante Portugal preparado p",
+      "source": "rtp.pt/desporto",
+      "ts": 1783074586.596607,
+      "fb_id": "348454375016310_122242766132359689",
+      "ig_id": "17868007056691647",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Mundial2026. Técnico da Croácia fala em \"batalha\"",
+      "source": "rtp.pt/desporto",
+      "ts": 1783074662.6266294,
+      "fb_id": "348454375016310_122242766504359689",
+      "ig_id": "17881797552456817",
+      "is_video": false,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -334,7 +361,7 @@
   },
   "ig_quota": {
     "day": "2026-07-03",
-    "posts": 6
+    "posts": 9
   },
   "last_scored_ts": 1783061967.5182211,
   "dow_hours": {
