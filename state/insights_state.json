@@ -237,6 +237,24 @@
       "ig_id": "17881797552456817",
       "is_video": false,
       "hashtag_n": 4
+    },
+    {
+      "head": "Copa do Mundo 2026. Estados Unidos da América - Bó",
+      "source": "rtp.pt/desporto",
+      "ts": 1783086348.2869892,
+      "fb_id": "348454375016310_122242784090359689",
+      "ig_id": "18010887746731567",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "PM cabo-verdiano saúda “heróis” antes do jogo com",
+      "source": "rtp.pt/desporto",
+      "ts": 1783086409.3612182,
+      "fb_id": "348454375016310_122242784282359689",
+      "ig_id": "18104197676035647",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -361,7 +379,7 @@
   },
   "ig_quota": {
     "day": "2026-07-03",
-    "posts": 9
+    "posts": 11
   },
   "last_scored_ts": 1783061967.5182211,
   "dow_hours": {
