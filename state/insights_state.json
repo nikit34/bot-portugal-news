@@ -332,6 +332,30 @@
       "fb_id": "348454375016310_122242710506359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Federação Alemã de Futebol alvo de buscas por susp",
+      "source": "rtp.pt/desporto",
+      "ts": 1783044287.1176202,
+      "ig_id": "18086571374545901",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Sporting volta com reforços mas ainda sem Hjulmand",
+      "source": "rtp.pt/desporto",
+      "ts": 1783044366.917444,
+      "ig_id": "18094445108200915",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Inglaterra sofre mas elimina RD Congo A Inglaterra",
+      "source": "rtp.pt/desporto",
+      "ts": 1783044447.8648698,
+      "ig_id": "17896280730498175",
+      "is_video": false,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -451,8 +475,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-02",
-    "posts": 12
+    "day": "2026-07-03",
+    "posts": 3
   },
   "last_scored_ts": 1782977235.059416,
   "dow_hours": {
