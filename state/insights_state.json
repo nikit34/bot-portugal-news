@@ -2,14 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "🎧 Chegamos na noite de sexta-feira com uma música",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1782422874.449587,
-      "fb_id": "2412914399204739",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "😂 Durante os festejos de ontem, o Benfica quase pe",
       "source": "https://t.me/futebol_portugues",
       "ts": 1782459861.5066676,
@@ -24,169 +16,6 @@
       "fb_id": "2067968320735405",
       "is_video": true,
       "hashtag_n": 5
-    },
-    {
-      "head": "Oligarca ucraniano, mulher e filho feridos após ex",
-      "source": "abola.pt",
-      "ts": 1782893186.1572182,
-      "fb_id": "348454375016310_122242499594359689",
-      "is_video": false,
-      "hashtag_n": 0
-    },
-    {
-      "head": "Nagelsmann não se demite após eliminação da Aleman",
-      "source": "abola.pt",
-      "ts": 1782893255.4414275,
-      "fb_id": "348454375016310_122242500122359689",
-      "ig_id": "18344921143174410",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "SC Braga defende eleições antecipadas na Liga Minh",
-      "source": "abola.pt",
-      "ts": 1782893323.5691552,
-      "fb_id": "348454375016310_122242500482359689",
-      "ig_id": "18077362397484489",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Paraguai mata Alemanha com o próprio veneno e danç",
-      "source": "abola.pt",
-      "ts": 1782908976.5671442,
-      "fb_id": "348454375016310_122242531418359689",
-      "ig_id": "18606098059010125",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Mercado: Tottenham assegura Mateus Fernandes por q",
-      "source": "abola.pt",
-      "ts": 1782909047.4302812,
-      "fb_id": "348454375016310_122242531898359689",
-      "ig_id": "18474680779097925",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Lamine Yamal: «Já assobiaram o Messi, o Cristiano,",
-      "source": "abola.pt",
-      "ts": 1782922822.5321877,
-      "fb_id": "348454375016310_122242553234359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Mundial 2026: gabinete do chanceler alemão admite",
-      "source": "abola.pt",
-      "ts": 1782922893.0480633,
-      "fb_id": "348454375016310_122242553846359689",
-      "ig_id": "18071413742355380",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Mateus Fernandes e Ramos fazem a lista se mexer: o",
-      "source": "abola.pt",
-      "ts": 1782934924.6685524,
-      "fb_id": "348454375016310_122242570028359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Bellingham sonha ser o próximo James Bond: «Adorar",
-      "source": "abola.pt",
-      "ts": 1782934998.6510472,
-      "fb_id": "348454375016310_122242570556359689",
-      "ig_id": "18120369223693955",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Ronaldo deixa mensagem de despedida a Palm Beach e",
-      "source": "abola.pt",
-      "ts": 1782935056.493586,
-      "fb_id": "348454375016310_122242570904359689",
-      "ig_id": "18127417678633802",
-      "is_video": false,
-      "hashtag_n": 1
-    },
-    {
-      "head": "Em inglês, reviravolta se escreve Harry Kane (crôn",
-      "source": "abola.pt",
-      "ts": 1782940818.8537958,
-      "fb_id": "348454375016310_122242576568359689",
-      "ig_id": "18114231244926943",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Após divórcio polêmico, ex de astro do Marrocos en",
-      "source": "abola.pt",
-      "ts": 1782940876.4632385,
-      "fb_id": "348454375016310_122242576844359689",
-      "ig_id": "17915084706410702",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Mercado: Alejandro Marqués deixa o Estoril após qu",
-      "source": "abola.pt",
-      "ts": 1782940923.009303,
-      "fb_id": "348454375016310_122242576988359689",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Epopeia do bacalhau na Rota 66: os heróis que conq",
-      "source": "abola.pt",
-      "ts": 1782947111.0051048,
-      "fb_id": "348454375016310_122242582214359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "FC Porto: entre calma e expectativa, mercado testa",
-      "source": "abola.pt",
-      "ts": 1782947164.8678334,
-      "fb_id": "348454375016310_122242582382359689",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Koeman arrasado: «Parecia um treinador italiano» A",
-      "source": "abola.pt",
-      "ts": 1782947212.7320712,
-      "fb_id": "348454375016310_122242582490359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Error 500 (Server Error)!!1500.That’s an error.The",
-      "source": "https://t.me/FCPorto_INF",
-      "ts": 1782959425.1185915,
-      "fb_id": "348454375016310_122242599434359689",
-      "ig_id": "18122087569742366",
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Sporting: as histórias e os segredos por trás do n",
-      "source": "abola.pt",
-      "ts": 1782959523.9635506,
-      "fb_id": "348454375016310_122242599716359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Euro sub-22: Portugal obrigado a 'missão impossíve",
-      "source": "abola.pt",
-      "ts": 1782959602.6258006,
-      "fb_id": "348454375016310_122242600280359689",
-      "ig_id": "17973723359904072",
-      "is_video": false,
-      "hashtag_n": 4
     },
     {
       "head": "Pepê no primeiro treino do FC Porto. «É pra matar",
@@ -356,6 +185,31 @@
       "ig_id": "17896280730498175",
       "is_video": false,
       "hashtag_n": 2
+    },
+    {
+      "head": "Gabri Veiga diz que FC Porto é o \"alvo a abater\" e",
+      "source": "rtp.pt/desporto",
+      "ts": 1783061771.6379633,
+      "ig_id": "18102315779124339",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Alverca confirma transferência do médio Lincoln pa",
+      "source": "rtp.pt/desporto",
+      "ts": 1783061847.9543126,
+      "ig_id": "18120028156831045",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bélgica vira resultado e elimina Senegal no prolon",
+      "source": "rtp.pt/desporto",
+      "ts": 1783061927.5140486,
+      "fb_id": "348454375016310_122242753532359689",
+      "ig_id": "18119202727833240",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -385,13 +239,17 @@
     },
     "abola.pt": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 21
+    },
+    "https://t.me/FCPorto_INF": {
+      "reach_avg": 0.0,
+      "n": 1
     }
   },
   "hours": {
     "23": {
       "reach_avg": 0.0,
-      "n": 16
+      "n": 19
     },
     "7": {
       "reach_avg": 0.008746499999999997,
@@ -414,24 +272,24 @@
       "n": 14
     },
     "19": {
-      "reach_avg": 0.003601499999999999,
-      "n": 21
+      "reach_avg": 0.0012353144999999995,
+      "n": 24
     },
     "21": {
-      "reach_avg": 1.7999999999999998,
-      "n": 17
+      "reach_avg": 0.6173999999999998,
+      "n": 20
     },
     "2": {
-      "reach_avg": 0.4981271399999998,
-      "n": 26
+      "reach_avg": 0.1708576090199999,
+      "n": 29
     },
     "8": {
-      "reach_avg": 1.0919999999999999,
-      "n": 5
+      "reach_avg": 0.3745559999999999,
+      "n": 8
     },
     "12": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 5
     },
     "0": {
       "reach_avg": 0.0,
@@ -446,8 +304,8 @@
       "n": 5
     },
     "16": {
-      "reach_avg": 0.015,
-      "n": 4
+      "reach_avg": 0.007349999999999999,
+      "n": 6
     },
     "14": {
       "reach_avg": 1.726764735,
@@ -476,9 +334,9 @@
   },
   "ig_quota": {
     "day": "2026-07-03",
-    "posts": 3
+    "posts": 6
   },
-  "last_scored_ts": 1782977235.059416,
+  "last_scored_ts": 1783061967.5182211,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -638,19 +496,19 @@
     },
     "2-19": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 6
     },
     "2-21": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 6
     },
     "2-23": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 6
     },
     "3-2": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 6
     },
     "3-7": {
       "reach_avg": 0.0,
@@ -735,12 +593,24 @@
     "0-8": {
       "reach_avg": 3.6399999999999997,
       "n": 2
+    },
+    "2-8": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "2-12": {
+      "reach_avg": 0.0,
+      "n": 2
+    },
+    "2-16": {
+      "reach_avg": 0.0,
+      "n": 2
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.06748172951691339,
-      "n": 191
+      "reach_avg": 7.692171616909959e-05,
+      "n": 210
     },
     "video": {
       "reach_avg": 7.028721331499998,
@@ -749,12 +619,16 @@
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.139377374512565,
-      "n": 131
+      "reach_avg": 0.0027559460999282115,
+      "n": 142
     },
     "tags:1-3": {
-      "reach_avg": 1.1393797128735,
-      "n": 22
+      "reach_avg": 0.09383281868789803,
+      "n": 29
+    },
+    "tags:0": {
+      "reach_avg": 0.0,
+      "n": 1
     }
   }
 }
