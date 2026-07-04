@@ -223,6 +223,33 @@
       "ig_id": "18060395894758633",
       "is_video": false,
       "hashtag_n": 4
+    },
+    {
+      "head": "Messi celebra classificação sofrida da Argentina n",
+      "source": "ge.globo.com",
+      "ts": 1783159297.1885302,
+      "fb_id": "348454375016310_122242881428359689",
+      "ig_id": "18156591565469089",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Copa do Mundo 2026: veja seleções classificadas e",
+      "source": "ge.globo.com",
+      "ts": 1783159383.1227994,
+      "fb_id": "348454375016310_122242881824359689",
+      "ig_id": "18101402135234341",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Chances de título: França segue favorita, Argentin",
+      "source": "ge.globo.com",
+      "ts": 1783159458.6929739,
+      "fb_id": "348454375016310_122242882670359689",
+      "ig_id": "18114221797714012",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -351,7 +378,7 @@
   },
   "ig_quota": {
     "day": "2026-07-04",
-    "posts": 5
+    "posts": 8
   },
   "last_scored_ts": 1783147528.4480236,
   "dow_hours": {
