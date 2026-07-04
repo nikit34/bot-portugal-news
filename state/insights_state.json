@@ -352,6 +352,22 @@
       "fb_id": "348454375016310_122242828466359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Mateus Fernandes é reforço do Tottenham por quase",
+      "source": "rtp.pt/desporto",
+      "ts": 1783130615.926433,
+      "ig_id": "17953006442995210",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Ex-Sporting Thierry Correia reforça italianos do V",
+      "source": "rtp.pt/desporto",
+      "ts": 1783130689.7334244,
+      "ig_id": "17929994061348010",
+      "is_video": false,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -475,8 +491,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-03",
-    "posts": 12
+    "day": "2026-07-04",
+    "posts": 2
   },
   "last_scored_ts": 1783061967.5182211,
   "dow_hours": {
