@@ -250,6 +250,33 @@
       "ig_id": "18114221797714012",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Técnico de Gana reconhece superioridade da Colômbi",
+      "source": "ge.globo.com",
+      "ts": 1783165098.535993,
+      "fb_id": "348454375016310_122242888040359689",
+      "ig_id": "18005891033945086",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Volante da Colômbia vibra com país nas oitavas de",
+      "source": "ge.globo.com",
+      "ts": 1783165161.9899745,
+      "fb_id": "348454375016310_122242888430359689",
+      "ig_id": "18107858614968381",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Paraguai é único dos terceiros colocados classific",
+      "source": "ge.globo.com",
+      "ts": 1783165227.5949395,
+      "fb_id": "348454375016310_122242888898359689",
+      "ig_id": "18099888056004501",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -378,7 +405,7 @@
   },
   "ig_quota": {
     "day": "2026-07-04",
-    "posts": 8
+    "posts": 11
   },
   "last_scored_ts": 1783147528.4480236,
   "dow_hours": {
