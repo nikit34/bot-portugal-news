@@ -277,6 +277,31 @@
       "ig_id": "18099888056004501",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Goiatuba x Manauara: escalações prováveis, desfalq",
+      "source": "ge.globo.com",
+      "ts": 1783170181.1982052,
+      "fb_id": "348454375016310_122242896164359689",
+      "ig_id": "18108639104291831",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Fenômeno Vozinha termina Copa com mais seguidores",
+      "source": "ge.globo.com",
+      "ts": 1783170232.4926474,
+      "fb_id": "348454375016310_122242896386359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bom em pênaltis? Veja histórico do goleiro da Aust",
+      "source": "ge.globo.com",
+      "ts": 1783170282.1736386,
+      "fb_id": "348454375016310_122242896686359689",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -405,7 +430,7 @@
   },
   "ig_quota": {
     "day": "2026-07-04",
-    "posts": 11
+    "posts": 12
   },
   "last_scored_ts": 1783147528.4480236,
   "dow_hours": {
