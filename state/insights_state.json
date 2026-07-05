@@ -261,6 +261,33 @@
       "ig_id": "17883792669606894",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Treze vence o Cruzeiro-PB por 1 a 0 e sai na frent",
+      "source": "ge.globo.com",
+      "ts": 1783245914.0869384,
+      "fb_id": "348454375016310_122242994318359689",
+      "ig_id": "18365257207235701",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Cáceres rouba a cena por atuação firme contra a Fr",
+      "source": "ge.globo.com",
+      "ts": 1783245988.8572042,
+      "fb_id": "348454375016310_122242994690359689",
+      "ig_id": "17944038570252289",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Santa Cruz-AC vence Galvez e fica muito perto da d",
+      "source": "ge.globo.com",
+      "ts": 1783246064.4490986,
+      "fb_id": "348454375016310_122242995140359689",
+      "ig_id": "18109392514768558",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -389,7 +416,7 @@
   },
   "ig_quota": {
     "day": "2026-07-05",
-    "posts": 6
+    "posts": 9
   },
   "last_scored_ts": 1783235070.5977085,
   "dow_hours": {
