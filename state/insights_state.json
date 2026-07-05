@@ -406,6 +406,33 @@
       "fb_id": "348454375016310_122242940912359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Hervé Renard deixa o comando da seleção da Tunísia",
+      "source": "ge.globo.com",
+      "ts": 1783217442.2067428,
+      "fb_id": "348454375016310_122242952570359689",
+      "ig_id": "17949446394013994",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Veja ranking de seleções com mais participações em",
+      "source": "ge.globo.com",
+      "ts": 1783217547.4687364,
+      "fb_id": "348454375016310_122242953068359689",
+      "ig_id": "18470993194104859",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "São José é derrotado pelo Paulista em jogo-treino",
+      "source": "ge.globo.com",
+      "ts": 1783217628.8115222,
+      "fb_id": "348454375016310_122242953632359689",
+      "ig_id": "17859738696661067",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -533,8 +560,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-04",
-    "posts": 12
+    "day": "2026-07-05",
+    "posts": 3
   },
   "last_scored_ts": 1783147528.4480236,
   "dow_hours": {
