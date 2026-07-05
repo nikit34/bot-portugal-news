@@ -254,16 +254,27 @@ async def main(config_name):
         if score_now:
             if LEARNING_REWARD_ENABLED:
                 app_logger.info("Scoring on matured engagement-weighted reward")
-                metrics_by_head = await asyncio.to_thread(
+                # Facebook is the PRIMARY reward signal — the page is the audience we
+                # actually grow. FB engagement (shares/comments/reactions) is attributed
+                # by exact fb_id for every matured pending post, so it anchors the scored
+                # set. Instagram only SUPPLEMENTS reach: FB reports no post-level reach in
+                # Graph v18 (post_impressions_unique → #100), so reach is the single
+                # metric we still source from IG. IG also backfills engagement only for
+                # posts FB couldn't report (e.g. FB publish failed), so no post is lost.
+                metrics_by_head = {}
+                if FB_POST_INSIGHTS_ENABLED:
+                    metrics_by_head = await asyncio.to_thread(
+                        get_facebook_metrics_by_head, graph.access_token,
+                        state.get('pending', []), now, LEARNING_MATURATION_SECONDS)
+                ig_metrics = await asyncio.to_thread(
                     get_instagram_metrics_by_head, graph.access_token,
                     context['self_instagram_channel'], INSIGHTS_MEDIA_LIMIT,
                     LEARNING_MATURATION_SECONDS, now)
-                if FB_POST_INSIGHTS_ENABLED:
-                    fb_metrics = await asyncio.to_thread(
-                        get_facebook_metrics_by_head, graph.access_token,
-                        state.get('pending', []), now, LEARNING_MATURATION_SECONDS)
-                    for head, metrics in fb_metrics.items():
-                        metrics_by_head.setdefault(head, {}).update(metrics)
+                for head, m in ig_metrics.items():
+                    entry = metrics_by_head.setdefault(head, {})
+                    entry['reach'] = m.get('reach')                 # IG owns reach
+                    entry.setdefault('likes', m.get('likes'))       # FB wins if present
+                    entry.setdefault('comments', m.get('comments'))
                 weights = {'share': LEARNING_W_SHARE, 'comment': LEARNING_W_COMMENT,
                            'like': LEARNING_W_LIKE, 'reach': LEARNING_W_REACH}
                 learning.update_scores_metrics(
