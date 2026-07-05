@@ -288,6 +288,24 @@
       "ig_id": "18109392514768558",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Independência abre 3 a 1, mas São Francisco busca",
+      "source": "ge.globo.com",
+      "ts": 1783257051.6246862,
+      "fb_id": "348454375016310_122243011634359689",
+      "ig_id": "18106480364086340",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Tuchel comenta possibilidade de foguetório perto d",
+      "source": "ge.globo.com",
+      "ts": 1783257110.7493114,
+      "fb_id": "348454375016310_122243011838359689",
+      "ig_id": "18121586263743481",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -416,7 +434,7 @@
   },
   "ig_quota": {
     "day": "2026-07-05",
-    "posts": 9
+    "posts": 11
   },
   "last_scored_ts": 1783235070.5977085,
   "dow_hours": {
