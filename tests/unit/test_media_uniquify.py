@@ -30,6 +30,21 @@ def test_resolve_watermark_text_explicit_override(monkeypatch):
 
 # ---- image uniquify ---------------------------------------------------------
 
+def test_video_vf_includes_resolution_cap(monkeypatch):
+    monkeypatch.setattr(mu, 'UNIQUIFY_VIDEO_MAX_DIM', 1280)
+    vf = mu._video_vf()
+    assert "min(1280,iw)" in vf and "min(1280,ih)" in vf
+    assert "force_original_aspect_ratio=decrease" in vf
+    # even-dim scale still trails the cap so yuv420p stays happy
+    assert vf.strip().endswith("scale=trunc(iw/2)*2:trunc(ih/2)*2")
+
+
+def test_video_vf_no_cap_when_disabled(monkeypatch):
+    monkeypatch.setattr(mu, 'UNIQUIFY_VIDEO_MAX_DIM', 0)
+    vf = mu._video_vf()
+    assert "force_original_aspect_ratio" not in vf
+
+
 def _jpeg_with_exif(path):
     exif = Image.Exif()
     exif[0x010e] = "original source description"  # ImageDescription

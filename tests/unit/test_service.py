@@ -222,6 +222,44 @@ async def test_low_semantic_load_gated_before_pooling(monkeypatch):
     assert svc._candidate_pool == []      # and NOT pooled (would starve the run)
 
 
+async def test_video_hint_exempts_low_semantic_gate_and_pools(monkeypatch):
+    # A short-caption video clip (is_video_hint=True) must NOT be dropped by the
+    # phase-1 text gate — its value is the clip, not the caption — and must be pooled
+    # tagged is_video so the ranker can promote it. This is the keystone that lets
+    # Telegram video actually reach publishing.
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    monkeypatch.setattr(svc, 'RANKER_POOL_FACTOR', 8)
+    svc._candidate_pool = []
+    calls = _mock_sends(monkeypatch)
+    thin_nlp = lambda _text: _Doc(n=1)  # would trip the low-semantic gate for a photo
+
+    posted = deque()
+    await svc.serve(None, object(), thin_nlp, _Translator(),
+                    '🔥 Golo do Benfica!', _url_path, posted, CONTEXT,
+                    source='t.me/x', is_video_hint=True)
+
+    assert calls == []                          # phase 1 publishes nothing
+    assert len(svc._candidate_pool) == 1        # pooled despite tiny caption
+    assert svc._candidate_pool[0]['is_video'] is True
+
+
+async def test_photo_still_gated_without_hint(monkeypatch):
+    # Control: same tiny caption WITHOUT the video hint stays gated (regression guard
+    # for the pool-starvation fix — non-video short posts must not fill the pool).
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    monkeypatch.setattr(svc, 'RANKER_POOL_FACTOR', 8)
+    svc._candidate_pool = []
+    calls = _mock_sends(monkeypatch)
+    thin_nlp = lambda _text: _Doc(n=1)
+
+    posted = deque()
+    await svc.serve(None, object(), thin_nlp, _Translator(),
+                    '🔥 Golo do Benfica!', _url_path, posted, CONTEXT, source='t.me/x')
+
+    assert calls == []
+    assert svc._candidate_pool == []            # gated, not pooled
+
+
 async def test_should_stop_on_budget_and_deadline():
     svc._published_count = 0
     svc._run_cap = 3

@@ -71,6 +71,15 @@ jobs:
           LOG_LEVEL: ${{ github.event_name == 'schedule' && 'WARNING' || inputs.log_level || 'DEBUG' }}
           MAX_POSTS_PER_RUN: ${{ inputs.max_posts_per_run || '3' }}
           POST_DELAY_SECONDS: ${{ inputs.post_delay_seconds || '40' }}
+          # === Больше видео: крупнее лимит + шире пул + бонус видео в ранкере ===
+          MAX_VIDEO_SIZE_MB: '200'      # было 50 — резало клипы 1080p/длиннее
+          RANKER_POOL_FACTOR: '8'       # было 4 — пул доходит до TG-каналов с видео
+          RANKER_VIDEO_BONUS: '1.5'     # видео всплывает в топ-K (0 => не продвигать)
+          # Крупнее видео => дольше ре-энкод/дренаж. Поднимаем таймаут уникализации
+          # (иначе fail-open публикует БЕЗ вотермарки) и резерв фазы-2 (иначе один
+          # тяжёлый клип съедает окно и остальные посты не выходят).
+          VIDEO_UNIQUIFY_TIMEOUT_SECONDS: '240'   # было 120 — под ~200-МБ ре-энкод
+          RANKER_DRAIN_RESERVE_SECONDS: '300'     # было 180 — окно дренажа под видео
           # === FB-growth optimization: all levers ON (verified runtime-safe) ===
           # Anti-demotion / content (CAPTION_GUARD + hashtag entity bias are ON by
           # code default). Set the rest here so they're auditable and reversible.

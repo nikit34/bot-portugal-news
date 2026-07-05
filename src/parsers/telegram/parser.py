@@ -1,16 +1,55 @@
 import asyncio
 import logging
+import os
 
 from telethon.tl.types import MessageMediaWebPage
 from src.files_manager import SaveFileTelegram
 from src.processor.service import serve, should_stop
-from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, MESSAGE_CHUNK_SIZE
+from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, MESSAGE_CHUNK_SIZE, MAX_VIDEO_SIZE_MB
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.ci import get_ci_run_url
 from src.utils.notify import build_error_message
 
 app_logger = logging.getLogger('app')
 stats_logger = logging.getLogger('stats')
+
+
+def _download_ext(f):
+    # Расширение, которое telethon РЕАЛЬНО даст файлу при download_media — повторяем
+    # логику _get_proper_filename: расширение из имени документа (DocumentAttributeFilename)
+    # ПОБЕЖДАЕТ, и лишь при его отсутствии берётся mime-производное. ВАЖНО: File.ext
+    # наоборот mime-первое, поэтому напрямую его использовать нельзя — иначе клип с
+    # mime video/mp4, но именем 'clip.mov' помечался бы .mp4 на фазе-1, а качался бы
+    # .mov (фаза-2 сочла бы его фото). Так фаза-1 и фаза-2 совпадают побайтно.
+    name = getattr(f, 'name', None) or ''
+    ext = os.path.splitext(name)[1]
+    if not ext:
+        ext = getattr(f, 'ext', '') or ''
+    return ext.lower()
+
+
+def _message_is_video(message):
+    # Видео-ность сообщения из метаданных telethon БЕЗ скачивания. Нужно на фазе-1,
+    # чтобы освободить видео от текстового гейта (ценность — клип, не подпись) и дать
+    # ему бонус в ранкере. КЛЮЧЕВОЕ: ограничиваемся медиа, которое telethon сохранит
+    # как .mp4 — ровно то, что phase-2 _is_video (по суффиксу .mp4) признаёт видео и
+    # что публикуют FB /videos + IG Reels. Не-mp4 контейнеры (.mov/.webm/.mkv от
+    # «отправить как файл») НЕ помечаем видео: пайплайн их как видео не публикует, а
+    # «фото»-веткой они бы съели слот пула и NLP-гейтом фазы-2 отбросились.
+    f = getattr(message, 'file', None)
+    if f is None:
+        return False
+    mime = getattr(f, 'mime_type', '') or ''
+    return mime.startswith('video/') and _download_ext(f) == '.mp4'
+
+
+def _video_too_large(message):
+    # Крупный клип (> MAX_VIDEO_SIZE_MB) отсекаем ДО скачивания по размеру из метаданных
+    # telethon (message.file.size), а не после полной загрузки — иначе 200-МБ файл
+    # качается целиком, занимает слот пула и жрёт wall-clock дренажа, чтобы затем быть
+    # отброшенным. Размер неизвестен => не режем (fail-open, backstop — _large_video_size).
+    size = getattr(getattr(message, 'file', None), 'size', None)
+    return bool(size) and size > MAX_VIDEO_SIZE_MB * 1024 * 1024
 
 
 async def telegram_wrapper(client, getter_client, graph, nlp, translator, telegram_bot_token, channel_link, posted_d, context):
@@ -50,10 +89,20 @@ async def _process_message_chunk(
             continue
 
         try:
-            handler_url_path = SaveFileTelegram(getter_client, message)
-            app_logger.debug(f"[Telegram] Created file handler for message: {message_text}")
+            is_video_hint = _message_is_video(message)
+            # Крупное видео режем ДО скачивания (по метаданным), чтобы 200-МБ клип не
+            # занял слот пула и не съел wall-clock дренажа впустую.
+            if is_video_hint and _video_too_large(message):
+                skipped_count += 1
+                app_logger.debug(f"[Telegram] Skipping oversized video (pre-download): {message_text}")
+                continue
 
-            await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context, source=source)
+            handler_url_path = SaveFileTelegram(getter_client, message)
+            app_logger.debug(
+                f"[Telegram] Created file handler for message (video={is_video_hint}): {message_text}")
+
+            await serve(client, graph, nlp, translator, message_text, handler_url_path,
+                        posted_d, context, source=source, is_video_hint=is_video_hint)
             app_logger.debug(f"[Telegram] Successfully processed message: {message_text}")
         except Exception as e:
             app_logger.error(f"[Telegram] Error processing message: {message_text}", exc_info=True)

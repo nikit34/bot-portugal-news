@@ -31,3 +31,15 @@ def test_cold_start_falls_back_to_heuristics():
     state = {'sources': {}, 'hours': {}}
     score = candidate_score({'head': 'x' * 60, 'source': 'new', 'text': 'x' * 60}, state, 12)
     assert score == 1.0  # length bonus 1.0, no learned, no clickbait
+
+
+def test_video_bonus_lifts_score():
+    # A short-caption video must outscore an identical photo so it can win a best-K
+    # slot instead of being crowded out by longer text posts.
+    import src.processor.ranker as rk
+    state = {'sources': {}, 'hours': {}}
+    head = '\U0001F525 Golo!'  # tiny caption -> weak length bonus
+    photo = candidate_score({'head': head, 'source': 's', 'text': head, 'is_video': False}, state, 12)
+    video = candidate_score({'head': head, 'source': 's', 'text': head, 'is_video': True}, state, 12)
+    assert video == photo + rk.RANKER_VIDEO_BONUS
+    assert rk.RANKER_VIDEO_BONUS > 0  # default actually promotes video

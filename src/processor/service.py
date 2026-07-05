@@ -168,7 +168,8 @@ def get_run_stats():
     }
 
 
-async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context, source=None):
+async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d,
+                context, source=None, is_video_hint=False):
     # Phase-1 intake: cheap text-only filters + dedup + budget check. With the ranker
     # OFF (default) we publish inline immediately (unchanged FIFO behavior); with it
     # ON we pool the candidate and defer the expensive download/publish to drain_pool.
@@ -195,14 +196,22 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
     if _published_count >= _run_cap:
         return
 
+    # Video-ness known BEFORE download: RSS direct-video by handler type, Telegram by
+    # the hint the parser derives from telethon metadata. The hint is gated to media
+    # telethon saves as .mp4 — the SAME thing phase-2's _is_video recognises — so a
+    # candidate flagged here is guaranteed to still be video after download (phase-1
+    # and phase-2 agree), never re-classified as a photo.
+    likely_video = is_video_hint or isinstance(handler_url_path, SaveVideoUrl)
+
     # Text-quality gate at phase-1 (previously phase-2 only): drop posts with too
     # little text BEFORE they take a ranker pool slot. Otherwise a high-reward source
     # of headline/emoji-only posts (e.g. some Telegram channels) fills the pool with
     # candidates that phase-2 rejects, and should_stop() halts scraping before any
     # text-rich source (RSS) is reached — starving the whole run to zero posts.
-    # Direct-video handlers are exempt (the value is the video, not the caption);
-    # Telegram video-ness isn't known until download, so those pass through the gate.
-    if not isinstance(handler_url_path, SaveVideoUrl) and _low_semantic_load(nlp(translated_message)):
+    # Video is exempt: its value is the clip, not the caption, and phase-2 never
+    # rejects a real .mp4 on semantic load — so pooling a short-caption video still
+    # publishes it (no phase-2 rejection => no starvation), unlike a short-caption photo.
+    if not likely_video and _low_semantic_load(nlp(translated_message)):
         app_logger.debug(f"[serve] skipping low-semantic-load post from {source}: head={head!r}")
         return
 
@@ -211,6 +220,7 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
             _candidate_pool.append({
                 'head': head, 'source': source, 'text': translated_message,
                 'handler_url_path': handler_url_path, 'posted_d': posted_d, 'context': context,
+                'is_video': likely_video,
             })
         return
 

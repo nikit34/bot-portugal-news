@@ -16,6 +16,7 @@ from src.static.settings import (
     WATERMARK_TEXT,
     WATERMARK_OPACITY,
     VIDEO_UNIQUIFY_TIMEOUT_SECONDS,
+    UNIQUIFY_VIDEO_MAX_DIM,
 )
 
 logger = logging.getLogger('app')
@@ -127,10 +128,19 @@ def _make_watermark_png(text):
 
 
 def _video_vf():
-    # Лёгкий джиттер + 2px-кроп со сдвигом кадра + чётные размеры под yuv420p.
+    # Лёгкий джиттер + 2px-кроп со сдвигом кадра + (опц.) потолок разрешения + чётные
+    # размеры под yuv420p.
     eq = (f"eq=brightness={_jitter(-0.04, 0.04):.3f}:"
           f"contrast={_jitter(0.95, 1.05):.3f}:saturation={_jitter(0.92, 1.08):.3f}")
-    parts = [eq, "crop=in_w-4:in_h-4:2:2", "scale=trunc(iw/2)*2:trunc(ih/2)*2"]
+    parts = [eq, "crop=in_w-4:in_h-4:2:2"]
+    # Ограничиваем длинную сторону до UNIQUIFY_VIDEO_MAX_DIM (force_original_aspect_ratio
+    # =decrease вписывает в бокс, min(...) не даёт апскейлить мелкие клипы). Дёшево
+    # ре-энкодит крупные 200-МБ клипы и режет размер аплоуда. 0 => без потолка.
+    if UNIQUIFY_VIDEO_MAX_DIM and UNIQUIFY_VIDEO_MAX_DIM > 0:
+        m = UNIQUIFY_VIDEO_MAX_DIM
+        parts.append(
+            f"scale='min({m},iw)':'min({m},ih)':force_original_aspect_ratio=decrease")
+    parts.append("scale=trunc(iw/2)*2:trunc(ih/2)*2")
     return ",".join(parts)
 
 

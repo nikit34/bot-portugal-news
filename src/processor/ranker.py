@@ -1,4 +1,5 @@
 from src.processor.caption_guard import clickbait_score
+from src.static.settings import RANKER_VIDEO_BONUS
 
 # Sweet-spot длины заголовка (символы): FB обрезает на ~125 и предсказывает dwell —
 # слишком короткий заголовок недоинформативен, слишком длинный обрезается.
@@ -18,8 +19,10 @@ def candidate_score(candidate, state, current_hour):
     # Scale-free скор кандидата для best-K отбора: выученный reward источника и часа
     # (нормированы на средний reward, поэтому ~1 для среднего, >1 для сильного, 0
     # при отсутствии данных — тогда решают эвристики) + бонус за длину заголовка в
-    # sweet-spot − штраф за кликбейт. На холодном старте (нет выученных данных)
-    # ранжирование чисто эвристическое; по мере накопления learned-член доминирует.
+    # sweet-spot + бонус за видео − штраф за кликбейт. На холодном старте (нет
+    # выученных данных) ранжирование чисто эвристическое; по мере накопления
+    # learned-член доминирует. Видео-бонус вытягивает клипы с короткой подписью
+    # в топ-K, иначе их гарантированно вытесняют длинные текстовые фото-посты.
     head = candidate.get('head', '')
     source = candidate.get('source', '')
     text = candidate.get('text', '')
@@ -36,4 +39,5 @@ def candidate_score(candidate, state, current_hour):
         return 0.0
 
     learned = norm(sources, source) + 0.5 * norm(hours, current_hour)
-    return learned + _length_bonus(head) - clickbait_score(text)
+    video_bonus = RANKER_VIDEO_BONUS if candidate.get('is_video') else 0.0
+    return learned + _length_bonus(head) + video_bonus - clickbait_score(text)
