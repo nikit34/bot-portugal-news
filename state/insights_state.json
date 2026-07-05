@@ -306,6 +306,31 @@
       "ig_id": "18121586263743481",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Análise: melhora do Grêmio com a pausa fica só na",
+      "source": "ge.globo.com",
+      "ts": 1783264060.9563456,
+      "fb_id": "348454375016310_122243024870359689",
+      "ig_id": "18337142863270676",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Mercado completa cinco anos no Inter com gols impo",
+      "source": "ge.globo.com",
+      "ts": 1783264110.666222,
+      "fb_id": "348454375016310_122243025182359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "\"Bailarino\" x \"máquina\": técnico da Noruega define",
+      "source": "ge.globo.com",
+      "ts": 1783264160.605959,
+      "fb_id": "348454375016310_122243025548359689",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -434,7 +459,7 @@
   },
   "ig_quota": {
     "day": "2026-07-05",
-    "posts": 11
+    "posts": 12
   },
   "last_scored_ts": 1783235070.5977085,
   "dow_hours": {
