@@ -223,6 +223,23 @@
       "ig_id": "17893216242557231",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🥲 Braga inchou, inchou, aí o Orta resolveu fazer a",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783345348.4572518,
+      "ig_id": "17867564520631082",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "😳A defesa do “Gil Vicente” levou um tiro autoinfli",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783345445.4484017,
+      "fb_id": "3170907056447487",
+      "ig_id": "18043425482795168",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -355,7 +372,7 @@
   },
   "ig_quota": {
     "day": "2026-07-06",
-    "posts": 4
+    "posts": 6
   },
   "last_scored_ts": 1783325710.5742345,
   "dow_hours": {
