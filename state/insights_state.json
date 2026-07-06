@@ -264,6 +264,22 @@
       "ig_id": "18108232147975378",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🇵🇹Leonardo Lelu passou 4 boas temporadas na Casa P",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783367473.828425,
+      "ig_id": "18606591223024374",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇵🇹🇵🇹Enquanto há uma pausa em Lisboa, vamos dar uma",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783367530.9087188,
+      "ig_id": "18121923184793546",
+      "is_video": false,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -396,7 +412,7 @@
   },
   "ig_quota": {
     "day": "2026-07-06",
-    "posts": 9
+    "posts": 11
   },
   "last_scored_ts": 1783325710.5742345,
   "dow_hours": {
