@@ -240,6 +240,30 @@
       "ig_id": "18043425482795168",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "🇪🇺 Escalações iniciais do Sporting e do Olympique",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783356908.9219368,
+      "ig_id": "18138091951508944",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🥺 Os húngaros estragaram hoje o feriado dos portug",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783356980.4260743,
+      "ig_id": "18108602357514365",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "😠 Durante a primeira parte, lembrei-me do último C",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783357048.7957864,
+      "ig_id": "18108232147975378",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -372,7 +396,7 @@
   },
   "ig_quota": {
     "day": "2026-07-06",
-    "posts": 6
+    "posts": 9
   },
   "last_scored_ts": 1783325710.5742345,
   "dow_hours": {
