@@ -411,6 +411,28 @@
       "fb_id": "348454375016310_122243058656359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "São Paulo confirma dois adversários para jogos-tre",
+      "source": "ge.globo.com",
+      "ts": 1783304148.7471883,
+      "ig_id": "18025523018666703",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Antes de encarar Espanha, Martínez diz que Portuga",
+      "source": "ge.globo.com",
+      "ts": 1783304191.454135,
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Virgínia posta fotos com as filhas no estádio para",
+      "source": "ge.globo.com",
+      "ts": 1783304234.2955816,
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -538,8 +560,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-05",
-    "posts": 12
+    "day": "2026-07-06",
+    "posts": 1
   },
   "last_scored_ts": 1783235070.5977085,
   "dow_hours": {
