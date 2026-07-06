@@ -280,6 +280,14 @@
       "ig_id": "18121923184793546",
       "is_video": false,
       "hashtag_n": 3
+    },
+    {
+      "head": "🇵🇹🇵🇹 Começamos com o jogo em Lisboa 🦁 Borges, depo",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783379262.5160966,
+      "ig_id": "18072125027382965",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -412,7 +420,7 @@
   },
   "ig_quota": {
     "day": "2026-07-06",
-    "posts": 11
+    "posts": 12
   },
   "last_scored_ts": 1783325710.5742345,
   "dow_hours": {
