@@ -288,6 +288,30 @@
       "ig_id": "18072125027382965",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🇵🇹 Farioli, como era de se esperar, realiza um sér",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783390606.3453436,
+      "ig_id": "18017516825907535",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇵🇹 A derrota para o Nacional provocou grandes muda",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783390678.087514,
+      "ig_id": "18108526606797491",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Escalações iniciais de Chelsea e Benfica Os londri",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783390754.5806646,
+      "ig_id": "18397925548085016",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -419,8 +443,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-06",
-    "posts": 12
+    "day": "2026-07-07",
+    "posts": 3
   },
   "last_scored_ts": 1783325710.5742345,
   "dow_hours": {
