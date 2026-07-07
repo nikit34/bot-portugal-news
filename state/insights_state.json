@@ -204,6 +204,33 @@
       "ig_id": "18103244777155531",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Torcedores argentinos fazem banderazo em Atlanta e",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783433503.5389228,
+      "fb_id": "1657523965360110",
+      "ig_id": "18110177951316988",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "OFICIAL! Monaco anuncia contratação do técnico Fil",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783433585.9329555,
+      "fb_id": "1344238103856005",
+      "ig_id": "18344898241168724",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "🇵🇹 “Ganhei 3 títulos por Portugal. Antes de Cristi",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783433645.3401768,
+      "fb_id": "348454375016310_122243231504359689",
+      "ig_id": "18127760551711285",
+      "is_video": false,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -336,7 +363,7 @@
   },
   "ig_quota": {
     "day": "2026-07-07",
-    "posts": 9
+    "posts": 12
   },
   "last_scored_ts": 1783409947.7110982,
   "dow_hours": {
