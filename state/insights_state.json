@@ -178,6 +178,32 @@
       "ig_id": "18533934901079741",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🇵🇹O Benfica é tão mau na defesa que já permitiu ao",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1783421324.7175205,
+      "ig_id": "18399012196094995",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Romário, sobre o Endrick ter perdido o gol contra",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783421437.5765314,
+      "fb_id": "1498350858199210",
+      "ig_id": "18599747401061930",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Após a eliminação do Brasil na Copa, torcedores br",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783421547.9207087,
+      "fb_id": "1577636993973088",
+      "ig_id": "18103244777155531",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -310,7 +336,7 @@
   },
   "ig_quota": {
     "day": "2026-07-07",
-    "posts": 6
+    "posts": 9
   },
   "last_scored_ts": 1783409947.7110982,
   "dow_hours": {
