@@ -235,6 +235,31 @@
       "ig_id": "18081684542230733",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ Vozinha, goleiro da Seleção Cabo Verde, tem neg",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783518208.8083165,
+      "fb_id": "348454375016310_122243337770359689",
+      "ig_id": "17925508893141824",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇧🇷 Endrick se pronuncia após eliminação do Brasil",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783518268.1078494,
+      "ig_id": "18135334345608228",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Cruzeiro negocia a contratação do atacante Wesl",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783518330.7885373,
+      "ig_id": "18191094892338738",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -367,7 +392,7 @@
   },
   "ig_quota": {
     "day": "2026-07-08",
-    "posts": 9
+    "posts": 12
   },
   "last_scored_ts": 1783498426.6493087,
   "dow_hours": {
