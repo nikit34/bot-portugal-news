@@ -301,6 +301,14 @@
       "fb_id": "348454375016310_122243270636359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🇧🇷 Endrick se pronuncia após eliminação do Brasil",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783475571.4836526,
+      "ig_id": "18461731264115081",
+      "is_video": false,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -432,8 +440,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-07",
-    "posts": 12
+    "day": "2026-07-08",
+    "posts": 1
   },
   "last_scored_ts": 1783409947.7110982,
   "dow_hours": {
