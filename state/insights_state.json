@@ -40,30 +40,6 @@
       "hashtag_n": 5
     },
     {
-      "head": "🎧 Chegamos na noite de sexta-feira com uma música",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1783409736.291208,
-      "ig_id": "18598529866058567",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🇵🇹 Outro dia me peguei pensando que fazia muito te",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1783409840.0615113,
-      "ig_id": "18105043103321284",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "👏Como é bom ver o Porto sob o comando de Farioli.",
-      "source": "https://t.me/futebol_portugues",
-      "ts": 1783409907.7070813,
-      "ig_id": "18533934901079741",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
       "head": "🇵🇹O Benfica é tão mau na defesa que já permitiu ao",
       "source": "https://t.me/futebol_portugues",
       "ts": 1783421324.7175205,
@@ -219,6 +195,30 @@
       "ig_id": "18078635381294900",
       "is_video": false,
       "hashtag_n": 4
+    },
+    {
+      "head": "🇧🇷 Endrick se pronuncia após eliminação do Brasil",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783498245.214315,
+      "ig_id": "17875996350510923",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "🇦🇷 Messi acumula 4 prêmios de Melhor da Partida em",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783498315.8289683,
+      "ig_id": "17900866404469642",
+      "is_video": false,
+      "hashtag_n": 1
+    },
+    {
+      "head": "⚠️ Cruzeiro negocia a contratação do atacante Wesl",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783498386.6420007,
+      "ig_id": "18145265800516957",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -239,8 +239,8 @@
       "n": 3
     },
     "https://t.me/futebol_portugues": {
-      "reach_avg": 0.3715958805482004,
-      "n": 35
+      "reach_avg": 0.12745738702803275,
+      "n": 38
     },
     "https://t.me/Futebol_Brasileirao": {
       "reach_avg": 1.3579320563598867,
@@ -269,8 +269,8 @@
       "n": 21
     },
     "7": {
-      "reach_avg": 0.0021000346499999985,
-      "n": 21
+      "reach_avg": 0.0007203118849499993,
+      "n": 24
     },
     "10": {
       "reach_avg": 0.09232739147558533,
@@ -351,9 +351,9 @@
   },
   "ig_quota": {
     "day": "2026-07-08",
-    "posts": 4
+    "posts": 7
   },
-  "last_scored_ts": 1783487857.5203767,
+  "last_scored_ts": 1783498426.6493087,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -465,7 +465,7 @@
     },
     "1-7": {
       "reach_avg": 0.0,
-      "n": 4
+      "n": 7
     },
     "1-10": {
       "reach_avg": 0.0,
@@ -694,18 +694,18 @@
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.004135110117955118,
-      "n": 311
+      "reach_avg": 0.0020262039577980074,
+      "n": 313
     },
     "video": {
-      "reach_avg": 10.959073452434998,
-      "n": 11
+      "reach_avg": 7.671351416704498,
+      "n": 12
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.005907300168507352,
-      "n": 239
+      "reach_avg": 0.0020262039577980213,
+      "n": 242
     },
     "tags:1-3": {
       "reach_avg": 5.271539337285812,
