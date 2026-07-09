@@ -248,6 +248,24 @@
       "ig_id": "18417708322198574",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "41% dos brasileiros acham que a seleção nunca mais",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783607667.75281,
+      "fb_id": "348454375016310_122243449682359689",
+      "ig_id": "17896387266558041",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Testemunhas afirmam que Casares retirava cerca de",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783607741.3299925,
+      "fb_id": "348454375016310_122243450102359689",
+      "ig_id": "18157211980486360",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -384,7 +402,7 @@
   },
   "ig_quota": {
     "day": "2026-07-09",
-    "posts": 7
+    "posts": 9
   },
   "last_scored_ts": 1783582629.2630959,
   "dow_hours": {
