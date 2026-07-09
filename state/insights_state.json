@@ -223,6 +223,31 @@
       "ig_id": "17912287986425270",
       "is_video": false,
       "hashtag_n": 3
+    },
+    {
+      "head": "🚨 Santos atrasa pagamento e volta a dever aos joga",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783594093.001329,
+      "fb_id": "348454375016310_122243432006359689",
+      "ig_id": "18108734702062698",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇧🇷 Endrick se pronuncia após eliminação do Brasil",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783594167.6487026,
+      "ig_id": "18038105582803346",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Cruzeiro negocia a contratação do atacante Wesl",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783594248.2180254,
+      "ig_id": "18417708322198574",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -359,7 +384,7 @@
   },
   "ig_quota": {
     "day": "2026-07-09",
-    "posts": 4
+    "posts": 7
   },
   "last_scored_ts": 1783582629.2630959,
   "dow_hours": {
