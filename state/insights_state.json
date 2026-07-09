@@ -275,6 +275,32 @@
       "ig_id": "18125157394590799",
       "is_video": false,
       "hashtag_n": 4
+    },
+    {
+      "head": "🇵🇹 Jorge Jesus quer dar identidade própria para Po",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783625062.9288545,
+      "fb_id": "348454375016310_122243477192359689",
+      "ig_id": "18078838751308707",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇧🇷 Taffarel pode ser demitido do cargo de preparad",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783625119.9997084,
+      "fb_id": "348454375016310_122243477630359689",
+      "ig_id": "17923191255379469",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Justiça manda penhorar pagamentos da CazéTV a Romá",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783625174.3664055,
+      "fb_id": "348454375016310_122243477816359689",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -411,7 +437,7 @@
   },
   "ig_quota": {
     "day": "2026-07-09",
-    "posts": 10
+    "posts": 12
   },
   "last_scored_ts": 1783582629.2630959,
   "dow_hours": {
