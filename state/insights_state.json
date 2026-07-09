@@ -355,6 +355,30 @@
       "ts": 1783551530.811652,
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🏟️ Maracanã ganhará área gastronômica de R$ 20 mil",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783562669.4600143,
+      "ig_id": "18599032792009670",
+      "is_video": false,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Youri Djorkaeff, ex-meia campeão do mundo com a Fr",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783562737.7790794,
+      "ig_id": "18019292999702428",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇧🇷 Endrick se pronuncia após eliminação do Brasil",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783562810.9416268,
+      "ig_id": "18018556769890293",
+      "is_video": false,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -486,8 +510,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-08",
-    "posts": 12
+    "day": "2026-07-09",
+    "posts": 3
   },
   "last_scored_ts": 1783498426.6493087,
   "dow_hours": {
