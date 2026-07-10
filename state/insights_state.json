@@ -226,6 +226,22 @@
       "ig_id": "18088018775393771",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🇧🇷 Vini Jr se pronuncia após eliminação do Brasil",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783711133.8253033,
+      "ig_id": "18123774436681152",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "“É um absurdo o Neymar não ter sido mais aproveita",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783711180.9644186,
+      "fb_id": "348454375016310_122243597546359689",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -362,7 +378,7 @@
   },
   "ig_quota": {
     "day": "2026-07-10",
-    "posts": 11
+    "posts": 12
   },
   "last_scored_ts": 1783668638.3058546,
   "dow_hours": {
