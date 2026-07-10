@@ -2,22 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Gabri Veiga diz que FC Porto é o \"alvo a abater\" e",
-      "source": "rtp.pt/desporto",
-      "ts": 1783061771.6379633,
-      "ig_id": "18102315779124339",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Alverca confirma transferência do médio Lincoln pa",
-      "source": "rtp.pt/desporto",
-      "ts": 1783061847.9543126,
-      "ig_id": "18120028156831045",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
       "head": "Antes de encarar Espanha, Martínez diz que Portuga",
       "source": "ge.globo.com",
       "ts": 1783304191.454135,
@@ -30,190 +14,6 @@
       "ts": 1783304234.2955816,
       "is_video": false,
       "hashtag_n": 5
-    },
-    {
-      "head": "🇧🇷 Endrick se pronuncia após eliminação do Brasil",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783498245.214315,
-      "ig_id": "17875996350510923",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "🇦🇷 Messi acumula 4 prêmios de Melhor da Partida em",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783498315.8289683,
-      "ig_id": "17900866404469642",
-      "is_video": false,
-      "hashtag_n": 1
-    },
-    {
-      "head": "⚠️ Cruzeiro negocia a contratação do atacante Wesl",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783498386.6420007,
-      "ig_id": "18145265800516957",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🇧🇷 Endrick se pronuncia após eliminação do Brasil",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783511044.4075892,
-      "ig_id": "18141982168544281",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Cruzeiro negocia a contratação do atacante Wesl",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783511137.9845698,
-      "ig_id": "18081684542230733",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "⚠️ Vozinha, goleiro da Seleção Cabo Verde, tem neg",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783518208.8083165,
-      "fb_id": "348454375016310_122243337770359689",
-      "ig_id": "17925508893141824",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🇧🇷 Endrick se pronuncia após eliminação do Brasil",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783518268.1078494,
-      "ig_id": "18135334345608228",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Cruzeiro negocia a contratação do atacante Wesl",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783518330.7885373,
-      "ig_id": "18191094892338738",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Youri Djorkaeff, ex-meia campeão do mundo com a Fr",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783526368.3943968,
-      "fb_id": "348454375016310_122243349248359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Neymar tinha fechado 8 'publis' em caso de hexa do",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783526425.07484,
-      "fb_id": "348454375016310_122243349512359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨🇪🇬 Federação do Egito faz queixa à FIFA contra ár",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783526473.1111493,
-      "fb_id": "348454375016310_122243349656359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨 Neymar não descarta aposentadoria do futebol. Co",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783531721.6804202,
-      "fb_id": "348454375016310_122243357780359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🇧🇷 “Coisas piores virão nesse ciclo da Seleção Bra",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783531771.2246149,
-      "fb_id": "348454375016310_122243358074359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🇵🇹 Seleção de Portugal tem pressa e quer fechar co",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783531818.1454554,
-      "fb_id": "348454375016310_122243358452359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🏟️ Maracanã ganhará área gastronômica de R$ 20 mil",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783537809.3544407,
-      "fb_id": "348454375016310_122243364818359689",
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "📺 Após eliminação do Brasil, Galvão Bueno vai esco",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783537882.0337076,
-      "fb_id": "348454375016310_122243365028359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🇦🇷 Argentina é a ÚNICA seleção sul-americana que a",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783537930.4124596,
-      "fb_id": "348454375016310_122243365244359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨🇦🇷 AGORA! FBI investiga movimentações financeiras",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783544322.774712,
-      "fb_id": "348454375016310_122243372396359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨 Wilton Pereira Sampaio está entre os cotados par",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783551489.0403996,
-      "fb_id": "348454375016310_122243378738359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨🇦🇷 AGORA! FBI investiga movimentações financeiras",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783551530.811652,
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🏟️ Maracanã ganhará área gastronômica de R$ 20 mil",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783562669.4600143,
-      "ig_id": "18599032792009670",
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Youri Djorkaeff, ex-meia campeão do mundo com a Fr",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783562737.7790794,
-      "ig_id": "18019292999702428",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🇧🇷 Endrick se pronuncia após eliminação do Brasil",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783562810.9416268,
-      "ig_id": "18018556769890293",
-      "is_video": false,
-      "hashtag_n": 3
     },
     {
       "head": "Decisão de Neymar de deixar a seleção é irreversív",
@@ -341,6 +141,23 @@
       "ig_id": "18134590717609963",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🇧🇷 Férias escolares de 2027 terão novas datas por",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783668530.3399134,
+      "fb_id": "348454375016310_122243522672359689",
+      "ig_id": "18601637551046706",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Justiça manda penhorar pagamentos da CazéTV a Romá",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783668598.3014302,
+      "ig_id": "18101255770992928",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -365,8 +182,8 @@
       "n": 39
     },
     "https://t.me/Futebol_Brasileirao": {
-      "reach_avg": 0.17708138301685802,
-      "n": 62
+      "reach_avg": 0.015061217368514195,
+      "n": 85
     },
     "abola.pt": {
       "reach_avg": 0.0,
@@ -399,32 +216,32 @@
       "n": 34
     },
     "13": {
-      "reach_avg": 7.527495,
-      "n": 19
+      "reach_avg": 2.5819307849999995,
+      "n": 22
     },
     "15": {
-      "reach_avg": 0.6086999999999999,
-      "n": 21
+      "reach_avg": 0.4260899999999999,
+      "n": 22
     },
     "17": {
-      "reach_avg": 0.0,
-      "n": 17
+      "reach_avg": 0.3,
+      "n": 20
     },
     "19": {
-      "reach_avg": 0.3036134688399446,
-      "n": 37
+      "reach_avg": 0.10413941981210098,
+      "n": 40
     },
     "21": {
       "reach_avg": 0.21176819999999988,
       "n": 23
     },
     "2": {
-      "reach_avg": 0.007509889236921984,
-      "n": 41
+      "reach_avg": 0.00257589200826424,
+      "n": 44
     },
     "8": {
-      "reach_avg": 0.12847270799999994,
-      "n": 11
+      "reach_avg": 0.04406613884399997,
+      "n": 14
     },
     "12": {
       "reach_avg": 0.0,
@@ -443,8 +260,8 @@
       "n": 5
     },
     "16": {
-      "reach_avg": 0.01079659901145,
-      "n": 15
+      "reach_avg": 0.2152903335156105,
+      "n": 17
     },
     "14": {
       "reach_avg": 0.4295962128734999,
@@ -459,16 +276,16 @@
       "n": 7
     },
     "11": {
-      "reach_avg": 0.008403499999999998,
-      "n": 6
+      "reach_avg": 0.004117714999999998,
+      "n": 8
     },
     "20": {
       "reach_avg": 0.0,
-      "n": 12
+      "n": 13
     },
     "22": {
-      "reach_avg": 0.6546873198517035,
-      "n": 16
+      "reach_avg": 0.3207967867273347,
+      "n": 18
     },
     "5": {
       "reach_avg": 0.0,
@@ -477,9 +294,9 @@
   },
   "ig_quota": {
     "day": "2026-07-10",
-    "posts": 2
+    "posts": 4
   },
-  "last_scored_ts": 1783582629.2630959,
+  "last_scored_ts": 1783668638.3058546,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -634,12 +451,12 @@
       "n": 3
     },
     "2-17": {
-      "reach_avg": 0.0,
-      "n": 3
+      "reach_avg": 0.3,
+      "n": 6
     },
     "2-19": {
       "reach_avg": 0.0,
-      "n": 6
+      "n": 9
     },
     "2-21": {
       "reach_avg": 0.0,
@@ -651,7 +468,7 @@
     },
     "3-2": {
       "reach_avg": 0.0,
-      "n": 6
+      "n": 9
     },
     "3-7": {
       "reach_avg": 0.0,
@@ -739,15 +556,15 @@
     },
     "2-8": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 6
     },
     "2-12": {
       "reach_avg": 0.0,
       "n": 2
     },
     "2-16": {
-      "reach_avg": 0.0,
-      "n": 2
+      "reach_avg": 0.21,
+      "n": 4
     },
     "3-13": {
       "reach_avg": 0.0,
@@ -828,12 +645,32 @@
     "2-5": {
       "reach_avg": 0.0,
       "n": 3
+    },
+    "2-11": {
+      "reach_avg": 0.0,
+      "n": 2
+    },
+    "2-13": {
+      "reach_avg": 0.0,
+      "n": 3
+    },
+    "2-15": {
+      "reach_avg": 0.0,
+      "n": 1
+    },
+    "2-20": {
+      "reach_avg": 0.0,
+      "n": 1
+    },
+    "2-22": {
+      "reach_avg": 0.0,
+      "n": 2
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.16359044359075972,
-      "n": 327
+      "reach_avg": 0.01505752506738886,
+      "n": 350
     },
     "video": {
       "reach_avg": 2.4613550326055242,
@@ -842,12 +679,12 @@
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.22380838523821472,
-      "n": 251
+      "reach_avg": 0.04451273832275158,
+      "n": 267
     },
     "tags:1-3": {
-      "reach_avg": 0.7846689637018719,
-      "n": 44
+      "reach_avg": 0.06462086323739305,
+      "n": 51
     },
     "tags:0": {
       "reach_avg": 0.0,
