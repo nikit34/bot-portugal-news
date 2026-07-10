@@ -184,6 +184,30 @@
       "ig_id": "17899432119469771",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Fábio Mota, presidente do Vitória, nega acerto com",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783692336.6627517,
+      "fb_id": "1011819131731403",
+      "ig_id": "18359058115209804",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "🇧🇷 Endrick se pronuncia após eliminação do Brasil",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783692407.2127314,
+      "ig_id": "18399762256081660",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "🚨 REVIRAVOLTA! Acerto de Bernardo Silva com o Real",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783692449.3674922,
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -320,7 +344,7 @@
   },
   "ig_quota": {
     "day": "2026-07-10",
-    "posts": 7
+    "posts": 9
   },
   "last_scored_ts": 1783668638.3058546,
   "dow_hours": {
