@@ -208,6 +208,24 @@
       "ts": 1783692449.3674922,
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🚨 AGORA! Jorge Jesus fala sobre Neymar em sua apre",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783705590.452252,
+      "fb_id": "1393401942653540",
+      "ig_id": "18023252432907582",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Fechado! Pedro Emanuel é o novo técnico do Vasco.",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783705649.002199,
+      "fb_id": "348454375016310_122243590046359689",
+      "ig_id": "18088018775393771",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -344,7 +362,7 @@
   },
   "ig_quota": {
     "day": "2026-07-10",
-    "posts": 9
+    "posts": 11
   },
   "last_scored_ts": 1783668638.3058546,
   "dow_hours": {
