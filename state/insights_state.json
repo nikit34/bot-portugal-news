@@ -206,6 +206,24 @@
       "ig_id": "17950365210206787",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Inter tem salários em dia, mas atrasa direitos de",
+      "source": "ge.globo.com",
+      "ts": 1783767462.6507587,
+      "fb_id": "348454375016310_122243655104359689",
+      "ig_id": "17894793612555702",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "De volta da Copa, Igor Thiago retorna às origens e",
+      "source": "ge.globo.com",
+      "ts": 1783767530.8015473,
+      "fb_id": "348454375016310_122243655608359689",
+      "ig_id": "18116145871702552",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -342,7 +360,7 @@
   },
   "ig_quota": {
     "day": "2026-07-11",
-    "posts": 7
+    "posts": 9
   },
   "last_scored_ts": 1783746160.6838174,
   "dow_hours": {
