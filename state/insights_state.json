@@ -272,6 +272,14 @@
       "fb_id": "348454375016310_122243607032359689",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🚨 AGORA! Manchester United desiste de Éderson e te",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783734690.9953654,
+      "ig_id": "17938258938268688",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -407,8 +415,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-10",
-    "posts": 12
+    "day": "2026-07-11",
+    "posts": 1
   },
   "last_scored_ts": 1783668638.3058546,
   "dow_hours": {
