@@ -19,11 +19,14 @@
     ],
     "rss_channels": {
         "abola.pt": "https://www.abola.pt/rss-articles.xml",
+        "record.pt": "https://www.record.pt/rss",
         "rtp.pt/desporto": "https://www.rtp.pt/noticias/rss/desporto",
         "bbc.com/football": "https://feeds.bbci.co.uk/sport/football/rss.xml",
         "theguardian.com/football": "https://www.theguardian.com/football/rss",
         "ge.globo.com": "https://ge.globo.com/rss/ge/",
         "trivela.com.br": "https://trivela.com.br/feed/",
-        "gazetaesportiva.com": "https://www.gazetaesportiva.com/feed/"
+        "gazetaesportiva.com": "https://www.gazetaesportiva.com/feed/",
+        "uol.com.br": "https://rss.uol.com.br/feed/esporte.xml",
+        "metropoles.com": "https://www.metropoles.com/esportes/feed"
     }
 } 

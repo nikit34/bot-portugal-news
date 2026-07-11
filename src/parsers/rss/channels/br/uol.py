@@ -8,7 +8,13 @@ logger = logging.getLogger('app')
 def _first_img(summary_html):
     # UOL has no media tags; each item opens its description with an inline <img>.
     match = re.search(r'<img[^>]+src="([^"]+)"', summary_html)
-    return html.unescape(match.group(1)) if match else ''
+    if not match:
+        return ''
+    src = html.unescape(match.group(1))
+    # That inline thumbnail is only 142x100 (below IMAGE_MIN_WIDTH=500, so the quality
+    # filter would drop every item). imguol serves larger variants at the same path;
+    # rewrite the size token to 900x506 (verified). URLs without it pass through.
+    return re.sub(r'_v2_\d+x\d+', '_v2_900x506', src)
 
 
 def is_valid_uol_entry(entry):

@@ -56,6 +56,13 @@ def test_is_valid_record_entry(entry, expected):
         'enclosures': [{'href': 'http://example.com/image.jpg'}]
     }, 'Test title\nTest summary', 'http://example.com/image.jpg'),
 
+    # The 220x220 thumbnail is upsized to the 800x533 variant so it clears the quality gate
+    ({
+        'title': 'Vizela estreia-se',
+        'summary': '',
+        'enclosures': [{'href': 'https://cdn.record.pt/images/2026-06/img_220x220uu2026-06-09.jpg'}]
+    }, 'Vizela estreia-se', 'https://cdn.record.pt/images/2026-06/img_800x533uu2026-06-09.jpg'),
+
     # Title only, empty summary
     ({
         'title': '<![CDATA[ Eles andam aí... ]]>',

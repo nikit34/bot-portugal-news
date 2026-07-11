@@ -13,7 +13,12 @@ def _strip_cdata(text):
 
 def _enclosure_image(entry):
     enclosures = entry.get('enclosures', [])
-    return enclosures[0].get('href', '') if enclosures else ''
+    href = enclosures[0].get('href', '') if enclosures else ''
+    # Record's enclosure defaults to a 220x220 thumbnail (below IMAGE_MIN_WIDTH=500, so the
+    # quality filter would drop every item). The CDN serves a larger 800x533 variant at the
+    # same path — 640x420/1200x630 return error stubs, so 800x533 is the only good upsize.
+    # Rewrite the size token; URLs without it (e.g. tests, other hosts) pass through.
+    return re.sub(r'img_\d+x\d+uu', 'img_800x533uu', href)
 
 
 def is_valid_record_entry(entry):

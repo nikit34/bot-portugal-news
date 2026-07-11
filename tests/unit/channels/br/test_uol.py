@@ -34,6 +34,13 @@ def test_is_valid_uol_entry(entry, expected):
         'summary': '<img align="left" src="http://example.com/image.jpg" /> Stuttgart - Mais uma vez'
     }, 'Fritz vira outra\nStuttgart - Mais uma vez', 'http://example.com/image.jpg'),
 
+    # The 142x100 inline thumbnail is upsized to the 900x506 variant to clear the quality gate
+    ({
+        'title': 'Mbappe brilha',
+        'summary': '<img src="https://conteudo.imguol.com.br/c/noticias/kylian-mbappe_v2_142x100.jpg" /> Texto'
+    }, 'Mbappe brilha\nTexto',
+       'https://conteudo.imguol.com.br/c/noticias/kylian-mbappe_v2_900x506.jpg'),
+
     # No image
     ({
         'title': 'Title',
