@@ -188,6 +188,24 @@
       "ig_id": "17941972668054356",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Meia da Bélgica lamenta eliminação, mas diz: \"Espe",
+      "source": "ge.globo.com",
+      "ts": 1783761636.489844,
+      "fb_id": "348454375016310_122243647412359689",
+      "ig_id": "17882635350456545",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Inés García, namorada de Yamal, se declara após vi",
+      "source": "ge.globo.com",
+      "ts": 1783761708.3830621,
+      "fb_id": "348454375016310_122243647958359689",
+      "ig_id": "17950365210206787",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -324,7 +342,7 @@
   },
   "ig_quota": {
     "day": "2026-07-11",
-    "posts": 5
+    "posts": 7
   },
   "last_scored_ts": 1783746160.6838174,
   "dow_hours": {
