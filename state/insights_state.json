@@ -242,6 +242,31 @@
       "ig_id": "17920294335182288",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Entenda a solução financeira do São Paulo para des",
+      "source": "ge.globo.com",
+      "ts": 1783788380.0462005,
+      "fb_id": "348454375016310_122243682908359689",
+      "ig_id": "17976921552054340",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "De Alex Santana a Gui Negão: jogadores que podem g",
+      "source": "ge.globo.com",
+      "ts": 1783788429.156081,
+      "fb_id": "348454375016310_122243683220359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Freguesia? Espanha venceu jogos recentes contra a",
+      "source": "ge.globo.com",
+      "ts": 1783788479.9665487,
+      "fb_id": "348454375016310_122243683508359689",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -378,7 +403,7 @@
   },
   "ig_quota": {
     "day": "2026-07-11",
-    "posts": 11
+    "posts": 12
   },
   "last_scored_ts": 1783746160.6838174,
   "dow_hours": {
