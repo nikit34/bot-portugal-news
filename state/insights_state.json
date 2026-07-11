@@ -179,6 +179,15 @@
       "ig_id": "18137440396561787",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "França x Espanha na semifinal da Copa: veja data e",
+      "source": "ge.globo.com",
+      "ts": 1783755841.4211435,
+      "fb_id": "348454375016310_122243639552359689",
+      "ig_id": "17941972668054356",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -315,7 +324,7 @@
   },
   "ig_quota": {
     "day": "2026-07-11",
-    "posts": 4
+    "posts": 5
   },
   "last_scored_ts": 1783746160.6838174,
   "dow_hours": {
