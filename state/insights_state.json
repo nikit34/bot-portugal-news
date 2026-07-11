@@ -224,6 +224,15 @@
       "ig_id": "18116145871702552",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Rafaela Pimenta: «Os jogadores brasileiros chegam",
+      "source": "record.pt",
+      "ts": 1783774040.3680148,
+      "fb_id": "348454375016310_122243663546359689",
+      "ig_id": "18049055552583663",
+      "is_video": false,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -360,7 +369,7 @@
   },
   "ig_quota": {
     "day": "2026-07-11",
-    "posts": 9
+    "posts": 10
   },
   "last_scored_ts": 1783746160.6838174,
   "dow_hours": {
