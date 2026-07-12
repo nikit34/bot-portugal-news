@@ -16,41 +16,6 @@
       "hashtag_n": 5
     },
     {
-      "head": "Eduardo Semblano, o Fui Clear, culpa Carlo Ancelot",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783745945.4760146,
-      "fb_id": "1016307671036517",
-      "ig_id": "18105779018049787",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "🇧🇷 Matheus Cunha é recebido com festa em Baía Form",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783746050.709869,
-      "fb_id": "2204901353658088",
-      "ig_id": "18126166093677809",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "🇧🇷 Vini Jr se pronuncia após eliminação do Brasil",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783746120.6489625,
-      "ig_id": "18137440396561787",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "França x Espanha na semifinal da Copa: veja data e",
-      "source": "ge.globo.com",
-      "ts": 1783755841.4211435,
-      "fb_id": "348454375016310_122243639552359689",
-      "ig_id": "17941972668054356",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
       "head": "Meia da Bélgica lamenta eliminação, mas diz: \"Espe",
       "source": "ge.globo.com",
       "ts": 1783761636.489844,
@@ -194,6 +159,24 @@
       "ig_id": "17970007326088588",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Pau Víctor herda a 10 e deixa água na boca na pré-",
+      "source": "record.pt",
+      "ts": 1783843421.0533683,
+      "fb_id": "348454375016310_122243760800359689",
+      "ig_id": "17993447957798305",
+      "is_video": false,
+      "hashtag_n": 1
+    },
+    {
+      "head": "Fifa credita assistência de Flaco López em gol da",
+      "source": "uol.com.br",
+      "ts": 1783843495.7776647,
+      "fb_id": "348454375016310_122243761214359689",
+      "ig_id": "18096315284581422",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -218,8 +201,8 @@
       "n": 39
     },
     "https://t.me/Futebol_Brasileirao": {
-      "reach_avg": 0.6663708487335115,
-      "n": 117
+      "reach_avg": 1.6880652011155943,
+      "n": 120
     },
     "abola.pt": {
       "reach_avg": 0.0,
@@ -234,8 +217,8 @@
       "n": 41
     },
     "ge.globo.com": {
-      "reach_avg": 0.009385669488110579,
-      "n": 50
+      "reach_avg": 0.006569968641677405,
+      "n": 51
     }
   },
   "hours": {
@@ -244,8 +227,8 @@
       "n": 22
     },
     "7": {
-      "reach_avg": 0.21024706697653783,
-      "n": 27
+      "reach_avg": 0.14717294688357646,
+      "n": 28
     },
     "10": {
       "reach_avg": 1.1257323762709406,
@@ -324,15 +307,19 @@
       "n": 20
     },
     "5": {
+      "reach_avg": 1.4594999999999998,
+      "n": 5
+    },
+    "4": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 1
     }
   },
   "ig_quota": {
     "day": "2026-07-12",
-    "posts": 2
+    "posts": 4
   },
-  "last_scored_ts": 1783821215.3930178,
+  "last_scored_ts": 1783843535.7796412,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -340,7 +327,7 @@
     },
     "5-7": {
       "reach_avg": 0.0,
-      "n": 1
+      "n": 2
     },
     "5-10": {
       "reach_avg": 0.0,
@@ -713,26 +700,34 @@
     "5-1": {
       "reach_avg": 0.0,
       "n": 1
+    },
+    "5-4": {
+      "reach_avg": 0.0,
+      "n": 1
+    },
+    "5-5": {
+      "reach_avg": 4.865,
+      "n": 2
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.6576124107211895,
-      "n": 380
+      "reach_avg": 0.32223008125338276,
+      "n": 382
     },
     "video": {
-      "reach_avg": 2.2875639659767066,
-      "n": 19
+      "reach_avg": 3.205906343328586,
+      "n": 21
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.7208369109323449,
-      "n": 294
+      "reach_avg": 0.24724706044979428,
+      "n": 297
     },
     "tags:1-3": {
-      "reach_avg": 0.010860828484308646,
-      "n": 56
+      "reach_avg": 2.092602579939016,
+      "n": 57
     },
     "tags:0": {
       "reach_avg": 0.0,
