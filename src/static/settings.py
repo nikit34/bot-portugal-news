@@ -383,3 +383,22 @@ VARIANT_LOGGING_ENABLED = _flag('VARIANT_LOGGING_ENABLED', 'false')
 # дайджест по-прежнему раз в сутки. По умолчанию ВЫКЛ (как сейчас — в час дайджеста).
 LEARNING_SCORE_TTL_SECONDS = int(os.getenv('LEARNING_SCORE_TTL_SECONDS', str(20 * 3600)))
 LEARNING_SCORE_BY_TTL_ENABLED = _flag('LEARNING_SCORE_BY_TTL_ENABLED', 'false')
+
+# === TTS-озвучка (пивот на narrated-Reel, Фаза 0) ===========================
+# Офлайн нейро-TTS (piper) для будущего narrated-Reel: озвучиваем факты новости
+# своим голосом => контент оригинален ПО ПОСТРОЕНИЮ (Meta 2026 засчитывает
+# добавленную озвучку как material edit, в отличие от watermark/uniquify). Piper
+# работает на onnxruntime (уже в стеке) полностью офлайн — без подписок, сети и GPU.
+# Модуль fail-open: нет piper или модели голоса => synthesize() вернёт None, и
+# пайплайн откатится на текущее поведение. Реально подключается в Фазе 1 (reel.py);
+# в Фазе 0 модуль ещё никто не вызывает.
+TTS_ENABLED = _flag('TTS_ENABLED', 'true')
+TTS_ENGINE = os.getenv('TTS_ENGINE', 'piper')
+# Имя голоса piper: модель ищется как <TTS_VOICES_DIR>/<TTS_VOICE>.onnx (+ .onnx.json).
+TTS_VOICE = os.getenv('TTS_VOICE', 'pt_BR-faber-medium')
+# Каталог с вендоренными моделями голосов (рядом с fonts/). Переопределяется env.
+TTS_VOICES_DIR = os.getenv('TTS_VOICES_DIR', os.path.join(os.path.dirname(__file__), 'voices'))
+# Явный путь к .onnx (приоритетнее TTS_VOICE/DIR), если модель лежит вне каталога.
+TTS_VOICE_PATH = os.getenv('TTS_VOICE_PATH', '')
+# Потолок длины озвучиваемого текста (символы) — режем длинный пост в короткий Reel.
+TTS_MAX_CHARS = int(os.getenv('TTS_MAX_CHARS', '600'))

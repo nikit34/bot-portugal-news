@@ -20,4 +20,9 @@ state/*
 # Runtime logs written by the logger.
 logs/
 
+# piper TTS voice models (large binaries). Placed manually or fetched in CI — see
+# src/static/voices/README.md. Remove these two lines to vendor a model in git.
+src/static/voices/*.onnx
+src/static/voices/*.onnx.json
+
 **/__pycache__/
