@@ -230,6 +230,24 @@
       "ig_id": "18137812105525034",
       "is_video": false,
       "hashtag_n": 4
+    },
+    {
+      "head": "Portugal será representado por 168 atletas em 30 m",
+      "source": "record.pt",
+      "ts": 1783861167.9231594,
+      "fb_id": "348454375016310_122243789606359689",
+      "ig_id": "18143158948537187",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Garry Kasparov irônico após polêmica no Noruega-In",
+      "source": "record.pt",
+      "ts": 1783861229.1071405,
+      "fb_id": "348454375016310_122243789780359689",
+      "ig_id": "18135596128601000",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -370,7 +388,7 @@
   },
   "ig_quota": {
     "day": "2026-07-12",
-    "posts": 10
+    "posts": 12
   },
   "last_scored_ts": 1783843535.7796412,
   "dow_hours": {
