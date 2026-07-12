@@ -185,6 +185,15 @@
       "ig_id": "17986287261007817",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "José Boto: «Marco Silva me parece uma boa escolha»",
+      "source": "record.pt",
+      "ts": 1783833649.4309323,
+      "fb_id": "348454375016310_122243751518359689",
+      "ig_id": "17970007326088588",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -321,7 +330,7 @@
   },
   "ig_quota": {
     "day": "2026-07-12",
-    "posts": 1
+    "posts": 2
   },
   "last_scored_ts": 1783821215.3930178,
   "dow_hours": {
