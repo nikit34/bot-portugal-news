@@ -12,20 +12,23 @@
 
 ## Как положить голос
 
-Вариант A — утилита piper (нужен установленный `piper-tts`, ставится в Фазе 1):
+**Проще всего** — скрипт в репозитории (только stdlib, качает из rhasspy/piper-voices):
 
 ```bash
-python -m piper.download_voices pt_BR-faber-medium --data-dir src/static/voices
+python tools/fetch_piper_voice.py                     # дефолт pt_BR-faber-medium
+python tools/fetch_piper_voice.py pt_PT-tugao-medium  # PT-PT для футбольного канала
 ```
 
-Вариант B — прямая загрузка из rhasspy/piper-voices (HuggingFace), например PT-BR:
+Кладёт `<voice>.onnx` и `<voice>.onnx.json` сюда. Для футбольного (PT-PT) сравнить
+`pt_PT-tugão-medium`; лёгкий/быстрый вариант — `pt_BR-edresson-low`.
 
-```
-src/static/voices/pt_BR-faber-medium.onnx
-src/static/voices/pt_BR-faber-medium.onnx.json
-```
+## Платформа: piper ставится только на linux
 
-Для футбольного (PT-PT) канала попробовать `pt_PT-tugão-medium` и сравнить качество.
+У `piper-phonemize` (зависимость `piper-tts`) есть wheel'ы под **linux** (CI-раннер
+`ubuntu-latest`) и **нет** под **macOS arm64**. Поэтому реальный синтез гоняется на
+linux: локально на Mac `tts.synthesize()` вернёт None (fail-open), а полноценный
+end-to-end прогон делается через `.github/workflows/reel-smoke.yml` (ручной запуск,
+рендерит настоящий Reel и выгружает его артефактом).
 
 ## Коммитить бинарь или качать в CI?
 

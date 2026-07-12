@@ -1,0 +1,37 @@
+name: Reel Smoke
+
+# Ручной прогон РЕАЛЬНОГО end-to-end narrated-Reel на linux (где ставится piper):
+# ставит зависимости, качает голос piper, синтезирует речь, рендерит вертикальный
+# Reel и выгружает его артефактом. НЕ трогает живой бот (только workflow_dispatch).
+on:
+  workflow_dispatch:
+    inputs:
+      voice:
+        description: 'piper voice name'
+        required: false
+        default: 'pt_BR-faber-medium'
+
+jobs:
+  reel-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python-env
+
+      - name: Fetch piper voice
+        run: python tools/fetch_piper_voice.py "${{ inputs.voice }}"
+
+      - name: Render real narrated reel
+        env:
+          TTS_VOICE: ${{ inputs.voice }}
+        run: python tools/reel_demo.py
+
+      - name: Upload demo reel
+        uses: actions/upload-artifact@v4
+        with:
+          name: demo-reel
+          path: tmp/demo_reel.mp4
+          if-no-files-found: error
