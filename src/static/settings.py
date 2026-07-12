@@ -140,7 +140,12 @@ UNIQUIFY_IMAGE_ENABLED = os.getenv('UNIQUIFY_IMAGE_ENABLED', 'true').lower() not
 UNIQUIFY_VIDEO_ENABLED = os.getenv('UNIQUIFY_VIDEO_ENABLED', 'true').lower() not in ('0', 'false', 'no')
 
 # Вотермарка с именем канала. Пусто => берём @handle из self.telegram_channel.
-WATERMARK_ENABLED = os.getenv('WATERMARK_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+# ВЫКЛ по умолчанию: видимая (тем более кросс-платформенная) вотермарка — это
+# документированный сигнал подавления охвата и признак «неоригинального» контента
+# в кранче оригинальности Meta 2025-2026, т.е. не щит, а лиабилити. Остальной слой
+# уникализации (кроп/джиттер/ре-энкод/срез EXIF) не трогаем. Включить обратно:
+# WATERMARK_ENABLED=true.
+WATERMARK_ENABLED = os.getenv('WATERMARK_ENABLED', 'false').lower() not in ('0', 'false', 'no')
 WATERMARK_TEXT = os.getenv('WATERMARK_TEXT', '')
 # Непрозрачность вотермарки 0..1 (0.55 = заметно, но не перекрывает кадр).
 WATERMARK_OPACITY = float(os.getenv('WATERMARK_OPACITY', '0.55'))

@@ -64,7 +64,8 @@ def test_uniquify_image_produces_jpeg_and_strips_exif(tmp_path):
     assert result.size != (640, 480)            # cropped → hash shifts
 
 
-def test_uniquify_image_draws_watermark(tmp_path):
+def test_uniquify_image_draws_watermark(monkeypatch, tmp_path):
+    monkeypatch.setattr(mu, 'WATERMARK_ENABLED', True)  # off by default now → force on
     src = str(tmp_path / 'flat.jpg')
     Image.new('RGB', (800, 600), (30, 60, 90)).save(src, format='JPEG')  # dark flat bg
     out = mu.uniquify_image(src, '@sportportugal')
@@ -74,6 +75,21 @@ def test_uniquify_image_draws_watermark(tmp_path):
     wm_pixels = sum(1 for x in range(w * 3 // 5, w) for y in range(h * 4 // 5, h)
                     if im.getpixel((x, y))[0] > 110)
     assert wm_pixels > 100  # channel name burned in
+
+
+def test_uniquify_image_no_watermark_when_disabled(monkeypatch, tmp_path):
+    # Default is now WATERMARK_ENABLED=False: even with channel text, nothing is burned in
+    # (visible watermark = Meta originality/suppression signal), but transforms still apply.
+    monkeypatch.setattr(mu, 'WATERMARK_ENABLED', False)
+    src = str(tmp_path / 'flat.jpg')
+    Image.new('RGB', (800, 600), (30, 60, 90)).save(src, format='JPEG')  # dark flat bg
+    out = mu.uniquify_image(src, '@sportportugal')
+    im = Image.open(out).convert('RGB')
+    w, h = im.size
+    wm_pixels = sum(1 for x in range(w * 3 // 5, w) for y in range(h * 4 // 5, h)
+                    if im.getpixel((x, y))[0] > 110)
+    assert wm_pixels == 0            # no watermark drawn
+    assert im.size != (800, 600)     # but crop/transform still applied
 
 
 def test_uniquify_image_without_watermark_text(tmp_path):
