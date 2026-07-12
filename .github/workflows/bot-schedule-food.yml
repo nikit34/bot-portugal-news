@@ -1,0 +1,122 @@
+name: Bot Schedule (food)
+
+# Второй, ИЗОЛИРОВАННЫЙ канал (food PT-BR). Отдельный файл/группа concurrency, чтобы
+# ошибка тут не затрагивала футбольный workflow. DORMANT: весь job гейтится репо-
+# переменной FOOD_CHANNEL_ENABLED — пока она не 'true', задача пропускается на каждом
+# триггере (нулевая стоимость). Включение (делаешь ты):
+#   1) Meta: System User нового канала + токен, Page, IG (см. гайд);
+#   2) GitHub Secret FACEBOOK_ACCESS_TOKEN_FOOD = этот токен;
+#   3) впиши реальные page_id/ig id в src/static/configs/food_br.json;
+#   4) GitHub Variable FOOD_CHANNEL_ENABLED = true.
+# Reel-пивот здесь ВКЛючён (REEL_RENDER_ENABLED + fetch голоса) — это тестовый канал.
+
+concurrency:
+  group: bot-schedule-food
+  cancel-in-progress: false
+
+on:
+  schedule:
+    - cron: '30 */2 * * *'   # смещён на 30 мин от футбольного, чтобы не толкаться
+  workflow_dispatch:
+    inputs:
+      log_level:
+        description: 'Logging level'
+        required: false
+        default: 'DEBUG'
+      max_posts_per_run:
+        description: 'Max posts per run'
+        required: false
+        default: '3'
+
+jobs:
+  bot-food:
+    if: vars.FOOD_CHANNEL_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check Facebook token
+        run: |
+          response=$(curl -s "https://graph.facebook.com/v22.0/me?access_token=${{ secrets.FACEBOOK_ACCESS_TOKEN_FOOD }}")
+          if echo "$response" | grep -q "error"; then
+            echo "Facebook (food) token is invalid: $response"
+            exit 1
+          fi
+          echo "Facebook (food) token is valid"
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python-env
+      - name: Fetch piper voice (for narrated-Reel)
+        run: python tools/fetch_piper_voice.py
+      - name: Create logs directory
+        run: mkdir -p logs
+      - name: Restore/seed learning state (food)
+        uses: actions/cache@v4
+        with:
+          path: state
+          key: insights-state-food-${{ github.run_id }}
+          restore-keys: |
+            insights-state-food-
+      - name: Run bot (food)
+        run: python main.py --config food_br
+        timeout-minutes: 15
+        continue-on-error: true
+        env:
+          TELEGRAM_TOKEN_BOT: ${{ secrets.TELEGRAM_TOKEN_BOT }}
+          TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
+          TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
+          TELEGRAM_SESSION: ${{ secrets.TELEGRAM_SESSION }}
+          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN_FOOD }}
+          LEARNING_STATE_PATH: state/insights_state_food.json
+          LOG_LEVEL: ${{ github.event_name == 'schedule' && 'WARNING' || inputs.log_level || 'DEBUG' }}
+          MAX_POSTS_PER_RUN: ${{ inputs.max_posts_per_run || '3' }}
+          POST_DELAY_SECONDS: '40'
+          MAX_VIDEO_SIZE_MB: '200'
+          RANKER_POOL_FACTOR: '8'
+          RANKER_VIDEO_BONUS: '1.5'
+          VIDEO_UNIQUIFY_TIMEOUT_SECONDS: '240'
+          RANKER_DRAIN_RESERVE_SECONDS: '300'
+          # narrated-Reel пивот: этот канал — тестовый полигон (оригинал по построению,
+          # watermark/uniquify для reel'ов пропускается автоматически).
+          REEL_RENDER_ENABLED: 'true'
+          # Growth-рычаги (как на футболе).
+          CARDS_ENABLED: 'true'
+          CTA_ENABLED: 'true'
+          CTA_EMISSION_RATE: '0.5'
+          STORY_GATE_ENABLED: 'true'
+          RANKER_ENABLED: 'true'
+          LEARNING_BIAS_ENABLED: 'true'
+          LEARNING_TIME_BIAS_ENABLED: 'true'
+          LEARNING_BANDIT_ENABLED: 'true'
+          LEARNING_REWARD_ENABLED: 'true'
+          LEARNING_SCORE_BY_TTL_ENABLED: 'true'
+          FB_POST_INSIGHTS_ENABLED: 'true'
+          VARIANT_LOGGING_ENABLED: 'true'
+      - name: Persist learning state to repo (food)
+        if: always()
+        continue-on-error: true
+        run: |
+          git config user.name "bot-state[bot]"
+          git config user.email "bot-state@users.noreply.github.com"
+          git add -f state/insights_state_food.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No food learning-state change to commit"
+          else
+            git commit -m "chore: persist food learning state [skip ci]"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+            git push origin "HEAD:${GITHUB_REF_NAME}" || echo "state push skipped (non-fast-forward)"
+          fi
+      - name: Notify Telegram on failure
+        if: failure()
+        run: |
+          curl -s -X POST 'https://api.telegram.org/bot${{ secrets.TOKEN_BOT }}/sendMessage' \
+            -d chat_id=-1002178707665 \
+            -d parse_mode=Markdown \
+            -d text="❌ *CI food-бота упал!* [Логи](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+      - name: Upload logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: parser-logs-food
+          path: logs/
+          retention-days: 5
+          compression-level: 0

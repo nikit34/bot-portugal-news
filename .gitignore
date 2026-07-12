@@ -16,6 +16,7 @@ getter_bot.session-journal
 # the dir but keep the single committed state file tracked.
 state/*
 !state/insights_state.json
+!state/insights_state_food.json
 
 # Runtime logs written by the logger.
 logs/

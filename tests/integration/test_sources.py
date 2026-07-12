@@ -41,6 +41,19 @@ def test_load_config_file_not_found():
         _load_config('non_existent_config')
 
 
+def test_food_br_config_is_valid():
+    # The shipped 2nd-channel config must load + validate structurally so it's drop-in
+    # once the real Page/IG ids are filled in (Meta setup). Placeholders are expected.
+    config = get_config('food_br')
+    assert all(isinstance(k, Platform) for k in config['platforms'].keys())
+    assert Platform.FACEBOOK in config['platforms']
+    assert Platform.INSTAGRAM in config['platforms']
+    for key in ('self_facebook_page_id', 'self_instagram_channel', 'self_telegram_channel'):
+        assert config[key]                       # present (placeholder until Meta setup)
+    assert isinstance(config['rss_channels'], dict)
+    assert isinstance(config['telegram_channels'], list)
+
+
 def test_full_config_loading(config_file, monkeypatch):
     def mock_join(*args):
         return config_file
