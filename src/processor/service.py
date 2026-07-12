@@ -39,12 +39,14 @@ from src.static.settings import (
     UNIQUIFY_ENABLED,
     VARIANT_LOGGING_ENABLED,
     CARDS_ENABLED,
+    REEL_RENDER_ENABLED,
     STORY_GATE_ENABLED,
     STORY_GATE_IG_BUDGET_FRACTION,
     RANKER_ENABLED,
     RANKER_POOL_FACTOR,
 )
 from src.producers.cards import build_card_image
+from src.producers.reel import build_reel
 from src.processor.ranker import candidate_score
 from src.static.sources import Platform
 
@@ -271,6 +273,23 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
         app_logger.debug(f"[serve] skipping oversized video from {source}")
         return
 
+    # narrated-Reel: картинку/текст-новость превращаем в вертикальное видео с нашей
+    # плашкой-заголовком и TTS-озвучкой — контент оригинален ПО ПОСТРОЕНИЮ (заменяет
+    # watermark/uniquify для этого поста и проходит фильтр оригинальности Meta 2026).
+    # Успех => дальше пост идёт по видео-пути публикации (Reels). Fail-open: нет
+    # piper/голоса/ffmpeg или любой сбой => reel None, продолжаем как раньше.
+    reel_made = False
+    if REEL_RENDER_ENABLED and not is_video:
+        reel_path = await asyncio.to_thread(build_reel, url_path.get('path'), translated_message)
+        if reel_path:
+            original = url_path.get('path')
+            url_path['path'] = reel_path
+            url_path['url'] = None
+            if original and original != reel_path and os.path.exists(original):
+                os.remove(original)
+            is_video = True
+            reel_made = True
+
     # Карточка оригинальной графики (трансфер/сумма) как нативное фото — добавленная
     # ценность против unoriginal-content демоута. Подменяем медиа на нашу карточку
     # ДО уникализации; ошибка/неподходящая новость => публикуем оригинал (fail-open).
@@ -287,7 +306,9 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
     # Уникализируем + брендируем медиа ПОСЛЕ всех фильтров (фильтры смотрят оригинал)
     # и ДО публикации. Мутирует url_path: подменяет локальный файл и обнуляет 'url',
     # чтобы IG тоже постил обработанный файл, а не оригинальную ссылку источника.
-    if UNIQUIFY_ENABLED:
+    # reel_made => пропускаем: narrated-Reel уже оригинал по построению, watermark/
+    # uniquify только повредили бы (лишний ре-энкод + сигнал неоригинальности).
+    if UNIQUIFY_ENABLED and not reel_made:
         await asyncio.to_thread(apply_uniquify, url_path, is_video, context)
 
     decisions_publish_platforms = get_decisions_publish_platforms(head, posted_d, context['platforms'])

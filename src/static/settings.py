@@ -402,3 +402,19 @@ TTS_VOICES_DIR = os.getenv('TTS_VOICES_DIR', os.path.join(os.path.dirname(__file
 TTS_VOICE_PATH = os.getenv('TTS_VOICE_PATH', '')
 # Потолок длины озвучиваемого текста (символы) — режем длинный пост в короткий Reel.
 TTS_MAX_CHARS = int(os.getenv('TTS_MAX_CHARS', '600'))
+
+# === narrated-Reel рендер (пивот, Фаза 1) ===================================
+# Превращаем image/text-новость в вертикальный Reel: плашка 9:16 (story_overlay)
+# + TTS-озвучка (tts.py) + лёгкий Ken Burns. Контент оригинален ПО ПОСТРОЕНИЮ =>
+# для такого поста НЕ применяем watermark/uniquify. fail-open: нет piper/голоса/
+# ffmpeg или любой сбой => None, откат на текущее поведение (карточка/фото + uniquify).
+# OFF по умолчанию (opt-in; включать сперва на изолированном канале/доле постов).
+REEL_RENDER_ENABLED = _flag('REEL_RENDER_ENABLED', 'false')
+# Лёгкий зум (Ken Burns) — статичная плашка становится «видео» (буст в Reels +
+# вклад в оригинальность). Выключить: REEL_MOTION_ENABLED=false (просто статичный кадр).
+REEL_MOTION_ENABLED = _flag('REEL_MOTION_ENABLED', 'true')
+# Жёсткий потолок длины Reel (сек) — страховка сверх TTS_MAX_CHARS.
+REEL_MAX_SECONDS = float(os.getenv('REEL_MAX_SECONDS', '40'))
+# Таймаут ffmpeg-сборки одного Reel (сек): зависший процесс не должен съесть бюджет
+# прогона (таймаут CI-джобы 15 мин); по истечении — fail-open (публикуем как раньше).
+REEL_RENDER_TIMEOUT_SECONDS = int(os.getenv('REEL_RENDER_TIMEOUT_SECONDS', '90'))

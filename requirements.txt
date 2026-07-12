@@ -36,6 +36,7 @@ onnxruntime==1.23.2
 opencv-python-headless==4.11.0.86
 packaging==26.2
 pillow==12.2.0
+piper-tts==1.2.0
 pluggy==1.6.0
 preshed==3.0.13
 protobuf==7.35.0
