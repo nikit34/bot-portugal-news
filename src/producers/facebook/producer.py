@@ -4,7 +4,7 @@ import logging
 import requests
 
 from src.producers.repeater import retry, async_retry
-from src.static.settings import FACEBOOK_MAX_LENGTH_MESSAGE, FACEBOOK_STORIES_ENABLED, HASHTAG_MAX_FB
+from src.static.settings import FACEBOOK_MAX_LENGTH_MESSAGE, FACEBOOK_STORIES_ENABLED, HASHTAG_MAX_FB, GRAPH_API_BASE
 from src.producers.text_editor import prepare_body
 from src.producers.hashtags import extract_hashtags, append_hashtags
 from src.producers.story_overlay import build_story_image, discard_overlay
@@ -48,7 +48,7 @@ def _send_photo(graph, message, file_path):
 
 
 def _send_video(graph, message, file_path, context):
-    url = 'https://graph.facebook.com/v18.0/' + context['self_facebook_page_id'] + '/videos'
+    url = GRAPH_API_BASE + context['self_facebook_page_id'] + '/videos'
 
     video_data = {
         'description': message,
@@ -87,7 +87,7 @@ async def _publish_photo_story(graph, file_path, context, message=None):
     try:
         photo_id = await asyncio.to_thread(
             _upload_unpublished_photo, graph, overlay_path or file_path)
-        url = 'https://graph.facebook.com/v18.0/' + context['self_facebook_page_id'] + '/photo_stories'
+        url = GRAPH_API_BASE + context['self_facebook_page_id'] + '/photo_stories'
         data = {'photo_id': photo_id, 'access_token': graph.access_token}
         response = await asyncio.to_thread(requests.post, url, data=data)
         response.raise_for_status()
@@ -111,7 +111,7 @@ async def _publish_video_story(graph, file_path, context):
 
 
 async def _start_video_story(graph, context):
-    url = 'https://graph.facebook.com/v18.0/' + context['self_facebook_page_id'] + '/video_stories'
+    url = GRAPH_API_BASE + context['self_facebook_page_id'] + '/video_stories'
     data = {'upload_phase': 'start', 'access_token': graph.access_token}
     response = await asyncio.to_thread(requests.post, url, data=data)
     response.raise_for_status()
@@ -137,7 +137,7 @@ async def _upload_video_bytes(access_token, upload_url, file_path):
 
 
 async def _finish_video_story(graph, video_id, context):
-    url = 'https://graph.facebook.com/v18.0/' + context['self_facebook_page_id'] + '/video_stories'
+    url = GRAPH_API_BASE + context['self_facebook_page_id'] + '/video_stories'
     data = {'upload_phase': 'finish', 'video_id': video_id, 'access_token': graph.access_token}
     response = await asyncio.to_thread(requests.post, url, data=data)
     response.raise_for_status()

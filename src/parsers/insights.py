@@ -13,11 +13,12 @@ from src.static.settings import (
     INSIGHTS_REPORT_HOUR,
     INSIGHTS_MEDIA_LIMIT,
     INSIGHTS_TOP_N,
+    GRAPH_API_BASE,
 )
 
 logger = logging.getLogger('app')
 
-_GRAPH = 'https://graph.facebook.com/v18.0/'
+_GRAPH = GRAPH_API_BASE
 
 
 def should_report_insights(current_hour=None):

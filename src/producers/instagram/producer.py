@@ -15,6 +15,8 @@ from src.static.settings import (
     INSTAGRAM_VIDEO_POLL_INTERVAL,
     INSTAGRAM_HASHTAGS_AS_COMMENT,
     INSTAGRAM_STORIES_ENABLED,
+    GRAPH_API_BASE,
+    GRAPH_UPLOAD_BASE,
 )
 
 logger = logging.getLogger('app')
@@ -30,7 +32,7 @@ def get_failure_counts():
 
 
 async def _upload_media(access_token, message, media_url, context):
-    upload_url = 'https://graph.facebook.com/v18.0/' + context['self_instagram_channel'] + '/media'
+    upload_url = GRAPH_API_BASE + context['self_instagram_channel'] + '/media'
     data = {
         'image_url': media_url,
         'caption': message,
@@ -49,7 +51,7 @@ async def _wait_until_ready(access_token, media_id, attempts=None, interval=None
     # параметризуем (картинки vs видео), по умолчанию — для картинок.
     attempts = INSTAGRAM_MEDIA_POLL_ATTEMPTS if attempts is None else attempts
     interval = INSTAGRAM_MEDIA_POLL_INTERVAL if interval is None else interval
-    status_url = 'https://graph.facebook.com/v18.0/' + media_id
+    status_url = GRAPH_API_BASE + media_id
     params = {'fields': 'status_code', 'access_token': access_token}
     status_code = None
     for _ in range(attempts):
@@ -77,7 +79,7 @@ async def _upload_reel(access_token, caption, file_path, context):
 
 
 async def _create_reel_container(access_token, caption, context):
-    url = 'https://graph.facebook.com/v18.0/' + context['self_instagram_channel'] + '/media'
+    url = GRAPH_API_BASE + context['self_instagram_channel'] + '/media'
     data = {
         'media_type': 'REELS',
         'upload_type': 'resumable',
@@ -92,7 +94,7 @@ async def _create_reel_container(access_token, caption, context):
 
 
 async def _upload_reel_bytes(access_token, container_id, file_path):
-    upload_url = 'https://rupload.facebook.com/ig-api-upload/v18.0/' + container_id
+    upload_url = GRAPH_UPLOAD_BASE + container_id
     file_size = os.path.getsize(file_path)
     headers = {
         'Authorization': 'OAuth ' + access_token,
@@ -110,7 +112,7 @@ async def _upload_reel_bytes(access_token, container_id, file_path):
 
 
 async def _publish_media(access_token, media_id, context):
-    publish_url = 'https://graph.facebook.com/v18.0/' + context['self_instagram_channel'] + '/media_publish'
+    publish_url = GRAPH_API_BASE + context['self_instagram_channel'] + '/media_publish'
     params = {
         'creation_id': media_id,
         'access_token': access_token
@@ -137,7 +139,7 @@ def _upload_unpublished_photo(graph, file_path):
 
 
 async def _get_photo_source(access_token, photo_id):
-    url = 'https://graph.facebook.com/v18.0/' + photo_id
+    url = GRAPH_API_BASE + photo_id
     params = {'fields': 'images', 'access_token': access_token}
     response = await asyncio.to_thread(requests.get, url, params=params)
     response.raise_for_status()
@@ -152,7 +154,7 @@ async def _delete_photo(access_token, photo_id):
     # копию картинки, а провал удаления не должен ронять успешную публикацию.
     if not photo_id:
         return
-    url = 'https://graph.facebook.com/v18.0/' + photo_id
+    url = GRAPH_API_BASE + photo_id
     try:
         response = await asyncio.to_thread(
             requests.delete, url, params={'access_token': access_token})
@@ -183,7 +185,7 @@ async def _publish_story(access_token, story, context):
 
 
 async def _create_story_image_container(access_token, image_url, context):
-    url = 'https://graph.facebook.com/v18.0/' + context['self_instagram_channel'] + '/media'
+    url = GRAPH_API_BASE + context['self_instagram_channel'] + '/media'
     data = {'media_type': 'STORIES', 'image_url': image_url, 'access_token': access_token}
     response = await asyncio.to_thread(requests.post, url, data=data)
     response.raise_for_status()
@@ -191,7 +193,7 @@ async def _create_story_image_container(access_token, image_url, context):
 
 
 async def _create_story_video_container(access_token, context):
-    url = 'https://graph.facebook.com/v18.0/' + context['self_instagram_channel'] + '/media'
+    url = GRAPH_API_BASE + context['self_instagram_channel'] + '/media'
     data = {'media_type': 'STORIES', 'upload_type': 'resumable', 'access_token': access_token}
     response = await asyncio.to_thread(requests.post, url, data=data)
     response.raise_for_status()
@@ -203,7 +205,7 @@ async def _post_first_comment(access_token, media_id, comment):
     # иначе @async_retry перезапустит всю публикацию и создаст дубль. Просто WARNING.
     if not comment or not media_id:
         return
-    url = 'https://graph.facebook.com/v18.0/' + media_id + '/comments'
+    url = GRAPH_API_BASE + media_id + '/comments'
     data = {'message': comment, 'access_token': access_token}
     try:
         response = await asyncio.to_thread(requests.post, url, data=data)

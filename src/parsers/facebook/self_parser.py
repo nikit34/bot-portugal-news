@@ -1,13 +1,14 @@
 import requests
 from src.producers.repeater import retry
 from src.processor.history_comparator import make_head
+from src.static.settings import GRAPH_API_BASE
 import logging
 
 logger = logging.getLogger(__name__)
 
 
 def get_facebook_published_messages(graph, context, max_posts):
-    url = "https://graph.facebook.com/v18.0/" + context['self_facebook_page_id'] + "/posts"
+    url = GRAPH_API_BASE + context['self_facebook_page_id'] + "/posts"
     params = {
         'access_token': graph.access_token,
         'limit': 50,

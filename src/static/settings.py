@@ -127,6 +127,16 @@ INSTAGRAM_MEDIA_POLL_INTERVAL = float(os.getenv('INSTAGRAM_MEDIA_POLL_INTERVAL',
 INSTAGRAM_VIDEO_POLL_ATTEMPTS = int(os.getenv('INSTAGRAM_VIDEO_POLL_ATTEMPTS', '30'))
 INSTAGRAM_VIDEO_POLL_INTERVAL = float(os.getenv('INSTAGRAM_VIDEO_POLL_INTERVAL', '4'))
 
+# === Graph API версия =======================================================
+# Единая версия для ВСЕХ вызовов Graph/Instagram API (чтение и публикация). v18
+# (2023) устарела; новые метрики инсайтов (IG shares/sends, views, reels-досмотр)
+# отдаются только на свежих версиях. Меняется ОДНИМ местом; можно переопределить
+# через GRAPH_API_VERSION (откатить на 'v21.0' или поднять — без правки кода).
+GRAPH_API_VERSION = os.getenv('GRAPH_API_VERSION', 'v22.0')
+GRAPH_API_BASE = f'https://graph.facebook.com/{GRAPH_API_VERSION}/'
+# Резюмируемый аплоуд IG reels/video живёт на отдельном хосте; версия — та же.
+GRAPH_UPLOAD_BASE = f'https://rupload.facebook.com/ig-api-upload/{GRAPH_API_VERSION}/'
+
 # === Уникализация контента (брендинг + анти-дубликат) =======================
 # Прожигаем в каждое медиа имя нашего канала (вотермарка) и слегка меняем само
 # изображение/видео (кроп, джиттер яркости/контраста/цвета, ре-энкод, срез EXIF/
