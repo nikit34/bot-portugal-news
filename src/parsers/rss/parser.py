@@ -17,6 +17,7 @@ from src.parsers.rss.channels.br.trivela import is_valid_trivela_entry, parse_tr
 from src.parsers.rss.channels.br.gazeta import is_valid_gazeta_entry, parse_gazeta
 from src.parsers.rss.channels.br.uol import is_valid_uol_entry, parse_uol
 from src.parsers.rss.channels.br.metropoles import is_valid_metropoles_entry, parse_metropoles
+from src.parsers.rss.channels.generic import is_valid_generic_entry, parse_generic
 from src.processor.service import serve, should_stop
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS, MESSAGE_CHUNK_SIZE, RSS_VIDEO_ENABLED
 from src.producers.telegram.telegram_api import send_message_api
@@ -144,6 +145,14 @@ async def _process_entry(
             app_logger.debug("Entry skipped - invalid Metropoles entry")
             return False
         message_text, image = parse_metropoles(entry)
+    else:
+        # Источник без выделенного хендлера (напр. food-фиды) — generic fallback:
+        # заголовок + описание + первая картинка. Так любой стандартный RSS работает
+        # без хардкода под каждый домен.
+        if not is_valid_generic_entry(entry):
+            app_logger.debug("Entry skipped - invalid generic entry")
+            return False
+        message_text, image = parse_generic(entry)
 
     # Если фид несёт прямое видео (mp4-enclosure / media:content medium="video"),
     # постим видео (serve уже умеет .mp4 на всех платформах); картинка не нужна.

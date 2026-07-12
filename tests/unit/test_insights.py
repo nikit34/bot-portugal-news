@@ -181,6 +181,16 @@ def test_get_instagram_metrics_degrades_when_shares_unsupported(monkeypatch):
     assert result[head]['watch'] is None           # IMAGE -> no reels watch-time
 
 
+def test_fetch_recent_media_fail_open_on_error(monkeypatch):
+    # A broken/unlinked IG account (code 100/33) must NOT crash the run — the media
+    # list fetch is best-effort and returns [] so scoring/history degrade gracefully.
+    def boom(url, params=None, **kwargs):
+        raise Exception("400 for url ...17841.../media?access_token=EAAsecrettoken does not exist")
+
+    monkeypatch.setattr(ins.requests, 'get', boom)
+    assert ins._fetch_recent_media('tok', '17841412428059741', 25) == []
+
+
 def test_get_facebook_post_insights_reads_object_fields_only(monkeypatch):
     # FB post reach metrics are deprecated in v18, so we no longer hit /insights —
     # only the object-fields engagement fetch (shares/comments/reactions).

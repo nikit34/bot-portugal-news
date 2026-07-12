@@ -54,15 +54,22 @@ def get_instagram_media_insights(access_token, ig_user_id, limit, top_n):
 
 
 def _fetch_recent_media(access_token, ig_user_id, limit):
+    # Best-effort/fail-open: если IG-аккаунт недоступен (не привязан к Странице, нет
+    # прав, code 100/33) — возвращаем [], а НЕ роняем весь прогон. Раньше raise отсюда
+    # прокидывался до верхнего обработчика main и убивал бот (в т.ч. после публикации).
     url = _GRAPH + ig_user_id + '/media'
     params = {
         'fields': 'id,caption,media_type,like_count,comments_count,timestamp',
         'limit': limit,
         'access_token': access_token,
     }
-    response = requests.get(url, params=params)
-    response.raise_for_status()
-    return response.json().get('data', [])
+    try:
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        return response.json().get('data', [])
+    except Exception as e:
+        logger.warning(redact_secrets(f"[insights] IG media list unavailable for {ig_user_id}: {e}"))
+        return []
 
 
 def _fetch_media_insights(access_token, media_id, metrics):

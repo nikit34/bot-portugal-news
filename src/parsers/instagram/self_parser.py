@@ -2,6 +2,7 @@ import requests
 from src.producers.repeater import retry
 from src.processor.history_comparator import make_head
 from src.static.settings import GRAPH_API_BASE
+from src.utils.notify import redact_secrets
 import logging
 
 logger = logging.getLogger(__name__)
@@ -31,9 +32,9 @@ def get_instagram_published_messages(graph, context, max_posts):
             else:
                 break
         except Exception as e:
-            logger.error(f"Error fetching Instagram media: {str(e)}")
+            logger.error(redact_secrets(f"Error fetching Instagram media: {str(e)}"))
             if hasattr(e, 'response') and e.response is not None:
-                logger.error(f"Response content: {e.response.content}")
+                logger.error(redact_secrets(f"Response content: {e.response.content}"))
             break
 
     return messages
