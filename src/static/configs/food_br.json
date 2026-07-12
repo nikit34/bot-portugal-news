@@ -12,7 +12,11 @@
   },
   "telegram_channels": [],
   "rss_channels": {
-    "tudogostoso": "https://www.tudogostoso.com.br/rss.xml",
-    "cybercook": "https://cybercook.com.br/feed"
+    "receitatodahora": "https://receitatodahora.com.br/feed/",
+    "guiadacozinha": "https://guiadacozinha.com.br/feed/",
+    "comidinhasdochef": "https://www.comidinhasdochef.com/feed/",
+    "receiteria": "https://www.receiteria.com.br/feed/",
+    "cozinhalegal": "https://cozinhalegal.com.br/feed/",
+    "receitasagora": "https://www.receitasagora.com.br/feed/"
   }
 }
