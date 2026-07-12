@@ -25,8 +25,14 @@ def _video_filter(duration, motion):
         return (f"scale={REEL_W}:{REEL_H}:force_original_aspect_ratio=increase,"
                 f"crop={REEL_W}:{REEL_H},setsar=1,format=yuv420p")
     frames = max(1, int((duration + 0.5) * REEL_FPS))   # d в кадрах; +0.5с запас под -shortest
+    # ВАЖНО: у zoompan x/y по умолчанию (0,0) => зум в ЛЕВЫЙ-ВЕРХНИЙ угол и обрезка НИЗА
+    # кадра. Плашка story_overlay прижата к низу (заголовок над футер-паддингом), поэтому
+    # без центрирования срезало бы последнюю строку заголовка почти весь клип. Центрируем
+    # окно зума (x/y по центру) и держим мягкий зум (cap 1.08), чтобы остаточный кроп
+    # уходил в футер-паддинг, а текст оставался в кадре.
     return (f"scale={REEL_W * 3 // 2}:{REEL_H * 3 // 2},"
-            f"zoompan=z='min(zoom+0.0006,1.12)':d={frames}:"
+            f"zoompan=z='min(zoom+0.0006,1.08)':d={frames}:"
+            f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
             f"s={REEL_W}x{REEL_H}:fps={REEL_FPS},setsar=1,format=yuv420p")
 
 

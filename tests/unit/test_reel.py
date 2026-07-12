@@ -11,6 +11,13 @@ def test_video_filter_motion_has_zoompan():
     assert 'zoompan' in vf and 'format=yuv420p' in vf and 'fps=30' in vf
 
 
+def test_video_filter_motion_is_centered():
+    # Regression guard: zoompan defaults x/y to 0,0 (top-left), which crops the
+    # bottom-anchored headline off-frame. The zoom MUST be centered.
+    vf = reel._video_filter(5.0, motion=True)
+    assert "x='iw/2-(iw/zoom/2)'" in vf and "y='ih/2-(ih/zoom/2)'" in vf
+
+
 def test_video_filter_static_has_no_zoompan():
     vf = reel._video_filter(5.0, motion=False)
     assert 'zoompan' not in vf
