@@ -7,7 +7,8 @@ name: Bot Schedule (food)
 #   1) Meta: System User нового канала + токен, Page, IG (см. гайд);
 #   2) GitHub Secret FACEBOOK_ACCESS_TOKEN_FOOD = этот токен;
 #   3) впиши реальные page_id/ig id в src/static/configs/food_br.json;
-#   4) GitHub Variable FOOD_CHANNEL_ENABLED = true.
+#   4) GitHub Variable FOOD_CHANNEL_ENABLED = true;
+#   5) раскомментируй `schedule` ниже (иначе запуск только вручную через Actions).
 # Reel-пивот здесь ВКЛючён (REEL_RENDER_ENABLED + fetch голоса) — это тестовый канал.
 
 concurrency:
@@ -15,8 +16,10 @@ concurrency:
   cancel-in-progress: false
 
 on:
-  schedule:
-    - cron: '30 */2 * * *'   # смещён на 30 мин от футбольного, чтобы не толкаться
+  # Расписание закомментировано, пока канал DORMANT — иначе каждые 2ч плодились бы
+  # «skipped»-прогоны. При активации раскомментируй cron (шаг 5 в шапке файла).
+  # schedule:
+  #   - cron: '30 */2 * * *'   # смещён на 30 мин от футбольного, чтобы не толкаться
   workflow_dispatch:
     inputs:
       log_level:
