@@ -119,23 +119,66 @@ def test_parse_media_timestamp():
 def test_get_instagram_metrics_by_head_returns_full_metrics(monkeypatch):
     now = ins._parse_media_timestamp('2026-06-13T00:00:00+0000')
     media = [
-        {'id': 'old', 'caption': 'matured post', 'timestamp': '2026-06-01T00:00:00+0000',
-         'like_count': 12, 'comments_count': 3},
-        {'id': 'fresh', 'caption': 'fresh post', 'timestamp': '2026-06-12T23:00:00+0000',
-         'like_count': 1, 'comments_count': 0},  # too fresh -> excluded
+        {'id': 'old', 'caption': 'matured post', 'media_type': 'REELS',
+         'timestamp': '2026-06-01T00:00:00+0000', 'like_count': 12, 'comments_count': 3},
+        {'id': 'fresh', 'caption': 'fresh post', 'media_type': 'IMAGE',
+         'timestamp': '2026-06-12T23:00:00+0000', 'like_count': 1, 'comments_count': 0},  # too fresh
     ]
 
     def fake_get(url, params=None, **kwargs):
         if url.endswith('/media'):
             return _FakeResponse({'data': media})
         if url.endswith('/insights'):
-            return _FakeResponse({'data': [{'name': 'reach', 'values': [{'value': 444}]}]})
+            metric = (params or {}).get('metric', '')
+            data = []
+            if 'reach' in metric:
+                data.append({'name': 'reach', 'values': [{'value': 444}]})
+            if 'saved' in metric:
+                data.append({'name': 'saved', 'values': [{'value': 30}]})
+            if 'shares' in metric:
+                data.append({'name': 'shares', 'values': [{'value': 8}]})
+            if 'ig_reels_avg_watch_time' in metric:
+                data.append({'name': 'ig_reels_avg_watch_time', 'values': [{'value': 5200}]})  # ms
+            return _FakeResponse({'data': data})
         raise AssertionError(url)
 
     monkeypatch.setattr(ins.requests, 'get', fake_get)
     result = ins.get_instagram_metrics_by_head('tok', 'IGID', limit=25, min_age_seconds=24 * 3600, now=now)
 
-    assert result == {ins.make_head('matured post'): {'reach': 444, 'likes': 12, 'comments': 3}}
+    # reach/saved/shares from the combined call; watch (5200ms -> 5.2s) from the reels-only call
+    assert result == {ins.make_head('matured post'): {
+        'reach': 444, 'saves': 30, 'shares': 8, 'watch': 5.2, 'likes': 12, 'comments': 3}}
+
+
+def test_get_instagram_metrics_degrades_when_shares_unsupported(monkeypatch):
+    # On an older Graph version `shares` can 400 the whole insights call. We must keep
+    # the reach anchor + saves and just drop shares, not lose the post.
+    now = ins._parse_media_timestamp('2026-06-13T00:00:00+0000')
+    media = [{'id': 'old', 'caption': 'post', 'media_type': 'IMAGE',
+              'timestamp': '2026-06-01T00:00:00+0000', 'like_count': 2, 'comments_count': 1}]
+
+    def fake_get(url, params=None, **kwargs):
+        if url.endswith('/media'):
+            return _FakeResponse({'data': media})
+        if url.endswith('/insights'):
+            metric = (params or {}).get('metric', '')
+            if 'shares' in metric:                       # unsupported -> 400 the whole call
+                raise Exception('(#100) shares is not a valid metric')
+            data = []
+            if 'reach' in metric:
+                data.append({'name': 'reach', 'values': [{'value': 100}]})
+            if 'saved' in metric:
+                data.append({'name': 'saved', 'values': [{'value': 9}]})
+            return _FakeResponse({'data': data})
+        raise AssertionError(url)
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+    result = ins.get_instagram_metrics_by_head('tok', 'IGID', limit=25, min_age_seconds=24 * 3600, now=now)
+
+    head = ins.make_head('post')
+    assert result[head]['reach'] == 100 and result[head]['saves'] == 9
+    assert result[head]['shares'] is None          # dropped, but reach/saves survived
+    assert result[head]['watch'] is None           # IMAGE -> no reels watch-time
 
 
 def test_get_facebook_post_insights_reads_object_fields_only(monkeypatch):

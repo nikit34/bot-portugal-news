@@ -92,12 +92,16 @@ def update_scores(state, reach_by_head, now, maturation_seconds, max_age_seconds
 
 
 def reward_for(metrics, weights):
-    # Engagement-weighted reward: shares/comments валятся тяжелее лайков, reach —
-    # хвост. metrics — dict с любыми из {reach, likes, comments, shares}; отсутствующее
-    # считаем нулём. Aligns the optimizer with «meaningful interactions».
+    # Engagement-weighted reward под сигналы ранжирования Meta 2026: раздача
+    # (shares+sends), сохранения и досмотр весят тяжелее всего, лайки по умолчанию
+    # обнулены, reach — хвост. metrics — dict с любыми из {reach, likes, comments,
+    # shares, saves, watch}; отсутствующее считаем нулём (обратная совместимость со
+    # старыми pending-записями и reach-only путём). watch — средний досмотр в секундах.
     return (
         weights.get('share', 0.0) * (metrics.get('shares') or 0)
+        + weights.get('save', 0.0) * (metrics.get('saves') or 0)
         + weights.get('comment', 0.0) * (metrics.get('comments') or 0)
+        + weights.get('watch', 0.0) * (metrics.get('watch') or 0)
         + weights.get('like', 0.0) * (metrics.get('likes') or 0)
         + weights.get('reach', 0.0) * (metrics.get('reach') or 0)
     )

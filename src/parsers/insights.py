@@ -64,23 +64,55 @@ def _fetch_recent_media(access_token, ig_user_id, limit):
     return response.json().get('data', [])
 
 
+def _fetch_media_insights(access_token, media_id, metrics):
+    # GET /{media}/insights для списка метрик; возвращает {name: value}. Best-effort:
+    # на любой ошибке (нет instagram_manage_insights / метрика не поддерживается этим
+    # media_type или версией API) возвращаем {} — вызывающий деградирует, а не теряет
+    # весь пост. ВАЖНО: одна неподдерживаемая метрика 400-ит ВЕСЬ запрос, поэтому
+    # reward-путь просит метрики группами с фолбэком (см. _fetch_ig_reward_insights).
+    if not media_id or not metrics:
+        return {}
+    url = _GRAPH + media_id + '/insights'
+    params = {'metric': ','.join(metrics), 'access_token': access_token}
+    out = {}
+    try:
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        for metric in response.json().get('data', []):
+            values = metric.get('values') or [{}]
+            out[metric.get('name')] = values[0].get('value')
+    except Exception as e:
+        logger.warning(redact_secrets(f"[insights] IG insights {metrics} unavailable for {media_id}: {e}"))
+    return out
+
+
 def _fetch_media_reach(access_token, media_id):
     # reach живёт на endpoint insights и требует instagram_manage_insights.
     # Best-effort: если метрики/права нет — возвращаем None, пост покажем без охвата.
     if not media_id:
         return None
-    url = _GRAPH + media_id + '/insights'
-    params = {'metric': 'reach', 'access_token': access_token}
-    try:
-        response = requests.get(url, params=params)
-        response.raise_for_status()
-        for metric in response.json().get('data', []):
-            if metric.get('name') == 'reach':
-                values = metric.get('values') or [{}]
-                return values[0].get('value')
-    except Exception as e:
-        logger.warning(redact_secrets(f"[insights] IG reach unavailable for {media_id}: {e}"))
-    return None
+    return _fetch_media_insights(access_token, media_id, ['reach']).get('reach')
+
+
+def _fetch_ig_reward_insights(access_token, media_id, media_type):
+    # Метрики ранжирования для reward: reach + saved + shares (репост + отправка в DM),
+    # а для reels/video ещё ig_reels_avg_watch_time (средний досмотр, мс). Просим богатый
+    # набор одним вызовом и деградируем так, чтобы НИКОГДА не потерять reach (якорь):
+    # reach,saved,shares -> reach,saved -> reach. `shares` и reels-метрики новее и на
+    # старом Graph (v18) могут быть недоступны — тогда молча остаёмся с reach(+saved),
+    # а sends/watch подтянутся после апгрейда версии API.
+    if not media_id:
+        return {}
+    got = _fetch_media_insights(access_token, media_id, ['reach', 'saved', 'shares'])
+    if 'reach' not in got:
+        got = _fetch_media_insights(access_token, media_id, ['reach', 'saved'])
+    if 'reach' not in got:
+        got = _fetch_media_insights(access_token, media_id, ['reach'])
+    if (media_type or '').upper() in ('VIDEO', 'REELS'):
+        watch = _fetch_media_insights(access_token, media_id, ['ig_reels_avg_watch_time'])
+        if watch.get('ig_reels_avg_watch_time') is not None:
+            got['ig_reels_avg_watch_time'] = watch['ig_reels_avg_watch_time']
+    return got
 
 
 def _parse_media_timestamp(value):
@@ -112,10 +144,11 @@ def get_instagram_reach_by_head(access_token, ig_user_id, limit, min_age_seconds
 
 
 def get_instagram_metrics_by_head(access_token, ig_user_id, limit, min_age_seconds, now):
-    # Reward-путь: как get_instagram_reach_by_head, но возвращает полный набор
-    # метрик на пост {reach, likes, comments}. like_count/comments_count — обычные
-    # поля media (бесплатно, уже в выдаче _fetch_recent_media); reach — отдельный
-    # insights-вызов (нужно instagram_manage_insights). Только для зрелых постов.
+    # Reward-путь: как get_instagram_reach_by_head, но возвращает полный набор метрик
+    # на пост {reach, saves, shares, watch, likes, comments}. like_count/comments_count —
+    # обычные поля media (бесплатно, уже в выдаче _fetch_recent_media); reach/saved/
+    # shares/watch — insights-вызов (нужно instagram_manage_insights), тянем группами
+    # с фолбэком. watch = средний досмотр reels в СЕКУНДАХ. Только для зрелых постов.
     media = _fetch_recent_media(access_token, ig_user_id, limit)
     metrics_by_head = {}
     for item in media:
@@ -125,8 +158,13 @@ def get_instagram_metrics_by_head(access_token, ig_user_id, limit, min_age_secon
         ts = _parse_media_timestamp(item.get('timestamp'))
         if ts is None or (now - ts) < min_age_seconds:
             continue
+        insights = _fetch_ig_reward_insights(access_token, item.get('id'), item.get('media_type'))
+        watch_ms = insights.get('ig_reels_avg_watch_time')
         metrics_by_head[make_head(caption)] = {
-            'reach': _fetch_media_reach(access_token, item.get('id')),
+            'reach': insights.get('reach'),
+            'saves': insights.get('saved'),
+            'shares': insights.get('shares'),                       # репост + sends в DM
+            'watch': (watch_ms / 1000.0) if watch_ms is not None else None,  # мс -> сек
             'likes': item.get('like_count', 0) or 0,
             'comments': item.get('comments_count', 0) or 0,
         }

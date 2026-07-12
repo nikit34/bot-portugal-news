@@ -316,13 +316,26 @@ RANKER_VIDEO_BONUS = float(os.getenv('RANKER_VIDEO_BONUS', '1.5'))
 RANKER_DRAIN_RESERVE_SECONDS = int(os.getenv('RANKER_DRAIN_RESERVE_SECONDS', '180'))
 
 # --- Engagement-weighted reward (вместо чистого reach) ------------------------
-# reward = w_share*shares + w_comment*comments + w_like*likes + w_reach*reach.
-# По умолчанию ВЫКЛ: пока веса не подобраны и FB-инсайты не подтверждены правами,
-# учимся на reach (как сейчас). Начинаем reach-доминантно.
-LEARNING_REWARD_ENABLED = _flag('LEARNING_REWARD_ENABLED', 'false')
-LEARNING_W_SHARE = float(os.getenv('LEARNING_W_SHARE', '3.0'))
+# reward = w_share*(shares+sends) + w_save*saves + w_comment*comments
+#        + w_watch*avg_watch_sec + w_like*likes + w_reach*reach.
+# 2026-переориентация под реальные сигналы ранжирования Meta: раздача (shares +
+# sends/пересылки в DM), СОХРАНЕНИЯ и ДОСМОТР толкают охват к не-подписчикам, тогда
+# как лайки — сигнал тщеславия. Поэтому shares↑, добавлены save/watch, а like ОБНУЛЁН.
+# saves/watch тянутся из IG (у FB их на пост-уровне нет); sends — это IG-метрика
+# `shares` (репост + отправка в личку). reach остаётся слабым хвостом.
+# По умолчанию ВКЛ: учимся на вовлечённости, а не на чистом reach. Требует у токена
+# instagram_manage_insights; если прав/метрики нет — fail-open (saves/shares/watch
+# пустые, reward деградирует до comments+reach, не падает). Выключить: LEARNING_REWARD_ENABLED=false.
+LEARNING_REWARD_ENABLED = _flag('LEARNING_REWARD_ENABLED', 'true')
+LEARNING_W_SHARE = float(os.getenv('LEARNING_W_SHARE', '4.0'))
+LEARNING_W_SAVE = float(os.getenv('LEARNING_W_SAVE', '3.0'))
 LEARNING_W_COMMENT = float(os.getenv('LEARNING_W_COMMENT', '2.0'))
-LEARNING_W_LIKE = float(os.getenv('LEARNING_W_LIKE', '1.0'))
+# watch — средний ДОСМОТР reels в СЕКУНДАХ (ig_reels_avg_watch_time / 1000); только
+# видео, хвостовой сигнал, поэтому вес небольшой.
+LEARNING_W_WATCH = float(os.getenv('LEARNING_W_WATCH', '0.3'))
+# Лайки исключены из reward (слабо влияют на охват в 2026): дефолт 0. Вернуть вес
+# можно через LEARNING_W_LIKE.
+LEARNING_W_LIKE = float(os.getenv('LEARNING_W_LIKE', '0.0'))
 LEARNING_W_REACH = float(os.getenv('LEARNING_W_REACH', '0.05'))
 
 # --- dow-hour бакеты времени (день недели × час) ------------------------------
@@ -345,8 +358,9 @@ LEARNING_SOURCE_MIN_SAMPLES = int(os.getenv('LEARNING_SOURCE_MIN_SAMPLES', '3'))
 # --- FB post-level инсайты по сохранённым ID ----------------------------------
 # GET /{post-id}/insights (post_impressions_unique) + поля объекта (shares,
 # comments.summary, reactions.summary). Нужно право read_insights; best-effort,
-# fail-open на IG-прокси. По умолчанию ВЫКЛ (права у токена не подтверждены).
-FB_POST_INSIGHTS_ENABLED = _flag('FB_POST_INSIGHTS_ENABLED', 'false')
+# fail-open на IG-прокси. По умолчанию ВКЛ: даёт FB-репосты/комменты как reward-сигнал
+# по сохранённому fb_id. Выключить: FB_POST_INSIGHTS_ENABLED=false.
+FB_POST_INSIGHTS_ENABLED = _flag('FB_POST_INSIGHTS_ENABLED', 'true')
 
 # --- A/B-логирование вариантов (measurement-only) -----------------------------
 # Копим reward по media_type и числу хэштегов, показываем в дайджесте. Только

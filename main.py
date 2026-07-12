@@ -53,7 +53,9 @@ from src.static.settings import (
     LEARNING_SOURCE_MIN_SAMPLES,
     LEARNING_REWARD_ENABLED,
     LEARNING_W_SHARE,
+    LEARNING_W_SAVE,
     LEARNING_W_COMMENT,
+    LEARNING_W_WATCH,
     LEARNING_W_LIKE,
     LEARNING_W_REACH,
     LEARNING_SCORE_BY_TTL_ENABLED,
@@ -273,9 +275,16 @@ async def main(config_name):
                 for head, m in ig_metrics.items():
                     entry = metrics_by_head.setdefault(head, {})
                     entry['reach'] = m.get('reach')                 # IG owns reach
+                    entry['saves'] = m.get('saves')                 # saves — IG-only
+                    entry['watch'] = m.get('watch')                 # watch-through (reels) — IG-only
+                    # sends/DM-пересылки = IG-метрика shares; суммируем с FB-репостами
+                    # (разные платформы — не дубль) в общий сигнал раздачи.
+                    if m.get('shares') is not None:
+                        entry['shares'] = (entry.get('shares') or 0) + m['shares']
                     entry.setdefault('likes', m.get('likes'))       # FB wins if present
                     entry.setdefault('comments', m.get('comments'))
-                weights = {'share': LEARNING_W_SHARE, 'comment': LEARNING_W_COMMENT,
+                weights = {'share': LEARNING_W_SHARE, 'save': LEARNING_W_SAVE,
+                           'comment': LEARNING_W_COMMENT, 'watch': LEARNING_W_WATCH,
                            'like': LEARNING_W_LIKE, 'reach': LEARNING_W_REACH}
                 learning.update_scores_metrics(
                     state, metrics_by_head, weights, now,

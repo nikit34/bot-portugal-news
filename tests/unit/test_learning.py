@@ -201,6 +201,14 @@ def test_reward_for_tolerates_missing_metrics():
     assert learning.reward_for({'reach': 200}, {'reach': 0.5}) == 100.0
 
 
+def test_reward_for_rewards_saves_and_watch_ignores_likes():
+    # 2026 scheme: shares/saves/watch carry the reward, likes are zero-weighted.
+    weights = {'share': 4.0, 'save': 3.0, 'comment': 2.0, 'watch': 0.3, 'like': 0.0, 'reach': 0.05}
+    m = {'shares': 2, 'saves': 5, 'comments': 1, 'watch': 10.0, 'likes': 100, 'reach': 1000}
+    # 4*2 + 3*5 + 2*1 + 0.3*10 + 0*100 + 0.05*1000
+    assert learning.reward_for(m, weights) == 8 + 15 + 2 + 3 + 0 + 50  # 78.0
+
+
 def test_update_scores_metrics_attributes_reward_and_format():
     now = 100 * DAY
     weights = {'share': 3.0, 'comment': 2.0, 'like': 1.0, 'reach': 0.05}
