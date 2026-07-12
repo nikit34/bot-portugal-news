@@ -6,8 +6,13 @@ from src.static.settings import MAX_ERROR_RESPONSE_CHARS
 # access_token as a query param; the rupload path uses an "OAuth <token>" header.
 # Scrub both before anything is logged to stdout (CI logs) or sent to the chat.
 _SECRET_PATTERNS = [
-    (re.compile(r'(access_token=)[^&\s]+'), r'\1***'),
-    (re.compile(r'(OAuth )[^\s\'"]+'), r'\1***'),
+    (re.compile(r'(access_token=)[^&\s]+'), r'\1***'),                       # URL query form
+    (re.compile(r'(OAuth )[^\s\'"]+'), r'\1***'),                            # rupload header
+    # dict-repr form, e.g. logged request params {'access_token': 'EAA...'}
+    (re.compile(r"(['\"]access_token['\"]\s*:\s*['\"])[^'\"]+"), r'\1***'),
+    # catch-all: any Meta token (user/page/system-user) starts with EAA — redact it
+    # in ANY context so it can't leak via str(args)/repr in error logs.
+    (re.compile(r'EAA[A-Za-z0-9]{20,}'), '***'),
 ]
 
 

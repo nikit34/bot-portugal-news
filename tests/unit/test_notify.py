@@ -13,6 +13,18 @@ def test_redact_secrets_scrubs_access_token_and_oauth():
     assert 'EAABsecrettoken' not in out2 and 'OAuth ***' in out2
 
 
+def test_redact_secrets_scrubs_dict_repr_and_bare_eaa_token():
+    # Regression: repeater.log_error logs str(args), so the token appears in dict-repr
+    # form {'access_token': 'EAA...'} — not the URL query form. It must still be scrubbed.
+    tok = 'EAAUC9oTMHfQBR' + 'x' * 40
+    params = "('https://graph.facebook.com/v22.0/1784/media', " \
+             "{'access_token': '" + tok + "', 'limit': 50})"
+    out = redact_secrets(params)
+    assert tok not in out
+    # a bare token anywhere (no access_token= prefix) is also caught by the EAA rule
+    assert redact_secrets('token is ' + tok + ' end').count(tok) == 0
+
+
 def test_build_error_message_redacts_token():
     class _Resp:
         text = 'body access_token=SECRETTOKEN extra'

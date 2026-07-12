@@ -65,7 +65,7 @@ from src.static.settings import (
     RANKER_ENABLED,
     RANKER_DRAIN_RESERVE_SECONDS,
 )
-from src.static.sources import get_config
+from src.static.sources import get_config, Platform
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.logger import setup_logging
 from src.utils.ci import get_ci_run_url
@@ -149,10 +149,20 @@ async def main(config_name):
         app_logger.info("Fetching message history from Facebook, Instagram and Telegram")
         # Fetch the three histories concurrently so adding Instagram doesn't extend
         # startup: FB/IG are blocking `requests` calls (offloaded to threads), TG is async.
+        # Own-published history for dedup. Telegram is fetched only when the channel
+        # actually posts to Telegram — a FB+IG-only channel (e.g. food) has a
+        # placeholder self.telegram_channel, and resolving it raises
+        # UsernameNotOccupiedError, which would take the whole gather (and the run) down.
+        telegram_enabled = Platform.TELEGRAM in context['platforms']
+
+        async def _empty_history():
+            return []
+
         facebook_history, instagram_history, telegram_history = await asyncio.gather(
             asyncio.to_thread(get_facebook_published_messages, graph, context, COUNT_UNIQUE_MESSAGES),
             asyncio.to_thread(get_instagram_published_messages, graph, context, COUNT_UNIQUE_MESSAGES),
-            get_telegram_published_messages(getter_client, COUNT_UNIQUE_MESSAGES, context),
+            get_telegram_published_messages(getter_client, COUNT_UNIQUE_MESSAGES, context)
+            if telegram_enabled else _empty_history(),
         )
         app_logger.info(
             f"Loaded history — Facebook: {len(facebook_history)}, "
