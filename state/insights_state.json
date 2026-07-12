@@ -177,6 +177,50 @@
       "ig_id": "18096315284581422",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Após comentar a Copa do Mundo pela CazeTV, o ex-jo",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783851511.101694,
+      "fb_id": "2056023731685142",
+      "ig_id": "18108309296061706",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "🇦🇷 Repórter para Lisandro Martínez: “Há uma corren",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783851588.6746855,
+      "fb_id": "348454375016310_122243774060359689",
+      "ig_id": "17947161918234450",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "O meia sul-africano Jayden Adams, de 25 anos, fale",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783851666.9829185,
+      "fb_id": "348454375016310_122243774378359689",
+      "ig_id": "18105072896013508",
+      "is_video": false,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Lionel Scaloni em entrevista coletiva, nega que a",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783851745.3141062,
+      "fb_id": "348454375016310_122243774828359689",
+      "ig_id": "17907335943445368",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇫🇷 Mbappé, ao ser questionado se esse time da Fran",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783851824.0914075,
+      "ig_id": "18117829480890356",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -317,7 +361,7 @@
   },
   "ig_quota": {
     "day": "2026-07-12",
-    "posts": 4
+    "posts": 9
   },
   "last_scored_ts": 1783843535.7796412,
   "dow_hours": {
