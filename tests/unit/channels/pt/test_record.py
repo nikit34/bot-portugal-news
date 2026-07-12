@@ -35,6 +35,34 @@ from src.parsers.rss.channels.pt.record import is_valid_record_entry, parse_reco
 
     # Invalid - empty entry
     ({}, False),
+
+    # Valid - record.pt article under a sport section
+    ({
+        'title': 'Samu segue para o estágio do FC Porto',
+        'link': 'https://www.record.pt/futebol/fc-porto/detalhe/samu-estagio',
+        'enclosures': [{'href': 'http://example.com/image.jpg'}]
+    }, True),
+
+    # Valid - internacional section
+    ({
+        'title': 'Messi após a vitória',
+        'link': 'https://www.record.pt/internacional/detalhe/messi',
+        'enclosures': [{'href': 'http://example.com/image.jpg'}]
+    }, True),
+
+    # Invalid - general news under a non-sport section (the "médicos de família" leak)
+    ({
+        'title': 'Registo Nacional de Utentes muda atribuição de médicos de família',
+        'link': 'https://www.record.pt/sociedade/detalhe/utentes',
+        'enclosures': [{'href': 'http://example.com/image.jpg'}]
+    }, False),
+
+    # Invalid - cross-network Cofina link (not record.pt)
+    ({
+        'title': 'Cross-promoted item',
+        'link': 'https://www.cmjornal.pt/portugal/detalhe/x',
+        'enclosures': [{'href': 'http://example.com/image.jpg'}]
+    }, False),
 ])
 def test_is_valid_record_entry(entry, expected):
     assert is_valid_record_entry(entry) == expected
