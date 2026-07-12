@@ -221,6 +221,15 @@
       "ig_id": "18117829480890356",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Murat Yakin 'explode' contra João Pinheiro: «Não e",
+      "source": "record.pt",
+      "ts": 1783854378.111748,
+      "fb_id": "348454375016310_122243779586359689",
+      "ig_id": "18137812105525034",
+      "is_video": false,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -361,7 +370,7 @@
   },
   "ig_quota": {
     "day": "2026-07-12",
-    "posts": 9
+    "posts": 10
   },
   "last_scored_ts": 1783843535.7796412,
   "dow_hours": {
