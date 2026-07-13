@@ -69,13 +69,40 @@
       "ig_id": "18199155784367403",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Purê de abóbora cabotiá muito simples de fazer, be",
+      "source": "receitatodahora",
+      "ts": 1783942878.7243893,
+      "fb_id": "1040392708373960",
+      "ig_id": "18065300822713594",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Sobremesa com Oreo combinando a crocância do bisco",
+      "source": "receitatodahora",
+      "ts": 1783942991.6883495,
+      "fb_id": "1675962876785939",
+      "ig_id": "18095614232342932",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Peixe frito no fubá super crocante e sequinho por",
+      "source": "receitatodahora",
+      "ts": 1783943100.098167,
+      "fb_id": "1533033925034709",
+      "ig_id": "18149103151450881",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-07-13",
-    "posts": 6
+    "posts": 9
   },
   "dow_hours": {},
   "formats": {},
