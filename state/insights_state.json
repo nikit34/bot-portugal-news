@@ -18,22 +18,6 @@
       "hashtag_n": 4
     },
     {
-      "head": "Surpresa nos Nacionais: Luque e Jesus derrotam irm",
-      "source": "record.pt",
-      "ts": 1783888621.0995305,
-      "fb_id": "348454375016310_122243827868359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Muller e Di Mauro têm 100% de aproveitamento no Al",
-      "source": "uol.com.br",
-      "ts": 1783888667.0007257,
-      "fb_id": "348454375016310_122243828000359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
       "head": "João Aroso traça perfil de Hwang In-beom: «Lembra",
       "source": "record.pt",
       "ts": 1783895998.585361,
@@ -58,28 +42,11 @@
       "hashtag_n": 5
     },
     {
-      "head": "Ex-jogador peruano afirma, em documentário, que ve",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783970142.119315,
-      "fb_id": "348454375016310_122243956172359689",
-      "ig_id": "18363219661240720",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Murat Yakin, técnico da Suíça, detona arbitragem a",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783970220.5933983,
-      "ig_id": "18109146271966205",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨 AGORA! Flamengo entra na briga por Thiago Almada",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783970315.1802275,
-      "fb_id": "348454375016310_122243956748359689",
-      "ig_id": "18070586006388492",
+      "head": "Rabiot minimiza polêmica com Yamal em 2024: 'Não l",
+      "source": "uol.com.br",
+      "ts": 1783975908.6745741,
+      "fb_id": "348454375016310_122243961560359689",
+      "ig_id": "18086486096396160",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -127,11 +94,11 @@
     },
     "record.pt": {
       "reach_avg": 0.0,
-      "n": 12
+      "n": 13
     },
     "uol.com.br": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 4
     }
   },
   "hours": {
@@ -213,7 +180,7 @@
     },
     "20": {
       "reach_avg": 0.0,
-      "n": 14
+      "n": 16
     },
     "22": {
       "reach_avg": 0.282823308493233,
@@ -230,9 +197,9 @@
   },
   "ig_quota": {
     "day": "2026-07-13",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1783970355.1924143,
+  "last_scored_ts": 1783975948.6896417,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -480,7 +447,7 @@
     },
     "6-20": {
       "reach_avg": 0.0,
-      "n": 4
+      "n": 6
     },
     "6-22": {
       "reach_avg": 0.8739639999999997,
@@ -649,8 +616,8 @@
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.0013170687060421002,
-      "n": 414
+      "reach_avg": 0.000645363665960629,
+      "n": 416
     },
     "video": {
       "reach_avg": 5.69233444033001,
@@ -659,8 +626,8 @@
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.06879885788902666,
-      "n": 325
+      "reach_avg": 0.03371144036562306,
+      "n": 327
     },
     "tags:1-3": {
       "reach_avg": 0.3832037156103504,
