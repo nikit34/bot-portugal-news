@@ -2,46 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Portugal será representado por 168 atletas em 30 m",
-      "source": "record.pt",
-      "ts": 1783861167.9231594,
-      "fb_id": "348454375016310_122243789606359689",
-      "ig_id": "18143158948537187",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Garry Kasparov irônico após polêmica no Noruega-In",
-      "source": "record.pt",
-      "ts": 1783861229.1071405,
-      "fb_id": "348454375016310_122243789780359689",
-      "ig_id": "18135596128601000",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
       "head": "A festa dos brasileiros que torcem para Argentina",
       "source": "https://t.me/Futebol_Brasileirao",
       "ts": 1783867728.8892376,
       "fb_id": "1691466762075044",
       "is_video": true,
       "hashtag_n": 4
-    },
-    {
-      "head": "Murat Yakin, técnico da Suíça, detona arbitragem a",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783867776.4684415,
-      "fb_id": "348454375016310_122243797610359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨 DEFINIDAS AS SEMIFINAIS DA COPA DO MUNDO: 14/07",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783867821.6380763,
-      "fb_id": "348454375016310_122243797844359689",
-      "is_video": false,
-      "hashtag_n": 5
     },
     {
       "head": "Ex-primeiro ministro espanhol gera revolta ao dize",
@@ -124,11 +90,28 @@
       "hashtag_n": 5
     },
     {
-      "head": "Troca de cromos do Mundial'2026 enche praça princi",
-      "source": "record.pt",
-      "ts": 1783945650.1760855,
-      "fb_id": "348454375016310_122243902940359689",
-      "ig_id": "18100106420179526",
+      "head": "A festa dos brasileiros que torcem para Argentina",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783959855.0652559,
+      "ig_id": "18102177785611890",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "OFICIAL! Manchester United anuncia a contratação d",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783959964.3733447,
+      "fb_id": "1835876747390880",
+      "ig_id": "17977722921109204",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Com 99% de ocupação, Copa bate recorde histórico e",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783960031.2042265,
+      "fb_id": "348454375016310_122243931860359689",
+      "ig_id": "18334580419248862",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -155,8 +138,8 @@
       "n": 39
     },
     "https://t.me/Futebol_Brasileirao": {
-      "reach_avg": 1.1210850943514978,
-      "n": 125
+      "reach_avg": 0.5593261880122339,
+      "n": 127
     },
     "abola.pt": {
       "reach_avg": 0.0,
@@ -176,7 +159,7 @@
     },
     "record.pt": {
       "reach_avg": 0.0,
-      "n": 7
+      "n": 9
     },
     "uol.com.br": {
       "reach_avg": 0.0,
@@ -193,12 +176,12 @@
       "n": 28
     },
     "10": {
-      "reach_avg": 0.9300808778351296,
+      "reach_avg": 0.9504777998351296,
       "n": 47
     },
     "13": {
-      "reach_avg": 2.5819307849999995,
-      "n": 22
+      "reach_avg": 1.8073515494999994,
+      "n": 23
     },
     "15": {
       "reach_avg": 0.4260899999999999,
@@ -226,7 +209,7 @@
     },
     "12": {
       "reach_avg": 0.0,
-      "n": 7
+      "n": 8
     },
     "0": {
       "reach_avg": 0.0,
@@ -245,8 +228,8 @@
       "n": 20
     },
     "14": {
-      "reach_avg": 1.429252235497649,
-      "n": 20
+      "reach_avg": 0.7003335953938479,
+      "n": 22
     },
     "18": {
       "reach_avg": 0.2170624049999999,
@@ -279,9 +262,9 @@
   },
   "ig_quota": {
     "day": "2026-07-13",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1783945690.1840198,
+  "last_scored_ts": 1783960071.2060592,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -329,7 +312,7 @@
     },
     "6-12": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 4
     },
     "6-15": {
       "reach_avg": 0.6086999999999999,
@@ -520,12 +503,12 @@
       "n": 6
     },
     "6-10": {
-      "reach_avg": 0.9870301596049997,
+      "reach_avg": 1.0074270816049997,
       "n": 11
     },
     "6-13": {
-      "reach_avg": 0.0255,
-      "n": 4
+      "reach_avg": 0.017849999999999998,
+      "n": 5
     },
     "6-20": {
       "reach_avg": 0.0,
@@ -686,22 +669,26 @@
     "6-11": {
       "reach_avg": 0.0,
       "n": 1
+    },
+    "6-14": {
+      "reach_avg": 0.0,
+      "n": 2
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.015496733235754382,
-      "n": 406
+      "reach_avg": 0.005485500649904625,
+      "n": 410
     },
     "video": {
-      "reach_avg": 5.639894440330011,
+      "reach_avg": 5.68111444033001,
       "n": 22
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.8154600748230209,
-      "n": 318
+      "reach_avg": 0.19993294993720717,
+      "n": 322
     },
     "tags:1-3": {
       "reach_avg": 0.5474338794433578,
