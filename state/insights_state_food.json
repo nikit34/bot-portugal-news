@@ -96,13 +96,40 @@
       "ig_id": "18149103151450881",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Pavê de maracujá feito sem precisar ir ao fogo de",
+      "source": "receitatodahora",
+      "ts": 1783956300.657255,
+      "fb_id": "1658477011911295",
+      "ig_id": "18087176966531910",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Sabão de álcool caseiro: uma receita glicerinada m",
+      "source": "receitatodahora",
+      "ts": 1783956383.5155714,
+      "fb_id": "1943499573633536",
+      "ig_id": "18414218614146732",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Torta caipira de sardinha feita à mão com uma mass",
+      "source": "receitatodahora",
+      "ts": 1783956466.3182898,
+      "fb_id": "947736948286938",
+      "ig_id": "18158107738473462",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-07-13",
-    "posts": 9
+    "posts": 12
   },
   "dow_hours": {},
   "formats": {},
