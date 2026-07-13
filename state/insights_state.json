@@ -2,59 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Após comentar a Copa do Mundo pela CazeTV, o ex-jo",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783851511.101694,
-      "fb_id": "2056023731685142",
-      "ig_id": "18108309296061706",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "🇦🇷 Repórter para Lisandro Martínez: “Há uma corren",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783851588.6746855,
-      "fb_id": "348454375016310_122243774060359689",
-      "ig_id": "17947161918234450",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "O meia sul-africano Jayden Adams, de 25 anos, fale",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783851666.9829185,
-      "fb_id": "348454375016310_122243774378359689",
-      "ig_id": "18105072896013508",
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Lionel Scaloni em entrevista coletiva, nega que a",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783851745.3141062,
-      "fb_id": "348454375016310_122243774828359689",
-      "ig_id": "17907335943445368",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🇫🇷 Mbappé, ao ser questionado se esse time da Fran",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783851824.0914075,
-      "ig_id": "18117829480890356",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Murat Yakin 'explode' contra João Pinheiro: «Não e",
-      "source": "record.pt",
-      "ts": 1783854378.111748,
-      "fb_id": "348454375016310_122243779586359689",
-      "ig_id": "18137812105525034",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
       "head": "Portugal será representado por 168 atletas em 30 m",
       "source": "record.pt",
       "ts": 1783861167.9231594,
@@ -177,28 +124,11 @@
       "hashtag_n": 5
     },
     {
-      "head": "Pela primeira vez na história uma seleção chegar n",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783932759.2131934,
-      "ig_id": "18196512256374892",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Samuel Portugal, Iván Jaime e Gabriel Veron: inves",
+      "head": "Troca de cromos do Mundial'2026 enche praça princi",
       "source": "record.pt",
-      "ts": 1783932836.2404025,
-      "fb_id": "348454375016310_122243879702359689",
-      "ig_id": "17895622590542726",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Palmeiras projeta receber R$ 60 milhões com zaguei",
-      "source": "uol.com.br",
-      "ts": 1783932920.2812665,
-      "fb_id": "348454375016310_122243880002359689",
-      "ig_id": "17980552152020982",
+      "ts": 1783945650.1760855,
+      "fb_id": "348454375016310_122243902940359689",
+      "ig_id": "18100106420179526",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -225,8 +155,8 @@
       "n": 39
     },
     "https://t.me/Futebol_Brasileirao": {
-      "reach_avg": 1.6880652011155943,
-      "n": 120
+      "reach_avg": 1.1210850943514978,
+      "n": 125
     },
     "abola.pt": {
       "reach_avg": 0.0,
@@ -246,7 +176,7 @@
     },
     "record.pt": {
       "reach_avg": 0.0,
-      "n": 6
+      "n": 7
     },
     "uol.com.br": {
       "reach_avg": 0.0,
@@ -263,8 +193,8 @@
       "n": 28
     },
     "10": {
-      "reach_avg": 0.5516088643727608,
-      "n": 42
+      "reach_avg": 0.9300808778351296,
+      "n": 47
     },
     "13": {
       "reach_avg": 2.5819307849999995,
@@ -327,8 +257,8 @@
       "n": 7
     },
     "11": {
-      "reach_avg": 0.004117714999999998,
-      "n": 8
+      "reach_avg": 0.0028824004999999987,
+      "n": 9
     },
     "20": {
       "reach_avg": 0.0,
@@ -349,9 +279,9 @@
   },
   "ig_quota": {
     "day": "2026-07-13",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1783932960.2873044,
+  "last_scored_ts": 1783945690.1840198,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -590,8 +520,8 @@
       "n": 6
     },
     "6-10": {
-      "reach_avg": 0.8904514999999998,
-      "n": 6
+      "reach_avg": 0.9870301596049997,
+      "n": 11
     },
     "6-13": {
       "reach_avg": 0.0255,
@@ -752,26 +682,30 @@
     "6-5": {
       "reach_avg": 0.0,
       "n": 1
+    },
+    "6-11": {
+      "reach_avg": 0.0,
+      "n": 1
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.00036730669217815764,
-      "n": 401
+      "reach_avg": 0.015496733235754382,
+      "n": 406
     },
     "video": {
-      "reach_avg": 3.205906343328586,
-      "n": 21
+      "reach_avg": 5.639894440330011,
+      "n": 22
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.0008216744393465944,
-      "n": 313
+      "reach_avg": 0.8154600748230209,
+      "n": 318
     },
     "tags:1-3": {
-      "reach_avg": 0.7177626849190825,
-      "n": 60
+      "reach_avg": 0.5474338794433578,
+      "n": 61
     },
     "tags:0": {
       "reach_avg": 0.0,
