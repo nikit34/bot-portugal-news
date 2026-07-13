@@ -147,6 +147,30 @@
       "fb_id": "792929517174860",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Amaciante caseiro que rende muito para deixar as s",
+      "source": "receitatodahora",
+      "ts": 1783972866.6021357,
+      "fb_id": "1520108159113118",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Rosquinha de coco com creme muito macia feita com",
+      "source": "receitatodahora",
+      "ts": 1783972922.6820707,
+      "fb_id": "4276772455916037",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Pão caseiro de panela feito de forma rápida e sem",
+      "source": "receitatodahora",
+      "ts": 1783972978.1326437,
+      "fb_id": "1011595308392063",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {},
@@ -158,5 +182,5 @@
   "dow_hours": {},
   "formats": {},
   "variants": {},
-  "last_scored_ts": 1783897076.1511006
+  "last_scored_ts": 1783973018.1368713
 }
