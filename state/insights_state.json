@@ -2,6 +2,15 @@
   "version": 1,
   "pending": [
     {
+      "head": "Após comentar a Copa do Mundo pela CazeTV, o ex-jo",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783851511.101694,
+      "fb_id": "2056023731685142",
+      "ig_id": "18108309296061706",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
       "head": "A festa dos brasileiros que torcem para Argentina",
       "source": "https://t.me/Futebol_Brasileirao",
       "ts": 1783867728.8892376,
@@ -18,35 +27,29 @@
       "hashtag_n": 4
     },
     {
-      "head": "João Aroso traça perfil de Hwang In-beom: «Lembra",
-      "source": "record.pt",
-      "ts": 1783895998.585361,
-      "fb_id": "348454375016310_122243835056359689",
+      "head": "Denílson, sobre os posts dos jogadores da Seleção",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783982878.17781,
+      "fb_id": "1785015655818773",
+      "ig_id": "17908650030259479",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Luiz Inácio Lula da Silva, presidente do Brasil, c",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783982949.0220606,
+      "fb_id": "348454375016310_122243968490359689",
+      "ig_id": "18038589299805088",
       "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "Matheus Pereira marca, Charles falha, e Corinthian",
-      "source": "uol.com.br",
-      "ts": 1783896048.3709664,
-      "fb_id": "348454375016310_122243835224359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Hulk desencanta em volta de Thiago Silva, e Flu ba",
-      "source": "uol.com.br",
-      "ts": 1783896114.1482913,
-      "fb_id": "348454375016310_122243835518359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Rabiot minimiza polêmica com Yamal em 2024: 'Não l",
-      "source": "uol.com.br",
-      "ts": 1783975908.6745741,
-      "fb_id": "348454375016310_122243961560359689",
-      "ig_id": "18086486096396160",
+      "head": "⚠️ O Corinthians sofreu um novo transfer ban da FI",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783983025.4844568,
+      "fb_id": "348454375016310_122243968904359689",
+      "ig_id": "18274353439294469",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -73,8 +76,8 @@
       "n": 39
     },
     "https://t.me/Futebol_Brasileirao": {
-      "reach_avg": 0.39245234685456354,
-      "n": 128
+      "reach_avg": 0.15018407799223393,
+      "n": 127
     },
     "abola.pt": {
       "reach_avg": 0.0,
@@ -94,11 +97,11 @@
     },
     "record.pt": {
       "reach_avg": 0.0,
-      "n": 13
+      "n": 14
     },
     "uol.com.br": {
       "reach_avg": 0.0,
-      "n": 4
+      "n": 6
     }
   },
   "hours": {
@@ -111,8 +114,8 @@
       "n": 28
     },
     "10": {
-      "reach_avg": 0.9531717218351295,
-      "n": 47
+      "reach_avg": 0.1649912883358998,
+      "n": 46
     },
     "13": {
       "reach_avg": 1.8073515494999994,
@@ -183,8 +186,8 @@
       "n": 16
     },
     "22": {
-      "reach_avg": 0.282823308493233,
-      "n": 22
+      "reach_avg": 0.0970083948131789,
+      "n": 25
     },
     "5": {
       "reach_avg": 1.0216499999999997,
@@ -197,9 +200,9 @@
   },
   "ig_quota": {
     "day": "2026-07-13",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1783975948.6896417,
+  "last_scored_ts": 1783983065.4872773,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -438,8 +441,8 @@
       "n": 6
     },
     "6-10": {
-      "reach_avg": 1.0101210036049997,
-      "n": 11
+      "reach_avg": 0.24634740514999995,
+      "n": 10
     },
     "6-13": {
       "reach_avg": 0.017849999999999998,
@@ -450,8 +453,8 @@
       "n": 6
     },
     "6-22": {
-      "reach_avg": 0.8739639999999997,
-      "n": 6
+      "reach_avg": 0.29976965199999983,
+      "n": 9
     },
     "0-8": {
       "reach_avg": 1.2485199999999996,
@@ -616,18 +619,18 @@
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.000645363665960629,
-      "n": 416
+      "reach_avg": 0.0002213597374244957,
+      "n": 419
     },
     "video": {
-      "reach_avg": 5.69233444033001,
-      "n": 22
+      "reach_avg": 3.205906343328586,
+      "n": 21
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.03371144036562306,
-      "n": 327
+      "reach_avg": 0.00010446412588671199,
+      "n": 329
     },
     "tags:1-3": {
       "reach_avg": 0.3832037156103504,
