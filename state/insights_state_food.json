@@ -16,13 +16,39 @@
       "fb_id": "1027990172966879",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Rápido, fácil e saudável: receita de biscoito de m",
+      "source": "guiadacozinha",
+      "ts": 1783915860.153327,
+      "fb_id": "1793036792060527",
+      "ig_id": "18084518351557537",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Sobremesa refrescante e muito saborosa feita de um",
+      "source": "receitatodahora",
+      "ts": 1783915968.813764,
+      "ig_id": "18208259230356035",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Frango a passarinho crocante por fora e muito sucu",
+      "source": "receitatodahora",
+      "ts": 1783916077.4798777,
+      "fb_id": "27780776558276038",
+      "ig_id": "18443973499184843",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-07-12",
-    "posts": 0
+    "day": "2026-07-13",
+    "posts": 3
   },
   "dow_hours": {},
   "formats": {},
