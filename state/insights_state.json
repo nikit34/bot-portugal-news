@@ -10,44 +10,12 @@
       "hashtag_n": 4
     },
     {
-      "head": "Ex-primeiro ministro espanhol gera revolta ao dize",
-      "source": "record.pt",
-      "ts": 1783874957.7707798,
-      "fb_id": "348454375016310_122243808458359689",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Flamengo celebra aniversário de Vini Jr. e adeptos",
-      "source": "record.pt",
-      "ts": 1783875004.0778859,
-      "fb_id": "348454375016310_122243808608359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
       "head": "Após a eliminação da Noruega da Copa, Erling Haala",
       "source": "https://t.me/Futebol_Brasileirao",
       "ts": 1783882413.8602138,
       "fb_id": "28571623755758450",
       "is_video": true,
       "hashtag_n": 4
-    },
-    {
-      "head": "Pela primeira vez na história uma seleção chegar n",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783882462.1737323,
-      "fb_id": "348454375016310_122243821454359689",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Ana Catarina Nogueira e Clarinha Santos revalidam",
-      "source": "record.pt",
-      "ts": 1783882512.5020354,
-      "fb_id": "348454375016310_122243821724359689",
-      "is_video": false,
-      "hashtag_n": 5
     },
     {
       "head": "Surpresa nos Nacionais: Luque e Jesus derrotam irm",
@@ -90,28 +58,28 @@
       "hashtag_n": 5
     },
     {
-      "head": "A festa dos brasileiros que torcem para Argentina",
+      "head": "Ex-jogador peruano afirma, em documentário, que ve",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783959855.0652559,
-      "ig_id": "18102177785611890",
-      "is_video": true,
-      "hashtag_n": 4
+      "ts": 1783970142.119315,
+      "fb_id": "348454375016310_122243956172359689",
+      "ig_id": "18363219661240720",
+      "is_video": false,
+      "hashtag_n": 5
     },
     {
-      "head": "OFICIAL! Manchester United anuncia a contratação d",
+      "head": "Murat Yakin, técnico da Suíça, detona arbitragem a",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783959964.3733447,
-      "fb_id": "1835876747390880",
-      "ig_id": "17977722921109204",
-      "is_video": true,
-      "hashtag_n": 4
+      "ts": 1783970220.5933983,
+      "ig_id": "18109146271966205",
+      "is_video": false,
+      "hashtag_n": 5
     },
     {
-      "head": "Com 99% de ocupação, Copa bate recorde histórico e",
+      "head": "🚨 AGORA! Flamengo entra na briga por Thiago Almada",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783960031.2042265,
-      "fb_id": "348454375016310_122243931860359689",
-      "ig_id": "18334580419248862",
+      "ts": 1783970315.1802275,
+      "fb_id": "348454375016310_122243956748359689",
+      "ig_id": "18070586006388492",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -138,8 +106,8 @@
       "n": 39
     },
     "https://t.me/Futebol_Brasileirao": {
-      "reach_avg": 0.5593261880122339,
-      "n": 127
+      "reach_avg": 0.39245234685456354,
+      "n": 128
     },
     "abola.pt": {
       "reach_avg": 0.0,
@@ -159,7 +127,7 @@
     },
     "record.pt": {
       "reach_avg": 0.0,
-      "n": 9
+      "n": 12
     },
     "uol.com.br": {
       "reach_avg": 0.0,
@@ -176,7 +144,7 @@
       "n": 28
     },
     "10": {
-      "reach_avg": 0.9504777998351296,
+      "reach_avg": 0.9531717218351295,
       "n": 47
     },
     "13": {
@@ -224,16 +192,16 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 0.0738445843958544,
-      "n": 20
+      "reach_avg": 0.03618384635396865,
+      "n": 22
     },
     "14": {
       "reach_avg": 0.7003335953938479,
       "n": 22
     },
     "18": {
-      "reach_avg": 0.2170624049999999,
-      "n": 8
+      "reach_avg": 0.10636057844999994,
+      "n": 10
     },
     "6": {
       "reach_avg": 0.43217999999999984,
@@ -264,7 +232,7 @@
     "day": "2026-07-13",
     "posts": 3
   },
-  "last_scored_ts": 1783960071.2060592,
+  "last_scored_ts": 1783970355.1924143,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -503,7 +471,7 @@
       "n": 6
     },
     "6-10": {
-      "reach_avg": 1.0074270816049997,
+      "reach_avg": 1.0101210036049997,
       "n": 11
     },
     "6-13": {
@@ -596,7 +564,7 @@
     },
     "6-16": {
       "reach_avg": 0.0,
-      "n": 2
+      "n": 4
     },
     "0-13": {
       "reach_avg": 7.515,
@@ -673,26 +641,30 @@
     "6-14": {
       "reach_avg": 0.0,
       "n": 2
+    },
+    "6-18": {
+      "reach_avg": 0.0,
+      "n": 2
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.005485500649904625,
-      "n": 410
+      "reach_avg": 0.0013170687060421002,
+      "n": 414
     },
     "video": {
-      "reach_avg": 5.68111444033001,
+      "reach_avg": 5.69233444033001,
       "n": 22
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.19993294993720717,
-      "n": 322
+      "reach_avg": 0.06879885788902666,
+      "n": 325
     },
     "tags:1-3": {
-      "reach_avg": 0.5474338794433578,
-      "n": 61
+      "reach_avg": 0.3832037156103504,
+      "n": 62
     },
     "tags:0": {
       "reach_avg": 0.0,
