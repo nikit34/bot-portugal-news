@@ -27,13 +27,39 @@
       "hashtag_n": 4
     },
     {
-      "head": "Filho de Maradona e o Inglaterra-Argentina: «O meu",
-      "source": "record.pt",
-      "ts": 1784027985.6072876,
-      "fb_id": "348454375016310_122244029684359689",
-      "ig_id": "18605311393037848",
-      "is_video": false,
+      "head": "Após a eliminação da Noruega da Copa, Erling Haala",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783882413.8602138,
+      "fb_id": "28571623755758450",
+      "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "🚨 DEFINIDAS AS SEMIFINAIS DA COPA DO MUNDO: 14/07",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784034753.1990724,
+      "fb_id": "348454375016310_122244039584359689",
+      "ig_id": "18088971431429786",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "FIM DA PRORROGAÇÃO | 🇳🇴 Noruega 1x2 Inglaterra 🏴󠁧󠁢",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784034826.686788,
+      "fb_id": "348454375016310_122244039962359689",
+      "ig_id": "18095272013364815",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Lamine Yamal: «Numerologia? O treinador de Portuga",
+      "source": "record.pt",
+      "ts": 1784034907.974316,
+      "fb_id": "348454375016310_122244040334359689",
+      "ig_id": "18113076307931868",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -58,8 +84,8 @@
       "n": 39
     },
     "https://t.me/Futebol_Brasileirao": {
-      "reach_avg": 1.8606624279922335,
-      "n": 127
+      "reach_avg": 0.1985991828460485,
+      "n": 126
     },
     "abola.pt": {
       "reach_avg": 0.0,
@@ -152,8 +178,8 @@
       "n": 22
     },
     "18": {
-      "reach_avg": 1.2796025049149995,
-      "n": 11
+      "reach_avg": 0.10636057844999994,
+      "n": 10
     },
     "6": {
       "reach_avg": 0.43217999999999984,
@@ -182,9 +208,9 @@
   },
   "ig_quota": {
     "day": "2026-07-14",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1784028025.6209092,
+  "last_scored_ts": 1784034947.9760532,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -595,8 +621,8 @@
       "n": 2
     },
     "6-18": {
-      "reach_avg": 4.017166999999999,
-      "n": 3
+      "reach_avg": 0.0,
+      "n": 2
     }
   },
   "formats": {
@@ -605,14 +631,14 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 4.70362444033001,
-      "n": 22
+      "reach_avg": 3.205906343328586,
+      "n": 21
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.20255230797195925,
-      "n": 329
+      "reach_avg": 3.900949941945881e-06,
+      "n": 328
     },
     "tags:1-3": {
       "reach_avg": 0.35170371561035035,
