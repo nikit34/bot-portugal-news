@@ -35,29 +35,11 @@
       "hashtag_n": 4
     },
     {
-      "head": "Internacional acertou a contratação do goleiro Mat",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784055923.0937953,
-      "fb_id": "348454375016310_122244069248359689",
-      "ig_id": "18100405067015378",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Vasco da garantias e avança na contratação de Nels",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784055999.9768069,
-      "fb_id": "348454375016310_122244069626359689",
-      "ig_id": "18130255741625407",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Fifa avalia vender direitos da Copa do Mundo de 20",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784056072.1956968,
-      "fb_id": "348454375016310_122244069974359689",
-      "ig_id": "17947388952219601",
+      "head": "Eduardo Felicíssimo revela pedido de Rui Borges e",
+      "source": "record.pt",
+      "ts": 1784062329.9862876,
+      "fb_id": "348454375016310_122244075746359689",
+      "ig_id": "18131074996618937",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -208,9 +190,9 @@
   },
   "ig_quota": {
     "day": "2026-07-14",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1784056112.2140024,
+  "last_scored_ts": 1784062369.996024,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
