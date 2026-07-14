@@ -267,13 +267,37 @@
       "ig_id": "18057068768531802",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Pamonha de forno Se você ama pamonha doce mas trem",
+      "source": "cozinhalegal",
+      "ts": 1784024403.2700536,
+      "ig_id": "18208272595345504",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "26 Receitas de Festa Junina Junho na minha casa se",
+      "source": "cozinhalegal",
+      "ts": 1784024509.8760211,
+      "ig_id": "17977955424100737",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Bolinha de Queijo com 3 Ingredientes Tem coisa mai",
+      "source": "cozinhalegal",
+      "ts": 1784024616.6123257,
+      "ig_id": "18024759776836157",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-07-14",
-    "posts": 6
+    "posts": 9
   },
   "dow_hours": {},
   "formats": {},
