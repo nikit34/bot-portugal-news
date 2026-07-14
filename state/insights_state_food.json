@@ -291,13 +291,39 @@
       "ig_id": "18024759776836157",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Frango assado com batata super suculento e douradi",
+      "source": "receitatodahora",
+      "ts": 1784030217.1098306,
+      "ig_id": "18051997334547032",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Gelado de pêssego cremoso e refrescante, combinand",
+      "source": "receitatodahora",
+      "ts": 1784030299.1573563,
+      "fb_id": "1218973620314975",
+      "ig_id": "18091064075302815",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Filé de frango ao molho de legumes com cenoura e a",
+      "source": "receitatodahora",
+      "ts": 1784030381.0515087,
+      "fb_id": "1330555532584894",
+      "ig_id": "18105145697012947",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-07-14",
-    "posts": 9
+    "posts": 12
   },
   "dow_hours": {},
   "formats": {},
