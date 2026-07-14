@@ -243,13 +243,37 @@
       "ig_id": "18110223391756998",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Pão caseiro de panela feito de forma rápida e sem",
+      "source": "receitatodahora",
+      "ts": 1784011029.4454257,
+      "ig_id": "18207075328356626",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bolo pamonha feito sem ovos e sem forno, uma delíc",
+      "source": "receitatodahora",
+      "ts": 1784011157.42197,
+      "ig_id": "18102538223586037",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Cuscuz paulista de tabuleiro muito fácil de prepar",
+      "source": "receitatodahora",
+      "ts": 1784011280.8184028,
+      "ig_id": "18057068768531802",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-07-14",
-    "posts": 3
+    "posts": 6
   },
   "dow_hours": {},
   "formats": {},
