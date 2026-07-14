@@ -27,31 +27,13 @@
       "hashtag_n": 4
     },
     {
-      "head": "Denílson, sobre os posts dos jogadores da Seleção",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783982878.17781,
-      "fb_id": "1785015655818773",
-      "ig_id": "17908650030259479",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Luiz Inácio Lula da Silva, presidente do Brasil, c",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783982949.0220606,
-      "fb_id": "348454375016310_122243968490359689",
-      "ig_id": "18038589299805088",
+      "head": "Quem é Count Binface, o homem com uma lata de lixo",
+      "source": "record.pt",
+      "ts": 1783993355.2402618,
+      "fb_id": "348454375016310_122243981606359689",
+      "ig_id": "18166655419453247",
       "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "⚠️ O Corinthians sofreu um novo transfer ban da FI",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783983025.4844568,
-      "fb_id": "348454375016310_122243968904359689",
-      "ig_id": "18274353439294469",
-      "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -199,10 +181,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-13",
-    "posts": 3
+    "day": "2026-07-14",
+    "posts": 1
   },
-  "last_scored_ts": 1783983065.4872773,
+  "last_scored_ts": 1783993395.2529304,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
