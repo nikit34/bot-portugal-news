@@ -219,13 +219,37 @@
       "fb_id": "960584050367754",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Sobremesa sem açúcar e sem forno, um doce simples,",
+      "source": "receitatodahora",
+      "ts": 1784000808.770288,
+      "ig_id": "18107118710022304",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Amaciante caseiro que rende muito para deixar as s",
+      "source": "receitatodahora",
+      "ts": 1784000917.3355381,
+      "ig_id": "17891350353589196",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Rosquinha de coco com creme muito macia feita com",
+      "source": "receitatodahora",
+      "ts": 1784001024.2034843,
+      "ig_id": "18110223391756998",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-07-13",
-    "posts": 12
+    "day": "2026-07-14",
+    "posts": 3
   },
   "dow_hours": {},
   "formats": {},
