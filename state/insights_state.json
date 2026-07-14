@@ -35,22 +35,22 @@
       "hashtag_n": 4
     },
     {
-      "head": "Viseu recebe a final do Torneio Nacional de Futebo",
-      "source": "record.pt",
-      "ts": 1784042320.0282164,
-      "fb_id": "348454375016310_122244050546359689",
-      "ig_id": "18332326222284848",
+      "head": "⚠️ Wilton Pereira Sampaio vira favorito para apita",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784048756.9951582,
+      "fb_id": "348454375016310_122244059600359689",
+      "ig_id": "18103166576192764",
       "is_video": false,
-      "hashtag_n": 1
+      "hashtag_n": 5
     },
     {
-      "head": "Neymar do futuro segue nos ameaçando em novo vídeo",
-      "source": "uol.com.br",
-      "ts": 1784042393.9047534,
-      "fb_id": "348454375016310_122244050942359689",
-      "ig_id": "18433489036133271",
+      "head": "🇵🇹 Jorge Jesus conta com Cristiano Ronaldo para a",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784048841.7204537,
+      "fb_id": "348454375016310_122244060128359689",
+      "ig_id": "17928362217358298",
       "is_video": false,
-      "hashtag_n": 3
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -201,7 +201,7 @@
     "day": "2026-07-14",
     "posts": 2
   },
-  "last_scored_ts": 1784042433.907404,
+  "last_scored_ts": 1784048881.7220135,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
