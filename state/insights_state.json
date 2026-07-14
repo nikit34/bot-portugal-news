@@ -11,6 +11,14 @@
       "hashtag_n": 4
     },
     {
+      "head": "🇫🇷 Mbappé, ao ser questionado se esse time da Fran",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783851824.0914075,
+      "ig_id": "18117829480890356",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
       "head": "A festa dos brasileiros que torcem para Argentina",
       "source": "https://t.me/Futebol_Brasileirao",
       "ts": 1783867728.8892376,
@@ -27,13 +35,31 @@
       "hashtag_n": 4
     },
     {
-      "head": "Quem é Count Binface, o homem com uma lata de lixo",
-      "source": "record.pt",
-      "ts": 1783993355.2402618,
-      "fb_id": "348454375016310_122243981606359689",
-      "ig_id": "18166655419453247",
+      "head": "Ronaldo Fenômeno sobre Neymar e Seleção Brasileira",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784004275.549994,
+      "fb_id": "1026811199741702",
+      "ig_id": "18071126000392795",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bancada da CazéTV definindo o Top 6 da Copa do Mun",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784004367.9555402,
+      "fb_id": "348454375016310_122243993438359689",
+      "ig_id": "18118988119829219",
       "is_video": false,
-      "hashtag_n": 3
+      "hashtag_n": 5
+    },
+    {
+      "head": "Em entrevista coletiva nesta segunda-feira, vésper",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784004441.4460704,
+      "fb_id": "348454375016310_122243993816359689",
+      "ig_id": "18228714838319486",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -58,8 +84,8 @@
       "n": 39
     },
     "https://t.me/Futebol_Brasileirao": {
-      "reach_avg": 0.15018407799223393,
-      "n": 127
+      "reach_avg": 0.1985991828460485,
+      "n": 126
     },
     "abola.pt": {
       "reach_avg": 0.0,
@@ -96,8 +122,8 @@
       "n": 28
     },
     "10": {
-      "reach_avg": 0.1649912883358998,
-      "n": 46
+      "reach_avg": 0.18920184047985691,
+      "n": 45
     },
     "13": {
       "reach_avg": 1.8073515494999994,
@@ -182,9 +208,9 @@
   },
   "ig_quota": {
     "day": "2026-07-14",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1783993395.2529304,
+  "last_scored_ts": 1784004481.448168,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -423,8 +449,8 @@
       "n": 6
     },
     "6-10": {
-      "reach_avg": 0.24634740514999995,
-      "n": 10
+      "reach_avg": 0.30542486449999995,
+      "n": 9
     },
     "6-13": {
       "reach_avg": 0.017849999999999998,
@@ -601,8 +627,8 @@
   },
   "formats": {
     "photo": {
-      "reach_avg": 0.0002213597374244957,
-      "n": 419
+      "reach_avg": 8.544674459234552e-07,
+      "n": 418
     },
     "video": {
       "reach_avg": 3.205906343328586,
@@ -611,11 +637,11 @@
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 0.00010446412588671199,
-      "n": 329
+      "reach_avg": 3.900949941945881e-06,
+      "n": 328
     },
     "tags:1-3": {
-      "reach_avg": 0.3832037156103504,
+      "reach_avg": 0.35170371561035035,
       "n": 62
     },
     "tags:0": {
