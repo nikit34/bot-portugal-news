@@ -35,31 +35,22 @@
       "hashtag_n": 4
     },
     {
-      "head": "🚨 DEFINIDAS AS SEMIFINAIS DA COPA DO MUNDO: 14/07",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784034753.1990724,
-      "fb_id": "348454375016310_122244039584359689",
-      "ig_id": "18088971431429786",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "FIM DA PRORROGAÇÃO | 🇳🇴 Noruega 1x2 Inglaterra 🏴󠁧󠁢",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784034826.686788,
-      "fb_id": "348454375016310_122244039962359689",
-      "ig_id": "18095272013364815",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Lamine Yamal: «Numerologia? O treinador de Portuga",
+      "head": "Viseu recebe a final do Torneio Nacional de Futebo",
       "source": "record.pt",
-      "ts": 1784034907.974316,
-      "fb_id": "348454375016310_122244040334359689",
-      "ig_id": "18113076307931868",
+      "ts": 1784042320.0282164,
+      "fb_id": "348454375016310_122244050546359689",
+      "ig_id": "18332326222284848",
       "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 1
+    },
+    {
+      "head": "Neymar do futuro segue nos ameaçando em novo vídeo",
+      "source": "uol.com.br",
+      "ts": 1784042393.9047534,
+      "fb_id": "348454375016310_122244050942359689",
+      "ig_id": "18433489036133271",
+      "is_video": false,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -208,9 +199,9 @@
   },
   "ig_quota": {
     "day": "2026-07-14",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1784034947.9760532,
+  "last_scored_ts": 1784042433.907404,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
