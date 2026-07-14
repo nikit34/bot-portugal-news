@@ -27,39 +27,22 @@
       "hashtag_n": 4
     },
     {
-      "head": "Após a eliminação da Noruega da Copa, Erling Haala",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783882413.8602138,
-      "fb_id": "28571623755758450",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Ronaldo Fenômeno sobre Neymar e Seleção Brasileira",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784004275.549994,
-      "fb_id": "1026811199741702",
-      "ig_id": "18071126000392795",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Bancada da CazéTV definindo o Top 6 da Copa do Mun",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784004367.9555402,
-      "fb_id": "348454375016310_122243993438359689",
-      "ig_id": "18118988119829219",
+      "head": "Luis de la Fuente desvaloriza favoritismo atribuíd",
+      "source": "record.pt",
+      "ts": 1784015382.979942,
+      "fb_id": "348454375016310_122244007082359689",
+      "ig_id": "18603715285023531",
       "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "Em entrevista coletiva nesta segunda-feira, vésper",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784004441.4460704,
-      "fb_id": "348454375016310_122243993816359689",
-      "ig_id": "18228714838319486",
+      "head": "Pote acelera após o estágio: agentes apresentam of",
+      "source": "record.pt",
+      "ts": 1784015455.6097026,
+      "fb_id": "348454375016310_122244007406359689",
+      "ig_id": "18098441396580099",
       "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -84,8 +67,8 @@
       "n": 39
     },
     "https://t.me/Futebol_Brasileirao": {
-      "reach_avg": 0.1985991828460485,
-      "n": 126
+      "reach_avg": 1.8606624279922335,
+      "n": 127
     },
     "abola.pt": {
       "reach_avg": 0.0,
@@ -178,8 +161,8 @@
       "n": 22
     },
     "18": {
-      "reach_avg": 0.10636057844999994,
-      "n": 10
+      "reach_avg": 1.2796025049149995,
+      "n": 11
     },
     "6": {
       "reach_avg": 0.43217999999999984,
@@ -208,9 +191,9 @@
   },
   "ig_quota": {
     "day": "2026-07-14",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1784004481.448168,
+  "last_scored_ts": 1784015495.6147113,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -621,8 +604,8 @@
       "n": 2
     },
     "6-18": {
-      "reach_avg": 0.0,
-      "n": 2
+      "reach_avg": 4.017166999999999,
+      "n": 3
     }
   },
   "formats": {
@@ -631,14 +614,14 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 3.205906343328586,
-      "n": 21
+      "reach_avg": 4.70362444033001,
+      "n": 22
     }
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 3.900949941945881e-06,
-      "n": 328
+      "reach_avg": 0.20255230797195925,
+      "n": 329
     },
     "tags:1-3": {
       "reach_avg": 0.35170371561035035,
