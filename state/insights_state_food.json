@@ -10,121 +10,6 @@
       "hashtag_n": 4
     },
     {
-      "head": "Sobremesa refrescante e muito saborosa feita de um",
-      "source": "receitatodahora",
-      "ts": 1783898493.7230165,
-      "fb_id": "1027990172966879",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Rápido, fácil e saudável: receita de biscoito de m",
-      "source": "guiadacozinha",
-      "ts": 1783915860.153327,
-      "fb_id": "1793036792060527",
-      "ig_id": "18084518351557537",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Sobremesa refrescante e muito saborosa feita de um",
-      "source": "receitatodahora",
-      "ts": 1783915968.813764,
-      "ig_id": "18208259230356035",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Frango a passarinho crocante por fora e muito sucu",
-      "source": "receitatodahora",
-      "ts": 1783916077.4798777,
-      "fb_id": "27780776558276038",
-      "ig_id": "18443973499184843",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Bolo de fubá com creme de leite extremamente fofin",
-      "source": "receitatodahora",
-      "ts": 1783929035.6160192,
-      "fb_id": "1584280586656405",
-      "ig_id": "18097259555358500",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Pão de frigideira sem farinha muito leve, saudável",
-      "source": "receitatodahora",
-      "ts": 1783929136.708863,
-      "fb_id": "980697991673785",
-      "ig_id": "18082485044404613",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Broinhas de fubá cozido com aquela receita tradici",
-      "source": "receitatodahora",
-      "ts": 1783929234.1596797,
-      "fb_id": "2237514810344785",
-      "ig_id": "18199155784367403",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Purê de abóbora cabotiá muito simples de fazer, be",
-      "source": "receitatodahora",
-      "ts": 1783942878.7243893,
-      "fb_id": "1040392708373960",
-      "ig_id": "18065300822713594",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Sobremesa com Oreo combinando a crocância do bisco",
-      "source": "receitatodahora",
-      "ts": 1783942991.6883495,
-      "fb_id": "1675962876785939",
-      "ig_id": "18095614232342932",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Peixe frito no fubá super crocante e sequinho por",
-      "source": "receitatodahora",
-      "ts": 1783943100.098167,
-      "fb_id": "1533033925034709",
-      "ig_id": "18149103151450881",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Pavê de maracujá feito sem precisar ir ao fogo de",
-      "source": "receitatodahora",
-      "ts": 1783956300.657255,
-      "fb_id": "1658477011911295",
-      "ig_id": "18087176966531910",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Sabão de álcool caseiro: uma receita glicerinada m",
-      "source": "receitatodahora",
-      "ts": 1783956383.5155714,
-      "fb_id": "1943499573633536",
-      "ig_id": "18414218614146732",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Torta caipira de sardinha feita à mão com uma mass",
-      "source": "receitatodahora",
-      "ts": 1783956466.3182898,
-      "fb_id": "947736948286938",
-      "ig_id": "18158107738473462",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
       "head": "Sobremesa japonesa feita totalmente sem forno que",
       "source": "receitatodahora",
       "ts": 1783966721.2699902,
@@ -365,16 +250,105 @@
       "fb_id": "1356097212581233",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Rosquinhas de Maizena que ficam tão macias que der",
+      "source": "receitatodahora",
+      "ts": 1784051022.2872381,
+      "fb_id": "4377933069142885",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Farinha Panko caseira, para você empanar os seus s",
+      "source": "receitatodahora",
+      "ts": 1784051076.7983913,
+      "fb_id": "1423938559573744",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Sobremesa de 2 ingredientes rápida e fácil: para u",
+      "source": "receitatodahora",
+      "ts": 1784051131.939928,
+      "fb_id": "1406736424835236",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
-  "sources": {},
-  "hours": {},
+  "sources": {
+    "receitatodahora": {
+      "reach_avg": 6.959635490507749,
+      "n": 12
+    },
+    "guiadacozinha": {
+      "reach_avg": 10.5642,
+      "n": 1
+    }
+  },
+  "hours": {
+    "23": {
+      "reach_avg": 2.8916,
+      "n": 1
+    },
+    "4": {
+      "reach_avg": 7.676723999999998,
+      "n": 3
+    },
+    "7": {
+      "reach_avg": 9.221279,
+      "n": 3
+    },
+    "11": {
+      "reach_avg": 3.1355629999999994,
+      "n": 3
+    },
+    "15": {
+      "reach_avg": 7.315194999999999,
+      "n": 3
+    }
+  },
   "ig_quota": {
     "day": "2026-07-14",
     "posts": 12
   },
-  "dow_hours": {},
-  "formats": {},
-  "variants": {},
-  "last_scored_ts": 1783973018.1368713
+  "dow_hours": {
+    "6-23": {
+      "reach_avg": 2.8916,
+      "n": 1
+    },
+    "0-4": {
+      "reach_avg": 7.676723999999998,
+      "n": 3
+    },
+    "0-7": {
+      "reach_avg": 9.221279,
+      "n": 3
+    },
+    "0-11": {
+      "reach_avg": 3.1355629999999994,
+      "n": 3
+    },
+    "0-15": {
+      "reach_avg": 7.315194999999999,
+      "n": 3
+    }
+  },
+  "formats": {
+    "video": {
+      "reach_avg": 7.005149202012775,
+      "n": 13
+    }
+  },
+  "variants": {
+    "tags:1-3": {
+      "reach_avg": 6.0357994999999995,
+      "n": 5
+    },
+    "tags:4+": {
+      "reach_avg": 7.154320292789999,
+      "n": 8
+    }
+  },
+  "last_scored_ts": 1784051171.9431176
 }
