@@ -27,38 +27,11 @@
       "hashtag_n": 4
     },
     {
-      "head": "Luis de la Fuente desvaloriza favoritismo atribuíd",
+      "head": "Filho de Maradona e o Inglaterra-Argentina: «O meu",
       "source": "record.pt",
-      "ts": 1784015382.979942,
-      "fb_id": "348454375016310_122244007082359689",
-      "ig_id": "18603715285023531",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Pote acelera após o estágio: agentes apresentam of",
-      "source": "record.pt",
-      "ts": 1784015455.6097026,
-      "fb_id": "348454375016310_122244007406359689",
-      "ig_id": "18098441396580099",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Histórico do confronto entre Flamengo e Benfica: •",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784022534.3081222,
-      "fb_id": "348454375016310_122244016736359689",
-      "ig_id": "18136530256575027",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Neymar não disputará a Copa do Mundo 2030, a decis",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784022606.73333,
-      "fb_id": "348454375016310_122244017018359689",
-      "ig_id": "18105215057105610",
+      "ts": 1784027985.6072876,
+      "fb_id": "348454375016310_122244029684359689",
+      "ig_id": "18605311393037848",
       "is_video": false,
       "hashtag_n": 4
     }
@@ -209,9 +182,9 @@
   },
   "ig_quota": {
     "day": "2026-07-14",
-    "posts": 4
+    "posts": 1
   },
-  "last_scored_ts": 1784015495.6147113,
+  "last_scored_ts": 1784028025.6209092,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
