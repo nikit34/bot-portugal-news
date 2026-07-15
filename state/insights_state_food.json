@@ -370,6 +370,30 @@
       "ig_id": "17967836615935601",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Rosquinhas de Maizena que ficam tão macias que der",
+      "source": "receitatodahora",
+      "ts": 1784097522.3961585,
+      "ig_id": "18103699790113826",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Farinha Panko caseira, para você empanar os seus s",
+      "source": "receitatodahora",
+      "ts": 1784097622.9561791,
+      "ig_id": "18170833996437931",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Sobremesa de 2 ingredientes rápida e fácil: para u",
+      "source": "receitatodahora",
+      "ts": 1784097732.1410925,
+      "ig_id": "18088401653410037",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -406,7 +430,7 @@
   },
   "ig_quota": {
     "day": "2026-07-15",
-    "posts": 3
+    "posts": 6
   },
   "dow_hours": {
     "6-23": {
