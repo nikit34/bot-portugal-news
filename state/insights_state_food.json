@@ -394,6 +394,30 @@
       "ig_id": "18088401653410037",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Peixe ao molho feito com filé de tilápia bem sucul",
+      "source": "receitatodahora",
+      "ts": 1784111005.6753263,
+      "ig_id": "17908588338265910",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Mousse de abacaxi feito com uma dica especial para",
+      "source": "receitatodahora",
+      "ts": 1784111111.970976,
+      "ig_id": "18095880068622348",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Arroz mineirinho completo e bem temperado com ling",
+      "source": "receitatodahora",
+      "ts": 1784111220.582364,
+      "ig_id": "18110833015898970",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -430,7 +454,7 @@
   },
   "ig_quota": {
     "day": "2026-07-15",
-    "posts": 6
+    "posts": 9
   },
   "dow_hours": {
     "6-23": {
