@@ -346,6 +346,30 @@
       "fb_id": "1668153791148925",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Sobremesa de abacaxi incrivelmente cremosa e refre",
+      "source": "receitatodahora",
+      "ts": 1784087192.742312,
+      "ig_id": "17866518183594159",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Sopa de milho verde cremosa e muito saborosa com a",
+      "source": "receitatodahora",
+      "ts": 1784087299.1728735,
+      "ig_id": "18469752937128528",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bolo cuca de banana que já sai recheado com muito",
+      "source": "receitatodahora",
+      "ts": 1784087409.4466987,
+      "ig_id": "17967836615935601",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -381,8 +405,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-14",
-    "posts": 12
+    "day": "2026-07-15",
+    "posts": 3
   },
   "dow_hours": {
     "6-23": {
