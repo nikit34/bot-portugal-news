@@ -51,6 +51,24 @@
       "ig_id": "17885295456435785",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Mesmo sem ter a Copa do Mundo, TNT Sports alcança",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784109171.227668,
+      "fb_id": "348454375016310_122244129032359689",
+      "ig_id": "18017485367904340",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "CBF vai se reunir com os clubes em agosto para imp",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784109239.603462,
+      "fb_id": "348454375016310_122244129380359689",
+      "ig_id": "18022764698687205",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -199,7 +217,7 @@
   },
   "ig_quota": {
     "day": "2026-07-15",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1784102088.7598183,
   "dow_hours": {
