@@ -35,38 +35,11 @@
       "hashtag_n": 4
     },
     {
-      "head": "Fibra de campeão nasce no estágio: FC Porto segue",
+      "head": "Balogun e a polêmica do cartão vermelho na Copa: «",
       "source": "record.pt",
-      "ts": 1784101975.2566085,
-      "fb_id": "348454375016310_122244121868359689",
-      "ig_id": "18085269419170130",
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Hwang In-beom: o globetrotter que escapou do servi",
-      "source": "record.pt",
-      "ts": 1784102048.749193,
-      "fb_id": "348454375016310_122244122264359689",
-      "ig_id": "17885295456435785",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Mesmo sem ter a Copa do Mundo, TNT Sports alcança",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784109171.227668,
-      "fb_id": "348454375016310_122244129032359689",
-      "ig_id": "18017485367904340",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "CBF vai se reunir com os clubes em agosto para imp",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784109239.603462,
-      "fb_id": "348454375016310_122244129380359689",
-      "ig_id": "18022764698687205",
+      "ts": 1784114629.6994514,
+      "fb_id": "348454375016310_122244136262359689",
+      "ig_id": "18115944173478236",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -217,9 +190,9 @@
   },
   "ig_quota": {
     "day": "2026-07-15",
-    "posts": 4
+    "posts": 1
   },
-  "last_scored_ts": 1784102088.7598183,
+  "last_scored_ts": 1784114669.7041087,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
