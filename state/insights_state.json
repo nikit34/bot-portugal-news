@@ -35,29 +35,20 @@
       "hashtag_n": 4
     },
     {
-      "head": "🇫🇷 Análise de Mbappé sobre França 0x2 Espanha: “Ch",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784090631.885887,
-      "fb_id": "348454375016310_122244104108359689",
-      "ig_id": "18017644004902588",
+      "head": "Fibra de campeão nasce no estágio: FC Porto segue",
+      "source": "record.pt",
+      "ts": 1784101975.2566085,
+      "fb_id": "348454375016310_122244121868359689",
+      "ig_id": "18085269419170130",
       "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 2
     },
     {
-      "head": "Metas traçadas pela CBF para o novo ciclo da seleç",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784090698.8195329,
-      "fb_id": "348454375016310_122244104438359689",
-      "ig_id": "18031088606832778",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Palmeiras encaminha venda do zagueiro Naves ao Nec",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784090769.252012,
-      "fb_id": "348454375016310_122244104786359689",
-      "ig_id": "18480667258103289",
+      "head": "Hwang In-beom: o globetrotter que escapou do servi",
+      "source": "record.pt",
+      "ts": 1784102048.749193,
+      "fb_id": "348454375016310_122244122264359689",
+      "ig_id": "17885295456435785",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -208,9 +199,9 @@
   },
   "ig_quota": {
     "day": "2026-07-15",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1784090809.2590044,
+  "last_scored_ts": 1784102088.7598183,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
