@@ -35,13 +35,31 @@
       "hashtag_n": 4
     },
     {
-      "head": "Pedro Lima e o grande objetivo da época: «Queremos",
+      "head": "Argentina vence Inglaterra com reviravolta tremend",
       "source": "record.pt",
-      "ts": 1784148737.088946,
-      "fb_id": "348454375016310_122244182954359689",
-      "ig_id": "18082660022234696",
+      "ts": 1784155924.9750612,
+      "fb_id": "348454375016310_122244191438359689",
+      "ig_id": "18115262803925149",
       "is_video": false,
       "hashtag_n": 3
+    },
+    {
+      "head": "«Oferta ao capitão do Benfica é para ganhar 800 mi",
+      "source": "record.pt",
+      "ts": 1784156021.0819979,
+      "fb_id": "348454375016310_122244191762359689",
+      "ig_id": "17917167873203947",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "A crônica Inglaterra-Argentina: foi um pouco com a",
+      "source": "record.pt",
+      "ts": 1784156092.1385674,
+      "fb_id": "348454375016310_122244192062359689",
+      "ig_id": "18105133273850935",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -190,9 +208,9 @@
   },
   "ig_quota": {
     "day": "2026-07-15",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1784148777.0904553,
+  "last_scored_ts": 1784156132.1602542,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
