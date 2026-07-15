@@ -384,6 +384,34 @@ VARIANT_LOGGING_ENABLED = _flag('VARIANT_LOGGING_ENABLED', 'false')
 LEARNING_SCORE_TTL_SECONDS = int(os.getenv('LEARNING_SCORE_TTL_SECONDS', str(20 * 3600)))
 LEARNING_SCORE_BY_TTL_ENABLED = _flag('LEARNING_SCORE_BY_TTL_ENABLED', 'false')
 
+# --- Усиление победителей (reward-proportional selection bias) -----------------
+# «Пост, что зашёл, — усиливаем N раз пропорционально реакциям» БЕЗ репоста. Meta
+# 2025-2026 душит перезалив того же поста (IG: 10+ дублей/30д => вылет из рекомендаций;
+# watermark/crop НЕ считаются оригинальностью). Поэтому усиливаем не артефакт, а СИГНАЛ
+# отбора: чем больше reward поста, тем сильнее его вклад в выученное смещение источника/
+# часа/формата (Фаза 1) — публикуя НОЛЬ лишнего. Reward-путь; выключено => фикс. alpha,
+# байт-в-байт как сейчас. amp_alpha_max — жёсткий потолок шага (анти-runaway, kill-dial;
+# должен быть >= LEARNING_ALPHA).
+LEARNING_REWARD_AMP_ENABLED = _flag('LEARNING_REWARD_AMP_ENABLED', 'false')
+LEARNING_REWARD_AMP_GAIN = float(os.getenv('LEARNING_REWARD_AMP_GAIN', '1.0'))
+LEARNING_REWARD_AMP_ALPHA_MAX = float(os.getenv('LEARNING_REWARD_AMP_ALPHA_MAX', '0.6'))
+
+# --- Захват «победителей» + фоллоуап-парсинг (Фаза 2/3) ------------------------
+# Master-свитч. Пока ВЫКЛ — ни захвата, ни бонуса; поведение скоринга не меняется.
+LEARNING_FOLLOWUP_ENABLED = _flag('LEARNING_FOLLOWUP_ENABLED', 'false')
+# Планка «победителя» — ПЕРЦЕНТИЛЬ недавнего распределения reward (90 => топ-10%),
+# самоадаптируется под смену весов LEARNING_W_*. Строится только когда набралось
+# >= MIN_SAMPLES замеров (иначе ещё копим распределение — инертно на холодном старте).
+LEARNING_FOLLOWUP_WINNER_PCT = float(os.getenv('LEARNING_FOLLOWUP_WINNER_PCT', '90'))
+LEARNING_FOLLOWUP_MIN_SAMPLES = int(os.getenv('LEARNING_FOLLOWUP_MIN_SAMPLES', '10'))
+# Капы ограниченных списков в state (рост состояния ограничен).
+LEARNING_WINNERS_MAX = int(os.getenv('LEARNING_WINNERS_MAX', '20'))
+LEARNING_REWARD_SAMPLES_MAX = int(os.getenv('LEARNING_REWARD_SAMPLES_MAX', '200'))
+# Фаза 3: свежему источнику-победителю на следующих прогонах даём +N слотов СВЕЖЕГО
+# парсинга (новые статьи, не репост). 0 => только захват, поведение не меняется. Слоты
+# всё равно проходят budget_remaining / суточную IG-квоту / circuit breaker.
+LEARNING_FOLLOWUP_SOURCE_BUDGET_BONUS = int(os.getenv('LEARNING_FOLLOWUP_SOURCE_BUDGET_BONUS', '0'))
+
 # === TTS-озвучка (пивот на narrated-Reel, Фаза 0) ===========================
 # Офлайн нейро-TTS (piper) для будущего narrated-Reel: озвучиваем факты новости
 # своим голосом => контент оригинален ПО ПОСТРОЕНИЮ (Meta 2026 засчитывает

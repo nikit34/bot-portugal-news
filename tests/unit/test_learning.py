@@ -234,6 +234,150 @@ def test_update_scores_metrics_logs_variants_when_enabled():
     assert state['formats']['photo'] == {'reach_avg': 50.0, 'n': 1}
 
 
+# --- Phase 1: reward-proportional amplification -----------------------------
+
+def _amp_state(reach_avg, n):
+    now = 100 * DAY
+    return now, {'pending': [{'head': 'h', 'source': 's', 'ts': now - 2 * DAY}],
+                 'sources': {'s': {'reach_avg': reach_avg, 'n': n}}, 'hours': {}}
+
+
+def test_amp_disabled_is_fixed_alpha_ew():
+    now, state = _amp_state(100.0, 3)
+    learning.update_scores_metrics(state, {'h': {'reach': 200}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.5, amp_enabled=False)
+    assert state['sources']['s'] == {'reach_avg': 150.0, 'n': 4}  # 0.5*200 + 0.5*100
+
+
+def test_amp_big_winner_takes_larger_step():
+    now, state = _amp_state(100.0, 3)
+    # excess/ref = 100/100 = 1 => alpha_eff = min(0.6, 0.3*(1+1)) = 0.6
+    learning.update_scores_metrics(state, {'h': {'reach': 200}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, amp_enabled=True, amp_gain=1.0, amp_alpha_max=0.6)
+    # 0.6*200 + 0.4*100 = 160, larger than fixed-alpha's 0.3 -> 130
+    assert state['sources']['s'] == {'reach_avg': 160.0, 'n': 4}
+
+
+def test_amp_alpha_max_caps_runaway():
+    now, state = _amp_state(10.0, 3)
+    learning.update_scores_metrics(state, {'h': {'reach': 10000}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, amp_enabled=True, amp_gain=1.0, amp_alpha_max=0.6)
+    # step clamps to alpha_max=0.6: 0.6*10000 + 0.4*10 = 6004.0
+    assert state['sources']['s'] == {'reach_avg': 6004.0, 'n': 4}
+
+
+def test_amp_first_sample_ignores_gain():
+    now = 100 * DAY
+    state = {'pending': [{'head': 'h', 'source': 's', 'ts': now - 2 * DAY}], 'sources': {}, 'hours': {}}
+    learning.update_scores_metrics(state, {'h': {'reach': 500}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, amp_enabled=True, amp_gain=5.0, amp_alpha_max=0.9)
+    # empty bucket => seeded reach_avg=reward, n=1 regardless of amp
+    assert state['sources']['s'] == {'reach_avg': 500.0, 'n': 1}
+
+
+def test_amp_flop_moves_by_base_alpha():
+    now, state = _amp_state(100.0, 3)
+    # reward below the bucket mean => excess 0 => effective alpha == base alpha
+    learning.update_scores_metrics(state, {'h': {'reach': 40}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, amp_enabled=True, amp_gain=1.0, amp_alpha_max=0.6)
+    # 0.3*40 + 0.7*100 = 82.0 (same as fixed alpha)
+    assert state['sources']['s'] == {'reach_avg': 82.0, 'n': 4}
+
+
+def test_amp_n_counts_one_per_event():
+    now, state = _amp_state(100.0, 4)
+    learning.update_scores_metrics(state, {'h': {'reach': 300}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, amp_enabled=True, amp_gain=2.0, amp_alpha_max=0.8)
+    assert state['sources']['s']['n'] == 5  # one increment per event, UCB math preserved
+
+
+# --- Phase 2: percentile winner capture -------------------------------------
+
+def test_percentile_helper():
+    assert learning._percentile([], 90) is None
+    assert learning._percentile([42.0], 90) == 42.0
+    assert learning._percentile([0.0, 10.0], 50) == 5.0
+
+
+def _winner_state(head, reward_samples, is_followup=False):
+    now = 100 * DAY
+    post = {'head': head, 'source': 's', 'ts': now - 2 * DAY}
+    if is_followup:
+        post['is_followup'] = True
+    return now, {'pending': [post], 'sources': {}, 'hours': {},
+                 'reward_samples': list(reward_samples)}
+
+
+def test_winner_capture_inert_when_pct_none():
+    now = 100 * DAY
+    state = {'pending': [{'head': 'h', 'source': 's', 'ts': now - 2 * DAY}], 'sources': {}, 'hours': {}}
+    learning.update_scores_metrics(state, {'h': {'reach': 500}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, winner_pct=None)
+    assert 'recent_winners' not in state and 'reward_samples' not in state
+
+
+def test_winner_capture_collects_samples_below_min():
+    now, state = _winner_state('h', [10.0, 20.0])
+    learning.update_scores_metrics(state, {'h': {'reach': 999}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, winner_pct=90, winner_min_samples=10)
+    assert state.get('recent_winners', []) == []   # threshold not built yet (too few samples)
+    assert state['reward_samples'][-1] == 999.0     # but the sample is recorded
+
+
+def test_winner_capture_above_percentile():
+    now, state = _winner_state('win', [float(i) for i in range(10)])  # 0..9, p90 ~ 8.1
+    learning.update_scores_metrics(state, {'win': {'reach': 50}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, winner_pct=90, winner_min_samples=10)
+    assert state['recent_winners'] == [{'head': 'win', 'source': 's', 'reward': 50.0, 'ts': now}]
+
+
+def test_winner_capture_below_percentile_not_recorded():
+    now, state = _winner_state('meh', [float(i) for i in range(10, 110)])  # p90 ~ 99
+    learning.update_scores_metrics(state, {'meh': {'reach': 20}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, winner_pct=90, winner_min_samples=10)
+    assert state.get('recent_winners', []) == []
+
+
+def test_winner_capture_ignores_zero_reward():
+    # zero-heavy distribution => p90 is 0, but a no-engagement post is never a winner
+    now, state = _winner_state('z', [0.0] * 20)
+    learning.update_scores_metrics(state, {'z': {'reach': 0}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, winner_pct=90, winner_min_samples=10)
+    assert state.get('recent_winners', []) == []
+
+
+def test_winner_capture_excludes_followups():
+    now, state = _winner_state('fu', [float(i) for i in range(10)], is_followup=True)
+    learning.update_scores_metrics(state, {'fu': {'reach': 999}}, {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, winner_pct=90, winner_min_samples=10)
+    assert state.get('recent_winners', []) == []    # depth guard
+    assert state['reward_samples'][-1] == 999.0      # still sampled
+
+
+def test_winner_and_sample_lists_bounded():
+    now = 100 * DAY
+    state = {'pending': [{'head': f'h{i}', 'source': 's', 'ts': now - 2 * DAY} for i in range(5)],
+             'sources': {}, 'hours': {},
+             'reward_samples': [100.0] * 10, 'recent_winners': [{'x': 1}] * 3}
+    metrics = {f'h{i}': {'reach': 1000} for i in range(5)}
+    learning.update_scores_metrics(state, metrics, {'reach': 1.0}, now, DAY, 7 * DAY, alpha=0.3,
+                                   winner_pct=50, winner_min_samples=1, winners_max=4, samples_max=8)
+    assert len(state['recent_winners']) == 4   # 3 old + 5 new, truncated to most-recent 4
+    assert len(state['reward_samples']) == 8   # 10 old + 5 new, truncated to most-recent 8
+
+
+# --- Phase 3: fresh-winner counting -----------------------------------------
+
+def test_count_fresh_winners_within_window():
+    now = 1000.0
+    state = {'recent_winners': [
+        {'head': 'a', 'source': 's', 'reward': 5, 'ts': now - 100},    # fresh
+        {'head': 'b', 'source': 's', 'reward': 5, 'ts': now - 5000},   # stale
+    ]}
+    assert learning.count_fresh_winners(state, now, within_seconds=1000) == 1
+    assert learning.count_fresh_winners({}, now, 1000) == 0
+
+
 # --- UCB source ordering + sample gate --------------------------------------
 
 def test_order_sources_ucb_prefers_under_sampled_on_tie():

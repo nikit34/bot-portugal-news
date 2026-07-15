@@ -114,18 +114,40 @@ def _bucket_hashtags(n):
 
 
 def update_scores_metrics(state, metrics_by_head, weights, now, maturation_seconds,
-                          max_age_seconds, alpha, log_variants=False):
+                          max_age_seconds, alpha, log_variants=False,
+                          amp_enabled=False, amp_gain=1.0, amp_alpha_max=1.0,
+                          winner_pct=None, winner_min_samples=10,
+                          winners_max=20, samples_max=200):
     # Reward-aware вариант update_scores: вместо чистого reach учитываем взвешенную
     # вовлечённость и дополнительно копим reward по формату (video/photo) и (опц.)
     # по числу хэштегов. Хранится в тех же {reach_avg, n} бакетах (имя ключа не
     # меняем, чтобы дайджест/top_sources работали без правок). Используется только
     # при LEARNING_REWARD_ENABLED — reach-путь (update_scores) остаётся как есть.
+    #
+    # Два опциональных, по умолчанию ВЫКЛ слоя поверх неизменной свёртки reward:
+    #  * amp_enabled — «усиление победителя»: масштабируем EW-шаг каждого бакета тем,
+    #    насколько reward поста превысил средний по бакету (потолок amp_alpha_max).
+    #    amp_enabled=False => фикс. alpha, поведение байт-в-байт как раньше.
+    #  * winner_pct — захват «победителей»: пост, чей reward перешагнул winner_pct-й
+    #    перцентиль недавнего распределения reward, пишется в state['recent_winners'];
+    #    трейлинговое распределение — в state['reward_samples']. Только измерение,
+    #    ничего не публикует. Полностью инертно (state не трогается), когда winner_pct=None.
     pending = state.get('pending', [])
     sources = state.setdefault('sources', {})
     hours = state.setdefault('hours', {})
     dow_hours = state.setdefault('dow_hours', {})
     formats = state.setdefault('formats', {})
     variants = state.setdefault('variants', {})
+
+    capture = winner_pct is not None
+    if capture:
+        samples = state.setdefault('reward_samples', [])
+        winners = state.setdefault('recent_winners', [])
+        # Порог считаем по ДО-проходному распределению, чтобы пост не сравнивался сам с
+        # собой; пока замеров мало — планка не строится (собираем распределение дальше).
+        winner_threshold = (_percentile(samples, winner_pct)
+                            if len(samples) >= winner_min_samples else None)
+
     still_pending = []
     for post in pending:
         ts = post.get('ts', 0)
@@ -134,16 +156,50 @@ def update_scores_metrics(state, metrics_by_head, weights, now, maturation_secon
         metrics = _metrics_for(head, metrics_by_head) if age >= maturation_seconds else None
         if metrics is not None:
             reward = reward_for(metrics, weights)
-            _update_avg(sources, post.get('source', ''), reward, alpha)
-            _update_avg(hours, _hour_of(ts), reward, alpha)
-            _update_avg(dow_hours, _dow_hour_of(ts), reward, alpha)
-            _update_avg(formats, 'video' if post.get('is_video') else 'photo', reward, alpha)
+
+            def _a(bucket, key):
+                # Effective EW-step for this bucket/reward (fixed alpha unless amp on).
+                if not amp_enabled:
+                    return alpha
+                return _amp_alpha(bucket.get(str(key)), reward, alpha, amp_gain, amp_alpha_max)
+
+            src = post.get('source', '')
+            hr = _hour_of(ts)
+            dh = _dow_hour_of(ts)
+            fmt = 'video' if post.get('is_video') else 'photo'
+            _update_avg(sources, src, reward, _a(sources, src))
+            _update_avg(hours, hr, reward, _a(hours, hr))
+            _update_avg(dow_hours, dh, reward, _a(dow_hours, dh))
+            _update_avg(formats, fmt, reward, _a(formats, fmt))
             if log_variants and post.get('hashtag_n') is not None:
-                _update_avg(variants, 'tags:' + _bucket_hashtags(post['hashtag_n']), reward, alpha)
+                vk = 'tags:' + _bucket_hashtags(post['hashtag_n'])
+                _update_avg(variants, vk, reward, _a(variants, vk))
+            if capture:
+                # reward > 0 guard: on a zero-heavy distribution the percentile can be 0,
+                # and a no-engagement post is never a «winner».
+                if (winner_threshold is not None and reward > 0
+                        and reward >= winner_threshold and not post.get('is_followup')):
+                    winners.append({'head': head, 'source': src, 'reward': reward, 'ts': now})
+                samples.append(reward)
         elif age < max_age_seconds:
             still_pending.append(post)
+
+    if capture:
+        if len(samples) > samples_max:
+            del samples[:-samples_max]       # keep the most-recent samples_max
+        if len(winners) > winners_max:
+            del winners[:-winners_max]        # keep the most-recent winners_max
+
     state['pending'] = still_pending
     return state
+
+
+def count_fresh_winners(state, now, within_seconds):
+    # How many captured winners are still «fresh» (captured within the window) — used to
+    # decide whether to grant a bounded extra fresh-sourcing slot this run. recent_winners
+    # entries carry ts = the scoring time they were captured.
+    return sum(1 for w in state.get('recent_winners', [])
+               if (now - w.get('ts', 0)) <= within_seconds)
 
 
 def _metrics_for(head, metrics_by_head):
@@ -195,6 +251,40 @@ def _update_avg(bucket, key, reach, alpha):
     else:
         entry['reach_avg'] = alpha * reach + (1 - alpha) * entry['reach_avg']
         entry['n'] = entry.get('n', 0) + 1
+
+
+def _amp_alpha(entry, reward, base_alpha, gain, alpha_max):
+    # Reward-proportional EW step (Phase 1 «усиление победителя»): a post whose reward
+    # exceeds its bucket's running mean pulls that bucket HARDER — a bigger effective
+    # alpha, hard-capped by alpha_max so one viral can't overwrite the bucket. A flop
+    # (reward <= mean) moves it by base_alpha. Scale reference is each bucket's OWN
+    # reach_avg, so source/hour/format buckets of different magnitudes stay comparable.
+    # Empty entry (first sample) => base_alpha; _update_avg seeds reach_avg=reward there
+    # anyway, so the value is moot but kept consistent. n still increments once per
+    # event in _update_avg, so UCB / min_samples / well_sampled math is unchanged.
+    if not entry:
+        return base_alpha
+    old = entry.get('reach_avg', 0.0)
+    ref = max(abs(old), 1e-9)
+    excess = max(0.0, reward - old)
+    return min(alpha_max, base_alpha * (1.0 + gain * excess / ref))
+
+
+def _percentile(values, pct):
+    # Linear-interpolated percentile (0..100) over a list; None on empty. Used to set
+    # the winner bar from the trailing reward distribution — no numpy dependency.
+    if not values:
+        return None
+    s = sorted(values)
+    if len(s) == 1:
+        return float(s[0])
+    rank = (pct / 100.0) * (len(s) - 1)
+    lo = int(math.floor(rank))
+    hi = int(math.ceil(rank))
+    if lo == hi:
+        return float(s[lo])
+    frac = rank - lo
+    return s[lo] * (1.0 - frac) + s[hi] * frac
 
 
 def _tier_budget(scores, current_key, base_cap, min_samples):

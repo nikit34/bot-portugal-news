@@ -265,8 +265,16 @@ def _fmt_dow_hour(key):
 
 
 def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=None,
-                          format_ranking=None, variant_ranking=None, dow_hour_ranking=None):
+                          format_ranking=None, variant_ranking=None, dow_hour_ranking=None,
+                          winners=None):
     lines = ['📊 <b>Insights</b>']
+
+    if winners:
+        lines.append('\n<b>Свежие «победители» (reward)</b>')
+        for i, w in enumerate(winners, 1):
+            head = html.escape((w.get('head') or '(без подписи)')[:60])
+            source = html.escape(str(w.get('source', '') or ''))
+            lines.append(f'{i}. {head} — {round(w.get("reward", 0.0), 1)} ({source})')
 
     fb_reach = fb_stats.get('page_impressions_unique')
     fb_eng = fb_stats.get('page_post_engagements')
@@ -317,7 +325,8 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
 
 
 async def report_insights(graph, telegram_bot_token, context, source_ranking=None, hour_ranking=None,
-                          format_ranking=None, variant_ranking=None, dow_hour_ranking=None):
+                          format_ranking=None, variant_ranking=None, dow_hour_ranking=None,
+                          winners=None):
     ig_items = []
     fb_stats = {}
     ig_user_id = context.get('self_instagram_channel')
@@ -336,6 +345,6 @@ async def report_insights(graph, telegram_bot_token, context, source_ranking=Non
 
     report = build_insights_report(
         ig_items, fb_stats, source_ranking, hour_ranking, format_ranking, variant_ranking,
-        dow_hour_ranking)
+        dow_hour_ranking, winners=winners)
     await send_message_api(report, telegram_bot_token, context)
     logger.info("[insights] report sent to debug chat")

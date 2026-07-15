@@ -64,6 +64,15 @@ from src.static.settings import (
     VARIANT_LOGGING_ENABLED,
     RANKER_ENABLED,
     RANKER_DRAIN_RESERVE_SECONDS,
+    LEARNING_REWARD_AMP_ENABLED,
+    LEARNING_REWARD_AMP_GAIN,
+    LEARNING_REWARD_AMP_ALPHA_MAX,
+    LEARNING_FOLLOWUP_ENABLED,
+    LEARNING_FOLLOWUP_WINNER_PCT,
+    LEARNING_FOLLOWUP_MIN_SAMPLES,
+    LEARNING_WINNERS_MAX,
+    LEARNING_REWARD_SAMPLES_MAX,
+    LEARNING_FOLLOWUP_SOURCE_BUDGET_BONUS,
 )
 from src.static.sources import get_config, Platform
 from src.producers.telegram.telegram_api import send_message_api
@@ -177,17 +186,40 @@ async def main(config_name):
         # tripping Meta's daily limit (item 9).
         set_ig_daily(learning.ig_posts_today(state, today), INSTAGRAM_DAILY_POST_LIMIT)
 
+        run_cap = MAX_POSTS_PER_RUN
         if LEARNING_TIME_BIAS_ENABLED:
             gm = time.gmtime()
             current_hour = gm.tm_hour
-            cap = learning.hour_budget(
+            run_cap = learning.hour_budget(
                 state['hours'], current_hour, MAX_POSTS_PER_RUN, LEARNING_HOUR_MIN_SAMPLES,
                 dow_hours=state.get('dow_hours', {}) if LEARNING_DOW_HOUR_ENABLED else None,
                 current_dow=gm.tm_wday if LEARNING_DOW_HOUR_ENABLED else None)
-            set_run_cap(cap)
             app_logger.info(
                 f"Time bias ON — dow {gm.tm_wday} hour {current_hour:02d} UTC "
-                f"=> post budget {cap}/{MAX_POSTS_PER_RUN}")
+                f"=> post budget {run_cap}/{MAX_POSTS_PER_RUN}")
+
+        # Phase 3 — «фоллоуап» безопасной формы: если есть свежий победитель, даём +N
+        # слотов на этом прогоне, чтобы добрать БОЛЬШЕ свежих статей из зашедшего
+        # источника (order_sources уже ставит его первым). Никогда не перезаливает сам
+        # пост-победитель; лишние слоты всё равно проходят budget_remaining / суточную
+        # IG-квоту / circuit breaker. Best-effort: любой сбой логируем и продолжаем.
+        if LEARNING_FOLLOWUP_ENABLED and LEARNING_FOLLOWUP_SOURCE_BUDGET_BONUS > 0:
+            try:
+                fresh = learning.count_fresh_winners(
+                    state, time.time(), LEARNING_MATURATION_SECONDS)
+                if fresh:
+                    run_cap += LEARNING_FOLLOWUP_SOURCE_BUDGET_BONUS
+                    app_logger.info(
+                        f"Follow-up: {fresh} fresh winner(s) => "
+                        f"+{LEARNING_FOLLOWUP_SOURCE_BUDGET_BONUS} fresh-sourcing slot(s), "
+                        f"cap now {run_cap}")
+            except Exception:
+                app_logger.warning("Follow-up source-budget bonus failed", exc_info=True)
+
+        # Set the cap only when it diverged from the default, so a plain run (no time
+        # bias, no bonus) keeps _run_cap at its module default — byte-identical to today.
+        if run_cap != MAX_POSTS_PER_RUN:
+            set_run_cap(run_cap)
 
         app_logger.info("Preparing parsing tasks")
         # (source_name, factory): lazy coroutines so the learning bias can run
@@ -299,7 +331,14 @@ async def main(config_name):
                 learning.update_scores_metrics(
                     state, metrics_by_head, weights, now,
                     LEARNING_MATURATION_SECONDS, LEARNING_MAX_AGE_SECONDS, LEARNING_ALPHA,
-                    log_variants=VARIANT_LOGGING_ENABLED)
+                    log_variants=VARIANT_LOGGING_ENABLED,
+                    amp_enabled=LEARNING_REWARD_AMP_ENABLED,
+                    amp_gain=LEARNING_REWARD_AMP_GAIN,
+                    amp_alpha_max=LEARNING_REWARD_AMP_ALPHA_MAX,
+                    winner_pct=(LEARNING_FOLLOWUP_WINNER_PCT if LEARNING_FOLLOWUP_ENABLED else None),
+                    winner_min_samples=LEARNING_FOLLOWUP_MIN_SAMPLES,
+                    winners_max=LEARNING_WINNERS_MAX,
+                    samples_max=LEARNING_REWARD_SAMPLES_MAX)
             else:
                 app_logger.info("Scoring sources on matured reach")
                 reach_by_head = await asyncio.to_thread(
@@ -317,7 +356,8 @@ async def main(config_name):
                 hour_ranking=learning.top_sources(state['hours']),
                 dow_hour_ranking=learning.top_sources(state.get('dow_hours', {})),
                 format_ranking=learning.top_sources(state.get('formats', {})),
-                variant_ranking=learning.top_sources(state.get('variants', {})))
+                variant_ranking=learning.top_sources(state.get('variants', {})),
+                winners=list(reversed(state.get('recent_winners', [])))[:10])
 
         learning.save_state(LEARNING_STATE_PATH, state)
 
