@@ -1,6 +1,11 @@
+import html
 import re
 
 from src.static.settings import MAX_ERROR_RESPONSE_CHARS
+
+# send_message_api шлёт с parse_mode=HTML; держим экранированный текст с запасом под
+# ссылку на CI и перевод строки (жёсткий лимит Telegram sendMessage — 4096 символов).
+_MAX_ERROR_BODY_CHARS = 3800
 
 # Graph API errors stringify to include the request URL, which carries the
 # access_token as a query param; the rupload path uses an "OAuth <token>" header.
@@ -38,9 +43,19 @@ def build_error_message(summary, error, run_url):
         if body:
             response_text = f', response: {body}'
 
-    message = redact_secrets(f'{summary}\n{str(error)}{response_text}')
+    # Текст исключения и тело ответа — НЕдоверенные и часто содержат HTML (напр.
+    # 301-страница с <A HREF>). Без экранирования parse_mode=HTML отбивает ВСЮ алерту
+    # 400 Bad Request, и ошибка не доходит до чата. quote=False: в теле сообщения
+    # кавычки безопасны и читаются лучше; гасим только < > &. Ссылку на CI добавляем
+    # ПОСЛЕ экранирования — это намеренная разметка.
+    body = html.escape(redact_secrets(f'{summary}\n{str(error)}{response_text}'), quote=False)
+    if len(body) > _MAX_ERROR_BODY_CHARS:
+        # Режем по символам, затем сбрасываем оборванную в хвосте HTML-сущность
+        # (напр. `&lt` без `;`), иначе усечение само породит битый HTML → снова 400.
+        body = re.sub(r'&[^;]{0,8}$', '', body[:_MAX_ERROR_BODY_CHARS])
+    message = body
     if run_url:
-        message += f'\n<a href="{run_url}">Open CI logs</a>'
+        message += f'\n<a href="{html.escape(run_url, quote=True)}">Open CI logs</a>'
     return message
 
 

@@ -1,3 +1,5 @@
+import re
+
 from src.static.settings import MAX_ERROR_RESPONSE_CHARS
 from src.utils.notify import build_error_message, build_run_summary, redact_secrets
 
@@ -91,6 +93,35 @@ def test_build_error_message_truncates_response_body():
     assert 'A' * MAX_ERROR_RESPONSE_CHARS in message
     assert 'A' * (MAX_ERROR_RESPONSE_CHARS + 1) not in message
     assert len(message) < 4096
+
+
+def test_build_error_message_escapes_html_in_body():
+    # Regression: a 301/error page in str(error)/response body contains HTML tags;
+    # unescaped, parse_mode=HTML makes Telegram reject the whole alert with 400.
+    error = _ErrorWithResponse(
+        "Redirect '301' <A HREF='http://x/'>here</A>",
+        _FakeResponse('<HTML><TITLE>Moved</TITLE></HTML>'))
+    message = build_error_message('ERROR: feed is down', error, 'https://ci/run/1')
+
+    # untrusted tags are neutralised ...
+    assert '<A HREF' not in message and '<HTML>' not in message and '<TITLE>' not in message
+    assert '&lt;A HREF' in message and '&lt;HTML&gt;' in message
+    # ... but the intentional CI link markup survives as a real tag
+    assert message.endswith('<a href="https://ci/run/1">Open CI logs</a>')
+
+
+def test_build_error_message_caps_long_html_body_without_breaking_entities():
+    # str(error) is uncapped (only the response body is pre-truncated), so a giant
+    # HTML error string is what can blow past Telegram's limit after escaping.
+    error = _ErrorWithResponse('<div>' * 4000, _FakeResponse('small'))  # lots of escapable chars
+    message = build_error_message('ERROR: x is down', error, 'https://ci/run/1')
+
+    assert len(message) < 4096
+    # the CI link is still appended intact ...
+    assert message.endswith('<a href="https://ci/run/1">Open CI logs</a>')
+    # ... and the escaped body must not end on a dangling half-entity before the link
+    body = message.rsplit('\n<a href=', 1)[0]
+    assert not re.search(r'&[^;]{0,8}$', body)
 
 
 def test_build_error_message_no_response_attr():
