@@ -35,13 +35,31 @@
       "hashtag_n": 4
     },
     {
-      "head": "FC Porto é o adversário do Gil Vicente no jogo de",
-      "source": "record.pt",
-      "ts": 1784078905.1988218,
-      "fb_id": "348454375016310_122244092522359689",
-      "ig_id": "18104685791325505",
+      "head": "🇫🇷 Análise de Mbappé sobre França 0x2 Espanha: “Ch",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784090631.885887,
+      "fb_id": "348454375016310_122244104108359689",
+      "ig_id": "18017644004902588",
       "is_video": false,
-      "hashtag_n": 3
+      "hashtag_n": 5
+    },
+    {
+      "head": "Metas traçadas pela CBF para o novo ciclo da seleç",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784090698.8195329,
+      "fb_id": "348454375016310_122244104438359689",
+      "ig_id": "18031088606832778",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Palmeiras encaminha venda do zagueiro Naves ao Nec",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784090769.252012,
+      "fb_id": "348454375016310_122244104786359689",
+      "ig_id": "18480667258103289",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -190,9 +208,9 @@
   },
   "ig_quota": {
     "day": "2026-07-15",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1784078945.200979,
+  "last_scored_ts": 1784090809.2590044,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
