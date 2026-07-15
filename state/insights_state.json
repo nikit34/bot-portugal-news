@@ -35,29 +35,11 @@
       "hashtag_n": 4
     },
     {
-      "head": "Antes da semifinal da Copa, a Seleção Argentina re",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784069407.614782,
-      "fb_id": "1025438920452765",
-      "ig_id": "18100549010615303",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Kylian Mbappé e Lamine Yamal se enfrentaram 11 vez",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784069484.4879167,
-      "fb_id": "348454375016310_122244082268359689",
-      "ig_id": "18058900946749095",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨 AGORA! Conmebol informa que NÃO implementará em",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784069563.9841363,
-      "fb_id": "348454375016310_122244082556359689",
-      "ig_id": "18021655751850106",
+      "head": "FC Porto é o adversário do Gil Vicente no jogo de",
+      "source": "record.pt",
+      "ts": 1784078905.1988218,
+      "fb_id": "348454375016310_122244092522359689",
+      "ig_id": "18104685791325505",
       "is_video": false,
       "hashtag_n": 3
     }
@@ -207,10 +189,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-14",
-    "posts": 3
+    "day": "2026-07-15",
+    "posts": 1
   },
-  "last_scored_ts": 1784069604.005419,
+  "last_scored_ts": 1784078945.200979,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
