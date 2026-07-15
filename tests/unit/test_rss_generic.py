@@ -34,3 +34,29 @@ def test_strip_html_handles_cdata_and_entities():
 def test_parse_generic_no_summary_uses_title_only():
     msg, img = g.parse_generic({'title': 'Só título', 'media_content': [{'url': 'https://x/i.jpg'}]})
     assert msg == 'Só título'
+
+
+def test_upgrade_strips_wordpress_size_suffix():
+    # WP thumbnail → full-size original (drop the -WxH before the extension).
+    assert g._upgrade_image_url('https://s.com/wp/feijoada-150x150.jpg') == 'https://s.com/wp/feijoada.jpg'
+    assert g._upgrade_image_url('https://s.com/wp/Dadinho-120x100.JPG') == 'https://s.com/wp/Dadinho.JPG'
+    # No size suffix / plain URL is left untouched (must not corrupt normal feeds).
+    assert g._upgrade_image_url('https://s.com/wp/bolo.jpg') == 'https://s.com/wp/bolo.jpg'
+    assert g._upgrade_image_url('https://x.com/img.jpg') == 'https://x.com/img.jpg'
+    assert g._upgrade_image_url('') == ''
+
+
+def test_upgrade_rewrites_blogger_crop_to_full():
+    # Blogger /s72-c/ (72px) → /s1600/ full; only rewritten for googleusercontent hosts.
+    small = 'https://blogger.googleusercontent.com/img/b/R29v/AVvXsEg/s72-c/frango.jpg'
+    assert g._upgrade_image_url(small) == 'https://blogger.googleusercontent.com/img/b/R29v/AVvXsEg/s1600/frango.jpg'
+    assert g._upgrade_image_url(
+        'https://blogger.googleusercontent.com/img/b/R29v/AVvXsEg/s320/x.jpg'
+    ) == 'https://blogger.googleusercontent.com/img/b/R29v/AVvXsEg/s1600/x.jpg'
+
+
+def test_first_image_applies_upgrade():
+    # End-to-end: extractor returns the upgraded (full-size) URL.
+    assert g._first_image(
+        {'media_thumbnail': [{'url': 'https://s.com/wp/receita-150x150.jpg'}]}
+    ) == 'https://s.com/wp/receita.jpg'

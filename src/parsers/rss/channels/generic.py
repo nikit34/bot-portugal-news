@@ -10,6 +10,14 @@ _TAG_RE = re.compile(r'<[^>]+>')
 _IMG_RE = re.compile(r'<img[^>]+src=["\']([^"\']+)["\']', re.IGNORECASE)
 _CDATA_RE = re.compile(r'<!\[CDATA\[(.*?)\]\]>', re.DOTALL)
 _IMG_EXT = ('.jpg', '.jpeg', '.png', '.webp', '.gif')
+# Многие food-фиды (WordPress, Blogger) кладут в media/enclosure лишь УМЕНЬШЕННЫЙ
+# вариант картинки — WP `foo-150x150.jpg`, Blogger `.../s72-c/foo.jpg`. Такие
+# (< IMAGE_MIN_WIDTH×HEIGHT) image_filter потом выбросит как low-quality, и фид даёт
+# ноль постов. Полноразмерный оригинал лежит по тому же URL без размерного суффикса
+# (WP всегда хранит оригинал; Blogger отдаёт `/s1600/`), поэтому апгрейдим URL до
+# скачивания — так thumbnail-only фиды становятся годными без выделенного хендлера.
+_WP_SIZE_RE = re.compile(r'-\d{2,4}x\d{2,4}(\.(?:jpe?g|png|webp|gif))$', re.IGNORECASE)
+_BLOGGER_SIZE_RE = re.compile(r'/s\d{1,4}(?:-c)?/')
 
 
 def _strip_html(text):
@@ -28,7 +36,18 @@ def _looks_like_image(url):
     return u.endswith(_IMG_EXT) or 'image' in u
 
 
-def _first_image(entry):
+def _upgrade_image_url(url):
+    # Переписываем URL уменьшенной картинки на полноразмерный оригинал (см. _WP_SIZE_RE).
+    # Blogger-крон `/s72-c/` → `/s1600/` только для googleusercontent (у остальных
+    # хостов путь вида `/sNN/` может быть не размерным). Если суффикса нет — no-op.
+    if not url:
+        return url
+    if 'googleusercontent.com' in url:
+        return _BLOGGER_SIZE_RE.sub('/s1600/', url, count=1)
+    return _WP_SIZE_RE.sub(r'\1', url)
+
+
+def _raw_first_image(entry):
     for key in ('media_content', 'media_thumbnail'):
         for media in entry.get(key, []) or []:
             url = media.get('url')
@@ -45,6 +64,10 @@ def _first_image(entry):
     html = html or entry.get('summary', '') or ''
     match = _IMG_RE.search(html)
     return match.group(1) if match else ''
+
+
+def _first_image(entry):
+    return _upgrade_image_url(_raw_first_image(entry))
 
 
 def is_valid_generic_entry(entry):
