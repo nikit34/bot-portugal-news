@@ -418,6 +418,30 @@
       "ig_id": "18110833015898970",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Bolinho de bacalhau bem sequinho por fora e rechea",
+      "source": "receitatodahora",
+      "ts": 1784116952.1593473,
+      "ig_id": "18124829026675683",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Pudim na panela de pressão, uma sobremesa maravilh",
+      "source": "receitatodahora",
+      "ts": 1784117030.543635,
+      "ig_id": "17871785433687649",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Torta de salsicha com purê de batata cremoso e que",
+      "source": "receitatodahora",
+      "ts": 1784117112.7676582,
+      "ig_id": "17963739228069359",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -454,7 +478,7 @@
   },
   "ig_quota": {
     "day": "2026-07-15",
-    "posts": 9
+    "posts": 12
   },
   "dow_hours": {
     "6-23": {
