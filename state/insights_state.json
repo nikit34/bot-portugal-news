@@ -35,31 +35,13 @@
       "hashtag_n": 4
     },
     {
-      "head": "Petição para excluir Argentina da Copa supera dez",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784141886.5261767,
-      "fb_id": "348454375016310_122244175778359689",
-      "ig_id": "17873339058623131",
+      "head": "Pedro Lima e o grande objetivo da época: «Queremos",
+      "source": "record.pt",
+      "ts": 1784148737.088946,
+      "fb_id": "348454375016310_122244182954359689",
+      "ig_id": "18082660022234696",
       "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Jornal inglês cita 10 'truques sujos' de Dibu Mart",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784141962.6595833,
-      "fb_id": "348454375016310_122244176144359689",
-      "ig_id": "18087147998434152",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "José Trajano, em entrevista ao Estadão, sobre Neym",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784142046.0086687,
-      "fb_id": "348454375016310_122244176522359689",
-      "ig_id": "18167551504447730",
-      "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -208,9 +190,9 @@
   },
   "ig_quota": {
     "day": "2026-07-15",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1784142086.0117316,
+  "last_scored_ts": 1784148777.0904553,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -648,5 +630,44 @@
       "reach_avg": 0.0,
       "n": 1
     }
-  }
+  },
+  "reward_samples": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "recent_winners": []
 }
