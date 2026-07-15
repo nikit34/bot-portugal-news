@@ -93,6 +93,12 @@ jobs:
           LEARNING_SCORE_BY_TTL_ENABLED: 'true'
           FB_POST_INSIGHTS_ENABLED: 'true'
           VARIANT_LOGGING_ENABLED: 'true'
+          # Усиление победителей (Phases 1-3, как на футболе). Откат = 'false' / '0'.
+          LEARNING_REWARD_AMP_ENABLED: 'true'
+          LEARNING_REWARD_AMP_ALPHA_MAX: '0.6'
+          LEARNING_FOLLOWUP_ENABLED: 'true'
+          LEARNING_FOLLOWUP_WINNER_PCT: '90'
+          LEARNING_FOLLOWUP_SOURCE_BUDGET_BONUS: '1'
       - name: Persist learning state to repo (food)
         if: always()
         continue-on-error: true
