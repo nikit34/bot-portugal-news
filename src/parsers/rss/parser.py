@@ -43,7 +43,11 @@ async def rss_wrapper(client, graph, nlp, translator, telegram_bot_token, source
 
 
 async def _make_request(rss_link, telegram_bot_token, context, repeat=REPEAT_REQUESTS):
-    httpx_client = httpx.AsyncClient()
+    # follow_redirects: многие валидные RSS отдают 301 (www↔без-www, http→https,
+    # переезд пути — teleculinaria, sapo /data/rss, blogspot→свой домен). Без этого
+    # raise_for_status() считает редирект ошибкой и фид молча выпадает. Рабочие фиды
+    # редиректов не отдают, поэтому включение строго добавляет охват, ничего не ломая.
+    httpx_client = httpx.AsyncClient(follow_redirects=True)
     try:
         for attempt in range(repeat + 1):
             app_logger.debug(f"[RSS] Making request to {rss_link} (attempt {attempt + 1}/{repeat + 1})")
