@@ -352,6 +352,32 @@
       "fb_id": "1550735143430149",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Filé de frango empanado (airfryer ou forno) Desde",
+      "source": "cozinhalegal",
+      "ts": 1784212546.389016,
+      "fb_id": "2105858656630138",
+      "ig_id": "18092003918628796",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Creme de milho cremoso Creme de milho é um daquele",
+      "source": "cozinhalegal",
+      "ts": 1784212626.9983954,
+      "fb_id": "1689198852356371",
+      "ig_id": "18088058687545418",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Arroz doce caramelizado fácil Eu fiz arroz doce mu",
+      "source": "cozinhalegal",
+      "ts": 1784212679.6084769,
+      "fb_id": "1587923939388470",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -428,7 +454,7 @@
   },
   "ig_quota": {
     "day": "2026-07-16",
-    "posts": 10
+    "posts": 12
   },
   "dow_hours": {
     "6-23": {
