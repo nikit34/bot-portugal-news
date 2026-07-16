@@ -35,40 +35,31 @@
       "hashtag_n": 4
     },
     {
-      "head": "Sporting convoca sócios para AG no dia 25 e pede a",
-      "source": "record.pt",
-      "ts": 1784188704.806601,
-      "fb_id": "348454375016310_122244228428359689",
-      "ig_id": "18084488489266841",
+      "head": "“É difícil dizer o que esses jogadores fazem. Olha",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784208232.663048,
+      "fb_id": "348454375016310_122244255974359689",
+      "ig_id": "18122313493614584",
       "is_video": false,
-      "hashtag_n": 3
+      "hashtag_n": 5
     },
     {
-      "head": "Federação croata escreve carta à Fifa cobrando exp",
-      "source": "record.pt",
-      "ts": 1784188772.0485332,
-      "fb_id": "348454375016310_122244228752359689",
-      "ig_id": "17972005026114706",
+      "head": "Nota oficial do governo britânico sobre a faixa, d",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784208314.5257177,
+      "fb_id": "348454375016310_122244256286359689",
+      "ig_id": "18479635513103756",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "“Eu tenho me preparado para esta Copa do Mundo por",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784208392.2546868,
+      "fb_id": "348454375016310_122244256754359689",
+      "ig_id": "17908194948445412",
       "is_video": false,
       "hashtag_n": 4
-    },
-    {
-      "head": "🚨 Vasco encaminha contratação do volante Deossa, d",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784196393.8067124,
-      "fb_id": "348454375016310_122244236342359689",
-      "ig_id": "18377217865224936",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨🏴󠁧󠁢󠁥󠁮󠁧󠁿 Thomas Tuchel nega arrependimento por dec",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784196468.240625,
-      "fb_id": "348454375016310_122244236780359689",
-      "ig_id": "18014423120919708",
-      "is_video": false,
-      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -217,9 +208,9 @@
   },
   "ig_quota": {
     "day": "2026-07-16",
-    "posts": 4
+    "posts": 3
   },
-  "last_scored_ts": 1784188812.0503814,
+  "last_scored_ts": 1784208432.2568724,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
