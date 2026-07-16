@@ -432,6 +432,30 @@
       "ig_id": "18430945267132580",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Cocada Brasileira de Chocolate Quando o cheiro de",
+      "source": "receitasdemae",
+      "ts": 1784185401.2650344,
+      "ig_id": "18344753392216734",
+      "is_video": true,
+      "hashtag_n": 1
+    },
+    {
+      "head": "Torta de Queijo Simplesmente Irresistível: Torta d",
+      "source": "receitasdemae",
+      "ts": 1784185505.6317124,
+      "ig_id": "18087725711186821",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PIZZA DE FORNO🔥 🔥 Ingredientes: Massa 500",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784185617.3736138,
+      "ig_id": "18595424773054418",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -496,7 +520,7 @@
   },
   "ig_quota": {
     "day": "2026-07-16",
-    "posts": 3
+    "posts": 6
   },
   "dow_hours": {
     "6-23": {
