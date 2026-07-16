@@ -35,31 +35,22 @@
       "hashtag_n": 4
     },
     {
-      "head": "Thomas Müller sobre a partida entre Inglaterra x A",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784177686.2822382,
-      "fb_id": "1539843844210950",
-      "ig_id": "17867741409633915",
-      "is_video": true,
-      "hashtag_n": 5
+      "head": "Sporting convoca sócios para AG no dia 25 e pede a",
+      "source": "record.pt",
+      "ts": 1784188704.806601,
+      "fb_id": "348454375016310_122244228428359689",
+      "ig_id": "18084488489266841",
+      "is_video": false,
+      "hashtag_n": 3
     },
     {
-      "head": "Vitória da Argentina tira Wilton Pereira Sampaio d",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784177765.0267518,
-      "fb_id": "348454375016310_122244216200359689",
-      "ig_id": "18108860110799235",
+      "head": "Federação croata escreve carta à Fifa cobrando exp",
+      "source": "record.pt",
+      "ts": 1784188772.0485332,
+      "fb_id": "348454375016310_122244228752359689",
+      "ig_id": "17972005026114706",
       "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Messi ultrapassa Pelé e Fritz Walter e se isola co",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784177837.1025329,
-      "fb_id": "348454375016310_122244216644359689",
-      "ig_id": "17933602815099946",
-      "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -208,9 +199,9 @@
   },
   "ig_quota": {
     "day": "2026-07-16",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1784177877.1067574,
+  "last_scored_ts": 1784188812.0503814,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
