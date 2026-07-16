@@ -51,6 +51,24 @@
       "ig_id": "18100701794334185",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Federação Norueguesa doa renda de jogo para Médico",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784221525.211431,
+      "fb_id": "348454375016310_122244277652359689",
+      "ig_id": "18459592276112541",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "CazéTV fecha contrato para transmitir final da Cop",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784221598.6347024,
+      "fb_id": "348454375016310_122244278288359689",
+      "ig_id": "18367497862224573",
+      "is_video": false,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -199,7 +217,7 @@
   },
   "ig_quota": {
     "day": "2026-07-16",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1784215818.9784956,
   "dow_hours": {
