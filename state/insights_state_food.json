@@ -408,6 +408,30 @@
       "fb_id": "2067794600762763",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Sobremesa sem leite condensado: um doce rápido, es",
+      "source": "receitatodahora",
+      "ts": 1784173778.5622475,
+      "ig_id": "18088575620109449",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Sopa de legumes assados no forno com ervas aromáti",
+      "source": "receitatodahora",
+      "ts": 1784173884.9132512,
+      "ig_id": "18113469595937078",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Bolo sem farinha de trigo com aquele gostinho trad",
+      "source": "receitatodahora",
+      "ts": 1784173991.4050744,
+      "ig_id": "18430945267132580",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -471,8 +495,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-15",
-    "posts": 12
+    "day": "2026-07-16",
+    "posts": 3
   },
   "dow_hours": {
     "6-23": {
