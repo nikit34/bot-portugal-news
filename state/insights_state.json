@@ -51,6 +51,24 @@
       "ig_id": "17972005026114706",
       "is_video": false,
       "hashtag_n": 4
+    },
+    {
+      "head": "🚨 Vasco encaminha contratação do volante Deossa, d",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784196393.8067124,
+      "fb_id": "348454375016310_122244236342359689",
+      "ig_id": "18377217865224936",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨🏴󠁧󠁢󠁥󠁮󠁧󠁿 Thomas Tuchel nega arrependimento por dec",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784196468.240625,
+      "fb_id": "348454375016310_122244236780359689",
+      "ig_id": "18014423120919708",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -199,7 +217,7 @@
   },
   "ig_quota": {
     "day": "2026-07-16",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1784188812.0503814,
   "dow_hours": {
