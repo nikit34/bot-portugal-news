@@ -328,6 +328,30 @@
       "ig_id": "18561235171071040",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PIZZA DE FORNO🔥 🔥 Ingredientes: Massa 500",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784203594.3392994,
+      "ig_id": "18089978360090639",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PICADINHO DE MÚSCULO🔥 🔥 Ingredientes: 1 q",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784203693.1718488,
+      "ig_id": "18098709632248505",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PIZZA DO CHEF🔥 🔥 Ingredientes: Massa 25 g",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784203760.9567997,
+      "fb_id": "1550735143430149",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -404,7 +428,7 @@
   },
   "ig_quota": {
     "day": "2026-07-16",
-    "posts": 8
+    "posts": 10
   },
   "dow_hours": {
     "6-23": {
