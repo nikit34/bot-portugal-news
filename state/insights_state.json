@@ -35,22 +35,29 @@
       "hashtag_n": 4
     },
     {
-      "head": "🇦🇷 “Sinceramente, este time joga melhor quando est",
+      "head": "Pep Guardiola em entrevista ao portal OKX, sobre N",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784234918.8737745,
-      "fb_id": "348454375016310_122244294170359689",
-      "ig_id": "18197561317372961",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "🚨 Flamengo aciona agência da CBF por análise e pos",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784234997.9461093,
-      "fb_id": "348454375016310_122244294488359689",
-      "ig_id": "17961041906965361",
+      "ts": 1784242350.382167,
+      "fb_id": "348454375016310_122244302324359689",
+      "ig_id": "17958299271076092",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "“Vou falar uma frase polêmica, que pode ser tirada",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784242425.6582248,
+      "fb_id": "348454375016310_122244302732359689",
+      "ig_id": "18151740733499742",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784242467.4307733,
+      "is_video": false,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -201,7 +208,7 @@
     "day": "2026-07-16",
     "posts": 2
   },
-  "last_scored_ts": 1784235037.9509232,
+  "last_scored_ts": 1784242507.4357188,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
