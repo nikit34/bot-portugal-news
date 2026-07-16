@@ -35,40 +35,31 @@
       "hashtag_n": 4
     },
     {
-      "head": "Francisco Cabral se classifica para semifinais do",
-      "source": "record.pt",
-      "ts": 1784215700.602763,
-      "fb_id": "348454375016310_122244267086359689",
-      "ig_id": "18079330190288802",
-      "is_video": false,
-      "hashtag_n": 4
+      "head": "Neto sobre Lionel Messi: \"O prazer do Messi não é",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784228349.814742,
+      "fb_id": "2202712827250797",
+      "ig_id": "18099266444189390",
+      "is_video": true,
+      "hashtag_n": 5
     },
     {
-      "head": "'A Copa pode não ser nossa, mas as Malvinas são',",
-      "source": "uol.com.br",
-      "ts": 1784215778.9756322,
-      "fb_id": "348454375016310_122244267536359689",
-      "ig_id": "18100701794334185",
+      "head": "🇫🇷 Muito perto de ser anunciado como novo técnico",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784228431.45866,
+      "fb_id": "348454375016310_122244287150359689",
+      "ig_id": "18089701319421370",
       "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "Federação Norueguesa doa renda de jogo para Médico",
+      "head": "'Obsessão' do Palmeiras por Danilo, do Botafogo, s",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784221525.211431,
-      "fb_id": "348454375016310_122244277652359689",
-      "ig_id": "18459592276112541",
+      "ts": 1784228508.6932037,
+      "fb_id": "348454375016310_122244287612359689",
+      "ig_id": "18347946814168742",
       "is_video": false,
       "hashtag_n": 5
-    },
-    {
-      "head": "CazéTV fecha contrato para transmitir final da Cop",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784221598.6347024,
-      "fb_id": "348454375016310_122244278288359689",
-      "ig_id": "18367497862224573",
-      "is_video": false,
-      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -217,9 +208,9 @@
   },
   "ig_quota": {
     "day": "2026-07-16",
-    "posts": 4
+    "posts": 3
   },
-  "last_scored_ts": 1784215818.9784956,
+  "last_scored_ts": 1784228548.7002077,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
