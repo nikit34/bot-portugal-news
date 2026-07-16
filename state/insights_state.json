@@ -35,29 +35,20 @@
       "hashtag_n": 4
     },
     {
-      "head": "Neto sobre Lionel Messi: \"O prazer do Messi não é",
+      "head": "🇦🇷 “Sinceramente, este time joga melhor quando est",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784228349.814742,
-      "fb_id": "2202712827250797",
-      "ig_id": "18099266444189390",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🇫🇷 Muito perto de ser anunciado como novo técnico",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784228431.45866,
-      "fb_id": "348454375016310_122244287150359689",
-      "ig_id": "18089701319421370",
+      "ts": 1784234918.8737745,
+      "fb_id": "348454375016310_122244294170359689",
+      "ig_id": "18197561317372961",
       "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 3
     },
     {
-      "head": "'Obsessão' do Palmeiras por Danilo, do Botafogo, s",
+      "head": "🚨 Flamengo aciona agência da CBF por análise e pos",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784228508.6932037,
-      "fb_id": "348454375016310_122244287612359689",
-      "ig_id": "18347946814168742",
+      "ts": 1784234997.9461093,
+      "fb_id": "348454375016310_122244294488359689",
+      "ig_id": "17961041906965361",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -208,9 +199,9 @@
   },
   "ig_quota": {
     "day": "2026-07-16",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1784228548.7002077,
+  "last_scored_ts": 1784235037.9509232,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
