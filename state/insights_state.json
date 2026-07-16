@@ -35,13 +35,31 @@
       "hashtag_n": 4
     },
     {
-      "head": "Tuchel e o recuo fatal da Inglaterra: «Não me arre",
-      "source": "record.pt",
-      "ts": 1784166547.8004138,
-      "fb_id": "348454375016310_122244204320359689",
-      "ig_id": "18110344003768030",
+      "head": "Thomas Müller sobre a partida entre Inglaterra x A",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784177686.2822382,
+      "fb_id": "1539843844210950",
+      "ig_id": "17867741409633915",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Vitória da Argentina tira Wilton Pereira Sampaio d",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784177765.0267518,
+      "fb_id": "348454375016310_122244216200359689",
+      "ig_id": "18108860110799235",
       "is_video": false,
-      "hashtag_n": 4
+      "hashtag_n": 5
+    },
+    {
+      "head": "Messi ultrapassa Pelé e Fritz Walter e se isola co",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784177837.1025329,
+      "fb_id": "348454375016310_122244216644359689",
+      "ig_id": "17933602815099946",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -190,9 +208,9 @@
   },
   "ig_quota": {
     "day": "2026-07-16",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1784166587.8019319,
+  "last_scored_ts": 1784177877.1067574,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
