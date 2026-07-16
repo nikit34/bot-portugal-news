@@ -35,31 +35,13 @@
       "hashtag_n": 4
     },
     {
-      "head": "Argentina vence Inglaterra com reviravolta tremend",
+      "head": "Tuchel e o recuo fatal da Inglaterra: «Não me arre",
       "source": "record.pt",
-      "ts": 1784155924.9750612,
-      "fb_id": "348454375016310_122244191438359689",
-      "ig_id": "18115262803925149",
+      "ts": 1784166547.8004138,
+      "fb_id": "348454375016310_122244204320359689",
+      "ig_id": "18110344003768030",
       "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "«Oferta ao capitão do Benfica é para ganhar 800 mi",
-      "source": "record.pt",
-      "ts": 1784156021.0819979,
-      "fb_id": "348454375016310_122244191762359689",
-      "ig_id": "17917167873203947",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "A crônica Inglaterra-Argentina: foi um pouco com a",
-      "source": "record.pt",
-      "ts": 1784156092.1385674,
-      "fb_id": "348454375016310_122244192062359689",
-      "ig_id": "18105133273850935",
-      "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -207,10 +189,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-15",
-    "posts": 3
+    "day": "2026-07-16",
+    "posts": 1
   },
-  "last_scored_ts": 1784156132.1602542,
+  "last_scored_ts": 1784166587.8019319,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
