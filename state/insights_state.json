@@ -35,22 +35,29 @@
       "hashtag_n": 4
     },
     {
-      "head": "Segundo dia nos Europeus de Sub-18 marcado por que",
-      "source": "record.pt",
-      "ts": 1784321096.1834476,
-      "fb_id": "348454375016310_122244401876359689",
-      "ig_id": "18110896486762182",
-      "is_video": false,
-      "hashtag_n": 1
-    },
-    {
-      "head": "Tiago Abiodun e Mariana Santa Comba conquistam bro",
-      "source": "record.pt",
-      "ts": 1784321161.0909126,
-      "fb_id": "348454375016310_122244402368359689",
-      "ig_id": "18110118067956940",
+      "head": "🚨 AGORA! O @CLMerlo acaba de corrigir a informação",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784328109.307549,
+      "fb_id": "348454375016310_122244408332359689",
+      "ig_id": "18272760244294210",
       "is_video": false,
       "hashtag_n": 4
+    },
+    {
+      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784328150.666932,
+      "is_video": false,
+      "hashtag_n": 2
+    },
+    {
+      "head": "🚨 AGORA! Cruzeiro também tem interesse na contrata",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784328223.5573664,
+      "fb_id": "348454375016310_122244408764359689",
+      "ig_id": "18020237330894546",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -201,7 +208,7 @@
     "day": "2026-07-17",
     "posts": 2
   },
-  "last_scored_ts": 1784321201.093242,
+  "last_scored_ts": 1784328263.559548,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
