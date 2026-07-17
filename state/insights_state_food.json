@@ -412,6 +412,30 @@
       "ig_id": "18110394587304557",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PIZZA DE FORNO🔥 🔥 Ingredientes: Massa 500",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784297779.4445171,
+      "ig_id": "18150230170504614",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥BOLO DE LEITE EM PÓ🔥 🔥 Ingredientes: Para",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784297863.3624134,
+      "ig_id": "18217183657326691",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🤩🤩🤩🤩 🤩🤩 🤩🤩🤩🤩🤩 🇧🇷🇧🇷🇧🇷🇧🇷🇧🇷 🇳🇴 LEFSE NORUEGUES 🇳🇴 ⚽️",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784297957.1387827,
+      "ig_id": "18008999783927368",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -492,7 +516,7 @@
   },
   "ig_quota": {
     "day": "2026-07-17",
-    "posts": 8
+    "posts": 11
   },
   "dow_hours": {
     "6-23": {
