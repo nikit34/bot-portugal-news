@@ -35,13 +35,29 @@
       "hashtag_n": 4
     },
     {
-      "head": "Vítor Pinto: «Estamos diante da derradeira bofetad",
-      "source": "record.pt",
-      "ts": 1784253134.1007104,
-      "fb_id": "348454375016310_122244313316359689",
-      "ig_id": "18109313386977187",
+      "head": "O árbitro Esloveno Slavko Vinčić apita a Final da",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784264252.3298066,
+      "fb_id": "348454375016310_122244323738359689",
+      "ig_id": "18110414891475364",
       "is_video": false,
       "hashtag_n": 4
+    },
+    {
+      "head": "A Fifa anunciou nesta quinta-feira (16) que os cam",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784264323.1072686,
+      "fb_id": "348454375016310_122244324206359689",
+      "ig_id": "17924128701380699",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784264364.4743054,
+      "is_video": false,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -190,9 +206,9 @@
   },
   "ig_quota": {
     "day": "2026-07-17",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1784253174.1091018,
+  "last_scored_ts": 1784264404.4760554,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
