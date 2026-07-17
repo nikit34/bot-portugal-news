@@ -35,45 +35,13 @@
       "hashtag_n": 4
     },
     {
-      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784274858.406199,
+      "head": "Malas, retiros e TikTok: a história de como Haalan",
+      "source": "record.pt",
+      "ts": 1784287012.4880462,
+      "fb_id": "348454375016310_122244352994359689",
+      "ig_id": "18227734399319555",
       "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "🚨 Por conta do processo de Recuperação Judicial, B",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784274925.453511,
-      "fb_id": "348454375016310_122244336644359689",
-      "ig_id": "18474158881109790",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "🚨📺 SBT abre negociações para renovar contrato da C",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784274990.78715,
-      "fb_id": "348454375016310_122244336968359689",
-      "ig_id": "18080433065673637",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784281750.3306587,
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "🇪🇸 Luis de la Fuente, técnico da Espanha: “A Franç",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784281819.5685217,
-      "fb_id": "348454375016310_122244346664359689",
-      "ig_id": "18092505020376378",
-      "is_video": false,
-      "hashtag_n": 4
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -222,9 +190,9 @@
   },
   "ig_quota": {
     "day": "2026-07-17",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1784275030.7955256,
+  "last_scored_ts": 1784287052.5045018,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
