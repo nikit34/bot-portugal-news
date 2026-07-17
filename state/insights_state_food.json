@@ -442,6 +442,30 @@
       "fb_id": "1737406427461218",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PIZZA DE FORNO🔥 🔥 Ingredientes: Massa 500",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784260173.9766712,
+      "ig_id": "18046124417603780",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥BOLO DE LEITE EM PÓ🔥 🔥 Ingredientes: Para",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784260288.0786147,
+      "ig_id": "18383241412166314",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PICADINHO DE MÚSCULO🔥 🔥 Ingredientes: 1 q",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784260401.1594784,
+      "ig_id": "18086588963147237",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -517,8 +541,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-16",
-    "posts": 12
+    "day": "2026-07-17",
+    "posts": 3
   },
   "dow_hours": {
     "6-23": {
