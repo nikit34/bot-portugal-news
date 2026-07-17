@@ -35,13 +35,29 @@
       "hashtag_n": 4
     },
     {
-      "head": "Malas, retiros e TikTok: a história de como Haalan",
-      "source": "record.pt",
-      "ts": 1784287012.4880462,
-      "fb_id": "348454375016310_122244352994359689",
-      "ig_id": "18227734399319555",
+      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784293691.1666274,
       "is_video": false,
-      "hashtag_n": 3
+      "hashtag_n": 2
+    },
+    {
+      "head": "FIM DE JOGO | 🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra 1x2 Argentina 🇦🇷",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784293758.2082725,
+      "fb_id": "348454375016310_122244364010359689",
+      "ig_id": "18107612419834799",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "FIM DE JOGO | 🇫🇷 França 0x2 Espanha 🇪🇸 ESPANHA ELI",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784293826.9512112,
+      "fb_id": "348454375016310_122244364448359689",
+      "ig_id": "18123041029744937",
+      "is_video": false,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -190,9 +206,9 @@
   },
   "ig_quota": {
     "day": "2026-07-17",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1784287052.5045018,
+  "last_scored_ts": 1784293866.9521596,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
