@@ -35,20 +35,29 @@
       "hashtag_n": 4
     },
     {
-      "head": "Caio Ribeiro, sobre a Copa do Mundo de Lionel Mess",
+      "head": "Torcedor argentino acusado de injúria racial em Mo",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784307791.8068209,
-      "fb_id": "2089471725278329",
-      "ig_id": "17898847695521841",
-      "is_video": true,
+      "ts": 1784314579.6826472,
+      "fb_id": "348454375016310_122244393884359689",
+      "ig_id": "18117925646481879",
+      "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "Flamengo prepara oferta de mais de R$ 150 milhões",
+      "head": "Seleção Brasileira faturou US$ 16,5 milhões (R$ 84",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784307864.3654861,
-      "fb_id": "348454375016310_122244382556359689",
-      "ig_id": "17891995704570994",
+      "ts": 1784314655.1138897,
+      "fb_id": "348454375016310_122244394352359689",
+      "ig_id": "18568822600071782",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 Fumaça de incêndio florestais põe final da Copa",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784314733.7484338,
+      "fb_id": "348454375016310_122244395240359689",
+      "ig_id": "18053002961785479",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -199,9 +208,9 @@
   },
   "ig_quota": {
     "day": "2026-07-17",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1784307904.3668194,
+  "last_scored_ts": 1784314773.761041,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
