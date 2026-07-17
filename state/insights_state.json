@@ -58,6 +58,22 @@
       "ig_id": "18080433065673637",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784281750.3306587,
+      "is_video": false,
+      "hashtag_n": 2
+    },
+    {
+      "head": "🇪🇸 Luis de la Fuente, técnico da Espanha: “A Franç",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784281819.5685217,
+      "fb_id": "348454375016310_122244346664359689",
+      "ig_id": "18092505020376378",
+      "is_video": false,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -206,7 +222,7 @@
   },
   "ig_quota": {
     "day": "2026-07-17",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1784275030.7955256,
   "dow_hours": {
