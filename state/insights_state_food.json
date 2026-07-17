@@ -395,6 +395,14 @@
       "ig_id": "17905565076285620",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PIZZA DO CHEF🔥 🔥 Ingredientes: Massa 25 g",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784283639.2812262,
+      "ig_id": "18183481561406481",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -475,7 +483,7 @@
   },
   "ig_quota": {
     "day": "2026-07-17",
-    "posts": 6
+    "posts": 7
   },
   "dow_hours": {
     "6-23": {
