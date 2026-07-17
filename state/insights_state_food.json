@@ -403,6 +403,15 @@
       "ig_id": "18183481561406481",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Biscoito salgado super crocante feito com apenas d",
+      "source": "receitatodahora",
+      "ts": 1784289283.7727587,
+      "fb_id": "1521606450007786",
+      "ig_id": "18110394587304557",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -483,7 +492,7 @@
   },
   "ig_quota": {
     "day": "2026-07-17",
-    "posts": 7
+    "posts": 8
   },
   "dow_hours": {
     "6-23": {
