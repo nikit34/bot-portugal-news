@@ -35,31 +35,22 @@
       "hashtag_n": 4
     },
     {
-      "head": "Torcedor argentino acusado de injúria racial em Mo",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784314579.6826472,
-      "fb_id": "348454375016310_122244393884359689",
-      "ig_id": "18117925646481879",
+      "head": "Segundo dia nos Europeus de Sub-18 marcado por que",
+      "source": "record.pt",
+      "ts": 1784321096.1834476,
+      "fb_id": "348454375016310_122244401876359689",
+      "ig_id": "18110896486762182",
       "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 1
     },
     {
-      "head": "Seleção Brasileira faturou US$ 16,5 milhões (R$ 84",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784314655.1138897,
-      "fb_id": "348454375016310_122244394352359689",
-      "ig_id": "18568822600071782",
+      "head": "Tiago Abiodun e Mariana Santa Comba conquistam bro",
+      "source": "record.pt",
+      "ts": 1784321161.0909126,
+      "fb_id": "348454375016310_122244402368359689",
+      "ig_id": "18110118067956940",
       "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨 Fumaça de incêndio florestais põe final da Copa",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784314733.7484338,
-      "fb_id": "348454375016310_122244395240359689",
-      "ig_id": "18053002961785479",
-      "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -208,9 +199,9 @@
   },
   "ig_quota": {
     "day": "2026-07-17",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1784314773.761041,
+  "last_scored_ts": 1784321201.093242,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
