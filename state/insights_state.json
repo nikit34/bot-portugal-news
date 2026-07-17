@@ -35,29 +35,13 @@
       "hashtag_n": 4
     },
     {
-      "head": "Pep Guardiola em entrevista ao portal OKX, sobre N",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784242350.382167,
-      "fb_id": "348454375016310_122244302324359689",
-      "ig_id": "17958299271076092",
+      "head": "Vítor Pinto: «Estamos diante da derradeira bofetad",
+      "source": "record.pt",
+      "ts": 1784253134.1007104,
+      "fb_id": "348454375016310_122244313316359689",
+      "ig_id": "18109313386977187",
       "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "“Vou falar uma frase polêmica, que pode ser tirada",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784242425.6582248,
-      "fb_id": "348454375016310_122244302732359689",
-      "ig_id": "18151740733499742",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784242467.4307733,
-      "is_video": false,
-      "hashtag_n": 2
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -205,10 +189,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-16",
-    "posts": 2
+    "day": "2026-07-17",
+    "posts": 1
   },
-  "last_scored_ts": 1784242507.4357188,
+  "last_scored_ts": 1784253174.1091018,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
