@@ -35,20 +35,20 @@
       "hashtag_n": 4
     },
     {
-      "head": "Cardoso Varela fica blindado ao FC Porto por cláus",
-      "source": "record.pt",
-      "ts": 1784300858.4014115,
-      "fb_id": "348454375016310_122244372920359689",
-      "ig_id": "18099219104181758",
-      "is_video": false,
-      "hashtag_n": 2
+      "head": "Caio Ribeiro, sobre a Copa do Mundo de Lionel Mess",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784307791.8068209,
+      "fb_id": "2089471725278329",
+      "ig_id": "17898847695521841",
+      "is_video": true,
+      "hashtag_n": 5
     },
     {
-      "head": "Palmeiras resgata joia do Flamengo, e atacante já",
-      "source": "uol.com.br",
-      "ts": 1784300925.2812033,
-      "fb_id": "348454375016310_122244373226359689",
-      "ig_id": "18019016858698375",
+      "head": "Flamengo prepara oferta de mais de R$ 150 milhões",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784307864.3654861,
+      "fb_id": "348454375016310_122244382556359689",
+      "ig_id": "17891995704570994",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -201,7 +201,7 @@
     "day": "2026-07-17",
     "posts": 2
   },
-  "last_scored_ts": 1784300965.2968056,
+  "last_scored_ts": 1784307904.3668194,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
