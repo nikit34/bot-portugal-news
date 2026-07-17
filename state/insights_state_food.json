@@ -436,6 +436,23 @@
       "ig_id": "18008999783927368",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Pavê de pêssego muito cremoso feito com camadas de",
+      "source": "receitatodahora",
+      "ts": 1784303888.2983952,
+      "fb_id": "904440548717791",
+      "ig_id": "18099984953269871",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Farofa simples bem douradinha e muito saborosa com",
+      "source": "receitatodahora",
+      "ts": 1784303944.2706695,
+      "fb_id": "2559009777903517",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -516,7 +533,7 @@
   },
   "ig_quota": {
     "day": "2026-07-17",
-    "posts": 11
+    "posts": 12
   },
   "dow_hours": {
     "6-23": {
