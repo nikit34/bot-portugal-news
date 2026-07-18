@@ -466,6 +466,39 @@
       "ig_id": "18134894716590122",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Pastel de Nata Os pastéis de nata são perfeitos pa",
+      "source": "teleculinaria",
+      "ts": 1784368770.8622437,
+      "fb_id": "1997052887679582",
+      "ig_id": "18093912119346747",
+      "is_video": true,
+      "hashtag_n": 1
+    },
+    {
+      "head": "Assados: tão práticos e suculentos! Assados: tão p",
+      "source": "teleculinaria",
+      "ts": 1784368823.1629283,
+      "fb_id": "1260492973811570",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Receitas fáceis para o dia a dia (6 sugestões) Que",
+      "source": "teleculinaria",
+      "ts": 1784368874.672111,
+      "fb_id": "1369815708661783",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Receitas com massa folhada (6 sugestões) Está proc",
+      "source": "teleculinaria",
+      "ts": 1784368926.5446122,
+      "fb_id": "1744611903329040",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -558,7 +591,7 @@
   },
   "ig_quota": {
     "day": "2026-07-18",
-    "posts": 11
+    "posts": 12
   },
   "dow_hours": {
     "6-23": {
