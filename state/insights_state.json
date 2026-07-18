@@ -35,22 +35,13 @@
       "hashtag_n": 4
     },
     {
-      "head": "Time lituano fica sem estádio para jogo da Champio",
+      "head": "Dúvidas de Mourinho: os cinco lugares no time titu",
       "source": "record.pt",
-      "ts": 1784372296.2022343,
-      "fb_id": "348454375016310_122244463352359689",
-      "ig_id": "17871754149626735",
+      "ts": 1784379339.042291,
+      "fb_id": "348454375016310_122244477920359689",
+      "ig_id": "17900548578325761",
       "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Na Argentina que quis ser branca e europeia o raci",
-      "source": "uol.com.br",
-      "ts": 1784372376.3950555,
-      "fb_id": "348454375016310_122244463838359689",
-      "ig_id": "18120769702831623",
-      "is_video": false,
-      "hashtag_n": 2
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -199,9 +190,9 @@
   },
   "ig_quota": {
     "day": "2026-07-18",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1784372416.4044993,
+  "last_scored_ts": 1784379379.0479593,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
