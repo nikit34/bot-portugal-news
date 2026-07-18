@@ -226,42 +226,10 @@
       "hashtag_n": 4
     },
     {
-      "head": "Doce de banana caseiro feito de um jeito simples,",
-      "source": "receitatodahora",
-      "ts": 1784237781.3904433,
-      "fb_id": "1782957739236815",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Receita de berinjela com arroz e frango, uma refei",
-      "source": "receitatodahora",
-      "ts": 1784237833.2712164,
-      "fb_id": "1753489995673621",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
       "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PUDIM CASCA DE MEXERICA🔥 🔥 Ingredientes:",
       "source": "https://t.me/receitas_br",
       "ts": 1784244476.4225695,
       "fb_id": "1737406427461218",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PIZZA DE FORNO🔥 🔥 Ingredientes: Massa 500",
-      "source": "https://t.me/receitas_br",
-      "ts": 1784260173.9766712,
-      "ig_id": "18046124417603780",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥BOLO DE LEITE EM PÓ🔥 🔥 Ingredientes: Para",
-      "source": "https://t.me/receitas_br",
-      "ts": 1784260288.0786147,
-      "ig_id": "18383241412166314",
       "is_video": true,
       "hashtag_n": 5
     },
@@ -272,31 +240,6 @@
       "ig_id": "18086588963147237",
       "is_video": true,
       "hashtag_n": 5
-    },
-    {
-      "head": "Doce de banana caseiro feito de um jeito simples,",
-      "source": "receitatodahora",
-      "ts": 1784270493.2966483,
-      "ig_id": "18098019338207947",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Receita de berinjela com arroz e frango, uma refei",
-      "source": "receitatodahora",
-      "ts": 1784270612.6257403,
-      "ig_id": "18098658389246209",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Bolo sem açúcar e sem farinha de trigo que fica su",
-      "source": "receitatodahora",
-      "ts": 1784270735.5664966,
-      "fb_id": "1568848271279875",
-      "ig_id": "17905565076285620",
-      "is_video": true,
-      "hashtag_n": 4
     },
     {
       "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PIZZA DO CHEF🔥 🔥 Ingredientes: Massa 25 g",
@@ -487,12 +430,48 @@
       "ig_id": "18039392333807868",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Bolo brigadeiro com recheio Se você não consegue r",
+      "source": "teleculinaria",
+      "ts": 1784363163.2498016,
+      "fb_id": "2273857310017242",
+      "ig_id": "17996783657978611",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Bolos com chocolate para Páscoa (9 receitas) Delic",
+      "source": "teleculinaria",
+      "ts": 1784363272.1549025,
+      "fb_id": "1712352326576207",
+      "ig_id": "17947516755242444",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Receitas tradicionais de Páscoa (6 receitas) Comem",
+      "source": "teleculinaria",
+      "ts": 1784363353.8500457,
+      "fb_id": "888929947108685",
+      "ig_id": "18109337986967405",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Torta de coco e limão Uma receita de torta de coco",
+      "source": "teleculinaria",
+      "ts": 1784363425.422602,
+      "fb_id": "1034492685829137",
+      "ig_id": "18134894716590122",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
     "receitatodahora": {
-      "reach_avg": 8.205021151416505,
-      "n": 58
+      "reach_avg": 10.498331731221139,
+      "n": 63
     },
     "guiadacozinha": {
       "reach_avg": 10.5642,
@@ -507,8 +486,8 @@
       "n": 4
     },
     "https://t.me/receitas_br": {
-      "reach_avg": 3.8086,
-      "n": 2
+      "reach_avg": 4.845164840865383,
+      "n": 4
     }
   },
   "hours": {
@@ -541,16 +520,16 @@
       "n": 3
     },
     "21": {
-      "reach_avg": 7.777124160087251,
-      "n": 6
+      "reach_avg": 9.00516139903991,
+      "n": 8
     },
     "3": {
-      "reach_avg": 8.245308166274295,
-      "n": 9
+      "reach_avg": 6.392000001474403,
+      "n": 11
     },
     "6": {
-      "reach_avg": 13.874568424479236,
-      "n": 6
+      "reach_avg": 11.715012293531435,
+      "n": 9
     },
     "10": {
       "reach_avg": 15.52147703387819,
@@ -579,7 +558,7 @@
   },
   "ig_quota": {
     "day": "2026-07-18",
-    "posts": 7
+    "posts": 11
   },
   "dow_hours": {
     "6-23": {
@@ -697,12 +676,24 @@
     "3-14": {
       "reach_avg": 4.8545968242190884,
       "n": 2
+    },
+    "3-21": {
+      "reach_avg": 10.662469999999999,
+      "n": 2
+    },
+    "4-3": {
+      "reach_avg": 4.65358,
+      "n": 2
+    },
+    "4-6": {
+      "reach_avg": 11.221266102610372,
+      "n": 3
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 8.698951572968024,
-      "n": 77
+      "reach_avg": 10.302096724418059,
+      "n": 84
     }
   },
   "variants": {
@@ -711,11 +702,11 @@
       "n": 19
     },
     "tags:4+": {
-      "reach_avg": 8.794234764212524,
-      "n": 58
+      "reach_avg": 10.302274426243986,
+      "n": 65
     }
   },
-  "last_scored_ts": 1784346491.6568954,
+  "last_scored_ts": 1784363465.4253464,
   "reward_samples": [
     5.0445,
     9.1463,
@@ -758,7 +749,14 @@
     7.553800000000001,
     3.8086,
     4.6228,
-    5.2971
+    5.2971,
+    12.2735,
+    6.9034,
+    2.5009,
+    6.088699999999999,
+    12.2735,
+    6.9034,
+    12.2798
   ],
   "recent_winners": [
     {
