@@ -35,20 +35,22 @@
       "hashtag_n": 4
     },
     {
-      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784366242.1831303,
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "🚨 Importante! CBF convoca clubes das Séries A e B",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784366315.1499119,
-      "fb_id": "348454375016310_122244456218359689",
-      "ig_id": "18123485479685527",
+      "head": "Time lituano fica sem estádio para jogo da Champio",
+      "source": "record.pt",
+      "ts": 1784372296.2022343,
+      "fb_id": "348454375016310_122244463352359689",
+      "ig_id": "17871754149626735",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Na Argentina que quis ser branca e europeia o raci",
+      "source": "uol.com.br",
+      "ts": 1784372376.3950555,
+      "fb_id": "348454375016310_122244463838359689",
+      "ig_id": "18120769702831623",
+      "is_video": false,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -197,9 +199,9 @@
   },
   "ig_quota": {
     "day": "2026-07-18",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1784366355.162989,
+  "last_scored_ts": 1784372416.4044993,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
