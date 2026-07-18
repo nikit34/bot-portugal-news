@@ -35,27 +35,13 @@
       "hashtag_n": 4
     },
     {
-      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784400597.7303255,
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "🚨 STJD quer ACELERAR o julgamento dos casos da Sér",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784400665.9108434,
-      "fb_id": "348454375016310_122244507794359689",
-      "ig_id": "18080596070665031",
+      "head": "José Carlos Pinto bate recorde nacional histórico",
+      "source": "record.pt",
+      "ts": 1784407142.142832,
+      "fb_id": "348454375016310_122244514598359689",
+      "ig_id": "18113092462734791",
       "is_video": false,
       "hashtag_n": 5
-    },
-    {
-      "head": "FIM DE JOGO | 🇫🇷 França 0x2 Espanha 🇪🇸 ESPANHA ELI",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784400708.5078273,
-      "is_video": false,
-      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -206,7 +192,7 @@
     "day": "2026-07-18",
     "posts": 1
   },
-  "last_scored_ts": 1784400748.5128841,
+  "last_scored_ts": 1784407182.1453736,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
