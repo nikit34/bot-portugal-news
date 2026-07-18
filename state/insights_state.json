@@ -35,31 +35,20 @@
       "hashtag_n": 4
     },
     {
-      "head": "Curiosidades sobre Lionel Messi: “Eu sou estranho",
+      "head": "Copa do Mundo Feminina de 2027 pode gerar um incre",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784349728.6837423,
-      "fb_id": "348454375016310_122244430610359689",
-      "ig_id": "18127774654731846",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Messi, sobre a foto histórica com Lamine Yamal: “A",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784349799.5874212,
-      "fb_id": "348454375016310_122244430988359689",
-      "ig_id": "18121120882835134",
+      "ts": 1784359778.7532847,
+      "fb_id": "348454375016310_122244447140359689",
+      "ig_id": "18098253800178030",
       "is_video": false,
       "hashtag_n": 4
     },
     {
-      "head": "Atlético-MG alfineta Flamengo nas redes sociais ap",
+      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784349869.9989715,
-      "fb_id": "348454375016310_122244431288359689",
-      "ig_id": "18028668728657035",
+      "ts": 1784359819.9185367,
       "is_video": false,
-      "hashtag_n": 4
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -208,9 +197,9 @@
   },
   "ig_quota": {
     "day": "2026-07-18",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1784349910.006493,
+  "last_scored_ts": 1784359859.9558494,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
