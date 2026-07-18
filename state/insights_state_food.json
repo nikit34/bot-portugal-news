@@ -451,6 +451,42 @@
       "ig_id": "18207469927354211",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Lulas estufadas com cerveja e ervas frescas Adora",
+      "source": "teleculinaria",
+      "ts": 1784356265.6659372,
+      "fb_id": "1783002432564926",
+      "ig_id": "18112771393941582",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Arroz pilaf de linguiça e cerveja Cozinhar arroz p",
+      "source": "teleculinaria",
+      "ts": 1784356404.1731715,
+      "fb_id": "2143940579497522",
+      "ig_id": "18089789081108605",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "10 receitas para o Dia dos Pais Neste Dia dos Pais",
+      "source": "teleculinaria",
+      "ts": 1784356513.8593445,
+      "fb_id": "2093759271563120",
+      "ig_id": "18257730781307078",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Folar transmontano O folar saboroso que é presença",
+      "source": "teleculinaria",
+      "ts": 1784356624.719503,
+      "fb_id": "27967576136192138",
+      "ig_id": "18039392333807868",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -543,7 +579,7 @@
   },
   "ig_quota": {
     "day": "2026-07-18",
-    "posts": 3
+    "posts": 7
   },
   "dow_hours": {
     "6-23": {
