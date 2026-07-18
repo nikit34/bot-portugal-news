@@ -35,11 +35,20 @@
       "hashtag_n": 4
     },
     {
-      "head": "José Carlos Pinto bate recorde nacional histórico",
-      "source": "record.pt",
-      "ts": 1784407142.142832,
-      "fb_id": "348454375016310_122244514598359689",
-      "ig_id": "18113092462734791",
+      "head": "📺 SBT prepara homenagem para Galvão Bueno em seu ú",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784414470.6796944,
+      "fb_id": "348454375016310_122244522452359689",
+      "ig_id": "18472154062106128",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 Importante! Final da Copa do Mundo de 2030 pode",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784414545.4903364,
+      "fb_id": "348454375016310_122244522836359689",
+      "ig_id": "18099735644230983",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -190,9 +199,9 @@
   },
   "ig_quota": {
     "day": "2026-07-18",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1784407182.1453736,
+  "last_scored_ts": 1784414585.493138,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
