@@ -2,20 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "Argentina NÃO finalizou no 1º tempo do jogo contra",
+      "head": "😳💵 Preço para estacionar o carro próximo ao MetLif",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784493592.567384,
-      "fb_id": "348454375016310_122244618026359689",
-      "ig_id": "18114960622930238",
+      "ts": 1784500997.7122269,
+      "fb_id": "348454375016310_122244627254359689",
+      "ig_id": "18150563506501904",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "🚨 STJD quer ACELERAR o julgamento dos casos da Sér",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784501039.4023662,
       "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "head": "💴 Copa do Mundo de 2026 tem a final mais cara da h",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784493633.542295,
+      "ts": 1784501108.3737192,
+      "fb_id": "348454375016310_122244627752359689",
+      "ig_id": "18071763353384669",
       "is_video": false,
-      "hashtag_n": 2
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -164,9 +173,9 @@
   },
   "ig_quota": {
     "day": "2026-07-19",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1784493673.5458927,
+  "last_scored_ts": 1784501148.3772714,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
