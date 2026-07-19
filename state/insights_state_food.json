@@ -437,6 +437,22 @@
       "ig_id": "18234911923311903",
       "is_video": true,
       "hashtag_n": 1
+    },
+    {
+      "head": "Coxas de peru assadas com vinho tinto e laranja 20",
+      "source": "cincoquartosdelaranja",
+      "ts": 1784469947.3411815,
+      "ig_id": "18611631697030656",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Lombinho de porco com laranja e batatas Esta seman",
+      "source": "cincoquartosdelaranja",
+      "ts": 1784470056.1814456,
+      "ig_id": "18101674670231593",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -533,7 +549,7 @@
   },
   "ig_quota": {
     "day": "2026-07-19",
-    "posts": 7
+    "posts": 9
   },
   "dow_hours": {
     "6-23": {
