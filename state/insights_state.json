@@ -18,13 +18,22 @@
       "hashtag_n": 4
     },
     {
-      "head": "Emiliano Martínez rejeitou cirurgia apesar das dor",
+      "head": "Fifa quebra silêncio sobre gol anulado da Croácia",
       "source": "record.pt",
-      "ts": 1784459154.540944,
-      "fb_id": "348454375016310_122244568388359689",
-      "ig_id": "18372430636225226",
+      "ts": 1784465849.7646692,
+      "fb_id": "348454375016310_122244578876359689",
+      "ig_id": "18071216528398093",
       "is_video": false,
-      "hashtag_n": 4
+      "hashtag_n": 5
+    },
+    {
+      "head": "'Dinheiro e poder': Conselho europeu critica Fifa",
+      "source": "uol.com.br",
+      "ts": 1784465918.415498,
+      "fb_id": "348454375016310_122244579290359689",
+      "ig_id": "18435124567122162",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -173,9 +182,9 @@
   },
   "ig_quota": {
     "day": "2026-07-19",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1784459194.5431592,
+  "last_scored_ts": 1784465958.424638,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
