@@ -2,14 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "A festa dos brasileiros que torcem para Argentina",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783867728.8892376,
-      "fb_id": "1691466762075044",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
       "head": "Após a eliminação da Noruega da Copa, Erling Haala",
       "source": "https://t.me/Futebol_Brasileirao",
       "ts": 1783882413.8602138,
@@ -18,20 +10,25 @@
       "hashtag_n": 4
     },
     {
-      "head": "Fifa quebra silêncio sobre gol anulado da Croácia",
-      "source": "record.pt",
-      "ts": 1784465849.7646692,
-      "fb_id": "348454375016310_122244578876359689",
-      "ig_id": "18071216528398093",
+      "head": "🚨 Alexander Barboza, novo zagueiro do Palmeiras, p",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784472579.4210186,
+      "fb_id": "348454375016310_122244589922359689",
+      "ig_id": "18334410067286673",
       "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "'Dinheiro e poder': Conselho europeu critica Fifa",
-      "source": "uol.com.br",
-      "ts": 1784465918.415498,
-      "fb_id": "348454375016310_122244579290359689",
-      "ig_id": "18435124567122162",
+      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784472620.613224,
+      "is_video": false,
+      "hashtag_n": 2
+    },
+    {
+      "head": "🚨 STJD quer ACELERAR o julgamento dos casos da Sér",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784472662.0204237,
       "is_video": false,
       "hashtag_n": 5
     }
@@ -182,9 +179,9 @@
   },
   "ig_quota": {
     "day": "2026-07-19",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1784465958.424638,
+  "last_scored_ts": 1784472702.0259562,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
