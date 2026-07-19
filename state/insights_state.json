@@ -2,27 +2,18 @@
   "version": 1,
   "pending": [
     {
-      "head": "🇪🇸 Lamine Yamal posta foto de sua infância nas red",
+      "head": "Argentina NÃO finalizou no 1º tempo do jogo contra",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784487255.1349914,
-      "fb_id": "348454375016310_122244611666359689",
-      "ig_id": "18010719503739852",
-      "is_video": false,
-      "hashtag_n": 1
-    },
-    {
-      "head": "📺 Copa do Mundo ganha 5% de audiência na TV aberta",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784487323.2596784,
-      "fb_id": "348454375016310_122244612014359689",
-      "ig_id": "17979202205881374",
+      "ts": 1784493592.567384,
+      "fb_id": "348454375016310_122244618026359689",
+      "ig_id": "18114960622930238",
       "is_video": false,
       "hashtag_n": 5
     },
     {
       "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784487364.3110006,
+      "ts": 1784493633.542295,
       "is_video": false,
       "hashtag_n": 2
     }
@@ -173,9 +164,9 @@
   },
   "ig_quota": {
     "day": "2026-07-19",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1784487404.3240366,
+  "last_scored_ts": 1784493673.5458927,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
