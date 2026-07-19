@@ -453,6 +453,30 @@
       "ig_id": "18101674670231593",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Cardápio semanal #287 Para te ajudar a planejar e",
+      "source": "cincoquartosdelaranja",
+      "ts": 1784475380.5767217,
+      "ig_id": "17882862075610382",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Tiras de peru na frigideira com cogumelos Janeiro",
+      "source": "cincoquartosdelaranja",
+      "ts": 1784475509.8083599,
+      "ig_id": "18158689015474349",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Scones à inglesa O livro escolhido para a sessão d",
+      "source": "cincoquartosdelaranja",
+      "ts": 1784475714.771987,
+      "ig_id": "18123717286786767",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -549,7 +573,7 @@
   },
   "ig_quota": {
     "day": "2026-07-19",
-    "posts": 9
+    "posts": 12
   },
   "dow_hours": {
     "6-23": {
