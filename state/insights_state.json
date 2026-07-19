@@ -35,22 +35,13 @@
       "hashtag_n": 4
     },
     {
-      "head": "📺 SBT prepara homenagem para Galvão Bueno em seu ú",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784414470.6796944,
-      "fb_id": "348454375016310_122244522452359689",
-      "ig_id": "18472154062106128",
+      "head": "Sp. Braga sofre gol de empate nos acréscimos contr",
+      "source": "record.pt",
+      "ts": 1784425841.8742607,
+      "fb_id": "348454375016310_122244532748359689",
+      "ig_id": "17948741688213861",
       "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨 Importante! Final da Copa do Mundo de 2030 pode",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784414545.4903364,
-      "fb_id": "348454375016310_122244522836359689",
-      "ig_id": "18099735644230983",
-      "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -198,10 +189,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-18",
-    "posts": 2
+    "day": "2026-07-19",
+    "posts": 1
   },
-  "last_scored_ts": 1784414585.493138,
+  "last_scored_ts": 1784425881.8762913,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
