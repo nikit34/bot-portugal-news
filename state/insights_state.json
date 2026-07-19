@@ -35,25 +35,20 @@
       "hashtag_n": 4
     },
     {
-      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "head": "A menos que Messi marque um hat-trick contra a Esp",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784438128.359993,
+      "ts": 1784448210.1879478,
+      "fb_id": "348454375016310_122244555650359689",
+      "ig_id": "18060802055750041",
       "is_video": false,
-      "hashtag_n": 2
+      "hashtag_n": 5
     },
     {
-      "head": "🚨 FIFA apresenta seu \"Power Ranking\" da Copa do Mu",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784438203.3898675,
-      "fb_id": "348454375016310_122244545546359689",
-      "ig_id": "18123352894692734",
-      "is_video": false,
-      "hashtag_n": 1
-    },
-    {
-      "head": "🚨 STJD quer ACELERAR o julgamento dos casos da Sér",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784438244.8486714,
+      "head": "Revolução na patente de capitão: Sporting de caras",
+      "source": "record.pt",
+      "ts": 1784448284.9816334,
+      "fb_id": "348454375016310_122244556046359689",
+      "ig_id": "18126635452647485",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -204,9 +199,9 @@
   },
   "ig_quota": {
     "day": "2026-07-19",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1784438284.8512118,
+  "last_scored_ts": 1784448324.9953804,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
