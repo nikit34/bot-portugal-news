@@ -429,6 +429,14 @@
       "ig_id": "17963575218125809",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Fígado de boi com cebolada O fígado acebolado é ma",
+      "source": "cincoquartosdelaranja",
+      "ts": 1784461721.4121172,
+      "ig_id": "18234911923311903",
+      "is_video": true,
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -525,7 +533,7 @@
   },
   "ig_quota": {
     "day": "2026-07-19",
-    "posts": 6
+    "posts": 7
   },
   "dow_hours": {
     "6-23": {
