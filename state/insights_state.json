@@ -2,30 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "Após a eliminação da Noruega da Copa, Erling Haala",
+      "head": "🇪🇸 Lamine Yamal posta foto de sua infância nas red",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783882413.8602138,
-      "fb_id": "28571623755758450",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "São esperando cerca de 30 a 40 mil torcedores arge",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784479660.235808,
-      "fb_id": "348454375016310_122244601112359689",
-      "ig_id": "18053210396535286",
+      "ts": 1784487255.1349914,
+      "fb_id": "348454375016310_122244611666359689",
+      "ig_id": "18010719503739852",
       "is_video": false,
-      "hashtag_n": 2
+      "hashtag_n": 1
     },
     {
-      "head": "🚨 Chelsea supera o Arsenal e encaminha a contrataç",
+      "head": "📺 Copa do Mundo ganha 5% de audiência na TV aberta",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784479727.3894174,
-      "fb_id": "348454375016310_122244601526359689",
-      "ig_id": "18098228759180913",
+      "ts": 1784487323.2596784,
+      "fb_id": "348454375016310_122244612014359689",
+      "ig_id": "17979202205881374",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784487364.3110006,
+      "is_video": false,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -176,7 +175,7 @@
     "day": "2026-07-19",
     "posts": 2
   },
-  "last_scored_ts": 1784479767.408804,
+  "last_scored_ts": 1784487404.3240366,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
