@@ -10,25 +10,20 @@
       "hashtag_n": 4
     },
     {
-      "head": "🚨 Alexander Barboza, novo zagueiro do Palmeiras, p",
+      "head": "São esperando cerca de 30 a 40 mil torcedores arge",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784472579.4210186,
-      "fb_id": "348454375016310_122244589922359689",
-      "ig_id": "18334410067286673",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784472620.613224,
+      "ts": 1784479660.235808,
+      "fb_id": "348454375016310_122244601112359689",
+      "ig_id": "18053210396535286",
       "is_video": false,
       "hashtag_n": 2
     },
     {
-      "head": "🚨 STJD quer ACELERAR o julgamento dos casos da Sér",
+      "head": "🚨 Chelsea supera o Arsenal e encaminha a contrataç",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784472662.0204237,
+      "ts": 1784479727.3894174,
+      "fb_id": "348454375016310_122244601526359689",
+      "ig_id": "18098228759180913",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -179,9 +174,9 @@
   },
   "ig_quota": {
     "day": "2026-07-19",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1784472702.0259562,
+  "last_scored_ts": 1784479767.408804,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
