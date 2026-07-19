@@ -35,13 +35,27 @@
       "hashtag_n": 4
     },
     {
-      "head": "Sp. Braga sofre gol de empate nos acréscimos contr",
-      "source": "record.pt",
-      "ts": 1784425841.8742607,
-      "fb_id": "348454375016310_122244532748359689",
-      "ig_id": "17948741688213861",
+      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784438128.359993,
+      "is_video": false,
+      "hashtag_n": 2
+    },
+    {
+      "head": "🚨 FIFA apresenta seu \"Power Ranking\" da Copa do Mu",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784438203.3898675,
+      "fb_id": "348454375016310_122244545546359689",
+      "ig_id": "18123352894692734",
       "is_video": false,
       "hashtag_n": 1
+    },
+    {
+      "head": "🚨 STJD quer ACELERAR o julgamento dos casos da Sér",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784438244.8486714,
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -192,7 +206,7 @@
     "day": "2026-07-19",
     "posts": 1
   },
-  "last_scored_ts": 1784425881.8762913,
+  "last_scored_ts": 1784438284.8512118,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
