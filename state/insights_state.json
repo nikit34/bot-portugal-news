@@ -2,23 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Após comentar a Copa do Mundo pela CazeTV, o ex-jo",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783851511.101694,
-      "fb_id": "2056023731685142",
-      "ig_id": "18108309296061706",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "🇫🇷 Mbappé, ao ser questionado se esse time da Fran",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1783851824.0914075,
-      "ig_id": "18117829480890356",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
       "head": "A festa dos brasileiros que torcem para Argentina",
       "source": "https://t.me/Futebol_Brasileirao",
       "ts": 1783867728.8892376,
@@ -35,22 +18,13 @@
       "hashtag_n": 4
     },
     {
-      "head": "A menos que Messi marque um hat-trick contra a Esp",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784448210.1879478,
-      "fb_id": "348454375016310_122244555650359689",
-      "ig_id": "18060802055750041",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Revolução na patente de capitão: Sporting de caras",
+      "head": "Emiliano Martínez rejeitou cirurgia apesar das dor",
       "source": "record.pt",
-      "ts": 1784448284.9816334,
-      "fb_id": "348454375016310_122244556046359689",
-      "ig_id": "18126635452647485",
+      "ts": 1784459154.540944,
+      "fb_id": "348454375016310_122244568388359689",
+      "ig_id": "18372430636225226",
       "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -199,9 +173,9 @@
   },
   "ig_quota": {
     "day": "2026-07-19",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1784448324.9953804,
+  "last_scored_ts": 1784459194.5431592,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
