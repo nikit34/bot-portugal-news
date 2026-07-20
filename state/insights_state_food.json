@@ -416,6 +416,14 @@
       "ig_id": "18162613264415238",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Frango à moda da Indonésia A comida tem a capacida",
+      "source": "cincoquartosdelaranja",
+      "ts": 1784558908.2333953,
+      "ig_id": "18076461578337018",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -520,7 +528,7 @@
   },
   "ig_quota": {
     "day": "2026-07-20",
-    "posts": 3
+    "posts": 4
   },
   "dow_hours": {
     "6-23": {
