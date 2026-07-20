@@ -2,14 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Coxinhas sem massa muito recheadas de frango, supe",
-      "source": "receitatodahora",
-      "ts": 1783897036.1471937,
-      "fb_id": "1711445323443494",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
       "head": "Sobremesa japonesa feita totalmente sem forno que",
       "source": "receitatodahora",
       "ts": 1783966721.2699902,
@@ -298,67 +290,6 @@
       "hashtag_n": 5
     },
     {
-      "head": "Bolo brigadeiro com recheio Se você não consegue r",
-      "source": "teleculinaria",
-      "ts": 1784363163.2498016,
-      "fb_id": "2273857310017242",
-      "ig_id": "17996783657978611",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Bolos com chocolate para Páscoa (9 receitas) Delic",
-      "source": "teleculinaria",
-      "ts": 1784363272.1549025,
-      "fb_id": "1712352326576207",
-      "ig_id": "17947516755242444",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Receitas tradicionais de Páscoa (6 receitas) Comem",
-      "source": "teleculinaria",
-      "ts": 1784363353.8500457,
-      "fb_id": "888929947108685",
-      "ig_id": "18109337986967405",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Torta de coco e limão Uma receita de torta de coco",
-      "source": "teleculinaria",
-      "ts": 1784363425.422602,
-      "fb_id": "1034492685829137",
-      "ig_id": "18134894716590122",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Pastel de Nata Os pastéis de nata são perfeitos pa",
-      "source": "teleculinaria",
-      "ts": 1784368770.8622437,
-      "fb_id": "1997052887679582",
-      "ig_id": "18093912119346747",
-      "is_video": true,
-      "hashtag_n": 1
-    },
-    {
-      "head": "Assados: tão práticos e suculentos! Assados: tão p",
-      "source": "teleculinaria",
-      "ts": 1784368823.1629283,
-      "fb_id": "1260492973811570",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Receitas fáceis para o dia a dia (6 sugestões) Que",
-      "source": "teleculinaria",
-      "ts": 1784368874.672111,
-      "fb_id": "1369815708661783",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
       "head": "Receitas com massa folhada (6 sugestões) Está proc",
       "source": "teleculinaria",
       "ts": 1784368926.5446122,
@@ -381,22 +312,6 @@
       "fb_id": "1495594138991240",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "Assados: tão práticos e suculentos! Assados: tão p",
-      "source": "teleculinaria",
-      "ts": 1784433956.395206,
-      "ig_id": "18016441469879359",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Receitas fáceis para o dia a dia (6 sugestões) Que",
-      "source": "teleculinaria",
-      "ts": 1784434062.5228484,
-      "ig_id": "18107730110002171",
-      "is_video": true,
-      "hashtag_n": 2
     },
     {
       "head": "Receitas com massa folhada (6 sugestões) Está proc",
@@ -477,6 +392,14 @@
       "ig_id": "18123717286786767",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Peito de frango com molho ponzu De uns anos para c",
+      "source": "cincoquartosdelaranja",
+      "ts": 1784521909.5445888,
+      "ig_id": "18110285689778282",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -501,8 +424,8 @@
       "n": 8
     },
     "teleculinaria": {
-      "reach_avg": 1.7953091296324308,
-      "n": 4
+      "reach_avg": 5.502631380898627,
+      "n": 13
     }
   },
   "hours": {
@@ -511,8 +434,8 @@
       "n": 9
     },
     "4": {
-      "reach_avg": 7.676723999999998,
-      "n": 3
+      "reach_avg": 6.617684759999998,
+      "n": 5
     },
     "7": {
       "reach_avg": 6.559836483450504,
@@ -547,8 +470,8 @@
       "n": 13
     },
     "10": {
-      "reach_avg": 13.741583923714732,
-      "n": 9
+      "reach_avg": 9.589466122620218,
+      "n": 11
     },
     "16": {
       "reach_avg": 6.871784438774903,
@@ -569,11 +492,19 @@
     "14": {
       "reach_avg": 6.7073081967219155,
       "n": 7
+    },
+    "8": {
+      "reach_avg": 5.085771120960398,
+      "n": 4
+    },
+    "9": {
+      "reach_avg": 3.3146,
+      "n": 1
     }
   },
   "ig_quota": {
-    "day": "2026-07-19",
-    "posts": 12
+    "day": "2026-07-20",
+    "posts": 1
   },
   "dow_hours": {
     "6-23": {
@@ -731,25 +662,41 @@
     "5-6": {
       "reach_avg": 1.7953091296324308,
       "n": 4
+    },
+    "5-8": {
+      "reach_avg": 5.085771120960398,
+      "n": 4
+    },
+    "5-9": {
+      "reach_avg": 3.3146,
+      "n": 1
+    },
+    "5-10": {
+      "reach_avg": 5.301133104729001,
+      "n": 2
+    },
+    "6-4": {
+      "reach_avg": 5.301133104729001,
+      "n": 2
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 2.6194126786649083,
-      "n": 100
+      "reach_avg": 5.505412888684285,
+      "n": 109
     }
   },
   "variants": {
     "tags:1-3": {
-      "reach_avg": 5.3845669094955015,
-      "n": 24
+      "reach_avg": 5.554681907676081,
+      "n": 29
     },
     "tags:4+": {
-      "reach_avg": 3.219403868810536,
-      "n": 76
+      "reach_avg": 4.673367200219483,
+      "n": 80
     }
   },
-  "last_scored_ts": 1784444905.6270292,
+  "last_scored_ts": 1784521949.5726364,
   "reward_samples": [
     5.0445,
     9.1463,
@@ -815,7 +762,16 @@
     1.9832999999999998,
     2.7343,
     1.4412,
-    1.2288000000000001
+    1.2288000000000001,
+    6.2517,
+    2.0416,
+    3.5039,
+    5.928999999999999,
+    3.3146,
+    4.631,
+    6.2786,
+    4.631,
+    6.2786
   ],
   "recent_winners": [
     {
