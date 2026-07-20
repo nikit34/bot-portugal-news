@@ -400,6 +400,14 @@
       "ig_id": "18110285689778282",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Bacalhau assado com purê de feijão branco e cebola",
+      "source": "cincoquartosdelaranja",
+      "ts": 1784533807.8412578,
+      "ig_id": "18103162148268676",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -504,7 +512,7 @@
   },
   "ig_quota": {
     "day": "2026-07-20",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
