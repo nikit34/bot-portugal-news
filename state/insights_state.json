@@ -2,38 +2,23 @@
   "version": 1,
   "pending": [
     {
-      "head": "FC Porto tem dois testes marcados para quarta-feir",
-      "source": "record.pt",
-      "ts": 1784562417.5313373,
-      "fb_id": "348454375016310_122244699968359689",
-      "ig_id": "17984900793010361",
+      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784575648.235819,
       "is_video": false,
-      "hashtag_n": 4
+      "hashtag_n": 2
     },
     {
-      "head": "Coordenador técnico do Viking 'aprova' Mame Niang:",
-      "source": "record.pt",
-      "ts": 1784562499.6787126,
-      "fb_id": "348454375016310_122244700358359689",
-      "ig_id": "17883798873655926",
+      "head": "🚨 STJD quer ACELERAR o julgamento dos casos da Sér",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784575689.7324877,
       "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "Um piloto espanhol fez um avião lotado de argentin",
+      "head": "🏆 Campeão da EUROCOPA aos 17 anos 🏆 Campeão da COP",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784568418.3977375,
-      "fb_id": "1662536001479823",
-      "ig_id": "17899256211513107",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "O inglês Steve McManaman, ex-meia de Liverpool, Re",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784568493.0594792,
-      "fb_id": "348454375016310_122244711374359689",
-      "ig_id": "18085831874552446",
+      "ts": 1784575731.6719494,
       "is_video": false,
       "hashtag_n": 5
     }
@@ -184,9 +169,9 @@
   },
   "ig_quota": {
     "day": "2026-07-20",
-    "posts": 4
+    "posts": 0
   },
-  "last_scored_ts": 1784562539.6847029,
+  "last_scored_ts": 1784575771.6773205,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
