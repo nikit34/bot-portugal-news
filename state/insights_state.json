@@ -2,25 +2,31 @@
   "version": 1,
   "pending": [
     {
-      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784544215.690872,
+      "head": "André Villas-Boas sobre Cardoso Varela: «Histórias",
+      "source": "record.pt",
+      "ts": 1784555452.340054,
+      "fb_id": "348454375016310_122244691238359689",
+      "ig_id": "17858540961677993",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Cucurella prometeu tatuar a cara de Luis de la Fue",
+      "source": "record.pt",
+      "ts": 1784555521.3691168,
+      "fb_id": "348454375016310_122244691658359689",
+      "ig_id": "18072595712445433",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Ministro da Educação pede desculpa e anuncia época",
+      "source": "record.pt",
+      "ts": 1784555591.157459,
+      "fb_id": "348454375016310_122244692150359689",
+      "ig_id": "17946926883216904",
       "is_video": false,
       "hashtag_n": 2
-    },
-    {
-      "head": "🚨 STJD quer ACELERAR o julgamento dos casos da Sér",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784544256.8054492,
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🏆 Campeão da EUROCOPA aos 17 anos 🏆 Campeão da COP",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784544298.1949205,
-      "is_video": false,
-      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -169,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-07-20",
-    "posts": 0
+    "posts": 3
   },
-  "last_scored_ts": 1784544338.1959224,
+  "last_scored_ts": 1784555631.1585996,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
