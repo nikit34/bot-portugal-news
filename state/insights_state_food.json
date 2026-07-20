@@ -424,6 +424,14 @@
       "ig_id": "18076461578337018",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Pica-pau de entremeada Portugal é um país de petis",
+      "source": "cincoquartosdelaranja",
+      "ts": 1784572800.2697742,
+      "ig_id": "17942807457260880",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -528,7 +536,7 @@
   },
   "ig_quota": {
     "day": "2026-07-20",
-    "posts": 4
+    "posts": 5
   },
   "dow_hours": {
     "6-23": {
