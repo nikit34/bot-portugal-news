@@ -2,27 +2,20 @@
   "version": 1,
   "pending": [
     {
-      "head": "EA Sports acertou mais uma vez: A empresa acertou",
+      "head": "👀🇪🇸 Jornal espanhol Mundo Deportivo dispara após t",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784513329.2785318,
-      "fb_id": "348454375016310_122244640346359689",
-      "ig_id": "18112809212304047",
+      "ts": 1784529641.8018694,
+      "fb_id": "348454375016310_122244659768359689",
+      "ig_id": "18359745088211520",
       "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "🚨🇫🇷 Bordeaux é EXCLUÍDO das ligas nacionais france",
+      "head": "🏆 Campeão da EUROCOPA aos 17 anos 🏆 Campeão da COP",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784513371.5195243,
-      "is_video": false,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Em entrevista à CazéTV, Nico Williams dedica títul",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784513442.5052085,
-      "fb_id": "348454375016310_122244640820359689",
-      "ig_id": "17983429938029000",
+      "ts": 1784529720.2455108,
+      "fb_id": "348454375016310_122244660176359689",
+      "ig_id": "17926588791144325",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -175,7 +168,7 @@
     "day": "2026-07-20",
     "posts": 2
   },
-  "last_scored_ts": 1784513482.5222044,
+  "last_scored_ts": 1784529760.2467844,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
