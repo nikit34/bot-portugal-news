@@ -408,6 +408,14 @@
       "ig_id": "18103162148268676",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Minhas 10 receitas favoritas de 2025 Inícios de an",
+      "source": "cincoquartosdelaranja",
+      "ts": 1784546997.0585032,
+      "ig_id": "18162613264415238",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -512,7 +520,7 @@
   },
   "ig_quota": {
     "day": "2026-07-20",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {
     "6-23": {
