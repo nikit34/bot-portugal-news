@@ -2,31 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "André Villas-Boas sobre Cardoso Varela: «Histórias",
+      "head": "FC Porto tem dois testes marcados para quarta-feir",
       "source": "record.pt",
-      "ts": 1784555452.340054,
-      "fb_id": "348454375016310_122244691238359689",
-      "ig_id": "17858540961677993",
+      "ts": 1784562417.5313373,
+      "fb_id": "348454375016310_122244699968359689",
+      "ig_id": "17984900793010361",
       "is_video": false,
       "hashtag_n": 4
     },
     {
-      "head": "Cucurella prometeu tatuar a cara de Luis de la Fue",
+      "head": "Coordenador técnico do Viking 'aprova' Mame Niang:",
       "source": "record.pt",
-      "ts": 1784555521.3691168,
-      "fb_id": "348454375016310_122244691658359689",
-      "ig_id": "18072595712445433",
+      "ts": 1784562499.6787126,
+      "fb_id": "348454375016310_122244700358359689",
+      "ig_id": "17883798873655926",
       "is_video": false,
       "hashtag_n": 5
-    },
-    {
-      "head": "Ministro da Educação pede desculpa e anuncia época",
-      "source": "record.pt",
-      "ts": 1784555591.157459,
-      "fb_id": "348454375016310_122244692150359689",
-      "ig_id": "17946926883216904",
-      "is_video": false,
-      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -175,9 +166,9 @@
   },
   "ig_quota": {
     "day": "2026-07-20",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1784555631.1585996,
+  "last_scored_ts": 1784562539.6847029,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
