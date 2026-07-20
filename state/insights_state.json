@@ -18,6 +18,24 @@
       "ig_id": "17883798873655926",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Um piloto espanhol fez um avião lotado de argentin",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784568418.3977375,
+      "fb_id": "1662536001479823",
+      "ig_id": "17899256211513107",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "O inglês Steve McManaman, ex-meia de Liverpool, Re",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784568493.0594792,
+      "fb_id": "348454375016310_122244711374359689",
+      "ig_id": "18085831874552446",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -166,7 +184,7 @@
   },
   "ig_quota": {
     "day": "2026-07-20",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1784562539.6847029,
   "dow_hours": {
