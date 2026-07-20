@@ -2,20 +2,25 @@
   "version": 1,
   "pending": [
     {
-      "head": "Leila Pereira garante Palmeiras forte mesmo com dé",
+      "head": "🚨 STJD quer ACELERAR o julgamento dos casos da Sér",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784581423.1402733,
-      "fb_id": "348454375016310_122244727118359689",
-      "ig_id": "18130581250616323",
+      "ts": 1784587772.1653862,
       "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "Inbeom se apresenta: «Sou um jogador que dá tudo e",
-      "source": "record.pt",
-      "ts": 1784581492.047767,
-      "fb_id": "348454375016310_122244727616359689",
-      "ig_id": "18123610924771524",
+      "head": "💰 FIFA lucra mais de R$ 4 BILHÕES com final da Cop",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784587836.7664185,
+      "fb_id": "348454375016310_122244734258359689",
+      "ig_id": "18604477417058705",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "🏆 Campeão da EUROCOPA aos 17 anos 🏆 Campeão da COP",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784587878.2509475,
       "is_video": false,
       "hashtag_n": 5
     }
@@ -166,9 +171,9 @@
   },
   "ig_quota": {
     "day": "2026-07-20",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1784581532.0595448,
+  "last_scored_ts": 1784587918.2572756,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
