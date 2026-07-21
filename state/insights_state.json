@@ -18,6 +18,24 @@
       "ig_id": "17901246480531109",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "🇦🇷 Mesmo após o vice na Copa do Mundo, a Seleção A",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784653857.6840882,
+      "fb_id": "1370765781926240",
+      "ig_id": "18102825665602432",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "OFICIAL! Fred é o novo técnico do sub-20 do Flumin",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784654003.3950746,
+      "fb_id": "1554601122738517",
+      "ig_id": "18101262416609264",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -166,7 +184,7 @@
   },
   "ig_quota": {
     "day": "2026-07-21",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1784647960.573372,
   "dow_hours": {
