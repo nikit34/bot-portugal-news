@@ -408,6 +408,22 @@
       "ig_id": "18083916869555797",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Delicioso e Surpreendente: Aprenda a Fazer o Melho",
+      "source": "receitasdatia",
+      "ts": 1784664439.6637366,
+      "ig_id": "17861634897663010",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Cheesecake de Kiwi Uma receita relativamente fácil",
+      "source": "receitasja",
+      "ts": 1784664526.1076822,
+      "ig_id": "17863454703643041",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -516,7 +532,7 @@
   },
   "ig_quota": {
     "day": "2026-07-21",
-    "posts": 10
+    "posts": 12
   },
   "dow_hours": {
     "6-23": {
