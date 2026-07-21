@@ -9,6 +9,31 @@
       "ig_id": "18101529725233260",
       "is_video": false,
       "hashtag_n": 4
+    },
+    {
+      "head": "Corinthians acertou o pagamento em atraso dos dire",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784640152.7693527,
+      "fb_id": "348454375016310_122244787088359689",
+      "ig_id": "17956884972177049",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Favoritos a ganhar a premiação da Bola de Ouro 202",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784640222.9463806,
+      "fb_id": "348454375016310_122244787406359689",
+      "ig_id": "18110394728054400",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 STJD quer ACELERAR o julgamento dos casos da Sér",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784640265.184331,
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -157,7 +182,7 @@
   },
   "ig_quota": {
     "day": "2026-07-21",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1784634243.9825127,
   "dow_hours": {
