@@ -2,11 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "Hugo Oliveira elogia Marco Silva: «É bom para o ca",
-      "source": "record.pt",
-      "ts": 1784598648.164782,
-      "fb_id": "348454375016310_122244744110359689",
-      "ig_id": "17900015826523904",
+      "head": "Oficial! Botafogo anuncia a contratação do zagueir",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784610867.5150704,
+      "fb_id": "1510431240312828",
+      "ig_id": "18447822796143039",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "🚨 Lubrax está de volta como patrocinadora do Flame",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784610946.405396,
+      "fb_id": "348454375016310_122244755174359689",
+      "ig_id": "18111847729921854",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 Agora! Memphis Depay aceita redução salarial, e",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784611022.198626,
+      "fb_id": "348454375016310_122244755486359689",
+      "ig_id": "17978049072026174",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -157,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-07-21",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1784598688.175687,
+  "last_scored_ts": 1784611062.2067468,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
