@@ -344,6 +344,22 @@
       "ig_id": "18099199007252741",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Deliciosa Torta de Frutas: A Receita Incrível da S",
+      "source": "receitasdatia",
+      "ts": 1784630495.0053406,
+      "ig_id": "18121400237507425",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bolo de arroz cru: a receita deliciosa que vai sur",
+      "source": "receitasdatia",
+      "ts": 1784630616.0452662,
+      "ig_id": "18122833966782924",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -452,7 +468,7 @@
   },
   "ig_quota": {
     "day": "2026-07-21",
-    "posts": 2
+    "posts": 4
   },
   "dow_hours": {
     "6-23": {
