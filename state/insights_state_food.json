@@ -336,6 +336,14 @@
       "ig_id": "18105927380040519",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Receita da Tia – Pastel de Chaves O Pastel de Chav",
+      "source": "receitasdatia",
+      "ts": 1784617933.6283762,
+      "ig_id": "18099199007252741",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -444,7 +452,7 @@
   },
   "ig_quota": {
     "day": "2026-07-21",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
