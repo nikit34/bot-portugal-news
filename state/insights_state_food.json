@@ -360,6 +360,30 @@
       "ig_id": "18122833966782924",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "🤩🤩🤩🤩🤩 🤩🤩🤩🤩🤩🤩 🤩BOLO CACAU BLACK COM GANACHE CRUMBLE",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784644652.5990167,
+      "ig_id": "18212771791341934",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🤩🤩🤩🤩🤩🤩 🤩🤩🤩🤩🤩🤩🤩 🤩🤩🤩🤩🤩🤩 🤩 ERA UMA VEZ NA COZINHA - R",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784644767.2111242,
+      "ig_id": "18114543325908832",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Simplesmente deliciosa: A melhor receita de Torta",
+      "source": "receitasdatia",
+      "ts": 1784645010.616467,
+      "ig_id": "18026821370669775",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -468,7 +492,7 @@
   },
   "ig_quota": {
     "day": "2026-07-21",
-    "posts": 4
+    "posts": 7
   },
   "dow_hours": {
     "6-23": {
