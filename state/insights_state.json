@@ -2,39 +2,30 @@
   "version": 1,
   "pending": [
     {
-      "head": "«Luta do Ano: Paredes x Gavi»: Yamal se empolga co",
-      "source": "record.pt",
-      "ts": 1784647849.8439617,
-      "fb_id": "348454375016310_122244798848359689",
-      "ig_id": "18090103895564404",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Efeito borboleta no mercado do FC Porto: a viagem",
-      "source": "record.pt",
-      "ts": 1784647920.5700943,
-      "fb_id": "348454375016310_122244799274359689",
-      "ig_id": "17901246480531109",
+      "head": "⚠️ Flamengo já está alinhado com o Atlético de Mad",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784660801.2795753,
+      "fb_id": "348454375016310_122244813998359689",
+      "ig_id": "18081918425267683",
       "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "🇦🇷 Mesmo após o vice na Copa do Mundo, a Seleção A",
+      "head": "🚨 ATENÇÃO! Santos está em colapso financeiro e pod",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784653857.6840882,
-      "fb_id": "1370765781926240",
-      "ig_id": "18102825665602432",
-      "is_video": true,
-      "hashtag_n": 4
+      "ts": 1784660873.4429514,
+      "fb_id": "348454375016310_122244814460359689",
+      "ig_id": "18120803473867487",
+      "is_video": false,
+      "hashtag_n": 5
     },
     {
-      "head": "OFICIAL! Fred é o novo técnico do sub-20 do Flumin",
+      "head": "🚨 AGORA! Corinthians sofre nova punição da FIFA e",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784654003.3950746,
-      "fb_id": "1554601122738517",
-      "ig_id": "18101262416609264",
-      "is_video": true,
+      "ts": 1784660951.7299945,
+      "fb_id": "348454375016310_122244814850359689",
+      "ig_id": "17980831014058109",
+      "is_video": false,
       "hashtag_n": 4
     }
   ],
@@ -184,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-07-21",
-    "posts": 4
+    "posts": 3
   },
-  "last_scored_ts": 1784647960.573372,
+  "last_scored_ts": 1784660991.7320566,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
