@@ -2,22 +2,13 @@
   "version": 1,
   "pending": [
     {
-      "head": "São Paulo oficializa empréstimo de Negrucci ao Ath",
-      "source": "uol.com.br",
-      "ts": 1784621424.493175,
-      "fb_id": "348454375016310_122244764498359689",
-      "ig_id": "17896433994555292",
+      "head": "Argentinos mostram 'sermão' de Emiliano Martínez a",
+      "source": "record.pt",
+      "ts": 1784634203.9814057,
+      "fb_id": "348454375016310_122244781046359689",
+      "ig_id": "18101529725233260",
       "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Mattos admite atrasos salariais no Santos, mas neg",
-      "source": "uol.com.br",
-      "ts": 1784621492.992224,
-      "fb_id": "348454375016310_122244764798359689",
-      "ig_id": "17916665364422642",
-      "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -166,9 +157,9 @@
   },
   "ig_quota": {
     "day": "2026-07-21",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1784621532.998121,
+  "last_scored_ts": 1784634243.9825127,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
