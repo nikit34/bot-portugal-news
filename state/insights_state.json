@@ -2,25 +2,11 @@
   "version": 1,
   "pending": [
     {
-      "head": "🚨 STJD quer ACELERAR o julgamento dos casos da Sér",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784587772.1653862,
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "💰 FIFA lucra mais de R$ 4 BILHÕES com final da Cop",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784587836.7664185,
-      "fb_id": "348454375016310_122244734258359689",
-      "ig_id": "18604477417058705",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "🏆 Campeão da EUROCOPA aos 17 anos 🏆 Campeão da COP",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784587878.2509475,
+      "head": "Hugo Oliveira elogia Marco Silva: «É bom para o ca",
+      "source": "record.pt",
+      "ts": 1784598648.164782,
+      "fb_id": "348454375016310_122244744110359689",
+      "ig_id": "17900015826523904",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -170,10 +156,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-20",
+    "day": "2026-07-21",
     "posts": 1
   },
-  "last_scored_ts": 1784587918.2572756,
+  "last_scored_ts": 1784598688.175687,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
