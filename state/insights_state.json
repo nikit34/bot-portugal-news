@@ -2,31 +2,13 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Flamengo já está alinhado com o Atlético de Mad",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784660801.2795753,
-      "fb_id": "348454375016310_122244813998359689",
-      "ig_id": "18081918425267683",
+      "head": "À atenção do Benfica: Sturm Graz goleia Hearts e d",
+      "source": "record.pt",
+      "ts": 1784667615.0089433,
+      "fb_id": "348454375016310_122244821042359689",
+      "ig_id": "18105462506115900",
       "is_video": false,
       "hashtag_n": 5
-    },
-    {
-      "head": "🚨 ATENÇÃO! Santos está em colapso financeiro e pod",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784660873.4429514,
-      "fb_id": "348454375016310_122244814460359689",
-      "ig_id": "18120803473867487",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨 AGORA! Corinthians sofre nova punição da FIFA e",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784660951.7299945,
-      "fb_id": "348454375016310_122244814850359689",
-      "ig_id": "17980831014058109",
-      "is_video": false,
-      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -175,9 +157,9 @@
   },
   "ig_quota": {
     "day": "2026-07-21",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1784660991.7320566,
+  "last_scored_ts": 1784667655.0123131,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
