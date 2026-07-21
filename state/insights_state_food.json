@@ -384,6 +384,30 @@
       "ig_id": "18026821370669775",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥PIZZA DE FORNO🔥 🔥 Ingredientes: Massa 500",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784656651.2601757,
+      "ig_id": "18129947233651442",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥RIGATONI À CARBONARA 🔥 🔥 Ingredientes: 1",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784656771.7039967,
+      "ig_id": "17873852265623201",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥TORTA QUENTE DE PRESUNTO🔥 🔥 Ingredientes:",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784656858.1191928,
+      "ig_id": "18083916869555797",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -492,7 +516,7 @@
   },
   "ig_quota": {
     "day": "2026-07-21",
-    "posts": 7
+    "posts": 10
   },
   "dow_hours": {
     "6-23": {
