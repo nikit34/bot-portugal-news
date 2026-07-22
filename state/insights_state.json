@@ -2,13 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "«Negócio fechado»: Samu Costa vai se juntar a Cris",
+      "head": "Treino cancelado e segurança reforçada: César Peix",
       "source": "record.pt",
-      "ts": 1784684960.926122,
-      "fb_id": "348454375016310_122244836252359689",
-      "ig_id": "18121296260496834",
+      "ts": 1784696498.0306342,
+      "fb_id": "348454375016310_122244848504359689",
+      "ig_id": "17855508966697072",
       "is_video": false,
-      "hashtag_n": 5
+      "hashtag_n": 4
+    },
+    {
+      "head": "O último adeus a Pote: criativo quer se despedir d",
+      "source": "record.pt",
+      "ts": 1784696567.0157068,
+      "fb_id": "348454375016310_122244848906359689",
+      "ig_id": "18103932008125622",
+      "is_video": false,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -157,9 +166,9 @@
   },
   "ig_quota": {
     "day": "2026-07-22",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1784685000.9285102,
+  "last_scored_ts": 1784696607.018985,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
