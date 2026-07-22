@@ -376,6 +376,14 @@
       "ig_id": "17900759403326085",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "🤩🤩🤩🤩🤩 🤩🤩🤩🤩🤩🤩 🤩BROWNIE DE CHOCOLATE BRANCO COM MATC",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784704522.6792905,
+      "ig_id": "18078422684678152",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -484,7 +492,7 @@
   },
   "ig_quota": {
     "day": "2026-07-22",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {
     "6-23": {
