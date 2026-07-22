@@ -2,29 +2,11 @@
   "version": 1,
   "pending": [
     {
-      "head": "🚨 Sobre a grave crise financeira do Internacional:",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784674075.9612632,
-      "fb_id": "348454375016310_122244825842359689",
-      "ig_id": "17921155524181804",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "📺 TNT Sports faz acordo com UEFA para transmitir 3",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784674151.5383353,
-      "fb_id": "348454375016310_122244826148359689",
-      "ig_id": "18057425924762227",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Jeremy Cross, colunista do jornal inglês The Mirro",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784674227.8120084,
-      "fb_id": "348454375016310_122244826472359689",
-      "ig_id": "18151141366505980",
+      "head": "«Negócio fechado»: Samu Costa vai se juntar a Cris",
+      "source": "record.pt",
+      "ts": 1784684960.926122,
+      "fb_id": "348454375016310_122244836252359689",
+      "ig_id": "18121296260496834",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -174,10 +156,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-21",
-    "posts": 3
+    "day": "2026-07-22",
+    "posts": 1
   },
-  "last_scored_ts": 1784674267.8164608,
+  "last_scored_ts": 1784685000.9285102,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
