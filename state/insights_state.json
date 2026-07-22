@@ -2,20 +2,11 @@
   "version": 1,
   "pending": [
     {
-      "head": "Vítor Pinto: «Rui Costa vende um jogador por 60 mi",
+      "head": "Chelsea contrata o meio-campista Morgan Rogers, do",
       "source": "record.pt",
-      "ts": 1784707863.4525263,
-      "fb_id": "348454375016310_122244858980359689",
-      "ig_id": "18358386760244067",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Zalazar confessa \"decisão fácil\" de assinar com o",
-      "source": "record.pt",
-      "ts": 1784707933.31965,
-      "fb_id": "348454375016310_122244859310359689",
-      "ig_id": "18107144459042768",
+      "ts": 1784720649.531513,
+      "fb_id": "348454375016310_122244874346359689",
+      "ig_id": "18604989394032119",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -166,9 +157,9 @@
   },
   "ig_quota": {
     "day": "2026-07-22",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1784707973.3227198,
+  "last_scored_ts": 1784720689.5432246,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
