@@ -416,6 +416,22 @@
       "ig_id": "17994470957797173",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "🤩🤩🤩🤩🤩 🤩🤩🤩🤩🤩🤩 🤩BROWNIE DE CHOCOLATE BRANCO COM MATC",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784756401.644155,
+      "ig_id": "17938022904296703",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🤩🤩🤩🤩🤩 🤩🤩🤩🤩🤩🤩 🤩FRANGO AO LIMÃO COM AZEITONAS🤩 🤩 Ing",
+      "source": "https://t.me/receitas_br",
+      "ts": 1784756515.9325247,
+      "ig_id": "17968440281935092",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -524,7 +540,7 @@
   },
   "ig_quota": {
     "day": "2026-07-22",
-    "posts": 7
+    "posts": 9
   },
   "dow_hours": {
     "6-23": {
