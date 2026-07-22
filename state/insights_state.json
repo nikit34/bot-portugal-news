@@ -2,13 +2,28 @@
   "version": 1,
   "pending": [
     {
-      "head": "Futuro de Rafael Nel está nas mãos do atacante do",
-      "source": "record.pt",
-      "ts": 1784753842.0971901,
-      "fb_id": "348454375016310_122244912698359689",
-      "ig_id": "18099580924954981",
+      "head": "Agentes e dirigentes têm demonstrado uma enorme pr",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784760940.2887836,
+      "fb_id": "348454375016310_122244923024359689",
+      "ig_id": "18050602073582998",
       "is_video": false,
-      "hashtag_n": 4
+      "hashtag_n": 1
+    },
+    {
+      "head": "🚨 Segundo apuração do UOL, Almada disse \"SIM\" ao F",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784761008.9626067,
+      "ig_id": "18105813050329021",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 Diferenças entre o impedimento semiautomático da",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784761050.3831537,
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -157,9 +172,9 @@
   },
   "ig_quota": {
     "day": "2026-07-22",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1784753882.0995264,
+  "last_scored_ts": 1784761090.384635,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
