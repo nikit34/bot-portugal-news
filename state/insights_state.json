@@ -2,29 +2,20 @@
   "version": 1,
   "pending": [
     {
-      "head": "Chelsea contrata o meio-campista Morgan Rogers, do",
-      "source": "record.pt",
-      "ts": 1784720649.531513,
-      "fb_id": "348454375016310_122244874346359689",
-      "ig_id": "18604989394032119",
-      "is_video": false,
-      "hashtag_n": 5
+      "head": "Palmeiras comemora nesta quarta-feira (22) o anive",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784734106.8200252,
+      "fb_id": "1214524748411978",
+      "ig_id": "17892332568571679",
+      "is_video": true,
+      "hashtag_n": 1
     },
     {
-      "head": "Oficial! Ochoa anuncia aposentadoria. O goleiro me",
+      "head": "🚨 Corinthians usa Copa do Mundo para tentar derrub",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784726641.7332287,
-      "fb_id": "348454375016310_122244881282359689",
-      "ig_id": "18110048254887712",
-      "is_video": false,
-      "hashtag_n": 3
-    },
-    {
-      "head": "🚨 Equipe da Band sofre racismo na Argentina durant",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784726713.633851,
-      "fb_id": "348454375016310_122244881624359689",
-      "ig_id": "18112223000297719",
+      "ts": 1784734174.326963,
+      "fb_id": "348454375016310_122244889640359689",
+      "ig_id": "18137168569605866",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -175,9 +166,9 @@
   },
   "ig_quota": {
     "day": "2026-07-22",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1784720689.5432246,
+  "last_scored_ts": 1784734214.3384624,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
