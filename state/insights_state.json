@@ -2,31 +2,13 @@
   "version": 1,
   "pending": [
     {
-      "head": "🚨 Diretoria do Flamengo confirma que teve hoje um",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784746825.7407973,
-      "fb_id": "348454375016310_122244904580359689",
-      "ig_id": "18129151222642838",
-      "is_video": false,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨 FECHADO! Luighi, do Palmeiras, é o novo reforço",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784746897.851643,
-      "fb_id": "348454375016310_122244904982359689",
-      "ig_id": "18013166786916175",
+      "head": "Futuro de Rafael Nel está nas mãos do atacante do",
+      "source": "record.pt",
+      "ts": 1784753842.0971901,
+      "fb_id": "348454375016310_122244912698359689",
+      "ig_id": "18099580924954981",
       "is_video": false,
       "hashtag_n": 4
-    },
-    {
-      "head": "🚨 AGORA! São Paulo sofre transfer ban da FIFA e es",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784746970.6909664,
-      "fb_id": "348454375016310_122244905354359689",
-      "ig_id": "17863842162643423",
-      "is_video": false,
-      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -175,9 +157,9 @@
   },
   "ig_quota": {
     "day": "2026-07-22",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1784747010.702786,
+  "last_scored_ts": 1784753882.0995264,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
