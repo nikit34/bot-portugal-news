@@ -2,47 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "Palmeiras comemora nesta quarta-feira (22) o anive",
+      "head": "🚨 Diretoria do Flamengo confirma que teve hoje um",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784734106.8200252,
-      "fb_id": "1214524748411978",
-      "ig_id": "17892332568571679",
-      "is_video": true,
-      "hashtag_n": 1
-    },
-    {
-      "head": "🚨 Corinthians usa Copa do Mundo para tentar derrub",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784734174.326963,
-      "fb_id": "348454375016310_122244889640359689",
-      "ig_id": "18137168569605866",
+      "ts": 1784746825.7407973,
+      "fb_id": "348454375016310_122244904580359689",
+      "ig_id": "18129151222642838",
       "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "Fechado! Aston Villa acerta a contratação do ataca",
+      "head": "🚨 FECHADO! Luighi, do Palmeiras, é o novo reforço",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784740266.2099195,
-      "fb_id": "348454375016310_122244897368359689",
-      "ig_id": "18107700425053930",
+      "ts": 1784746897.851643,
+      "fb_id": "348454375016310_122244904982359689",
+      "ig_id": "18013166786916175",
       "is_video": false,
       "hashtag_n": 4
     },
     {
-      "head": "⚠️ Santos paga 1 mês de direitos de imagem em atra",
+      "head": "🚨 AGORA! São Paulo sofre transfer ban da FIFA e es",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784740343.6495345,
-      "fb_id": "348454375016310_122244897734359689",
-      "ig_id": "17970300495120786",
-      "is_video": false,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Palmeiras está disposto a pagar um salário anual d",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784740434.5796087,
-      "fb_id": "348454375016310_122244898082359689",
-      "ig_id": "18179498467412279",
+      "ts": 1784746970.6909664,
+      "fb_id": "348454375016310_122244905354359689",
+      "ig_id": "17863842162643423",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -193,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-07-22",
-    "posts": 5
+    "posts": 3
   },
-  "last_scored_ts": 1784734214.3384624,
+  "last_scored_ts": 1784747010.702786,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
