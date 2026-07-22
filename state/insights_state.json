@@ -18,6 +18,33 @@
       "ig_id": "18137168569605866",
       "is_video": false,
       "hashtag_n": 5
+    },
+    {
+      "head": "Fechado! Aston Villa acerta a contratação do ataca",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784740266.2099195,
+      "fb_id": "348454375016310_122244897368359689",
+      "ig_id": "18107700425053930",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "⚠️ Santos paga 1 mês de direitos de imagem em atra",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784740343.6495345,
+      "fb_id": "348454375016310_122244897734359689",
+      "ig_id": "17970300495120786",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Palmeiras está disposto a pagar um salário anual d",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784740434.5796087,
+      "fb_id": "348454375016310_122244898082359689",
+      "ig_id": "18179498467412279",
+      "is_video": false,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -166,7 +193,7 @@
   },
   "ig_quota": {
     "day": "2026-07-22",
-    "posts": 2
+    "posts": 5
   },
   "last_scored_ts": 1784734214.3384624,
   "dow_hours": {
