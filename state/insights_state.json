@@ -2,26 +2,354 @@
   "version": 1,
   "pending": [
     {
-      "head": "Agentes e dirigentes têm demonstrado uma enorme pr",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784760940.2887836,
-      "fb_id": "348454375016310_122244923024359689",
-      "ig_id": "18050602073582998",
-      "is_video": false,
-      "hashtag_n": 1
-    },
-    {
-      "head": "🚨 Segundo apuração do UOL, Almada disse \"SIM\" ao F",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784761008.9626067,
-      "ig_id": "18105813050329021",
+      "head": "Antes de encarar Espanha, Martínez diz que Portuga",
+      "source": "ge.globo.com",
+      "ts": 1783304191.454135,
       "is_video": false,
       "hashtag_n": 5
     },
     {
-      "head": "🚨 Diferenças entre o impedimento semiautomático da",
+      "head": "Virgínia posta fotos com as filhas no estádio para",
+      "source": "ge.globo.com",
+      "ts": 1783304234.2955816,
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Meia da Bélgica lamenta eliminação, mas diz: \"Espe",
+      "source": "ge.globo.com",
+      "ts": 1783761636.489844,
+      "fb_id": "348454375016310_122243647412359689",
+      "ig_id": "17882635350456545",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Inés García, namorada de Yamal, se declara após vi",
+      "source": "ge.globo.com",
+      "ts": 1783761708.3830621,
+      "fb_id": "348454375016310_122243647958359689",
+      "ig_id": "17950365210206787",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Inter tem salários em dia, mas atrasa direitos de",
+      "source": "ge.globo.com",
+      "ts": 1783767462.6507587,
+      "fb_id": "348454375016310_122243655104359689",
+      "ig_id": "17894793612555702",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "De volta da Copa, Igor Thiago retorna às origens e",
+      "source": "ge.globo.com",
+      "ts": 1783767530.8015473,
+      "fb_id": "348454375016310_122243655608359689",
+      "ig_id": "18116145871702552",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Rafaela Pimenta: «Os jogadores brasileiros chegam",
+      "source": "record.pt",
+      "ts": 1783774040.3680148,
+      "fb_id": "348454375016310_122243663546359689",
+      "ig_id": "18049055552583663",
+      "is_video": false,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Goleiro que tenta parar Messi saiu da sombra de íd",
+      "source": "uol.com.br",
+      "ts": 1783774714.5608275,
+      "fb_id": "348454375016310_122243664920359689",
+      "ig_id": "17920294335182288",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Entenda a solução financeira do São Paulo para des",
+      "source": "ge.globo.com",
+      "ts": 1783788380.0462005,
+      "fb_id": "348454375016310_122243682908359689",
+      "ig_id": "17976921552054340",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "De Alex Santana a Gui Negão: jogadores que podem g",
+      "source": "ge.globo.com",
+      "ts": 1783788429.156081,
+      "fb_id": "348454375016310_122243683220359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Freguesia? Espanha venceu jogos recentes contra a",
+      "source": "ge.globo.com",
+      "ts": 1783788479.9665487,
+      "fb_id": "348454375016310_122243683508359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Beckham visita treino da Inglaterra, conversa com",
+      "source": "ge.globo.com",
+      "ts": 1783795667.756595,
+      "fb_id": "348454375016310_122243696786359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Imperatriz desembarca em Fortaleza com força máxim",
+      "source": "ge.globo.com",
+      "ts": 1783795715.1814268,
+      "fb_id": "348454375016310_122243697068359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Cristopher usa experiência no Comercial para orien",
+      "source": "ge.globo.com",
+      "ts": 1783795762.2126405,
+      "fb_id": "348454375016310_122243697368359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Ânimos exaltados na 1ª parte do Benfica-Flamengo:",
+      "source": "record.pt",
+      "ts": 1783802393.1091645,
+      "fb_id": "348454375016310_122243704370359689",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Benfica perde para o Flamengo no Algarve em jogo d",
+      "source": "record.pt",
+      "ts": 1783809553.4876502,
+      "fb_id": "348454375016310_122243712128359689",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Wallace marcou contra o Benfica... e copiou comemo",
+      "source": "record.pt",
+      "ts": 1783809598.379444,
+      "fb_id": "348454375016310_122243712260359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Fifa esclarece polêmica em gol de empate da Inglat",
+      "source": "uol.com.br",
+      "ts": 1783821175.3872488,
+      "fb_id": "348454375016310_122243731256359689",
+      "ig_id": "17986287261007817",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "José Boto: «Marco Silva me parece uma boa escolha»",
+      "source": "record.pt",
+      "ts": 1783833649.4309323,
+      "fb_id": "348454375016310_122243751518359689",
+      "ig_id": "17970007326088588",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Pau Víctor herda a 10 e deixa água na boca na pré-",
+      "source": "record.pt",
+      "ts": 1783843421.0533683,
+      "fb_id": "348454375016310_122243760800359689",
+      "ig_id": "17993447957798305",
+      "is_video": false,
+      "hashtag_n": 1
+    },
+    {
+      "head": "Fifa credita assistência de Flaco López em gol da",
+      "source": "uol.com.br",
+      "ts": 1783843495.7776647,
+      "fb_id": "348454375016310_122243761214359689",
+      "ig_id": "18096315284581422",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Após comentar a Copa do Mundo pela CazeTV, o ex-jo",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784761050.3831537,
+      "ts": 1783851511.101694,
+      "fb_id": "2056023731685142",
+      "ig_id": "18108309296061706",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "🇦🇷 Repórter para Lisandro Martínez: “Há uma corren",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783851588.6746855,
+      "fb_id": "348454375016310_122243774060359689",
+      "ig_id": "17947161918234450",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "O meia sul-africano Jayden Adams, de 25 anos, fale",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783851666.9829185,
+      "fb_id": "348454375016310_122243774378359689",
+      "ig_id": "18105072896013508",
+      "is_video": false,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Lionel Scaloni em entrevista coletiva, nega que a",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783851745.3141062,
+      "fb_id": "348454375016310_122243774828359689",
+      "ig_id": "17907335943445368",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🇫🇷 Mbappé, ao ser questionado se esse time da Fran",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783851824.0914075,
+      "ig_id": "18117829480890356",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Murat Yakin 'explode' contra João Pinheiro: «Não e",
+      "source": "record.pt",
+      "ts": 1783854378.111748,
+      "fb_id": "348454375016310_122243779586359689",
+      "ig_id": "18137812105525034",
+      "is_video": false,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Portugal será representado por 168 atletas em 30 m",
+      "source": "record.pt",
+      "ts": 1783861167.9231594,
+      "fb_id": "348454375016310_122243789606359689",
+      "ig_id": "18143158948537187",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Garry Kasparov irônico após polêmica no Noruega-In",
+      "source": "record.pt",
+      "ts": 1783861229.1071405,
+      "fb_id": "348454375016310_122243789780359689",
+      "ig_id": "18135596128601000",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "A festa dos brasileiros que torcem para Argentina",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783867728.8892376,
+      "fb_id": "1691466762075044",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Murat Yakin, técnico da Suíça, detona arbitragem a",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783867776.4684415,
+      "fb_id": "348454375016310_122243797610359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 DEFINIDAS AS SEMIFINAIS DA COPA DO MUNDO: 14/07",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783867821.6380763,
+      "fb_id": "348454375016310_122243797844359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Ex-primeiro ministro espanhol gera revolta ao dize",
+      "source": "record.pt",
+      "ts": 1783874957.7707798,
+      "fb_id": "348454375016310_122243808458359689",
+      "is_video": false,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Flamengo celebra aniversário de Vini Jr. e adeptos",
+      "source": "record.pt",
+      "ts": 1783875004.0778859,
+      "fb_id": "348454375016310_122243808608359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Após a eliminação da Noruega da Copa, Erling Haala",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783882413.8602138,
+      "fb_id": "28571623755758450",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Pela primeira vez na história uma seleção chegar n",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1783882462.1737323,
+      "fb_id": "348454375016310_122243821454359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Ana Catarina Nogueira e Clarinha Santos revalidam",
+      "source": "record.pt",
+      "ts": 1783882512.5020354,
+      "fb_id": "348454375016310_122243821724359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Surpresa nos Nacionais: Luque e Jesus derrotam irm",
+      "source": "record.pt",
+      "ts": 1783888621.0995305,
+      "fb_id": "348454375016310_122243827868359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Muller e Di Mauro têm 100% de aproveitamento no Al",
+      "source": "uol.com.br",
+      "ts": 1783888667.0007257,
+      "fb_id": "348454375016310_122243828000359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "João Aroso traça perfil de Hwang In-beom: «Lembra",
+      "source": "record.pt",
+      "ts": 1783895998.585361,
+      "fb_id": "348454375016310_122243835056359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Matheus Pereira marca, Charles falha, e Corinthian",
+      "source": "uol.com.br",
+      "ts": 1783896048.3709664,
+      "fb_id": "348454375016310_122243835224359689",
+      "is_video": false,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Hulk desencanta em volta de Thiago Silva, e Flu ba",
+      "source": "uol.com.br",
+      "ts": 1783896114.1482913,
+      "fb_id": "348454375016310_122243835518359689",
       "is_video": false,
       "hashtag_n": 5
     }
@@ -48,8 +376,8 @@
       "n": 39
     },
     "https://t.me/Futebol_Brasileirao": {
-      "reach_avg": 0.1985991828460485,
-      "n": 126
+      "reach_avg": 1.6880652011155943,
+      "n": 120
     },
     "abola.pt": {
       "reach_avg": 0.0,
@@ -64,16 +392,8 @@
       "n": 41
     },
     "ge.globo.com": {
-      "reach_avg": 0.00018558535279800158,
-      "n": 61
-    },
-    "record.pt": {
-      "reach_avg": 0.0,
-      "n": 14
-    },
-    "uol.com.br": {
-      "reach_avg": 0.0,
-      "n": 6
+      "reach_avg": 0.006569968641677405,
+      "n": 51
     }
   },
   "hours": {
@@ -86,12 +406,12 @@
       "n": 28
     },
     "10": {
-      "reach_avg": 0.18920184047985691,
-      "n": 45
+      "reach_avg": 1.1257323762709406,
+      "n": 40
     },
     "13": {
-      "reach_avg": 1.8073515494999994,
-      "n": 23
+      "reach_avg": 2.5819307849999995,
+      "n": 22
     },
     "15": {
       "reach_avg": 0.4260899999999999,
@@ -114,12 +434,12 @@
       "n": 46
     },
     "8": {
-      "reach_avg": 0.021592408033559985,
-      "n": 16
+      "reach_avg": 0.04406613884399997,
+      "n": 14
     },
     "12": {
       "reach_avg": 0.0,
-      "n": 8
+      "n": 5
     },
     "0": {
       "reach_avg": 0.0,
@@ -127,43 +447,43 @@
     },
     "1": {
       "reach_avg": 0.0,
-      "n": 6
+      "n": 5
     },
     "9": {
-      "reach_avg": 0.07937999999999998,
-      "n": 7
+      "reach_avg": 0.16199999999999998,
+      "n": 5
     },
     "16": {
-      "reach_avg": 0.03618384635396865,
-      "n": 22
+      "reach_avg": 0.2152903335156105,
+      "n": 17
     },
     "14": {
-      "reach_avg": 0.7003335953938479,
-      "n": 22
+      "reach_avg": 1.429252235497649,
+      "n": 20
     },
     "18": {
-      "reach_avg": 0.10636057844999994,
-      "n": 10
+      "reach_avg": 0.6328349999999998,
+      "n": 5
     },
     "6": {
       "reach_avg": 0.43217999999999984,
       "n": 7
     },
     "11": {
-      "reach_avg": 0.0028824004999999987,
-      "n": 9
+      "reach_avg": 0.004117714999999998,
+      "n": 8
     },
     "20": {
       "reach_avg": 0.0,
-      "n": 16
+      "n": 13
     },
     "22": {
-      "reach_avg": 0.0970083948131789,
-      "n": 25
+      "reach_avg": 0.577190425496394,
+      "n": 20
     },
     "5": {
-      "reach_avg": 1.0216499999999997,
-      "n": 6
+      "reach_avg": 1.4594999999999998,
+      "n": 5
     },
     "4": {
       "reach_avg": 0.0,
@@ -171,10 +491,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-22",
-    "posts": 2
+    "day": "2026-07-12",
+    "posts": 12
   },
-  "last_scored_ts": 1784761090.384635,
+  "last_scored_ts": 1783843535.7796412,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -186,7 +506,7 @@
     },
     "5-10": {
       "reach_avg": 0.0,
-      "n": 9
+      "n": 7
     },
     "5-13": {
       "reach_avg": 0.0,
@@ -218,11 +538,11 @@
     },
     "6-8": {
       "reach_avg": 0.0,
-      "n": 5
+      "n": 3
     },
     "6-12": {
       "reach_avg": 0.0,
-      "n": 4
+      "n": 3
     },
     "6-15": {
       "reach_avg": 0.6086999999999999,
@@ -397,36 +717,36 @@
       "n": 6
     },
     "5-9": {
-      "reach_avg": 0.007349999999999999,
-      "n": 4
+      "reach_avg": 0.015,
+      "n": 2
     },
     "5-11": {
       "reach_avg": 0.008403499999999998,
       "n": 6
     },
     "5-16": {
-      "reach_avg": 0.008403499999999998,
-      "n": 6
+      "reach_avg": 0.024499999999999997,
+      "n": 3
     },
     "6-7": {
       "reach_avg": 0.008746499999999997,
       "n": 6
     },
     "6-10": {
-      "reach_avg": 0.30542486449999995,
-      "n": 9
+      "reach_avg": 0.8904514999999998,
+      "n": 6
     },
     "6-13": {
-      "reach_avg": 0.017849999999999998,
-      "n": 5
+      "reach_avg": 0.0255,
+      "n": 4
     },
     "6-20": {
       "reach_avg": 0.0,
-      "n": 6
+      "n": 4
     },
     "6-22": {
-      "reach_avg": 0.29976965199999983,
-      "n": 9
+      "reach_avg": 0.8739639999999997,
+      "n": 6
     },
     "0-8": {
       "reach_avg": 1.2485199999999996,
@@ -494,19 +814,19 @@
     },
     "5-18": {
       "reach_avg": 0.0,
-      "n": 5
+      "n": 2
     },
     "5-20": {
       "reach_avg": 0.0,
-      "n": 3
+      "n": 2
     },
     "5-22": {
       "reach_avg": 0.0,
-      "n": 5
+      "n": 3
     },
     "6-16": {
       "reach_avg": 0.0,
-      "n": 4
+      "n": 2
     },
     "0-13": {
       "reach_avg": 7.515,
@@ -563,36 +883,12 @@
     "5-5": {
       "reach_avg": 4.865,
       "n": 2
-    },
-    "5-12": {
-      "reach_avg": 0.0,
-      "n": 2
-    },
-    "6-1": {
-      "reach_avg": 0.0,
-      "n": 1
-    },
-    "6-5": {
-      "reach_avg": 0.0,
-      "n": 1
-    },
-    "6-11": {
-      "reach_avg": 0.0,
-      "n": 1
-    },
-    "6-14": {
-      "reach_avg": 0.0,
-      "n": 2
-    },
-    "6-18": {
-      "reach_avg": 0.0,
-      "n": 2
     }
   },
   "formats": {
     "photo": {
-      "reach_avg": 8.544674459234552e-07,
-      "n": 418
+      "reach_avg": 0.32223008125338276,
+      "n": 382
     },
     "video": {
       "reach_avg": 3.205906343328586,
@@ -601,55 +897,16 @@
   },
   "variants": {
     "tags:4+": {
-      "reach_avg": 3.900949941945881e-06,
-      "n": 328
+      "reach_avg": 0.24724706044979428,
+      "n": 297
     },
     "tags:1-3": {
-      "reach_avg": 0.35170371561035035,
-      "n": 62
+      "reach_avg": 2.092602579939016,
+      "n": 57
     },
     "tags:0": {
       "reach_avg": 0.0,
       "n": 1
     }
-  },
-  "reward_samples": [
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0,
-    0.0
-  ],
-  "recent_winners": []
+  }
 }
