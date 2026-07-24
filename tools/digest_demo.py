@@ -14,7 +14,6 @@ piper недоступен (нет wheel piper-phonemize) — скрипт за�
 """
 import os
 import sys
-import shutil
 import subprocess
 
 sys.path.insert(0, os.getcwd())
@@ -86,7 +85,8 @@ def main():
         print(f"[digest-demo] FAILED: concat produced a suspiciously short file ({duration}s)")
         sys.exit(1)
 
-    shutil.copy(out, os.path.join("tmp", "demo_digest.mp4"))
+    # Копировать некуда: в отличие от reel_demo (там build_reel сам выбирает путь),
+    # мы задали out_mp4 сразу артефактным — файл уже на месте.
     print("[digest-demo] OK — real long-form digest rendered end-to-end")
 
 
