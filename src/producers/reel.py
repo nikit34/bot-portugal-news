@@ -17,28 +17,32 @@ logger = logging.getLogger('app')
 REEL_W, REEL_H, REEL_FPS = 1080, 1920, 30
 
 
-def _video_filter(duration, motion):
-    # Плашка story_overlay уже 1080×1920. Без движения — только гарантия размера/SAR
-    # + yuv420p. С движением — лёгкий Ken Burns: апскейлим в 1.5× ради запаса под зум,
-    # затем zoompan сводит обратно к 1080×1920 (медленный зум-ин).
+def _video_filter(duration, motion, width=REEL_W, height=REEL_H):
+    # Плашка story_overlay уже нужного размера. Без движения — только гарантия
+    # размера/SAR + yuv420p. С движением — лёгкий Ken Burns: апскейлим в 1.5× ради
+    # запаса под зум, затем zoompan сводит обратно к width×height (медленный зум-ин).
     if not motion:
-        return (f"scale={REEL_W}:{REEL_H}:force_original_aspect_ratio=increase,"
-                f"crop={REEL_W}:{REEL_H},setsar=1,format=yuv420p")
+        return (f"scale={width}:{height}:force_original_aspect_ratio=increase,"
+                f"crop={width}:{height},setsar=1,format=yuv420p")
     frames = max(1, int((duration + 0.5) * REEL_FPS))   # d в кадрах; +0.5с запас под -shortest
     # ВАЖНО: у zoompan x/y по умолчанию (0,0) => зум в ЛЕВЫЙ-ВЕРХНИЙ угол и обрезка НИЗА
     # кадра. Плашка story_overlay прижата к низу (заголовок над футер-паддингом), поэтому
     # без центрирования срезало бы последнюю строку заголовка почти весь клип. Центрируем
     # окно зума (x/y по центру) и держим мягкий зум (cap 1.08), чтобы остаточный кроп
     # уходил в футер-паддинг, а текст оставался в кадре.
-    return (f"scale={REEL_W * 3 // 2}:{REEL_H * 3 // 2},"
+    return (f"scale={width * 3 // 2}:{height * 3 // 2},"
             f"zoompan=z='min(zoom+0.0006,1.08)':d={frames}:"
             f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
-            f"s={REEL_W}x{REEL_H}:fps={REEL_FPS},setsar=1,format=yuv420p")
+            f"s={width}x{height}:fps={REEL_FPS},setsar=1,format=yuv420p")
 
 
-def render_reel(frame_path, voice_path, out_mp4, motion=None):
-    """Собрать вертикальный Reel из статичной плашки + WAV-озвучки через ffmpeg.
-    Длина = длина аудио (капнута REEL_MAX_SECONDS). Путь к .mp4 или None (fail-open)."""
+def render_reel(frame_path, voice_path, out_mp4, motion=None, size=None,
+                max_seconds=None, timeout=None):
+    """Собрать видео из статичной плашки + WAV-озвучки через ffmpeg.
+
+    Длина = длина аудио (капнута max_seconds / REEL_MAX_SECONDS). size=(w,h)
+    переопределяет вертикаль 9:16 — этим пользуется дайджест-ролик (4:5), которому
+    нужен ФИД-формат, а не Reels. Путь к .mp4 или None (fail-open)."""
     exe = _ffmpeg_exe()
     if not exe:
         logger.warning("[reel] no ffmpeg available; skipping reel render")
@@ -49,11 +53,12 @@ def render_reel(frame_path, voice_path, out_mp4, motion=None):
     if not duration or duration <= 0:
         logger.warning("[reel] cannot determine voice duration; skipping")
         return None
-    duration = min(duration, REEL_MAX_SECONDS)
+    duration = min(duration, max_seconds or REEL_MAX_SECONDS)
     if motion is None:
         motion = REEL_MOTION_ENABLED
+    width, height = size or (REEL_W, REEL_H)
 
-    vf = _video_filter(duration, motion)
+    vf = _video_filter(duration, motion, width, height)
     cmd = [
         exe, '-y', '-loglevel', 'error',
         '-loop', '1', '-i', frame_path, '-i', voice_path,
@@ -61,13 +66,13 @@ def render_reel(frame_path, voice_path, out_mp4, motion=None):
         '-map', '[v]', '-map', '1:a',
         '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '22',
         '-r', str(REEL_FPS), '-pix_fmt', 'yuv420p',
-        '-c:a', 'aac', '-b:a', '128k', '-af', 'loudnorm',
+        '-c:a', 'aac', '-b:a', '128k', '-ar', '44100', '-ac', '2', '-af', 'loudnorm',
         '-t', f"{duration:.3f}", '-movflags', '+faststart', '-shortest', out_mp4,
     ]
     try:
         result = subprocess.run(
             cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-            timeout=REEL_RENDER_TIMEOUT_SECONDS)
+            timeout=timeout or REEL_RENDER_TIMEOUT_SECONDS)
         if result.returncode != 0 or not os.path.exists(out_mp4):
             logger.warning(
                 f"[reel] ffmpeg failed (rc={result.returncode}): "

@@ -1,0 +1,140 @@
+name: Bot Digest (long-form video)
+
+# Раз в сутки собираем ОДИН длинный озвученный ролик из лучших новостей и
+# публикуем его на FB-страницу. Зачем отдельный workflow, а не шаг в основном:
+#
+#  * Экономика. Длинное видео платит $1-5 за 1000 просмотров против $0.02-0.20 у
+#    reels — тот же просмотр стоит в 10-50 раз дороже, потому что на фид-ролике
+#    показываются in-stream ads. Плюс ролик копит МИНУТЫ ПРОСМОТРА, по которым
+#    Meta считает сам допуск в Content Monetization.
+#  * Оригинальность. Свой сценарий + свой голос + своя графика => контент
+#    оригинален по построению и не подпадает под «aggregating/duplicative
+#    content», за что Meta снимает монетизацию и режет охват ВСЕЙ странице.
+#  * Изоляция. Синтез речи + рендер 8 сегментов + склейка + аплоуд не помещаются
+#    в 15-минутный таймаут обычного прогона и не должны его срывать.
+#
+# ВЫКЛЮЧЕН по умолчанию: job гейтится репо-переменной DIGEST_CHANNEL_ENABLED.
+# Включение: GitHub Variable DIGEST_CHANNEL_ENABLED = true. Мгновенный откат без
+# правки workflow — DIGEST_ENABLED=false (бот завершится сразу, ничего не выложив).
+
+concurrency:
+  group: bot-digest
+  cancel-in-progress: false
+
+on:
+  schedule:
+    # 19:00 UTC — вечерний прайм в Португалии/Бразилии, когда день уже дал новости.
+    # Час НЕЧЁТНЫЙ намеренно: основной прогон идёт по чётным часам и пишет ТОТ ЖЕ
+    # state/insights_state.json (плюс коммитит его в репо). На чётном часу два job'а
+    # шли бы одновременно и затирали состояние друг друга — запись дайджеста в
+    # pending могла бы потеряться, и пост никогда не был бы оценён.
+    - cron: '0 19 * * *'
+  workflow_dispatch:
+    inputs:
+      config:
+        description: 'Config name (football / food_br)'
+        required: false
+        default: 'football'
+      digest_items:
+        description: 'Сколько сюжетов класть в ролик'
+        required: false
+        default: '8'
+      log_level:
+        description: 'Logging level'
+        required: false
+        default: 'DEBUG'
+
+jobs:
+  digest:
+    if: vars.DIGEST_CHANNEL_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check Facebook token
+        run: |
+          response=$(curl -s "https://graph.facebook.com/v25.0/me?access_token=${{ secrets.FACEBOOK_ACCESS_TOKEN }}")
+          if echo "$response" | grep -q "error"; then
+            echo "Facebook token is invalid: $response"
+            exit 1
+          fi
+          echo "Facebook token is valid"
+      - name: Setup Python environment
+        uses: ./.github/actions/setup-python-env
+      - name: Cache piper voice model
+        uses: actions/cache@v4
+        with:
+          path: src/static/voices
+          key: piper-voice-pt_BR-faber-medium
+      - name: Fetch piper voice
+        # Без голоса дайджест не собирается вообще (build_digest_video -> None):
+        # молчаливый ролик не был бы оригинальным контентом.
+        run: python tools/fetch_piper_voice.py pt_BR-faber-medium
+      - name: Create logs directory
+        run: mkdir -p logs
+      - name: Restore/seed learning state
+        # Тот же файл состояния, что и у основного прогона: reward дайджеста
+        # копится в отдельном бакете state['digest'] и не трогает пост-уровневые.
+        uses: actions/cache@v4
+        with:
+          path: state
+          key: insights-state-${{ github.run_id }}
+          restore-keys: |
+            insights-state-
+      - name: Build and publish digest
+        run: python main.py --config ${{ inputs.config || 'football' }} --mode digest
+        timeout-minutes: 25
+        continue-on-error: true
+        env:
+          TELEGRAM_TOKEN_BOT: ${{ secrets.TELEGRAM_TOKEN_BOT }}
+          TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
+          TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
+          TELEGRAM_SESSION: ${{ secrets.TELEGRAM_SESSION }}
+          FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          LOG_LEVEL: ${{ github.event_name == 'schedule' && 'INFO' || inputs.log_level || 'DEBUG' }}
+          DIGEST_ENABLED: 'true'
+          DIGEST_ITEMS: ${{ inputs.digest_items || '8' }}
+          # Бюджет прогона заметно больше обычного: фаза 1 (сбор кандидатов) плюс
+          # фаза 2 (синтез речи + 8 рендеров + склейка + аплоуд). Держим
+          # RUN_TIME_BUDGET > DIGEST_DRAIN_RESERVE, иначе на сбор не останется времени.
+          RUN_TIME_BUDGET_SECONDS: '1200'
+          DIGEST_DRAIN_RESERVE_SECONDS: '780'
+          # Ранкер нужен, чтобы в ролик попали ЛУЧШИЕ сюжеты, а не первые попавшиеся.
+          RANKER_ENABLED: 'true'
+          LEARNING_BIAS_ENABLED: 'true'
+          LEARNING_REWARD_ENABLED: 'true'
+          FB_POST_INSIGHTS_ENABLED: 'true'
+          FB_EARNINGS_ENABLED: 'true'
+          FB_WATCH_TIME_ENABLED: 'true'
+          # Дайджест — отдельная публикация; суточный дайджест инсайтов шлёт
+          # обычный прогон, здесь он не нужен.
+          INSIGHTS_REPORT_ENABLED: 'false'
+      - name: Persist learning state to repo
+        if: always()
+        continue-on-error: true
+        run: |
+          git config user.name "bot-state[bot]"
+          git config user.email "bot-state@users.noreply.github.com"
+          git add -f state/insights_state.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No learning-state change to commit"
+          else
+            git commit -m "chore: persist digest learning state [skip ci]"
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+            git push origin "HEAD:${GITHUB_REF_NAME}" || echo "state push skipped (non-fast-forward)"
+          fi
+      - name: Notify Telegram on failure
+        if: failure()
+        run: |
+          curl -s -X POST 'https://api.telegram.org/bot${{ secrets.TOKEN_BOT }}/sendMessage' \
+            -d chat_id=-1002178707665 \
+            -d parse_mode=Markdown \
+            -d text="❌ *CI дайджеста упал!* [Логи](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+      - name: Upload logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: digest-logs
+          path: logs/
+          retention-days: 5
+          compression-level: 0

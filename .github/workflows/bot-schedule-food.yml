@@ -39,7 +39,7 @@ jobs:
       - uses: actions/checkout@v5
       - name: Check Facebook token
         run: |
-          response=$(curl -s "https://graph.facebook.com/v22.0/me?access_token=${{ secrets.FACEBOOK_ACCESS_TOKEN_FOOD }}")
+          response=$(curl -s "https://graph.facebook.com/v25.0/me?access_token=${{ secrets.FACEBOOK_ACCESS_TOKEN_FOOD }}")
           if echo "$response" | grep -q "error"; then
             echo "Facebook (food) token is invalid: $response"
             exit 1
@@ -47,6 +47,12 @@ jobs:
           echo "Facebook (food) token is valid"
       - name: Setup Python environment
         uses: ./.github/actions/setup-python-env
+      - name: Cache piper voice model
+        # ~60 МБ и неизменна — качаем один раз, дальше из кэша.
+        uses: actions/cache@v4
+        with:
+          path: src/static/voices
+          key: piper-voice-pt_BR-faber-medium
       - name: Fetch piper voice (for narrated-Reel)
         run: python tools/fetch_piper_voice.py
       - name: Create logs directory
@@ -76,10 +82,14 @@ jobs:
           RANKER_POOL_FACTOR: '8'
           RANKER_VIDEO_BONUS: '1.5'
           VIDEO_UNIQUIFY_TIMEOUT_SECONDS: '240'
-          RANKER_DRAIN_RESERVE_SECONDS: '300'
+          # 300 -> 360: поверх загрузки каждый пост синтезирует речь и рендерит Reel.
+          RANKER_DRAIN_RESERVE_SECONDS: '360'
           # narrated-Reel пивот: этот канал — тестовый полигон (оригинал по построению,
           # watermark/uniquify для reel'ов пропускается автоматически).
           REEL_RENDER_ENABLED: 'true'
+          # Учимся на деньгах: заработок поста + суммарное время просмотра.
+          FB_EARNINGS_ENABLED: 'true'
+          FB_WATCH_TIME_ENABLED: 'true'
           # Growth-рычаги (как на футболе).
           CARDS_ENABLED: 'true'
           CTA_ENABLED: 'true'

@@ -29,9 +29,19 @@ jobs:
           TTS_VOICE: ${{ inputs.voice }}
         run: python tools/reel_demo.py
 
-      - name: Upload demo reel
+      - name: Render real long-form digest
+        # Единственная проверка реальной склейки сегментов: concat с `-c copy` при
+        # расхождении параметров кодека молча даёт обрезанный файл, и юнит-тесты
+        # (где ffmpeg замокан) этого не поймают.
+        env:
+          TTS_VOICE: ${{ inputs.voice }}
+        run: python tools/digest_demo.py
+
+      - name: Upload demo videos
         uses: actions/upload-artifact@v4
         with:
-          name: demo-reel
-          path: tmp/demo_reel.mp4
+          name: demo-videos
+          path: |
+            tmp/demo_reel.mp4
+            tmp/demo_digest.mp4
           if-no-files-found: error

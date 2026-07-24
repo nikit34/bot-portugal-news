@@ -55,9 +55,11 @@ def save_state(path, state):
 def record_publish(state, head, source, ts, **features):
     # Remember which source produced a just-published post so its reach can be
     # attributed back to that source once it matures (hours/days later, another run).
-    # **features (fb_id, ig_id, is_video, hashtag_n) are stored only when provided,
-    # so legacy pending entries / the reach-only path keep the minimal {head,source,ts}
-    # shape. fb_id is the FB *page-post* id ({page}_{post}) needed by /{post-id}/insights.
+    # **features (fb_id, fb_media_id, ig_id, is_video, is_digest, hashtag_n) are stored
+    # only when provided, so legacy pending entries / the reach-only path keep the
+    # minimal {head,source,ts} shape. fb_id is the FB *page-post* id ({page}_{post})
+    # needed by /{post-id}/insights; fb_media_id is the bare video/photo id, on which
+    # /{video-id}/video_insights (время просмотра) живёт.
     if not head or not source:
         return
     entry = {'head': head, 'source': source, 'ts': ts}
@@ -95,13 +97,17 @@ def reward_for(metrics, weights):
     # Engagement-weighted reward под сигналы ранжирования Meta 2026: раздача
     # (shares+sends), сохранения и досмотр весят тяжелее всего, лайки по умолчанию
     # обнулены, reach — хвост. metrics — dict с любыми из {reach, likes, comments,
-    # shares, saves, watch}; отсутствующее считаем нулём (обратная совместимость со
-    # старыми pending-записями и reach-only путём). watch — средний досмотр в секундах.
+    # shares, saves, watch, watch_total, earnings}; отсутствующее считаем нулём
+    # (обратная совместимость со старыми pending-записями и reach-only путём).
+    # watch — средний досмотр в секундах, watch_total — СУММАРНОЕ время просмотра
+    # поста в минутах (валюта порога допуска в монетизацию), earnings — деньги в USD.
     return (
         weights.get('share', 0.0) * (metrics.get('shares') or 0)
         + weights.get('save', 0.0) * (metrics.get('saves') or 0)
         + weights.get('comment', 0.0) * (metrics.get('comments') or 0)
         + weights.get('watch', 0.0) * (metrics.get('watch') or 0)
+        + weights.get('watch_total', 0.0) * (metrics.get('watch_total') or 0)
+        + weights.get('earnings', 0.0) * (metrics.get('earnings') or 0)
         + weights.get('like', 0.0) * (metrics.get('likes') or 0)
         + weights.get('reach', 0.0) * (metrics.get('reach') or 0)
     )
@@ -162,6 +168,18 @@ def update_scores_metrics(state, metrics_by_head, weights, now, maturation_secon
                 if not amp_enabled:
                     return alpha
                 return _amp_alpha(bucket.get(str(key)), reward, alpha, amp_gain, amp_alpha_max)
+
+            if post.get('is_digest'):
+                # Дайджест-ролик живёт в СВОЁМ бакете и не трогает пост-уровневые.
+                # Его reward — минуты просмотра многоминутного видео — на порядок
+                # больше обычного поста: попав в sources, он раздул бы средний
+                # reward и обнулил нормировку ранкера; попав в hours — забрал бы
+                # весь суточный бюджет постов в свой (единственный) час публикации.
+                # По той же причине он не входит в распределение reward_samples,
+                # по которому строится планка «победителя».
+                digest = state.setdefault('digest', {})
+                _update_avg(digest, 'digest', reward, _a(digest, 'digest'))
+                continue
 
             src = post.get('source', '')
             hr = _hour_of(ts)

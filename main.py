@@ -25,8 +25,9 @@ from src.parsers.insights import (
 )
 from src.processor import learning
 from src.processor.service import (
-    get_publish_records, should_stop, set_run_cap,
-    set_ig_daily, set_deadline, set_drain_reserve, ig_posts_this_run, get_run_stats, drain_pool,
+    get_publish_records, should_stop, set_run_cap, set_digest_mode,
+    set_ig_daily, set_deadline, set_drain_reserve, ig_posts_this_run, get_run_stats,
+    drain_pool, drain_digest,
 )
 from src.producers.instagram.producer import get_failure_counts
 from src.producers.facebook.producer import get_failure_counts as get_facebook_failure_counts
@@ -58,6 +59,12 @@ from src.static.settings import (
     LEARNING_W_WATCH,
     LEARNING_W_LIKE,
     LEARNING_W_REACH,
+    LEARNING_W_WATCH_TOTAL,
+    LEARNING_W_EARNINGS,
+    FB_EARNINGS_ENABLED,
+    FB_WATCH_TIME_ENABLED,
+    DIGEST_ENABLED,
+    DIGEST_DRAIN_RESERVE_SECONDS,
     LEARNING_SCORE_BY_TTL_ENABLED,
     LEARNING_SCORE_TTL_SECONDS,
     FB_POST_INSIGHTS_ENABLED,
@@ -105,9 +112,17 @@ def resolve_page_token(graph, page_id):
     return graph.access_token
 
 
-async def main(config_name):
-    app_logger.info(f"Initializing main application with config: {config_name}")
-    
+async def main(config_name, digest=False):
+    app_logger.info(
+        f"Initializing main application with config: {config_name}"
+        + (" [mode: digest]" if digest else ""))
+
+    if digest and not DIGEST_ENABLED:
+        # Kill-switch без правки workflow: выключили DIGEST_ENABLED — дайджест-прогон
+        # завершается сразу, обычные прогоны продолжают работать как раньше.
+        app_logger.info("Digest mode requested but DIGEST_ENABLED=false; nothing to do")
+        return
+
     context = get_config(config_name)
     
     app_logger.debug("Loading secret keys")
@@ -151,8 +166,13 @@ async def main(config_name):
         set_deadline(time.monotonic() + RUN_TIME_BUDGET_SECONDS)
         # With the ranker on, reserve wall-clock for phase-2 drain so a content-rich
         # run can't spend the whole budget pooling and then publish nothing.
-        if RANKER_ENABLED:
-            set_drain_reserve(RANKER_DRAIN_RESERVE_SECONDS)
+        if RANKER_ENABLED or digest:
+            set_drain_reserve(DIGEST_DRAIN_RESERVE_SECONDS if digest
+                              else RANKER_DRAIN_RESERVE_SECONDS)
+        # Режим дайджеста: фаза 1 копит кандидатов всегда (независимо от ранкера),
+        # фаза 2 вместо N перепостов собирает и публикует один длинный ролик.
+        if digest:
+            set_digest_mode(True)
         today = time.strftime('%Y-%m-%d', time.gmtime())
 
         app_logger.info("Fetching message history from Facebook, Instagram and Telegram")
@@ -268,8 +288,11 @@ async def main(config_name):
 
         app_logger.info("All parsing tasks completed successfully")
 
-        # Candidate ranker phase 2: publish the best-scoring pooled candidates.
-        if RANKER_ENABLED:
+        # Phase 2: собрать длинный дайджест-ролик из лучших кандидатов (режим
+        # дайджеста) либо опубликовать топ-K по отдельности (обычный ранкер).
+        if digest:
+            await drain_digest(client, graph, nlp, state, context)
+        elif RANKER_ENABLED:
             await drain_pool(client, graph, nlp, state)
 
         app_logger.info(image_filter_summary())
@@ -280,8 +303,9 @@ async def main(config_name):
         for record in get_publish_records():
             learning.record_publish(
                 state, record['head'], record['source'], record['ts'],
-                fb_id=record.get('fb_id'), ig_id=record.get('ig_id'),
-                is_video=record.get('is_video'), hashtag_n=record.get('hashtag_n'))
+                fb_id=record.get('fb_id'), fb_media_id=record.get('fb_media_id'),
+                ig_id=record.get('ig_id'), is_video=record.get('is_video'),
+                is_digest=record.get('is_digest'), hashtag_n=record.get('hashtag_n'))
 
         # Persist today's Instagram post count for the daily quota (item 9).
         learning.add_ig_posts(state, today, ig_posts_this_run())
@@ -309,7 +333,8 @@ async def main(config_name):
                 if FB_POST_INSIGHTS_ENABLED:
                     metrics_by_head = await asyncio.to_thread(
                         get_facebook_metrics_by_head, graph.access_token,
-                        state.get('pending', []), now, LEARNING_MATURATION_SECONDS)
+                        state.get('pending', []), now, LEARNING_MATURATION_SECONDS,
+                        FB_EARNINGS_ENABLED, FB_WATCH_TIME_ENABLED)
                 ig_metrics = await asyncio.to_thread(
                     get_instagram_metrics_by_head, graph.access_token,
                     context['self_instagram_channel'], INSIGHTS_MEDIA_LIMIT,
@@ -325,8 +350,14 @@ async def main(config_name):
                         entry['shares'] = (entry.get('shares') or 0) + m['shares']
                     entry.setdefault('likes', m.get('likes'))       # FB wins if present
                     entry.setdefault('comments', m.get('comments'))
+                # watch_total (минуты просмотра) и earnings (USD) — денежные члены:
+                # первое ведёт к порогу допуска в Content Monetization, второе — уже
+                # к самим деньгам. Пока страница не монетизирована, earnings пустой и
+                # член равен нулю, поведение прежнее.
                 weights = {'share': LEARNING_W_SHARE, 'save': LEARNING_W_SAVE,
                            'comment': LEARNING_W_COMMENT, 'watch': LEARNING_W_WATCH,
+                           'watch_total': LEARNING_W_WATCH_TOTAL,
+                           'earnings': LEARNING_W_EARNINGS,
                            'like': LEARNING_W_LIKE, 'reach': LEARNING_W_REACH}
                 learning.update_scores_metrics(
                     state, metrics_by_head, weights, now,
@@ -357,6 +388,7 @@ async def main(config_name):
                 dow_hour_ranking=learning.top_sources(state.get('dow_hours', {})),
                 format_ranking=learning.top_sources(state.get('formats', {})),
                 variant_ranking=learning.top_sources(state.get('variants', {})),
+                digest_ranking=learning.top_sources(state.get('digest', {})),
                 winners=list(reversed(state.get('recent_winners', [])))[:10])
 
         learning.save_state(LEARNING_STATE_PATH, state)
@@ -395,10 +427,13 @@ if __name__ == '__main__':
         parser = argparse.ArgumentParser(description='Bot for collecting and posting news')
         parser.add_argument('--config', type=str, default='football',
                           help='Configuration name under src/static/configs (default: football)')
+        parser.add_argument('--mode', type=str, default='posts', choices=('posts', 'digest'),
+                          help='posts — обычные публикации; digest — один длинный '
+                               'озвученный ролик из лучших новостей (default: posts)')
         args = parser.parse_args()
 
         app_logger.info("Starting application")
-        asyncio.run(main(args.config))
+        asyncio.run(main(args.config, digest=args.mode == 'digest'))
         app_logger.info("Application completed successfully")
     except KeyboardInterrupt:
         app_logger.info("Application interrupted by user")

@@ -131,8 +131,11 @@ INSTAGRAM_VIDEO_POLL_INTERVAL = float(os.getenv('INSTAGRAM_VIDEO_POLL_INTERVAL',
 # Единая версия для ВСЕХ вызовов Graph/Instagram API (чтение и публикация). v18
 # (2023) устарела; новые метрики инсайтов (IG shares/sends, views, reels-досмотр)
 # отдаются только на свежих версиях. Меняется ОДНИМ местом; можно переопределить
-# через GRAPH_API_VERSION (откатить на 'v21.0' или поднять — без правки кода).
-GRAPH_API_VERSION = os.getenv('GRAPH_API_VERSION', 'v22.0')
+# через GRAPH_API_VERSION (откатить на 'v22.0' или поднять — без правки кода).
+# v25.0 (18.02.2026) — актуальная. Поднято с v22 РАДИ ДЕНЕГ: метрики заработка
+# content_monetization_earnings / monetization_approximate_earnings появились
+# только в v23.0, на v22 их просто нет в схеме.
+GRAPH_API_VERSION = os.getenv('GRAPH_API_VERSION', 'v25.0')
 GRAPH_API_BASE = f'https://graph.facebook.com/{GRAPH_API_VERSION}/'
 # Резюмируемый аплоуд IG reels/video живёт на отдельном хосте; версия — та же.
 GRAPH_UPLOAD_BASE = f'https://rupload.facebook.com/ig-api-upload/{GRAPH_API_VERSION}/'
@@ -348,6 +351,41 @@ LEARNING_W_WATCH = float(os.getenv('LEARNING_W_WATCH', '0.3'))
 LEARNING_W_LIKE = float(os.getenv('LEARNING_W_LIKE', '0.0'))
 LEARNING_W_REACH = float(os.getenv('LEARNING_W_REACH', '0.05'))
 
+# === Оптимизация под ЗАРАБОТОК (Facebook Content Monetization) ===============
+# Facebook платит за КВАЛИФИЦИРОВАННЫЕ просмотры и вовлечённость: reels, длинные
+# видео, сторис, фото и текстовые посты. Порог допуска в программу — подписчики
+# ПЛЮС суммарные МИНУТЫ ПРОСМОТРА за трейлинговые 60 дней. Поэтому в reward
+# добавлены два денежных члена вместо чистых прокси-сигналов:
+#
+#  * watch_total — суммарное время просмотра поста в МИНУТАХ
+#    (total_video_view_total_time, мс -> мин). Это ровно та валюта, в которой
+#    считается порог допуска, и она же коррелирует с «qualified views» (просмотр
+#    короче ~3с не квалифицируется). Пока страница НЕ монетизирована — это
+#    главный сигнал: вес намеренно доминирующий.
+#  * earnings — фактический заработок поста (content_monetization_earnings, USD).
+#    Пока монетизации нет, метрика пустая и член равен нулю (fail-open); как
+#    только деньги пойдут — бот начнёт учиться прямо на них.
+#
+# Масштаб: reward среднего поста сейчас ~0.3-10, поэтому 1 минута просмотра = 1
+# балл (сильный, но не абсолютный), а $0.01 = 5 баллов (сопоставимо с репостом).
+# Снизить доминирование watch-time после допуска в программу: LEARNING_W_WATCH_TOTAL=0.
+LEARNING_W_WATCH_TOTAL = float(os.getenv('LEARNING_W_WATCH_TOTAL', '1.0'))
+LEARNING_W_EARNINGS = float(os.getenv('LEARNING_W_EARNINGS', '500.0'))
+
+# Тянуть ли метрики заработка/времени просмотра по сохранённым FB-id постов.
+# Best-effort: у не-монетизированной страницы метрика заработка недоступна, у
+# фото нет video_insights — оба случая деградируют в None, а не в ошибку прогона.
+FB_EARNINGS_ENABLED = _flag('FB_EARNINGS_ENABLED', 'true')
+FB_WATCH_TIME_ENABLED = _flag('FB_WATCH_TIME_ENABLED', 'true')
+
+# Порог допуска в Content Monetization — показываем прогресс в суточном дайджесте,
+# чтобы было видно расстояние до денег. Значения Meta меняет; тюнится через env.
+CMP_FOLLOWERS_TARGET = int(os.getenv('CMP_FOLLOWERS_TARGET', '10000'))
+CMP_WATCH_MINUTES_TARGET = int(os.getenv('CMP_WATCH_MINUTES_TARGET', '600000'))
+# Reels-трек допуска мягче: 5k подписчиков + 60k минут за 60 дней.
+CMP_FOLLOWERS_TARGET_REELS = int(os.getenv('CMP_FOLLOWERS_TARGET_REELS', '5000'))
+CMP_WATCH_MINUTES_TARGET_REELS = int(os.getenv('CMP_WATCH_MINUTES_TARGET_REELS', '60000'))
+
 # --- dow-hour бакеты времени (день недели × час) ------------------------------
 # Учим reward не только по часу UTC, но и по (день_недели × час) — вовлечённость
 # в FB заметно выше по выходным и Чт/Пт. Partial pooling: hour_budget берёт fine
@@ -446,3 +484,50 @@ REEL_MAX_SECONDS = float(os.getenv('REEL_MAX_SECONDS', '40'))
 # Таймаут ffmpeg-сборки одного Reel (сек): зависший процесс не должен съесть бюджет
 # прогона (таймаут CI-джобы 15 мин); по истечении — fail-open (публикуем как раньше).
 REEL_RENDER_TIMEOUT_SECONDS = int(os.getenv('REEL_RENDER_TIMEOUT_SECONDS', '90'))
+
+# === Длинный озвученный ДАЙДЖЕСТ-ролик (главный рычаг RPM) ==================
+# Экономика Facebook 2026: длинное видео платит $1-5 за 1000 просмотров, reels —
+# $0.02-0.20, т.е. в 10-50 раз меньше ЗА ТОТ ЖЕ ПРОСМОТР (in-stream ads против
+# доли в общем пуле reels). Плюс длинный ролик копит те самые МИНУТЫ ПРОСМОТРА,
+# по которым считается допуск в программу монетизации.
+#
+# Поэтому раз в сутки бот собирает топ-N новостей дня в ОДИН ролик 4:5: на каждую
+# новость — своя плашка с заголовком и наша TTS-озвучка, сегменты клеятся ffmpeg.
+# Такой ролик оригинален ПО ПОСТРОЕНИЮ (свой сценарий + свой голос + своя графика),
+# т.е. не попадает под «aggregating/duplicative content» — а именно за это Meta
+# снимает монетизацию и режет охват всей странице.
+#
+# Формат 4:5 (не 9:16) намеренно: вертикаль 9:16 Meta раскладывает в Reels, а нам
+# нужен именно ФИД-ролик, на котором показываются in-stream ads.
+DIGEST_ENABLED = _flag('DIGEST_ENABLED', 'false')
+DIGEST_W = int(os.getenv('DIGEST_W', '1080'))
+DIGEST_H = int(os.getenv('DIGEST_H', '1350'))
+# Сколько новостей кладём в ролик (верхняя граница; берём топ-N по скору ранкера).
+DIGEST_ITEMS = int(os.getenv('DIGEST_ITEMS', '8'))
+# Во сколько раз пул кандидатов больше числа сюжетов: часть отсеется на скачивании
+# и медиа-фильтрах, часть окажется видео (в дайджест не идут), поэтому копим с запасом.
+DIGEST_POOL_FACTOR = int(os.getenv('DIGEST_POOL_FACTOR', '3'))
+# Минимум сюжетов, ниже которого ролик не собираем (дайджест из двух новостей —
+# это не дайджест; лучше пропустить прогон, чем выложить огрызок).
+DIGEST_MIN_ITEMS = int(os.getenv('DIGEST_MIN_ITEMS', '4'))
+# Символов озвучки на ОДИН сюжет: ~15 симв/сек речи => 260 ≈ 18с. Меньше, чем
+# TTS_MAX_CHARS одиночного Reel: в дайджесте важнее число сюжетов, чем длина каждого.
+DIGEST_TTS_MAX_CHARS = int(os.getenv('DIGEST_TTS_MAX_CHARS', '260'))
+# Жёсткие рамки длины итогового ролика (сек). Нижняя — чтобы ролик считался
+# длинным видео и вообще нёс рекламные вставки; короче просто не публикуем.
+DIGEST_MIN_SECONDS = float(os.getenv('DIGEST_MIN_SECONDS', '90'))
+DIGEST_MAX_SECONDS = float(os.getenv('DIGEST_MAX_SECONDS', '600'))
+# Таймаут ffmpeg на ОДИН сегмент и на финальную склейку (сек).
+DIGEST_SEGMENT_TIMEOUT_SECONDS = int(os.getenv('DIGEST_SEGMENT_TIMEOUT_SECONDS', '90'))
+DIGEST_CONCAT_TIMEOUT_SECONDS = int(os.getenv('DIGEST_CONCAT_TIMEOUT_SECONDS', '180'))
+# Сколько wall-clock резервируем под фазу 2 дайджеста (синтез речи + рендер 8
+# сегментов + склейка + аплоуд многомегабайтного ролика). Заметно больше, чем у
+# обычного ранкера: иначе прогон упрётся в дедлайн с полным пулом и НУЛЁМ роликов.
+# Держите RUN_TIME_BUDGET_SECONDS у дайджест-прогона больше этого значения.
+DIGEST_DRAIN_RESERVE_SECONDS = int(os.getenv('DIGEST_DRAIN_RESERVE_SECONDS', '420'))
+# Заголовок поста с дайджестом (%s => дата UTC). Под ним идёт список сюжетов —
+# он же даёт зрителю причину досмотреть (а досмотр = квалифицированный просмотр).
+DIGEST_TITLE = os.getenv('DIGEST_TITLE', 'Resumo do dia — %s')
+# Дублировать ли дайджест в Instagram. По умолчанию ВЫКЛ: IG за просмотры почти не
+# платит (Reels Play свернули), а лишняя публикация жжёт суточную квоту IG.
+DIGEST_TO_INSTAGRAM = _flag('DIGEST_TO_INSTAGRAM', 'false')

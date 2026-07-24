@@ -62,6 +62,8 @@ def _reset(monkeypatch):
     svc._deadline = None
     svc._platform_publishes = svc.Counter()
     svc._publish_lock = asyncio.Lock()
+    svc._candidate_pool = []
+    svc._digest_mode = False
     monkeypatch.setattr(svc, 'POST_DELAY_SECONDS', 0)
     # Stub image filters (avoid PIL/nudenet + real files) and prepare functions.
     monkeypatch.setattr(svc, 'is_low_quality_image', lambda p: False)
@@ -273,3 +275,145 @@ async def test_should_stop_on_budget_and_deadline():
     svc.set_deadline(0.0)  # monotonic deadline already in the past
     assert svc.time_budget_exceeded() is True
     assert svc.should_stop() is True
+
+
+# --- режим дайджеста: один длинный ролик вместо N перепостов -----------------
+
+# Заголовки нарочно НЕПОХОЖИ друг на друга: mark_posted/_find_posted матчат головы
+# нечётко (порог схожести 0.7), и 'head0'/'head1' схлопнулись бы в одну запись.
+_DIGEST_HEADS = ['Benfica vence classico', 'Sporting empata fora de casa',
+                 'Porto contrata avancado brasileiro', 'Braga muda de treinador',
+                 'Selecao convoca vinte tres jogadores', 'Arbitragem sob investigacao']
+
+
+def _digest_candidates(n=6, is_video=False, offset=0):
+    posted = deque()
+    return [{
+        'head': _DIGEST_HEADS[(offset + i) % len(_DIGEST_HEADS)], 'source': f'src{i}',
+        'text': f'Notícia {i} do campeonato',
+        'handler_url_path': _url_path, 'posted_d': posted, 'context': CONTEXT,
+        'is_video': is_video,
+    } for i in range(n)]
+
+
+def _stub_digest(monkeypatch, video_path='/tmp/digest.mp4', headlines=None):
+    seen = {}
+
+    def fake_build(items, out_mp4=None):
+        seen['items'] = items
+        return (video_path, headlines if headlines is not None else
+                [f'h{i}' for i in range(len(items))]) if video_path else (None, [])
+
+    monkeypatch.setattr(svc, 'build_digest_video', fake_build)
+    return seen
+
+
+async def test_digest_publishes_single_long_video(monkeypatch):
+    calls = _mock_sends(monkeypatch)
+    seen = _stub_digest(monkeypatch)
+    svc._candidate_pool = _digest_candidates()
+
+    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+
+    # ОДНА публикация вместо шести перепостов
+    assert svc._published_count == 1
+    assert calls.count(Platform.FACEBOOK) == 1
+    assert Platform.INSTAGRAM not in calls        # IG за просмотры почти не платит
+    assert len(seen['items']) == 6
+    assert svc._candidate_pool == []
+
+
+async def test_digest_record_is_isolated_from_source_learning(monkeypatch):
+    _mock_sends(monkeypatch)
+    _stub_digest(monkeypatch)
+    svc._candidate_pool = _digest_candidates()
+
+    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+
+    record = svc.get_publish_records()[0]
+    assert record['is_digest'] is True and record['source'] == 'digest'
+    assert record['is_video'] is True
+    assert record['fb_media_id'] == 'FACEBOOK'    # media-id под /video_insights
+
+
+async def test_digest_skips_video_candidates(monkeypatch):
+    # Чужой видеоклип внутрь ролика не вставляем — это вернуло бы неоригинальность,
+    # ровно то, за что Meta снимает монетизацию.
+    _mock_sends(monkeypatch)
+    seen = _stub_digest(monkeypatch)
+    svc._candidate_pool = _digest_candidates(3) + _digest_candidates(3, is_video=True)
+
+    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+
+    assert len(seen['items']) == 3
+
+
+async def test_digest_not_published_when_render_fails(monkeypatch):
+    calls = _mock_sends(monkeypatch)
+    _stub_digest(monkeypatch, video_path=None)
+    svc._candidate_pool = _digest_candidates()
+
+    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+
+    assert calls == []
+    assert svc._published_count == 0
+    assert svc._candidate_pool == []              # пул всё равно очищен
+
+
+async def test_digest_marks_used_stories_posted(monkeypatch):
+    _mock_sends(monkeypatch)
+    _stub_digest(monkeypatch)
+    candidates = _digest_candidates(5)
+    posted = candidates[0]['posted_d']      # drain_digest очищает сам пул, ссылку берём заранее
+    svc._candidate_pool = candidates
+
+    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+
+    # сюжеты, ушедшие в ролик, помечены — в этом же прогоне их не выложат отдельно
+    heads = {entry[0] for entry in posted}
+    assert set(_DIGEST_HEADS[:5]) <= heads
+
+
+async def test_digest_respects_open_meta_circuit(monkeypatch):
+    calls = _mock_sends(monkeypatch)
+    _stub_digest(monkeypatch)
+    svc._meta_circuit_open = True
+    svc._candidate_pool = _digest_candidates()
+
+    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+
+    assert Platform.FACEBOOK not in calls
+    assert calls == [Platform.TELEGRAM]
+
+
+async def test_digest_mode_pools_regardless_of_ranker_flag(monkeypatch):
+    # Обычный ранкер выключен, но в режиме дайджеста фаза 1 обязана копить пул,
+    # иначе собирать ролик будет не из чего.
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', False)
+    calls = _mock_sends(monkeypatch)
+    svc.set_digest_mode(True)
+
+    await _serve()
+
+    assert calls == []                            # ничего не публикуем в фазе 1
+    assert len(svc._candidate_pool) == 1
+
+
+async def test_digest_mode_stops_scraping_at_pool_target(monkeypatch):
+    monkeypatch.setattr(svc, 'DIGEST_ITEMS', 2)
+    monkeypatch.setattr(svc, 'DIGEST_POOL_FACTOR', 2)
+    svc.set_digest_mode(True)
+
+    assert svc.should_stop() is False
+    svc._candidate_pool = [{}] * 4                # == DIGEST_ITEMS * DIGEST_POOL_FACTOR
+    assert svc.should_stop() is True
+
+
+async def test_digest_mode_ignores_post_budget(monkeypatch):
+    # В режиме дайджеста публикация одна, поэтому счётчик постов не должен
+    # останавливать сбор кандидатов.
+    svc.set_digest_mode(True)
+    svc._published_count = 99
+    svc._run_cap = 3
+
+    assert svc.should_stop() is False

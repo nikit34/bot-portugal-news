@@ -52,20 +52,21 @@ def is_available(voice_path=None):
 
 # --- подготовка текста -------------------------------------------------------
 
-def _clean_text(text):
+def _clean_text(text, max_chars=None):
     # Текст под озвучку: выкидываем URL, хэштеги/меншены и схлопываем пробелы, затем
-    # режем до TTS_MAX_CHARS по границе предложения (иначе слова), чтобы Reel был
-    # коротким. Возвращаем '' если озвучивать нечего.
+    # режем до max_chars (по умолчанию TTS_MAX_CHARS) по границе предложения (иначе
+    # слова), чтобы Reel был коротким. Возвращаем '' если озвучивать нечего.
     if not text:
         return ''
+    limit = max_chars or TTS_MAX_CHARS
     t = re.sub(r'https?://\S+', '', text)
     t = re.sub(r'[#@]\w+', '', t)
     t = re.sub(r'\s+', ' ', t).strip()
-    if len(t) <= TTS_MAX_CHARS:
+    if len(t) <= limit:
         return t
-    clipped = t[:TTS_MAX_CHARS]
+    clipped = t[:limit]
     cut = max(clipped.rfind('. '), clipped.rfind('! '), clipped.rfind('? '))
-    if cut < TTS_MAX_CHARS // 2:            # граница предложения слишком рано — по слову
+    if cut < limit // 2:                    # граница предложения слишком рано — по слову
         cut = clipped.rfind(' ')
     return (clipped[:cut + 1] if cut > 0 else clipped).strip()
 
@@ -91,15 +92,16 @@ def _synthesize_to_wav(voice, text, wav_file):
         voice.synthesize(text, wav_file)
 
 
-def synthesize(text, out_wav=None, voice_path=None):
+def synthesize(text, out_wav=None, voice_path=None, max_chars=None):
     """Озвучить text в WAV через piper. Возвращает путь к .wav или None (fail-open).
 
     Ничего не бросает: выключено / нет piper / нет модели / пустой текст / сбой
-    синтеза => None, и вызывающий публикует без озвучки.
+    синтеза => None, и вызывающий публикует без озвучки. max_chars переопределяет
+    TTS_MAX_CHARS — дайджест режет каждый сюжет короче, чем одиночный Reel.
     """
     if not TTS_ENABLED or TTS_ENGINE != 'piper':
         return None
-    clean = _clean_text(text)
+    clean = _clean_text(text, max_chars)
     if not clean:
         return None
     resolved = _resolve_voice_path(voice_path)

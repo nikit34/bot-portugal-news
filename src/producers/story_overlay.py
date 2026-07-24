@@ -98,32 +98,37 @@ def _wrap(draw, text, font, max_w):
     return lines
 
 
-def render_headline_story(src_path, headline, out_path=None, brand=STORY_OVERLAY_BRAND):
-    """Собрать сторис-картинку 9:16 с прожжённым заголовком. Возвращает путь к
-    новому файлу или None при любой ошибке (тогда вызывающий грузит оригинал)."""
+def render_headline_story(src_path, headline, out_path=None, brand=STORY_OVERLAY_BRAND,
+                          size=None):
+    """Собрать картинку-плашку с прожжённым заголовком. Возвращает путь к новому
+    файлу или None при любой ошибке (тогда вызывающий грузит оригинал).
+
+    По умолчанию 9:16 под сторис/Reels; size=(w,h) переопределяет — так дайджест
+    рендерит свои сегменты в 4:5 (фид-формат, на котором идут in-stream ads)."""
     try:
+        width, height = size or (STORY_W, STORY_H)
         with Image.open(src_path) as raw:
             src = raw.convert('RGB')
 
         # Фон: фото на весь кадр, размытое и затемнённое (закрывает леттербокс-поля).
-        canvas = _cover(src, STORY_W, STORY_H).filter(ImageFilter.GaussianBlur(28))
+        canvas = _cover(src, width, height).filter(ImageFilter.GaussianBlur(28))
         canvas = Image.blend(canvas, Image.new('RGB', canvas.size, (0, 0, 0)), 0.45)
         # Передний план: фото целиком, по центру.
-        fg = _contain(src, STORY_W, STORY_H)
-        canvas.paste(fg, ((STORY_W - fg.width) // 2, (STORY_H - fg.height) // 2))
+        fg = _contain(src, width, height)
+        canvas.paste(fg, ((width - fg.width) // 2, (height - fg.height) // 2))
         # Затемняющий градиент снизу под текст.
         canvas = Image.composite(
-            Image.new('RGB', canvas.size, (0, 0, 0)), canvas, _bottom_gradient(STORY_W, STORY_H))
+            Image.new('RGB', canvas.size, (0, 0, 0)), canvas, _bottom_gradient(width, height))
 
         draw = ImageDraw.Draw(canvas)
         head_font = _font(_HEADLINE_SIZE)
-        lines = _wrap(draw, headline, head_font, STORY_W - 2 * _MARGIN)
+        lines = _wrap(draw, headline, head_font, width - 2 * _MARGIN)
 
         brand_font = _font(40) if brand else None
         kicker_h = 62 if brand else 0
         bar_h = 38
         block_h = bar_h + kicker_h + _LINE_H * len(lines)
-        y = STORY_H - _FOOTER_PAD - block_h
+        y = height - _FOOTER_PAD - block_h
 
         draw.rectangle([_MARGIN, y, _MARGIN + 96, y + 12], fill=_ACCENT)
         y += bar_h

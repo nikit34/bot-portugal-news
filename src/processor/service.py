@@ -44,9 +44,14 @@ from src.static.settings import (
     STORY_GATE_IG_BUDGET_FRACTION,
     RANKER_ENABLED,
     RANKER_POOL_FACTOR,
+    DIGEST_ITEMS,
+    DIGEST_POOL_FACTOR,
+    DIGEST_TITLE,
+    DIGEST_TO_INSTAGRAM,
 )
 from src.producers.cards import build_card_image
 from src.producers.reel import build_reel
+from src.producers.digest_video import build_digest_video, build_digest_caption
 from src.processor.ranker import candidate_score
 from src.static.sources import Platform
 
@@ -82,11 +87,19 @@ _platform_publishes = Counter()
 # Candidate ranker (RANKER_ENABLED): phase-1 buffers candidates here; drain_pool
 # scores them and publishes only the top ones. Capped so phase-1 stops scraping.
 _candidate_pool = []
+# Режим дайджеста (main --mode digest): фаза 1 копит кандидатов ВСЕГДА, независимо
+# от RANKER_ENABLED, а фаза 2 вместо N перепостов собирает один длинный ролик.
+_digest_mode = False
 
 
 def set_run_cap(cap):
     global _run_cap
     _run_cap = cap
+
+
+def set_digest_mode(enabled):
+    global _digest_mode
+    _digest_mode = enabled
 
 
 def set_ig_daily(count, limit):
@@ -119,12 +132,23 @@ def _scrape_budget_exceeded():
     return _deadline is not None and time.monotonic() >= (_deadline - _drain_reserve_seconds)
 
 
+def _pool_target():
+    # Сколько кандидатов имеет смысл накопить в фазе 1. В режиме дайджеста цель
+    # задаётся числом сюжетов с запасом (часть отсеется на скачивании/фильтрах),
+    # а не бюджетом постов — публикация там всего одна.
+    if _digest_mode:
+        return max(1, DIGEST_ITEMS * DIGEST_POOL_FACTOR)
+    return max(1, _run_cap) * RANKER_POOL_FACTOR
+
+
 def should_stop():
     # Parsers call this to stop taking new entries: either the per-run post budget
     # is filled, or the (reserve-adjusted) wall-clock budget is exhausted. With the
     # ranker on, also stop once the candidate pool is full — otherwise phase-1
     # (which never publishes) would scrape until the deadline.
-    if RANKER_ENABLED and len(_candidate_pool) >= max(1, _run_cap) * RANKER_POOL_FACTOR:
+    if _digest_mode:
+        return len(_candidate_pool) >= _pool_target() or _scrape_budget_exceeded()
+    if RANKER_ENABLED and len(_candidate_pool) >= _pool_target():
         return True
     return budget_remaining() <= 0 or _scrape_budget_exceeded()
 
@@ -149,6 +173,138 @@ async def drain_pool(client, graph, nlp, state):
                 cand['posted_d'], cand['context'], cand['source'], cand['head'])
     finally:
         _candidate_pool.clear()
+
+
+async def drain_digest(client, graph, nlp, state, context):
+    # Фаза 2 в режиме ДАЙДЖЕСТА: вместо N отдельных перепостов собираем из лучших
+    # кандидатов один длинный озвученный ролик и публикуем его ОДИН раз.
+    #
+    # Экономический смысл — в digest_video.py: длинное видео платит в 10-50 раз
+    # больше за просмотр, копит минуты просмотра (по ним считается допуск в
+    # монетизацию) и оригинально по построению, т.е. выводит страницу из-под
+    # «aggregating/duplicative content».
+    #
+    # Берём только ФОТО-кандидатов: сегмент собирается из статичного кадра с нашей
+    # плашкой, чужой видеоклип внутрь не вставляем (это вернуло бы неоригинальность).
+    if not _candidate_pool:
+        app_logger.info("[digest] candidate pool empty; nothing to assemble")
+        return
+    current_hour = time.gmtime().tm_hour
+    ranked = sorted(_candidate_pool, key=lambda c: candidate_score(c, state, current_hour),
+                    reverse=True)
+    app_logger.info(f"[digest] assembling from {len(ranked)} pooled candidates")
+
+    items = []
+    used = []
+    try:
+        for cand in ranked:
+            if len(items) >= DIGEST_ITEMS or time_budget_exceeded():
+                break
+            if cand.get('is_video'):
+                continue
+            prepared = await _download_and_filter(
+                cand['handler_url_path'], nlp, cand['text'], cand['source'], cand['head'])
+            if prepared is None:
+                continue
+            url_path, is_video, _doc = prepared
+            if is_video:
+                # Пост-фактум оказался видео (hint соврал) — в дайджест не берём,
+                # но и не публикуем отдельно: это работа обычного прогона.
+                continue
+            items.append({'path': url_path.get('path'), 'text': cand['text']})
+            used.append(cand)
+
+        video_path, headlines = await asyncio.to_thread(build_digest_video, items)
+        if not video_path:
+            return
+
+        title = DIGEST_TITLE % time.strftime('%d.%m.%Y', time.gmtime())
+        caption = build_digest_caption(title, headlines)
+        await _publish_digest(client, graph, context, video_path, caption, used, title)
+    finally:
+        for item in items:
+            path = item.get('path')
+            if path and os.path.exists(path):
+                os.remove(path)
+        _candidate_pool.clear()
+
+
+async def _publish_digest(client, graph, context, video_path, caption, used, head):
+    # Публикация готового ролика. Facebook — цель (там деньги), Telegram — витрина.
+    # Instagram по умолчанию выключен: за просмотры он почти не платит, а публикация
+    # всё равно съест суточную квоту IG.
+    global _published_count, _meta_circuit_open, _ig_daily_count, _ig_posts_this_run
+
+    url_path = {'path': video_path, 'url': None}
+    posted_d = used[0]['posted_d'] if used else {}
+
+    async with _publish_lock:
+        targets = [Platform.FACEBOOK] if Platform.FACEBOOK in context['platforms'] else []
+        if DIGEST_TO_INSTAGRAM and Platform.INSTAGRAM in context['platforms'] \
+                and _ig_daily_count < _ig_daily_limit:
+            targets.append(Platform.INSTAGRAM)
+        if Platform.TELEGRAM in context['platforms']:
+            targets.append(Platform.TELEGRAM)
+        if _meta_circuit_open:
+            targets = [t for t in targets if t not in (Platform.FACEBOOK, Platform.INSTAGRAM)]
+        if not targets:
+            app_logger.warning("[digest] no publish targets; skipping")
+            return
+
+        coros = []
+        for platform in targets:
+            if platform is Platform.FACEBOOK:
+                # publish_story=False: дублировать многоминутный ролик в сторис
+                # бессмысленно (сторис живут 24ч и не доходят до не-подписчиков).
+                coros.append(facebook_send_message(
+                    graph, caption, url_path, context, publish_story=False))
+            elif platform is Platform.INSTAGRAM:
+                coros.append(instagram_send_message(
+                    graph, caption, None, url_path, context, publish_story=False))
+            else:
+                coros.append(telegram_send_message(
+                    client, telegram_prepare_post(caption), url_path, context))
+
+        results = await asyncio.gather(*coros, return_exceptions=True)
+
+        succeeded = set()
+        fb_post_id = None
+        fb_media_id = None
+        ig_media_id = None
+        for platform, result in zip(targets, results):
+            if isinstance(result, Exception):
+                if platform in (Platform.FACEBOOK, Platform.INSTAGRAM) and is_rate_limited(result):
+                    _meta_circuit_open = True
+                app_logger.warning(
+                    f"[digest] {platform.name} publish failed: {redact_secrets(str(result))}")
+                continue
+            succeeded.add(platform)
+            _platform_publishes[platform.name] += 1
+            if platform is Platform.FACEBOOK and isinstance(result, dict):
+                fb_post_id = result.get('post_id') or result.get('id')
+                fb_media_id = result.get('id')
+            if platform is Platform.INSTAGRAM:
+                _ig_daily_count += 1
+                _ig_posts_this_run += 1
+                if isinstance(result, dict):
+                    ig_media_id = result.get('id')
+
+        if not succeeded:
+            return
+        _published_count += 1
+        mark_posted(posted_d, head, succeeded)
+        for cand in used:
+            # Сюжеты, ушедшие в ролик, помечаем использованными, чтобы в этом же
+            # прогоне они не разошлись ещё и отдельными постами.
+            mark_posted(cand['posted_d'], cand['head'], succeeded)
+        # is_digest уводит reward дайджеста в СВОЙ бакет: его величина (минуты
+        # просмотра длинного ролика) на порядок больше пост-уровня и, попав в
+        # sources/hours, перекосила бы нормировку ранкера и бюджет часов.
+        _publish_records.append({
+            'head': head, 'source': 'digest', 'ts': time.time(), 'is_video': True,
+            'is_digest': True, 'fb_id': fb_post_id, 'fb_media_id': fb_media_id,
+            'ig_id': ig_media_id})
+        app_logger.info(f"[digest] published to {[p.name for p in succeeded]}")
 
 
 def get_publish_records():
@@ -217,8 +373,8 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
         app_logger.debug(f"[serve] skipping low-semantic-load post from {source}: head={head!r}")
         return
 
-    if RANKER_ENABLED:
-        if len(_candidate_pool) < max(1, _run_cap) * RANKER_POOL_FACTOR:
+    if RANKER_ENABLED or _digest_mode:
+        if len(_candidate_pool) < _pool_target():
             _candidate_pool.append({
                 'head': head, 'source': source, 'text': translated_message,
                 'handler_url_path': handler_url_path, 'posted_d': posted_d, 'context': context,
@@ -230,6 +386,50 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
         client, graph, nlp, translated_message, handler_url_path, posted_d, context, source, head)
 
 
+async def _download_and_filter(handler_url_path, nlp, translated_message, source, head):
+    # Скачивание медиа + все медиа-фильтры. Выделено из _download_and_publish, чтобы
+    # дайджест-ролик (drain_digest) собирал сюжеты по ТЕМ ЖЕ правилам качества, что и
+    # обычная публикация, без дублирования логики. Возвращает (url_path, is_video, doc)
+    # или None, если запись отсеяна.
+    try:
+        url_path = await handler_url_path()
+    except VideoSkip as e:
+        # Видео сознательно пропущено загрузчиком (длинное/большое/недоступный
+        # формат) — это не сбой, просто не постим эту запись.
+        app_logger.debug(f"[serve] video skipped from {source}: {e}")
+        return None
+
+    if not url_path or not url_path.get('path'):
+        # Загрузчик не вернул локальный файл — например, Telegram-медиа без
+        # скачиваемого файла (poll/geo/contact/dice): download_media отдаёт None.
+        # Постить нечего и все нижележащие фильтры ждут путь к файлу — пропускаем.
+        app_logger.debug(f"[serve] no media file downloaded from {source}; skipping")
+        return None
+
+    is_video = _is_video(url_path)
+
+    if not is_video and IMAGE_QUALITY_FILTER_ENABLED and is_low_quality_image(url_path.get('path')):
+        app_logger.debug(f"[serve] skipping low-quality image from {source}")
+        return None
+
+    if not is_video and IMAGE_NSFW_ENABLED and await asyncio.to_thread(is_unsafe_image, url_path.get('path')):
+        app_logger.debug(f"[serve] skipping NSFW image from {source}")
+        return None
+
+    doc = None
+    if not is_video:
+        doc = nlp(translated_message)
+        if _low_semantic_load(doc):
+            app_logger.debug(f"[serve] skipping low-semantic-load post from {source}: head={head!r}")
+            return None
+
+    if is_video and _large_video_size(url_path):
+        app_logger.debug(f"[serve] skipping oversized video from {source}")
+        return None
+
+    return url_path, is_video, doc
+
+
 async def _download_and_publish(client, graph, nlp, translated_message, handler_url_path,
                                 posted_d, context, source, head):
     # Phase-2 core: download media, run media filters, build the original card,
@@ -237,41 +437,10 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
     # and drain_pool (ranker on) so the publish/dedup/throttle logic lives in one place.
     global _published_count, _meta_circuit_open, _ig_daily_count, _ig_posts_this_run
 
-    try:
-        url_path = await handler_url_path()
-    except VideoSkip as e:
-        # Видео сознательно пропущено загрузчиком (длинное/большое/недоступный
-        # формат) — это не сбой, просто не постим эту запись.
-        app_logger.debug(f"[serve] video skipped from {source}: {e}")
+    prepared = await _download_and_filter(handler_url_path, nlp, translated_message, source, head)
+    if prepared is None:
         return
-
-    if not url_path or not url_path.get('path'):
-        # Загрузчик не вернул локальный файл — например, Telegram-медиа без
-        # скачиваемого файла (poll/geo/contact/dice): download_media отдаёт None.
-        # Постить нечего и все нижележащие фильтры ждут путь к файлу — пропускаем.
-        app_logger.debug(f"[serve] no media file downloaded from {source}; skipping")
-        return
-
-    is_video = _is_video(url_path)
-
-    if not is_video and IMAGE_QUALITY_FILTER_ENABLED and is_low_quality_image(url_path.get('path')):
-        app_logger.debug(f"[serve] skipping low-quality image from {source}")
-        return
-
-    if not is_video and IMAGE_NSFW_ENABLED and await asyncio.to_thread(is_unsafe_image, url_path.get('path')):
-        app_logger.debug(f"[serve] skipping NSFW image from {source}")
-        return
-
-    doc = None
-    if not is_video:
-        doc = nlp(translated_message)
-        if _low_semantic_load(doc):
-            app_logger.debug(f"[serve] skipping low-semantic-load post from {source}: head={head!r}")
-            return
-
-    if is_video and _large_video_size(url_path):
-        app_logger.debug(f"[serve] skipping oversized video from {source}")
-        return
+    url_path, is_video, doc = prepared
 
     # narrated-Reel: картинку/текст-новость превращаем в вертикальное видео с нашей
     # плашкой-заголовком и TTS-озвучкой — контент оригинален ПО ПОСТРОЕНИЮ (заменяет
@@ -374,6 +543,7 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
 
                     succeeded = set()
                     fb_post_id = None
+                    fb_media_id = None
                     ig_media_id = None
                     for platform, result in zip(active, results):
                         if isinstance(result, Exception):
@@ -392,6 +562,9 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
                             # returns only 'id'. Insights need the page-post id.
                             if platform is Platform.FACEBOOK and isinstance(result, dict):
                                 fb_post_id = result.get('post_id') or result.get('id')
+                                # Отдельно media-id: время просмотра живёт на
+                                # /{video-id}/video_insights, а не на story-узле поста.
+                                fb_media_id = result.get('id')
                             if platform is Platform.INSTAGRAM:
                                 _ig_daily_count += 1
                                 _ig_posts_this_run += 1
@@ -403,7 +576,8 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
                         mark_posted(posted_d, head, succeeded)
                         if source:
                             record = {'head': head, 'source': source, 'ts': time.time(),
-                                      'is_video': is_video, 'fb_id': fb_post_id, 'ig_id': ig_media_id}
+                                      'is_video': is_video, 'fb_id': fb_post_id,
+                                      'fb_media_id': fb_media_id, 'ig_id': ig_media_id}
                             if VARIANT_LOGGING_ENABLED and doc is not None:
                                 record['hashtag_n'] = len(extract_hashtags(doc))
                             _publish_records.append(record)

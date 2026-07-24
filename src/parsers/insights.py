@@ -1,4 +1,5 @@
 import html
+import time
 import asyncio
 import logging
 from datetime import datetime, timezone
@@ -14,6 +15,10 @@ from src.static.settings import (
     INSIGHTS_MEDIA_LIMIT,
     INSIGHTS_TOP_N,
     GRAPH_API_BASE,
+    CMP_FOLLOWERS_TARGET,
+    CMP_WATCH_MINUTES_TARGET,
+    CMP_FOLLOWERS_TARGET_REELS,
+    CMP_WATCH_MINUTES_TARGET_REELS,
 )
 
 logger = logging.getLogger('app')
@@ -215,9 +220,89 @@ def get_facebook_post_insights(access_token, post_id):
     return metrics
 
 
-def get_facebook_metrics_by_head(access_token, pending, now, min_age_seconds):
+def _fetch_object_insights(access_token, obj_id, connection, metric, period=None):
+    # Общий GET /{id}/{connection}?metric=... -> {name: value}. Одна неподдерживаемая
+    # метрика 400-ит ВЕСЬ запрос, поэтому вызывающие просят метрики по одной/группами.
+    # Best-effort: любая ошибка => {}, прогон не падает.
+    url = _GRAPH + str(obj_id) + '/' + connection
+    params = {'metric': metric, 'access_token': access_token}
+    if period:
+        params['period'] = period
+    out = {}
+    try:
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        for entry in response.json().get('data', []):
+            values = entry.get('values') or [{}]
+            out[entry.get('name')] = values[-1].get('value')
+    except Exception as e:
+        logger.warning(redact_secrets(
+            f"[insights] {connection} {metric} unavailable for {obj_id}: {e}"))
+    return out
+
+
+# Пока страница не онбордена в Content Monetization, метрики заработка не отдаются
+# НИ ДЛЯ ОДНОГО поста. Без этого предохранителя каждый скоринг делал бы по два
+# заведомо провальных запроса на каждый зрелый пост (десятки лишних вызовов к Graph
+# и столько же WARNING в логах). Первый отказ гасит попытки до конца прогона; каждый
+# прогон — новый процесс, поэтому появление монетизации подхватится само.
+_earnings_unavailable = False
+
+
+def get_facebook_post_earnings(access_token, post_id):
+    # Фактический заработок поста, USD. content_monetization_earnings появилась в
+    # Graph v23.0 и отдаётся ТОЛЬКО странице, онбординг которой в Content
+    # Monetization завершён; у остальных — ошибка/пусто, и это нормальный путь
+    # (fail-open => None, денежный член reward просто равен нулю).
+    global _earnings_unavailable
+    if not post_id or _earnings_unavailable:
+        return None
+    got = _fetch_object_insights(
+        access_token, post_id, 'insights', 'content_monetization_earnings', period='lifetime')
+    value = got.get('content_monetization_earnings')
+    if value is None:
+        got = _fetch_object_insights(
+            access_token, post_id, 'insights', 'monetization_approximate_earnings',
+            period='lifetime')
+        value = got.get('monetization_approximate_earnings')
+    if value is None:
+        _earnings_unavailable = True
+        logger.info("[insights] earnings metrics unavailable (page not onboarded to "
+                    "Content Monetization?); skipping earnings for the rest of this run")
+    return _as_number(value)
+
+
+def get_facebook_video_watch_minutes(access_token, video_id):
+    # Суммарное время просмотра видео в МИНУТАХ. total_video_view_total_time приходит
+    # в миллисекундах на /{video-id}/video_insights. Это валюта порога допуска в
+    # программу монетизации (минуты просмотра за 60 дней) и лучший из доступных
+    # прокси «квалифицированного» просмотра. Для фото эндпоинта нет => None.
+    if not video_id:
+        return None
+    got = _fetch_object_insights(
+        access_token, video_id, 'video_insights', 'total_video_view_total_time')
+    ms = _as_number(got.get('total_video_view_total_time'))
+    return (ms / 60000.0) if ms is not None else None
+
+
+def _as_number(value):
+    # Метрики инсайтов приходят числом, а с разбивкой — словарём {ключ: число};
+    # для нашей свёртки достаточно суммы. Всё непарсимое => None.
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, dict):
+        nums = [v for v in value.values() if isinstance(v, (int, float))]
+        return float(sum(nums)) if nums else None
+    return None
+
+
+def get_facebook_metrics_by_head(access_token, pending, now, min_age_seconds,
+                                 with_earnings=False, with_watch_time=False):
     # FB-метрики, привязанные к посту по СОХРАНЁННОМУ fb_id (точная атрибуция, без
     # матча по тексту). Только для зрелых pending-записей, у которых есть fb_id.
+    # with_earnings/with_watch_time добавляют денежные члены reward: заработок поста
+    # и суммарные минуты просмотра. Видео просим по media-id (fb_media_id): у поста
+    # вида '{page}_{post}' нет video_insights, они живут на самом видео-объекте.
     metrics_by_head = {}
     for post in pending or []:
         fb_id = post.get('fb_id')
@@ -227,29 +312,101 @@ def get_facebook_metrics_by_head(access_token, pending, now, min_age_seconds):
         if (now - post.get('ts', 0)) < min_age_seconds:
             continue
         metrics = get_facebook_post_insights(access_token, fb_id)
+        if with_earnings:
+            earnings = get_facebook_post_earnings(access_token, fb_id)
+            if earnings is not None:
+                metrics['earnings'] = earnings
+        if with_watch_time and post.get('is_video'):
+            minutes = get_facebook_video_watch_minutes(
+                access_token, post.get('fb_media_id') or fb_id)
+            if minutes is not None:
+                metrics['watch_total'] = minutes
         if metrics:
             metrics_by_head[head] = metrics
     return metrics_by_head
 
 
+# Охват страницы: page_impressions_unique выведена из строя 15.06.2026 ДЛЯ ВСЕХ
+# версий API (не только старых) — запрос отдаёт «(#100) not a valid metric».
+# Замена от Meta — page_total_media_view_unique. Пробуем новую, откатываемся на
+# старую: так дайджест работает и на страницах/версиях, где старая ещё жива.
+_PAGE_REACH_METRICS = ('page_total_media_view_unique', 'page_impressions_unique')
+
+
 def get_facebook_page_insights(access_token, page_id):
     # Охват и вовлечённость страницы за сутки. Best-effort (нужно право read_insights).
-    url = _GRAPH + page_id + '/insights'
+    stats = {}
+    for reach_metric in _PAGE_REACH_METRICS:
+        got = _fetch_object_insights(
+            access_token, page_id, 'insights',
+            reach_metric + ',page_post_engagements', period='day')
+        if got:
+            # Ключ нормализуем: остальной код (дайджест) знает одно имя.
+            reach = got.get(reach_metric)
+            if reach is not None:
+                stats['page_reach'] = reach
+            if got.get('page_post_engagements') is not None:
+                stats['page_post_engagements'] = got['page_post_engagements']
+            if stats:
+                return stats
+    return stats
+
+
+def get_facebook_page_monetization(access_token, page_id, window_days=60):
+    # Прогресс к допуску в Content Monetization: подписчики + минуты просмотра за
+    # трейлинговое окно + заработок страницы. Всё best-effort и по отдельности:
+    # у не-монетизированной страницы часть метрик недоступна, и это ожидаемо.
+    out = {}
+    try:
+        response = requests.get(
+            _GRAPH + str(page_id),
+            params={'fields': 'followers_count,fan_count', 'access_token': access_token})
+        response.raise_for_status()
+        data = response.json()
+        out['followers'] = data.get('followers_count') or data.get('fan_count')
+    except Exception as e:
+        logger.warning(redact_secrets(f"[insights] FB followers unavailable: {e}"))
+
+    since = int(time.time()) - window_days * 86400
+    minutes = _fetch_page_watch_minutes(access_token, page_id, since)
+    if minutes is not None:
+        out['watch_minutes_60d'] = minutes
+        out['watch_window_days'] = window_days
+
+    earnings = _fetch_object_insights(
+        access_token, page_id, 'insights', 'content_monetization_earnings', period='days_28')
+    value = _as_number(earnings.get('content_monetization_earnings'))
+    if value is not None:
+        out['earnings_28d'] = value
+    return out
+
+
+def _fetch_page_watch_minutes(access_token, page_id, since):
+    # Суммарные минуты просмотра страницы за окно: page_video_view_time приходит
+    # днями (мс/день), поэтому суммируем весь ряд, а не берём последнее значение.
+    url = _GRAPH + str(page_id) + '/insights'
     params = {
-        'metric': 'page_impressions_unique,page_post_engagements',
+        'metric': 'page_video_view_time',
         'period': 'day',
+        'since': since,
+        'until': int(time.time()),
         'access_token': access_token,
     }
-    stats = {}
     try:
         response = requests.get(url, params=params)
         response.raise_for_status()
-        for metric in response.json().get('data', []):
-            values = metric.get('values') or [{}]
-            stats[metric.get('name')] = values[-1].get('value')
+        total_ms = 0
+        found = False
+        for entry in response.json().get('data', []):
+            for point in entry.get('values') or []:
+                value = _as_number(point.get('value'))
+                if value is not None:
+                    total_ms += value
+                    found = True
+        return (total_ms / 60000.0) if found else None
     except Exception as e:
-        logger.warning(redact_secrets(f"[insights] FB page insights unavailable: {e}"))
-    return stats
+        logger.warning(redact_secrets(f"[insights] FB page watch time unavailable: {e}"))
+        return None
 
 
 _WEEKDAYS = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс']
@@ -264,9 +421,45 @@ def _fmt_dow_hour(key):
         return str(key)
 
 
+def _progress_bar(done, target, width=10):
+    filled = 0 if target <= 0 else min(width, int(width * done / target))
+    return '█' * filled + '░' * (width - filled)
+
+
+def _monetization_lines(monetization):
+    # Расстояние до денег: подписчики и минуты просмотра против порога допуска в
+    # Content Monetization. Показываем ОБА трека — мягкий (reels: 5k/60k) и полный
+    # (10k/600k), чтобы было видно, какой берётся первым. Нет данных — нет блока.
+    if not monetization:
+        return []
+    followers = monetization.get('followers')
+    minutes = monetization.get('watch_minutes_60d')
+    earnings = monetization.get('earnings_28d')
+    if followers is None and minutes is None and earnings is None:
+        return []
+
+    lines = ['\n<b>💰 Допуск в монетизацию</b>']
+    for label, f_target, m_target in (
+            ('reels-трек', CMP_FOLLOWERS_TARGET_REELS, CMP_WATCH_MINUTES_TARGET_REELS),
+            ('полный', CMP_FOLLOWERS_TARGET, CMP_WATCH_MINUTES_TARGET)):
+        parts = []
+        if followers is not None:
+            parts.append(f'{_progress_bar(followers, f_target)} {followers}/{f_target} подписчиков')
+        if minutes is not None:
+            parts.append(
+                f'{_progress_bar(minutes, m_target)} {round(minutes)}/{m_target} мин за '
+                f'{monetization.get("watch_window_days", 60)}д')
+        if parts:
+            lines.append(f'<b>{label}</b>')
+            lines.extend('• ' + p for p in parts)
+    if earnings is not None:
+        lines.append(f'• заработок за 28д: ${earnings:.2f}')
+    return lines
+
+
 def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=None,
                           format_ranking=None, variant_ranking=None, dow_hour_ranking=None,
-                          winners=None):
+                          winners=None, monetization=None, digest_ranking=None):
     lines = ['📊 <b>Insights</b>']
 
     if winners:
@@ -276,7 +469,7 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
             source = html.escape(str(w.get('source', '') or ''))
             lines.append(f'{i}. {head} — {round(w.get("reward", 0.0), 1)} ({source})')
 
-    fb_reach = fb_stats.get('page_impressions_unique')
+    fb_reach = fb_stats.get('page_reach')
     fb_eng = fb_stats.get('page_post_engagements')
     if fb_reach is not None or fb_eng is not None:
         lines.append('\n<b>Facebook (страница, сутки)</b>')
@@ -284,6 +477,10 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
             lines.append(f'• охват: {fb_reach}')
         if fb_eng is not None:
             lines.append(f'• вовлечённость: {fb_eng}')
+
+    money_lines = _monetization_lines(monetization)
+    if money_lines:
+        lines.extend(money_lines)
 
     if ig_items:
         lines.append('\n<b>Instagram — топ постов</b>')
@@ -313,6 +510,14 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
         for name, reward_avg, n in format_ranking:
             lines.append(f'• {html.escape(str(name))}: {round(reward_avg)} (n={n})')
 
+    if digest_ranking:
+        # Отдельной строкой: reward дайджеста живёт в своём бакете, чтобы не
+        # перекашивать пост-уровневую статистику, но сравнить их полезно —
+        # это и есть ответ, окупается ли длинный ролик против обычных постов.
+        lines.append('\n<b>Длинный дайджест-ролик (reward, средн.)</b>')
+        for name, reward_avg, n in digest_ranking:
+            lines.append(f'• {html.escape(str(name))}: {round(reward_avg)} (n={n})')
+
     if variant_ranking:
         lines.append('\n<b>Хэштеги по reward (средн.)</b>')
         for name, reward_avg, n in variant_ranking:
@@ -326,7 +531,7 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
 
 async def report_insights(graph, telegram_bot_token, context, source_ranking=None, hour_ranking=None,
                           format_ranking=None, variant_ranking=None, dow_hour_ranking=None,
-                          winners=None):
+                          winners=None, digest_ranking=None):
     ig_items = []
     fb_stats = {}
     ig_user_id = context.get('self_instagram_channel')
@@ -343,8 +548,16 @@ async def report_insights(graph, telegram_bot_token, context, source_ranking=Non
     except Exception as e:
         logger.warning(redact_secrets(f"[insights] FB page insights failed: {e}"))
 
+    monetization = {}
+    try:
+        monetization = await asyncio.to_thread(
+            get_facebook_page_monetization, graph.access_token, context['self_facebook_page_id'])
+    except Exception as e:
+        logger.warning(redact_secrets(f"[insights] FB monetization progress failed: {e}"))
+
     report = build_insights_report(
         ig_items, fb_stats, source_ranking, hour_ranking, format_ranking, variant_ranking,
-        dow_hour_ranking, winners=winners)
+        dow_hour_ranking, winners=winners, monetization=monetization,
+        digest_ranking=digest_ranking)
     await send_message_api(report, telegram_bot_token, context)
     logger.info("[insights] report sent to debug chat")

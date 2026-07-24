@@ -5,6 +5,36 @@
 - [facebook.com/desportportugal](https://www.facebook.com/desportportugal)
 
 
+## Monetization (Facebook Content Monetization)
+
+Facebook платит за КВАЛИФИЦИРОВАННЫЕ просмотры и вовлечённость на reels, длинных
+видео, сторис, фото и текстовых постах. Два факта определяют архитектуру бота:
+
+1. **Перепост чужого контента не монетизируется.** «Aggregating content» и
+   «duplicative content» — прямые нарушения Content Monetization Policies:
+   монетизацию снимают, а охват режут всей странице, а не только посту. Поэтому
+   каждая фото-новость превращается в narrated-Reel (`REEL_RENDER_ENABLED`):
+   своя плашка + своя TTS-озвучка = оригинал по построению.
+2. **Длинное видео платит в 10-50 раз больше за просмотр**, чем reels
+   ($1-5 против $0.02-0.20 за 1000). Отсюда режим дайджеста.
+
+| Режим | Команда | Что делает |
+|---|---|---|
+| посты | `python main.py` | обычные публикации (каждые 2ч) |
+| дайджест | `python main.py --mode digest` | один длинный озвученный ролик из топ-N новостей дня |
+
+Проверить, далеко ли до порога допуска в программу:
+
+    FACEBOOK_ACCESS_TOKEN=... python tools/monetization_check.py
+
+Прогресс к порогу (подписчики + минуты просмотра за 60 дней) и заработок за 28
+дней также попадают в суточный insights-дайджест в debug-чат.
+
+Обучение идёт на деньгах: `LEARNING_W_WATCH_TOTAL` (минуты просмотра — валюта
+порога допуска) и `LEARNING_W_EARNINGS` (`content_monetization_earnings`,
+Graph v23+). Пока страница не монетизирована, денежный член равен нулю и
+поведение деградирует к прежнему — без ошибок.
+
 ## Steps to Run the Project
 
 1. Create a virtual environment:

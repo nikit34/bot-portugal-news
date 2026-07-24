@@ -223,6 +223,64 @@ def test_update_scores_metrics_attributes_reward_and_format():
     assert state['pending'] == []
 
 
+def test_reward_for_counts_watch_minutes_and_earnings():
+    # Денежные члены: watch_total — суммарные МИНУТЫ просмотра (валюта порога
+    # допуска в монетизацию), earnings — фактические доллары за пост.
+    weights = {'share': 4.0, 'watch_total': 1.0, 'earnings': 500.0}
+    m = {'shares': 1, 'watch_total': 42.0, 'earnings': 0.03}
+    assert learning.reward_for(m, weights) == 4 + 42 + 15  # 61.0
+
+
+def test_reward_for_ignores_money_terms_when_metrics_absent():
+    # Пока страница не монетизирована, earnings/watch_total пустые — reward должен
+    # деградировать до прежнего поведения, а не ломаться.
+    weights = {'share': 4.0, 'watch_total': 1.0, 'earnings': 500.0, 'reach': 0.05}
+    assert learning.reward_for({'shares': 2, 'reach': 100}, weights) == 8 + 5.0
+
+
+def test_digest_reward_goes_to_its_own_bucket():
+    # Reward дайджеста (минуты просмотра многоминутного ролика) на порядок больше
+    # пост-уровневого. Попади он в sources/hours — раздул бы средний reward и
+    # перекосил и нормировку ранкера, и почасовой бюджет постов.
+    now = 100 * DAY
+    weights = {'watch_total': 1.0}
+    state = {'pending': [{'head': 'Resumo', 'source': 'digest', 'ts': now - 2 * DAY,
+                          'is_video': True, 'is_digest': True}],
+             'sources': {}, 'hours': {}}
+
+    learning.update_scores_metrics(state, {'Resumo': {'watch_total': 900.0}}, weights,
+                                   now, DAY, 7 * DAY, alpha=0.3,
+                                   winner_pct=90, winner_min_samples=1)
+
+    assert state['digest']['digest'] == {'reach_avg': 900.0, 'n': 1}
+    assert state['sources'] == {} and state['hours'] == {}
+    assert state.get('formats', {}) == {}
+    # и не попадает в распределение, по которому строится планка «победителя»
+    assert state.get('reward_samples', []) == []
+    assert state['pending'] == []
+
+
+def test_non_digest_post_still_hits_source_buckets():
+    now = 100 * DAY
+    state = {'pending': [{'head': 'h', 'source': 'abola.pt', 'ts': now - 2 * DAY,
+                          'is_video': False}], 'sources': {}, 'hours': {}}
+
+    learning.update_scores_metrics(state, {'h': {'watch_total': 5.0}}, {'watch_total': 1.0},
+                                   now, DAY, 7 * DAY, alpha=0.3)
+
+    assert state['sources']['abola.pt'] == {'reach_avg': 5.0, 'n': 1}
+    assert state['formats']['photo'] == {'reach_avg': 5.0, 'n': 1}
+
+
+def test_record_publish_keeps_digest_and_media_id():
+    state = {}
+    learning.record_publish(state, 'Resumo', 'digest', 123.0, fb_id='P_1', fb_media_id='V1',
+                            is_video=True, is_digest=True, ig_id=None)
+    assert state['pending'] == [{'head': 'Resumo', 'source': 'digest', 'ts': 123.0,
+                                 'fb_id': 'P_1', 'fb_media_id': 'V1',
+                                 'is_video': True, 'is_digest': True}]
+
+
 def test_update_scores_metrics_logs_variants_when_enabled():
     now = 100 * DAY
     weights = {'reach': 1.0}

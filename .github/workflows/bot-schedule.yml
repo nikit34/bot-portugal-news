@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v5
       - name: Check Facebook token
         run: |
-          response=$(curl -s "https://graph.facebook.com/v18.0/me?access_token=${{ secrets.FACEBOOK_ACCESS_TOKEN }}")
+          response=$(curl -s "https://graph.facebook.com/v25.0/me?access_token=${{ secrets.FACEBOOK_ACCESS_TOKEN }}")
           if echo "$response" | grep -q "error"; then
             echo "Facebook token is invalid: $response"
             exit 1
@@ -46,6 +46,18 @@ jobs:
           echo "Facebook token is valid"
       - name: Setup Python environment
         uses: ./.github/actions/setup-python-env
+      - name: Cache piper voice model
+        # Модель голоса ~60 МБ и не меняется — качаем один раз, дальше из кэша,
+        # иначе каждый двухчасовой прогон тянул бы её заново.
+        uses: actions/cache@v4
+        with:
+          path: src/static/voices
+          key: piper-voice-pt_BR-faber-medium
+      - name: Fetch piper voice
+        # БЕЗ голоса narrated-Reel молча выключается (tts.is_available() => False) и
+        # бот снова становится чистым репостером — ровно тем, за что Meta режет
+        # монетизацию и охват. Поэтому шаг обязателен, а не best-effort.
+        run: python tools/fetch_piper_voice.py pt_BR-faber-medium
       - name: Create logs directory
         run: mkdir -p logs
       - name: Restore/seed learning state
@@ -79,7 +91,9 @@ jobs:
           # (иначе fail-open публикует БЕЗ вотермарки) и резерв фазы-2 (иначе один
           # тяжёлый клип съедает окно и остальные посты не выходят).
           VIDEO_UNIQUIFY_TIMEOUT_SECONDS: '240'   # было 120 — под ~200-МБ ре-энкод
-          RANKER_DRAIN_RESERVE_SECONDS: '300'     # было 180 — окно дренажа под видео
+          # Окно дренажа фазы 2. 300 -> 360: поверх загрузки каждый пост теперь ещё
+          # синтезирует речь и рендерит Reel (~30-60с), иначе упрёмся в дедлайн.
+          RANKER_DRAIN_RESERVE_SECONDS: '360'
           # === FB-growth optimization: all levers ON (verified runtime-safe) ===
           # Anti-demotion / content (CAPTION_GUARD + hashtag entity bias are ON by
           # code default). Set the rest here so they're auditable and reversible.
@@ -105,6 +119,19 @@ jobs:
           LEARNING_FOLLOWUP_ENABLED: 'true'
           LEARNING_FOLLOWUP_WINNER_PCT: '90'     # планка победителя = топ-10% reward
           LEARNING_FOLLOWUP_SOURCE_BUDGET_BONUS: '1'  # +1 слот свежих статей на победителя
+          # === Монетизация: оригинальность + минуты просмотра ===================
+          # narrated-Reel ВКЛЮЧЁН: каждая фото-новость превращается в вертикальное
+          # видео с нашей плашкой и нашей озвучкой. Две причины, обе денежные:
+          #  1) Meta снимает монетизацию и режет охват ВСЕЙ странице за
+          #     «aggregating/duplicative content» — то есть за то, чем репост
+          #     чужого фото и является. Своя озвучка — это material edit.
+          #  2) Фото не копит МИНУТЫ ПРОСМОТРА, а по ним считается сам допуск в
+          #     Content Monetization (5k подписчиков + 60k минут за 60 дней).
+          # Откат: REEL_RENDER_ENABLED=false (вернётся публикация фото как есть).
+          REEL_RENDER_ENABLED: 'true'
+          # Учимся на деньгах: заработок поста + суммарное время просмотра.
+          FB_EARNINGS_ENABLED: 'true'
+          FB_WATCH_TIME_ENABLED: 'true'
       - name: Persist learning state to repo
         # Durable backstop for the learning model on top of actions/cache (which can
         # be evicted after 7 idle days). Runs even if the bot soft-failed (the bot

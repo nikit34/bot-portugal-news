@@ -77,7 +77,7 @@ def test_build_report_escapes_html_and_ranks():
         {'head': 'Benfica <b>2</b> & Porto', 'media_type': 'IMAGE', 'likes': 10, 'comments': 2, 'reach': 500},
         {'head': 'no caption post', 'media_type': 'REELS', 'likes': 4, 'comments': 0, 'reach': None},
     ]
-    fb_stats = {'page_impressions_unique': 1234, 'page_post_engagements': 56}
+    fb_stats = {'page_reach': 1234, 'page_post_engagements': 56}
 
     report = ins.build_insights_report(ig_items, fb_stats)
 
@@ -292,6 +292,167 @@ def test_build_report_includes_format_and_variant_rankings():
         variant_ranking=[('tags:1-3', 70.0, 5)])
     assert 'Форматы по reward' in report and 'video: 80 (n=4)' in report
     assert 'Хэштеги по reward' in report and 'tags:1-3: 70 (n=5)' in report
+
+
+def test_page_insights_prefers_new_reach_metric(monkeypatch):
+    # page_impressions_unique died 15.06.2026 for ALL API versions. We must ask for
+    # its replacement first and normalize the key to 'page_reach'.
+    asked = []
+
+    def fake_get(url, params=None, **kwargs):
+        asked.append(params['metric'])
+        return _FakeResponse({'data': [
+            {'name': 'page_total_media_view_unique', 'values': [{'value': 777}]},
+            {'name': 'page_post_engagements', 'values': [{'value': 42}]},
+        ]})
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+    stats = ins.get_facebook_page_insights('tok', 'PAGE')
+
+    assert asked[0].startswith('page_total_media_view_unique')
+    assert stats == {'page_reach': 777, 'page_post_engagements': 42}
+
+
+def test_page_insights_falls_back_to_legacy_reach_metric(monkeypatch):
+    # Where the new metric isn't served yet, the legacy one must still be tried —
+    # otherwise the digest silently loses page reach entirely.
+    asked = []
+
+    def fake_get(url, params=None, **kwargs):
+        metric = params['metric']
+        asked.append(metric)
+        if metric.startswith('page_total_media_view_unique'):
+            raise Exception('(#100) page_total_media_view_unique is not valid')
+        return _FakeResponse({'data': [{'name': 'page_impressions_unique',
+                                        'values': [{'value': 55}]}]})
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+    stats = ins.get_facebook_page_insights('tok', 'PAGE')
+
+    assert len(asked) == 2
+    assert stats == {'page_reach': 55}
+
+
+@pytest.fixture(autouse=True)
+def _reset_earnings_circuit():
+    ins._earnings_unavailable = False
+
+
+def test_post_earnings_stops_asking_after_first_miss(monkeypatch):
+    # На не-монетизированной странице метрика недоступна для ВСЕХ постов. Без
+    # предохранителя каждый скоринг слал бы по два заведомо провальных запроса
+    # на каждый зрелый пост.
+    calls = []
+
+    def fake_get(url, params=None, **kwargs):
+        calls.append(params['metric'])
+        raise Exception('(#100) not a valid metric')
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+
+    assert ins.get_facebook_post_earnings('tok', 'P1') is None
+    assert len(calls) == 2                     # content_monetization + approximate
+    assert ins.get_facebook_post_earnings('tok', 'P2') is None
+    assert len(calls) == 2                     # второй пост уже не спрашиваем
+
+
+def test_post_earnings_falls_back_to_approximate(monkeypatch):
+    # content_monetization_earnings exists only from Graph v23 and only for pages
+    # onboarded to Content Monetization; monetization_approximate_earnings is the
+    # backstop. Neither available => None (money term contributes nothing).
+    def fake_get(url, params=None, **kwargs):
+        if params['metric'] == 'content_monetization_earnings':
+            raise Exception('(#100) not a valid metric')
+        return _FakeResponse({'data': [{'name': 'monetization_approximate_earnings',
+                                        'values': [{'value': 1.25}]}]})
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+    assert ins.get_facebook_post_earnings('tok', 'P1') == 1.25
+
+
+def test_post_earnings_none_when_not_monetized(monkeypatch):
+    monkeypatch.setattr(ins.requests, 'get',
+                        lambda *a, **k: (_ for _ in ()).throw(Exception('(#10) no permission')))
+    assert ins.get_facebook_post_earnings('tok', 'P1') is None
+
+
+def test_video_watch_minutes_converts_from_milliseconds(monkeypatch):
+    def fake_get(url, params=None, **kwargs):
+        assert url.endswith('/video_insights')
+        assert params['metric'] == 'total_video_view_total_time'
+        return _FakeResponse({'data': [{'name': 'total_video_view_total_time',
+                                        'values': [{'value': 180000}]}]})   # 3 min in ms
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+    assert ins.get_facebook_video_watch_minutes('tok', 'VID') == 3.0
+
+
+def test_metrics_by_head_adds_money_terms_for_video_only(monkeypatch):
+    now = 100 * 24 * 3600
+    pending = [
+        {'head': 'vid', 'fb_id': 'V1', 'fb_media_id': 'V1', 'ts': now - 2 * 24 * 3600,
+         'is_video': True},
+        {'head': 'pic', 'fb_id': 'P_1', 'ts': now - 2 * 24 * 3600, 'is_video': False},
+    ]
+    monkeypatch.setattr(ins, 'get_facebook_post_insights', lambda tok, pid: {'shares': 1})
+    monkeypatch.setattr(ins, 'get_facebook_post_earnings', lambda tok, pid: 0.02)
+    watch_calls = []
+    monkeypatch.setattr(ins, 'get_facebook_video_watch_minutes',
+                        lambda tok, vid: watch_calls.append(vid) or 12.5)
+
+    result = ins.get_facebook_metrics_by_head(
+        'tok', pending, now, 24 * 3600, with_earnings=True, with_watch_time=True)
+
+    # watch time only queried for the video (photos have no /video_insights node)
+    assert watch_calls == ['V1']
+    assert result['vid'] == {'shares': 1, 'earnings': 0.02, 'watch_total': 12.5}
+    assert result['pic'] == {'shares': 1, 'earnings': 0.02}
+
+
+def test_metrics_by_head_without_money_flags_is_unchanged(monkeypatch):
+    now = 100 * 24 * 3600
+    pending = [{'head': 'h1', 'fb_id': 'P1', 'ts': now - 2 * 24 * 3600, 'is_video': True}]
+    monkeypatch.setattr(ins, 'get_facebook_post_insights', lambda tok, pid: {'shares': 2})
+    monkeypatch.setattr(ins, 'get_facebook_post_earnings',
+                        lambda *a: pytest.fail('must not fetch earnings when disabled'))
+    monkeypatch.setattr(ins, 'get_facebook_video_watch_minutes',
+                        lambda *a: pytest.fail('must not fetch watch time when disabled'))
+
+    assert ins.get_facebook_metrics_by_head('tok', pending, now, 24 * 3600) == {'h1': {'shares': 2}}
+
+
+def test_page_monetization_sums_watch_time_across_days(monkeypatch):
+    def fake_get(url, params=None, **kwargs):
+        if params.get('fields'):
+            return _FakeResponse({'followers_count': 1234})
+        if params.get('metric') == 'page_video_view_time':
+            return _FakeResponse({'data': [{'name': 'page_video_view_time', 'values': [
+                {'value': 60000}, {'value': 120000}, {'value': 60000}]}]})   # 1+2+1 = 4 min
+        return _FakeResponse({'data': []})
+
+    monkeypatch.setattr(ins.requests, 'get', fake_get)
+    result = ins.get_facebook_page_monetization('tok', 'PAGE')
+
+    assert result['followers'] == 1234
+    assert result['watch_minutes_60d'] == 4.0
+    assert 'earnings_28d' not in result       # not monetized => key simply absent
+
+
+def test_build_report_shows_distance_to_monetization():
+    report = ins.build_insights_report([], {}, monetization={
+        'followers': 500, 'watch_minutes_60d': 6000, 'watch_window_days': 60,
+        'earnings_28d': 0.0})
+
+    assert 'Допуск в монетизацию' in report
+    assert '500/5000 подписчиков' in report          # reels track
+    assert '500/10000 подписчиков' in report         # full track
+    assert '6000/60000 мин за 60д' in report
+    assert 'заработок за 28д: $0.00' in report
+
+
+def test_build_report_omits_monetization_block_without_data():
+    assert 'Допуск в монетизацию' not in ins.build_insights_report([], {}, monetization={})
+    assert 'Допуск в монетизацию' not in ins.build_insights_report([], {})
 
 
 def test_reach_by_head_skips_fresh_and_captionless(monkeypatch):
