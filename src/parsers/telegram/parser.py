@@ -4,6 +4,7 @@ import os
 
 from telethon.tl.types import MessageMediaWebPage
 from src.files_manager import SaveFileTelegram
+from src.processor.recipe_filter import is_recipe
 from src.processor.service import serve, should_stop
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, MESSAGE_CHUNK_SIZE, MAX_VIDEO_SIZE_MB
 from src.producers.telegram.telegram_api import send_message_api
@@ -86,6 +87,14 @@ async def _process_message_chunk(
         if not message_text or isinstance(message.media, MessageMediaWebPage) or not message.media:
             skipped_count += 1
             app_logger.debug(f"[Telegram] Skipping message: {'No text' if not message_text else 'No media'}")
+            continue
+
+        # Food-конфиг (recipe_only): в канал только рецепты. Проверяем подпись поста —
+        # у кулинарных каналов рецепт обычно расписан прямо в тексте (ингредиенты/способ
+        # или само слово «receita»); промо/анонсы без этих признаков отсекаем.
+        if context.get('recipe_only') and not is_recipe(message_text):
+            skipped_count += 1
+            app_logger.debug("[Telegram] Skipping non-recipe message (recipe_only)")
             continue
 
         try:

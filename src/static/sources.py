@@ -34,6 +34,8 @@ def _validate_config(config_name, config):
     for platform in config['platforms']:
         if not hasattr(Platform, platform):
             raise ValueError(f"config '{config_name}': unknown platform '{platform}'")
+    if 'recipe_only' in config and not isinstance(config['recipe_only'], bool):
+        raise ValueError(f"config '{config_name}': 'recipe_only' must be a boolean")
 
 
 def get_config(config_name):
@@ -52,6 +54,9 @@ def get_config(config_name):
         'self_instagram_channel': config['self']['instagram_channel'],
         'telegram_channels': config['telegram_channels'],
         'rss_channels': config['rss_channels'],
+        # Опциональный тематический гейт: для food-конфига пропускаем только рецепты
+        # (см. recipe_filter). Отсутствует/false у football => поведение без изменений.
+        'recipe_only': bool(config.get('recipe_only', False)),
     }
 
 tmp_folder = os.getcwd() + '/tmp'

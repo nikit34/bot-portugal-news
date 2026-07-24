@@ -41,6 +41,32 @@ def test_load_config_file_not_found():
         _load_config('non_existent_config')
 
 
+def test_validate_config_recipe_only_must_be_bool():
+    with pytest.raises(ValueError):
+        _validate_config('bad', _cfg(recipe_only='yes'))
+
+
+def test_recipe_only_surfaced_and_defaults_false(config_file, monkeypatch):
+    import os as _os
+    monkeypatch.setattr(_os.path, 'join', lambda *a: config_file)
+    # Absent key -> False (football keeps today's behavior, no topic gate).
+    with open(config_file, 'w') as f:
+        json.dump(_cfg(), f)
+    assert get_config('any')['recipe_only'] is False
+    # Explicit true is surfaced (food channel).
+    with open(config_file, 'w') as f:
+        json.dump(_cfg(recipe_only=True), f)
+    assert get_config('any')['recipe_only'] is True
+
+
+def test_food_br_config_enables_recipe_only():
+    assert get_config('food_br')['recipe_only'] is True
+
+
+def test_football_config_has_no_recipe_gate():
+    assert get_config('football')['recipe_only'] is False
+
+
 def test_food_br_config_is_valid():
     # The shipped 2nd-channel config must load + validate structurally so it's drop-in
     # once the real Page/IG ids are filled in (Meta setup). Placeholders are expected.

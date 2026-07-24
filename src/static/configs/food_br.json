@@ -4,6 +4,7 @@
     "FACEBOOK": true,
     "INSTAGRAM": true
   },
+  "recipe_only": true,
   "self": {
     "telegram_channel": "https://t.me/CHANGE_ME_food_channel",
     "telegram_debug_chat_id": "-1003908815503",

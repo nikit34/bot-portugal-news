@@ -18,6 +18,7 @@ from src.parsers.rss.channels.br.gazeta import is_valid_gazeta_entry, parse_gaze
 from src.parsers.rss.channels.br.uol import is_valid_uol_entry, parse_uol
 from src.parsers.rss.channels.br.metropoles import is_valid_metropoles_entry, parse_metropoles
 from src.parsers.rss.channels.generic import is_valid_generic_entry, parse_generic
+from src.processor.recipe_filter import is_recipe
 from src.processor.service import serve, should_stop
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS, MESSAGE_CHUNK_SIZE, RSS_VIDEO_ENABLED
 from src.producers.telegram.telegram_api import send_message_api
@@ -74,6 +75,21 @@ async def _make_request(rss_link, telegram_bot_token, context, repeat=REPEAT_REQ
     return None
 
 
+def _entry_texts(entry):
+    # Полный текст записи для тематического гейта: заголовок + описание + тело
+    # (content:encoded, полноконтентные /feed/ WordPress/Blogger несут его целиком).
+    # Именно тут лежат ингредиенты/способ приготовления и разметка recipe-плагина,
+    # которых нет в усечённой подписи, уходящей в serve.
+    texts = [entry.get('title', '') or '', entry.get('summary', '') or '']
+    content = entry.get('content')
+    if content:
+        if isinstance(content, list):
+            texts.extend((item.get('value', '') or '') for item in content)
+        else:
+            texts.append(str(content))
+    return texts
+
+
 async def _process_entry(
     entry,
     source,
@@ -89,6 +105,12 @@ async def _process_entry(
     # run (dedup keeps it available) — this keeps "nothing fresh" runs from scraping
     # every source to the end.
     if should_stop():
+        return False
+
+    # Food-конфиг (recipe_only): пропускаем только записи-рецепты. Проверяем по полному
+    # телу записи, а не по подписи — там есть ингредиенты/способ и recipe-разметка.
+    if context.get('recipe_only') and not is_recipe(*_entry_texts(entry)):
+        app_logger.debug("Entry skipped - recipe_only: no recipe markers")
         return False
 
     message_text = ''
