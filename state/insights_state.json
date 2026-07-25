@@ -2,23 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 25.07.2026",
-      "source": "digest",
-      "ts": 1785010498.0574129,
-      "fb_id": "4459204837694667",
-      "fb_media_id": "4459204837694667",
+      "head": "Sócios do Sporting dão amplo aval ao reforço do pa",
+      "source": "record.pt",
+      "ts": 1785019592.976259,
+      "fb_id": "2272831306793996",
+      "fb_media_id": "2272831306793996",
+      "ig_id": "18173681497428153",
       "is_video": true,
-      "is_digest": true
+      "hashtag_n": 1
     },
     {
-      "head": "Volta em grande estilo: Nelson Évora conquista tít",
+      "head": "Jesse Derry e a reação após o gol: 'Eu realmente n",
       "source": "record.pt",
-      "ts": 1785012179.5340185,
-      "fb_id": "1748086049560461",
-      "fb_media_id": "1748086049560461",
-      "ig_id": "17975565014897757",
+      "ts": 1785019704.5235288,
+      "fb_id": "1584798829971195",
+      "fb_media_id": "1584798829971195",
+      "ig_id": "18057019094519981",
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -167,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-07-25",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1785012219.5709817,
+  "last_scored_ts": 1785019744.5313876,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
