@@ -2,44 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "São Paulo fecha acordo de R$ 250 milhões com empre",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784966039.3622909,
-      "fb_id": "2253440752146801",
-      "fb_media_id": "2253440752146801",
-      "ig_id": "18110282389961780",
+      "head": "Xavi Simons e o 'inferno' após grave lesão: «Foram",
+      "source": "record.pt",
+      "ts": 1784977473.1456926,
+      "fb_id": "1789201272244968",
+      "fb_media_id": "1789201272244968",
+      "ig_id": "17970064515102048",
       "is_video": true,
-      "hashtag_n": 5
+      "hashtag_n": 2
     },
     {
-      "head": "🇦🇷🇧🇷 Pesquisa revela que Lionel Messi tem ascendên",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784966152.717237,
-      "fb_id": "1378677094360593",
-      "fb_media_id": "1378677094360593",
-      "ig_id": "18071897801397639",
+      "head": "Procedimento no rosto de Vini Jr. exige pausa no f",
+      "source": "uol.com.br",
+      "ts": 1784977582.845777,
+      "fb_id": "1380428554029403",
+      "fb_media_id": "1380428554029403",
+      "ig_id": "17881653813477290",
       "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "⚠️ Vasco abre negociações pelo volante/zagueiro Sa",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784971863.1667764,
-      "fb_id": "1079708431398921",
-      "fb_media_id": "1079708431398921",
-      "ig_id": "17900570229529869",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨📺 Equipe da GE TV é advertida pela Globo após pol",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784971969.6726768,
-      "fb_id": "1018550590917654",
-      "fb_media_id": "1018550590917654",
-      "ig_id": "18439715257121404",
-      "is_video": true,
-      "hashtag_n": 5
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -188,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-07-25",
-    "posts": 4
+    "posts": 2
   },
-  "last_scored_ts": 1784966192.7225015,
+  "last_scored_ts": 1784977622.8483052,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
