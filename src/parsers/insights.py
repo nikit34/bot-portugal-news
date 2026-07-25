@@ -421,6 +421,23 @@ def _fmt_dow_hour(key):
         return str(key)
 
 
+def _fmt_reward(value):
+    # Округление до целого прятало ВСЮ разницу между источниками: 0.199 и строгий
+    # ноль печатались одинаково («0»), хотя это принципиально разные вещи — след
+    # вовлечённости против её полного отсутствия на десятках постов подряд.
+    # Поэтому точность плавающая: крупные значения (минуты просмотра дайджеста,
+    # старые reach-числа) остаются целыми и читаемыми, мелкие показываются целиком,
+    # а ненулевая пыль уходит в экспоненту, чтобы её не спутать с настоящим нулём.
+    value = float(value or 0)
+    if value == 0:
+        return '0'
+    if abs(value) >= 10:
+        return str(round(value))
+    if abs(value) >= 0.01:
+        return f'{value:.2f}'
+    return f'{value:.1e}'
+
+
 def _progress_bar(done, target, width=10):
     filled = 0 if target <= 0 else min(width, int(width * done / target))
     return '█' * filled + '░' * (width - filled)
@@ -467,7 +484,7 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
         for i, w in enumerate(winners, 1):
             head = html.escape((w.get('head') or '(без подписи)')[:60])
             source = html.escape(str(w.get('source', '') or ''))
-            lines.append(f'{i}. {head} — {round(w.get("reward", 0.0), 1)} ({source})')
+            lines.append(f'{i}. {head} — {_fmt_reward(w.get("reward", 0.0))} ({source})')
 
     fb_reach = fb_stats.get('page_reach')
     fb_eng = fb_stats.get('page_post_engagements')
@@ -491,24 +508,24 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
                 f'{i}. {head}\n   👁 {reach} · ❤️ {item["likes"]} · 💬 {item["comments"]}')
 
     if source_ranking:
-        lines.append('\n<b>Источники по охвату (средн.)</b>')
+        lines.append('\n<b>Источники по reward (средн.)</b>')
         for i, (name, reach_avg, n) in enumerate(source_ranking, 1):
-            lines.append(f'{i}. {html.escape(name)} — {round(reach_avg)} (n={n})')
+            lines.append(f'{i}. {html.escape(name)} — {_fmt_reward(reach_avg)} (n={n})')
 
     if hour_ranking:
-        lines.append('\n<b>Лучшие часы по охвату (UTC, средн.)</b>')
+        lines.append('\n<b>Лучшие часы по reward (UTC, средн.)</b>')
         for i, (hour, reach_avg, n) in enumerate(hour_ranking, 1):
-            lines.append(f'{i}. {int(hour):02d}:00 — {round(reach_avg)} (n={n})')
+            lines.append(f'{i}. {int(hour):02d}:00 — {_fmt_reward(reach_avg)} (n={n})')
 
     if dow_hour_ranking:
         lines.append('\n<b>Лучшие слоты день×час (UTC, средн.)</b>')
         for i, (key, reward_avg, n) in enumerate(dow_hour_ranking, 1):
-            lines.append(f'{i}. {_fmt_dow_hour(key)} — {round(reward_avg)} (n={n})')
+            lines.append(f'{i}. {_fmt_dow_hour(key)} — {_fmt_reward(reward_avg)} (n={n})')
 
     if format_ranking:
         lines.append('\n<b>Форматы по reward (средн.)</b>')
         for name, reward_avg, n in format_ranking:
-            lines.append(f'• {html.escape(str(name))}: {round(reward_avg)} (n={n})')
+            lines.append(f'• {html.escape(str(name))}: {_fmt_reward(reward_avg)} (n={n})')
 
     if digest_ranking:
         # Отдельной строкой: reward дайджеста живёт в своём бакете, чтобы не
@@ -516,12 +533,12 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
         # это и есть ответ, окупается ли длинный ролик против обычных постов.
         lines.append('\n<b>Длинный дайджест-ролик (reward, средн.)</b>')
         for name, reward_avg, n in digest_ranking:
-            lines.append(f'• {html.escape(str(name))}: {round(reward_avg)} (n={n})')
+            lines.append(f'• {html.escape(str(name))}: {_fmt_reward(reward_avg)} (n={n})')
 
     if variant_ranking:
         lines.append('\n<b>Хэштеги по reward (средн.)</b>')
         for name, reward_avg, n in variant_ranking:
-            lines.append(f'• {html.escape(str(name))}: {round(reward_avg)} (n={n})')
+            lines.append(f'• {html.escape(str(name))}: {_fmt_reward(reward_avg)} (n={n})')
 
     if len(lines) == 1:
         lines.append('\nданные недоступны (нет прав read_insights / instagram_manage_insights?)')

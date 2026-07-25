@@ -97,7 +97,7 @@ def test_build_report_when_no_data():
 def test_build_report_includes_source_ranking():
     ranking = [('abola.pt', 812.4, 9), ('bbc.com', 120.0, 3)]
     report = ins.build_insights_report([], {}, source_ranking=ranking)
-    assert 'Источники по охвату' in report
+    assert 'Источники по reward' in report
     assert '1. abola.pt — 812 (n=9)' in report
     assert '2. bbc.com — 120 (n=3)' in report
 
@@ -105,7 +105,7 @@ def test_build_report_includes_source_ranking():
 def test_build_report_includes_hour_ranking():
     hour_ranking = [('8', 900.0, 5), ('20', 300.0, 4)]
     report = ins.build_insights_report([], {}, hour_ranking=hour_ranking)
-    assert 'Лучшие часы по охвату' in report
+    assert 'Лучшие часы по reward' in report
     assert '1. 08:00 — 900 (n=5)' in report
     assert '2. 20:00 — 300 (n=4)' in report
 
@@ -474,3 +474,23 @@ def test_reach_by_head_skips_fresh_and_captionless(monkeypatch):
     result = ins.get_instagram_reach_by_head('tok', 'IGID', limit=25, min_age_seconds=24 * 3600, now=now)
 
     assert result == {ins.make_head('matured post'): 333}
+
+
+def test_fmt_reward_keeps_small_values_visible():
+    # Округление до целого прятало всю разницу между источниками: 0.199 и строгий
+    # ноль печатались одинаково, хотя это след вовлечённости против её полного
+    # отсутствия на десятках постов.
+    assert ins._fmt_reward(0) == '0'
+    assert ins._fmt_reward(0.19860) == '0.20'
+    assert ins._fmt_reward(3.20591) == '3.21'
+    assert ins._fmt_reward(0.00019) == '1.9e-04'    # пыль, но НЕ ноль
+    # крупные значения (минуты просмотра дайджеста, старые reach-числа) — целыми
+    assert ins._fmt_reward(812.4) == '812'
+    assert ins._fmt_reward(80.0) == '80'
+
+
+def test_source_ranking_distinguishes_zero_from_dust():
+    report = ins.build_insights_report([], {}, source_ranking=[
+        ('ge.globo.com', 0.00019, 61), ('rtp.pt/desporto', 0.0, 41)])
+    assert 'ge.globo.com — 1.9e-04 (n=61)' in report
+    assert 'rtp.pt/desporto — 0 (n=41)' in report
