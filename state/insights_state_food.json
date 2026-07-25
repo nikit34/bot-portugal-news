@@ -128,6 +128,38 @@
       "ig_id": "18604280536042093",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Pão de leite fofinho que fica parecendo uma nuvem",
+      "source": "receitatodahora",
+      "ts": 1784980248.4941986,
+      "ig_id": "18123595237773516",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Sobremesa de liquidificador rápida de fazer, um do",
+      "source": "receitatodahora",
+      "ts": 1784980357.4424036,
+      "ig_id": "17935897965322061",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Tempero caseiro completo: prático, econômico e sab",
+      "source": "receitatodahora",
+      "ts": 1784980465.7949064,
+      "ig_id": "18336788374269277",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Torta de limão na travessa fácil e cremosa feita s",
+      "source": "receitatodahora",
+      "ts": 1784980577.961531,
+      "ig_id": "17947654635081727",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -244,7 +276,7 @@
   },
   "ig_quota": {
     "day": "2026-07-25",
-    "posts": 2
+    "posts": 6
   },
   "dow_hours": {
     "6-23": {
