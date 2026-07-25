@@ -2,24 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Xavi Simons e o 'inferno' após grave lesão: «Foram",
-      "source": "record.pt",
-      "ts": 1784977473.1456926,
-      "fb_id": "1789201272244968",
-      "fb_media_id": "1789201272244968",
-      "ig_id": "17970064515102048",
+      "head": "Santos reduziu para cerca de R$ 78,9 milhões a dív",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784984734.6096833,
+      "fb_id": "2285296008674701",
+      "fb_media_id": "2285296008674701",
+      "ig_id": "18112699643317818",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 5
     },
     {
-      "head": "Procedimento no rosto de Vini Jr. exige pausa no f",
-      "source": "uol.com.br",
-      "ts": 1784977582.845777,
-      "fb_id": "1380428554029403",
-      "fb_media_id": "1380428554029403",
-      "ig_id": "17881653813477290",
+      "head": "🚨🇮🇹 Pep Guardiola RECUSA proposta da seleção da It",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784984851.8942351,
+      "fb_id": "2565175967218734",
+      "fb_media_id": "2565175967218734",
+      "ig_id": "18145019611538247",
       "is_video": true,
-      "hashtag_n": 4
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -170,7 +170,7 @@
     "day": "2026-07-25",
     "posts": 2
   },
-  "last_scored_ts": 1784977622.8483052,
+  "last_scored_ts": 1784984891.9249809,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
