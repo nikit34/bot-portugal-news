@@ -2,32 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Botafogo posta vídeo provocando o Palmeiras pela n",
+      "head": "Vídeo postado por Neymar: “Quero perguntar para vo",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784991461.041625,
-      "fb_id": "1615044663993065",
-      "fb_media_id": "1615044663993065",
-      "ig_id": "18109958314791145",
+      "ts": 1784998100.7383416,
+      "fb_id": "1534021418498923",
+      "fb_media_id": "1534021418498923",
+      "ig_id": "18097963034625392",
+      "is_video": true,
+      "hashtag_n": 1
+    },
+    {
+      "head": "🇩🇪 Jürgen Klopp, em sua apresentação como novo téc",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784998209.4964516,
+      "fb_id": "1072062615513124",
+      "fb_media_id": "1072062615513124",
+      "ig_id": "18078364157682466",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "Neto detona Neymar por indireta sobre ida a campeo",
+      "head": "Neymar rebate críticas do Craque Neto: \"Chato pra",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784991563.5375855,
-      "fb_id": "874297278736423",
-      "fb_media_id": "874297278736423",
-      "ig_id": "18100537378955006",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Jogadora agride adversárias com chutes e socos cam",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784991681.3039825,
-      "fb_id": "1591479992692740",
-      "fb_media_id": "1591479992692740",
-      "ig_id": "17943234876055045",
+      "ts": 1784998318.2085533,
+      "fb_id": "1040739015028481",
+      "fb_media_id": "1040739015028481",
+      "ig_id": "17947295109038314",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -180,7 +180,7 @@
     "day": "2026-07-25",
     "posts": 3
   },
-  "last_scored_ts": 1784991721.3066297,
+  "last_scored_ts": 1784998358.2447388,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
