@@ -2,24 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "Santos reduziu para cerca de R$ 78,9 milhões a dív",
+      "head": "Botafogo posta vídeo provocando o Palmeiras pela n",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784984734.6096833,
-      "fb_id": "2285296008674701",
-      "fb_media_id": "2285296008674701",
-      "ig_id": "18112699643317818",
+      "ts": 1784991461.041625,
+      "fb_id": "1615044663993065",
+      "fb_media_id": "1615044663993065",
+      "ig_id": "18109958314791145",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "🚨🇮🇹 Pep Guardiola RECUSA proposta da seleção da It",
+      "head": "Neto detona Neymar por indireta sobre ida a campeo",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784984851.8942351,
-      "fb_id": "2565175967218734",
-      "fb_media_id": "2565175967218734",
-      "ig_id": "18145019611538247",
+      "ts": 1784991563.5375855,
+      "fb_id": "874297278736423",
+      "fb_media_id": "874297278736423",
+      "ig_id": "18100537378955006",
       "is_video": true,
-      "hashtag_n": 1
+      "hashtag_n": 2
+    },
+    {
+      "head": "Jogadora agride adversárias com chutes e socos cam",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784991681.3039825,
+      "fb_id": "1591479992692740",
+      "fb_media_id": "1591479992692740",
+      "ig_id": "17943234876055045",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-07-25",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1784984891.9249809,
+  "last_scored_ts": 1784991721.3066297,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
