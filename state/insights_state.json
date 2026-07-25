@@ -2,32 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Vídeo postado por Neymar: “Quero perguntar para vo",
+      "head": "Vini Jr e Terry Crews no Cristo Redentor. 🎥 Divulg",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784998100.7383416,
-      "fb_id": "1534021418498923",
-      "fb_media_id": "1534021418498923",
-      "ig_id": "18097963034625392",
+      "ts": 1785005745.6875339,
+      "fb_id": "1789719112189039",
+      "fb_media_id": "1789719112189039",
+      "ig_id": "18387483676162261",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "A nova camisa III do Fluminense. Aprovada? 🎥 Divul",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785005859.0058837,
+      "fb_id": "1034728282647443",
+      "fb_media_id": "1034728282647443",
+      "ig_id": "18080382464292526",
       "is_video": true,
       "hashtag_n": 1
     },
     {
-      "head": "🇩🇪 Jürgen Klopp, em sua apresentação como novo téc",
+      "head": "Nota oficial do Flamengo: “Neste domingo (26), ant",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784998209.4964516,
-      "fb_id": "1072062615513124",
-      "fb_media_id": "1072062615513124",
-      "ig_id": "18078364157682466",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Neymar rebate críticas do Craque Neto: \"Chato pra",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784998318.2085533,
-      "fb_id": "1040739015028481",
-      "fb_media_id": "1040739015028481",
-      "ig_id": "17947295109038314",
+      "ts": 1785005970.3062909,
+      "fb_id": "1496579275487522",
+      "fb_media_id": "1496579275487522",
+      "ig_id": "18215304715338998",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -180,7 +180,7 @@
     "day": "2026-07-25",
     "posts": 3
   },
-  "last_scored_ts": 1784998358.2447388,
+  "last_scored_ts": 1785006010.314733,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
