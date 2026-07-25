@@ -160,6 +160,30 @@
       "ig_id": "17947654635081727",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Morango do amor na travessa fácil e rápido, combin",
+      "source": "receitatodahora",
+      "ts": 1784988973.128631,
+      "ig_id": "18072845021388175",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Cuscuz de sardinha feito no tabuleiro de um jeito",
+      "source": "receitatodahora",
+      "ts": 1784989082.2860525,
+      "ig_id": "17977899866891801",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Sobremesa de gelatina colorida tipo mosaico bem re",
+      "source": "receitatodahora",
+      "ts": 1784989194.3415549,
+      "ig_id": "17871763611628898",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -276,7 +300,7 @@
   },
   "ig_quota": {
     "day": "2026-07-25",
-    "posts": 6
+    "posts": 9
   },
   "dow_hours": {
     "6-23": {
