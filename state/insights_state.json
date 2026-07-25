@@ -10,6 +10,16 @@
       "ig_id": "18476010337111860",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Vampeta opinou sobre a postura de Neymar de jogar",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784944371.9448526,
+      "fb_id": "1038704681986911",
+      "fb_media_id": "1038704681986911",
+      "ig_id": "18109964932990645",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -158,7 +168,7 @@
   },
   "ig_quota": {
     "day": "2026-07-25",
-    "posts": 1
+    "posts": 2
   },
   "last_scored_ts": 1784939849.7901728,
   "dow_hours": {
