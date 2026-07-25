@@ -11,23 +11,28 @@ telethon в CI молча уходит в интерактивный логин 
 только здесь: логин интерактивный (телефон -> код из Telegram -> пароль 2FA),
 из CI его не сделать.
 
-    export TELEGRAM_API_ID=... TELEGRAM_API_HASH=...
-    python reauth.py --string
+    export TELEGRAM_API_ID=... TELEGRAM_API_HASH=...   # либо положить их в файл secret
+    venv/bin/python reauth.py --string
     # вывод вставить в GitHub: Settings -> Secrets -> TELEGRAM_SESSION
     # или: gh secret set TELEGRAM_SESSION
+
+ВАЖНО: логин интерактивный и требует настоящий терминал (telethon читает stdin).
+Без TTY он падает с EOFError — ровно как в CI.
 """
 import asyncio
-import os
 import sys
 
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
+from src.properties_reader import get_secret_key
+
 args = [a for a in sys.argv[1:] if a != '--string']
 as_string = '--string' in sys.argv
 session_name = args[0] if args else 'getter_bot'
-api_id = int(os.environ['TELEGRAM_API_ID'])
-api_hash = os.environ['TELEGRAM_API_HASH']
+# Тот же ридер, что и у main.py: env, иначе файл secret (он в .gitignore).
+api_id = int(get_secret_key('.', 'TELEGRAM_API_ID'))
+api_hash = get_secret_key('.', 'TELEGRAM_API_HASH')
 
 
 async def main():
