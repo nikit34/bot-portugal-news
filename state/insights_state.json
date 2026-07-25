@@ -20,6 +20,26 @@
       "ig_id": "18071897801397639",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ Vasco abre negociações pelo volante/zagueiro Sa",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784971863.1667764,
+      "fb_id": "1079708431398921",
+      "fb_media_id": "1079708431398921",
+      "ig_id": "17900570229529869",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨📺 Equipe da GE TV é advertida pela Globo após pol",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1784971969.6726768,
+      "fb_id": "1018550590917654",
+      "fb_media_id": "1018550590917654",
+      "ig_id": "18439715257121404",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -168,7 +188,7 @@
   },
   "ig_quota": {
     "day": "2026-07-25",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1784966192.7225015,
   "dow_hours": {
