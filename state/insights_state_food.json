@@ -184,6 +184,30 @@
       "ig_id": "17871763611628898",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Farofa de cebola com ovos que fica super úmida e p",
+      "source": "receitatodahora",
+      "ts": 1785001100.1844292,
+      "ig_id": "18083545175428934",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bolo de tapioca sem trigo incrivelmente cremoso e",
+      "source": "receitatodahora",
+      "ts": 1785001180.8139327,
+      "ig_id": "18102259715274909",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Arroz carreteiro delicioso e fácil de fazer numa p",
+      "source": "receitatodahora",
+      "ts": 1785001259.1079142,
+      "ig_id": "18143976259551173",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -300,7 +324,7 @@
   },
   "ig_quota": {
     "day": "2026-07-25",
-    "posts": 9
+    "posts": 12
   },
   "dow_hours": {
     "6-23": {
