@@ -2,34 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Felipe Mele sobre as críticas que Neymar vem receb",
+      "head": "São Paulo fecha acordo de R$ 250 milhões com empre",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784955622.8420186,
-      "fb_id": "2460204531156436",
-      "fb_media_id": "2460204531156436",
-      "ig_id": "18095891213628461",
+      "ts": 1784966039.3622909,
+      "fb_id": "2253440752146801",
+      "fb_media_id": "2253440752146801",
+      "ig_id": "18110282389961780",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 5
     },
     {
-      "head": "Chão próximo ao portão 6 do Morumbis cedeu e o car",
+      "head": "🇦🇷🇧🇷 Pesquisa revela que Lionel Messi tem ascendên",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784955738.6738548,
-      "fb_id": "923090597488119",
-      "fb_media_id": "923090597488119",
-      "ig_id": "17929940565127620",
+      "ts": 1784966152.717237,
+      "fb_id": "1378677094360593",
+      "fb_media_id": "1378677094360593",
+      "ig_id": "18071897801397639",
       "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Neto preparou um clipe para Neymar e mostrou ao vi",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1784955858.9251564,
-      "fb_id": "1849135732740937",
-      "fb_media_id": "1849135732740937",
-      "ig_id": "18008089904949421",
-      "is_video": true,
-      "hashtag_n": 4
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-07-25",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1784955898.9497652,
+  "last_scored_ts": 1784966192.7225015,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
