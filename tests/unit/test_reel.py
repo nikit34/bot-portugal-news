@@ -160,3 +160,24 @@ def test_build_reel_tts_fails_cleans_frame(monkeypatch, tmp_path):
 
     assert reel.build_reel(str(src), 'Benfica vence o Porto por 2 a 1.') is None
     assert not os.path.exists(frame)          # frame cleaned up even though synth failed
+
+
+def test_build_reel_warns_loudly_when_tts_missing(monkeypatch):
+    # Без озвучки пост уходит чужим фото = «aggregating content». Именно в этом
+    # состоянии пивот пролежал незамеченным, поэтому отказ обязан быть громким.
+    import src.producers.reel as reel_mod
+    monkeypatch.setattr(reel_mod, 'REEL_RENDER_ENABLED', True)
+    monkeypatch.setattr(reel_mod.tts, 'is_available', lambda: False)
+    monkeypatch.setattr(reel_mod, 'tts_unavailable', 0)
+    warnings = []
+    monkeypatch.setattr(reel_mod.logger, 'warning', lambda m, *a, **k: warnings.append(m))
+
+    import tempfile, os as _os
+    with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as f:
+        src = f.name
+    try:
+        assert reel_mod.build_reel(src, 'Benfica vence o classico na Luz.') is None
+        assert warnings and 'TTS unavailable' in warnings[0]
+        assert reel_mod.get_failure_counts() == {'reel_tts': 1}
+    finally:
+        _os.remove(src)

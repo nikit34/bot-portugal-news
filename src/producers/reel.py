@@ -16,6 +16,15 @@ logger = logging.getLogger('app')
 
 REEL_W, REEL_H, REEL_FPS = 1080, 1920, 30
 
+# Сколько раз за прогон озвучка оказалась недоступна — уходит в итог прогона в
+# debug-чат. Успешный рендер не логируется вообще, поэтому без этого счётчика
+# «пивот отвалился» и «пивот работает» выглядят в логах одинаково.
+tts_unavailable = 0
+
+
+def get_failure_counts():
+    return {'reel_tts': tts_unavailable}
+
 
 def _video_filter(duration, motion, width=REEL_W, height=REEL_H):
     # Плашка story_overlay уже нужного размера. Без движения — только гарантия
@@ -98,9 +107,18 @@ def build_reel(src_path, message):
     if not src_path or not os.path.isfile(src_path):
         return None
     if not tts.is_available():          # нет piper/модели — даже не начинаем рендер
+        # ГРОМКО: без озвучки бот молча вырождается обратно в репостера чужих фото —
+        # то самое «aggregating content», за которое Meta снимает монетизацию и режет
+        # охват всей странице. Именно в этом состоянии пивот пролежал незамеченным.
+        global tts_unavailable
+        tts_unavailable += 1
+        logger.warning(
+            "[reel] TTS unavailable (piper/voice missing) — публикуем БЕЗ озвучки, "
+            "пост теряет оригинальность; проверьте шаг fetch piper voice")
         return None
     headline = extract_headline(message)
     if not headline:
+        logger.info("[reel] no headline extracted; publishing as-is")
         return None
 
     frame = None

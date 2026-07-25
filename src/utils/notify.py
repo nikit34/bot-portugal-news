@@ -76,6 +76,12 @@ def build_run_summary(stats, failures, image_summary):
         lines.append(f"⚠️ IG Stories не опубликованы: {failures['story']}")
     if failures.get('fb_story'):
         lines.append(f"⚠️ FB Stories не опубликованы: {failures['fb_story']}")
+    if failures.get('reel_tts'):
+        # Не косметика: без озвучки пост уходит чужим фото, т.е. как
+        # «aggregating content» — прямой риск снятия монетизации и урезания охвата.
+        lines.append(
+            f"🔴 БЕЗ озвучки опубликовано постов: {failures['reel_tts']} — "
+            f"нет piper/голоса, оригинальность потеряна")
     if image_summary:
         lines.append(image_summary)
     return '\n'.join(lines)
