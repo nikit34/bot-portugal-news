@@ -256,6 +256,30 @@
       "ig_id": "18105267131592740",
       "is_video": true,
       "hashtag_n": 1
+    },
+    {
+      "head": "Quem disse que peixe precisa ser sempre igual? Hoj",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785101497.617365,
+      "ig_id": "17901374829536262",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Biscoitinhos amanteigado sabor limão Receita 250 g",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785101595.6230514,
+      "ig_id": "17864064102641455",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Massa Super Fofinha com Recheio 🥯✨ Essa massa supe",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785101697.99771,
+      "ig_id": "18092903090372923",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -372,7 +396,7 @@
   },
   "ig_quota": {
     "day": "2026-07-26",
-    "posts": 8
+    "posts": 11
   },
   "dow_hours": {
     "6-23": {
