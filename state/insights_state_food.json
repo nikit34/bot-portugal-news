@@ -208,6 +208,22 @@
       "ig_id": "18108631286472968",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Bolo de cenoura super fofinho, com aquela calda de",
+      "source": "receitatodahora",
+      "ts": 1785066665.2629435,
+      "ig_id": "18209910793352847",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Cuscuz nordestino recheado com carne seca e queijo",
+      "source": "receitatodahora",
+      "ts": 1785066777.3430314,
+      "ig_id": "18113481577898239",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -324,7 +340,7 @@
   },
   "ig_quota": {
     "day": "2026-07-26",
-    "posts": 2
+    "posts": 4
   },
   "dow_hours": {
     "6-23": {
