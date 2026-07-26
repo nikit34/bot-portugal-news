@@ -2,31 +2,30 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 26.07.2026",
-      "source": "digest",
-      "ts": 1785096996.8348446,
-      "fb_id": "28164293629829610",
-      "fb_media_id": "28164293629829610",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "🚨 Memphis Depay ACEITOU as condições propostas pel",
+      "head": "Romário critica renovação com Ancelotti e detona C",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785098932.4071283,
-      "fb_id": "1594546248724692",
-      "fb_media_id": "1594546248724692",
-      "ig_id": "17962258356152893",
+      "ts": 1785106463.8290648,
+      "fb_id": "1755324955653398",
+      "fb_media_id": "1755324955653398",
+      "ig_id": "18155534434433804",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 5
     },
     {
-      "head": "Bahia x Corinthians tem 1º gol anulado pelo impedi",
-      "source": "uol.com.br",
-      "ts": 1785099047.5780494,
-      "fb_id": "26141770665521571",
-      "fb_media_id": "26141770665521571",
-      "ig_id": "18112004233874046",
+      "head": "Atlético-MG tem interesse na contratação de Quinte",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785106587.754161,
+      "ig_id": "18049966427573900",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 Thiago Almada está MUITO perto de ser o novo ref",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785106702.4858797,
+      "fb_id": "1838481997129757",
+      "fb_media_id": "1838481997129757",
+      "ig_id": "18017122283910294",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -177,9 +176,9 @@
   },
   "ig_quota": {
     "day": "2026-07-26",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1785099087.58231,
+  "last_scored_ts": 1785106742.497816,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
