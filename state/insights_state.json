@@ -2,12 +2,30 @@
   "version": 1,
   "pending": [
     {
-      "head": "Trubin ou Samuel Soares, qual o goleiro para o 'Ma",
-      "source": "record.pt",
-      "ts": 1785064548.8888824,
-      "fb_id": "1081166904361199",
-      "fb_media_id": "1081166904361199",
-      "ig_id": "17961915680964934",
+      "head": "Atlético-MG tem interesse na contratação de Quinte",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785070937.0567663,
+      "ig_id": "18082066748662573",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 Arsenal estuda investida por VINI JR. As negocia",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785071044.925445,
+      "fb_id": "1826104791690335",
+      "fb_media_id": "1826104791690335",
+      "ig_id": "18138274108569209",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 Corinthians nega negociação entre River Plate e",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785071142.9611545,
+      "fb_id": "1878991466411361",
+      "fb_media_id": "1878991466411361",
+      "ig_id": "17891671302399208",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -158,9 +176,9 @@
   },
   "ig_quota": {
     "day": "2026-07-26",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785064588.8944547,
+  "last_scored_ts": 1785071182.9658282,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
