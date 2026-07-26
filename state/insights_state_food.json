@@ -240,6 +240,22 @@
       "ig_id": "18168911575446096",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Receita de Uvas Passas Caseiras Descrição: Aprovei",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785095177.8175936,
+      "ig_id": "17910129465444848",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Domingo pede pizza, nada melhor que fazer uma pizz",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785095344.9481728,
+      "ig_id": "18105267131592740",
+      "is_video": true,
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -356,7 +372,7 @@
   },
   "ig_quota": {
     "day": "2026-07-26",
-    "posts": 6
+    "posts": 8
   },
   "dow_hours": {
     "6-23": {
