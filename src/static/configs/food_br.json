@@ -12,7 +12,9 @@
     "instagram_channel": "17841412428059741"
   },
   "telegram_channels": [
-    "https://t.me/receitas_br"
+    "https://t.me/receitas_br",
+    "https://t.me/culinariadiaadia",
+    "https://t.me/Brasil_Receitas"
   ],
   "rss_channels": {
     "receitatodahora": "https://receitatodahora.com.br/feed/",
@@ -21,6 +23,11 @@
     "teleculinaria": "https://www.teleculinaria.pt/feed/",
     "cincoquartosdelaranja": "https://cincoquartosdelaranja.blogspot.com/feeds/posts/default?alt=rss",
     "receitasdatia": "https://receitasdatia.blogs.sapo.pt/rss",
-    "receitasja": "https://www.receitasja.com/feed/"
+    "receitasja": "https://www.receitasja.com/feed/",
+    "acasaencantada": "https://www.acasaencantada.com.br/feed/",
+    "naminhapanela": "https://naminhapanela.com/feed/",
+    "cozinhadaduxa": "https://cozinhadaduxa.blogspot.com/feeds/posts/default?alt=rss",
+    "cozinhaportuguesa": "https://cozinhaportuguesa.blogspot.com/feeds/posts/default?alt=rss",
+    "receitasdafatima": "https://receitasdafatima.blogspot.com/feeds/posts/default?alt=rss"
   }
 }

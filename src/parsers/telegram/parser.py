@@ -89,16 +89,19 @@ async def _process_message_chunk(
             app_logger.debug(f"[Telegram] Skipping message: {'No text' if not message_text else 'No media'}")
             continue
 
-        # Food-конфиг (recipe_only): в канал только рецепты. Проверяем подпись поста —
-        # у кулинарных каналов рецепт обычно расписан прямо в тексте (ингредиенты/способ
-        # или само слово «receita»); промо/анонсы без этих признаков отсекаем.
-        if context.get('recipe_only') and not is_recipe(message_text):
-            skipped_count += 1
-            app_logger.debug("[Telegram] Skipping non-recipe message (recipe_only)")
-            continue
-
         try:
             is_video_hint = _message_is_video(message)
+
+            # Food-конфиг (recipe_only): в канал только рецепты. Проверяем подпись поста —
+            # у кулинарных каналов рецепт обычно расписан прямо в тексте (ингредиенты/способ
+            # или само слово «receita»); промо/анонсы без этих признаков отсекаем. Гейт стоит
+            # ПОСЛЕ _message_is_video, потому что видео судим мягче: у видео-рецептов подпись
+            # часто телеграфная (голый список ингредиентов), а ценность — сам клип.
+            if context.get('recipe_only') and not is_recipe(message_text, video=is_video_hint):
+                skipped_count += 1
+                app_logger.debug(
+                    f"[Telegram] Skipping non-recipe message (recipe_only, video={is_video_hint})")
+                continue
             # Крупное видео режем ДО скачивания (по метаданным), чтобы 200-МБ клип не
             # занял слот пула и не съел wall-clock дренажа впустую.
             if is_video_hint and _video_too_large(message):

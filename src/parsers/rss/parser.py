@@ -107,9 +107,13 @@ async def _process_entry(
     if should_stop():
         return False
 
+    # Если фид несёт прямое видео (mp4-enclosure / media:content medium="video"),
+    # публикуем видео. Считаем ДО тематического гейта: видео он судит мягче.
+    video_url = extract_video_url(entry) if RSS_VIDEO_ENABLED else ''
+
     # Food-конфиг (recipe_only): пропускаем только записи-рецепты. Проверяем по полному
     # телу записи, а не по подписи — там есть ингредиенты/способ и recipe-разметка.
-    if context.get('recipe_only') and not is_recipe(*_entry_texts(entry)):
+    if context.get('recipe_only') and not is_recipe(*_entry_texts(entry), video=bool(video_url)):
         app_logger.debug("Entry skipped - recipe_only: no recipe markers")
         return False
 
@@ -180,11 +184,8 @@ async def _process_entry(
             return False
         message_text, image = parse_generic(entry)
 
-    # Если фид несёт прямое видео (mp4-enclosure / media:content medium="video"),
-    # постим видео (serve уже умеет .mp4 на всех платформах); картинка не нужна.
-    # Иначе — прежний путь по картинке.
-    video_url = extract_video_url(entry) if RSS_VIDEO_ENABLED else ''
-
+    # video_url посчитан выше (перед тематическим гейтом): при прямом видео постим видео
+    # (serve уже умеет .mp4 на всех платформах), картинка не нужна. Иначе — путь по картинке.
     if not message_text or (not image and not video_url):
         app_logger.debug(f"[RSS] Skipping entry: {'No text' if not message_text else 'No media'}")
         return False
