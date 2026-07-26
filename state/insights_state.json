@@ -2,34 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Willian Bigode, jogador do América-MG, sendo cobra",
+      "head": "Neymar tem 14 participações em gols nos seus últim",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785043525.3801198,
-      "fb_id": "1970769723630568",
-      "fb_media_id": "1970769723630568",
-      "ig_id": "18105402518174915",
+      "ts": 1785053474.1751788,
+      "fb_id": "27706180029037672",
+      "fb_media_id": "27706180029037672",
+      "ig_id": "17977183737115022",
       "is_video": true,
       "hashtag_n": 4
     },
     {
-      "head": "Sormani detona time do Santos e Neymar após empate",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785043637.8497088,
-      "fb_id": "1416700720516586",
-      "fb_media_id": "1416700720516586",
-      "ig_id": "18419808406149143",
+      "head": "Sob protestos, Vasco evita derrota em casa para Mi",
+      "source": "uol.com.br",
+      "ts": 1785053581.2193146,
+      "fb_id": "27935640079404589",
+      "fb_media_id": "27935640079404589",
+      "ig_id": "18107860601041662",
       "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Cuca, sobre a possibilidade de o Santos ser rebaix",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785043747.8889928,
-      "fb_id": "1040934328549835",
-      "fb_media_id": "1040934328549835",
-      "ig_id": "18085335005195169",
-      "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-07-26",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1785043787.8921547,
+  "last_scored_ts": 1785053621.229437,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
