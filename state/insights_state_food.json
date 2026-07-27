@@ -192,6 +192,14 @@
       "ig_id": "18384923161202574",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Essa receita de macarrão com queijo é fácil de faz",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785153574.1754012,
+      "ig_id": "17971267943915384",
+      "is_video": true,
+      "hashtag_n": 0
     }
   ],
   "sources": {
@@ -308,7 +316,7 @@
   },
   "ig_quota": {
     "day": "2026-07-27",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {
     "6-23": {
