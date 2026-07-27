@@ -2,32 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 27.07.2026",
-      "source": "digest",
-      "ts": 1785184158.4176466,
-      "fb_id": "1720856702524627",
-      "fb_media_id": "1720856702524627",
+      "head": "Arsenal precisará abrir os cofres para tirar Vini",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785192931.4582515,
+      "fb_id": "2368146163951956",
+      "fb_media_id": "2368146163951956",
+      "ig_id": "17894958309378975",
       "is_video": true,
-      "is_digest": true
+      "hashtag_n": 5
     },
     {
       "head": "Peñarol tem interesse na contratação de De La Cruz",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785186271.082765,
-      "fb_id": "1077302444633548",
-      "fb_media_id": "1077302444633548",
+      "ts": 1785193040.3841631,
+      "ig_id": "17902576425524648",
       "is_video": true,
       "hashtag_n": 4
     },
     {
-      "head": "Conmebol anuncia oficialmente: “Os clubes campeões",
+      "head": "🚨 Flamengo monitora Luiz Henrique, que vê com bons",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785186382.1147149,
-      "fb_id": "926172700521651",
-      "fb_media_id": "926172700521651",
-      "ig_id": "17993304527812953",
+      "ts": 1785193157.926043,
+      "fb_id": "927383347043297",
+      "fb_media_id": "927383347043297",
+      "ig_id": "18074177912686239",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -176,9 +176,9 @@
   },
   "ig_quota": {
     "day": "2026-07-27",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785186422.1189027,
+  "last_scored_ts": 1785193197.9285302,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
