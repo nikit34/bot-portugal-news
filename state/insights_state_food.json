@@ -184,6 +184,14 @@
       "ig_id": "18325323646276291",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Medidas: (Se você seguir essa receita exatamente c",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785139790.9826174,
+      "ig_id": "18384923161202574",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -300,7 +308,7 @@
   },
   "ig_quota": {
     "day": "2026-07-27",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
@@ -548,7 +556,7 @@
       "n": 111
     }
   },
-  "last_scored_ts": 1785126667.7016745,
+  "last_scored_ts": 1785140048.4649613,
   "reward_samples": [
     5.0445,
     9.1463,
