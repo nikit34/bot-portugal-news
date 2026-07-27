@@ -2,30 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Romário critica renovação com Ancelotti e detona C",
+      "head": "Leonardo Jardim, treinador do Flamengo, sobre o em",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785106463.8290648,
-      "fb_id": "1755324955653398",
-      "fb_media_id": "1755324955653398",
-      "ig_id": "18155534434433804",
+      "ts": 1785117884.68416,
+      "fb_id": "1953738815285244",
+      "fb_media_id": "1953738815285244",
+      "ig_id": "18098209256240246",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Vampeta, sobre a partida de Neymar contra a Chapec",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785117992.2547152,
+      "fb_id": "1333521118868017",
+      "fb_media_id": "1333521118868017",
+      "ig_id": "18124134073744940",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "Atlético-MG tem interesse na contratação de Quinte",
+      "head": "Dorival Júnior nunca perdeu para o Flamengo como t",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785106587.754161,
-      "ig_id": "18049966427573900",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨 Thiago Almada está MUITO perto de ser o novo ref",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785106702.4858797,
-      "fb_id": "1838481997129757",
-      "fb_media_id": "1838481997129757",
-      "ig_id": "18017122283910294",
+      "ts": 1785118113.4099836,
+      "fb_id": "27283508031350884",
+      "fb_media_id": "27283508031350884",
+      "ig_id": "17877655806512310",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -175,10 +177,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-26",
+    "day": "2026-07-27",
     "posts": 3
   },
-  "last_scored_ts": 1785106742.497816,
+  "last_scored_ts": 1785118153.4365406,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
