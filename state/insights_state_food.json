@@ -200,6 +200,14 @@
       "ig_id": "17971267943915384",
       "is_video": true,
       "hashtag_n": 0
+    },
+    {
+      "head": "📝 Ingredientes Base 3 bananas 2 litros de água 2 u",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785176124.7423398,
+      "ig_id": "18162019783474909",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -316,7 +324,7 @@
   },
   "ig_quota": {
     "day": "2026-07-27",
-    "posts": 3
+    "posts": 4
   },
   "dow_hours": {
     "6-23": {
