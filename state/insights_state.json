@@ -2,32 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Leonardo Jardim, treinador do Flamengo, sobre o em",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785117884.68416,
-      "fb_id": "1953738815285244",
-      "fb_media_id": "1953738815285244",
-      "ig_id": "18098209256240246",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Vampeta, sobre a partida de Neymar contra a Chapec",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785117992.2547152,
-      "fb_id": "1333521118868017",
-      "fb_media_id": "1333521118868017",
-      "ig_id": "18124134073744940",
+      "head": "Felipe Anderson diz que 'euforia' após gol atrapal",
+      "source": "uol.com.br",
+      "ts": 1785135414.7850087,
+      "fb_id": "1757001058761469",
+      "fb_media_id": "1757001058761469",
+      "ig_id": "18418229893197457",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "Dorival Júnior nunca perdeu para o Flamengo como t",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785118113.4099836,
-      "fb_id": "27283508031350884",
-      "fb_media_id": "27283508031350884",
-      "ig_id": "17877655806512310",
+      "head": "Jardim explica ausências e avalia empate do Flamen",
+      "source": "uol.com.br",
+      "ts": 1785135520.2030058,
+      "fb_id": "1605086467805256",
+      "fb_media_id": "1605086467805256",
+      "ig_id": "18146320129538230",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-07-27",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1785118153.4365406,
+  "last_scored_ts": 1785135560.210075,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
