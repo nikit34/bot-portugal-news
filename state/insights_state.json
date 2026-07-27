@@ -2,30 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Veigh fazendo um show particular com a presença do",
+      "head": "A Conmebol examina a hipótese de paralisação da Li",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785161674.9212792,
-      "fb_id": "2229192047621293",
-      "fb_media_id": "2229192047621293",
-      "ig_id": "18111531814985034",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Atlético-MG tem interesse na contratação de Quinte",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785161804.8716197,
-      "ig_id": "18133562071717914",
+      "ts": 1785173952.97293,
+      "fb_id": "1027557150027156",
+      "fb_media_id": "1027557150027156",
+      "ig_id": "18130953547650443",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "⚠️ Ancelotti recusa Itália e reafirma compromisso",
+      "head": "Presidente do Flamengo, Luiz Eduardo Baptista, o B",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785161914.6388938,
-      "fb_id": "979888728389515",
-      "fb_media_id": "979888728389515",
-      "ig_id": "17924189562162630",
+      "ts": 1785174068.9315732,
+      "fb_id": "1049757734187013",
+      "fb_media_id": "1049757734187013",
+      "ig_id": "18191396641376554",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -176,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-07-27",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1785161954.6514173,
+  "last_scored_ts": 1785174108.9371054,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
