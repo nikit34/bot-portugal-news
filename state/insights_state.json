@@ -2,24 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "Felipe Anderson diz que 'euforia' após gol atrapal",
-      "source": "uol.com.br",
-      "ts": 1785135414.7850087,
-      "fb_id": "1757001058761469",
-      "fb_media_id": "1757001058761469",
-      "ig_id": "18418229893197457",
+      "head": "Chegaram à PJ as suspeitas de corrupção relacionad",
+      "source": "record.pt",
+      "ts": 1785150773.5664468,
+      "fb_id": "1341481624841331",
+      "fb_media_id": "1341481624841331",
+      "ig_id": "17909876073266099",
       "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Jardim explica ausências e avalia empate do Flamen",
-      "source": "uol.com.br",
-      "ts": 1785135520.2030058,
-      "fb_id": "1605086467805256",
-      "fb_media_id": "1605086467805256",
-      "ig_id": "18146320129538230",
-      "is_video": true,
-      "hashtag_n": 5
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -168,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-07-27",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1785135560.210075,
+  "last_scored_ts": 1785150813.5686212,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
