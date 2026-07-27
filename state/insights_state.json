@@ -2,22 +2,30 @@
   "version": 1,
   "pending": [
     {
-      "head": "A Conmebol examina a hipótese de paralisação da Li",
+      "head": "Atlético-MG tem interesse na contratação de Quinte",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785173952.97293,
-      "fb_id": "1027557150027156",
-      "fb_media_id": "1027557150027156",
-      "ig_id": "18130953547650443",
+      "ts": 1785179753.5091162,
+      "ig_id": "18248010544308002",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "Presidente do Flamengo, Luiz Eduardo Baptista, o B",
+      "head": "🚨 AGORA! Cruzeiro supera concorrência do Flamengo",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785174068.9315732,
-      "fb_id": "1049757734187013",
-      "fb_media_id": "1049757734187013",
-      "ig_id": "18191396641376554",
+      "ts": 1785179862.4851773,
+      "fb_id": "2147441955802008",
+      "fb_media_id": "2147441955802008",
+      "ig_id": "18137723974602886",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ Após ficar sem Danilo, do Botafogo, Palmeiras N",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785179979.4508202,
+      "fb_id": "2128004737810213",
+      "fb_media_id": "2128004737810213",
+      "ig_id": "18084212246691240",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -168,9 +176,9 @@
   },
   "ig_quota": {
     "day": "2026-07-27",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1785174108.9371054,
+  "last_scored_ts": 1785180019.4538524,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
