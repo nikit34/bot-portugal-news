@@ -98,118 +98,6 @@
       "hashtag_n": 5
     },
     {
-      "head": "Omelete de Espargos Silvestres São diversos os ben",
-      "source": "receitasja",
-      "ts": 1784961776.3773704,
-      "ig_id": "17926494132386557",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Feijoada de Frutos do Mar As receitas culinárias c",
-      "source": "receitasja",
-      "ts": 1784961889.6353495,
-      "ig_id": "18604280536042093",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Pão de leite fofinho que fica parecendo uma nuvem",
-      "source": "receitatodahora",
-      "ts": 1784980248.4941986,
-      "ig_id": "18123595237773516",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Sobremesa de liquidificador rápida de fazer, um do",
-      "source": "receitatodahora",
-      "ts": 1784980357.4424036,
-      "ig_id": "17935897965322061",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Tempero caseiro completo: prático, econômico e sab",
-      "source": "receitatodahora",
-      "ts": 1784980465.7949064,
-      "ig_id": "18336788374269277",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Torta de limão na travessa fácil e cremosa feita s",
-      "source": "receitatodahora",
-      "ts": 1784980577.961531,
-      "ig_id": "17947654635081727",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Morango do amor na travessa fácil e rápido, combin",
-      "source": "receitatodahora",
-      "ts": 1784988973.128631,
-      "ig_id": "18072845021388175",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Cuscuz de sardinha feito no tabuleiro de um jeito",
-      "source": "receitatodahora",
-      "ts": 1784989082.2860525,
-      "ig_id": "17977899866891801",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Sobremesa de gelatina colorida tipo mosaico bem re",
-      "source": "receitatodahora",
-      "ts": 1784989194.3415549,
-      "ig_id": "17871763611628898",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Farofa de cebola com ovos que fica super úmida e p",
-      "source": "receitatodahora",
-      "ts": 1785001100.1844292,
-      "ig_id": "18083545175428934",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Bolo de tapioca sem trigo incrivelmente cremoso e",
-      "source": "receitatodahora",
-      "ts": 1785001180.8139327,
-      "ig_id": "18102259715274909",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Arroz carreteiro delicioso e fácil de fazer numa p",
-      "source": "receitatodahora",
-      "ts": 1785001259.1079142,
-      "ig_id": "18143976259551173",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Docinho sem açúcar feito sem nenhuma farinha e sem",
-      "source": "receitatodahora",
-      "ts": 1785039155.16064,
-      "ig_id": "18072467240470947",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Jantar simples e prático que fica pronto em 20 min",
-      "source": "receitatodahora",
-      "ts": 1785039267.2937813,
-      "ig_id": "18108631286472968",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "Bolo de cenoura super fofinho, com aquela calda de",
       "source": "receitatodahora",
       "ts": 1785066665.2629435,
@@ -288,12 +176,20 @@
       "ig_id": "18044286860604227",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785126627.6865325,
+      "ig_id": "18325323646276291",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
     "receitatodahora": {
-      "reach_avg": 8.883958548298356,
-      "n": 65
+      "reach_avg": 11.078193123313461,
+      "n": 77
     },
     "guiadacozinha": {
       "reach_avg": 10.5642,
@@ -324,8 +220,8 @@
       "n": 6
     },
     "receitasja": {
-      "reach_avg": 7.0651399999999995,
-      "n": 2
+      "reach_avg": 4.795424599999999,
+      "n": 4
     }
   },
   "hours": {
@@ -334,16 +230,16 @@
       "n": 9
     },
     "4": {
-      "reach_avg": 8.409747968218431,
-      "n": 9
+      "reach_avg": 10.924178332820016,
+      "n": 11
     },
     "7": {
       "reach_avg": 4.314445713823523,
       "n": 9
     },
     "11": {
-      "reach_avg": 8.305559932580326,
-      "n": 8
+      "reach_avg": 10.973400452558751,
+      "n": 12
     },
     "15": {
       "reach_avg": 5.876792833659998,
@@ -366,8 +262,8 @@
       "n": 14
     },
     "6": {
-      "reach_avg": 4.090090121676896,
-      "n": 13
+      "reach_avg": 3.3422868054410806,
+      "n": 15
     },
     "10": {
       "reach_avg": 8.179501657722714,
@@ -378,8 +274,8 @@
       "n": 3
     },
     "17": {
-      "reach_avg": 11.896150499999997,
-      "n": 4
+      "reach_avg": 9.694460659051035,
+      "n": 7
     },
     "19": {
       "reach_avg": 6.413678,
@@ -390,8 +286,8 @@
       "n": 5
     },
     "14": {
-      "reach_avg": 6.461554883817465,
-      "n": 11
+      "reach_avg": 7.462421757228221,
+      "n": 14
     },
     "8": {
       "reach_avg": 5.085771120960398,
@@ -403,8 +299,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-26",
-    "posts": 12
+    "day": "2026-07-27",
+    "posts": 1
   },
   "dow_hours": {
     "6-23": {
@@ -560,8 +456,8 @@
       "n": 3
     },
     "5-6": {
-      "reach_avg": 1.7953091296324308,
-      "n": 4
+      "reach_avg": 2.7582185562970807,
+      "n": 6
     },
     "5-8": {
       "reach_avg": 5.085771120960398,
@@ -576,8 +472,8 @@
       "n": 3
     },
     "6-4": {
-      "reach_avg": 5.301133104729001,
-      "n": 2
+      "reach_avg": 10.767017926685607,
+      "n": 4
     },
     "6-7": {
       "reach_avg": 3.0194,
@@ -622,25 +518,37 @@
     "2-4": {
       "reach_avg": 9.89135,
       "n": 2
+    },
+    "5-11": {
+      "reach_avg": 11.940067299999997,
+      "n": 4
+    },
+    "5-14": {
+      "reach_avg": 8.821082999999998,
+      "n": 3
+    },
+    "5-17": {
+      "reach_avg": 10.676758999999999,
+      "n": 3
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 8.686476785026667,
-      "n": 134
+      "reach_avg": 11.078564746651347,
+      "n": 148
     }
   },
   "variants": {
     "tags:1-3": {
-      "reach_avg": 9.798113428835698,
-      "n": 36
+      "reach_avg": 8.763019400184989,
+      "n": 37
     },
     "tags:4+": {
-      "reach_avg": 8.220078328553262,
-      "n": 98
+      "reach_avg": 11.086923447610872,
+      "n": 111
     }
   },
-  "last_scored_ts": 1785039403.015416,
+  "last_scored_ts": 1785126667.7016745,
   "reward_samples": [
     5.0445,
     9.1463,
@@ -740,7 +648,21 @@
     12.6743,
     2.0516,
     10.407499999999999,
-    8.687000000000001
+    8.687000000000001,
+    4.3906,
+    1.3716,
+    14.8792,
+    12.2961,
+    14.0315,
+    6.9412,
+    13.3935,
+    6.3478,
+    3.0841000000000003,
+    15.1388,
+    6.1197,
+    6.5787,
+    8.9953,
+    13.526800000000001
   ],
   "recent_winners": [
     {
@@ -772,6 +694,42 @@
       "source": "receitasja",
       "reward": 10.407499999999999,
       "ts": 1784951685.2021239
+    },
+    {
+      "head": "Pão de leite fofinho que fica parecendo uma nuvem",
+      "source": "receitatodahora",
+      "reward": 14.8792,
+      "ts": 1785126667.7016745
+    },
+    {
+      "head": "Sobremesa de liquidificador rápida de fazer, um do",
+      "source": "receitatodahora",
+      "reward": 12.2961,
+      "ts": 1785126667.7016745
+    },
+    {
+      "head": "Tempero caseiro completo: prático, econômico e sab",
+      "source": "receitatodahora",
+      "reward": 14.0315,
+      "ts": 1785126667.7016745
+    },
+    {
+      "head": "Morango do amor na travessa fácil e rápido, combin",
+      "source": "receitatodahora",
+      "reward": 13.3935,
+      "ts": 1785126667.7016745
+    },
+    {
+      "head": "Farofa de cebola com ovos que fica super úmida e p",
+      "source": "receitatodahora",
+      "reward": 15.1388,
+      "ts": 1785126667.7016745
+    },
+    {
+      "head": "Jantar simples e prático que fica pronto em 20 min",
+      "source": "receitatodahora",
+      "reward": 13.526800000000001,
+      "ts": 1785126667.7016745
     }
   ]
 }
