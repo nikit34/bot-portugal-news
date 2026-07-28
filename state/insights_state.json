@@ -2,32 +2,18 @@
   "version": 1,
   "pending": [
     {
-      "head": "Flamengo solta vídeo se posicionando sobre a arbit",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785214692.4670796,
-      "fb_id": "1479925327484322",
-      "fb_media_id": "1479925327484322",
-      "ig_id": "18110714144054083",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
       "head": "Árbitros são AGREDIDOS durante jogos no interior b",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785214929.7395303,
-      "fb_id": "1359707056359042",
-      "fb_media_id": "1359707056359042",
-      "ig_id": "18119067370781781",
-      "is_video": true,
-      "hashtag_n": 2
+      "ts": 1785226666.2354648,
+      "is_video": true
     },
     {
-      "head": "Maldini, diretor da Federação Italiana, diz que fe",
+      "head": "🚨 Nos bastidores do Santos, há uma sensação de que",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785215052.0982296,
-      "fb_id": "1589444659477557",
-      "fb_media_id": "1589444659477557",
-      "ig_id": "17929012101368056",
+      "ts": 1785226798.3155172,
+      "fb_id": "2900265623675220",
+      "fb_media_id": "2900265623675220",
+      "ig_id": "18110884993970319",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -178,9 +164,9 @@
   },
   "ig_quota": {
     "day": "2026-07-28",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1785215092.0998983,
+  "last_scored_ts": 1785226838.3163323,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
