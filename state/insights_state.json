@@ -2,14 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "FenerbahÃ§e prepara investimento milionÃ¡rio por R",
-      "source": "record.pt",
-      "ts": 1785203215.7542493,
-      "fb_id": "1711874846597799",
-      "fb_media_id": "1711874846597799",
-      "ig_id": "18476894530099798",
+      "head": "Flamengo solta vídeo se posicionando sobre a arbit",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785214692.4670796,
+      "fb_id": "1479925327484322",
+      "fb_media_id": "1479925327484322",
+      "ig_id": "18110714144054083",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Árbitros são AGREDIDOS durante jogos no interior b",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785214929.7395303,
+      "fb_id": "1359707056359042",
+      "fb_media_id": "1359707056359042",
+      "ig_id": "18119067370781781",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Maldini, diretor da Federação Italiana, diz que fe",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785215052.0982296,
+      "fb_id": "1589444659477557",
+      "fb_media_id": "1589444659477557",
+      "ig_id": "17929012101368056",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-07-28",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785203255.7912688,
+  "last_scored_ts": 1785215092.0998983,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
