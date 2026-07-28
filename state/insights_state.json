@@ -2,34 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "🚨 A defesa do Internacional mostrou esse \"áudio do",
+      "head": "🚨 Endrick pode DEIXAR o Real Madrid após decisão d",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785254470.567618,
-      "fb_id": "913815668435061",
-      "fb_media_id": "913815668435061",
-      "ig_id": "18056993822771845",
+      "ts": 1785265888.713826,
+      "fb_id": "885102244264473",
+      "fb_media_id": "885102244264473",
+      "ig_id": "18123640786704705",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "Árbitros são AGREDIDOS durante jogos no interior b",
+      "head": "🚨 Paulinho sofreu uma entorse no tornozelo esquerd",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785254547.1199315,
-      "is_video": true
+      "ts": 1785265996.287948,
+      "fb_id": "1563021318849708",
+      "fb_media_id": "1563021318849708",
+      "ig_id": "18370786495233024",
+      "is_video": true,
+      "hashtag_n": 5
     },
     {
-      "head": "Árbitros são AGREDIDOS durante jogos no interior b",
+      "head": "🚨 AGORA! Resultado do julgamento de Victor Gabriel",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785259745.6442149,
-      "is_video": true
-    },
-    {
-      "head": "🚨 AGORA! Spartak Moscou sinaliza com cerca de 24 m",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785259860.099584,
-      "fb_id": "1365613692448816",
-      "fb_media_id": "1365613692448816",
-      "ig_id": "18117364178512279",
+      "ts": 1785266104.8578491,
+      "fb_id": "1466251302186191",
+      "fb_media_id": "1466251302186191",
+      "ig_id": "18157167424491284",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -180,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-07-28",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1785254587.1247907,
+  "last_scored_ts": 1785266144.8620322,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
