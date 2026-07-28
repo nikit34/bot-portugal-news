@@ -2,18 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Árbitros são AGREDIDOS durante jogos no interior b",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785226666.2354648,
-      "is_video": true
-    },
-    {
-      "head": "🚨 Nos bastidores do Santos, há uma sensação de que",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785226798.3155172,
-      "fb_id": "2900265623675220",
-      "fb_media_id": "2900265623675220",
-      "ig_id": "18110884993970319",
+      "head": "João Tomás confia em boa atuação europeia de Benfi",
+      "source": "record.pt",
+      "ts": 1785239555.3666341,
+      "fb_id": "1766314464562752",
+      "fb_media_id": "1766314464562752",
+      "ig_id": "18141151735561132",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -166,7 +160,7 @@
     "day": "2026-07-28",
     "posts": 1
   },
-  "last_scored_ts": 1785226838.3163323,
+  "last_scored_ts": 1785239595.3696413,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
