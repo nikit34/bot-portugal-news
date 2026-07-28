@@ -2,40 +2,20 @@
   "version": 1,
   "pending": [
     {
-      "head": "João Tomás confia em boa atuação europeia de Benfi",
-      "source": "record.pt",
-      "ts": 1785239555.3666341,
-      "fb_id": "1766314464562752",
-      "fb_media_id": "1766314464562752",
-      "ig_id": "18141151735561132",
+      "head": "🚨 A defesa do Internacional mostrou esse \"áudio do",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785254470.567618,
+      "fb_id": "913815668435061",
+      "fb_media_id": "913815668435061",
+      "ig_id": "18056993822771845",
       "is_video": true,
       "hashtag_n": 5
     },
     {
       "head": "Árbitros são AGREDIDOS durante jogos no interior b",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785246162.0372198,
+      "ts": 1785254547.1199315,
       "is_video": true
-    },
-    {
-      "head": "🚨 Cruzeiro informa que Gabriel Pec foi diagnostica",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785246277.273701,
-      "fb_id": "1450398230181993",
-      "fb_media_id": "1450398230181993",
-      "ig_id": "18075355247701986",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "João Paulo Magalhães Lins, presidente do Botafogo,",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785246398.9781463,
-      "fb_id": "1006534128857936",
-      "fb_media_id": "1006534128857936",
-      "ig_id": "18173242438430228",
-      "is_video": true,
-      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -184,9 +164,9 @@
   },
   "ig_quota": {
     "day": "2026-07-28",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1785239595.3696413,
+  "last_scored_ts": 1785254587.1247907,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
