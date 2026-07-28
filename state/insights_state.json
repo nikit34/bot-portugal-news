@@ -2,23 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 28.07.2026",
-      "source": "digest",
-      "ts": 1785270157.9154396,
-      "fb_id": "1029714483097076",
-      "fb_media_id": "1029714483097076",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "Hornicek confere venda milionária: a evolução do d",
-      "source": "record.pt",
-      "ts": 1785272487.7642825,
-      "fb_id": "2931161887220942",
-      "fb_media_id": "2931161887220942",
-      "ig_id": "18024261224890391",
+      "head": "🚨 Grêmio comunica Willian que ele está FORA dos pl",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785279226.024684,
+      "fb_id": "1570228948106727",
+      "fb_media_id": "1570228948106727",
+      "ig_id": "18115605436933085",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Novo reforço do Colo-Colo, Vozinha não poderá usar",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785279330.7753973,
+      "fb_id": "2270403650166848",
+      "fb_media_id": "2270403650166848",
+      "ig_id": "18091502126099174",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Gol de ex-Alverca apura Ararat-Armenia de Tulipa p",
+      "source": "record.pt",
+      "ts": 1785279423.8577974,
+      "fb_id": "1784247216348360",
+      "fb_media_id": "1784247216348360",
+      "ig_id": "18129140164629279",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -167,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-07-28",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785272527.7683544,
+  "last_scored_ts": 1785279463.8635182,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
