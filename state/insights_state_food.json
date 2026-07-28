@@ -2,14 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Minhas 10 receitas favoritas de 2025 Inícios de an",
-      "source": "cincoquartosdelaranja",
-      "ts": 1784546997.0585032,
-      "ig_id": "18162613264415238",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "🤩🤩🤩🤩🤩 🤩🤩🤩🤩🤩🤩 🤩BOLO CACAU BLACK COM GANACHE CRUMBLE",
       "source": "https://t.me/receitas_br",
       "ts": 1784644652.5990167,
@@ -98,86 +90,6 @@
       "hashtag_n": 5
     },
     {
-      "head": "Bolo de cenoura super fofinho, com aquela calda de",
-      "source": "receitatodahora",
-      "ts": 1785066665.2629435,
-      "ig_id": "18209910793352847",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Cuscuz nordestino recheado com carne seca e queijo",
-      "source": "receitatodahora",
-      "ts": 1785066777.3430314,
-      "ig_id": "18113481577898239",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Bolo simples de vó: fofinho e molhadinho, feito co",
-      "source": "receitatodahora",
-      "ts": 1785087595.6578,
-      "ig_id": "18096947081608097",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Macarronada com calabresa muito suculenta e rápida",
-      "source": "receitatodahora",
-      "ts": 1785087710.622976,
-      "ig_id": "18168911575446096",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Receita de Uvas Passas Caseiras Descrição: Aprovei",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785095177.8175936,
-      "ig_id": "17910129465444848",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Domingo pede pizza, nada melhor que fazer uma pizz",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785095344.9481728,
-      "ig_id": "18105267131592740",
-      "is_video": true,
-      "hashtag_n": 1
-    },
-    {
-      "head": "Quem disse que peixe precisa ser sempre igual? Hoj",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785101497.617365,
-      "ig_id": "17901374829536262",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Biscoitinhos amanteigado sabor limão Receita 250 g",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785101595.6230514,
-      "ig_id": "17864064102641455",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Massa Super Fofinha com Recheio 🥯✨ Essa massa supe",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785101697.99771,
-      "ig_id": "18092903090372923",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Esfiha aberta Ingredientes 500g de farinha de trig",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785108991.6362524,
-      "ig_id": "18044286860604227",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
       "source": "https://t.me/culinariadiaadia",
       "ts": 1785126627.6865325,
@@ -208,12 +120,20 @@
       "ig_id": "18162019783474909",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785223350.0273824,
+      "ig_id": "17899672011512734",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
     "receitatodahora": {
-      "reach_avg": 11.078193123313461,
-      "n": 77
+      "reach_avg": 9.114718338288377,
+      "n": 81
     },
     "guiadacozinha": {
       "reach_avg": 10.5642,
@@ -246,12 +166,16 @@
     "receitasja": {
       "reach_avg": 4.795424599999999,
       "n": 4
+    },
+    "https://t.me/culinariadiaadia": {
+      "reach_avg": 5.904479726999997,
+      "n": 6
     }
   },
   "hours": {
     "23": {
-      "reach_avg": 6.446247584870893,
-      "n": 9
+      "reach_avg": 4.867393309409624,
+      "n": 10
     },
     "4": {
       "reach_avg": 10.924178332820016,
@@ -262,8 +186,8 @@
       "n": 9
     },
     "11": {
-      "reach_avg": 10.973400452558751,
-      "n": 12
+      "reach_avg": 9.760524095157672,
+      "n": 14
     },
     "15": {
       "reach_avg": 5.876792833659998,
@@ -278,8 +202,8 @@
       "n": 5
     },
     "21": {
-      "reach_avg": 9.00516139903991,
-      "n": 8
+      "reach_avg": 4.826630759870689,
+      "n": 11
     },
     "3": {
       "reach_avg": 5.6333322340589005,
@@ -298,12 +222,12 @@
       "n": 3
     },
     "17": {
-      "reach_avg": 9.694460659051035,
-      "n": 7
+      "reach_avg": 9.061667162169027,
+      "n": 9
     },
     "19": {
-      "reach_avg": 6.413678,
-      "n": 3
+      "reach_avg": 13.74255584,
+      "n": 5
     },
     "12": {
       "reach_avg": 7.755261957093129,
@@ -324,12 +248,12 @@
   },
   "ig_quota": {
     "day": "2026-07-28",
-    "posts": 0
+    "posts": 1
   },
   "dow_hours": {
     "6-23": {
-      "reach_avg": 2.8916,
-      "n": 1
+      "reach_avg": 2.37914,
+      "n": 2
     },
     "0-4": {
       "reach_avg": 6.248056799999998,
@@ -508,8 +432,8 @@
       "n": 3
     },
     "6-11": {
-      "reach_avg": 10.0444,
-      "n": 1
+      "reach_avg": 9.330567764009746,
+      "n": 3
     },
     "6-14": {
       "reach_avg": 7.462380000000001,
@@ -554,25 +478,37 @@
     "5-17": {
       "reach_avg": 10.676758999999999,
       "n": 3
+    },
+    "6-17": {
+      "reach_avg": 9.45051,
+      "n": 2
+    },
+    "6-19": {
+      "reach_avg": 18.04647,
+      "n": 2
+    },
+    "6-21": {
+      "reach_avg": 3.926269,
+      "n": 3
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 11.078564746651347,
-      "n": 148
+      "reach_avg": 5.052701000805528,
+      "n": 158
     }
   },
   "variants": {
     "tags:1-3": {
-      "reach_avg": 8.763019400184989,
-      "n": 37
+      "reach_avg": 8.336142034681345,
+      "n": 40
     },
     "tags:4+": {
-      "reach_avg": 11.086923447610872,
-      "n": 111
+      "reach_avg": 5.735058875355187,
+      "n": 118
     }
   },
-  "last_scored_ts": 1785140048.4649613,
+  "last_scored_ts": 1785223390.031721,
   "reward_samples": [
     5.0445,
     9.1463,
@@ -686,7 +622,17 @@
     6.1197,
     6.5787,
     8.9953,
-    13.526800000000001
+    13.526800000000001,
+    6.6677,
+    9.9377,
+    10.518,
+    6.959700000000001,
+    21.7848,
+    9.3237,
+    6.3802,
+    2.5021,
+    0.9151,
+    1.1834
   ],
   "recent_winners": [
     {
@@ -754,6 +700,12 @@
       "source": "receitatodahora",
       "reward": 13.526800000000001,
       "ts": 1785126667.7016745
+    },
+    {
+      "head": "Receita de Uvas Passas Caseiras Descrição: Aprovei",
+      "source": "https://t.me/culinariadiaadia",
+      "reward": 21.7848,
+      "ts": 1785223390.031721
     }
   ]
 }
