@@ -176,6 +176,22 @@
       "ig_id": "18423710965181911",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "O erro é fritar direto... carne profissional cozin",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785261868.1571648,
+      "ig_id": "18135289447524887",
+      "is_video": true,
+      "hashtag_n": 1
+    },
+    {
+      "head": "Carne de porco super macia, suculenta e cheia de s",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785261990.1724865,
+      "ig_id": "17918263041206043",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -296,7 +312,7 @@
   },
   "ig_quota": {
     "day": "2026-07-28",
-    "posts": 7
+    "posts": 9
   },
   "dow_hours": {
     "6-23": {
