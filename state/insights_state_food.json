@@ -128,6 +128,38 @@
       "ig_id": "17899672011512734",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Sanduíche de carne * 1,5 kg de acém * 1 cebola * 4",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785236390.6928813,
+      "ig_id": "18322255615276725",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Quando faço arroz com linguiça assim nao sobra nad",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785236540.945056,
+      "ig_id": "18091028324567835",
+      "is_video": true,
+      "hashtag_n": 0
+    },
+    {
+      "head": "Faça essas panquecas para o café da manhã e se sur",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785236665.9277983,
+      "ig_id": "18061334774734094",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Essa sopa de fraldinha fica cremosa sem usar creme",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785236795.8169692,
+      "ig_id": "18159500158490040",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -248,7 +280,7 @@
   },
   "ig_quota": {
     "day": "2026-07-28",
-    "posts": 1
+    "posts": 5
   },
   "dow_hours": {
     "6-23": {
