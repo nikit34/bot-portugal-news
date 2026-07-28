@@ -10,6 +10,32 @@
       "ig_id": "18141151735561132",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Árbitros são AGREDIDOS durante jogos no interior b",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785246162.0372198,
+      "is_video": true
+    },
+    {
+      "head": "🚨 Cruzeiro informa que Gabriel Pec foi diagnostica",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785246277.273701,
+      "fb_id": "1450398230181993",
+      "fb_media_id": "1450398230181993",
+      "ig_id": "18075355247701986",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "João Paulo Magalhães Lins, presidente do Botafogo,",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785246398.9781463,
+      "fb_id": "1006534128857936",
+      "fb_media_id": "1006534128857936",
+      "ig_id": "18173242438430228",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -158,7 +184,7 @@
   },
   "ig_quota": {
     "day": "2026-07-28",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1785239595.3696413,
   "dow_hours": {
