@@ -160,6 +160,22 @@
       "ig_id": "18159500158490040",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Esse macarrão parece de restaurante... mas é o mai",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785251302.0826688,
+      "ig_id": "18019087778913479",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "O truque da tortilha com carne moída que ninguém c",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785251434.818189,
+      "ig_id": "18423710965181911",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -280,7 +296,7 @@
   },
   "ig_quota": {
     "day": "2026-07-28",
-    "posts": 5
+    "posts": 7
   },
   "dow_hours": {
     "6-23": {
