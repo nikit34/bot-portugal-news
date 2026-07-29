@@ -144,6 +144,14 @@
       "ig_id": "17880688098614319",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Bolo de banana e doce de leite na frigideira ➞ ING",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785368493.0950322,
+      "ig_id": "18083516168422642",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -264,7 +272,7 @@
   },
   "ig_quota": {
     "day": "2026-07-29",
-    "posts": 0
+    "posts": 1
   },
   "dow_hours": {
     "6-23": {
