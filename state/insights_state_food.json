@@ -2,38 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "🤩🤩🤩🤩🤩 🤩🤩🤩🤩🤩🤩 🤩BOLO CACAU BLACK COM GANACHE CRUMBLE",
-      "source": "https://t.me/receitas_br",
-      "ts": 1784644652.5990167,
-      "ig_id": "18212771791341934",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🤩🤩🤩🤩🤩🤩 🤩🤩🤩🤩🤩🤩🤩 🤩🤩🤩🤩🤩🤩 🤩 ERA UMA VEZ NA COZINHA - R",
-      "source": "https://t.me/receitas_br",
-      "ts": 1784644767.2111242,
-      "ig_id": "18114543325908832",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥RIGATONI À CARBONARA 🔥 🔥 Ingredientes: 1",
-      "source": "https://t.me/receitas_br",
-      "ts": 1784656771.7039967,
-      "ig_id": "17873852265623201",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚩🚩🚩🚩🚩🚩🚩 🔥TORTA QUENTE DE PRESUNTO🔥 🔥 Ingredientes:",
-      "source": "https://t.me/receitas_br",
-      "ts": 1784656858.1191928,
-      "ig_id": "18083916869555797",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "🤩🤩🤩🤩🤩 🤩🤩🤩🤩🤩🤩 🤩BROWNIE DE CHOCOLATE BRANCO COM MATC",
       "source": "https://t.me/receitas_br",
       "ts": 1784704522.6792905,
@@ -96,30 +64,6 @@
       "ig_id": "18325323646276291",
       "is_video": true,
       "hashtag_n": 5
-    },
-    {
-      "head": "Medidas: (Se você seguir essa receita exatamente c",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785139790.9826174,
-      "ig_id": "18384923161202574",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Essa receita de macarrão com queijo é fácil de faz",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785153574.1754012,
-      "ig_id": "17971267943915384",
-      "is_video": true,
-      "hashtag_n": 0
-    },
-    {
-      "head": "📝 Ingredientes Base 3 bananas 2 litros de água 2 u",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785176124.7423398,
-      "ig_id": "18162019783474909",
-      "is_video": true,
-      "hashtag_n": 4
     },
     {
       "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
@@ -240,8 +184,8 @@
       "n": 4
     },
     "https://t.me/culinariadiaadia": {
-      "reach_avg": 5.904479726999997,
-      "n": 6
+      "reach_avg": 17.285268086889786,
+      "n": 9
     }
   },
   "hours": {
@@ -258,16 +202,16 @@
       "n": 9
     },
     "11": {
-      "reach_avg": 9.760524095157672,
-      "n": 14
+      "reach_avg": 9.50008686661037,
+      "n": 15
     },
     "15": {
       "reach_avg": 5.876792833659998,
       "n": 9
     },
     "18": {
-      "reach_avg": 10.09141,
-      "n": 2
+      "reach_avg": 16.579444,
+      "n": 3
     },
     "20": {
       "reach_avg": 7.680090320636299,
@@ -310,8 +254,8 @@
       "n": 14
     },
     "8": {
-      "reach_avg": 5.085771120960398,
-      "n": 4
+      "reach_avg": 16.63284844838416,
+      "n": 5
     },
     "9": {
       "reach_avg": 3.3146,
@@ -319,8 +263,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-28",
-    "posts": 10
+    "day": "2026-07-29",
+    "posts": 0
   },
   "dow_hours": {
     "6-23": {
@@ -336,16 +280,16 @@
       "n": 4
     },
     "0-11": {
-      "reach_avg": 3.1355629999999994,
-      "n": 3
+      "reach_avg": 6.5896652,
+      "n": 4
     },
     "0-15": {
       "reach_avg": 7.315194999999999,
       "n": 3
     },
     "0-18": {
-      "reach_avg": 10.09141,
-      "n": 2
+      "reach_avg": 16.579444,
+      "n": 3
     },
     "0-20": {
       "reach_avg": 6.676099999999999,
@@ -562,12 +506,16 @@
     "6-21": {
       "reach_avg": 3.926269,
       "n": 3
+    },
+    "0-8": {
+      "reach_avg": 24.3309,
+      "n": 1
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 5.052701000805528,
-      "n": 158
+      "reach_avg": 17.19713787081555,
+      "n": 161
     }
   },
   "variants": {
@@ -576,11 +524,15 @@
       "n": 40
     },
     "tags:4+": {
-      "reach_avg": 5.735058875355187,
-      "n": 118
+      "reach_avg": 18.38212433151237,
+      "n": 120
+    },
+    "tags:0": {
+      "reach_avg": 8.8924,
+      "n": 1
     }
   },
-  "last_scored_ts": 1785223390.031721,
+  "last_scored_ts": 1785297604.6989403,
   "reward_samples": [
     5.0445,
     9.1463,
@@ -704,7 +656,10 @@
     6.3802,
     2.5021,
     0.9151,
-    1.1834
+    1.1834,
+    24.3309,
+    8.8924,
+    20.904799999999998
   ],
   "recent_winners": [
     {
@@ -778,6 +733,18 @@
       "source": "https://t.me/culinariadiaadia",
       "reward": 21.7848,
       "ts": 1785223390.031721
+    },
+    {
+      "head": "Medidas: (Se você seguir essa receita exatamente c",
+      "source": "https://t.me/culinariadiaadia",
+      "reward": 24.3309,
+      "ts": 1785297604.6989403
+    },
+    {
+      "head": "📝 Ingredientes Base 3 bananas 2 litros de água 2 u",
+      "source": "https://t.me/culinariadiaadia",
+      "reward": 20.904799999999998,
+      "ts": 1785297604.6989403
     }
   ]
 }
