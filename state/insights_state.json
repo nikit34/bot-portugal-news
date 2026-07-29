@@ -2,22 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Rafael Nel é alvo de sondagens do 'Big 5' O jovem",
+      "head": "Agente de Lewandowski e Villas-Boas com versões di",
       "source": "record.pt",
-      "ts": 1785313463.368657,
-      "fb_id": "2106141363654283",
-      "fb_media_id": "2106141363654283",
-      "ig_id": "18104614829594797",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Árbitro diz que Messi 'deu trabalho' na Copa, mas",
-      "source": "uol.com.br",
-      "ts": 1785313576.7144654,
-      "fb_id": "1543081287614873",
-      "fb_media_id": "1543081287614873",
-      "ig_id": "18085213727650149",
+      "ts": 1785326221.169857,
+      "fb_id": "900393446451273",
+      "fb_media_id": "900393446451273",
+      "ig_id": "18011397908925827",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -168,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-07-29",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1785313616.7164357,
+  "last_scored_ts": 1785326261.1739388,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
