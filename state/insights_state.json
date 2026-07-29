@@ -2,34 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "🚨 Grêmio comunica Willian que ele está FORA dos pl",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785279226.024684,
-      "fb_id": "1570228948106727",
-      "fb_media_id": "1570228948106727",
-      "ig_id": "18115605436933085",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Novo reforço do Colo-Colo, Vozinha não poderá usar",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785279330.7753973,
-      "fb_id": "2270403650166848",
-      "fb_media_id": "2270403650166848",
-      "ig_id": "18091502126099174",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Gol de ex-Alverca apura Ararat-Armenia de Tulipa p",
+      "head": "Carlos Carvalhal: «Na realidade, não contava com I",
       "source": "record.pt",
-      "ts": 1785279423.8577974,
-      "fb_id": "1784247216348360",
-      "fb_media_id": "1784247216348360",
-      "ig_id": "18129140164629279",
+      "ts": 1785289689.1047208,
+      "fb_id": "1071551511977869",
+      "fb_media_id": "1071551511977869",
+      "ig_id": "18086600111370740",
       "is_video": true,
-      "hashtag_n": 5
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -177,10 +157,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-28",
-    "posts": 3
+    "day": "2026-07-29",
+    "posts": 1
   },
-  "last_scored_ts": 1785279463.8635182,
+  "last_scored_ts": 1785289729.1119175,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
