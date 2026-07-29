@@ -2,23 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 29.07.2026",
-      "source": "digest",
-      "ts": 1785356221.5360339,
-      "fb_id": "2163870890838484",
-      "fb_media_id": "2163870890838484",
+      "head": "🇫🇷 O novo escudo da França. Aprovado? 🎥 @equipedef",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785365650.5213745,
+      "fb_id": "1024188793546912",
+      "fb_media_id": "1024188793546912",
+      "ig_id": "18100328060220614",
       "is_video": true,
-      "is_digest": true
+      "hashtag_n": 1
     },
     {
-      "head": "De Zerbi explica ausência de Mateus Fernandes: «É",
-      "source": "record.pt",
-      "ts": 1785357956.7529507,
-      "fb_id": "1017625067565860",
-      "fb_media_id": "1017625067565860",
-      "ig_id": "18131573548558323",
+      "head": "Casagrande defende Neymar em episódio do jogo cont",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785365761.8912888,
+      "fb_id": "1531826035354481",
+      "fb_media_id": "1531826035354481",
+      "ig_id": "17980201740113346",
       "is_video": true,
-      "hashtag_n": 4
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 Flamengo abre negociações para contratar Luiz He",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785365883.8049433,
+      "fb_id": "4398540040384107",
+      "fb_media_id": "4398540040384107",
+      "ig_id": "18143681605548577",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -167,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-07-29",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785357996.7544837,
+  "last_scored_ts": 1785365923.8418376,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
