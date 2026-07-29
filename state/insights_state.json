@@ -2,34 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Agente de Lewandowski e Villas-Boas com versões di",
-      "source": "record.pt",
-      "ts": 1785326221.169857,
-      "fb_id": "900393446451273",
-      "fb_media_id": "900393446451273",
-      "ig_id": "18011397908925827",
+      "head": "🚨 Neymar praticamente ENCERRA seu ciclo na Seleção",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785340058.7632186,
+      "fb_id": "4502504153319740",
+      "fb_media_id": "4502504153319740",
+      "ig_id": "18027461267835883",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "⚠️ Gabriel Brazão, sobre as notícias envolvendo o",
+      "head": "Neymar Pai cobra Marcelo Teixeira, presidente do S",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785332969.2078328,
-      "fb_id": "1767761064643159",
-      "fb_media_id": "1767761064643159",
-      "ig_id": "18372869182238177",
+      "ts": 1785340182.9179215,
+      "fb_id": "1354345139580181",
+      "fb_media_id": "1354345139580181",
+      "ig_id": "18137978515577814",
       "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Neymar, ao ser questionado como está se sentindo m",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785333079.9642034,
-      "fb_id": "1825158091855631",
-      "fb_media_id": "1825158091855631",
-      "ig_id": "18103021802154941",
-      "is_video": true,
-      "hashtag_n": 1
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-07-29",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1785326261.1739388,
+  "last_scored_ts": 1785340222.9210634,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
