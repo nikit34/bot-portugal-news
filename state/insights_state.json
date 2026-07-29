@@ -20,6 +20,32 @@
       "ig_id": "18137978515577814",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Árbitros são AGREDIDOS durante jogos no interior b",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785344792.3191025,
+      "is_video": true
+    },
+    {
+      "head": "⚠️ Esposa de Willian, do Grêmio, rebate informação",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785344900.08862,
+      "fb_id": "866362736310140",
+      "fb_media_id": "866362736310140",
+      "ig_id": "18137966635504027",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Carlo Ancelotti em seu retorno ao Brasil após a Co",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785345006.1380305,
+      "fb_id": "1694583278323765",
+      "fb_media_id": "1694583278323765",
+      "ig_id": "17962867170160225",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -168,7 +194,7 @@
   },
   "ig_quota": {
     "day": "2026-07-29",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1785340222.9210634,
   "dow_hours": {
