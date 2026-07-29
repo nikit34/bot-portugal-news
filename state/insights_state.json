@@ -2,12 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Carlos Carvalhal: «Na realidade, não contava com I",
+      "head": "Carlos Carvalhal faz apelo: «Não podemos estar sem",
       "source": "record.pt",
-      "ts": 1785289689.1047208,
-      "fb_id": "1071551511977869",
-      "fb_media_id": "1071551511977869",
-      "ig_id": "18086600111370740",
+      "ts": 1785302055.5527465,
+      "fb_id": "2640575856340493",
+      "fb_media_id": "2640575856340493",
+      "ig_id": "18091174244637766",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Suárez apareceu voando: atacante do Sporting com f",
+      "source": "record.pt",
+      "ts": 1785302162.170156,
+      "fb_id": "2311834409645471",
+      "fb_media_id": "2311834409645471",
+      "ig_id": "18100965517953837",
       "is_video": true,
       "hashtag_n": 4
     }
@@ -158,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-07-29",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1785289729.1119175,
+  "last_scored_ts": 1785302202.1749558,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
