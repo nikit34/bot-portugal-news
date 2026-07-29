@@ -10,6 +10,26 @@
       "ig_id": "18011397908925827",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ Gabriel Brazão, sobre as notícias envolvendo o",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785332969.2078328,
+      "fb_id": "1767761064643159",
+      "fb_media_id": "1767761064643159",
+      "ig_id": "18372869182238177",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Neymar, ao ser questionado como está se sentindo m",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785333079.9642034,
+      "fb_id": "1825158091855631",
+      "fb_media_id": "1825158091855631",
+      "ig_id": "18103021802154941",
+      "is_video": true,
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -158,7 +178,7 @@
   },
   "ig_quota": {
     "day": "2026-07-29",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1785326261.1739388,
   "dow_hours": {
