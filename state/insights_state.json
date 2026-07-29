@@ -2,24 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Carlos Carvalhal faz apelo: «Não podemos estar sem",
+      "head": "Rafael Nel é alvo de sondagens do 'Big 5' O jovem",
       "source": "record.pt",
-      "ts": 1785302055.5527465,
-      "fb_id": "2640575856340493",
-      "fb_media_id": "2640575856340493",
-      "ig_id": "18091174244637766",
+      "ts": 1785313463.368657,
+      "fb_id": "2106141363654283",
+      "fb_media_id": "2106141363654283",
+      "ig_id": "18104614829594797",
       "is_video": true,
       "hashtag_n": 2
     },
     {
-      "head": "Suárez apareceu voando: atacante do Sporting com f",
-      "source": "record.pt",
-      "ts": 1785302162.170156,
-      "fb_id": "2311834409645471",
-      "fb_media_id": "2311834409645471",
-      "ig_id": "18100965517953837",
+      "head": "Árbitro diz que Messi 'deu trabalho' na Copa, mas",
+      "source": "uol.com.br",
+      "ts": 1785313576.7144654,
+      "fb_id": "1543081287614873",
+      "fb_media_id": "1543081287614873",
+      "ig_id": "18085213727650149",
       "is_video": true,
-      "hashtag_n": 4
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -170,7 +170,7 @@
     "day": "2026-07-29",
     "posts": 2
   },
-  "last_scored_ts": 1785302202.1749558,
+  "last_scored_ts": 1785313616.7164357,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
