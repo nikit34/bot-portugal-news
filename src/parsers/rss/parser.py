@@ -17,10 +17,14 @@ from src.parsers.rss.channels.br.trivela import is_valid_trivela_entry, parse_tr
 from src.parsers.rss.channels.br.gazeta import is_valid_gazeta_entry, parse_gazeta
 from src.parsers.rss.channels.br.uol import is_valid_uol_entry, parse_uol
 from src.parsers.rss.channels.br.metropoles import is_valid_metropoles_entry, parse_metropoles
-from src.parsers.rss.channels.generic import is_valid_generic_entry, parse_generic
-from src.processor.recipe_filter import is_recipe
+from src.parsers.rss.channels.generic import is_valid_generic_entry, parse_generic, strip_html
+from src.processor.history_comparator import (
+    get_decisions_publish_platforms, is_duplicate_publish, make_head)
+from src.processor.recipe_filter import is_recipe, is_collection
 from src.processor.service import serve, should_stop
-from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS, MESSAGE_CHUNK_SIZE, RSS_VIDEO_ENABLED
+from src.static.settings import (
+    MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS, MESSAGE_CHUNK_SIZE, RSS_VIDEO_ENABLED,
+    RECIPE_PAGE_FETCH_ENABLED, RECIPE_PAGE_FETCH_TIMEOUT, RECIPE_PAGE_FETCH_MAX_PER_RUN)
 from src.producers.telegram.telegram_api import send_message_api
 from src.parsers.rss.user_agents_manager import random_user_agent_headers
 from src.utils.ci import get_ci_run_url
@@ -29,6 +33,10 @@ from src.utils.notify import build_error_message
 
 app_logger = logging.getLogger('app')
 stats_logger = logging.getLogger('stats')
+
+# Сколько страниц записей дозагружено за прогон (см. _entry_page_has_recipe). Процесс
+# живёт один прогон, поэтому счётчика на модуле достаточно.
+_page_fetch_count = 0
 
 
 async def rss_wrapper(client, graph, nlp, translator, telegram_bot_token, source, rss_link, posted_d, context):
@@ -75,6 +83,52 @@ async def _make_request(rss_link, telegram_bot_token, context, repeat=REPEAT_REQ
     return None
 
 
+def _already_published(entry, posted_d, context):
+    # Дозагрузку страницы (см. ниже) делаем только для НОВЫХ записей: фид отдаёт до
+    # MAX_NUMBER_TAKEN_MESSAGES записей и обходятся они от старых к новым, поэтому без
+    # этой проверки весь бюджет дозагрузок уходил бы на давно опубликованное, а свежие
+    # записи в конце фида до дозагрузки не доживали. Ключ считаем из тех же полей, из
+    # которых собирается подпись (parse_generic), так что он совпадает с ключом дедупа
+    # в serve; сравнение там нечёткое (MESSAGE_SIMILARITY_THRESHOLD), так что разница
+    # из-за перевода pt->pt на решение не влияет.
+    head = make_head(
+        strip_html(entry.get('title', '')) + ' ' + strip_html(entry.get('summary', '')))
+    return is_duplicate_publish(
+        get_decisions_publish_platforms(head, posted_d, context['platforms']))
+
+
+async def _entry_page_has_recipe(entry, source):
+    # Тизерные фиды (receitasja, receitasdemae, cincoquartosdelaranja, teleculinaria)
+    # отдают в RSS только анонс: ни ингредиентов, ни способа приготовления. Сам рецепт
+    # лежит на странице записи, поэтому для них дотягиваем страницу и проверяем гейт по
+    # ней. Вызывается ТОЛЬКО когда в фиде рецепта не нашлось, так что полноконтентным
+    # фидам не стоит ни одного запроса. Best-effort: любая сетевая ошибка = «рецепта не
+    # видно» (fail-closed, не-рецепт в канал не уйдёт).
+    global _page_fetch_count
+
+    link = entry.get('link') or ''
+    if not RECIPE_PAGE_FETCH_ENABLED or not link:
+        return False
+    if _page_fetch_count >= RECIPE_PAGE_FETCH_MAX_PER_RUN:
+        app_logger.debug(
+            f"[RSS] recipe page-fetch budget spent ({RECIPE_PAGE_FETCH_MAX_PER_RUN}); skipping {link}")
+        return False
+    _page_fetch_count += 1
+
+    try:
+        async with httpx.AsyncClient(follow_redirects=True, timeout=RECIPE_PAGE_FETCH_TIMEOUT) as client:
+            response = await client.get(link, headers=random_user_agent_headers())
+            response.raise_for_status()
+    except Exception as e:
+        app_logger.debug(f"[RSS] recipe page fetch failed for {link}: {e}")
+        return False
+
+    if is_recipe(entry.get('title', '') or '', response.text, full_page=True):
+        app_logger.info(f"[RSS] recipe recovered from the entry page ({source}): {link}")
+        return True
+    return False
+
+
 def _entry_texts(entry):
     # Полный текст записи для тематического гейта: заголовок + описание + тело
     # (content:encoded, полноконтентные /feed/ WordPress/Blogger несут его целиком).
@@ -114,8 +168,14 @@ async def _process_entry(
     # Food-конфиг (recipe_only): пропускаем только записи-рецепты. Проверяем по полному
     # телу записи, а не по подписи — там есть ингредиенты/способ и recipe-разметка.
     if context.get('recipe_only') and not is_recipe(*_entry_texts(entry), video=bool(video_url)):
-        app_logger.debug("Entry skipped - recipe_only: no recipe markers")
-        return False
+        # В фиде рецепта нет. У подборки/меню его не будет и на странице, а уже
+        # опубликованную запись дозагружать незачем - такие отсекаем сразу, не тратя
+        # запрос; у остальных дотягиваем страницу записи.
+        if (is_collection(entry.get('title', '') or '')
+                or _already_published(entry, posted_d, context)
+                or not await _entry_page_has_recipe(entry, source)):
+            app_logger.debug("Entry skipped - recipe_only: no recipe in the entry or on its page")
+            return False
 
     message_text = ''
     image = ''
@@ -198,7 +258,10 @@ async def _process_entry(
             handler_url_path = SaveFileUrl(image)
             app_logger.debug(f"[RSS] Created file handler for entry: {message_text}")
 
-        await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context, source=source)
+        # recipe_checked: гейт рецепта выше уже прогнан по ПОЛНОМУ телу записи, а в serve
+        # уходит только подпись (заголовок + начало описания), по которой рецепт не виден.
+        await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context,
+                    source=source, recipe_checked=True)
         app_logger.debug(f"[RSS] Successfully processed entry: {message_text}")
         return True
     except Exception as e:

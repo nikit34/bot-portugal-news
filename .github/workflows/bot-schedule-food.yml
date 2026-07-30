@@ -87,6 +87,10 @@ jobs:
           # narrated-Reel пивот: этот канал — тестовый полигон (оригинал по построению,
           # watermark/uniquify для reel'ов пропускается автоматически).
           REEL_RENDER_ENABLED: 'true'
+          # Тизерные фиды отдают в RSS только анонс, рецепт лежит на странице записи —
+          # дотягиваем её и судим гейт по ней. Кап держит wall-clock фазы-1.
+          RECIPE_PAGE_FETCH_ENABLED: 'true'
+          RECIPE_PAGE_FETCH_MAX_PER_RUN: '25'
           # Учимся на деньгах: заработок поста + суммарное время просмотра.
           FB_EARNINGS_ENABLED: 'true'
           FB_WATCH_TIME_ENABLED: 'true'

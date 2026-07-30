@@ -27,8 +27,8 @@ def test_is_valid_generic_requires_title_and_image():
 
 
 def test_strip_html_handles_cdata_and_entities():
-    assert g._strip_html('<![CDATA[<p>a &amp; b</p>]]>') == 'a & b'
-    assert g._strip_html('') == ''
+    assert g.strip_html('<![CDATA[<p>a &amp; b</p>]]>') == 'a & b'
+    assert g.strip_html('') == ''
 
 
 def test_parse_generic_no_summary_uses_title_only():

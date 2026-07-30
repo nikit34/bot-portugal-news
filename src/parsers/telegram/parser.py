@@ -93,8 +93,8 @@ async def _process_message_chunk(
             is_video_hint = _message_is_video(message)
 
             # Food-конфиг (recipe_only): в канал только рецепты. Проверяем подпись поста —
-            # у кулинарных каналов рецепт обычно расписан прямо в тексте (ингредиенты/способ
-            # или само слово «receita»); промо/анонсы без этих признаков отсекаем. Гейт стоит
+            # у кулинарных каналов рецепт расписан прямо в тексте (ингредиенты + способ
+            # приготовления); болтовню, анонсы и промо без рецепта отсекаем. Гейт стоит
             # ПОСЛЕ _message_is_video, потому что видео судим мягче: у видео-рецептов подпись
             # часто телеграфная (голый список ингредиентов), а ценность — сам клип.
             if context.get('recipe_only') and not is_recipe(message_text, video=is_video_hint):
@@ -114,7 +114,8 @@ async def _process_message_chunk(
                 f"[Telegram] Created file handler for message (video={is_video_hint}): {message_text}")
 
             await serve(client, graph, nlp, translator, message_text, handler_url_path,
-                        posted_d, context, source=source, is_video_hint=is_video_hint)
+                        posted_d, context, source=source, is_video_hint=is_video_hint,
+                        recipe_checked=True)
             app_logger.debug(f"[Telegram] Successfully processed message: {message_text}")
         except Exception as e:
             app_logger.error(f"[Telegram] Error processing message: {message_text}", exc_info=True)

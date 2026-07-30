@@ -20,7 +20,7 @@ _WP_SIZE_RE = re.compile(r'-\d{2,4}x\d{2,4}(\.(?:jpe?g|png|webp|gif))$', re.IGNO
 _BLOGGER_SIZE_RE = re.compile(r'/s\d{1,4}(?:-c)?/')
 
 
-def _strip_html(text):
+def strip_html(text):
     if not text:
         return ''
     text = _CDATA_RE.sub(r'\1', text)
@@ -77,8 +77,8 @@ def is_valid_generic_entry(entry):
 
 
 def parse_generic(entry):
-    title = _strip_html(entry.get('title', ''))
-    summary = _strip_html(entry.get('summary', ''))
+    title = strip_html(entry.get('title', ''))
+    summary = strip_html(entry.get('summary', ''))
     message = title
     if summary and summary.lower() != title.lower():
         message = title + '\n' + summary[:400]      # короткий хвост под озвучку/подпись

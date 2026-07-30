@@ -183,6 +183,15 @@ CONTENT_FILTER_ENABLED = True
 # F1/теннис/НБА и т.п. — отсекаем посты про другие виды спорта (см. topic_filter.py).
 TOPIC_FILTER_ENABLED = os.getenv('TOPIC_FILTER_ENABLED', 'true').lower() not in ('0', 'false', 'no')
 
+# Food-конфиг (recipe_only): часть кулинарных фидов отдаёт в RSS только анонс, а сам
+# рецепт лежит на странице записи. Для таких записей дотягиваем страницу и проверяем
+# гейт по ней (иначе фид не даёт ни одного поста). Работает ТОЛЬКО при recipe_only и
+# только когда в самом фиде рецепта не нашлось, поэтому полноконтентным фидам
+# (receitatodahora и пр.) не стоит ничего. Кап на прогон держит wall-clock фазы-1.
+RECIPE_PAGE_FETCH_ENABLED = os.getenv('RECIPE_PAGE_FETCH_ENABLED', 'true').lower() not in ('0', 'false', 'no')
+RECIPE_PAGE_FETCH_TIMEOUT = int(os.getenv('RECIPE_PAGE_FETCH_TIMEOUT', '8'))
+RECIPE_PAGE_FETCH_MAX_PER_RUN = int(os.getenv('RECIPE_PAGE_FETCH_MAX_PER_RUN', '25'))
+
 # Фильтр низкокачественных картинок: отсекаем мелкие превью/миниатюры (напр.
 # 142x100 из RSS-фида), которые в ленте выглядят плохо. Порог по сторонам в px,
 # fail-open: не смогли прочитать размер — не фильтруем. Настраивается через env.

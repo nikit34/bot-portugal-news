@@ -327,10 +327,20 @@ def get_run_stats():
 
 
 async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d,
-                context, source=None, is_video_hint=False):
+                context, source=None, is_video_hint=False, recipe_checked=False):
     # Phase-1 intake: cheap text-only filters + dedup + budget check. With the ranker
     # OFF (default) we publish inline immediately (unchanged FIFO behavior); with it
     # ON we pool the candidate and defer the expensive download/publish to drain_pool.
+
+    # Гейт recipe_only живёт на границе публикации, а не только в парсерах: в канал по
+    # кухне (FB+IG) уходит лишь то, что источник ЯВНО пометил проверенным на рецепт
+    # (recipe_checked, см. recipe_filter.is_recipe). Fail-closed: путь, который гейт не
+    # прогнал, не опубликует ничего вместо того, чтобы протащить не-рецепт.
+    if context.get('recipe_only') and not recipe_checked:
+        app_logger.warning(
+            f"[serve] recipe_only config: dropping post from {source} - recipe gate was not applied")
+        return
+
     translated_message = _translate_message(translator, message_text)
 
     if CONTENT_FILTER_ENABLED:

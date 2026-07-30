@@ -262,6 +262,39 @@ async def test_photo_still_gated_without_hint(monkeypatch):
     assert svc._candidate_pool == []            # gated, not pooled
 
 
+async def test_recipe_only_config_drops_unchecked_post(monkeypatch):
+    # Канал по кухне (recipe_only): serve публикует только то, что источник пометил
+    # recipe_checked. Путь без гейта не должен доносить пост до FB/IG (fail-closed).
+    calls = _mock_sends(monkeypatch)
+    context = {**CONTEXT, 'recipe_only': True}
+
+    await svc.serve(None, object(), _nlp, _Translator(), 'Chef abre novo restaurante no Porto',
+                    _url_path, deque(), context, source='rss')
+
+    assert calls == []
+    assert svc._published_count == 0
+
+
+async def test_recipe_only_config_publishes_checked_post(monkeypatch):
+    calls = _mock_sends(monkeypatch)
+    context = {**CONTEXT, 'recipe_only': True}
+
+    await svc.serve(None, object(), _nlp, _Translator(), 'Bolo de cenoura fofinho: ingredientes e modo de preparo',
+                    _url_path, deque(), context, source='rss', recipe_checked=True)
+
+    assert set(calls) == {Platform.FACEBOOK, Platform.INSTAGRAM, Platform.TELEGRAM}
+    assert svc._published_count == 1
+
+
+async def test_recipe_gate_does_not_touch_other_configs(monkeypatch):
+    # У футбольного конфига recipe_only нет — recipe_checked не требуется.
+    calls = _mock_sends(monkeypatch)
+
+    await _serve()
+
+    assert set(calls) == {Platform.FACEBOOK, Platform.INSTAGRAM, Platform.TELEGRAM}
+
+
 async def test_should_stop_on_budget_and_deadline():
     svc._published_count = 0
     svc._run_cap = 3
