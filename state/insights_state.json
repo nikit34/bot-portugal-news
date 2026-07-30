@@ -2,31 +2,30 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 30.07.2026",
-      "source": "digest",
-      "ts": 1785442855.5833952,
-      "fb_id": "1591977089141350",
-      "fb_media_id": "1591977089141350",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "🚨 Nota oficial do Palmeiras: “Não é a primeira vez",
+      "head": "🚨 Pronunciamento de Fábio Mota, presidente do Vitó",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785445167.3217483,
-      "fb_id": "1449878263854068",
-      "fb_media_id": "1449878263854068",
-      "ig_id": "18097601626992242",
+      "ts": 1785452348.671333,
+      "ig_id": "18158914732476877",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "📺 Neymar fecha com a ESPN para transmitir leilão b",
+      "head": "Zenit trabalha com dois cenários em uma negociação",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785445278.5063684,
-      "fb_id": "1356364053271027",
-      "fb_media_id": "1356364053271027",
-      "ig_id": "18096417641620647",
+      "ts": 1785452462.523067,
+      "fb_id": "1557173539454216",
+      "fb_media_id": "1557173539454216",
+      "ig_id": "17964083880149253",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Hugo Souza é acusado de homofobia após comentário",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785452585.324329,
+      "fb_id": "898705009969641",
+      "fb_media_id": "898705009969641",
+      "ig_id": "18109912891822316",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -177,9 +176,9 @@
   },
   "ig_quota": {
     "day": "2026-07-30",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1785445318.5075102,
+  "last_scored_ts": 1785452625.3478546,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
