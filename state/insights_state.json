@@ -2,40 +2,30 @@
   "version": 1,
   "pending": [
     {
-      "head": "Pigossi vai às quartas na Espanha e enfrenta favor",
-      "source": "uol.com.br",
-      "ts": 1785426477.2533016,
-      "fb_id": "1443475637536920",
-      "fb_media_id": "1443475637536920",
-      "ig_id": "17960359284184497",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Árbitro da final da Copa diz que Messi 'se comport",
-      "source": "uol.com.br",
-      "ts": 1785426591.3681412,
-      "fb_id": "1365762381581631",
-      "fb_media_id": "1365762381581631",
-      "ig_id": "18055810208789164",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "🚨 Pronunciamento de Fábio Mota, presidente do Vitó",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785431865.792521,
-      "ig_id": "18210300043352224",
+      "ts": 1785438781.8058345,
+      "ig_id": "17879116836618652",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "Torcida do Vitória protesta muito no Barradão após",
+      "head": "Visando o bem-estar dos torcedores, Corinthians in",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785431974.8501751,
-      "fb_id": "1354014880210307",
-      "fb_media_id": "1354014880210307",
-      "ig_id": "18109606217071072",
+      "ts": 1785438905.2623754,
+      "fb_id": "2128417084758328",
+      "fb_media_id": "2128417084758328",
+      "ig_id": "17902764138495307",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "Fora dos planos do Cruzeiro, Chico da Costa gera i",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785439027.887062,
+      "fb_id": "1278026730935228",
+      "fb_media_id": "1278026730935228",
+      "ig_id": "18155072038497711",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -186,9 +176,9 @@
   },
   "ig_quota": {
     "day": "2026-07-30",
-    "posts": 4
+    "posts": 3
   },
-  "last_scored_ts": 1785426631.3750913,
+  "last_scored_ts": 1785439067.8938587,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
