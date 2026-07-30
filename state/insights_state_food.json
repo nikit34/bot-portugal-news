@@ -112,6 +112,14 @@
       "ig_id": "18160547038480277",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Bolinho Verde para a Lancheira das Crianças: Uma D",
+      "source": "acasaencantada",
+      "ts": 1785442255.5340493,
+      "ig_id": "18106745948331240",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -236,7 +244,7 @@
   },
   "ig_quota": {
     "day": "2026-07-30",
-    "posts": 11
+    "posts": 12
   },
   "dow_hours": {
     "6-23": {
