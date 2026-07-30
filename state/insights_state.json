@@ -2,32 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "🚨 Pronunciamento de Fábio Mota, presidente do Vitó",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785418225.7343423,
-      "ig_id": "18348723349216606",
+      "head": "Pigossi vai às quartas na Espanha e enfrenta favor",
+      "source": "uol.com.br",
+      "ts": 1785426477.2533016,
+      "fb_id": "1443475637536920",
+      "fb_media_id": "1443475637536920",
+      "ig_id": "17960359284184497",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "🚨 Abel Ferreira opina sobre lances polêmicos de Vi",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785418336.925826,
-      "fb_id": "2549011922210386",
-      "fb_media_id": "2549011922210386",
-      "ig_id": "17963578347148345",
+      "head": "Árbitro da final da Copa diz que Messi 'se comport",
+      "source": "uol.com.br",
+      "ts": 1785426591.3681412,
+      "fb_id": "1365762381581631",
+      "fb_media_id": "1365762381581631",
+      "ig_id": "18055810208789164",
       "is_video": true,
       "hashtag_n": 5
-    },
-    {
-      "head": "OFICIAL! A nova camisa III do São Paulo. Aprovada?",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785418452.1202655,
-      "fb_id": "2072082200366658",
-      "fb_media_id": "2072082200366658",
-      "ig_id": "17962459022962755",
-      "is_video": true,
-      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -176,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-07-30",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1785418492.1395423,
+  "last_scored_ts": 1785426631.3750913,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
