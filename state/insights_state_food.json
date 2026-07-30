@@ -96,6 +96,22 @@
       "ig_id": "18050266142567270",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Vitamina de Morango: Elevando o Sabor do Verão! Se",
+      "source": "acasaencantada",
+      "ts": 1785422836.6975217,
+      "ig_id": "17952220833230471",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Suco de Melancia com Limão -Perfeito para os Dias",
+      "source": "acasaencantada",
+      "ts": 1785422917.3129203,
+      "ig_id": "18160547038480277",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -220,7 +236,7 @@
   },
   "ig_quota": {
     "day": "2026-07-30",
-    "posts": 9
+    "posts": 11
   },
   "dow_hours": {
     "6-23": {
