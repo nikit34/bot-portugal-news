@@ -2,32 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Abel Ferreira, técnico do Palmeiras, sobre as expu",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785387083.109707,
-      "fb_id": "1566755488365498",
-      "fb_media_id": "1566755488365498",
-      "ig_id": "18480889108099188",
+      "head": "Petit: «Queremos estabilizar o Santa Clara na 1ª L",
+      "source": "record.pt",
+      "ts": 1785399046.390494,
+      "fb_id": "4426849584242542",
+      "fb_media_id": "4426849584242542",
+      "ig_id": "18106746212023859",
       "is_video": true,
-      "hashtag_n": 4
+      "hashtag_n": 3
     },
     {
-      "head": "🚨 Pronunciamento de Fábio Mota, presidente do Vitó",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785387190.1737049,
-      "ig_id": "18117052672718446",
+      "head": "Ex-atacante do Botafogo morre após queda de muro e",
+      "source": "uol.com.br",
+      "ts": 1785399157.803397,
+      "fb_id": "806141192527308",
+      "fb_media_id": "806141192527308",
+      "ig_id": "18000903695976519",
       "is_video": true,
       "hashtag_n": 5
-    },
-    {
-      "head": "Confronto entre torcedores do Vitória e do Bahia n",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785387304.4577587,
-      "fb_id": "1358780002445249",
-      "fb_media_id": "1358780002445249",
-      "ig_id": "18089371469357206",
-      "is_video": true,
-      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -176,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-07-30",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1785387344.4650762,
+  "last_scored_ts": 1785399197.813027,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
