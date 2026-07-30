@@ -40,6 +40,30 @@
       "ig_id": "18051489680606255",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Danoninho Caseiro: Descubra os Segredos do Queijin",
+      "source": "acasaencantada",
+      "ts": 1785395768.8753805,
+      "ig_id": "18060227231759134",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Suco de Limão com Gengibre: Seu Shot Diário de Ref",
+      "source": "acasaencantada",
+      "ts": 1785395876.6668897,
+      "ig_id": "18035614466646062",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Sorvete Vegano Cremoso: Deliciosa e Saudável Opção",
+      "source": "acasaencantada",
+      "ts": 1785395986.1849616,
+      "ig_id": "18154440124494319",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -164,7 +188,7 @@
   },
   "ig_quota": {
     "day": "2026-07-30",
-    "posts": 2
+    "posts": 5
   },
   "dow_hours": {
     "6-23": {
