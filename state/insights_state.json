@@ -20,6 +20,24 @@
       "ig_id": "18055810208789164",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "🚨 Pronunciamento de Fábio Mota, presidente do Vitó",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785431865.792521,
+      "ig_id": "18210300043352224",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Torcida do Vitória protesta muito no Barradão após",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785431974.8501751,
+      "fb_id": "1354014880210307",
+      "fb_media_id": "1354014880210307",
+      "ig_id": "18109606217071072",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -168,7 +186,7 @@
   },
   "ig_quota": {
     "day": "2026-07-30",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1785426631.3750913,
   "dow_hours": {
