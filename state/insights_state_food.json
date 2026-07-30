@@ -64,6 +64,38 @@
       "ig_id": "18154440124494319",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Picolé de Chocolate – Caseiro e Saudável! O Favori",
+      "source": "acasaencantada",
+      "ts": 1785408117.444011,
+      "ig_id": "17940811245072520",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Descubra como fazer a melhor Vitamina de Mamão par",
+      "source": "acasaencantada",
+      "ts": 1785408227.264183,
+      "ig_id": "17923266684399823",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bolinho Beterraba e Cacau: Amor e Nutrição na Lanc",
+      "source": "acasaencantada",
+      "ts": 1785408341.30136,
+      "ig_id": "17962514841174729",
+      "is_video": true,
+      "hashtag_n": 1
+    },
+    {
+      "head": "Vitamina de Banana com Aveia: Como Preparar uma Op",
+      "source": "acasaencantada",
+      "ts": 1785408452.1994584,
+      "ig_id": "18050266142567270",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -188,7 +220,7 @@
   },
   "ig_quota": {
     "day": "2026-07-30",
-    "posts": 5
+    "posts": 9
   },
   "dow_hours": {
     "6-23": {
