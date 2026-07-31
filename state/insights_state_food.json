@@ -144,6 +144,22 @@
       "ig_id": "17966598543133631",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Caldo de Kenga Caldo de Kenga Se você nunca ouviu",
+      "source": "naminhapanela",
+      "ts": 1785528282.5505474,
+      "ig_id": "18186460549403488",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bolo de Cenoura Fofinho Bolo de Cenoura Fofinho Bo",
+      "source": "naminhapanela",
+      "ts": 1785528400.9985156,
+      "ig_id": "17999903859003158",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -268,7 +284,7 @@
   },
   "ig_quota": {
     "day": "2026-07-31",
-    "posts": 5
+    "posts": 7
   },
   "dow_hours": {
     "6-23": {
