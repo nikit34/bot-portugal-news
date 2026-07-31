@@ -2,33 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 31.07.2026",
-      "source": "digest",
-      "ts": 1785529495.9747567,
-      "fb_id": "1598217695167231",
-      "fb_media_id": "1598217695167231",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "Belenenses vence Estoril nos pênaltis e conquista",
-      "source": "record.pt",
-      "ts": 1785531384.1452713,
-      "fb_id": "1069528225653677",
-      "fb_media_id": "1069528225653677",
-      "ig_id": "17915991483224359",
+      "head": "⚠️ Acerto do Vasco com Santiago Sosa depende apena",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785538449.9009914,
+      "fb_id": "2342910113200439",
+      "fb_media_id": "2342910113200439",
+      "ig_id": "17902520520525434",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Corinthians confirma lesões de Zakaria e Yuri; Gar",
-      "source": "uol.com.br",
-      "ts": 1785531481.867342,
-      "fb_id": "2096478110979032",
-      "fb_media_id": "2096478110979032",
-      "ig_id": "17892126603397723",
+      "head": "Reviravolta! Anunciado pelo Colo-Colo, Vozinha est",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785538562.1793087,
+      "fb_id": "1027570013465758",
+      "fb_media_id": "1027570013465758",
+      "ig_id": "17989333881007607",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Doumbia radiante por voltar a faturar pelo Sportin",
+      "source": "record.pt",
+      "ts": 1785538670.4407024,
+      "fb_id": "1335283348647638",
+      "fb_media_id": "1335283348647638",
+      "ig_id": "18083583464248762",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -177,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-07-31",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1785531521.8689144,
+  "last_scored_ts": 1785538710.455139,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
