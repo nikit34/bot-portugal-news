@@ -2,30 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "🚨 Pronunciamento de Fábio Mota, presidente do Vitó",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785452348.671333,
-      "ig_id": "18158914732476877",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Zenit trabalha com dois cenários em uma negociação",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785452462.523067,
-      "fb_id": "1557173539454216",
-      "fb_media_id": "1557173539454216",
-      "ig_id": "17964083880149253",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Hugo Souza é acusado de homofobia após comentário",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785452585.324329,
-      "fb_id": "898705009969641",
-      "fb_media_id": "898705009969641",
-      "ig_id": "18109912891822316",
+      "head": "Grêmio perde de novo e é eliminado em casa pelo Bo",
+      "source": "uol.com.br",
+      "ts": 1785463121.0270548,
+      "fb_id": "1509691607596717",
+      "fb_media_id": "1509691607596717",
+      "ig_id": "18221039608326563",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -175,10 +157,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-30",
-    "posts": 3
+    "day": "2026-07-31",
+    "posts": 1
   },
-  "last_scored_ts": 1785452625.3478546,
+  "last_scored_ts": 1785463161.0377574,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
