@@ -128,6 +128,14 @@
       "ig_id": "18109964306053475",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Bolinhos de Canela para Lancheira Infantil: Deixan",
+      "source": "acasaencantada",
+      "ts": 1785510516.8143017,
+      "ig_id": "18119315923880035",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -252,7 +260,7 @@
   },
   "ig_quota": {
     "day": "2026-07-31",
-    "posts": 3
+    "posts": 4
   },
   "dow_hours": {
     "6-23": {
