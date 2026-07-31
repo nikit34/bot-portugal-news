@@ -120,6 +120,14 @@
       "ig_id": "18123070891759698",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Picolé de Morango: Transforme seu Verão com Sabor",
+      "source": "acasaencantada",
+      "ts": 1785482924.155904,
+      "ig_id": "18109964306053475",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -244,7 +252,7 @@
   },
   "ig_quota": {
     "day": "2026-07-31",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {
     "6-23": {
