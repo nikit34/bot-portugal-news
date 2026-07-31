@@ -160,6 +160,30 @@
       "ig_id": "17999903859003158",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Pudim de leite com laranja Pudim de leite com lara",
+      "source": "naminhapanela",
+      "ts": 1785540877.9991786,
+      "ig_id": "18096394940034239",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Filé Mignon Suíno Assado com Limão e Mel Filé Mign",
+      "source": "naminhapanela",
+      "ts": 1785540989.4532442,
+      "ig_id": "17902461636533099",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Panna Cotta de Iogurte com Melancia e Hortelã [sem",
+      "source": "cozinhadaduxa",
+      "ts": 1785541076.0840228,
+      "ig_id": "18087223109172338",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -284,7 +308,7 @@
   },
   "ig_quota": {
     "day": "2026-07-31",
-    "posts": 7
+    "posts": 10
   },
   "dow_hours": {
     "6-23": {
