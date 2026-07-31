@@ -2,40 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "🚨 Nota oficial do Vitória a respeito da declaração",
+      "head": "🚨 Zakaria Labyad, do Corinthians, não joga mais em",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785513469.9416754,
-      "fb_id": "1583867366649772",
-      "fb_media_id": "1583867366649772",
-      "ig_id": "17913245049240914",
+      "ts": 1785525077.310716,
+      "fb_id": "1565955858347181",
+      "fb_media_id": "1565955858347181",
+      "ig_id": "18069150371529737",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Real Madrid não pretende aumentar proposta por",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785525199.3981717,
+      "fb_id": "1083402224358592",
+      "fb_media_id": "1083402224358592",
+      "ig_id": "18061619108750897",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "⚠️ Roberto Carlos pede desculpas à torcida do Palm",
+      "head": "Real Madrid dá ultimato a Vini Jr.: renovar ou ser",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785513582.4500198,
-      "fb_id": "1290715522967782",
-      "fb_media_id": "1290715522967782",
-      "ig_id": "18013485641928468",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Pronunciamento de Marcio de Luna, gerente de opera",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785518545.9967308,
-      "fb_id": "1046012157819641",
-      "fb_media_id": "1046012157819641",
-      "ig_id": "18080208698676906",
-      "is_video": true,
-      "hashtag_n": 1
-    },
-    {
-      "head": "🚨 Pronunciamento de Fábio Mota, presidente do Vitó",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785518642.908609,
-      "ig_id": "18116958607896068",
+      "ts": 1785525406.7151747,
+      "fb_id": "37246896644957316",
+      "fb_media_id": "37246896644957316",
+      "ig_id": "17977713906072886",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -186,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-07-31",
-    "posts": 4
+    "posts": 3
   },
-  "last_scored_ts": 1785513622.4659696,
+  "last_scored_ts": 1785525446.7163546,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
