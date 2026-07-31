@@ -26,22 +26,6 @@
       "hashtag_n": 5
     },
     {
-      "head": "Panceta ao molho oriental • Açúcar mascavo 4 colhe",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785383094.3361657,
-      "ig_id": "18135023020523945",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Sabia que fazer churros em casa é mais fácil que v",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785383215.3191144,
-      "ig_id": "18051489680606255",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "Danoninho Caseiro: Descubra os Segredos do Queijin",
       "source": "acasaencantada",
       "ts": 1785395768.8753805,
@@ -120,6 +104,22 @@
       "ig_id": "18106745948331240",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Transforme o Verão com um Suco de Limão Siciliano",
+      "source": "acasaencantada",
+      "ts": 1785470894.7773416,
+      "ig_id": "18110918014963246",
+      "is_video": true,
+      "hashtag_n": 1
+    },
+    {
+      "head": "Bolinho de Manteiga de Amendoim para a Lancheira d",
+      "source": "acasaencantada",
+      "ts": 1785471006.5726843,
+      "ig_id": "18123070891759698",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -164,8 +164,8 @@
       "n": 9
     },
     "https://t.me/Brasil_Receitas": {
-      "reach_avg": 14.493022345164604,
-      "n": 9
+      "reach_avg": 9.238123949130655,
+      "n": 11
     }
   },
   "hours": {
@@ -202,8 +202,8 @@
       "n": 11
     },
     "3": {
-      "reach_avg": 5.6333322340589005,
-      "n": 14
+      "reach_avg": 4.995188294467036,
+      "n": 16
     },
     "6": {
       "reach_avg": 3.3422868054410806,
@@ -243,8 +243,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-30",
-    "posts": 12
+    "day": "2026-07-31",
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
@@ -336,8 +336,8 @@
       "n": 3
     },
     "3-3": {
-      "reach_avg": 8.673683560983449,
-      "n": 3
+      "reach_avg": 6.386647944881889,
+      "n": 5
     },
     "2-14": {
       "reach_avg": 7.858779999999999,
@@ -502,8 +502,8 @@
   },
   "formats": {
     "video": {
-      "reach_avg": 14.508128115257279,
-      "n": 170
+      "reach_avg": 9.245525776476065,
+      "n": 172
     }
   },
   "variants": {
@@ -512,15 +512,15 @@
       "n": 43
     },
     "tags:4+": {
-      "reach_avg": 13.535895517481237,
-      "n": 125
+      "reach_avg": 8.769131803565804,
+      "n": 127
     },
     "tags:0": {
       "reach_avg": 6.46633,
       "n": 2
     }
   },
-  "last_scored_ts": 1785383491.5979908,
+  "last_scored_ts": 1785471046.5865738,
   "reward_samples": [
     5.0445,
     9.1463,
@@ -656,7 +656,9 @@
     9.715,
     8.418299999999999,
     17.0074,
-    16.2398
+    16.2398,
+    7.2573,
+    2.0417
   ],
   "recent_winners": [
     {
