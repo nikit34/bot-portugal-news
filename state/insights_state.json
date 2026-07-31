@@ -10,6 +10,34 @@
       "ig_id": "18094333622528396",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "🚨 Pronunciamento de Fábio Mota, presidente do Vitó",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785505463.155153,
+      "ig_id": "17915883102224624",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Ex-dirigente do Flamengo, Marcos Braz diz que o cl",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785505569.7313788,
+      "fb_id": "1360451879603832",
+      "fb_media_id": "1360451879603832",
+      "ig_id": "18125598619604640",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Morre aos 66 anos, Franco Baresi, ídolo do Milan e",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785505675.4200032,
+      "fb_id": "988626890886112",
+      "fb_media_id": "988626890886112",
+      "ig_id": "17989791635991730",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -158,7 +186,7 @@
   },
   "ig_quota": {
     "day": "2026-07-31",
-    "posts": 1
+    "posts": 4
   },
   "last_scored_ts": 1785498964.4621236,
   "dow_hours": {
