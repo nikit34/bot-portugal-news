@@ -88,6 +88,14 @@
       "ig_id": "18087223109172338",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Ceviche de Bacalhau Fresco Os dias quentes convida",
+      "source": "cozinhadaduxa",
+      "ts": 1785568055.9124422,
+      "ig_id": "18094893710058612",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -216,7 +224,7 @@
   },
   "ig_quota": {
     "day": "2026-08-01",
-    "posts": 0
+    "posts": 1
   },
   "dow_hours": {
     "6-23": {
