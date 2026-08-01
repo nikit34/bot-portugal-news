@@ -2,24 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "«Tem lava jato, lubrificação, troca de óleo...»: M",
-      "source": "record.pt",
-      "ts": 1785582783.6806777,
-      "fb_id": "1551763686449217",
-      "fb_media_id": "1551763686449217",
-      "ig_id": "17976630851901650",
+      "head": "Vasco x Fluminense: horário e onde assistir ao jog",
+      "source": "uol.com.br",
+      "ts": 1785589235.490029,
+      "fb_id": "2139364063290714",
+      "fb_media_id": "2139364063290714",
+      "ig_id": "17892159129596750",
       "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Seguranças em \"cada canto\" e até... cães de guarda",
-      "source": "record.pt",
-      "ts": 1785582891.1707742,
-      "fb_id": "2320260542136570",
-      "fb_media_id": "2320260542136570",
-      "ig_id": "18121064093507968",
-      "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -168,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-08-01",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1785582931.1746871,
+  "last_scored_ts": 1785589275.5231276,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
