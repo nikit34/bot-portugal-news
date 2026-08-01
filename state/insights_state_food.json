@@ -160,6 +160,14 @@
       "ig_id": "18103419527335794",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Mimos de Pescada do Cabo com Molho de Iogurte Greg",
+      "source": "cozinhadaduxa",
+      "ts": 1785605992.4997752,
+      "ig_id": "18069046775533801",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -288,7 +296,7 @@
   },
   "ig_quota": {
     "day": "2026-08-01",
-    "posts": 9
+    "posts": 10
   },
   "dow_hours": {
     "6-23": {
