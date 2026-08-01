@@ -2,32 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Memphis Depay assina a renovação, e vai permanecer",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785561972.886126,
-      "fb_id": "1578619377229684",
-      "fb_media_id": "1578619377229684",
-      "ig_id": "18119732647861441",
+      "head": "Pegar ou largar: Real Madrid dá ultimato a Viníciu",
+      "source": "record.pt",
+      "ts": 1785571612.2362463,
+      "fb_id": "2049201432634066",
+      "fb_media_id": "2049201432634066",
+      "ig_id": "17998872407792998",
       "is_video": true,
-      "hashtag_n": 4
+      "hashtag_n": 3
     },
     {
-      "head": "⚠️ Baixa no Palmeiras! O clube informa que o zague",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785562082.1764052,
-      "fb_id": "1574442687745208",
-      "fb_media_id": "1574442687745208",
-      "ig_id": "18084385196654431",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "📺 Globo fará 56 jogos da Copa do Mundo Feminina na",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785562196.8546414,
-      "fb_id": "806634615804309",
-      "fb_media_id": "806634615804309",
-      "ig_id": "18609377083007089",
+      "head": "Infantino desiste de vender fatia da Copa do Mundo",
+      "source": "uol.com.br",
+      "ts": 1785571714.6404717,
+      "fb_id": "1265853098872865",
+      "fb_media_id": "1265853098872865",
+      "ig_id": "18065205353749146",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-01",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1785562236.8721561,
+  "last_scored_ts": 1785571754.6418226,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
