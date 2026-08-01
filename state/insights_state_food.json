@@ -144,6 +144,22 @@
       "ig_id": "17978512092071488",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Macarrão de Abobrinha com Berinjela, Alho-Francês",
+      "source": "cozinhadaduxa",
+      "ts": 1785599135.2932918,
+      "ig_id": "18072386303398296",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Torta de Coco Deliciosa [sem Açúcar e sem Glúten]",
+      "source": "cozinhadaduxa",
+      "ts": 1785599247.92566,
+      "ig_id": "18103419527335794",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -272,7 +288,7 @@
   },
   "ig_quota": {
     "day": "2026-08-01",
-    "posts": 7
+    "posts": 9
   },
   "dow_hours": {
     "6-23": {
