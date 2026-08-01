@@ -96,6 +96,14 @@
       "ig_id": "18094893710058612",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "Pasteis de Alfarroba Minha paixão por aveia faz co",
+      "source": "cozinhadaduxa",
+      "ts": 1785579712.7315197,
+      "ig_id": "18034411922638599",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -224,7 +232,7 @@
   },
   "ig_quota": {
     "day": "2026-08-01",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
