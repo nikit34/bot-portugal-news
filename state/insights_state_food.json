@@ -26,102 +26,6 @@
       "hashtag_n": 5
     },
     {
-      "head": "Danoninho Caseiro: Descubra os Segredos do Queijin",
-      "source": "acasaencantada",
-      "ts": 1785395768.8753805,
-      "ig_id": "18060227231759134",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Suco de Limão com Gengibre: Seu Shot Diário de Ref",
-      "source": "acasaencantada",
-      "ts": 1785395876.6668897,
-      "ig_id": "18035614466646062",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Sorvete Vegano Cremoso: Deliciosa e Saudável Opção",
-      "source": "acasaencantada",
-      "ts": 1785395986.1849616,
-      "ig_id": "18154440124494319",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Picolé de Chocolate – Caseiro e Saudável! O Favori",
-      "source": "acasaencantada",
-      "ts": 1785408117.444011,
-      "ig_id": "17940811245072520",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Descubra como fazer a melhor Vitamina de Mamão par",
-      "source": "acasaencantada",
-      "ts": 1785408227.264183,
-      "ig_id": "17923266684399823",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Bolinho Beterraba e Cacau: Amor e Nutrição na Lanc",
-      "source": "acasaencantada",
-      "ts": 1785408341.30136,
-      "ig_id": "17962514841174729",
-      "is_video": true,
-      "hashtag_n": 1
-    },
-    {
-      "head": "Vitamina de Banana com Aveia: Como Preparar uma Op",
-      "source": "acasaencantada",
-      "ts": 1785408452.1994584,
-      "ig_id": "18050266142567270",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Vitamina de Morango: Elevando o Sabor do Verão! Se",
-      "source": "acasaencantada",
-      "ts": 1785422836.6975217,
-      "ig_id": "17952220833230471",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Suco de Melancia com Limão -Perfeito para os Dias",
-      "source": "acasaencantada",
-      "ts": 1785422917.3129203,
-      "ig_id": "18160547038480277",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Bolinho Verde para a Lancheira das Crianças: Uma D",
-      "source": "acasaencantada",
-      "ts": 1785442255.5340493,
-      "ig_id": "18106745948331240",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Transforme o Verão com um Suco de Limão Siciliano",
-      "source": "acasaencantada",
-      "ts": 1785470894.7773416,
-      "ig_id": "18110918014963246",
-      "is_video": true,
-      "hashtag_n": 1
-    },
-    {
-      "head": "Bolinho de Manteiga de Amendoim para a Lancheira d",
-      "source": "acasaencantada",
-      "ts": 1785471006.5726843,
-      "ig_id": "18123070891759698",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Picolé de Morango: Transforme seu Verão com Sabor",
       "source": "acasaencantada",
       "ts": 1785482924.155904,
@@ -230,6 +134,10 @@
     "https://t.me/Brasil_Receitas": {
       "reach_avg": 9.238123949130655,
       "n": 11
+    },
+    "acasaencantada": {
+      "reach_avg": 0.2628291715220953,
+      "n": 12
     }
   },
   "hours": {
@@ -238,12 +146,12 @@
       "n": 11
     },
     "4": {
-      "reach_avg": 10.924178332820016,
-      "n": 11
+      "reach_avg": 5.352847383081808,
+      "n": 13
     },
     "7": {
-      "reach_avg": 4.314445713823523,
-      "n": 9
+      "reach_avg": 2.121221879841468,
+      "n": 12
     },
     "11": {
       "reach_avg": 6.677420619417708,
@@ -258,8 +166,8 @@
       "n": 5
     },
     "20": {
-      "reach_avg": 7.680090320636299,
-      "n": 5
+      "reach_avg": 5.5542632244454095,
+      "n": 6
     },
     "21": {
       "reach_avg": 4.826630759870689,
@@ -274,8 +182,8 @@
       "n": 15
     },
     "10": {
-      "reach_avg": 12.716191130232735,
-      "n": 18
+      "reach_avg": 3.5602435303688784,
+      "n": 22
     },
     "16": {
       "reach_avg": 6.871784438774903,
@@ -294,8 +202,8 @@
       "n": 5
     },
     "14": {
-      "reach_avg": 7.462421757228221,
-      "n": 14
+      "reach_avg": 3.756252661041828,
+      "n": 16
     },
     "8": {
       "reach_avg": 16.63284844838416,
@@ -307,8 +215,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-31",
-    "posts": 10
+    "day": "2026-08-01",
+    "posts": 0
   },
   "dow_hours": {
     "6-23": {
@@ -412,20 +320,20 @@
       "n": 2
     },
     "3-7": {
-      "reach_avg": 6.643725999999999,
-      "n": 3
+      "reach_avg": 2.920165017999999,
+      "n": 6
     },
     "3-10": {
-      "reach_avg": 21.47981,
-      "n": 2
+      "reach_avg": 5.664388420999998,
+      "n": 6
     },
     "3-12": {
       "reach_avg": 7.27654,
       "n": 2
     },
     "3-14": {
-      "reach_avg": 5.339480124957484,
-      "n": 3
+      "reach_avg": 2.716011261229167,
+      "n": 5
     },
     "3-21": {
       "reach_avg": 10.662469999999999,
@@ -562,29 +470,37 @@
     "1-18": {
       "reach_avg": 13.57176,
       "n": 2
+    },
+    "3-20": {
+      "reach_avg": 0.5940000000000001,
+      "n": 1
+    },
+    "4-4": {
+      "reach_avg": 0.0,
+      "n": 2
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 9.245525776476065,
-      "n": 172
+      "reach_avg": 0.3605808382000226,
+      "n": 184
     }
   },
   "variants": {
     "tags:1-3": {
-      "reach_avg": 13.473800847841657,
-      "n": 43
+      "reach_avg": 1.3363355403634052,
+      "n": 50
     },
     "tags:4+": {
-      "reach_avg": 8.769131803565804,
-      "n": 127
+      "reach_avg": 1.988560668225304,
+      "n": 132
     },
     "tags:0": {
       "reach_avg": 6.46633,
       "n": 2
     }
   },
-  "last_scored_ts": 1785471046.5865738,
+  "last_scored_ts": 1785557492.059467,
   "reward_samples": [
     5.0445,
     9.1463,
@@ -722,7 +638,19 @@
     17.0074,
     16.2398,
     7.2573,
-    2.0417
+    2.0417,
+    2.005,
+    1.0682,
+    0.4077,
+    1.4396,
+    0.5096,
+    0.308,
+    0.7312,
+    0.4746,
+    0.0,
+    0.5940000000000001,
+    0.0,
+    0.0
   ],
   "recent_winners": [
     {
