@@ -2,34 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "🚨 Salah está perto de ser o novo reforço do Trabzo",
+      "head": "Flamengo paga R$ 14 milhões à Ferroviária-SP e com",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785603169.1244442,
-      "fb_id": "27697169943316241",
-      "fb_media_id": "27697169943316241",
-      "ig_id": "18346779715217638",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Flamengo segue com a maior torcida do Brasil, afir",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785603286.122231,
-      "fb_id": "2514667665715352",
-      "fb_media_id": "2514667665715352",
-      "ig_id": "18092467889569543",
+      "ts": 1785610682.305832,
+      "fb_id": "1545276417389086",
+      "fb_media_id": "1545276417389086",
+      "ig_id": "18127179142671287",
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "⚠️ STJD denuncia Maurício, do Palmeiras, e trio do",
+      "head": "⚠️ Em busca de atacantes após lesões de Gabriel Pe",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785603515.5715168,
-      "fb_id": "1659021891857936",
-      "fb_media_id": "1659021891857936",
-      "ig_id": "18177643867416248",
+      "ts": 1785610796.4488177,
+      "fb_id": "1546543510484569",
+      "fb_media_id": "1546543510484569",
+      "ig_id": "18063416537761971",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ Cruzeiro está perto de fechar a contratação do",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785610901.4187598,
+      "fb_id": "907528125149557",
+      "fb_media_id": "907528125149557",
+      "ig_id": "18089603030542971",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -180,7 +180,7 @@
     "day": "2026-08-01",
     "posts": 3
   },
-  "last_scored_ts": 1785603555.5779965,
+  "last_scored_ts": 1785610941.4314172,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
