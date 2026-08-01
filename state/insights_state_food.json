@@ -168,6 +168,14 @@
       "ig_id": "18069046775533801",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Bolo de Maçãs, Mel e Especiarias 4 de Outubro , vé",
+      "source": "cozinhadaduxa",
+      "ts": 1785619833.53373,
+      "ig_id": "17896500591559091",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -296,7 +304,7 @@
   },
   "ig_quota": {
     "day": "2026-08-01",
-    "posts": 10
+    "posts": 11
   },
   "dow_hours": {
     "6-23": {
