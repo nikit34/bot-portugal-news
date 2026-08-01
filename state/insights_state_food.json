@@ -104,6 +104,30 @@
       "ig_id": "18034411922638599",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Cubinhos de Dourado com Cebolada A sugestão de hoj",
+      "source": "cozinhadaduxa",
+      "ts": 1785584943.0291834,
+      "ig_id": "18112515676754169",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Maçã Assada em Calda de Especiarias Dezembro corre",
+      "source": "cozinhadaduxa",
+      "ts": 1785585047.258631,
+      "ig_id": "17894226654575505",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bolachas de Natal O Natal está chegando, nossos di",
+      "source": "cozinhadaduxa",
+      "ts": 1785585158.0654552,
+      "ig_id": "17897307468558921",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -232,7 +256,7 @@
   },
   "ig_quota": {
     "day": "2026-08-01",
-    "posts": 2
+    "posts": 5
   },
   "dow_hours": {
     "6-23": {
