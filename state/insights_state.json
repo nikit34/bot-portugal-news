@@ -2,12 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Sucumbiu à pressão: proposta de Infantino para ven",
-      "source": "record.pt",
-      "ts": 1785549579.062302,
-      "fb_id": "4347150918833267",
-      "fb_media_id": "4347150918833267",
-      "ig_id": "18091416086640727",
+      "head": "Memphis Depay assina a renovação, e vai permanecer",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785561972.886126,
+      "fb_id": "1578619377229684",
+      "fb_media_id": "1578619377229684",
+      "ig_id": "18119732647861441",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "⚠️ Baixa no Palmeiras! O clube informa que o zague",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785562082.1764052,
+      "fb_id": "1574442687745208",
+      "fb_media_id": "1574442687745208",
+      "ig_id": "18084385196654431",
+      "is_video": true,
+      "hashtag_n": 4
+    },
+    {
+      "head": "📺 Globo fará 56 jogos da Copa do Mundo Feminina na",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785562196.8546414,
+      "fb_id": "806634615804309",
+      "fb_media_id": "806634615804309",
+      "ig_id": "18609377083007089",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-01",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785549619.071731,
+  "last_scored_ts": 1785562236.8721561,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
