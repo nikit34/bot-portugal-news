@@ -2,34 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Acerto do Vasco com Santiago Sosa depende apena",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785538449.9009914,
-      "fb_id": "2342910113200439",
-      "fb_media_id": "2342910113200439",
-      "ig_id": "17902520520525434",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Reviravolta! Anunciado pelo Colo-Colo, Vozinha est",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785538562.1793087,
-      "fb_id": "1027570013465758",
-      "fb_media_id": "1027570013465758",
-      "ig_id": "17989333881007607",
+      "head": "Sucumbiu à pressão: proposta de Infantino para ven",
+      "source": "record.pt",
+      "ts": 1785549579.062302,
+      "fb_id": "4347150918833267",
+      "fb_media_id": "4347150918833267",
+      "ig_id": "18091416086640727",
       "is_video": true,
       "hashtag_n": 5
-    },
-    {
-      "head": "Doumbia radiante por voltar a faturar pelo Sportin",
-      "source": "record.pt",
-      "ts": 1785538670.4407024,
-      "fb_id": "1335283348647638",
-      "fb_media_id": "1335283348647638",
-      "ig_id": "18083583464248762",
-      "is_video": true,
-      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -177,10 +157,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-07-31",
-    "posts": 3
+    "day": "2026-08-01",
+    "posts": 1
   },
-  "last_scored_ts": 1785538710.455139,
+  "last_scored_ts": 1785549619.071731,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
