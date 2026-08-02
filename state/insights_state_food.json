@@ -192,6 +192,22 @@
       "ig_id": "18046948067803205",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785713727.4422371,
+      "ig_id": "18126127654674671",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bolachinhas salgadas são perfeitas: Sabor parmesão",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785713819.2203794,
+      "ig_id": "18074457905385510",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -328,7 +344,7 @@
   },
   "ig_quota": {
     "day": "2026-08-02",
-    "posts": 10
+    "posts": 12
   },
   "dow_hours": {
     "6-23": {
