@@ -168,6 +168,14 @@
       "ig_id": "18600628534065425",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Maracujada cremosa! Ingredientes: 3 maracujás 200m",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785692658.1317308,
+      "ig_id": "18550624897078066",
+      "is_video": true,
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -304,7 +312,7 @@
   },
   "ig_quota": {
     "day": "2026-08-02",
-    "posts": 7
+    "posts": 8
   },
   "dow_hours": {
     "6-23": {
