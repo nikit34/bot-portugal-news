@@ -2,14 +2,33 @@
   "version": 1,
   "pending": [
     {
-      "head": "Tiago Antunes ataca Volta a Portugal com ambição:",
-      "source": "record.pt",
-      "ts": 1785669189.4417303,
-      "fb_id": "907205808549737",
-      "fb_media_id": "907205808549737",
-      "ig_id": "18017725682860439",
+      "head": "⚠️ Cruzeiro acerta a contratação do atacante Wesle",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785675727.8801174,
+      "fb_id": "1731469728126618",
+      "fb_media_id": "1731469728126618",
       "is_video": true,
-      "hashtag_n": 4
+      "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ Vitória emite nota oficial parabenizando o STJD",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785675847.1337736,
+      "fb_id": "2047221156183174",
+      "fb_media_id": "2047221156183174",
+      "ig_id": "18107007365328363",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ STJD concede efeito suspensivo a Victor Gabriel",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785675963.2812037,
+      "fb_id": "2098153917795425",
+      "fb_media_id": "2098153917795425",
+      "ig_id": "17862380898662260",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -158,9 +177,9 @@
   },
   "ig_quota": {
     "day": "2026-08-02",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1785669229.4441538,
+  "last_scored_ts": 1785676003.2956955,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
