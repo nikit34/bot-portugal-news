@@ -176,6 +176,14 @@
       "ig_id": "18550624897078066",
       "is_video": true,
       "hashtag_n": 1
+    },
+    {
+      "head": "INGREDIENTES RECHEIO: óleo 2 dentes de alho 1/2 ce",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785700514.3540177,
+      "ig_id": "17959870845156373",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -312,7 +320,7 @@
   },
   "ig_quota": {
     "day": "2026-08-02",
-    "posts": 8
+    "posts": 9
   },
   "dow_hours": {
     "6-23": {
