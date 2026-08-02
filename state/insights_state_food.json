@@ -184,6 +184,14 @@
       "ig_id": "17959870845156373",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785706077.25414,
+      "ig_id": "18046948067803205",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -320,7 +328,7 @@
   },
   "ig_quota": {
     "day": "2026-08-02",
-    "posts": 9
+    "posts": 10
   },
   "dow_hours": {
     "6-23": {
