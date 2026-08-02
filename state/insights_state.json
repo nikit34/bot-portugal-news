@@ -2,12 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Lara Hass é campeã no Paraguai, Duda é vice em Lux",
+      "head": "“A minha sensação depois da Copa do Mundo é péssim",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785648055.7394512,
+      "fb_id": "2269031160557154",
+      "fb_media_id": "2269031160557154",
+      "ig_id": "18124307251684166",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Nel põe graúdos em sentido: avançado ganha balanço",
+      "source": "record.pt",
+      "ts": 1785648161.604392,
+      "fb_id": "1044535884992507",
+      "fb_media_id": "1044535884992507",
+      "ig_id": "17969242298940230",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Nem Neymar tira o zero do placar em três jogos da",
       "source": "uol.com.br",
-      "ts": 1785635746.0533204,
-      "fb_id": "1493733995844134",
-      "fb_media_id": "1493733995844134",
-      "ig_id": "17981348568108293",
+      "ts": 1785648268.1587932,
+      "fb_id": "1582422856624237",
+      "fb_media_id": "1582422856624237",
+      "ig_id": "17924017248393799",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-02",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785635786.0722635,
+  "last_scored_ts": 1785648308.1608105,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
