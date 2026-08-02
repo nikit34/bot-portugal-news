@@ -136,6 +136,22 @@
       "ig_id": "18091209647549012",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Sacolé de Pudim Esse sacolé é pra quem ama sobreme",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785671379.455579,
+      "ig_id": "18070809935422151",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Bolo de Cenoura com brigadeiro na lata Para a mass",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785671519.5566795,
+      "ig_id": "17937270315322949",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -272,7 +288,7 @@
   },
   "ig_quota": {
     "day": "2026-08-02",
-    "posts": 3
+    "posts": 5
   },
   "dow_hours": {
     "6-23": {
