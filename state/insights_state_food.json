@@ -26,70 +26,6 @@
       "hashtag_n": 5
     },
     {
-      "head": "Picolé de Morango: Transforme seu Verão com Sabor",
-      "source": "acasaencantada",
-      "ts": 1785482924.155904,
-      "ig_id": "18109964306053475",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Bolinhos de Canela para Lancheira Infantil: Deixan",
-      "source": "acasaencantada",
-      "ts": 1785510516.8143017,
-      "ig_id": "18119315923880035",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Bolinho de Leite para a Lancheira: Receita Delicio",
-      "source": "acasaencantada",
-      "ts": 1785521707.5115852,
-      "ig_id": "17966598543133631",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Caldo de Kenga Caldo de Kenga Se você nunca ouviu",
-      "source": "naminhapanela",
-      "ts": 1785528282.5505474,
-      "ig_id": "18186460549403488",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Bolo de Cenoura Fofinho Bolo de Cenoura Fofinho Bo",
-      "source": "naminhapanela",
-      "ts": 1785528400.9985156,
-      "ig_id": "17999903859003158",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Pudim de leite com laranja Pudim de leite com lara",
-      "source": "naminhapanela",
-      "ts": 1785540877.9991786,
-      "ig_id": "18096394940034239",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Filé Mignon Suíno Assado com Limão e Mel Filé Mign",
-      "source": "naminhapanela",
-      "ts": 1785540989.4532442,
-      "ig_id": "17902461636533099",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Panna Cotta de Iogurte com Melancia e Hortelã [sem",
-      "source": "cozinhadaduxa",
-      "ts": 1785541076.0840228,
-      "ig_id": "18087223109172338",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
       "head": "Ceviche de Bacalhau Fresco Os dias quentes convida",
       "source": "cozinhadaduxa",
       "ts": 1785568055.9124422,
@@ -176,6 +112,14 @@
       "ig_id": "17896500591559091",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Salada de Polvo Um dia desses repeti essa salada d",
+      "source": "cozinhadaduxa",
+      "ts": 1785644041.397814,
+      "ig_id": "17936940798303019",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -224,38 +168,46 @@
       "n": 11
     },
     "acasaencantada": {
-      "reach_avg": 0.2628291715220953,
-      "n": 12
+      "reach_avg": 3.5554976672104743,
+      "n": 15
+    },
+    "naminhapanela": {
+      "reach_avg": 4.623597557107344,
+      "n": 4
+    },
+    "cozinhadaduxa": {
+      "reach_avg": 1.1793,
+      "n": 1
     }
   },
   "hours": {
     "23": {
-      "reach_avg": 11.690837323763848,
-      "n": 11
+      "reach_avg": 5.613778502050999,
+      "n": 14
     },
     "4": {
       "reach_avg": 5.352847383081808,
       "n": 13
     },
     "7": {
-      "reach_avg": 2.121221879841468,
-      "n": 12
+      "reach_avg": 1.7170853158890274,
+      "n": 13
     },
     "11": {
       "reach_avg": 6.677420619417708,
       "n": 18
     },
     "15": {
-      "reach_avg": 7.727749585876753,
-      "n": 11
+      "reach_avg": 5.5579547101137265,
+      "n": 12
     },
     "18": {
-      "reach_avg": 15.16962649675421,
-      "n": 5
+      "reach_avg": 12.287038547727947,
+      "n": 6
     },
     "20": {
-      "reach_avg": 5.5542632244454095,
-      "n": 6
+      "reach_avg": 5.173134979978251,
+      "n": 8
     },
     "21": {
       "reach_avg": 4.826630759870689,
@@ -303,8 +255,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-01",
-    "posts": 11
+    "day": "2026-08-02",
+    "posts": 1
   },
   "dow_hours": {
     "6-23": {
@@ -448,12 +400,12 @@
       "n": 2
     },
     "4-15": {
-      "reach_avg": 7.1861,
-      "n": 1
+      "reach_avg": 5.1788,
+      "n": 2
     },
     "4-23": {
-      "reach_avg": 4.769196220988755,
-      "n": 2
+      "reach_avg": 3.5504877351189816,
+      "n": 5
     },
     "5-3": {
       "reach_avg": 5.553381996874526,
@@ -566,29 +518,41 @@
     "4-4": {
       "reach_avg": 0.0,
       "n": 2
+    },
+    "4-7": {
+      "reach_avg": 0.7741,
+      "n": 1
+    },
+    "4-18": {
+      "reach_avg": 5.561,
+      "n": 1
+    },
+    "4-20": {
+      "reach_avg": 5.1189100000000005,
+      "n": 2
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 0.3605808382000226,
-      "n": 184
+      "reach_avg": 3.530508561219817,
+      "n": 192
     }
   },
   "variants": {
     "tags:1-3": {
-      "reach_avg": 1.3363355403634052,
-      "n": 50
+      "reach_avg": 2.7128407161378587,
+      "n": 54
     },
     "tags:4+": {
-      "reach_avg": 1.988560668225304,
-      "n": 132
+      "reach_avg": 3.709584121899563,
+      "n": 136
     },
     "tags:0": {
       "reach_avg": 6.46633,
       "n": 2
     }
   },
-  "last_scored_ts": 1785557492.059467,
+  "last_scored_ts": 1785644081.404909,
   "reward_samples": [
     5.0445,
     9.1463,
@@ -738,7 +702,15 @@
     0.0,
     0.5940000000000001,
     0.0,
-    0.0
+    0.0,
+    0.7741,
+    0.4951,
+    5.561,
+    5.443600000000001,
+    4.3613,
+    0.3559,
+    5.7034,
+    1.1793
   ],
   "recent_winners": [
     {
