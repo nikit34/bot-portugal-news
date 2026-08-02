@@ -2,24 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "Farioli: «Deixar uma marca na história gloriosa de",
-      "source": "record.pt",
-      "ts": 1785703520.6424963,
-      "fb_id": "1834481217535144",
-      "fb_media_id": "1834481217535144",
-      "ig_id": "18118207312909579",
+      "head": "Reinier pede desculpas nas redes sociais por ter x",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785710886.6462886,
+      "fb_id": "1365380685134942",
+      "fb_media_id": "1365380685134942",
+      "ig_id": "18123310663773086",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Tragédia de Ceuta: jovem promessa do futebol femin",
-      "source": "record.pt",
-      "ts": 1785703636.4940336,
-      "fb_id": "2143929769887831",
-      "fb_media_id": "2143929769887831",
-      "ig_id": "17876639946528230",
+      "head": "O contrato elaborado entre Corinthians e Memphis D",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785710997.6127067,
+      "fb_id": "4628045524093777",
+      "fb_media_id": "4628045524093777",
+      "ig_id": "18002967368777795",
       "is_video": true,
-      "hashtag_n": 1
+      "hashtag_n": 3
+    },
+    {
+      "head": "Palmeiras quer fazer com que Copa do Brasil deixe",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785711125.8335881,
+      "fb_id": "1010204291827747",
+      "fb_media_id": "1010204291827747",
+      "ig_id": "18111591569051578",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-02",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1785703676.5029466,
+  "last_scored_ts": 1785711165.835284,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
