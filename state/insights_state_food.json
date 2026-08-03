@@ -128,6 +128,22 @@
       "ig_id": "18107650355330905",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Error 500 (Server Error)!!1500.That’s an error.The",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785758344.7692616,
+      "ig_id": "17987344304847512",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "SALGADINHO DE QUEIJO Salve essa receita para não e",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785758682.1937833,
+      "ig_id": "17859605667678559",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -264,7 +280,7 @@
   },
   "ig_quota": {
     "day": "2026-08-03",
-    "posts": 2
+    "posts": 4
   },
   "dow_hours": {
     "6-23": {
