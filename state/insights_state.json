@@ -2,23 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 03.08.2026",
-      "source": "digest",
-      "ts": 1785789445.6314487,
-      "fb_id": "2251502495391618",
-      "fb_media_id": "2251502495391618",
+      "head": "Zenit autorizou intermediários a oferecerem Luiz H",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785797684.426562,
+      "fb_id": "1040819328325438",
+      "fb_media_id": "1040819328325438",
+      "ig_id": "18585888781064120",
       "is_video": true,
-      "is_digest": true
+      "hashtag_n": 5
     },
     {
-      "head": "Seara quebra o silêncio sobre áudios de Proença: «",
-      "source": "record.pt",
-      "ts": 1785790680.8575287,
-      "fb_id": "2258577128419656",
-      "fb_media_id": "2258577128419656",
-      "ig_id": "18057840035787080",
+      "head": "⚠️ Santos informa: “O atleta Neymar Jr viajará nes",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785797789.3465693,
+      "fb_id": "1074494241585036",
+      "fb_media_id": "1074494241585036",
+      "ig_id": "18099997847248450",
       "is_video": true,
-      "hashtag_n": 4
+      "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ AGORA! Paulinho tem lesão detectada e volta a s",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785797894.1220305,
+      "fb_id": "27585332134421024",
+      "fb_media_id": "27585332134421024",
+      "ig_id": "18568712809070693",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -167,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-03",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785790720.8717752,
+  "last_scored_ts": 1785797934.1283197,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
