@@ -2,32 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Atlético-MG tem negociações avançadas pelo vola",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785749129.5083177,
-      "fb_id": "1568589024810921",
-      "fb_media_id": "1568589024810921",
-      "ig_id": "18097882856609534",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Otamendi marca na própria baliza e Di María conqui",
-      "source": "record.pt",
-      "ts": 1785749241.4362829,
-      "fb_id": "1301843261803069",
-      "fb_media_id": "1301843261803069",
-      "ig_id": "18123258793768059",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "Draper, Monfils e Tsitsipas estreiam na segunda em",
+      "head": "Fonseca precisa de semi em Montréal para sonhar co",
       "source": "uol.com.br",
-      "ts": 1785749350.3411906,
-      "fb_id": "3242513559282793",
-      "fb_media_id": "3242513559282793",
-      "ig_id": "18125652259674466",
+      "ts": 1785761553.4719262,
+      "fb_id": "1479706070559817",
+      "fb_media_id": "1479706070559817",
+      "ig_id": "17923138476407757",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -178,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-08-03",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1785749390.3425474,
+  "last_scored_ts": 1785761593.4742804,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
