@@ -2,12 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Fonseca precisa de semi em Montréal para sonhar co",
-      "source": "uol.com.br",
-      "ts": 1785761553.4719262,
-      "fb_id": "1479706070559817",
-      "fb_media_id": "1479706070559817",
-      "ig_id": "17923138476407757",
+      "head": "⚠️ Santos faz mistério e avaliará condição física",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785773804.3350677,
+      "fb_id": "1076582511978164",
+      "fb_media_id": "1076582511978164",
+      "ig_id": "18121144027872334",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Após Chapecoense 0x0 Cruzeiro, Fabrício Bruno crit",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785773919.9695272,
+      "fb_id": "837560055989271",
+      "fb_media_id": "837560055989271",
+      "ig_id": "18113830396945181",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ Almada já tem TUDO acertado com o River Plate p",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785774028.8761644,
+      "fb_id": "1775389803455594",
+      "fb_media_id": "1775389803455594",
+      "ig_id": "18115332781928243",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-03",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785761593.4742804,
+  "last_scored_ts": 1785774068.8784943,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
