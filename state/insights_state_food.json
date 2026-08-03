@@ -160,6 +160,22 @@
       "ig_id": "18421156549199773",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785788270.8872864,
+      "ig_id": "18126853381678851",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "BOLO DE COCO Ingredientes: 2 xícaras de farinha de",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785788490.1119797,
+      "ig_id": "17879047290621816",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -296,7 +312,7 @@
   },
   "ig_quota": {
     "day": "2026-08-03",
-    "posts": 6
+    "posts": 8
   },
   "dow_hours": {
     "6-23": {
