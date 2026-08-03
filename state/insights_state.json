@@ -2,32 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Corinthians reclama de pênalti não marcado nesse l",
+      "head": "⚠️ Atlético-MG tem negociações avançadas pelo vola",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785735498.5039425,
-      "fb_id": "27903358419260876",
-      "fb_media_id": "27903358419260876",
-      "ig_id": "17884220253610699",
+      "ts": 1785749129.5083177,
+      "fb_id": "1568589024810921",
+      "fb_media_id": "1568589024810921",
+      "ig_id": "18097882856609534",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 5
     },
     {
-      "head": "Abel Ferreira diz que o Palmeiras não deve se enve",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785735626.3935728,
-      "fb_id": "1755686735619346",
-      "fb_media_id": "1755686735619346",
-      "ig_id": "18139558918605518",
+      "head": "Otamendi marca na própria baliza e Di María conqui",
+      "source": "record.pt",
+      "ts": 1785749241.4362829,
+      "fb_id": "1301843261803069",
+      "fb_media_id": "1301843261803069",
+      "ig_id": "18123258793768059",
       "is_video": true,
       "hashtag_n": 4
     },
     {
-      "head": "⚠️ Marcelo Paz, diretor de futebol do Corinthians,",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785735735.9994528,
-      "fb_id": "4892279087670180",
-      "fb_media_id": "4892279087670180",
-      "ig_id": "17891239755664872",
+      "head": "Draper, Monfils e Tsitsipas estreiam na segunda em",
+      "source": "uol.com.br",
+      "ts": 1785749350.3411906,
+      "fb_id": "3242513559282793",
+      "fb_media_id": "3242513559282793",
+      "ig_id": "18125652259674466",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -180,7 +180,7 @@
     "day": "2026-08-03",
     "posts": 3
   },
-  "last_scored_ts": 1785735776.0162375,
+  "last_scored_ts": 1785749390.3425474,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
