@@ -144,6 +144,22 @@
       "ig_id": "17859605667678559",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785771116.7666414,
+      "ig_id": "18068123519483281",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🍓 Brigadeiro de Leite Ninho com Morango 🍓 🛒 Ingred",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785771329.158598,
+      "ig_id": "18421156549199773",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -280,7 +296,7 @@
   },
   "ig_quota": {
     "day": "2026-08-03",
-    "posts": 4
+    "posts": 6
   },
   "dow_hours": {
     "6-23": {
