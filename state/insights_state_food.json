@@ -4,14 +4,6 @@
     {
       "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
       "source": "https://t.me/culinariadiaadia",
-      "ts": 1785126627.6865325,
-      "ig_id": "18325323646276291",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
-      "source": "https://t.me/culinariadiaadia",
       "ts": 1785223350.0273824,
       "ig_id": "17899672011512734",
       "is_video": true,
@@ -32,14 +24,6 @@
       "ig_id": "17896500591559091",
       "is_video": true,
       "hashtag_n": 5
-    },
-    {
-      "head": "Salada de Polvo Um dia desses repeti essa salada d",
-      "source": "cozinhadaduxa",
-      "ts": 1785644041.397814,
-      "ig_id": "17936940798303019",
-      "is_video": true,
-      "hashtag_n": 2
     },
     {
       "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
@@ -136,6 +120,14 @@
       "ig_id": "18112949818998309",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "INGREDIENTES RECHEIO: óleo 2 dentes de alho 1/2 ce",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785744417.8482757,
+      "ig_id": "18107650355330905",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -192,8 +184,8 @@
       "n": 4
     },
     "cozinhadaduxa": {
-      "reach_avg": 5.775830891503879,
-      "n": 11
+      "reach_avg": 5.815918479099334,
+      "n": 12
     }
   },
   "hours": {
@@ -202,8 +194,8 @@
       "n": 14
     },
     "4": {
-      "reach_avg": 5.352847383081808,
-      "n": 13
+      "reach_avg": 5.536122691406285,
+      "n": 14
     },
     "7": {
       "reach_avg": 4.081994126355611,
@@ -272,7 +264,7 @@
   },
   "ig_quota": {
     "day": "2026-08-03",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
@@ -444,8 +436,8 @@
       "n": 4
     },
     "6-4": {
-      "reach_avg": 10.767017926685607,
-      "n": 4
+      "reach_avg": 9.308862548679924,
+      "n": 5
     },
     "6-7": {
       "reach_avg": 3.0194,
@@ -558,14 +550,14 @@
   },
   "formats": {
     "video": {
-      "reach_avg": 5.785826013899024,
-      "n": 202
+      "reach_avg": 5.822783272751599,
+      "n": 203
     }
   },
   "variants": {
     "tags:1-3": {
-      "reach_avg": 5.3434928525629966,
-      "n": 59
+      "reach_avg": 5.530191055859459,
+      "n": 60
     },
     "tags:4+": {
       "reach_avg": 5.826141173735207,
@@ -576,7 +568,7 @@
       "n": 2
     }
   },
-  "last_scored_ts": 1785730161.3943243,
+  "last_scored_ts": 1785744457.8538823,
   "reward_samples": [
     5.0445,
     9.1463,
@@ -744,7 +736,8 @@
     5.5414,
     5.6436,
     6.5044,
-    5.516900000000001
+    5.516900000000001,
+    5.9065
   ],
   "recent_winners": [
     {
