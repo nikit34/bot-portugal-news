@@ -184,6 +184,22 @@
       "ig_id": "18108982717834013",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785800554.6687968,
+      "ig_id": "18136067800524856",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "BOLO DE NOZES INGREDINTES: 8 ovos, 250g de açucar,",
+      "source": "receitasdafatima",
+      "ts": 1785800838.3369067,
+      "ig_id": "18025663727681179",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -320,7 +336,7 @@
   },
   "ig_quota": {
     "day": "2026-08-03",
-    "posts": 9
+    "posts": 11
   },
   "dow_hours": {
     "6-23": {
