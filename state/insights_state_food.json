@@ -200,6 +200,14 @@
       "ig_id": "18076740335338542",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "🔥 O arroz mais gostoso que já saiu da minha panela",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785867749.9308753,
+      "ig_id": "18055028345787501",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -336,7 +344,7 @@
   },
   "ig_quota": {
     "day": "2026-08-04",
-    "posts": 4
+    "posts": 5
   },
   "dow_hours": {
     "6-23": {
