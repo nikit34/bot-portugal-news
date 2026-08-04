@@ -2,12 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Tsitsipas tem estreia adiada em Montréal e Fonseca",
-      "source": "uol.com.br",
-      "ts": 1785807848.4341688,
-      "fb_id": "1039120695769173",
-      "fb_media_id": "1039120695769173",
-      "ig_id": "18097357394362750",
+      "head": "⚠️ Forte desabafo de Neymar no leilão: “Boa parte",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785819429.2945914,
+      "fb_id": "1039265705173250",
+      "fb_media_id": "1039265705173250",
+      "ig_id": "18098476376582391",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Com lesão na coxa, Paulinho deve desfalcar o Pa",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785819525.9314213,
+      "fb_id": "885766180977783",
+      "fb_media_id": "885766180977783",
+      "ig_id": "17874098202546193",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Real Madrid oferece 22 milhões de euros (R$ 129",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785819640.8849967,
+      "fb_id": "1383229520662314",
+      "fb_media_id": "1383229520662314",
+      "ig_id": "17865874644649478",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-04",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785807888.4415128,
+  "last_scored_ts": 1785819680.891533,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
