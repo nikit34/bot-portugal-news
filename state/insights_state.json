@@ -2,34 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Forte desabafo de Neymar no leilão: “Boa parte",
+      "head": "Neymar Pai admite que dívida de cerca de R$ 90 mil",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785819429.2945914,
-      "fb_id": "1039265705173250",
-      "fb_media_id": "1039265705173250",
-      "ig_id": "18098476376582391",
+      "ts": 1785831896.1752102,
+      "fb_id": "1707988230468048",
+      "fb_media_id": "1707988230468048",
+      "ig_id": "17988914861840519",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "⚠️ Com lesão na coxa, Paulinho deve desfalcar o Pa",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785819525.9314213,
-      "fb_id": "885766180977783",
-      "fb_media_id": "885766180977783",
-      "ig_id": "17874098202546193",
+      "head": "Artem Nych ataca o hat trick na Volta a Portugal:",
+      "source": "record.pt",
+      "ts": 1785832000.8485308,
+      "fb_id": "1692965765153847",
+      "fb_media_id": "1692965765153847",
+      "ig_id": "18384519088203918",
       "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Real Madrid oferece 22 milhões de euros (R$ 129",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785819640.8849967,
-      "fb_id": "1383229520662314",
-      "fb_media_id": "1383229520662314",
-      "ig_id": "17865874644649478",
-      "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-04",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1785819680.891533,
+  "last_scored_ts": 1785832040.872525,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
