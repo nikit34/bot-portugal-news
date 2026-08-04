@@ -42,22 +42,6 @@
       "hashtag_n": 5
     },
     {
-      "head": "Sacolé de Pudim Esse sacolé é pra quem ama sobreme",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785671379.455579,
-      "ig_id": "18070809935422151",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Bolo de Cenoura com brigadeiro na lata Para a mass",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785671519.5566795,
-      "ig_id": "17937270315322949",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
       "source": "https://t.me/culinariadiaadia",
       "ts": 1785679904.6619997,
@@ -72,14 +56,6 @@
       "ig_id": "18600628534065425",
       "is_video": true,
       "hashtag_n": 5
-    },
-    {
-      "head": "Maracujada cremosa! Ingredientes: 3 maracujás 200m",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785692658.1317308,
-      "ig_id": "18550624897078066",
-      "is_video": true,
-      "hashtag_n": 1
     },
     {
       "head": "INGREDIENTES RECHEIO: óleo 2 dentes de alho 1/2 ce",
@@ -102,14 +78,6 @@
       "source": "https://t.me/culinariadiaadia",
       "ts": 1785713727.4422371,
       "ig_id": "18126127654674671",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Bolachinhas salgadas são perfeitas: Sabor parmesão",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785713819.2203794,
-      "ig_id": "18074457905385510",
       "is_video": true,
       "hashtag_n": 5
     },
@@ -208,6 +176,14 @@
       "ig_id": "18088643642441545",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
+      "source": "https://t.me/culinariadiaadia",
+      "ts": 1785827829.385012,
+      "ig_id": "18341356855247269",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -248,8 +224,8 @@
       "n": 4
     },
     "https://t.me/culinariadiaadia": {
-      "reach_avg": 17.285268086889786,
-      "n": 9
+      "reach_avg": 8.837758788408129,
+      "n": 13
     },
     "https://t.me/Brasil_Receitas": {
       "reach_avg": 9.238123949130655,
@@ -270,8 +246,8 @@
   },
   "hours": {
     "23": {
-      "reach_avg": 5.613778502050999,
-      "n": 14
+      "reach_avg": 5.311834951435698,
+      "n": 15
     },
     "4": {
       "reach_avg": 5.536122691406285,
@@ -282,8 +258,8 @@
       "n": 14
     },
     "11": {
-      "reach_avg": 5.9810419724602735,
-      "n": 21
+      "reach_avg": 11.306263752288876,
+      "n": 23
     },
     "15": {
       "reach_avg": 5.905658551413779,
@@ -318,8 +294,8 @@
       "n": 3
     },
     "17": {
-      "reach_avg": 7.9982370135183185,
-      "n": 10
+      "reach_avg": 6.277155909462823,
+      "n": 11
     },
     "19": {
       "reach_avg": 13.74255584,
@@ -344,12 +320,12 @@
   },
   "ig_quota": {
     "day": "2026-08-04",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
-      "reach_avg": 2.37914,
-      "n": 2
+      "reach_avg": 3.673616352967879,
+      "n": 3
     },
     "0-4": {
       "reach_avg": 6.248056799999998,
@@ -528,8 +504,8 @@
       "n": 3
     },
     "6-11": {
-      "reach_avg": 9.330567764009746,
-      "n": 3
+      "reach_avg": 12.197513737679012,
+      "n": 5
     },
     "6-14": {
       "reach_avg": 7.462380000000001,
@@ -576,8 +552,8 @@
       "n": 4
     },
     "6-17": {
-      "reach_avg": 9.45051,
-      "n": 2
+      "reach_avg": 7.293747,
+      "n": 3
     },
     "6-19": {
       "reach_avg": 18.04647,
@@ -630,17 +606,25 @@
   },
   "formats": {
     "video": {
-      "reach_avg": 5.822783272751599,
-      "n": 203
+      "reach_avg": 7.375419145021517,
+      "n": 207
     }
   },
   "variants": {
     "tags:0": {
       "reach_avg": 6.46633,
       "n": 2
+    },
+    "tags:3+": {
+      "reach_avg": 11.737276,
+      "n": 3
+    },
+    "tags:1-2": {
+      "reach_avg": 2.2613,
+      "n": 1
     }
   },
-  "last_scored_ts": 1785744457.8538823,
+  "last_scored_ts": 1785827869.393241,
   "reward_samples": [
     5.0445,
     9.1463,
@@ -809,7 +793,11 @@
     5.6436,
     6.5044,
     5.516900000000001,
-    5.9065
+    5.9065,
+    18.433600000000002,
+    6.2982,
+    2.2613,
+    4.6072999999999995
   ],
   "recent_winners": [
     {
@@ -913,6 +901,12 @@
       "source": "https://t.me/Brasil_Receitas",
       "reward": 16.2398,
       "ts": 1785383491.5979908
+    },
+    {
+      "head": "Sacolé de Pudim Esse sacolé é pra quem ama sobreme",
+      "source": "https://t.me/culinariadiaadia",
+      "reward": 18.433600000000002,
+      "ts": 1785827869.393241
     }
   ]
 }
