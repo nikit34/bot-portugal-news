@@ -2,24 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "Neymar Pai admite que dívida de cerca de R$ 90 mil",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785831896.1752102,
-      "fb_id": "1707988230468048",
-      "fb_media_id": "1707988230468048",
-      "ig_id": "17988914861840519",
+      "head": "Bayern 'apaga' Palhinha do elenco: «Se fosse diret",
+      "source": "record.pt",
+      "ts": 1785844730.3465364,
+      "fb_id": "1395466235794014",
+      "fb_media_id": "1395466235794014",
+      "ig_id": "18096755366367484",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "Artem Nych ataca o hat trick na Volta a Portugal:",
-      "source": "record.pt",
-      "ts": 1785832000.8485308,
-      "fb_id": "1692965765153847",
-      "fb_media_id": "1692965765153847",
-      "ig_id": "18384519088203918",
-      "is_video": true,
-      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -168,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-08-04",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1785832040.872525,
+  "last_scored_ts": 1785844770.350439,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
