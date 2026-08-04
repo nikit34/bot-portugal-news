@@ -38,6 +38,8 @@ from src.static.settings import (
     INSTAGRAM_DAILY_POST_LIMIT,
     UNIQUIFY_ENABLED,
     VARIANT_LOGGING_ENABLED,
+    HASHTAG_MAX_FB,
+    MAX_COUNT_KEYWORDS,
     CARDS_ENABLED,
     REEL_RENDER_ENABLED,
     STORY_GATE_ENABLED,
@@ -589,7 +591,9 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
                                       'is_video': is_video, 'fb_id': fb_post_id,
                                       'fb_media_id': fb_media_id, 'ig_id': ig_media_id}
                             if VARIANT_LOGGING_ENABLED and doc is not None:
-                                record['hashtag_n'] = len(extract_hashtags(doc))
+                                max_tags = (HASHTAG_MAX_FB if Platform.FACEBOOK in succeeded
+                                            else MAX_COUNT_KEYWORDS)
+                                record['hashtag_n'] = len(extract_hashtags(doc, max_tags))
                             _publish_records.append(record)
                         await asyncio.sleep(POST_DELAY_SECONDS)
 

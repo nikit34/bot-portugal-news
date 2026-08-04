@@ -109,6 +109,30 @@ async def test_fresh_post_publishes_to_all_platforms(monkeypatch):
     assert len(posted) == 1 and posted[0][1] == {Platform.FACEBOOK, Platform.INSTAGRAM, Platform.TELEGRAM}
 
 
+def _count_tags(monkeypatch):
+    monkeypatch.setattr(svc, 'VARIANT_LOGGING_ENABLED', True)
+    monkeypatch.setattr(svc, 'extract_hashtags',
+                        lambda doc, max_count=svc.MAX_COUNT_KEYWORDS: ['t'] * max_count)
+
+
+async def test_hashtag_n_records_the_facebook_capped_count(monkeypatch):
+    _mock_sends(monkeypatch)
+    _count_tags(monkeypatch)
+
+    await _serve()
+
+    assert svc.get_publish_records()[0]['hashtag_n'] == svc.HASHTAG_MAX_FB
+
+
+async def test_hashtag_n_falls_back_to_default_cap_without_facebook(monkeypatch):
+    _mock_sends(monkeypatch, fail={Platform.FACEBOOK: Exception('boom')})
+    _count_tags(monkeypatch)
+
+    await _serve()
+
+    assert svc.get_publish_records()[0]['hashtag_n'] == svc.MAX_COUNT_KEYWORDS
+
+
 async def test_duplicate_is_skipped(monkeypatch):
     calls = _mock_sends(monkeypatch)
     from src.processor.history_comparator import make_head

@@ -7,8 +7,18 @@ from datetime import datetime, timezone
 logger = logging.getLogger('app')
 
 
+# Границы бакета до перехода на 1-2/3+; несопоставимы с текущими, писать в них некому.
+_RETIRED_VARIANT_KEYS = ('tags:1-3', 'tags:4+')
+
+
 def _empty_state():
     return {'version': 1, 'pending': [], 'sources': {}, 'hours': {}, 'ig_quota': {'day': '', 'posts': 0}}
+
+
+def _drop_retired_variants(state):
+    variants = state.get('variants')
+    for key in _RETIRED_VARIANT_KEYS if variants else ():
+        variants.pop(key, None)
 
 
 def load_state(path):
@@ -22,6 +32,7 @@ def load_state(path):
         state.setdefault('sources', {})
         state.setdefault('hours', {})
         state.setdefault('ig_quota', {'day': '', 'posts': 0})
+        _drop_retired_variants(state)
         return state
     except (FileNotFoundError, ValueError, OSError) as e:
         logger.info(f"[learning] no usable state at {path} ({e}); starting fresh")
@@ -116,7 +127,7 @@ def reward_for(metrics, weights):
 def _bucket_hashtags(n):
     if n <= 0:
         return '0'
-    return '1-3' if n <= 3 else '4+'
+    return '1-2' if n <= 2 else '3+'
 
 
 def update_scores_metrics(state, metrics_by_head, weights, now, maturation_seconds,

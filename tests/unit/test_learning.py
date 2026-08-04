@@ -30,6 +30,14 @@ def test_save_then_load_roundtrip(tmp_path):
     assert learning.load_state(path) == state
 
 
+def test_load_state_drops_retired_variant_buckets(tmp_path):
+    path = str(tmp_path / 'state.json')
+    learning.save_state(path, {'variants': {'tags:1-3': {'reach_avg': 0.35, 'n': 62},
+                                            'tags:4+': {'reach_avg': 0.0, 'n': 328},
+                                            'tags:1-2': {'reach_avg': 5.0, 'n': 3}}})
+    assert learning.load_state(path)['variants'] == {'tags:1-2': {'reach_avg': 5.0, 'n': 3}}
+
+
 def test_record_publish_appends_and_skips_blanks():
     state = {'pending': [], 'sources': {}}
     learning.record_publish(state, 'head1', 'abola.pt', 1000)
@@ -288,8 +296,20 @@ def test_update_scores_metrics_logs_variants_when_enabled():
                           'is_video': False, 'hashtag_n': 2}], 'sources': {}, 'hours': {}}
     learning.update_scores_metrics(state, {'h': {'reach': 50}}, weights, now, DAY, 7 * DAY,
                                    alpha=0.3, log_variants=True)
-    assert state['variants']['tags:1-3'] == {'reach_avg': 50.0, 'n': 1}
+    assert state['variants']['tags:1-2'] == {'reach_avg': 50.0, 'n': 1}
     assert state['formats']['photo'] == {'reach_avg': 50.0, 'n': 1}
+
+
+def test_update_scores_metrics_buckets_fb_cap_separately():
+    now = 100 * DAY
+    state = {'pending': [{'head': 'a', 'source': 's', 'ts': now - 2 * DAY, 'hashtag_n': 2},
+                         {'head': 'b', 'source': 's', 'ts': now - 2 * DAY, 'hashtag_n': 3}],
+             'sources': {}, 'hours': {}}
+    learning.update_scores_metrics(state, {'a': {'reach': 10}, 'b': {'reach': 90}},
+                                   {'reach': 1.0}, now, DAY, 7 * DAY,
+                                   alpha=0.3, log_variants=True)
+    assert state['variants']['tags:1-2'] == {'reach_avg': 10.0, 'n': 1}
+    assert state['variants']['tags:3+'] == {'reach_avg': 90.0, 'n': 1}
 
 
 # --- Phase 1: reward-proportional amplification -----------------------------
