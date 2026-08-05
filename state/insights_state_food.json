@@ -208,6 +208,22 @@
       "ig_id": "18149070286509968",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785914403.673473,
+      "ig_id": "18104602940518153",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Melhor Receita de Caldo Verde: Descubra Segredos e",
+      "source": "cozinhaportuguesa",
+      "ts": 1785914726.1517467,
+      "ig_id": "18209549266357488",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -344,7 +360,7 @@
   },
   "ig_quota": {
     "day": "2026-08-05",
-    "posts": 1
+    "posts": 3
   },
   "dow_hours": {
     "6-23": {
