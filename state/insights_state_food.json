@@ -248,6 +248,14 @@
       "ig_id": "17991030615036333",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Arroz Doce Como Você Nunca Viu: Dicas Inéditas e V",
+      "source": "cozinhaportuguesa",
+      "ts": 1785966658.4424825,
+      "ig_id": "18090283790643948",
+      "is_video": true,
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -384,7 +392,7 @@
   },
   "ig_quota": {
     "day": "2026-08-05",
-    "posts": 6
+    "posts": 7
   },
   "dow_hours": {
     "6-23": {
