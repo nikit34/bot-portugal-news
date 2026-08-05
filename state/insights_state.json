@@ -2,32 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Rui Borges trabalha Jesse Derry: o abridor de lata",
+      "head": "⚠️ AGORA! Flamengo decide não ficar esperando por",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785945436.8351042,
+      "fb_id": "1037845661936610",
+      "fb_media_id": "1037845661936610",
+      "ig_id": "18124751065692606",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Um problema de zagueiros, o objetivo de contratar",
       "source": "record.pt",
-      "ts": 1785930789.034072,
-      "fb_id": "2335723570580322",
-      "fb_media_id": "2335723570580322",
-      "ig_id": "18103974566010709",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "⚠️ O momento em que começou a troca de provocações",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785937628.635202,
-      "fb_id": "1572813640893602",
-      "fb_media_id": "1572813640893602",
-      "ig_id": "18083613875477768",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "⚠️ Danilo, do Botafogo, negocia com a Atalanta. O",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1785937744.838693,
-      "fb_id": "2249575099190560",
-      "fb_media_id": "2249575099190560",
-      "ig_id": "18371911942239147",
+      "ts": 1785945546.9135733,
+      "fb_id": "1784354319586168",
+      "fb_media_id": "1784354319586168",
+      "ig_id": "18116775254476421",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-05",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1785930829.042516,
+  "last_scored_ts": 1785945586.9150434,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
