@@ -2,12 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Ana Capeta abre o livro: «Tive de sair do Sporting",
-      "source": "record.pt",
-      "ts": 1785894405.3937263,
-      "fb_id": "2489009628234303",
-      "fb_media_id": "2489009628234303",
-      "ig_id": "18127620472656561",
+      "head": "Após o apito final da partida contra o Remo, Neyma",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785905994.2175882,
+      "fb_id": "1027062146877353",
+      "fb_media_id": "1027062146877353",
+      "ig_id": "17980568349052455",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Rochet fará cirurgia e volta a ser desfalque no In",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785906113.2643144,
+      "fb_id": "2555158981650474",
+      "fb_media_id": "2555158981650474",
+      "ig_id": "18099482912617694",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Vozinha em apresentação no Colo-Colo, ao ser pergu",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785906231.327286,
+      "fb_id": "2068343027103758",
+      "fb_media_id": "2068343027103758",
+      "ig_id": "17893744380596533",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-05",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785894445.409591,
+  "last_scored_ts": 1785906271.335668,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
