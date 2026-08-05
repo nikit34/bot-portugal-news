@@ -20,6 +20,36 @@
       "ig_id": "18116775254476421",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ AGORA! Reunião de conselheiros do São Paulo com",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785950584.8778512,
+      "fb_id": "3367971816727897",
+      "fb_media_id": "3367971816727897",
+      "ig_id": "17901255774475933",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Após chamar Neymar de 'vagabundo', presidente do R",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785950703.3596523,
+      "fb_id": "1383995237032944",
+      "fb_media_id": "1383995237032944",
+      "ig_id": "18336375226284180",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Maestro Júnior critica José Boto, diretor de futeb",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785950813.9424834,
+      "fb_id": "3461966220651073",
+      "fb_media_id": "3461966220651073",
+      "ig_id": "18577284220066815",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -168,7 +198,7 @@
   },
   "ig_quota": {
     "day": "2026-08-05",
-    "posts": 2
+    "posts": 5
   },
   "last_scored_ts": 1785945586.9150434,
   "dow_hours": {
