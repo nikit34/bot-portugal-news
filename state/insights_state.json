@@ -10,6 +10,36 @@
       "ig_id": "18103203560463779",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "A recepção da torcida do Trabzonspor para Salah, n",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786024842.9819567,
+      "fb_id": "1399290022267198",
+      "fb_media_id": "1399290022267198",
+      "ig_id": "18353083309301541",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Nota oficial do Santos: “O Santos FC repudia veeme",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786024964.9682388,
+      "fb_id": "981801404880504",
+      "fb_media_id": "981801404880504",
+      "ig_id": "18031471226829541",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Real Madrid está cada vez mais otimista de fech",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786025084.814551,
+      "fb_id": "811770838629525",
+      "fb_media_id": "811770838629525",
+      "ig_id": "17936152401098198",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -158,7 +188,7 @@
   },
   "ig_quota": {
     "day": "2026-08-06",
-    "posts": 1
+    "posts": 4
   },
   "last_scored_ts": 1786017605.7393627,
   "dow_hours": {
