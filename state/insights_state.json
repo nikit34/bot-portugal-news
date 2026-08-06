@@ -2,22 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Matheus Ornelas quer devolver P. Ferreira à 2ª Lig",
+      "head": "Acordo total por Irankunda: extremo já recebeu aut",
       "source": "record.pt",
-      "ts": 1786004303.530494,
-      "fb_id": "27715393804755507",
-      "fb_media_id": "27715393804755507",
-      "ig_id": "18006501545763454",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "«O fato de o Benfica falar formalmente com o Bayer",
-      "source": "record.pt",
-      "ts": 1786004417.8753963,
-      "fb_id": "1932741794076654",
-      "fb_media_id": "1932741794076654",
-      "ig_id": "18065160041772536",
+      "ts": 1786017565.7376106,
+      "fb_id": "928197560309690",
+      "fb_media_id": "928197560309690",
+      "ig_id": "18103203560463779",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -168,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-08-06",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1786004457.8876843,
+  "last_scored_ts": 1786017605.7393627,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
