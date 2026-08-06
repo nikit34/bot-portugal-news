@@ -256,6 +256,14 @@
       "ig_id": "18053480327569207",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "TORTA DE LARANJA INGREDIENTES: 6 ovos, 200g de açu",
+      "source": "receitasdafatima",
+      "ts": 1786000933.497033,
+      "ig_id": "18105240688885768",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -392,7 +400,7 @@
   },
   "ig_quota": {
     "day": "2026-08-06",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
