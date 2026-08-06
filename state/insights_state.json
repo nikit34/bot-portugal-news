@@ -2,12 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Gil Lameiras recebe trio para início do V. Guimarã",
+      "head": "Um rato apareceu na zona mista do Maracanã, após a",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785992364.8542182,
+      "fb_id": "1738224560551567",
+      "fb_media_id": "1738224560551567",
+      "ig_id": "18146933974527459",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Diante de mais de 30 mil pessoas, Vozinha foi apre",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1785992477.714221,
+      "fb_id": "1790370465732215",
+      "fb_media_id": "1790370465732215",
+      "ig_id": "18084700637233088",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "«Perguntei à Inteligência Artificial sobre os atac",
       "source": "record.pt",
-      "ts": 1785980823.7997096,
-      "fb_id": "1046066111141525",
-      "fb_media_id": "1046066111141525",
-      "ig_id": "18045615296805116",
+      "ts": 1785992588.7277305,
+      "fb_id": "1097938953172157",
+      "fb_media_id": "1097938953172157",
+      "ig_id": "17988541638019084",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-06",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1785980863.80723,
+  "last_scored_ts": 1785992628.730238,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
