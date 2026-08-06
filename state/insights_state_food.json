@@ -2,14 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Bolo de banana e doce de leite na frigideira ➞ ING",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785368493.0950322,
-      "ig_id": "18083516168422642",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "Bolo de Maçãs, Mel e Especiarias 4 de Outubro , vé",
       "source": "cozinhadaduxa",
       "ts": 1785619833.53373,
@@ -170,14 +162,6 @@
       "hashtag_n": 5
     },
     {
-      "head": "🔥 O arroz mais gostoso que já saiu da minha panela",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785867749.9308753,
-      "ig_id": "18055028345787501",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
       "source": "https://t.me/Brasil_Receitas",
       "ts": 1785874680.3639808,
@@ -264,6 +248,14 @@
       "ig_id": "18117525142903973",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1785988519.8714538,
+      "ig_id": "18053480327569207",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -308,8 +300,8 @@
       "n": 16
     },
     "https://t.me/Brasil_Receitas": {
-      "reach_avg": 9.238123949130655,
-      "n": 11
+      "reach_avg": 8.763096764391458,
+      "n": 12
     },
     "acasaencantada": {
       "reach_avg": 3.5554976672104743,
@@ -346,8 +338,8 @@
       "n": 15
     },
     "18": {
-      "reach_avg": 12.287038547727947,
-      "n": 6
+      "reach_avg": 10.897336983409563,
+      "n": 7
     },
     "20": {
       "reach_avg": 5.405946801562246,
@@ -399,8 +391,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-05",
-    "posts": 8
+    "day": "2026-08-06",
+    "posts": 1
   },
   "dow_hours": {
     "6-23": {
@@ -652,8 +644,8 @@
       "n": 2
     },
     "1-18": {
-      "reach_avg": 13.57176,
-      "n": 2
+      "reach_avg": 11.796641999999999,
+      "n": 3
     },
     "3-20": {
       "reach_avg": 0.5940000000000001,
@@ -686,8 +678,8 @@
   },
   "formats": {
     "video": {
-      "reach_avg": 6.639672643274915,
-      "n": 210
+      "reach_avg": 6.99073196464341,
+      "n": 211
     }
   },
   "variants": {
@@ -696,15 +688,15 @@
       "n": 2
     },
     "tags:3+": {
-      "reach_avg": 9.33641524,
-      "n": 5
+      "reach_avg": 8.831900668,
+      "n": 6
     },
     "tags:1-2": {
       "reach_avg": 1.7101399999999998,
       "n": 2
     }
   },
-  "last_scored_ts": 1785902086.2822742,
+  "last_scored_ts": 1785988808.4679003,
   "reward_samples": [
     5.0445,
     9.1463,
@@ -880,7 +872,8 @@
     4.6072999999999995,
     0.42410000000000003,
     8.703,
-    5.8584000000000005
+    5.8584000000000005,
+    7.6547
   ],
   "recent_winners": [
     {
