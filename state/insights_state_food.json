@@ -280,6 +280,14 @@
       "ig_id": "18168761692443945",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786089444.0415573,
+      "ig_id": "18122295493883690",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -420,7 +428,7 @@
   },
   "ig_quota": {
     "day": "2026-08-07",
-    "posts": 3
+    "posts": 4
   },
   "dow_hours": {
     "6-23": {
@@ -732,7 +740,7 @@
       "n": 3
     }
   },
-  "last_scored_ts": 1786062870.5651486,
+  "last_scored_ts": 1786089707.698456,
   "reward_samples": [
     5.0445,
     9.1463,
