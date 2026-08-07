@@ -2,34 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "Jair Ventura: \"Mandar aqui?\" \"Aqui não!\" 🎥 Instagr",
+      "head": "Hexacampeão francês, Bordeaux é vendido por 1 euro",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786080575.7105658,
-      "fb_id": "2060935277844059",
-      "fb_media_id": "2060935277844059",
-      "ig_id": "17945012838266843",
+      "ts": 1786086179.2827897,
+      "fb_id": "841241655621609",
+      "fb_media_id": "841241655621609",
+      "ig_id": "18402736672084517",
       "is_video": true,
-      "hashtag_n": 1
+      "hashtag_n": 3
     },
     {
-      "head": "Internacional postou esse vídeo e escreveu: \"Calam",
+      "head": "⚠️ Presidente do Flamengo, Bap adia sonho do estád",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786080682.1305623,
-      "fb_id": "1592677842240332",
-      "fb_media_id": "1592677842240332",
-      "ig_id": "18083421206267158",
+      "ts": 1786086294.3723302,
+      "fb_id": "2150015165921684",
+      "fb_media_id": "2150015165921684",
+      "ig_id": "18090203636429979",
       "is_video": true,
-      "hashtag_n": 1
+      "hashtag_n": 3
     },
     {
-      "head": "Fernando Diniz, sobre Memphis Depay: “O mais impor",
+      "head": "⚠️ Após venda de Bruno Guimarães para o Arsenal, e",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786080790.117255,
-      "fb_id": "1737711077651890",
-      "fb_media_id": "1737711077651890",
-      "ig_id": "17939323392335709",
+      "ts": 1786086408.3132784,
+      "fb_id": "1034977716049052",
+      "fb_media_id": "1034977716049052",
+      "ig_id": "18186166075393254",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -180,7 +180,7 @@
     "day": "2026-08-07",
     "posts": 3
   },
-  "last_scored_ts": 1786080830.1206882,
+  "last_scored_ts": 1786086448.3164682,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
