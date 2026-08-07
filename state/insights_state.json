@@ -2,32 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Hexacampeão francês, Bordeaux é vendido por 1 euro",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786086179.2827897,
-      "fb_id": "841241655621609",
-      "fb_media_id": "841241655621609",
-      "ig_id": "18402736672084517",
+      "head": "Bednarek enfrenta dias decisivos: FC Porto com esp",
+      "source": "record.pt",
+      "ts": 1786092517.2766595,
+      "fb_id": "1541377894134859",
+      "fb_media_id": "1541377894134859",
+      "ig_id": "17944120470055183",
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 2
     },
     {
-      "head": "⚠️ Presidente do Flamengo, Bap adia sonho do estád",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786086294.3723302,
-      "fb_id": "2150015165921684",
-      "fb_media_id": "2150015165921684",
-      "ig_id": "18090203636429979",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Após venda de Bruno Guimarães para o Arsenal, e",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786086408.3132784,
-      "fb_id": "1034977716049052",
-      "fb_media_id": "1034977716049052",
-      "ig_id": "18186166075393254",
+      "head": "Francisco Cabral avança para segunda ronda de pare",
+      "source": "record.pt",
+      "ts": 1786092622.2529645,
+      "fb_id": "1028759933292073",
+      "fb_media_id": "1028759933292073",
+      "ig_id": "17881985844615334",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-07",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1786086448.3164682,
+  "last_scored_ts": 1786092662.255652,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
