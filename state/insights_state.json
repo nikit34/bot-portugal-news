@@ -2,24 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "Tiago Leifert ironiza críticas a Neymar: “Onde já",
+      "head": "Jair Ventura: \"Mandar aqui?\" \"Aqui não!\" 🎥 Instagr",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786068670.4752781,
-      "fb_id": "1025130587170938",
-      "fb_media_id": "1025130587170938",
-      "ig_id": "18610407883062218",
+      "ts": 1786080575.7105658,
+      "fb_id": "2060935277844059",
+      "fb_media_id": "2060935277844059",
+      "ig_id": "17945012838266843",
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 1
     },
     {
-      "head": "Grupo Globo negocia com a LiveMode, dona da CazeTV",
+      "head": "Internacional postou esse vídeo e escreveu: \"Calam",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786068777.8033555,
-      "fb_id": "1544907809830333",
-      "fb_media_id": "1544907809830333",
-      "ig_id": "17919185547411901",
+      "ts": 1786080682.1305623,
+      "fb_id": "1592677842240332",
+      "fb_media_id": "1592677842240332",
+      "ig_id": "18083421206267158",
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 1
+    },
+    {
+      "head": "Fernando Diniz, sobre Memphis Depay: “O mais impor",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786080790.117255,
+      "fb_id": "1737711077651890",
+      "fb_media_id": "1737711077651890",
+      "ig_id": "17939323392335709",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-07",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1786068817.8113651,
+  "last_scored_ts": 1786080830.1206882,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
