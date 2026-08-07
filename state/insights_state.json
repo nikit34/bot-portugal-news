@@ -2,12 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Comprar um clube da Liga por 30 milhões de euros?",
-      "source": "record.pt",
-      "ts": 1786106589.43986,
-      "fb_id": "1365872578325802",
-      "fb_media_id": "1365872578325802",
-      "ig_id": "18332509168255246",
+      "head": "Associação de Futebol da Argentina defende continu",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786114049.3024776,
+      "fb_id": "1054847313614453",
+      "fb_media_id": "1054847313614453",
+      "ig_id": "18098303504618127",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ CBF vai propor a clubes combate a \"bolinho\" em",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786114165.406508,
+      "fb_id": "1461083269195868",
+      "fb_media_id": "1461083269195868",
+      "ig_id": "17925133110401099",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Almada pediu um salário de quase R$ 3 MILHÕES p",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786114279.93334,
+      "fb_id": "1532093391457954",
+      "fb_media_id": "1532093391457954",
+      "ig_id": "18001441730989033",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-07",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1786106629.4410694,
+  "last_scored_ts": 1786114319.9351764,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
