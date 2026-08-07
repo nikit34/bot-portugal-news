@@ -2,32 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "Fernando Diniz, técnico do Corinthians, ficou na b",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786099514.0725038,
-      "fb_id": "2229445581121921",
-      "fb_media_id": "2229445581121921",
-      "ig_id": "18141665206492520",
+      "head": "Comprar um clube da Liga por 30 milhões de euros?",
+      "source": "record.pt",
+      "ts": 1786106589.43986,
+      "fb_id": "1365872578325802",
+      "fb_media_id": "1365872578325802",
+      "ig_id": "18332509168255246",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Neymar escapa, e Remo sofre 3 denúncias da Proc",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786099627.3675992,
-      "fb_id": "1526290762000005",
-      "fb_media_id": "1526290762000005",
-      "ig_id": "17983576509024097",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "OFICIAL! Cruzeiro anuncia contratação do atacante",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786099734.5626302,
-      "ig_id": "17988265040844713",
-      "is_video": true,
-      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -176,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-08-07",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1786099774.576352,
+  "last_scored_ts": 1786106629.4410694,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
