@@ -2,31 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Após renovação com Real, Vini Jr vira 5º jogador m",
+      "head": "River Plate informa: “COMUNICADO OFICIAL River Pla",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786206198.6162417,
-      "fb_id": "1639852820893020",
-      "fb_media_id": "1639852820893020",
-      "ig_id": "17857521219695194",
+      "ts": 1786213546.9332173,
+      "fb_id": "1340477348246958",
+      "fb_media_id": "1340477348246958",
+      "ig_id": "18010375799933364",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Investigação policial revela plano para tentar mat",
+      "head": "Diretoria do Remo está revoltada com o fato de Ney",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786206313.5788434,
-      "fb_id": "1600776388327080",
-      "fb_media_id": "1600776388327080",
-      "ig_id": "18083813516660791",
+      "ts": 1786213652.958457,
+      "fb_id": "929047839511852",
+      "fb_media_id": "929047839511852",
+      "ig_id": "18046654388799984",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
+      "head": "OFICIAL! Cruzeiro anuncia contratação do atacante",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786206364.657916,
+      "ts": 1786213757.6076784,
+      "ig_id": "18105420952893996",
       "is_video": true,
-      "hashtag_n": 5
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -175,9 +176,9 @@
   },
   "ig_quota": {
     "day": "2026-08-08",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1786206404.660514,
+  "last_scored_ts": 1786213797.6219528,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
