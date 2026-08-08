@@ -2,22 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Santos se pronuncia sobre a venda da SAF. Nota: -",
+      "head": "STJD mantém suspensão pesada a Victor Gabriel, do",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786177862.920143,
-      "fb_id": "1496156178933464",
-      "fb_media_id": "1496156178933464",
-      "ig_id": "18150576559509101",
+      "ts": 1786184683.390361,
+      "fb_id": "1566623168588102",
+      "fb_media_id": "1566623168588102",
+      "ig_id": "18368427085225143",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Doumbia para italiano ver: reforço do Sporting ser",
-      "source": "record.pt",
-      "ts": 1786177966.575581,
-      "fb_id": "1687558212297571",
-      "fb_media_id": "1687558212297571",
-      "ig_id": "18207294724360968",
+      "head": "SDC Sports formaliza proposta pela compra da SAF d",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786184807.0166254,
+      "fb_id": "1522856692497828",
+      "fb_media_id": "1522856692497828",
+      "ig_id": "18017516774859147",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -170,7 +170,7 @@
     "day": "2026-08-08",
     "posts": 2
   },
-  "last_scored_ts": 1786178006.603722,
+  "last_scored_ts": 1786184847.0196424,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
