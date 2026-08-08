@@ -2,24 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "STJD mantém suspensão pesada a Victor Gabriel, do",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786184683.390361,
-      "fb_id": "1566623168588102",
-      "fb_media_id": "1566623168588102",
-      "ig_id": "18368427085225143",
+      "head": "Rui Costa já entregou petição na AR para barrar mo",
+      "source": "record.pt",
+      "ts": 1786192177.0189419,
+      "fb_id": "1751734779179062",
+      "fb_media_id": "1751734779179062",
+      "ig_id": "17882682909478645",
       "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "SDC Sports formaliza proposta pela compra da SAF d",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786184807.0166254,
-      "fb_id": "1522856692497828",
-      "fb_media_id": "1522856692497828",
-      "ig_id": "18017516774859147",
-      "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -168,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-08-08",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1786184847.0196424,
+  "last_scored_ts": 1786192217.0548425,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
