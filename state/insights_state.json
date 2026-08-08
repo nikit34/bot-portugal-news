@@ -2,32 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Atlético-MG aumenta confiança pela contratação",
+      "head": "⚠️ Após 4 meses afastado para tratar de uma neopla",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786159168.0766938,
-      "fb_id": "1583085526743011",
-      "fb_media_id": "1583085526743011",
-      "ig_id": "18163474564466362",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Chris Flores, apresentadora da Band, critica 'beij",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786159286.8210793,
-      "fb_id": "4048543252113440",
-      "fb_media_id": "4048543252113440",
-      "ig_id": "18114282196740203",
+      "ts": 1786164544.134102,
+      "fb_id": "1379683584099880",
+      "fb_media_id": "1379683584099880",
+      "ig_id": "18096075701281414",
       "is_video": true,
       "hashtag_n": 3
     },
     {
       "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786159412.7497864,
-      "fb_id": "2272670470172347",
-      "fb_media_id": "2272670470172347",
-      "ig_id": "18102702566180370",
+      "ts": 1786164595.6599307,
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 URGENTE! José Boto vai além do limite estabeleci",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786164708.6660492,
+      "fb_id": "1967210824663942",
+      "fb_media_id": "1967210824663942",
+      "ig_id": "18198987316374807",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -178,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-08-08",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1786159452.7572563,
+  "last_scored_ts": 1786164748.692423,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
