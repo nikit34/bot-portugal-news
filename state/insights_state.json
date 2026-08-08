@@ -2,29 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
+      "head": "Santos se pronuncia sobre a venda da SAF. Nota: -",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786170979.5676928,
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Controladoria-Geral da União (CGU) investiga emend",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786171095.1925259,
-      "fb_id": "1409979654356107",
-      "fb_media_id": "1409979654356107",
-      "ig_id": "18142997146546187",
+      "ts": 1786177862.920143,
+      "fb_id": "1496156178933464",
+      "fb_media_id": "1496156178933464",
+      "ig_id": "18150576559509101",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Mauro Cezar critica contratações do Vasco durante",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786171210.5406566,
-      "fb_id": "1932849117406619",
-      "fb_media_id": "1932849117406619",
-      "ig_id": "18177892645419424",
+      "head": "Doumbia para italiano ver: reforço do Sporting ser",
+      "source": "record.pt",
+      "ts": 1786177966.575581,
+      "fb_id": "1687558212297571",
+      "fb_media_id": "1687558212297571",
+      "ig_id": "18207294724360968",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -177,7 +170,7 @@
     "day": "2026-08-08",
     "posts": 2
   },
-  "last_scored_ts": 1786171250.547649,
+  "last_scored_ts": 1786178006.603722,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
