@@ -2,34 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Marcos Lamacchia e Pedrinho apresentam projeto",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786141707.4685867,
-      "fb_id": "28483744704543436",
-      "fb_media_id": "28483744704543436",
-      "ig_id": "18120190703494070",
+      "head": "Escândalo na Coreia do Sul: federação oferecia \"en",
+      "source": "record.pt",
+      "ts": 1786150740.8408115,
+      "fb_id": "1734812557823431",
+      "fb_media_id": "1734812557823431",
+      "ig_id": "18114093778949370",
       "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Flamengo considera proposta \"desrespeitosa\" e e",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786141821.7285361,
-      "fb_id": "885442730970294",
-      "fb_media_id": "885442730970294",
-      "ig_id": "18111273962065885",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Tita não hesita em escolher melhores da história d",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786141939.695317,
-      "fb_id": "2042226007166929",
-      "fb_media_id": "2042226007166929",
-      "ig_id": "18090876701403429",
-      "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -177,10 +157,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-07",
-    "posts": 3
+    "day": "2026-08-08",
+    "posts": 1
   },
-  "last_scored_ts": 1786141979.7224572,
+  "last_scored_ts": 1786150780.8447726,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
