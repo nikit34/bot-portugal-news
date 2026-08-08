@@ -2,14 +2,31 @@
   "version": 1,
   "pending": [
     {
-      "head": "Rui Costa já entregou petição na AR para barrar mo",
-      "source": "record.pt",
-      "ts": 1786192177.0189419,
-      "fb_id": "1751734779179062",
-      "fb_media_id": "1751734779179062",
-      "ig_id": "17882682909478645",
+      "head": "⚠️ Agora! Justiça recusa pedido do Flamengo e dete",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786199166.2454133,
+      "fb_id": "1747006980049461",
+      "fb_media_id": "1747006980049461",
+      "ig_id": "18100829465608616",
       "is_video": true,
-      "hashtag_n": 1
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786199219.1355784,
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Potencial comprador da SAF do Botafogo, fundo amer",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786199338.6208792,
+      "fb_id": "2804417119957496",
+      "fb_media_id": "2804417119957496",
+      "ig_id": "18122198147510207",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -158,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-08-08",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1786192217.0548425,
+  "last_scored_ts": 1786199378.6242118,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
