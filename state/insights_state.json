@@ -2,29 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Após 4 meses afastado para tratar de uma neopla",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786164544.134102,
-      "fb_id": "1379683584099880",
-      "fb_media_id": "1379683584099880",
-      "ig_id": "18096075701281414",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786164595.6599307,
+      "ts": 1786170979.5676928,
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "🚨 URGENTE! José Boto vai além do limite estabeleci",
+      "head": "Controladoria-Geral da União (CGU) investiga emend",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786164708.6660492,
-      "fb_id": "1967210824663942",
-      "fb_media_id": "1967210824663942",
-      "ig_id": "18198987316374807",
+      "ts": 1786171095.1925259,
+      "fb_id": "1409979654356107",
+      "fb_media_id": "1409979654356107",
+      "ig_id": "18142997146546187",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Mauro Cezar critica contratações do Vasco durante",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786171210.5406566,
+      "fb_id": "1932849117406619",
+      "fb_media_id": "1932849117406619",
+      "ig_id": "18177892645419424",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -177,7 +177,7 @@
     "day": "2026-08-08",
     "posts": 2
   },
-  "last_scored_ts": 1786164748.692423,
+  "last_scored_ts": 1786171250.547649,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
