@@ -2,24 +2,28 @@
   "version": 1,
   "pending": [
     {
-      "head": "River Plate informa: “COMUNICADO OFICIAL River Pla",
+      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786292724.8690705,
-      "fb_id": "888982197247847",
-      "fb_media_id": "888982197247847",
-      "ig_id": "18147558481542203",
+      "ts": 1786300057.777808,
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Sem Almada, Flamengo tem interesse na contratação",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786300166.1883469,
+      "fb_id": "924790777333482",
+      "fb_media_id": "924790777333482",
+      "ig_id": "18107180788849920",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Xabi Alonso volta a dar braçadeira de capitão a Dá",
-      "source": "record.pt",
-      "ts": 1786292837.6162589,
-      "fb_id": "1545768343994454",
-      "fb_media_id": "1545768343994454",
-      "ig_id": "18215536549339915",
+      "head": "Neymar pode ser declarado \"PERSONA NON GRATA\" em B",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786300221.8465838,
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -168,9 +172,9 @@
   },
   "ig_quota": {
     "day": "2026-08-09",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1786292877.6256232,
+  "last_scored_ts": 1786300261.8495245,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
