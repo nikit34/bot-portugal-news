@@ -2,14 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Bolo de Maçãs, Mel e Especiarias 4 de Outubro , vé",
-      "source": "cozinhadaduxa",
-      "ts": 1785619833.53373,
-      "ig_id": "17896500591559091",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
       "source": "https://t.me/culinariadiaadia",
       "ts": 1785654613.5879595,
@@ -440,6 +432,14 @@
       "ig_id": "17976760922906113",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786243474.1267703,
+      "ig_id": "18093231842384167",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -579,8 +579,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-08",
-    "posts": 11
+    "day": "2026-08-09",
+    "posts": 1
   },
   "dow_hours": {
     "6-23": {
@@ -892,7 +892,7 @@
       "n": 3
     }
   },
-  "last_scored_ts": 1786167002.8543558,
+  "last_scored_ts": 1786243514.1410902,
   "reward_samples": [
     5.0445,
     9.1463,
