@@ -30,6 +30,33 @@
       "ig_id": "17951907636209329",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Corinthians e Memphis Depay realinham cláusulas",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786251446.4819226,
+      "fb_id": "1070075528828078",
+      "fb_media_id": "1070075528828078",
+      "ig_id": "18059493995603507",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786251498.0328603,
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "Neymar pode ser declarado \"PERSONA NON GRATA\" em B",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786251607.2771597,
+      "fb_id": "1749305719722173",
+      "fb_media_id": "1749305719722173",
+      "ig_id": "18110381227823782",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -178,7 +205,7 @@
   },
   "ig_quota": {
     "day": "2026-08-09",
-    "posts": 3
+    "posts": 5
   },
   "last_scored_ts": 1786246315.7129867,
   "dow_hours": {
