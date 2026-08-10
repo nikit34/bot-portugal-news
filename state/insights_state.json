@@ -2,56 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Torcida do Santos protesta contra o presidente Mar",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786333575.7118268,
-      "fb_id": "2273390980092624",
-      "fb_media_id": "2273390980092624",
-      "ig_id": "18126035269683110",
+      "head": "Diniz vê Memphis 'quase fechado' e fala sobre Pedr",
+      "source": "uol.com.br",
+      "ts": 1786346033.2614312,
+      "fb_id": "2134770670769299",
+      "fb_media_id": "2134770670769299",
+      "ig_id": "18129408340637280",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "O Santos só conseguiu conquistar uma vitória neste",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786333686.7480984,
-      "fb_id": "1547029420227732",
-      "fb_media_id": "1547029420227732",
-      "ig_id": "18088456148361182",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786333738.1103554,
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786339110.055324,
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "River Plate informa: “COMUNICADO OFICIAL River Pla",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786339214.4425142,
-      "fb_id": "1005156185678829",
-      "fb_media_id": "1005156185678829",
-      "ig_id": "17899907643552661",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ CBF comunica aos clubes que o futebol brasileir",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786339323.448116,
-      "fb_id": "3068202046858209",
-      "fb_media_id": "3068202046858209",
-      "ig_id": "18098056460359898",
+      "head": "Preocupado com o elenco curto, Cuca pede que Santo",
+      "source": "uol.com.br",
+      "ts": 1786346144.3382654,
+      "fb_id": "1281286504068806",
+      "fb_media_id": "1281286504068806",
+      "ig_id": "18029157500841829",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -202,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-10",
-    "posts": 4
+    "posts": 2
   },
-  "last_scored_ts": 1786333778.133915,
+  "last_scored_ts": 1786346184.3515148,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
