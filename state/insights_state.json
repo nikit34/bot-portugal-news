@@ -2,24 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "Diniz vê Memphis 'quase fechado' e fala sobre Pedr",
-      "source": "uol.com.br",
-      "ts": 1786346033.2614312,
-      "fb_id": "2134770670769299",
-      "fb_media_id": "2134770670769299",
-      "ig_id": "18129408340637280",
+      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786352963.828369,
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "River Plate informa: “COMUNICADO OFICIAL River Pla",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786353071.585343,
+      "fb_id": "1066829632356353",
+      "fb_media_id": "1066829632356353",
+      "ig_id": "17976957720118676",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Preocupado com o elenco curto, Cuca pede que Santo",
-      "source": "uol.com.br",
-      "ts": 1786346144.3382654,
-      "fb_id": "1281286504068806",
-      "fb_media_id": "1281286504068806",
-      "ig_id": "18029157500841829",
+      "head": "OFICIAL! Cruzeiro anuncia contratação do atacante",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786353177.1533513,
+      "ig_id": "18171966595450349",
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -170,7 +175,7 @@
     "day": "2026-08-10",
     "posts": 2
   },
-  "last_scored_ts": 1786346184.3515148,
+  "last_scored_ts": 1786353217.1742783,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
