@@ -520,6 +520,22 @@
       "ig_id": "17899895268550989",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786390759.5869443,
+      "ig_id": "18096643979028628",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "TORTA DE FRANGO MUITO CREMOSA ➞ INGREDIENTES: XÍCA",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786390939.6881766,
+      "ig_id": "17894657559387004",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -660,7 +676,7 @@
   },
   "ig_quota": {
     "day": "2026-08-10",
-    "posts": 8
+    "posts": 10
   },
   "dow_hours": {
     "6-23": {
