@@ -27,6 +27,33 @@
       "ts": 1786333738.1103554,
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786339110.055324,
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "River Plate informa: “COMUNICADO OFICIAL River Pla",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786339214.4425142,
+      "fb_id": "1005156185678829",
+      "fb_media_id": "1005156185678829",
+      "ig_id": "17899907643552661",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ CBF comunica aos clubes que o futebol brasileir",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786339323.448116,
+      "fb_id": "3068202046858209",
+      "fb_media_id": "3068202046858209",
+      "ig_id": "18098056460359898",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -175,7 +202,7 @@
   },
   "ig_quota": {
     "day": "2026-08-10",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1786333778.133915,
   "dow_hours": {
