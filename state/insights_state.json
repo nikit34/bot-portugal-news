@@ -2,34 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "Corrida maluca? Veja como diferença de pontos entr",
-      "source": "uol.com.br",
-      "ts": 1786359653.2021646,
-      "fb_id": "1584642413344744",
-      "fb_media_id": "1584642413344744",
-      "ig_id": "18086950019536896",
+      "head": "Revezamento 4x200 livre feminino pulveriza recorde",
+      "source": "record.pt",
+      "ts": 1786366065.3947258,
+      "fb_id": "1533167717988696",
+      "fb_media_id": "1533167717988696",
+      "ig_id": "17944429500297545",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "Santos: semana começa com recado, permanência de C",
-      "source": "uol.com.br",
-      "ts": 1786359769.5104864,
-      "fb_id": "1747448253243628",
-      "fb_media_id": "1747448253243628",
-      "ig_id": "18021272201698483",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Nova academia milionária do Galo esbanja tecnologi",
-      "source": "uol.com.br",
-      "ts": 1786359883.3377988,
-      "fb_id": "1967265114113848",
-      "fb_media_id": "1967265114113848",
-      "ig_id": "18124270261759356",
-      "is_video": true,
-      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -178,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-08-10",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1786359923.339048,
+  "last_scored_ts": 1786366105.3985028,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
