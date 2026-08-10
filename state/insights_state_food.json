@@ -2,30 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785713727.4422371,
-      "ig_id": "18126127654674671",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785730121.3793705,
-      "ig_id": "18112949818998309",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "INGREDIENTES RECHEIO: óleo 2 dentes de alho 1/2 ce",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785744417.8482757,
-      "ig_id": "18107650355330905",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "SALGADINHO DE QUEIJO Salve essa receita para não e",
       "source": "https://t.me/culinariadiaadia",
       "ts": 1785758682.1937833,
@@ -488,6 +464,14 @@
       "ig_id": "17923965036404493",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786350109.38343,
+      "ig_id": "18033764735832680",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -628,7 +612,7 @@
   },
   "ig_quota": {
     "day": "2026-08-10",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
@@ -940,7 +924,7 @@
       "n": 3
     }
   },
-  "last_scored_ts": 1786316716.3741107,
+  "last_scored_ts": 1786350219.0167422,
   "reward_samples": [
     5.0445,
     9.1463,
