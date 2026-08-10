@@ -480,6 +480,14 @@
       "ig_id": "18193664500378793",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786341862.2063098,
+      "ig_id": "17923965036404493",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -620,7 +628,7 @@
   },
   "ig_quota": {
     "day": "2026-08-10",
-    "posts": 0
+    "posts": 1
   },
   "dow_hours": {
     "6-23": {
