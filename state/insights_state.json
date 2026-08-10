@@ -2,21 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 10.08.2026",
-      "source": "digest",
-      "ts": 1786391929.391584,
-      "fb_id": "1720195472558990",
-      "fb_media_id": "1720195472558990",
+      "head": "Clubes das Séries A e B aprovam novas regras contr",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786400964.4954405,
+      "fb_id": "2548853462208552",
+      "fb_media_id": "2548853462208552",
+      "ig_id": "18072396272387883",
       "is_video": true,
-      "is_digest": true
+      "hashtag_n": 3
     },
     {
-      "head": "Florentino Luís lembra Benfica com saudade: «Cresc",
-      "source": "record.pt",
-      "ts": 1786394122.8312213,
-      "fb_id": "3060001184346561",
-      "fb_media_id": "3060001184346561",
-      "ig_id": "18109561166037179",
+      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786401016.1333644,
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ Atenção! A 'Lei Vini Jr.' será aplicada no Bras",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786401122.8591459,
+      "fb_id": "2189533565111317",
+      "fb_media_id": "2189533565111317",
+      "ig_id": "18124497616767347",
       "is_video": true,
       "hashtag_n": 2
     }
@@ -167,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-08-10",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1786394162.8451302,
+  "last_scored_ts": 1786401162.8661947,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
