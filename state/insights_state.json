@@ -2,34 +2,31 @@
   "version": 1,
   "pending": [
     {
-      "head": "Gustavo Henrique, sobre os atrasos salariais no Co",
+      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786373737.1189914,
-      "fb_id": "1655821355516644",
-      "fb_media_id": "1655821355516644",
-      "ig_id": "18403246855084769",
+      "ts": 1786380295.3222697,
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ Ex-CBF, Rogério Caboclo anunciará candidatura à",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786380413.6315677,
+      "fb_id": "879763861627115",
+      "fb_media_id": "879763861627115",
+      "ig_id": "17981234462881875",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Palmeiras tem 60% de chance de título; Santos bate",
+      "head": "O Inter Miami aparece como destino mais provável p",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786373901.5874913,
-      "fb_id": "2901847643495490",
-      "fb_media_id": "2901847643495490",
-      "ig_id": "18613601569033079",
+      "ts": 1786380535.3899524,
+      "fb_id": "2087872821802007",
+      "fb_media_id": "2087872821802007",
+      "ig_id": "18145220383553767",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "Das \"decisões controversas\" ao... \"Ocean's Eleven\"",
-      "source": "record.pt",
-      "ts": 1786374015.6486173,
-      "fb_id": "1052847670467658",
-      "fb_media_id": "1052847670467658",
-      "ig_id": "17962449858149776",
-      "is_video": true,
-      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -178,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-08-10",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1786374055.6494327,
+  "last_scored_ts": 1786380575.4024062,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
