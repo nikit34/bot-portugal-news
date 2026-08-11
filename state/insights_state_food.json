@@ -2,62 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "SALGADINHO DE QUEIJO Salve essa receita para não e",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785758682.1937833,
-      "ig_id": "17859605667678559",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785771116.7666414,
-      "ig_id": "18068123519483281",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785788270.8872864,
-      "ig_id": "18126853381678851",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "INGREDIENTES RECHEIO: óleo 2 dentes de alho 1/2 ce",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785793946.4408062,
-      "ig_id": "18108982717834013",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785800554.6687968,
-      "ig_id": "18136067800524856",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "BOLO DE NOZES INGREDINTES: 8 ovos, 250g de açucar,",
-      "source": "receitasdafatima",
-      "ts": 1785800838.3369067,
-      "ig_id": "18025663727681179",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "INGREDIENTES RECHEIO: óleo 2 dentes de alho 1/2 ce",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785815916.0789495,
-      "ig_id": "18088643642441545",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
       "source": "https://t.me/culinariadiaadia",
       "ts": 1785827829.385012,
@@ -560,6 +504,14 @@
       "ig_id": "17907336729463383",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786427015.144775,
+      "ig_id": "18169631203444132",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -700,7 +652,7 @@
   },
   "ig_quota": {
     "day": "2026-08-11",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
@@ -1012,7 +964,7 @@
       "n": 3
     }
   },
-  "last_scored_ts": 1786350219.0167422,
+  "last_scored_ts": 1786427126.1738846,
   "reward_samples": [
     5.0445,
     9.1463,
