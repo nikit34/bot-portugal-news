@@ -2,61 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Romário em entrevista à FuiclearTV: \"Se o Messi nã",
+      "head": "Rodada do Brasileirão terá três árbitras mulheres",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786418916.364068,
-      "fb_id": "828943493543334",
-      "fb_media_id": "828943493543334",
-      "ig_id": "17882203398682563",
+      "ts": 1786431164.7781906,
+      "fb_id": "1920266328644063",
+      "fb_media_id": "1920266328644063",
+      "ig_id": "17950236291235267",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Jornalista turco é detido após humor sobre negocia",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786419039.1961174,
-      "fb_id": "2434110983666197",
-      "fb_media_id": "2434110983666197",
-      "ig_id": "18105705914145485",
+      "head": "Entorse deixa André Silva em dúvida para viagem do",
+      "source": "record.pt",
+      "ts": 1786431279.3717153,
+      "fb_id": "1043900428185868",
+      "fb_media_id": "1043900428185868",
+      "ig_id": "18085039556674986",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "Todo o material de produção da renovação de contra",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786419145.4929345,
-      "fb_id": "2529302780870883",
-      "fb_media_id": "2529302780870883",
-      "ig_id": "18080162426313463",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Elia Junior no programa 'Tempo Técnico', da Band S",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786424427.3582938,
-      "fb_id": "1069580075546192",
-      "fb_media_id": "1069580075546192",
-      "ig_id": "18109312375832937",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Atalanta recua em investida sobre Danilo e volante",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786424539.940177,
-      "fb_id": "1623909812774314",
-      "fb_media_id": "1623909812774314",
-      "ig_id": "18228556147319748",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786424596.058249,
-      "is_video": true,
-      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -205,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-11",
-    "posts": 5
+    "posts": 2
   },
-  "last_scored_ts": 1786419185.5004628,
+  "last_scored_ts": 1786431319.386668,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
