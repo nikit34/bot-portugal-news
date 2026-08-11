@@ -2,31 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "Clubes das Séries A e B aprovam novas regras contr",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786400964.4954405,
-      "fb_id": "2548853462208552",
-      "fb_media_id": "2548853462208552",
-      "ig_id": "18072396272387883",
+      "head": "Como Gamboa e Santana: Gonçalo Paciência iguala in",
+      "source": "record.pt",
+      "ts": 1786410191.291158,
+      "fb_id": "4524923514503256",
+      "fb_media_id": "4524923514503256",
+      "ig_id": "18065761763728139",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786401016.1333644,
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "⚠️ Atenção! A 'Lei Vini Jr.' será aplicada no Bras",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786401122.8591459,
-      "fb_id": "2189533565111317",
-      "fb_media_id": "2189533565111317",
-      "ig_id": "18124497616767347",
-      "is_video": true,
-      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -174,10 +157,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-10",
-    "posts": 2
+    "day": "2026-08-11",
+    "posts": 1
   },
-  "last_scored_ts": 1786401162.8661947,
+  "last_scored_ts": 1786410231.318652,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
