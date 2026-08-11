@@ -2,21 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 11.08.2026",
-      "source": "digest",
-      "ts": 1786478642.1842597,
-      "fb_id": "2322638828504704",
-      "fb_media_id": "2322638828504704",
+      "head": "Além de não renovar o contrato, Osmar Stabile tamb",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786487685.3133097,
+      "fb_id": "3167394026784950",
+      "fb_media_id": "3167394026784950",
+      "ig_id": "17942520297279799",
       "is_video": true,
-      "is_digest": true
+      "hashtag_n": 3
     },
     {
-      "head": "Fred Gil e Rita Freitas nos 'quartos' do Mundial d",
-      "source": "record.pt",
-      "ts": 1786480611.6020908,
-      "fb_id": "1145379681156267",
-      "fb_media_id": "1145379681156267",
-      "ig_id": "18111528073792303",
+      "head": "⚠️ Ônibus que transportaria a delegação São Paulo",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786487800.5600893,
+      "fb_id": "1603499224736921",
+      "fb_media_id": "1603499224736921",
+      "ig_id": "18109687481080507",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Nota oficial do Corinthians: “O Sport Club Cori",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786487916.3715222,
+      "fb_id": "2506054676529767",
+      "fb_media_id": "2506054676529767",
+      "ig_id": "18092890187091322",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -167,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-11",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1786480651.632357,
+  "last_scored_ts": 1786487956.3759131,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
