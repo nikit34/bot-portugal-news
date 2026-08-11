@@ -2,24 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "Dez trunfos do FC Porto: Froholdt, a missão inacab",
-      "source": "record.pt",
-      "ts": 1786437969.0977857,
-      "fb_id": "1582912976609137",
-      "fb_media_id": "1582912976609137",
-      "ig_id": "18111905827959930",
+      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786445007.829257,
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "River Plate informa: “COMUNICADO OFICIAL River Pla",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786445151.373355,
+      "fb_id": "1079036561305176",
+      "fb_media_id": "1079036561305176",
+      "ig_id": "18111443513056313",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Dragões voltam ao ataque: «Apontar o dedo para o F",
-      "source": "record.pt",
-      "ts": 1786438088.8357399,
-      "fb_id": "4603866926564233",
-      "fb_media_id": "4603866926564233",
-      "ig_id": "17953431909226702",
+      "head": "OFICIAL! Cruzeiro anuncia contratação do atacante",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786445255.6953642,
+      "ig_id": "18067592774554727",
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -170,7 +175,7 @@
     "day": "2026-08-11",
     "posts": 2
   },
-  "last_scored_ts": 1786438128.843542,
+  "last_scored_ts": 1786445295.6985512,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
