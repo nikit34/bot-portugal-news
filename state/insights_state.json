@@ -2,34 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Definidos os confrontos das quartas de final da Co",
+      "head": "⚠️ Fluminense estuda a demissão de Zubeldía e aval",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786459973.3693168,
-      "fb_id": "2837375546661894",
-      "fb_media_id": "2837375546661894",
-      "ig_id": "17926819185394214",
+      "ts": 1786467013.9038243,
+      "fb_id": "1369959904555910",
+      "fb_media_id": "1369959904555910",
+      "ig_id": "18111433295087321",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "⚠️ Saúl está insatisfeito com Leonardo Jardim e bu",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786460094.9595814,
-      "fb_id": "1764550187782377",
-      "fb_media_id": "1764550187782377",
-      "ig_id": "17858052978692875",
+      "head": "Europeus: Delvis Santos não correrá 'meias' dos 10",
+      "source": "record.pt",
+      "ts": 1786467127.3132792,
+      "fb_id": "1700381387890351",
+      "fb_media_id": "1700381387890351",
+      "ig_id": "18468018355114274",
       "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Presidente dos Estados Unidos, Donald Trump diz qu",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786460217.289202,
-      "fb_id": "2232493870934009",
-      "fb_media_id": "2232493870934009",
-      "ig_id": "18162584959415071",
-      "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-11",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1786460257.2988086,
+  "last_scored_ts": 1786467167.3187432,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
