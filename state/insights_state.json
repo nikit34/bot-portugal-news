@@ -2,24 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Fluminense estuda a demissão de Zubeldía e aval",
+      "head": "⚠️ Corinthians se frustra com janela fria e já adm",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786467013.9038243,
-      "fb_id": "1369959904555910",
-      "fb_media_id": "1369959904555910",
-      "ig_id": "18111433295087321",
+      "ts": 1786474247.2458255,
+      "fb_id": "945626998573826",
+      "fb_media_id": "945626998573826",
+      "ig_id": "17949798426246894",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Europeus: Delvis Santos não correrá 'meias' dos 10",
-      "source": "record.pt",
-      "ts": 1786467127.3132792,
-      "fb_id": "1700381387890351",
-      "fb_media_id": "1700381387890351",
-      "ig_id": "18468018355114274",
+      "head": "⚠️ Presidente do Corinthians, Osmar Stábile terá c",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786474356.9842217,
+      "fb_id": "1827828728203442",
+      "fb_media_id": "1827828728203442",
+      "ig_id": "18104528156228063",
       "is_video": true,
-      "hashtag_n": 1
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786474476.5046456,
+      "fb_id": "2325325578255176",
+      "fb_media_id": "2325325578255176",
+      "ig_id": "17981544992883501",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-11",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1786467167.3187432,
+  "last_scored_ts": 1786474516.50854,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
