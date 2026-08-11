@@ -536,6 +536,33 @@
       "ig_id": "18144500824543178",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786456937.7834978,
+      "ig_id": "18100547930344229",
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "🌽 BROA DE FUBÁ 📝 INGREDIENTES -> 500 g de fubá ->",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786457028.3898182,
+      "fb_id": "1314171504125539",
+      "fb_media_id": "1314171504125539",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "TORTA DE FRANGO MUITO CREMOSA ➞ INGREDIENTES: XÍCA",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786457167.6072264,
+      "fb_id": "4130408590428298",
+      "fb_media_id": "4130408590428298",
+      "ig_id": "17967892536135038",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -676,7 +703,7 @@
   },
   "ig_quota": {
     "day": "2026-08-11",
-    "posts": 5
+    "posts": 7
   },
   "dow_hours": {
     "6-23": {
