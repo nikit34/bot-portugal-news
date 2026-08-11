@@ -30,6 +30,33 @@
       "ig_id": "18080162426313463",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Elia Junior no programa 'Tempo Técnico', da Band S",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786424427.3582938,
+      "fb_id": "1069580075546192",
+      "fb_media_id": "1069580075546192",
+      "ig_id": "18109312375832937",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Atalanta recua em investida sobre Danilo e volante",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786424539.940177,
+      "fb_id": "1623909812774314",
+      "fb_media_id": "1623909812774314",
+      "ig_id": "18228556147319748",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Rodri prefere o BARCELONA do que o Real Madrid.",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786424596.058249,
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -178,7 +205,7 @@
   },
   "ig_quota": {
     "day": "2026-08-11",
-    "posts": 3
+    "posts": 5
   },
   "last_scored_ts": 1786419185.5004628,
   "dow_hours": {
