@@ -2,12 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Como Gamboa e Santana: Gonçalo Paciência iguala in",
-      "source": "record.pt",
-      "ts": 1786410191.291158,
-      "fb_id": "4524923514503256",
-      "fb_media_id": "4524923514503256",
-      "ig_id": "18065761763728139",
+      "head": "Romário em entrevista à FuiclearTV: \"Se o Messi nã",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786418916.364068,
+      "fb_id": "828943493543334",
+      "fb_media_id": "828943493543334",
+      "ig_id": "17882203398682563",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Jornalista turco é detido após humor sobre negocia",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786419039.1961174,
+      "fb_id": "2434110983666197",
+      "fb_media_id": "2434110983666197",
+      "ig_id": "18105705914145485",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Todo o material de produção da renovação de contra",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786419145.4929345,
+      "fb_id": "2529302780870883",
+      "fb_media_id": "2529302780870883",
+      "ig_id": "18080162426313463",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-11",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1786410231.318652,
+  "last_scored_ts": 1786419185.5004628,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
