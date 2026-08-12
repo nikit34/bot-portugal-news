@@ -2,54 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "CASTANHAS CARAMELIZADAS TIPO DE SHOPPING Receita f",
-      "source": "https://t.me/culinariadiaadia",
-      "ts": 1785827829.385012,
-      "ig_id": "18341356855247269",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785841993.9254136,
-      "ig_id": "18132553297615744",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785856441.5469635,
-      "ig_id": "18076740335338542",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785874680.3639808,
-      "ig_id": "18113198297296332",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🌽 BROA DE FUBÁ 📝 INGREDIENTES -> 500 g de fubá ->",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785874826.2320526,
-      "ig_id": "17948130426252565",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785880697.5457802,
-      "ig_id": "18114493846942353",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
       "source": "https://t.me/Brasil_Receitas",
       "ts": 1785901968.8302789,
@@ -595,6 +547,14 @@
       "ig_id": "18087418739650678",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786504165.9044774,
+      "ig_id": "17947085574257855",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -734,8 +694,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-11",
-    "posts": 11
+    "day": "2026-08-12",
+    "posts": 1
   },
   "dow_hours": {
     "6-23": {
@@ -1047,7 +1007,7 @@
       "n": 3
     }
   },
-  "last_scored_ts": 1786427126.1738846,
+  "last_scored_ts": 1786504484.9061182,
   "reward_samples": [
     5.0445,
     9.1463,
