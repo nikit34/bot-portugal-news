@@ -2,29 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ ATENÇÃO! Dos 4 clubes brasileiros que sondaram",
+      "head": "Candidato ao Senado, ex-técnico Vanderlei Luxembur",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786553377.5302393,
-      "fb_id": "3156857318036262",
-      "fb_media_id": "3156857318036262",
-      "ig_id": "18132383515712719",
+      "ts": 1786560717.8007386,
+      "fb_id": "2113075352970525",
+      "fb_media_id": "2113075352970525",
+      "ig_id": "18112241519095254",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
+      "head": "Bastidores: Santos 'aprova' sorteio da Copa do Bra",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786553429.4580646,
+      "ts": 1786560844.3069844,
+      "fb_id": "911603058136765",
+      "fb_media_id": "911603058136765",
+      "ig_id": "17882068680617414",
       "is_video": true,
-      "hashtag_n": 5
+      "hashtag_n": 3
     },
     {
-      "head": "River Plate informa: “COMUNICADO OFICIAL River Pla",
+      "head": "🚨 URGENTE! Memphis Depay decide acionar o Corinthi",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786553540.8816094,
-      "fb_id": "1981040052853676",
-      "fb_media_id": "1981040052853676",
-      "ig_id": "18145468603542980",
+      "ts": 1786560970.511323,
+      "fb_id": "1276289547873961",
+      "fb_media_id": "1276289547873961",
+      "ig_id": "17898458502560472",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -175,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-12",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1786553580.8880703,
+  "last_scored_ts": 1786561010.5215485,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
