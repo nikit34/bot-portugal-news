@@ -2,52 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Craque Neto, no Os Donos da Bola, sobre a não reno",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786507156.248139,
-      "fb_id": "2014557205832565",
-      "fb_media_id": "2014557205832565",
-      "ig_id": "17942345703305175",
+      "head": "Santiago Serra vive agora o sonho e \"está talhado",
+      "source": "record.pt",
+      "ts": 1786518724.1879368,
+      "fb_id": "1522431049188064",
+      "fb_media_id": "1522431049188064",
+      "ig_id": "18112188838989262",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Protesto da torcida do Fluminense no Maracanã após",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786507264.035708,
-      "fb_id": "926328113856652",
-      "fb_media_id": "926328113856652",
-      "ig_id": "18137160781576151",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Mancha Verde, organizada do Palmeiras, posta vídeo",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786507383.8255813,
-      "fb_id": "1941561349858301",
-      "fb_media_id": "1941561349858301",
-      "ig_id": "17986574466020132",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Hulk entende vaias da torcida do Fluminense, mas d",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786512579.256896,
-      "fb_id": "1611333130361552",
-      "fb_media_id": "1611333130361552",
-      "ig_id": "18490532761098524",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Bastidores! Motivos que fizeram Corinthians não",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786512694.2015722,
-      "fb_id": "3020069401660354",
-      "fb_media_id": "3020069401660354",
-      "ig_id": "18076960166342866",
+      "head": "Dez trunfos do Sporting: Altimira, o catalão escon",
+      "source": "record.pt",
+      "ts": 1786518839.2809875,
+      "fb_id": "1848018846183773",
+      "fb_media_id": "1848018846183773",
+      "ig_id": "17892749958396441",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -198,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-12",
-    "posts": 5
+    "posts": 2
   },
-  "last_scored_ts": 1786507423.8331852,
+  "last_scored_ts": 1786518879.2832663,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
