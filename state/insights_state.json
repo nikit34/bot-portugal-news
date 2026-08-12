@@ -2,32 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "PM classifica Cruzeiro x Flamengo pela Libertadore",
+      "head": "⚠️ ATENÇÃO! Dos 4 clubes brasileiros que sondaram",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786546324.0892942,
-      "fb_id": "921095020426575",
-      "fb_media_id": "921095020426575",
-      "ig_id": "18125211046814074",
+      "ts": 1786553377.5302393,
+      "fb_id": "3156857318036262",
+      "fb_media_id": "3156857318036262",
+      "ig_id": "18132383515712719",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "⚠️📺 Globo faz proposta e tenta comprar cerca de 70",
+      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786546444.2853673,
-      "fb_id": "1570468114731453",
-      "fb_media_id": "1570468114731453",
-      "ig_id": "18028687706666714",
+      "ts": 1786553429.4580646,
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 5
     },
     {
-      "head": "⚠️ Com juros, dívida do Corinthians com Memphis De",
+      "head": "River Plate informa: “COMUNICADO OFICIAL River Pla",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786546563.0571432,
-      "fb_id": "1420799253287825",
-      "fb_media_id": "1420799253287825",
-      "ig_id": "18079450040428402",
+      "ts": 1786553540.8816094,
+      "fb_id": "1981040052853676",
+      "fb_media_id": "1981040052853676",
+      "ig_id": "18145468603542980",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -178,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-08-12",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1786546603.058203,
+  "last_scored_ts": 1786553580.8880703,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
