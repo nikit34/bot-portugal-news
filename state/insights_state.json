@@ -30,6 +30,26 @@
       "ig_id": "17986574466020132",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Hulk entende vaias da torcida do Fluminense, mas d",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786512579.256896,
+      "fb_id": "1611333130361552",
+      "fb_media_id": "1611333130361552",
+      "ig_id": "18490532761098524",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Bastidores! Motivos que fizeram Corinthians não",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786512694.2015722,
+      "fb_id": "3020069401660354",
+      "fb_media_id": "3020069401660354",
+      "ig_id": "18076960166342866",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -178,7 +198,7 @@
   },
   "ig_quota": {
     "day": "2026-08-12",
-    "posts": 3
+    "posts": 5
   },
   "last_scored_ts": 1786507423.8331852,
   "dow_hours": {
