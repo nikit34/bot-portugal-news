@@ -2,22 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Real Madrid não tem espaço para contratar Rodri...",
-      "source": "record.pt",
-      "ts": 1786525445.9268942,
-      "fb_id": "1091857503364715",
-      "fb_media_id": "1091857503364715",
-      "ig_id": "17932423434122697",
+      "head": "Torcida Jovem, organizada do Santos, tem conversa",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786532048.6904016,
+      "fb_id": "1075862451457540",
+      "fb_media_id": "1075862451457540",
+      "ig_id": "17930101521362981",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Arboleda renasce em São Paulo com 'missão cumprida",
-      "source": "uol.com.br",
-      "ts": 1786525549.8376029,
-      "fb_id": "2049711192313443",
-      "fb_media_id": "2049711192313443",
-      "ig_id": "17977650195096567",
+      "head": "Thiago Silva critica postura do Fluminense após em",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786532160.1343045,
+      "fb_id": "1384594446957245",
+      "fb_media_id": "1384594446957245",
+      "ig_id": "17966139564134369",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -170,7 +170,7 @@
     "day": "2026-08-12",
     "posts": 2
   },
-  "last_scored_ts": 1786525589.8401628,
+  "last_scored_ts": 1786532200.1449857,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
