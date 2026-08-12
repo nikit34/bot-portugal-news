@@ -2,22 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Santiago Serra vive agora o sonho e \"está talhado",
+      "head": "Real Madrid não tem espaço para contratar Rodri...",
       "source": "record.pt",
-      "ts": 1786518724.1879368,
-      "fb_id": "1522431049188064",
-      "fb_media_id": "1522431049188064",
-      "ig_id": "18112188838989262",
+      "ts": 1786525445.9268942,
+      "fb_id": "1091857503364715",
+      "fb_media_id": "1091857503364715",
+      "ig_id": "17932423434122697",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Dez trunfos do Sporting: Altimira, o catalão escon",
-      "source": "record.pt",
-      "ts": 1786518839.2809875,
-      "fb_id": "1848018846183773",
-      "fb_media_id": "1848018846183773",
-      "ig_id": "17892749958396441",
+      "head": "Arboleda renasce em São Paulo com 'missão cumprida",
+      "source": "uol.com.br",
+      "ts": 1786525549.8376029,
+      "fb_id": "2049711192313443",
+      "fb_media_id": "2049711192313443",
+      "ig_id": "17977650195096567",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -170,7 +170,7 @@
     "day": "2026-08-12",
     "posts": 2
   },
-  "last_scored_ts": 1786518879.2832663,
+  "last_scored_ts": 1786525589.8401628,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
