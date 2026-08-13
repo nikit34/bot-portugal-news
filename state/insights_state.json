@@ -2,22 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Campeonato saudita está de volta: novo título na m",
-      "source": "record.pt",
-      "ts": 1786611925.1051872,
-      "fb_id": "1059306540010377",
-      "fb_media_id": "1059306540010377",
-      "ig_id": "18349251886174814",
+      "head": "⚠️ A Fatal Fans formalizou um aditivo ao contrato",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786618567.3268344,
+      "fb_id": "1053961637520222",
+      "fb_media_id": "1053961637520222",
+      "ig_id": "18021610040912588",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Santos x Deportivo Macará: horário e onde assistir",
-      "source": "uol.com.br",
-      "ts": 1786612035.6910882,
-      "fb_id": "1038538915437049",
-      "fb_media_id": "1038538915437049",
-      "ig_id": "18016192448916781",
+      "head": "Lukaku foi alvo do Vasco antes de encaminhar acert",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786618687.2824297,
+      "fb_id": "2943891975963534",
+      "fb_media_id": "2943891975963534",
+      "ig_id": "18092811173096982",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -170,7 +170,7 @@
     "day": "2026-08-13",
     "posts": 2
   },
-  "last_scored_ts": 1786612075.7020204,
+  "last_scored_ts": 1786618727.2875888,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
