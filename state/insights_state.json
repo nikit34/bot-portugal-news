@@ -2,22 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ A Fatal Fans formalizou um aditivo ao contrato",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786618567.3268344,
-      "fb_id": "1053961637520222",
-      "fb_media_id": "1053961637520222",
-      "ig_id": "18021610040912588",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Lukaku foi alvo do Vasco antes de encaminhar acert",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786618687.2824297,
-      "fb_id": "2943891975963534",
-      "fb_media_id": "2943891975963534",
-      "ig_id": "18092811173096982",
+      "head": "Suárez e mais Suárez, o reforço anunciado, confian",
+      "source": "record.pt",
+      "ts": 1786625382.7018044,
+      "fb_id": "1559191355666617",
+      "fb_media_id": "1559191355666617",
+      "ig_id": "18614049874003772",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -168,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-08-13",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1786618727.2875888,
+  "last_scored_ts": 1786625422.7120283,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
