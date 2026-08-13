@@ -2,14 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "TORTA DE LARANJA INGREDIENTES: 6 ovos, 200g de açu",
-      "source": "receitasdafatima",
-      "ts": 1786000933.497033,
-      "ig_id": "18105240688885768",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
       "source": "https://t.me/Brasil_Receitas",
       "ts": 1786014602.8859081,
@@ -603,6 +595,14 @@
       "ig_id": "18162907534464928",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786608661.7336833,
+      "ig_id": "18150612475501865",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -743,7 +743,7 @@
   },
   "ig_quota": {
     "day": "2026-08-13",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {
     "6-23": {
@@ -1055,7 +1055,7 @@
       "n": 3
     }
   },
-  "last_scored_ts": 1786601320.7385592,
+  "last_scored_ts": 1786608701.738521,
   "reward_samples": [
     5.0445,
     9.1463,
