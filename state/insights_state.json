@@ -2,31 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Memphis Depay chegou a ASSINAR a renovação com",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786574006.4863915,
-      "fb_id": "1745515216599920",
-      "fb_media_id": "1745515216599920",
-      "ig_id": "18623669509031537",
+      "head": "Pote sai do Sporting pela porta pequena? «Salto pa",
+      "source": "record.pt",
+      "ts": 1786583539.0492682,
+      "fb_id": "1029701366504774",
+      "fb_media_id": "1029701366504774",
+      "ig_id": "17996126456804330",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Arsenal quer vender Gabriel Martinelli e busca",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786574126.661579,
-      "fb_id": "2561755220911830",
-      "fb_media_id": "2561755220911830",
-      "ig_id": "18125977357811107",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786574179.3268948,
-      "is_video": true,
-      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -174,10 +157,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-12",
-    "posts": 2
+    "day": "2026-08-13",
+    "posts": 1
   },
-  "last_scored_ts": 1786574219.3341064,
+  "last_scored_ts": 1786583579.089962,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
