@@ -2,46 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785942050.117285,
-      "ig_id": "18131163109652759",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785953624.5041108,
-      "ig_id": "18000126437976457",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785960829.1507137,
-      "ig_id": "17991030615036333",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785972886.728434,
-      "ig_id": "18117525142903973",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1785988519.8714538,
-      "ig_id": "18053480327569207",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "TORTA DE LARANJA INGREDIENTES: 6 ovos, 200g de açu",
       "source": "receitasdafatima",
       "ts": 1786000933.497033,
@@ -635,6 +595,14 @@
       "ig_id": "17917173924224093",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786601280.7316813,
+      "ig_id": "18162907534464928",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -775,7 +743,7 @@
   },
   "ig_quota": {
     "day": "2026-08-13",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
@@ -1087,7 +1055,7 @@
       "n": 3
     }
   },
-  "last_scored_ts": 1786522226.7472246,
+  "last_scored_ts": 1786601320.7385592,
   "reward_samples": [
     5.0445,
     9.1463,
