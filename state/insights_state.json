@@ -2,34 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Torcida do Palmeiras se revolta com Carlos Miguel",
+      "head": "Dez mil notas falsas foram distribuídas pela torci",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786593821.0703275,
-      "fb_id": "27747775238207186",
-      "fb_media_id": "27747775238207186",
-      "ig_id": "17867827419638166",
+      "ts": 1786605344.9843378,
+      "fb_id": "1967759270554033",
+      "fb_media_id": "1967759270554033",
+      "ig_id": "18017117411716804",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Casagrande, no UOL, sobre a não renovação do Corin",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786593966.1377888,
-      "fb_id": "1504865228062197",
-      "fb_media_id": "1504865228062197",
-      "ig_id": "18036399851827160",
+      "head": "Dez trunfos do Benfica: Lenglet, um zagueiro que é",
+      "source": "record.pt",
+      "ts": 1786605452.734248,
+      "fb_id": "2527099407713397",
+      "fb_media_id": "2527099407713397",
+      "ig_id": "18116881543846011",
       "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "“Estou meio decepcionado. Esperava mais de Cruzeir",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786594079.863964,
-      "fb_id": "1108802278251358",
-      "fb_media_id": "1108802278251358",
-      "ig_id": "18119250493926204",
-      "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-13",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1786594119.8800414,
+  "last_scored_ts": 1786605492.7499042,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
