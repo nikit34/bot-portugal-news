@@ -2,12 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Suárez e mais Suárez, o reforço anunciado, confian",
-      "source": "record.pt",
-      "ts": 1786625382.7018044,
-      "fb_id": "1559191355666617",
-      "fb_media_id": "1559191355666617",
-      "ig_id": "18614049874003772",
+      "head": "🚜 Internacional oferece TRATOR como garantia por d",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786632753.7497442,
+      "fb_id": "1059732333475128",
+      "fb_media_id": "1059732333475128",
+      "ig_id": "18081974762300392",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Técnico do Cerro comemora empate: 'Jogar 4 vezes c",
+      "source": "uol.com.br",
+      "ts": 1786632862.4842215,
+      "fb_id": "2517294768711829",
+      "fb_media_id": "2517294768711829",
+      "ig_id": "18111077149999914",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -158,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-13",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1786625422.7120283,
+  "last_scored_ts": 1786632902.4870312,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
