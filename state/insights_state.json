@@ -2,22 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Noa Lang num impasse: NÃ¡poles dÃ¡ nega Ã Atalanta",
-      "source": "record.pt",
-      "ts": 1786639648.2542608,
-      "fb_id": "2125091105088637",
-      "fb_media_id": "2125091105088637",
-      "ig_id": "18177950068414295",
+      "head": "Felipe Melo, sobre a demissão de Zubeldía no Flumi",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786647141.917412,
+      "fb_id": "1589575959406987",
+      "fb_media_id": "1589575959406987",
+      "ig_id": "18097939733624083",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Luis Suárez deixa nova mensagem: «As dificuldades",
-      "source": "record.pt",
-      "ts": 1786639757.633535,
-      "fb_id": "2478717115970432",
-      "fb_media_id": "2478717115970432",
-      "ig_id": "18023161847909842",
+      "head": "Corinthians não faz gol em mata-mata de Libertador",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786647266.367019,
+      "fb_id": "28091954977132333",
+      "fb_media_id": "28091954977132333",
+      "ig_id": "18109595105089845",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "📺 Globo prepara mudanças nos seus principais progr",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786647381.5757546,
+      "fb_id": "1110629404821792",
+      "fb_media_id": "1110629404821792",
+      "ig_id": "18162993379487400",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-13",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1786639797.6352122,
+  "last_scored_ts": 1786647421.605309,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
