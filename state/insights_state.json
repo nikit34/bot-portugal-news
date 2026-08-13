@@ -2,24 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Dez mil notas falsas foram distribuídas pela torci",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786605344.9843378,
-      "fb_id": "1967759270554033",
-      "fb_media_id": "1967759270554033",
-      "ig_id": "18017117411716804",
+      "head": "Campeonato saudita está de volta: novo título na m",
+      "source": "record.pt",
+      "ts": 1786611925.1051872,
+      "fb_id": "1059306540010377",
+      "fb_media_id": "1059306540010377",
+      "ig_id": "18349251886174814",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Dez trunfos do Benfica: Lenglet, um zagueiro que é",
-      "source": "record.pt",
-      "ts": 1786605452.734248,
-      "fb_id": "2527099407713397",
-      "fb_media_id": "2527099407713397",
-      "ig_id": "18116881543846011",
+      "head": "Santos x Deportivo Macará: horário e onde assistir",
+      "source": "uol.com.br",
+      "ts": 1786612035.6910882,
+      "fb_id": "1038538915437049",
+      "fb_media_id": "1038538915437049",
+      "ig_id": "18016192448916781",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -170,7 +170,7 @@
     "day": "2026-08-13",
     "posts": 2
   },
-  "last_scored_ts": 1786605492.7499042,
+  "last_scored_ts": 1786612075.7020204,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
