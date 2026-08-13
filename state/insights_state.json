@@ -2,31 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 13.08.2026",
-      "source": "digest",
-      "ts": 1786651212.6968236,
-      "fb_id": "901216439279415",
-      "fb_media_id": "901216439279415",
+      "head": "Tiago Leifert critica torcida do Corinthians por p",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786660439.7655468,
+      "fb_id": "1410266997631483",
+      "fb_media_id": "1410266997631483",
+      "ig_id": "18118813531900520",
       "is_video": true,
-      "is_digest": true
+      "hashtag_n": 3
     },
     {
-      "head": "Europeu: Delvis Santos pulveriza recorde pessoal r",
-      "source": "record.pt",
-      "ts": 1786653216.332971,
-      "fb_id": "1078587201231924",
-      "fb_media_id": "1078587201231924",
-      "ig_id": "18123006559847418",
+      "head": "Senadora aciona Governo Federal contra patrocínio",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786660538.6260495,
+      "fb_id": "1380190914070636",
+      "fb_media_id": "1380190914070636",
+      "ig_id": "18110206295012374",
       "is_video": true,
-      "hashtag_n": 0
+      "hashtag_n": 3
     },
     {
-      "head": "«Rui Borges não gosta de conflitos e acredita que",
-      "source": "record.pt",
-      "ts": 1786653326.9713778,
-      "fb_id": "1902024447423715",
-      "fb_media_id": "1902024447423715",
-      "ig_id": "18608842396065030",
+      "head": "O São Paulo conversa com ao menos três empresas pe",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786660650.195677,
+      "fb_id": "2040085570008321",
+      "fb_media_id": "2040085570008321",
+      "ig_id": "17958575037178993",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -177,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-13",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1786653366.9982889,
+  "last_scored_ts": 1786660690.2195187,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
