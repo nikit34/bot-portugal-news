@@ -2,56 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Agora! MP abre inquérito para investigar patroc",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786679994.7060406,
-      "fb_id": "2069940610276980",
-      "fb_media_id": "2069940610276980",
-      "ig_id": "17942663550295304",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "O Internacional acredita que levará quase duas déc",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786680120.6637392,
-      "fb_id": "2164084048330621",
-      "fb_media_id": "2164084048330621",
-      "ig_id": "18105801389153113",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786680173.5996842,
+      "ts": 1786691502.2361455,
       "is_video": true,
       "hashtag_n": 5
     },
     {
-      "head": "Neymar sobre as duas assistências que deu na virad",
+      "head": "🚨 AGORA! MEMPHIS DEPAY NÃO JOGA MAIS PELO CORINTHI",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786685453.857343,
-      "fb_id": "1090431376744940",
-      "fb_media_id": "1090431376744940",
-      "ig_id": "18055126703795074",
+      "ts": 1786691611.5283477,
+      "fb_id": "1428217709169490",
+      "fb_media_id": "1428217709169490",
+      "ig_id": "18090308558438933",
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 1
     },
     {
-      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
+      "head": "🚨 AGORA! CBF anuncia novas regras para o futebol b",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786685506.4232686,
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "⚠️ Palmeiras tomará providências junto à Conmebol",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786685613.9437022,
-      "fb_id": "4115993338700681",
-      "fb_media_id": "4115993338700681",
-      "ig_id": "17941249029296401",
+      "ts": 1786691721.0530744,
+      "fb_id": "1081219434578852",
+      "fb_media_id": "1081219434578852",
+      "ig_id": "18133195180730026",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -202,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-08-14",
-    "posts": 4
+    "posts": 2
   },
-  "last_scored_ts": 1786680213.6101873,
+  "last_scored_ts": 1786691761.0581553,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
