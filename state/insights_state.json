@@ -27,6 +27,33 @@
       "ts": 1786680173.5996842,
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Neymar sobre as duas assistências que deu na virad",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786685453.857343,
+      "fb_id": "1090431376744940",
+      "fb_media_id": "1090431376744940",
+      "ig_id": "18055126703795074",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786685506.4232686,
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "⚠️ Palmeiras tomará providências junto à Conmebol",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786685613.9437022,
+      "fb_id": "4115993338700681",
+      "fb_media_id": "4115993338700681",
+      "ig_id": "17941249029296401",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -175,7 +202,7 @@
   },
   "ig_quota": {
     "day": "2026-08-14",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1786680213.6101873,
   "dow_hours": {
