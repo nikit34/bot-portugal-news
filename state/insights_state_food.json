@@ -2,14 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786089444.0415573,
-      "ig_id": "18122295493883690",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
       "source": "https://t.me/Brasil_Receitas",
       "ts": 1786095659.5075536,
@@ -659,6 +651,14 @@
       "ig_id": "18092134121182457",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786694527.4160674,
+      "ig_id": "17881828980617878",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -799,7 +799,7 @@
   },
   "ig_quota": {
     "day": "2026-08-14",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {
     "6-23": {
@@ -1111,7 +1111,7 @@
       "n": 3
     }
   },
-  "last_scored_ts": 1786687698.589811,
+  "last_scored_ts": 1786694820.3877945,
   "reward_samples": [
     5.0445,
     9.1463,
