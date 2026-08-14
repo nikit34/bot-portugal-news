@@ -2,31 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 14.08.2026",
-      "source": "digest",
-      "ts": 1786737279.020924,
-      "fb_id": "1596872178692506",
-      "fb_media_id": "1596872178692506",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "Mariana Machado 14.ª na final dos 10.000 metros qu",
-      "source": "record.pt",
-      "ts": 1786739072.2205617,
-      "fb_id": "1811158090253343",
-      "fb_media_id": "1811158090253343",
-      "ig_id": "18107542484172141",
+      "head": "Câmeras de segurança flagraram um torcedor furtand",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786745707.2877853,
+      "fb_id": "862776756767533",
+      "fb_media_id": "862776756767533",
+      "ig_id": "18099581759203968",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Luís Pedro Sousa e o acidente fatal na Volta a Por",
-      "source": "record.pt",
-      "ts": 1786739186.1579301,
-      "fb_id": "1051453257490551",
-      "fb_media_id": "1051453257490551",
-      "ig_id": "18113041078973528",
+      "head": "Nike notifica Corinthians e questiona patrocínio d",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786745818.973667,
+      "fb_id": "1824057361957965",
+      "fb_media_id": "1824057361957965",
+      "ig_id": "18065703371576414",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Justiça condena Léo Derik, do Athletico, a 13 anos",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786745929.3277721,
+      "fb_id": "1577097063924822",
+      "fb_media_id": "1577097063924822",
+      "ig_id": "18073426991651063",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -177,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-14",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1786739226.1695209,
+  "last_scored_ts": 1786745969.3337913,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
