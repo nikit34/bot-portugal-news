@@ -2,24 +2,31 @@
   "version": 1,
   "pending": [
     {
-      "head": "São Paulo vê grupo quase fechado, mas mantém meia",
-      "source": "uol.com.br",
-      "ts": 1786725786.096616,
-      "fb_id": "1620084436486466",
-      "fb_media_id": "1620084436486466",
-      "ig_id": "18029867762847890",
+      "head": "Gabigol, ao ser questionado se 'a zika saiu' após",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786733064.0635433,
+      "fb_id": "3161209857601771",
+      "fb_media_id": "3161209857601771",
+      "ig_id": "18156370699495474",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Torcedores perdem 1º tempo na Vila após confusão e",
-      "source": "uol.com.br",
-      "ts": 1786725901.124347,
-      "fb_id": "1613095070433107",
-      "fb_media_id": "1613095070433107",
-      "ig_id": "18090053597363200",
+      "head": "⚠️ Apesar da irritação, Memphis Depay está aberto",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786733178.4276977,
+      "fb_id": "2024930061720967",
+      "fb_media_id": "2024930061720967",
+      "ig_id": "18016411829877003",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786733230.1945825,
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -170,7 +177,7 @@
     "day": "2026-08-14",
     "posts": 2
   },
-  "last_scored_ts": 1786725941.1555586,
+  "last_scored_ts": 1786733270.197773,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
