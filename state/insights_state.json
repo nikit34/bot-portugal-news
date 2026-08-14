@@ -2,12 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Botafogo de Franclim Carvalho sofre goleada histór",
-      "source": "record.pt",
-      "ts": 1786711516.7561145,
-      "fb_id": "1576170967192393",
-      "fb_media_id": "1576170967192393",
-      "ig_id": "17873397876630370",
+      "head": "Willian Arão discutindo com repórter ao ser questi",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786718786.6512852,
+      "fb_id": "1669348170796654",
+      "fb_media_id": "1669348170796654",
+      "ig_id": "18111611456077962",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "O São Paulo é o time do Brasileirão que menos jogo",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786718900.24703,
+      "fb_id": "1597537565296306",
+      "fb_media_id": "1597537565296306",
+      "ig_id": "18112169224986857",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "🚨 AGORA! MEMPHIS DEPAY NÃO JOGA MAIS PELO CORINTHI",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786719006.8102436,
+      "fb_id": "1374722651450850",
+      "fb_media_id": "1374722651450850",
+      "ig_id": "18364208587209472",
       "is_video": true,
       "hashtag_n": 1
     }
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-14",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1786711556.760709,
+  "last_scored_ts": 1786719046.8202515,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
