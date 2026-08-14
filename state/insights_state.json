@@ -2,29 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Maiores derrotas de times brasileiros por diferenç",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786704744.8350255,
-      "fb_id": "1360297395710462",
-      "fb_media_id": "1360297395710462",
-      "ig_id": "17935430514359851",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786704797.7247205,
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🚨 AGORA! MEMPHIS DEPAY NÃO JOGA MAIS PELO CORINTHI",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786704909.346348,
-      "fb_id": "1776778933355418",
-      "fb_media_id": "1776778933355418",
-      "ig_id": "18113000431763960",
+      "head": "Botafogo de Franclim Carvalho sofre goleada histór",
+      "source": "record.pt",
+      "ts": 1786711516.7561145,
+      "fb_id": "1576170967192393",
+      "fb_media_id": "1576170967192393",
+      "ig_id": "17873397876630370",
       "is_video": true,
       "hashtag_n": 1
     }
@@ -175,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-08-14",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1786704949.3869705,
+  "last_scored_ts": 1786711556.760709,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
