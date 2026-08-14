@@ -2,14 +2,31 @@
   "version": 1,
   "pending": [
     {
-      "head": "Jorge Jesus, Mourinho, Messi ou Ronaldo e o 'susto",
-      "source": "record.pt",
-      "ts": 1786669820.4413273,
-      "fb_id": "2065826144022217",
-      "fb_media_id": "2065826144022217",
-      "ig_id": "17905446915528024",
+      "head": "⚠️ Agora! MP abre inquérito para investigar patroc",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786679994.7060406,
+      "fb_id": "2069940610276980",
+      "fb_media_id": "2069940610276980",
+      "ig_id": "17942663550295304",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "O Internacional acredita que levará quase duas déc",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786680120.6637392,
+      "fb_id": "2164084048330621",
+      "fb_media_id": "2164084048330621",
+      "ig_id": "18105801389153113",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786680173.5996842,
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -158,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-08-14",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1786669860.4563737,
+  "last_scored_ts": 1786680213.6101873,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
