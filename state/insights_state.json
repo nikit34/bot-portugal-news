@@ -2,22 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "«A gripe que apanhámos na Amadora continua a afeta",
+      "head": "Europeus: Eduardo Camarate e Tiago Ramos com recor",
       "source": "record.pt",
-      "ts": 1786788928.1941717,
-      "fb_id": "2234905940384025",
-      "fb_media_id": "2234905940384025",
-      "ig_id": "17892788811606491",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "«Marco Silva mandou um recado 'soft'. Jornalistas",
-      "source": "record.pt",
-      "ts": 1786789039.3472981,
-      "fb_id": "2296661747806104",
-      "fb_media_id": "2296661747806104",
-      "ig_id": "17882195454616951",
+      "ts": 1786796456.1495464,
+      "fb_id": "2035310440688917",
+      "fb_media_id": "2035310440688917",
+      "ig_id": "18336910387254311",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -168,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-08-15",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1786789079.3543048,
+  "last_scored_ts": 1786796496.162834,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
