@@ -2,34 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "Câmeras de segurança flagraram um torcedor furtand",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786745707.2877853,
-      "fb_id": "862776756767533",
-      "fb_media_id": "862776756767533",
-      "ig_id": "18099581759203968",
+      "head": "Nuno Borges sobrevive a 1ª rodada dramática e segu",
+      "source": "record.pt",
+      "ts": 1786754629.3531961,
+      "fb_id": "1686219792490884",
+      "fb_media_id": "1686219792490884",
+      "ig_id": "18151314205517981",
       "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Nike notifica Corinthians e questiona patrocínio d",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786745818.973667,
-      "fb_id": "1824057361957965",
-      "fb_media_id": "1824057361957965",
-      "ig_id": "18065703371576414",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Justiça condena Léo Derik, do Athletico, a 13 anos",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786745929.3277721,
-      "fb_id": "1577097063924822",
-      "fb_media_id": "1577097063924822",
-      "ig_id": "18073426991651063",
-      "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -177,10 +157,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-14",
-    "posts": 3
+    "day": "2026-08-15",
+    "posts": 1
   },
-  "last_scored_ts": 1786745969.3337913,
+  "last_scored_ts": 1786754669.3622823,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
