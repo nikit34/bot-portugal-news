@@ -2,29 +2,29 @@
   "version": 1,
   "pending": [
     {
-      "head": "Rafael Moura é o novo comentarista do Grupo Globo.",
+      "head": "⚠️ Pulgar aguarda resposta do Flamengo até o fim d",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786810553.650649,
-      "fb_id": "4659570404270808",
-      "fb_media_id": "4659570404270808",
-      "ig_id": "18131133808711179",
+      "ts": 1786817858.9927478,
+      "fb_id": "931893642591713",
+      "fb_media_id": "931893642591713",
+      "ig_id": "17914155666245965",
       "is_video": true,
       "hashtag_n": 3
     },
     {
       "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786810605.0273354,
+      "ts": 1786817910.749489,
       "is_video": true,
       "hashtag_n": 5
     },
     {
       "head": "🚨 AGORA! MEMPHIS DEPAY NÃO JOGA MAIS PELO CORINTHI",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786810712.5976481,
-      "fb_id": "1588355449331951",
-      "fb_media_id": "1588355449331951",
-      "ig_id": "18453624694137277",
+      "ts": 1786818018.4601803,
+      "fb_id": "1029854893375514",
+      "fb_media_id": "1029854893375514",
+      "ig_id": "18004952816975114",
       "is_video": true,
       "hashtag_n": 1
     }
@@ -177,7 +177,7 @@
     "day": "2026-08-15",
     "posts": 2
   },
-  "last_scored_ts": 1786810752.6193204,
+  "last_scored_ts": 1786818058.4892921,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
