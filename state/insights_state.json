@@ -2,14 +2,28 @@
   "version": 1,
   "pending": [
     {
-      "head": "Europeus: Eduardo Camarate e Tiago Ramos com recor",
-      "source": "record.pt",
-      "ts": 1786796456.1495464,
-      "fb_id": "2035310440688917",
-      "fb_media_id": "2035310440688917",
-      "ig_id": "18336910387254311",
+      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786803276.99229,
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 5
+    },
+    {
+      "head": "🚨 AGORA! MEMPHIS DEPAY NÃO JOGA MAIS PELO CORINTHI",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786803386.2135777,
+      "fb_id": "986267991091445",
+      "fb_media_id": "986267991091445",
+      "ig_id": "18114352067067168",
+      "is_video": true,
+      "hashtag_n": 1
+    },
+    {
+      "head": "🚨 AGORA! CBF anuncia novas regras para o futebol b",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786803439.6393301,
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -160,7 +174,7 @@
     "day": "2026-08-15",
     "posts": 1
   },
-  "last_scored_ts": 1786796496.162834,
+  "last_scored_ts": 1786803479.6471329,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
