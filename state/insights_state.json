@@ -2,32 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "O discurso forte de Neymar diante do Santos 2x1 Ma",
+      "head": "CBF detalha partidas das rodadas 25 e 26 do Brasil",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786762035.1948373,
-      "fb_id": "1590191825824093",
-      "fb_media_id": "1590191825824093",
-      "ig_id": "18480006196096250",
+      "ts": 1786767793.9910736,
+      "fb_id": "2097096067588017",
+      "fb_media_id": "2097096067588017",
+      "ig_id": "17962329198173864",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "⚠️ Renovou! Gustavo Gómez renova com o Palmeiras a",
+      "head": "A diretoria do São Paulo não queria que o show da",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786762156.5366664,
-      "fb_id": "1400476305310668",
-      "fb_media_id": "1400476305310668",
-      "ig_id": "18341830684264120",
+      "ts": 1786767903.092922,
+      "fb_id": "917943234107199",
+      "fb_media_id": "917943234107199",
+      "ig_id": "18424085302199052",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Candidato a deputado federal pelo MDB em São Paulo",
+      "head": "⚠️ AGORA! Vasco projeta déficit de cerca de R$ 300",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786762317.1011403,
-      "fb_id": "1770840087405055",
-      "fb_media_id": "1770840087405055",
-      "ig_id": "17992607378825320",
+      "ts": 1786768014.4246109,
+      "fb_id": "2149770375886900",
+      "fb_media_id": "2149770375886900",
+      "ig_id": "17888490432434255",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -180,7 +180,7 @@
     "day": "2026-08-15",
     "posts": 3
   },
-  "last_scored_ts": 1786762357.122608,
+  "last_scored_ts": 1786768054.4656322,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
