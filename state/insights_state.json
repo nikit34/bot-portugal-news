@@ -2,28 +2,31 @@
   "version": 1,
   "pending": [
     {
+      "head": "Rafael Moura é o novo comentarista do Grupo Globo.",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786810553.650649,
+      "fb_id": "4659570404270808",
+      "fb_media_id": "4659570404270808",
+      "ig_id": "18131133808711179",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
       "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786803276.99229,
+      "ts": 1786810605.0273354,
       "is_video": true,
       "hashtag_n": 5
     },
     {
       "head": "🚨 AGORA! MEMPHIS DEPAY NÃO JOGA MAIS PELO CORINTHI",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786803386.2135777,
-      "fb_id": "986267991091445",
-      "fb_media_id": "986267991091445",
-      "ig_id": "18114352067067168",
+      "ts": 1786810712.5976481,
+      "fb_id": "1588355449331951",
+      "fb_media_id": "1588355449331951",
+      "ig_id": "18453624694137277",
       "is_video": true,
       "hashtag_n": 1
-    },
-    {
-      "head": "🚨 AGORA! CBF anuncia novas regras para o futebol b",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786803439.6393301,
-      "is_video": true,
-      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -172,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-08-15",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1786803479.6471329,
+  "last_scored_ts": 1786810752.6193204,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
