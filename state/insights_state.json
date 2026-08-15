@@ -2,22 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Benfica acelera Harwood-Bellis e João Palhinha Ãgu",
+      "head": "«A gripe que apanhámos na Amadora continua a afeta",
       "source": "record.pt",
-      "ts": 1786781904.9210336,
-      "fb_id": "1590011269520167",
-      "fb_media_id": "1590011269520167",
-      "ig_id": "17897090436579980",
+      "ts": 1786788928.1941717,
+      "fb_id": "2234905940384025",
+      "fb_media_id": "2234905940384025",
+      "ig_id": "17892788811606491",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Al Wasl de Rui Vitória começa hoje a temporada: «O",
+      "head": "«Marco Silva mandou um recado 'soft'. Jornalistas",
       "source": "record.pt",
-      "ts": 1786782011.6153195,
-      "fb_id": "1420453583327963",
-      "fb_media_id": "1420453583327963",
-      "ig_id": "18087525365663388",
+      "ts": 1786789039.3472981,
+      "fb_id": "2296661747806104",
+      "fb_media_id": "2296661747806104",
+      "ig_id": "17882195454616951",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -170,7 +170,7 @@
     "day": "2026-08-15",
     "posts": 2
   },
-  "last_scored_ts": 1786782051.6263592,
+  "last_scored_ts": 1786789079.3543048,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
