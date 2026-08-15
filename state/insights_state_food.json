@@ -4,86 +4,6 @@
     {
       "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
       "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786095659.5075536,
-      "ig_id": "17907437736461250",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786102284.260349,
-      "ig_id": "18112351390992272",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786111086.960668,
-      "ig_id": "18361250191244766",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786116951.1676316,
-      "ig_id": "18124678480813360",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786123725.7543688,
-      "ig_id": "18071384720436123",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786131539.1073017,
-      "ig_id": "18086084420423354",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "BOLO DE CLEMENTINAS SUISSO INGREDIENTES: 4 clement",
-      "source": "receitasdafatima",
-      "ts": 1786137356.8464692,
-      "ig_id": "18125443876773453",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "BOLO DE CLEMENTINAS SUISSO INGREDIENTES: 4 clement",
-      "source": "receitasdafatima",
-      "ts": 1786144315.5655916,
-      "ig_id": "17967448980133035",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786156638.295442,
-      "ig_id": "18333537118258131",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "BOLO DE CLEMENTINAS SUISSO INGREDIENTES: 4 clement",
-      "source": "receitasdafatima",
-      "ts": 1786161459.1863377,
-      "ig_id": "18111306313814751",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
       "ts": 1786166895.0825675,
       "ig_id": "18098385035258250",
       "is_video": true,
@@ -739,6 +659,14 @@
       "ig_id": "18047769122589627",
       "is_video": true,
       "hashtag_n": 4
+    },
+    {
+      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1786770117.5237782,
+      "ig_id": "18005359379771628",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -879,7 +807,7 @@
   },
   "ig_quota": {
     "day": "2026-08-15",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {
     "6-23": {
@@ -1191,7 +1119,7 @@
       "n": 3
     }
   },
-  "last_scored_ts": 1786694820.3877945,
+  "last_scored_ts": 1786770421.7932074,
   "reward_samples": [
     5.0445,
     9.1463,
