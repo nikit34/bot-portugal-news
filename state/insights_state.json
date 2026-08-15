@@ -2,34 +2,31 @@
   "version": 1,
   "pending": [
     {
-      "head": "CBF detalha partidas das rodadas 25 e 26 do Brasil",
+      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786767793.9910736,
-      "fb_id": "2097096067588017",
-      "fb_media_id": "2097096067588017",
-      "ig_id": "17962329198173864",
+      "ts": 1786774988.921564,
+      "is_video": true,
+      "hashtag_n": 5
+    },
+    {
+      "head": "📺 TNT Sports \"se vinga\" após saída de Fred Caldeir",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786775110.9297295,
+      "fb_id": "1373844810854573",
+      "fb_media_id": "1373844810854573",
+      "ig_id": "18443691040125694",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "A diretoria do São Paulo não queria que o show da",
+      "head": "🚨 AGORA! MEMPHIS DEPAY NÃO JOGA MAIS PELO CORINTHI",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786767903.092922,
-      "fb_id": "917943234107199",
-      "fb_media_id": "917943234107199",
-      "ig_id": "18424085302199052",
+      "ts": 1786775227.1010172,
+      "fb_id": "1046451191505841",
+      "fb_media_id": "1046451191505841",
+      "ig_id": "18113967904764939",
       "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "⚠️ AGORA! Vasco projeta déficit de cerca de R$ 300",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786768014.4246109,
-      "fb_id": "2149770375886900",
-      "fb_media_id": "2149770375886900",
-      "ig_id": "17888490432434255",
-      "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 1
     }
   ],
   "sources": {
@@ -178,9 +175,9 @@
   },
   "ig_quota": {
     "day": "2026-08-15",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1786768054.4656322,
+  "last_scored_ts": 1786775267.1076546,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
