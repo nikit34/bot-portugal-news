@@ -2,31 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ Nova ordem na CBF é de acabar com as \"FALTINHAS",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786774988.921564,
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "📺 TNT Sports \"se vinga\" após saída de Fred Caldeir",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786775110.9297295,
-      "fb_id": "1373844810854573",
-      "fb_media_id": "1373844810854573",
-      "ig_id": "18443691040125694",
+      "head": "Benfica acelera Harwood-Bellis e João Palhinha Ãgu",
+      "source": "record.pt",
+      "ts": 1786781904.9210336,
+      "fb_id": "1590011269520167",
+      "fb_media_id": "1590011269520167",
+      "ig_id": "17897090436579980",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "🚨 AGORA! MEMPHIS DEPAY NÃO JOGA MAIS PELO CORINTHI",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786775227.1010172,
-      "fb_id": "1046451191505841",
-      "fb_media_id": "1046451191505841",
-      "ig_id": "18113967904764939",
+      "head": "Al Wasl de Rui Vitória começa hoje a temporada: «O",
+      "source": "record.pt",
+      "ts": 1786782011.6153195,
+      "fb_id": "1420453583327963",
+      "fb_media_id": "1420453583327963",
+      "ig_id": "18087525365663388",
       "is_video": true,
-      "hashtag_n": 1
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -177,7 +170,7 @@
     "day": "2026-08-15",
     "posts": 2
   },
-  "last_scored_ts": 1786775267.1076546,
+  "last_scored_ts": 1786782051.6263592,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
