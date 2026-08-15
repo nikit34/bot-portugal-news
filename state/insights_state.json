@@ -2,14 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "Nuno Borges sobrevive a 1ª rodada dramática e segu",
-      "source": "record.pt",
-      "ts": 1786754629.3531961,
-      "fb_id": "1686219792490884",
-      "fb_media_id": "1686219792490884",
-      "ig_id": "18151314205517981",
+      "head": "O discurso forte de Neymar diante do Santos 2x1 Ma",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786762035.1948373,
+      "fb_id": "1590191825824093",
+      "fb_media_id": "1590191825824093",
+      "ig_id": "18480006196096250",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Renovou! Gustavo Gómez renova com o Palmeiras a",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786762156.5366664,
+      "fb_id": "1400476305310668",
+      "fb_media_id": "1400476305310668",
+      "ig_id": "18341830684264120",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Candidato a deputado federal pelo MDB em São Paulo",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786762317.1011403,
+      "fb_id": "1770840087405055",
+      "fb_media_id": "1770840087405055",
+      "ig_id": "17992607378825320",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-15",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1786754669.3622823,
+  "last_scored_ts": 1786762357.122608,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
