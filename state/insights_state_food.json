@@ -675,6 +675,14 @@
       "ig_id": "18152408860512443",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "BOLO DE CLEMENTINAS SUISSO INGREDIENTES: 4 clement",
+      "source": "receitasdafatima",
+      "ts": 1786851138.1459043,
+      "ig_id": "18223103266327991",
+      "is_video": true,
+      "hashtag_n": 4
     }
   ],
   "sources": {
@@ -815,7 +823,7 @@
   },
   "ig_quota": {
     "day": "2026-08-16",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-23": {
