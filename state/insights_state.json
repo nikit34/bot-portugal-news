@@ -2,34 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Marinho, jogador do Vitória, em entrevista ao podc",
+      "head": "No 3 a 2 sobre o Palmeiras, o Fluminense deu fim a",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786854556.5873332,
-      "fb_id": "28809725305295659",
-      "fb_media_id": "28809725305295659",
-      "ig_id": "17909224242460728",
+      "ts": 1786861539.8741493,
+      "fb_id": "1711034216833946",
+      "fb_media_id": "1711034216833946",
+      "ig_id": "18215342044340949",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Abel Ferreira, sobre os gols sofridos pelo Palmeir",
+      "head": "Abel Ferreira detona gramado do Maracanã após derr",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786854662.915989,
-      "fb_id": "3560460850802864",
-      "fb_media_id": "3560460850802864",
-      "ig_id": "18147497275535876",
+      "ts": 1786861642.0941904,
+      "fb_id": "1034803359346699",
+      "fb_media_id": "1034803359346699",
+      "ig_id": "18102233108218492",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "Leila Pereira, em discurso ontem (14), na sede soc",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786854768.5887997,
-      "fb_id": "2285897292177271",
-      "fb_media_id": "2285897292177271",
-      "ig_id": "18103800005242676",
-      "is_video": true,
-      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-16",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1786854808.5934143,
+  "last_scored_ts": 1786861682.1322918,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
