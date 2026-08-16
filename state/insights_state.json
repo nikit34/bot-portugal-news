@@ -2,22 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Torcedor do São Paulo protesta contra Dorival Jr a",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786896930.7159362,
-      "fb_id": "1660503311715375",
-      "fb_media_id": "1660503311715375",
-      "ig_id": "17928210303384864",
+      "head": "Brasileiro ex-Vasco é o novo técnico do Independie",
+      "source": "uol.com.br",
+      "ts": 1786904252.436173,
+      "fb_id": "1824698905564276",
+      "fb_media_id": "1824698905564276",
+      "ig_id": "18105657437600625",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 3
     },
     {
-      "head": "A bolha estourou? Brasil convive com janela de tra",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786897048.698191,
-      "fb_id": "988294837591321",
-      "fb_media_id": "988294837591321",
-      "ig_id": "18364368667210659",
+      "head": "Transmissão ao vivo de Vasco x Santos pelo Brasile",
+      "source": "uol.com.br",
+      "ts": 1786904364.3904881,
+      "fb_id": "1384686850275883",
+      "fb_media_id": "1384686850275883",
+      "ig_id": "18102882827191105",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Wehrlein é campeão da F-E apesar de problemas; Bar",
+      "source": "uol.com.br",
+      "ts": 1786904477.7529707,
+      "fb_id": "2345100202955079",
+      "fb_media_id": "2345100202955079",
+      "ig_id": "17990086290010530",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-16",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1786897088.7030284,
+  "last_scored_ts": 1786904517.7706654,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
