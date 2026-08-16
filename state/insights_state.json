@@ -2,24 +2,14 @@
   "version": 1,
   "pending": [
     {
-      "head": "A 1ª aplicação da regra “anti-bolinho” no Brasilei",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786832019.3875003,
-      "fb_id": "1843489883737817",
-      "fb_media_id": "1843489883737817",
-      "ig_id": "18128901067716083",
+      "head": "Farioli diz que há \"coisas a melhorar\" e elogia Ne",
+      "source": "record.pt",
+      "ts": 1786841121.980961,
+      "fb_id": "1758531848523302",
+      "fb_media_id": "1758531848523302",
+      "ig_id": "17880265602619283",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "Nehuén Pérez: «Depois de um ano muito duro é um or",
-      "source": "record.pt",
-      "ts": 1786832126.7625515,
-      "fb_id": "1593113855754852",
-      "fb_media_id": "1593113855754852",
-      "ig_id": "18480894487106455",
-      "is_video": true,
-      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -167,10 +157,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-15",
-    "posts": 2
+    "day": "2026-08-16",
+    "posts": 1
   },
-  "last_scored_ts": 1786832166.7700086,
+  "last_scored_ts": 1786841162.0152237,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
