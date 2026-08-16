@@ -2,22 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "No 3 a 2 sobre o Palmeiras, o Fluminense deu fim a",
+      "head": "De La Cruz sofre nova lesão e vira desfalque no Fl",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786861539.8741493,
-      "fb_id": "1711034216833946",
-      "fb_media_id": "1711034216833946",
-      "ig_id": "18215342044340949",
+      "ts": 1786868380.3098164,
+      "fb_id": "1064987216117822",
+      "fb_media_id": "1064987216117822",
+      "ig_id": "18110239336953887",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Abel Ferreira detona gramado do Maracanã após derr",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786861642.0941904,
-      "fb_id": "1034803359346699",
-      "fb_media_id": "1034803359346699",
-      "ig_id": "18102233108218492",
+      "head": "Onda de infecções gastrointestinais afeta elenco d",
+      "source": "record.pt",
+      "ts": 1786868493.159595,
+      "fb_id": "1405107134838990",
+      "fb_media_id": "1405107134838990",
+      "ig_id": "18105678311134388",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -170,7 +170,7 @@
     "day": "2026-08-16",
     "posts": 2
   },
-  "last_scored_ts": 1786861682.1322918,
+  "last_scored_ts": 1786868533.1636055,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
