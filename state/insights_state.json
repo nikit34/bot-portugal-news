@@ -2,24 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "De La Cruz sofre nova lesão e vira desfalque no Fl",
+      "head": "🚨 AGORA! MEMPHIS DEPAY NÃO JOGA MAIS PELO CORINTHI",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786868380.3098164,
-      "fb_id": "1064987216117822",
-      "fb_media_id": "1064987216117822",
-      "ig_id": "18110239336953887",
+      "ts": 1786875416.1086612,
+      "fb_id": "2508835869609173",
+      "fb_media_id": "2508835869609173",
+      "ig_id": "18028394117846588",
+      "is_video": true,
+      "hashtag_n": 1
+    },
+    {
+      "head": "«Diogo Costa poderia ser o novo protagonista do Ho",
+      "source": "record.pt",
+      "ts": 1786875522.1395843,
+      "fb_id": "1097986559556484",
+      "fb_media_id": "1097986559556484",
+      "ig_id": "18065705285744057",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Onda de infecções gastrointestinais afeta elenco d",
+      "head": "Conheça o zagueiro argentino que está na lista do",
       "source": "record.pt",
-      "ts": 1786868493.159595,
-      "fb_id": "1405107134838990",
-      "fb_media_id": "1405107134838990",
-      "ig_id": "18105678311134388",
+      "ts": 1786875638.6561282,
+      "fb_id": "1025381773593212",
+      "fb_media_id": "1025381773593212",
+      "ig_id": "18088422044197862",
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-16",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1786868533.1636055,
+  "last_scored_ts": 1786875678.6758347,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
