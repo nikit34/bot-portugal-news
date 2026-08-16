@@ -2,24 +2,34 @@
   "version": 1,
   "pending": [
     {
-      "head": "Farioli responde advogado de Rodrigo Mora: «Sou pa",
-      "source": "record.pt",
-      "ts": 1786848897.3161721,
-      "fb_id": "1363718885389261",
-      "fb_media_id": "1363718885389261",
-      "ig_id": "17923017222407256",
+      "head": "Marinho, jogador do Vitória, em entrevista ao podc",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786854556.5873332,
+      "fb_id": "28809725305295659",
+      "fb_media_id": "28809725305295659",
+      "ig_id": "17909224242460728",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Noite de retornos felizes no FC Porto: Nehuén e Bo",
-      "source": "record.pt",
-      "ts": 1786849004.7517002,
-      "fb_id": "2118372675690557",
-      "fb_media_id": "2118372675690557",
-      "ig_id": "17858720256691995",
+      "head": "Abel Ferreira, sobre os gols sofridos pelo Palmeir",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786854662.915989,
+      "fb_id": "3560460850802864",
+      "fb_media_id": "3560460850802864",
+      "ig_id": "18147497275535876",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Leila Pereira, em discurso ontem (14), na sede soc",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786854768.5887997,
+      "fb_id": "2285897292177271",
+      "fb_media_id": "2285897292177271",
+      "ig_id": "18103800005242676",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-16",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1786849044.7668486,
+  "last_scored_ts": 1786854808.5934143,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
