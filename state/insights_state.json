@@ -2,12 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Farioli diz que há \"coisas a melhorar\" e elogia Ne",
+      "head": "Farioli responde advogado de Rodrigo Mora: «Sou pa",
       "source": "record.pt",
-      "ts": 1786841121.980961,
-      "fb_id": "1758531848523302",
-      "fb_media_id": "1758531848523302",
-      "ig_id": "17880265602619283",
+      "ts": 1786848897.3161721,
+      "fb_id": "1363718885389261",
+      "fb_media_id": "1363718885389261",
+      "ig_id": "17923017222407256",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Noite de retornos felizes no FC Porto: Nehuén e Bo",
+      "source": "record.pt",
+      "ts": 1786849004.7517002,
+      "fb_id": "2118372675690557",
+      "fb_media_id": "2118372675690557",
+      "ig_id": "17858720256691995",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -158,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-16",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1786841162.0152237,
+  "last_scored_ts": 1786849044.7668486,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
