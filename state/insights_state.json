@@ -2,32 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Nova regra para o Brasileirão! - Árbitro com os br",
+      "head": "Torcedor do São Paulo protesta contra Dorival Jr a",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786889780.5413616,
-      "fb_id": "1570089437942729",
-      "fb_media_id": "1570089437942729",
-      "ig_id": "18069358547708300",
+      "ts": 1786896930.7159362,
+      "fb_id": "1660503311715375",
+      "fb_media_id": "1660503311715375",
+      "ig_id": "17928210303384864",
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 2
     },
     {
-      "head": "🚨 AGORA! MEMPHIS DEPAY NÃO JOGA MAIS PELO CORINTHI",
+      "head": "A bolha estourou? Brasil convive com janela de tra",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786889895.6577616,
-      "fb_id": "1526414339214909",
-      "fb_media_id": "1526414339214909",
-      "ig_id": "18117660212490039",
-      "is_video": true,
-      "hashtag_n": 1
-    },
-    {
-      "head": "Dos primeiros sintomas na Bulgária à ida de jogado",
-      "source": "record.pt",
-      "ts": 1786890015.5410926,
-      "fb_id": "1508254537701449",
-      "fb_media_id": "1508254537701449",
-      "ig_id": "17921187450415199",
+      "ts": 1786897048.698191,
+      "fb_id": "988294837591321",
+      "fb_media_id": "988294837591321",
+      "ig_id": "18364368667210659",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-16",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1786890055.5421386,
+  "last_scored_ts": 1786897088.7030284,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
