@@ -2,22 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Memphis faz proposta ao Corinthians e retira 'auxí",
-      "source": "uol.com.br",
-      "ts": 1786927415.4278364,
-      "fb_id": "1269495282913749",
-      "fb_media_id": "1269495282913749",
-      "ig_id": "18083576768689447",
+      "head": "Denilson crítica Thiago Mendes por não cumprimenta",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786935289.3979154,
+      "fb_id": "2483989208764680",
+      "fb_media_id": "2483989208764680",
+      "ig_id": "17868546126636831",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Pedro enaltece goleada do Fla e indica 'mais confi",
-      "source": "uol.com.br",
-      "ts": 1786927526.2054727,
-      "fb_id": "1370800461205598",
-      "fb_media_id": "1370800461205598",
-      "ig_id": "18327126553302607",
+      "head": "Repórter: \"O que foi que a torcida do Vasco falou",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786935396.4675198,
+      "fb_id": "1073292375088033",
+      "fb_media_id": "1073292375088033",
+      "ig_id": "18133526704623308",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Memphis Depay só aceitou negociar novamente com o",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786935509.2469394,
+      "fb_id": "2236637800464642",
+      "fb_media_id": "2236637800464642",
+      "ig_id": "18122309794851540",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-17",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1786927566.2111945,
+  "last_scored_ts": 1786935549.2826993,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
