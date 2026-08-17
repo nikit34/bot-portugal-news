@@ -2,32 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Brasileirão tem 5% mais bola rolando na estreia de",
+      "head": "Paulo Pelaipe, diretor executivo do Grêmio, detona",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786976458.215675,
-      "fb_id": "27898820546440074",
-      "fb_media_id": "27898820546440074",
-      "ig_id": "18088512392231168",
+      "ts": 1786983509.8371713,
+      "fb_id": "1076253604834069",
+      "fb_media_id": "1076253604834069",
+      "ig_id": "18151107274512442",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Aparecem os primeiros interessados em Enzo Barrene",
+      "head": "DossiÃª Rodrigo Mora a fechar: salÃ¡rio de 2 milhÃ",
       "source": "record.pt",
-      "ts": 1786976569.3702042,
-      "fb_id": "1031116943084071",
-      "fb_media_id": "1031116943084071",
-      "ig_id": "18087988379423368",
+      "ts": 1786983623.2994788,
+      "fb_id": "2081679169383781",
+      "fb_media_id": "2081679169383781",
+      "ig_id": "18222577777333946",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 3
     },
     {
-      "head": "Benzema negocia rescisão de contrato com o Al-Hila",
-      "source": "uol.com.br",
-      "ts": 1786976679.589944,
-      "fb_id": "3817609685044222",
-      "fb_media_id": "3817609685044222",
-      "ig_id": "18162366937471871",
+      "head": "Diego Moreira: os genes do pai Almani, a formação",
+      "source": "record.pt",
+      "ts": 1786983733.8917885,
+      "fb_id": "1061942459670051",
+      "fb_media_id": "1061942459670051",
+      "ig_id": "18088961543445532",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -180,7 +180,7 @@
     "day": "2026-08-17",
     "posts": 3
   },
-  "last_scored_ts": 1786976719.6135821,
+  "last_scored_ts": 1786983773.9068196,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
