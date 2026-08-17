@@ -2,12 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "As posições que quer reforçar e o alvo prioritário",
+      "head": "Brasileirão tem 5% mais bola rolando na estreia de",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1786976458.215675,
+      "fb_id": "27898820546440074",
+      "fb_media_id": "27898820546440074",
+      "ig_id": "18088512392231168",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Aparecem os primeiros interessados em Enzo Barrene",
       "source": "record.pt",
-      "ts": 1786969545.5688956,
-      "fb_id": "1790432569057907",
-      "fb_media_id": "1790432569057907",
-      "ig_id": "17896917102603321",
+      "ts": 1786976569.3702042,
+      "fb_id": "1031116943084071",
+      "fb_media_id": "1031116943084071",
+      "ig_id": "18087988379423368",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "Benzema negocia rescisão de contrato com o Al-Hila",
+      "source": "uol.com.br",
+      "ts": 1786976679.589944,
+      "fb_id": "3817609685044222",
+      "fb_media_id": "3817609685044222",
+      "ig_id": "18162366937471871",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-17",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1786969585.5862064,
+  "last_scored_ts": 1786976719.6135821,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
