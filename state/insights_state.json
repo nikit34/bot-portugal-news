@@ -2,12 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Rúben Neves de pé quente: novo bis classifica Al H",
-      "source": "record.pt",
-      "ts": 1786997869.415523,
-      "fb_id": "1618522203275453",
-      "fb_media_id": "1618522203275453",
-      "ig_id": "18086152682220898",
+      "head": "Paulo Nunes, comentarista da Globo, critica Thiago",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787004995.7826402,
+      "fb_id": "1031334939773765",
+      "fb_media_id": "1031334939773765",
+      "ig_id": "18020950676918039",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "“Vender para o Botafogo é doar. O Grêmio já fez do",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787005103.5964403,
+      "fb_id": "1056908806697313",
+      "fb_media_id": "1056908806697313",
+      "ig_id": "17979938352075482",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Auxiliar de Roger Machado, Adailton Bolzan Martins",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787005224.6605911,
+      "fb_id": "2131927970719715",
+      "fb_media_id": "2131927970719715",
+      "ig_id": "18164531548462243",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -158,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-17",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1786997909.4195552,
+  "last_scored_ts": 1787005264.6630487,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
