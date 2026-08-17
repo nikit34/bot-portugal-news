@@ -2,32 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Gabigol na saída de São Januário após a vitória do",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1786941283.6100955,
-      "fb_id": "1054489560915424",
-      "fb_media_id": "1054489560915424",
-      "ig_id": "18123817801867623",
+      "head": "Elevador pode voltar a subir: Mathias Tepe impress",
+      "source": "record.pt",
+      "ts": 1786948612.9543273,
+      "fb_id": "1071161978603320",
+      "fb_media_id": "1071161978603320",
+      "ig_id": "18186373009402666",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Garro lamenta derrota, mas vira chave para 'jogo d",
+      "head": "Emprestado pelo Palmeiras, Veiga encerra jejum e v",
       "source": "uol.com.br",
-      "ts": 1786941395.2385604,
-      "fb_id": "1784758545864533",
-      "fb_media_id": "1784758545864533",
-      "ig_id": "18097303844047954",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Diniz vê 'cobertor curto' contra Cruzeiro e torce",
-      "source": "uol.com.br",
-      "ts": 1786941506.1880138,
-      "fb_id": "1530552968316264",
-      "fb_media_id": "1530552968316264",
-      "ig_id": "18132884698715835",
+      "ts": 1786948718.1142826,
+      "fb_id": "1311423394402766",
+      "fb_media_id": "1311423394402766",
+      "ig_id": "17891283591670353",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-17",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1786941546.2037776,
+  "last_scored_ts": 1786948758.123404,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
