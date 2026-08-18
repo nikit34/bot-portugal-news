@@ -2,12 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Sudakov jogando \"com tensão demais\", as (poucas) r",
+      "head": "Marco Silva: «Percebo que Sudakov ainda não tenha",
       "source": "record.pt",
-      "ts": 1787013801.184,
-      "fb_id": "1047247901024237",
-      "fb_media_id": "1047247901024237",
-      "ig_id": "17922198507411147",
+      "ts": 1787021383.890913,
+      "fb_id": "1415612403831380",
+      "fb_media_id": "1415612403831380",
+      "ig_id": "18365340223212998",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Esgotado e triste: Luis Suárez sentiu 'pancada' an",
+      "source": "record.pt",
+      "ts": 1787021493.7853725,
+      "fb_id": "1380577700065168",
+      "fb_media_id": "1380577700065168",
+      "ig_id": "18094187954436182",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -158,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-18",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1787013841.1970322,
+  "last_scored_ts": 1787021533.799711,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
