@@ -2,32 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Osmar Stabile, presidente do Corinthians, faz fort",
+      "head": "⚠️ AGORA! Flamengo notifica a ANRESF (agência que",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787063138.6757348,
-      "fb_id": "1534315941278949",
-      "fb_media_id": "1534315941278949",
-      "ig_id": "18066204176735734",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Em dois anos de gestão no Vasco, Pedrinho gasta qu",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787063253.3867884,
-      "fb_id": "1529140885629177",
-      "fb_media_id": "1529140885629177",
-      "ig_id": "18083534252275414",
+      "ts": 1787070148.7690115,
+      "fb_id": "1382703247166888",
+      "fb_media_id": "1382703247166888",
+      "ig_id": "18003191696968469",
       "is_video": true,
       "hashtag_n": 3
     },
     {
       "head": "🚨 URGENTE! MEMPHIS DEPAY VAI RENOVAR O CONTRATO CO",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787063351.105976,
-      "fb_id": "2803616263425831",
-      "fb_media_id": "2803616263425831",
-      "ig_id": "18011949071939831",
+      "ts": 1787070251.4107666,
+      "fb_id": "1360611796152651",
+      "fb_media_id": "1360611796152651",
+      "ig_id": "17979025479073053",
       "is_video": true,
       "hashtag_n": 2
     }
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-18",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1787063391.1301553,
+  "last_scored_ts": 1787070291.4318938,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
