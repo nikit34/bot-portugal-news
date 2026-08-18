@@ -2,113 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786390759.5869443,
-      "ig_id": "18096643979028628",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA DE FRANGO MUITO CREMOSA ➞ INGREDIENTES: XÍCA",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786390939.6881766,
-      "ig_id": "17894657559387004",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786397256.840054,
-      "ig_id": "18126752254683473",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786403538.224796,
-      "ig_id": "18108799370028450",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786416207.5233464,
-      "ig_id": "17907336729463383",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786427015.144775,
-      "ig_id": "18169631203444132",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786434717.8370273,
-      "ig_id": "17996203652796357",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786441225.5857806,
-      "ig_id": "17959441557178040",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786447545.4320607,
-      "ig_id": "18144500824543178",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786456937.7834978,
-      "ig_id": "18100547930344229",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "🌽 BROA DE FUBÁ 📝 INGREDIENTES -> 500 g de fubá ->",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786457028.3898182,
-      "fb_id": "1314171504125539",
-      "fb_media_id": "1314171504125539",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "TORTA DE FRANGO MUITO CREMOSA ➞ INGREDIENTES: XÍCA",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786457167.6072264,
-      "fb_id": "4130408590428298",
-      "fb_media_id": "4130408590428298",
-      "ig_id": "17967892536135038",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786462734.837947,
-      "ig_id": "18418464913145383",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
       "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
       "source": "https://t.me/Brasil_Receitas",
       "ts": 1786477179.3448663,
@@ -779,6 +672,14 @@
       "ig_id": "18097152896376859",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1787072582.2117274,
+      "ig_id": "18141580141568734",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -919,7 +820,7 @@
   },
   "ig_quota": {
     "day": "2026-08-18",
-    "posts": 10
+    "posts": 11
   },
   "dow_hours": {
     "6-23": {
@@ -1231,7 +1132,7 @@
       "n": 3
     }
   },
-  "last_scored_ts": 1786994245.0177941,
+  "last_scored_ts": 1787072888.2245026,
   "reward_samples": [
     5.0445,
     9.1463,
