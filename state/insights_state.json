@@ -2,24 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Libertadores é a obsessão de Leila Pereira no Palm",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787034506.9897935,
-      "fb_id": "1380971040033097",
-      "fb_media_id": "1380971040033097",
-      "ig_id": "18097646471034571",
+      "head": "Três gols em sete minutos pelo Benfica: como Pavli",
+      "source": "record.pt",
+      "ts": 1787041590.1107485,
+      "fb_id": "1067679142307122",
+      "fb_media_id": "1067679142307122",
+      "ig_id": "17944773924265371",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "🚨 URGENTE! MEMPHIS DEPAY VAI RENOVAR O CONTRATO CO",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787034612.2944736,
-      "fb_id": "1597391691869222",
-      "fb_media_id": "1597391691869222",
-      "ig_id": "17898146382583720",
+      "head": "Bronca à vista: família Buss, ex-proprietária do L",
+      "source": "record.pt",
+      "ts": 1787041704.3714592,
+      "fb_id": "1096365702826707",
+      "fb_media_id": "1096365702826707",
+      "ig_id": "18329383639260539",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -170,7 +170,7 @@
     "day": "2026-08-18",
     "posts": 2
   },
-  "last_scored_ts": 1787034652.3091955,
+  "last_scored_ts": 1787041744.3759794,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
