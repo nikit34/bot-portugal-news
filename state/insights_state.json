@@ -2,22 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "⚠️ AGORA! Flamengo notifica a ANRESF (agência que",
+      "head": "⚠️ Flamengo e Pulgar terão \"Dia D\" sobre renovação",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787070148.7690115,
-      "fb_id": "1382703247166888",
-      "fb_media_id": "1382703247166888",
-      "ig_id": "18003191696968469",
+      "ts": 1787077546.621879,
+      "fb_id": "1623798795846004",
+      "fb_media_id": "1623798795846004",
+      "ig_id": "18115168585939235",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "⚠️ Justiça trava novo empréstimo DIP do Vasco e ex",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787077660.6976795,
+      "fb_id": "858424117224040",
+      "fb_media_id": "858424117224040",
+      "ig_id": "18145101532546002",
       "is_video": true,
       "hashtag_n": 3
     },
     {
       "head": "🚨 URGENTE! MEMPHIS DEPAY VAI RENOVAR O CONTRATO CO",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787070251.4107666,
-      "fb_id": "1360611796152651",
-      "fb_media_id": "1360611796152651",
-      "ig_id": "17979025479073053",
+      "ts": 1787077767.335781,
+      "fb_id": "1401834645234701",
+      "fb_media_id": "1401834645234701",
+      "ig_id": "18080475161692016",
       "is_video": true,
       "hashtag_n": 2
     }
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-18",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1787070291.4318938,
+  "last_scored_ts": 1787077807.3384817,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
