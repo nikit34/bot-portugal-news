@@ -2,22 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Três gols em sete minutos pelo Benfica: como Pavli",
-      "source": "record.pt",
-      "ts": 1787041590.1107485,
-      "fb_id": "1067679142307122",
-      "fb_media_id": "1067679142307122",
-      "ig_id": "17944773924265371",
+      "head": "🚨 URGENTE! MEMPHIS DEPAY VAI RENOVAR O CONTRATO CO",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787048477.3798192,
+      "fb_id": "1515867073913028",
+      "fb_media_id": "1515867073913028",
+      "ig_id": "17960356295982281",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "São Paulo vê Sul-Americana inegociável mesmo com r",
+      "source": "uol.com.br",
+      "ts": 1787048586.2194169,
+      "fb_id": "2319746588765593",
+      "fb_media_id": "2319746588765593",
+      "ig_id": "18113136854286177",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Bronca à vista: família Buss, ex-proprietária do L",
-      "source": "record.pt",
-      "ts": 1787041704.3714592,
-      "fb_id": "1096365702826707",
-      "fb_media_id": "1096365702826707",
-      "ig_id": "18329383639260539",
+      "head": "Independiente Rivadavia x Fluminense: horário e on",
+      "source": "uol.com.br",
+      "ts": 1787048695.1526597,
+      "fb_id": "28466976242925783",
+      "fb_media_id": "28466976242925783",
+      "ig_id": "18364085575240053",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-18",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1787041744.3759794,
+  "last_scored_ts": 1787048735.1555822,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
