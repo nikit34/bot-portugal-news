@@ -2,22 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Marco Silva: «Percebo que Sudakov ainda não tenha",
-      "source": "record.pt",
-      "ts": 1787021383.890913,
-      "fb_id": "1415612403831380",
-      "fb_media_id": "1415612403831380",
-      "ig_id": "18365340223212998",
+      "head": "Neto, sobre Denílson se posicionar contra Thiago M",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787027314.4585328,
+      "fb_id": "1816898916136762",
+      "fb_media_id": "1816898916136762",
+      "ig_id": "17942331519069048",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Esgotado e triste: Luis Suárez sentiu 'pancada' an",
-      "source": "record.pt",
-      "ts": 1787021493.7853725,
-      "fb_id": "1380577700065168",
-      "fb_media_id": "1380577700065168",
-      "ig_id": "18094187954436182",
+      "head": "⚠️ Bastidores! Memphis Depay abriu mão de R$ 21 mi",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787027439.2694728,
+      "fb_id": "2460405804428188",
+      "fb_media_id": "2460405804428188",
+      "ig_id": "18483589384104049",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Caio Caesar defende Thiago Mendes por não cumprime",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787027562.6272628,
+      "fb_id": "1634610838322093",
+      "fb_media_id": "1634610838322093",
+      "ig_id": "18154375372502829",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -168,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-18",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1787021533.799711,
+  "last_scored_ts": 1787027602.652315,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
