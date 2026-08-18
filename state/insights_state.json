@@ -2,32 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Paulo Nunes, comentarista da Globo, critica Thiago",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787004995.7826402,
-      "fb_id": "1031334939773765",
-      "fb_media_id": "1031334939773765",
-      "ig_id": "18020950676918039",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "“Vender para o Botafogo é doar. O Grêmio já fez do",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787005103.5964403,
-      "fb_id": "1056908806697313",
-      "fb_media_id": "1056908806697313",
-      "ig_id": "17979938352075482",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Auxiliar de Roger Machado, Adailton Bolzan Martins",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787005224.6605911,
-      "fb_id": "2131927970719715",
-      "fb_media_id": "2131927970719715",
-      "ig_id": "18164531548462243",
+      "head": "Sudakov jogando \"com tensão demais\", as (poucas) r",
+      "source": "record.pt",
+      "ts": 1787013801.184,
+      "fb_id": "1047247901024237",
+      "fb_media_id": "1047247901024237",
+      "ig_id": "17922198507411147",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -177,10 +157,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-17",
-    "posts": 3
+    "day": "2026-08-18",
+    "posts": 1
   },
-  "last_scored_ts": 1787005264.6630487,
+  "last_scored_ts": 1787013841.1970322,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
