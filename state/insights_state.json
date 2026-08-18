@@ -2,34 +2,24 @@
   "version": 1,
   "pending": [
     {
-      "head": "Neto, sobre Denílson se posicionar contra Thiago M",
+      "head": "Libertadores é a obsessão de Leila Pereira no Palm",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787027314.4585328,
-      "fb_id": "1816898916136762",
-      "fb_media_id": "1816898916136762",
-      "ig_id": "17942331519069048",
+      "ts": 1787034506.9897935,
+      "fb_id": "1380971040033097",
+      "fb_media_id": "1380971040033097",
+      "ig_id": "18097646471034571",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "⚠️ Bastidores! Memphis Depay abriu mão de R$ 21 mi",
+      "head": "🚨 URGENTE! MEMPHIS DEPAY VAI RENOVAR O CONTRATO CO",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787027439.2694728,
-      "fb_id": "2460405804428188",
-      "fb_media_id": "2460405804428188",
-      "ig_id": "18483589384104049",
+      "ts": 1787034612.2944736,
+      "fb_id": "1597391691869222",
+      "fb_media_id": "1597391691869222",
+      "ig_id": "17898146382583720",
       "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Caio Caesar defende Thiago Mendes por não cumprime",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787027562.6272628,
-      "fb_id": "1634610838322093",
-      "fb_media_id": "1634610838322093",
-      "ig_id": "18154375372502829",
-      "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -178,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-18",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1787027602.652315,
+  "last_scored_ts": 1787034652.3091955,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
