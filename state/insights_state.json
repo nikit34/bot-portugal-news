@@ -2,32 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "🚨 URGENTE! MEMPHIS DEPAY VAI RENOVAR O CONTRATO CO",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787048477.3798192,
-      "fb_id": "1515867073913028",
-      "fb_media_id": "1515867073913028",
-      "ig_id": "17960356295982281",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "São Paulo vê Sul-Americana inegociável mesmo com r",
+      "head": "Transmissão ao vivo de São Paulo x Bolívar pela Co",
       "source": "uol.com.br",
-      "ts": 1787048586.2194169,
-      "fb_id": "2319746588765593",
-      "fb_media_id": "2319746588765593",
-      "ig_id": "18113136854286177",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Independiente Rivadavia x Fluminense: horário e on",
-      "source": "uol.com.br",
-      "ts": 1787048695.1526597,
-      "fb_id": "28466976242925783",
-      "fb_media_id": "28466976242925783",
-      "ig_id": "18364085575240053",
+      "ts": 1787056068.9087021,
+      "fb_id": "4550807861854642",
+      "fb_media_id": "4550807861854642",
+      "ig_id": "18110269901089277",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -178,9 +158,9 @@
   },
   "ig_quota": {
     "day": "2026-08-18",
-    "posts": 3
+    "posts": 1
   },
-  "last_scored_ts": 1787048735.1555822,
+  "last_scored_ts": 1787056108.9126809,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
