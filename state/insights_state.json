@@ -2,21 +2,32 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 18.08.2026",
-      "source": "digest",
-      "ts": 1787081670.8420587,
-      "fb_id": "1535429091219349",
-      "fb_media_id": "1535429091219349",
+      "head": "Santos negocia a contratação do meia Lima, que per",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787091318.5755265,
+      "fb_id": "1242739568927597",
+      "fb_media_id": "1242739568927597",
+      "ig_id": "18139364992595753",
       "is_video": true,
-      "is_digest": true
+      "hashtag_n": 3
     },
     {
-      "head": "Macabro: polícia investiga aparecimento de homem m",
-      "source": "record.pt",
-      "ts": 1787084083.4105368,
-      "fb_id": "899868069464942",
-      "fb_media_id": "899868069464942",
-      "ig_id": "18627234802037525",
+      "head": "\"Muitas emoções na minha cabeça, no meu corpo. Pri",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787091428.6077442,
+      "fb_id": "2125328191672890",
+      "fb_media_id": "2125328191672890",
+      "ig_id": "18465824320114502",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Fechado! Cruzeiro renova contrato com o goleiro Ot",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787091538.948384,
+      "fb_id": "1094600169661792",
+      "fb_media_id": "1094600169661792",
+      "ig_id": "18104863211598328",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -167,9 +178,9 @@
   },
   "ig_quota": {
     "day": "2026-08-18",
-    "posts": 1
+    "posts": 3
   },
-  "last_scored_ts": 1787084123.4264085,
+  "last_scored_ts": 1787091578.9679666,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
