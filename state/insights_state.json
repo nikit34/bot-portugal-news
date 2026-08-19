@@ -2,18 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Deyverson em seu Instagram: 🎥 Reprodução",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787127995.2660403,
-      "is_video": true
-    },
-    {
-      "head": "\"NÓS VAMOS ELIMINAR O JARDIM\"! O apoio da torcida",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787128093.3624609,
-      "fb_id": "1039522012409356",
-      "fb_media_id": "1039522012409356",
-      "ig_id": "18122970748837494",
+      "head": "Inusitado: Dinamo City garantiu o playoff da Liga",
+      "source": "record.pt",
+      "ts": 1787142457.2524421,
+      "fb_id": "1363521479275474",
+      "fb_media_id": "1363521479275474",
+      "ig_id": "17939599284336912",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -166,7 +160,7 @@
     "day": "2026-08-19",
     "posts": 1
   },
-  "last_scored_ts": 1787128133.3663523,
+  "last_scored_ts": 1787142497.2542548,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
