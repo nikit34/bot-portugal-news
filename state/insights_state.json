@@ -4,26 +4,16 @@
     {
       "head": "Deyverson em seu Instagram: 🎥 Reprodução",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787113757.367059,
+      "ts": 1787120894.2884855,
       "is_video": true
     },
     {
       "head": "\"NÓS VAMOS ELIMINAR O JARDIM\"! O apoio da torcida",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787113872.6639965,
-      "fb_id": "897549796385359",
-      "fb_media_id": "897549796385359",
-      "ig_id": "18075939266345555",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Após renovação de contrato com Memphis Depay, Cori",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787113971.7612436,
-      "fb_id": "849697688110085",
-      "fb_media_id": "849697688110085",
-      "ig_id": "18025816421854977",
+      "ts": 1787121002.329844,
+      "fb_id": "1080267054465485",
+      "fb_media_id": "1080267054465485",
+      "ig_id": "18447062431184417",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -174,9 +164,9 @@
   },
   "ig_quota": {
     "day": "2026-08-19",
-    "posts": 2
+    "posts": 1
   },
-  "last_scored_ts": 1787114011.7717834,
+  "last_scored_ts": 1787121042.3319597,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
