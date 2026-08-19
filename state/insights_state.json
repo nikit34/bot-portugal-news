@@ -2,12 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Lyon de Paulo Fonseca consegue empate na Turquia n",
-      "source": "record.pt",
-      "ts": 1787100195.7505147,
-      "fb_id": "1551487706678184",
-      "fb_media_id": "1551487706678184",
-      "ig_id": "17979760434109288",
+      "head": "Deyverson em seu Instagram: 🎥 Reprodução",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787107963.415066,
+      "fb_id": "1618858163180838",
+      "fb_media_id": "1618858163180838",
+      "ig_id": "18323793721263938",
+      "is_video": true,
+      "hashtag_n": 1
+    },
+    {
+      "head": "⚠️ Vasco estuda recurso na Justiça para tentar lib",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787108080.0592804,
+      "fb_id": "1633714971881145",
+      "fb_media_id": "1633714971881145",
+      "ig_id": "18618658186024482",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -158,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-19",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1787100235.7619324,
+  "last_scored_ts": 1787108120.0606694,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
