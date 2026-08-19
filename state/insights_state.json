@@ -2,38 +2,28 @@
   "version": 1,
   "pending": [
     {
-      "head": "Inusitado: Dinamo City garantiu o playoff da Liga",
-      "source": "record.pt",
-      "ts": 1787142457.2524421,
-      "fb_id": "1363521479275474",
-      "fb_media_id": "1363521479275474",
-      "ig_id": "17939599284336912",
+      "head": "Pedrinho andando segurando no braço do Gerson. 🎥 R",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787163704.826832,
+      "fb_id": "2726829211066934",
+      "fb_media_id": "2726829211066934",
+      "ig_id": "18143573653567830",
       "is_video": true,
-      "hashtag_n": 3
+      "hashtag_n": 2
     },
     {
       "head": "Deyverson em seu Instagram: 🎥 Reprodução",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787149466.8150651,
+      "ts": 1787163752.7219458,
       "is_video": true
     },
     {
       "head": "\"NÓS VAMOS ELIMINAR O JARDIM\"! O apoio da torcida",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787149581.435959,
-      "fb_id": "1061761656399910",
-      "fb_media_id": "1061761656399910",
-      "ig_id": "18090777164539462",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Maracanã terá esquema especial para Flamengo x Cru",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787149694.723415,
-      "fb_id": "1071388338962455",
-      "fb_media_id": "1071388338962455",
-      "ig_id": "18120241106499136",
+      "ts": 1787163860.5999258,
+      "fb_id": "1458700852753497",
+      "fb_media_id": "1458700852753497",
+      "ig_id": "18328721824279051",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -184,9 +174,9 @@
   },
   "ig_quota": {
     "day": "2026-08-19",
-    "posts": 3
+    "posts": 2
   },
-  "last_scored_ts": 1787142497.2542548,
+  "last_scored_ts": 1787163900.6042469,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
