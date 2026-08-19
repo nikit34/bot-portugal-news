@@ -2,32 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Santos negocia a contratação do meia Lima, que per",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787091318.5755265,
-      "fb_id": "1242739568927597",
-      "fb_media_id": "1242739568927597",
-      "ig_id": "18139364992595753",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "\"Muitas emoções na minha cabeça, no meu corpo. Pri",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787091428.6077442,
-      "fb_id": "2125328191672890",
-      "fb_media_id": "2125328191672890",
-      "ig_id": "18465824320114502",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Fechado! Cruzeiro renova contrato com o goleiro Ot",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787091538.948384,
-      "fb_id": "1094600169661792",
-      "fb_media_id": "1094600169661792",
-      "ig_id": "18104863211598328",
+      "head": "Lyon de Paulo Fonseca consegue empate na Turquia n",
+      "source": "record.pt",
+      "ts": 1787100195.7505147,
+      "fb_id": "1551487706678184",
+      "fb_media_id": "1551487706678184",
+      "ig_id": "17979760434109288",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -177,10 +157,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-18",
-    "posts": 3
+    "day": "2026-08-19",
+    "posts": 1
   },
-  "last_scored_ts": 1787091578.9679666,
+  "last_scored_ts": 1787100235.7619324,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
