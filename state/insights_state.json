@@ -4,20 +4,26 @@
     {
       "head": "Deyverson em seu Instagram: 🎥 Reprodução",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787107963.415066,
-      "fb_id": "1618858163180838",
-      "fb_media_id": "1618858163180838",
-      "ig_id": "18323793721263938",
-      "is_video": true,
-      "hashtag_n": 1
+      "ts": 1787113757.367059,
+      "is_video": true
     },
     {
-      "head": "⚠️ Vasco estuda recurso na Justiça para tentar lib",
+      "head": "\"NÓS VAMOS ELIMINAR O JARDIM\"! O apoio da torcida",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787108080.0592804,
-      "fb_id": "1633714971881145",
-      "fb_media_id": "1633714971881145",
-      "ig_id": "18618658186024482",
+      "ts": 1787113872.6639965,
+      "fb_id": "897549796385359",
+      "fb_media_id": "897549796385359",
+      "ig_id": "18075939266345555",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Após renovação de contrato com Memphis Depay, Cori",
+      "source": "https://t.me/Futebol_Brasileirao",
+      "ts": 1787113971.7612436,
+      "fb_id": "849697688110085",
+      "fb_media_id": "849697688110085",
+      "ig_id": "18025816421854977",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -170,7 +176,7 @@
     "day": "2026-08-19",
     "posts": 2
   },
-  "last_scored_ts": 1787108120.0606694,
+  "last_scored_ts": 1787114011.7717834,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
