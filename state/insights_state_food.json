@@ -4,86 +4,6 @@
     {
       "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
       "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786549261.6437566,
-      "ig_id": "17906061924466553",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786556140.2928138,
-      "ig_id": "18111663113290644",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786564042.8014727,
-      "ig_id": "18085509896661620",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "BOLO DE CLEMENTINAS SUISSO INGREDIENTES: 4 clement",
-      "source": "receitasdafatima",
-      "ts": 1786569933.7252266,
-      "ig_id": "18145862896550748",
-      "is_video": true,
-      "hashtag_n": 4
-    },
-    {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786576544.5859222,
-      "ig_id": "17977818413904218",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "PORÇÃO DE COSTELINHA CAPRICHADA! Usei nessa receit",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786590790.6601293,
-      "ig_id": "17917173924224093",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786601280.7316813,
-      "ig_id": "18162907534464928",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786608661.7336833,
-      "ig_id": "18150612475501865",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786614711.905237,
-      "ig_id": "18129130018733031",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
-      "ts": 1786620638.085389,
-      "ig_id": "18092565752634535",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
-      "source": "https://t.me/Brasil_Receitas",
       "ts": 1786630178.7713373,
       "ig_id": "17883597507471256",
       "is_video": true,
@@ -696,6 +616,14 @@
       "ig_id": "18091417883634699",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "TORTA SALGADA DE LIQUIDIFICADOR Ingredientes: Mass",
+      "source": "https://t.me/Brasil_Receitas",
+      "ts": 1787233028.0104005,
+      "ig_id": "18146073490558291",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -836,7 +764,7 @@
   },
   "ig_quota": {
     "day": "2026-08-20",
-    "posts": 3
+    "posts": 4
   },
   "dow_hours": {
     "6-23": {
@@ -1148,7 +1076,7 @@
       "n": 3
     }
   },
-  "last_scored_ts": 1787152349.43469,
+  "last_scored_ts": 1787233068.0254233,
   "reward_samples": [
     5.0445,
     9.1463,
