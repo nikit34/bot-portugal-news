@@ -2,42 +2,22 @@
   "version": 1,
   "pending": [
     {
-      "head": "Pedrinho, dono da SAF do Cruzeiro, sobre o confron",
+      "head": "🏟️ Nubank esbarra na Prefeitura de SP para instala",
       "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787200202.9424741,
-      "fb_id": "1392817056163709",
-      "fb_media_id": "1392817056163709",
-      "ig_id": "17951319939251307",
+      "ts": 1787221339.3095765,
+      "fb_id": "1317287373579406",
+      "fb_media_id": "1317287373579406",
+      "ig_id": "18156793045495890",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "\"Eu tomei o drible, fui muito zoado, mas eu falei:",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787200318.6992297,
-      "fb_id": "1397532732304897",
-      "fb_media_id": "1397532732304897",
-      "ig_id": "17963962127965699",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Samuel Lino: \"Um jogo duro, contra um dos melhores",
-      "source": "https://t.me/Futebol_Brasileirao",
-      "ts": 1787200435.697651,
-      "fb_id": "1360137739520932",
-      "fb_media_id": "1360137739520932",
-      "ig_id": "18069807965549624",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Libertadores: Palmeiras é escalado para enfrentar",
-      "source": "metropoles.com",
-      "ts": 1787214509.0466692,
-      "fb_id": "1976201016418753",
-      "fb_media_id": "1976201016418753",
-      "ig_id": "17876948574652743",
+      "head": "Presidente da federação denuncia \"campanha miseráv",
+      "source": "record.pt",
+      "ts": 1787221452.9372833,
+      "fb_id": "1833633591338495",
+      "fb_media_id": "1833633591338495",
+      "ig_id": "18095519357322392",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -188,9 +168,9 @@
   },
   "ig_quota": {
     "day": "2026-08-20",
-    "posts": 4
+    "posts": 2
   },
-  "last_scored_ts": 1787214549.054892,
+  "last_scored_ts": 1787221492.9550889,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
