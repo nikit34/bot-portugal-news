@@ -36,6 +36,8 @@ def _validate_config(config_name, config):
             raise ValueError(f"config '{config_name}': unknown platform '{platform}'")
     if 'recipe_only' in config and not isinstance(config['recipe_only'], bool):
         raise ValueError(f"config '{config_name}': 'recipe_only' must be a boolean")
+    if 'native_language_sources' in config and not isinstance(config['native_language_sources'], list):
+        raise ValueError(f"config '{config_name}': 'native_language_sources' must be a list")
 
 
 def get_config(config_name):
@@ -57,6 +59,9 @@ def get_config(config_name):
         # Опциональный тематический гейт: для food-конфига пропускаем только рецепты
         # (см. recipe_filter). Отсутствует/false у football => поведение без изменений.
         'recipe_only': bool(config.get('recipe_only', False)),
+        # Источники, которые уже пишут на целевом языке: прогон их текста через
+        # переводчик подменяет лексику соседним вариантом языка.
+        'native_language_sources': set(config.get('native_language_sources', [])),
     }
 
 tmp_folder = os.getcwd() + '/tmp'
