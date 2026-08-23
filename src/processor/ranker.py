@@ -1,5 +1,6 @@
 from src.processor.caption_guard import clickbait_score
-from src.static.settings import RANKER_VIDEO_BONUS
+from src.processor.audience_filter import has_portugal_signal
+from src.static.settings import RANKER_VIDEO_BONUS, RANKER_PT_BONUS
 
 # Sweet-spot длины заголовка (символы): FB обрезает на ~125 и предсказывает dwell —
 # слишком короткий заголовок недоинформативен, слишком длинный обрезается.
@@ -40,4 +41,5 @@ def candidate_score(candidate, state, current_hour):
 
     learned = norm(sources, source) + 0.5 * norm(hours, current_hour)
     video_bonus = RANKER_VIDEO_BONUS if candidate.get('is_video') else 0.0
-    return learned + _length_bonus(head) + video_bonus - clickbait_score(text)
+    pt_bonus = RANKER_PT_BONUS if has_portugal_signal(head, text) else 0.0
+    return learned + _length_bonus(head) + video_bonus + pt_bonus - clickbait_score(text)

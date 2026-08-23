@@ -66,3 +66,15 @@ def test_empty_input_is_not_off_audience():
 ])
 def test_ambiguous_tokens_do_not_trigger_the_gate(text):
     assert is_off_audience(text) is False
+
+
+@pytest.mark.parametrize('text,expected', [
+    ('Benfica empresta João Rego ao Casa Pia até final da temporada', True),
+    ('O árbitro português João Pinheiro apitou o jogo', True),
+    ('Lazio chega a acordo com o Ajax e anuncia central da Eredivisie', False),
+    ('Arsenal inicia defesa do título inglês com vitória sobre Coventry', False),
+    ('', False),
+])
+def test_has_portugal_signal(text, expected):
+    from src.processor.audience_filter import has_portugal_signal
+    assert has_portugal_signal(text) is expected
