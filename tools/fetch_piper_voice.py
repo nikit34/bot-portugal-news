@@ -14,6 +14,7 @@
 """
 import os
 import sys
+import urllib.parse
 import urllib.request
 
 BASE = "https://huggingface.co/rhasspy/piper-voices/resolve/main"
@@ -57,7 +58,7 @@ def main():
         if os.path.isfile(out_path) and os.path.getsize(out_path) > 0:
             print(f"exists: {out_path} ({os.path.getsize(out_path)} bytes)")
             continue
-        url = f"{BASE}/{rel}{ext}?download=true"
+        url = f"{BASE}/{urllib.parse.quote(rel + ext)}?download=true"
         print(f"downloading {url}")
         _download(url, out_path)
         print(f"saved: {out_path} ({os.path.getsize(out_path)} bytes)")
