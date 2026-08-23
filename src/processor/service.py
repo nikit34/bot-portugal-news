@@ -9,7 +9,7 @@ from src.files_manager import VideoSkip, SaveVideoUrl
 from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms, make_head, mark_posted
 from src.processor.content_filter import is_blocked_content, strip_promo
 from src.processor.topic_filter import is_off_topic
-from src.processor.audience_filter import is_off_audience
+from src.processor.audience_filter import is_off_audience, has_portugal_signal
 from src.utils.notify import redact_secrets
 from src.processor.image_filter import is_unsafe_image, is_low_quality_image
 from src.producers.repeater import is_rate_limited
@@ -72,6 +72,9 @@ _meta_circuit_open = False
 # Per-run attribution log: (head, source, ts) for posts published this run, so the
 # learning loop can later tie each post's reach back to the source that produced it.
 _publish_records = []
+# How many top-of-pool candidates the ranker names in the log.
+_LOG_TOP_N = 5
+
 # Effective cap for THIS run. Defaults to the static MAX_POSTS_PER_RUN; main may
 # lower it for weak time slots when the optimal-time learning bias is enabled.
 _run_cap = MAX_POSTS_PER_RUN
@@ -164,8 +167,16 @@ async def drain_pool(client, graph, nlp, state):
     if not _candidate_pool:
         return
     current_hour = time.gmtime().tm_hour
-    ranked = sorted(_candidate_pool, key=lambda c: candidate_score(c, state, current_hour), reverse=True)
+    scored = sorted(
+        ((candidate_score(cand, state, current_hour), cand) for cand in _candidate_pool),
+        key=lambda pair: pair[0], reverse=True)
+    ranked = [cand for _, cand in scored]
     app_logger.info(f"[ranker] draining {len(ranked)} pooled candidates by score")
+    for position, (score, cand) in enumerate(scored[:_LOG_TOP_N], start=1):
+        app_logger.info(
+            f"[ranker] #{position} score={score:.2f} "
+            f"pt={int(has_portugal_signal(cand['head'], cand['text']))} "
+            f"video={int(bool(cand.get('is_video')))} {cand['source']} | {cand['head']}")
     try:
         for cand in ranked:
             # Drain uses the FULL run deadline (not the reserve-adjusted scrape stop)
@@ -504,7 +515,7 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
     targets = _targets_from_decisions(decisions_publish_platforms, url_path)
     # Diagnostic: publish gate is otherwise fully silent. Log why a pooled candidate
     # does/doesn't publish so a "no posts" stall can't hide (decisions vs targets).
-    app_logger.debug(
+    app_logger.info(
         f"[serve] publish-gate {source}: head={head!r} decisions="
         f"{ {p.name: v for p, v in decisions_publish_platforms.items()} } "
         f"targets={[t.name for t in targets]} published={_published_count}/{_run_cap} "

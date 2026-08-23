@@ -38,7 +38,16 @@ ADS_GAMBLING = [
     r"\bganh[ae]\s+(dinheiro|ate|r?\$)",
 ]
 
-BLOCKLIST = PROFANITY + SLURS + ADS_GAMBLING
+# Служебные записи фидов: подписка на рассылку и прочий self-promo издания. Это не
+# новость, а с одним слотом на прогон такая запись слот занимает.
+FEED_BOILERPLATE = [
+    r"\bsign\s+up\s+(for|to)\b[^.]{0,60}\bnewsletter\b",
+    r"\bnewsletter\b[^.]{0,60}\bsign\s*up\b",
+    r"\bour\s+free\b[^.]{0,30}\bemail\b",
+    r"\b(assine|subscreva|receba)\s+a\s+newsletter\b",
+]
+
+BLOCKLIST = PROFANITY + SLURS + ADS_GAMBLING + FEED_BOILERPLATE
 
 # Промо-«хвосты» чужих каналов: строки, совпавшие с этими паттернами, ВЫРЕЗАЮТСЯ
 # из текста перед публикацией (а не блокируют весь пост). Регистронезависимо.

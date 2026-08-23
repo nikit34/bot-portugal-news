@@ -1,3 +1,5 @@
+import pytest
+
 from src.processor.content_filter import is_blocked_content, strip_promo, _normalize
 
 
@@ -74,3 +76,24 @@ def test_strip_promo_keeps_clean_text():
 
 def test_strip_promo_empty():
     assert strip_promo("") == ""
+
+
+@pytest.mark.parametrize('text', [
+    'Sign up for the Football Daily newsletter: our free football email',
+    'Sign up for the Moving the Goalposts newsletter: our free women’s football email',
+    'Sign up to the Sport in Focus newsletter for the best of our sport coverage',
+    'Assine a newsletter e receba tudo por email',
+    'Subscreva a newsletter do Record',
+])
+def test_feed_boilerplate_is_blocked(text):
+    assert is_blocked_content(text) is True
+
+
+@pytest.mark.parametrize('text', [
+    'Benfica empresta João Rego ao Casa Pia até final da temporada',
+    'FC Porto anuncia a contratação de um médio por 12 milhões de euros',
+    'O clube enviou um email ao Sporting a formalizar a proposta',
+    'Mourinho assinou contrato de duas temporadas com o Fenerbahçe',
+])
+def test_football_news_is_not_blocked_as_boilerplate(text):
+    assert is_blocked_content(text) is False
