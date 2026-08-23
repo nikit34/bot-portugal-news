@@ -6,7 +6,7 @@ concurrency:
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 7,13,19,21 * * *'
   workflow_dispatch:
     inputs:
       log_level:
@@ -23,7 +23,7 @@ on:
       max_posts_per_run:
         description: 'Max posts per run (throttle cap)'
         required: false
-        default: '3'
+        default: '1'
       post_delay_seconds:
         description: 'Delay between posts, seconds'
         required: false
@@ -52,12 +52,12 @@ jobs:
         uses: actions/cache@v4
         with:
           path: src/static/voices
-          key: piper-voice-pt_BR-faber-medium
+          key: piper-voice-pt_PT-tugao-medium
       - name: Fetch piper voice
         # БЕЗ голоса narrated-Reel молча выключается (tts.is_available() => False) и
         # бот снова становится чистым репостером — ровно тем, за что Meta режет
         # монетизацию и охват. Поэтому шаг обязателен, а не best-effort.
-        run: python tools/fetch_piper_voice.py pt_BR-faber-medium
+        run: python tools/fetch_piper_voice.py pt_PT-tugao-medium
       - name: Create logs directory
         run: mkdir -p logs
       - name: Restore/seed learning state
@@ -81,7 +81,7 @@ jobs:
           TELEGRAM_SESSION: ${{ secrets.TELEGRAM_SESSION }}
           FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           LOG_LEVEL: ${{ github.event_name == 'schedule' && 'WARNING' || inputs.log_level || 'DEBUG' }}
-          MAX_POSTS_PER_RUN: ${{ inputs.max_posts_per_run || '3' }}
+          MAX_POSTS_PER_RUN: ${{ inputs.max_posts_per_run || '1' }}
           POST_DELAY_SECONDS: ${{ inputs.post_delay_seconds || '40' }}
           # === Больше видео: крупнее лимит + шире пул + бонус видео в ранкере ===
           MAX_VIDEO_SIZE_MB: '200'      # было 50 — резало клипы 1080p/длиннее
@@ -93,10 +93,13 @@ jobs:
           VIDEO_UNIQUIFY_TIMEOUT_SECONDS: '240'   # было 120 — под ~200-МБ ре-энкод
           # Окно дренажа фазы 2. 300 -> 360: поверх загрузки каждый пост теперь ещё
           # синтезирует речь и рендерит Reel (~30-60с), иначе упрёмся в дедлайн.
-          RANKER_DRAIN_RESERVE_SECONDS: '360'
+          RANKER_DRAIN_RESERVE_SECONDS: '180'
           # === FB-growth optimization: all levers ON (verified runtime-safe) ===
           # Anti-demotion / content (CAPTION_GUARD + hashtag entity bias are ON by
           # code default). Set the rest here so they're auditable and reversible.
+          AUDIENCE_FILTER_ENABLED: 'true'
+          TTS_VOICE: 'pt_PT-tugao-medium'
+          FACEBOOK_STORIES_ENABLED: 'false'
           CARDS_ENABLED: 'true'
           CTA_ENABLED: 'true'
           CTA_EMISSION_RATE: '0.5'   # CTA on ~half of entity posts (anti-repetition)
