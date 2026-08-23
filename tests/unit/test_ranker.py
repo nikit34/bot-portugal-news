@@ -1,3 +1,5 @@
+import pytest
+
 from src.processor.ranker import candidate_score, _length_bonus
 
 
@@ -43,3 +45,36 @@ def test_video_bonus_lifts_score():
     video = candidate_score({'head': head, 'source': 's', 'text': head, 'is_video': True}, state, 12)
     assert video == photo + rk.RANKER_VIDEO_BONUS
     assert rk.RANKER_VIDEO_BONUS > 0  # default actually promotes video
+
+
+def test_portugal_bonus_lifts_score(monkeypatch):
+    # The audience gate only removes Brazil-domestic posts; without this bonus an
+    # international story with no Portugal angle can take the single daily slot.
+    import src.processor.ranker as rk
+    monkeypatch.setattr(rk, 'RANKER_PT_BONUS', 1.5)
+    state = {'sources': {}, 'hours': {}}
+    pt = 'Benfica fecha a contratacao de um medio internacional para a Liga Betclic'
+    intl = 'Lazio chega a acordo com o Ajax e anuncia central da Eredivisie por 12M'
+    pt_score = candidate_score({'head': pt, 'source': 's', 'text': pt}, state, 12)
+    intl_score = candidate_score({'head': intl, 'source': 's', 'text': intl}, state, 12)
+    assert pt_score > intl_score
+    assert pt_score - intl_score == pytest.approx(
+        1.5 + rk._length_bonus(pt) - rk._length_bonus(intl))
+
+
+def test_portugal_bonus_reads_the_body_not_only_the_head(monkeypatch):
+    # head is truncated to 50 chars, so a Portugal angle further into the text must
+    # still count.
+    import src.processor.ranker as rk
+    monkeypatch.setattr(rk, 'RANKER_PT_BONUS', 1.5)
+    state = {'sources': {}, 'hours': {}}
+    head = 'Lazio chega a acordo com o Ajax e anuncia cent'
+    body = head + ' que foi apontado ao Benfica durante todo o defeso'
+    with_angle = candidate_score({'head': head, 'source': 's', 'text': body}, state, 12)
+    without = candidate_score({'head': head, 'source': 's', 'text': head}, state, 12)
+    assert with_angle - without == pytest.approx(1.5)
+
+
+def test_portugal_bonus_is_off_by_default():
+    import src.processor.ranker as rk
+    assert rk.RANKER_PT_BONUS == 0.0

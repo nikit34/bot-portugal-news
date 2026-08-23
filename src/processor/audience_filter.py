@@ -63,19 +63,28 @@ def _normalize(text):
     return ''.join(char for char in text if not unicodedata.combining(char))
 
 
+def has_portugal_signal(*texts):
+    for text in texts:
+        if not text:
+            continue
+        match = _PORTUGAL_PATTERN.search(_normalize(text))
+        if match:
+            logger.debug(f"[AudienceFilter] Portugal signal (matched '{match.group(1)}')")
+            return True
+    return False
+
+
 def is_off_audience(*texts):
     # A Portugal signal anywhere wins over a Brazil signal anywhere, so the gate can
     # only remove posts with no Portugal angle at all.
-    normalized = [_normalize(text) for text in texts if text]
+    if has_portugal_signal(*texts):
+        return False
 
-    for text in normalized:
-        match = _PORTUGAL_PATTERN.search(text)
-        if match:
-            logger.debug(f"[AudienceFilter] kept (matched '{match.group(1)}')")
-            return False
-
-    for text in normalized:
-        match = _BRAZIL_PATTERN.search(text) or _BRL_PATTERN.search(text)
+    for text in texts:
+        if not text:
+            continue
+        normalized = _normalize(text)
+        match = _BRAZIL_PATTERN.search(normalized) or _BRL_PATTERN.search(normalized)
         if match:
             logger.debug(f"[AudienceFilter] off-audience (matched '{match.group(0)}')")
             return True
