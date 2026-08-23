@@ -68,6 +68,25 @@ def test_is_valid_zerozero_entry(entry, expected):
 
     # Empty entry
     ({}, '', ''),
+
+    # Entity-link markup resolves to the plain label
+    ({
+        'title': 'Dinis Telehovschi renova contrato com o SL Benfica',
+        'summary': '{PLAYER_LINK|820441|Dinis Telehovschi}, medio de 19 anos, renovou pelo {TEAM_LINK|4|Benfica}',
+        'media_content': [{'url': 'http://example.com/image.jpg'}]
+    },
+     'Dinis Telehovschi renova contrato com o SL Benfica\n'
+     'Dinis Telehovschi, medio de 19 anos, renovou pelo Benfica',
+     'http://example.com/image.jpg'),
+
+    # Competition links and HTML entities in the same summary
+    ({
+        'title': 'Aten&ccedil;&atilde;o, Benfica',
+        'summary': 'Depois da derrota na {COMPETITION_LINK|28|Liga Europa},&nbsp;a primeira m&atilde;o ficou resolvida',
+        'media_content': [{'url': 'http://example.com/image.jpg'}]
+    },
+     'Atenção, Benfica\nDepois da derrota na Liga Europa, a primeira mão ficou resolvida',
+     'http://example.com/image.jpg'),
 ])
 def test_parse_zerozero_pt(entry, expected_message, expected_image):
     message, image = parse_zerozero_pt(entry)
