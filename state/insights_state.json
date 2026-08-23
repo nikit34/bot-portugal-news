@@ -39,6 +39,16 @@
       "fb_media_id": "900574889416153",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "Sérgio Ferreira: «Difícil jogar contra o Sporting",
+      "source": "zerozero.pt",
+      "ts": 1787520291.673538,
+      "fb_id": "4531485637180651",
+      "fb_media_id": "4531485637180651",
+      "ig_id": "18091464647134032",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -187,7 +197,7 @@
   },
   "ig_quota": {
     "day": "2026-08-23",
-    "posts": 3
+    "posts": 4
   },
   "last_scored_ts": 1787501141.2630417,
   "dow_hours": {
