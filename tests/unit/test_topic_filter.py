@@ -13,6 +13,16 @@ OFF_TOPIC = [
     'F1: estamos ficando para trás em tudo, desabafa Verstappen após polêmica',
     'Red Bull domina etapa do MotoGP em Le Mans',
     'Seleção de vôlei vence e avança na Liga das Nações',
+    # Athlete nouns and event names the plain sport names missed on rtp.pt/desporto.
+    'Yomif Kejelcha bate recorde do mundo da meia-maratona em Buenos Aires',
+    'Golfista Tomás Gouveia termina em 53.º no Challenger da Finlândia',
+    'Taranto2026: Canoístas Iago Bebiano e André Moreira de prata no K2 500 metros',
+    'Tadej Pogacar vence contrarrelógio e é o primeiro líder da Vuelta',
+    'Taranto2026. Nadadora Camila Rebelo revalida título nos 200 metros costas',
+    'Judoca Sofia Gaspar conquista medalha de bronze nos Mundiais de cadetes',
+    'Ciclista Julian Alaphilippe termina carreira com efeito imediato aos 34 anos',
+    'Agate de Sousa ‘vice’ no comprimento na etapa da Silésia da Liga Diamante',
+    'Portugal soma quatro medalhas nos jogos do Mediterrâneo',
 ]
 
 # Real football titles that MUST survive the filter (no false positives).

@@ -9,6 +9,7 @@ from src.files_manager import VideoSkip, SaveVideoUrl
 from src.processor.history_comparator import is_ignored_prefix, is_duplicate_publish, get_decisions_publish_platforms, make_head, mark_posted
 from src.processor.content_filter import is_blocked_content, strip_promo
 from src.processor.topic_filter import is_off_topic
+from src.processor.audience_filter import is_off_audience
 from src.utils.notify import redact_secrets
 from src.processor.image_filter import is_unsafe_image, is_low_quality_image
 from src.producers.repeater import is_rate_limited
@@ -33,6 +34,7 @@ from src.static.settings import (
     POST_DELAY_SECONDS,
     CONTENT_FILTER_ENABLED,
     TOPIC_FILTER_ENABLED,
+    AUDIENCE_FILTER_ENABLED,
     IMAGE_NSFW_ENABLED,
     IMAGE_QUALITY_FILTER_ENABLED,
     INSTAGRAM_DAILY_POST_LIMIT,
@@ -357,6 +359,9 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
         return
 
     if TOPIC_FILTER_ENABLED and is_off_topic(message_text, translated_message):
+        return
+
+    if AUDIENCE_FILTER_ENABLED and is_off_audience(message_text, translated_message):
         return
 
     decisions_publish_platforms = get_decisions_publish_platforms(head, posted_d, context['platforms'])

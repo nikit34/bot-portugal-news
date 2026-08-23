@@ -66,11 +66,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: src/static/voices
-          key: piper-voice-pt_BR-faber-medium
+          key: piper-voice-pt_PT-tugao-medium
       - name: Fetch piper voice
         # Без голоса дайджест не собирается вообще (build_digest_video -> None):
         # молчаливый ролик не был бы оригинальным контентом.
-        run: python tools/fetch_piper_voice.py pt_BR-faber-medium
+        run: python tools/fetch_piper_voice.py pt_PT-tugao-medium
       - name: Create logs directory
         run: mkdir -p logs
       - name: Restore/seed learning state
@@ -94,6 +94,8 @@ jobs:
           FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
           LOG_LEVEL: ${{ github.event_name == 'schedule' && 'INFO' || inputs.log_level || 'DEBUG' }}
           DIGEST_ENABLED: 'true'
+          AUDIENCE_FILTER_ENABLED: 'true'
+          TTS_VOICE: 'pt_PT-tugao-medium'
           DIGEST_ITEMS: ${{ inputs.digest_items || '8' }}
           # Бюджет прогона заметно больше обычного: фаза 1 (сбор кандидатов) плюс
           # фаза 2 (синтез речи + 8 рендеров + склейка + аплоуд). Держим

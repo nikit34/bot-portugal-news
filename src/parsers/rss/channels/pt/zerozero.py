@@ -1,7 +1,19 @@
 import re
+import html
 import logging
 
 logger = logging.getLogger('app')
+
+_ENTITY_LINK = re.compile(r'\{[A-Z_]+\|\d+\|([^}]*)\}')
+_TAG = re.compile(r'<[^>]+>')
+_SPACES = re.compile(r'[ \t]{2,}')
+
+
+def _clean(text):
+    text = _ENTITY_LINK.sub(r'\1', text or '')
+    text = _TAG.sub('', text)
+    text = html.unescape(text).replace('\xa0', ' ')
+    return _SPACES.sub(' ', text).strip()
 
 
 def is_valid_zerozero_entry(entry):
@@ -14,9 +26,8 @@ def is_valid_zerozero_entry(entry):
 
 def parse_zerozero_pt(entry):
     logger.debug("Parsing Zerozero entry")
-    title = entry.get('title', '')
-    raw_summary = entry.get('summary', '')
-    summary = re.sub(r'<[^>]+>', '', raw_summary).strip()
+    title = _clean(entry.get('title', ''))
+    summary = _clean(entry.get('summary', ''))
 
     message = title + ('\n' if title and summary else '') + summary
 

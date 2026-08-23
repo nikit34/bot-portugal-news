@@ -26,6 +26,12 @@ _OFF_TOPIC_TERMS = [
     # misc non-football sports
     'canoagem', 'canoeing', 'surf', 'surfe', 'surfing', 'skate', 'skateboard',
     'handebol', 'andebol', 'handball', 'raguebi', 'rugby', 'golfe', 'golf',
+    # athlete nouns and event names that the sport names above do not cover
+    'golfista', 'golfistas', 'canoista', 'canoistas', 'ciclista', 'ciclistas',
+    'nadador', 'nadadora', 'nadadores', 'nadadoras', 'judo', 'judoca', 'judocas',
+    'meia-maratona', 'maratonista', 'maratonistas', 'contrarrelogio', 'vuelta',
+    'liga diamante', 'jogos do mediterraneo', 'esgrima', 'triatlo', 'halterofilismo',
+    'karate', 'taekwondo', 'patinagem', 'hipismo', 'tiro com arco',
 ]
 
 # Match whole words/phrases only, against accent-stripped lowercase text.
