@@ -10,6 +10,16 @@
       "ig_id": "18139581553578875",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Seleção feminina Sub-16 conquista a Divisão B do E",
+      "source": "zerozero.pt",
+      "ts": 1787501554.2726738,
+      "fb_id": "1397782398971105",
+      "fb_media_id": "1397782398971105",
+      "ig_id": "17990558981844367",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -158,7 +168,7 @@
   },
   "ig_quota": {
     "day": "2026-08-23",
-    "posts": 1
+    "posts": 2
   },
   "last_scored_ts": 1787501141.2630417,
   "dow_hours": {
