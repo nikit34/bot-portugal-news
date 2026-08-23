@@ -345,7 +345,10 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
             f"[serve] recipe_only config: dropping post from {source} - recipe gate was not applied")
         return
 
-    translated_message = _translate_message(translator, message_text)
+    if source in context.get('native_language_sources', ()):
+        translated_message = message_text
+    else:
+        translated_message = _translate_message(translator, message_text)
 
     if CONTENT_FILTER_ENABLED:
         translated_message = strip_promo(translated_message)
