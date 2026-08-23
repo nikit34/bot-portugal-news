@@ -11,6 +11,7 @@ runs:
   using: "composite"
   steps:
     - uses: actions/setup-python@v6
+      id: setup-python
       with:
         python-version: ${{ inputs.python-version }}
 
@@ -18,12 +19,16 @@ runs:
       uses: actions/cache@v4
       with:
         path: venv
-        key: pip-${{ hashFiles('requirements.txt') }}
-        restore-keys: pip-
+        key: venv-py${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('requirements.txt') }}
+        restore-keys: venv-py${{ steps.setup-python.outputs.python-version }}-
     
     - name: Install dependencies
       shell: bash
       run: |
+        if [ -d venv ] && ! venv/bin/python -c '' >/dev/null 2>&1; then
+          echo "restored venv is unusable, recreating from scratch"
+          rm -rf venv
+        fi
         python -m venv venv
         . venv/bin/activate
         # Устанавливаем всё, КРОМЕ spaCy-модели (она прописана прямым URL на
