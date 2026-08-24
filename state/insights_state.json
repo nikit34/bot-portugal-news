@@ -79,6 +79,16 @@
       "ig_id": "18131909326639469",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "A análise de João Gião à derrota do Nacional em Gu",
+      "source": "zerozero.pt",
+      "ts": 1787607139.436,
+      "fb_id": "28025850903749977",
+      "fb_media_id": "28025850903749977",
+      "ig_id": "18110081456043987",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -227,7 +237,7 @@
   },
   "ig_quota": {
     "day": "2026-08-24",
-    "posts": 3
+    "posts": 4
   },
   "last_scored_ts": 1787558504.1992483,
   "dow_hours": {
