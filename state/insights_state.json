@@ -59,6 +59,16 @@
       "ig_id": "17889593886612140",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Primeria chicotada da Liga 3: UD Santarém anuncia",
+      "source": "zerozero.pt",
+      "ts": 1787580082.2440882,
+      "fb_id": "4719318695022717",
+      "fb_media_id": "4719318695022717",
+      "ig_id": "18363657145214135",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -207,7 +217,7 @@
   },
   "ig_quota": {
     "day": "2026-08-24",
-    "posts": 1
+    "posts": 2
   },
   "last_scored_ts": 1787558504.1992483,
   "dow_hours": {
