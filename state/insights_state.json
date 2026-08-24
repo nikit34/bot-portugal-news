@@ -69,6 +69,16 @@
       "ig_id": "18363657145214135",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "O Santa Clara x FC Famalicão foi assim... O árbitr",
+      "source": "zerozero.pt",
+      "ts": 1787599969.9930418,
+      "fb_id": "1061703846410338",
+      "fb_media_id": "1061703846410338",
+      "ig_id": "18131909326639469",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -217,7 +227,7 @@
   },
   "ig_quota": {
     "day": "2026-08-24",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1787558504.1992483,
   "dow_hours": {
