@@ -59,6 +59,26 @@
       "ig_id": "18491682892103244",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Abel Ferreira goleia e reforça liderança do Brasil",
+      "source": "zerozero.pt",
+      "ts": 1787666010.468762,
+      "fb_id": "2142938319626824",
+      "fb_media_id": "2142938319626824",
+      "ig_id": "18091804964436941",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Vasco Seabra: «Podíamos ter dado um passo melhor,",
+      "source": "zerozero.pt",
+      "ts": 1787666125.549597,
+      "fb_id": "1458487872774168",
+      "fb_media_id": "1458487872774168",
+      "ig_id": "18549463399075501",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -211,7 +231,7 @@
   },
   "ig_quota": {
     "day": "2026-08-25",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1787644029.070736,
   "dow_hours": {
