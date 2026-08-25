@@ -99,6 +99,26 @@
       "ig_id": "18223563733333271",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "T11, Ep. 99 | Seko Fofana? Sonho portista já é rea",
+      "source": "zerozero.pt",
+      "ts": 1787693484.9056535,
+      "fb_id": "1491159663032514",
+      "fb_media_id": "1491159663032514",
+      "ig_id": "18094198961086387",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "João Matos: «O Sporting não quis renovar. Acabava",
+      "source": "zerozero.pt",
+      "ts": 1787693601.0745716,
+      "fb_id": "1012047265204462",
+      "fb_media_id": "1012047265204462",
+      "ig_id": "17992189941041722",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -251,7 +271,7 @@
   },
   "ig_quota": {
     "day": "2026-08-25",
-    "posts": 5
+    "posts": 7
   },
   "last_scored_ts": 1787644029.070736,
   "dow_hours": {
