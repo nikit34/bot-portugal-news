@@ -2,36 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Lazio chega a acordo com Ajax e anuncia zagueiro q",
-      "source": "zerozero.pt",
-      "ts": 1787501101.2319455,
-      "fb_id": "1585318056598345",
-      "fb_media_id": "1585318056598345",
-      "ig_id": "18139581553578875",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Seleção feminina Sub-16 conquista a Divisão B do E",
-      "source": "zerozero.pt",
-      "ts": 1787501554.2726738,
-      "fb_id": "1397782398971105",
-      "fb_media_id": "1397782398971105",
-      "ig_id": "17990558981844367",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "João Rego segue por empréstimo para clube da Liga",
-      "source": "zerozero.pt",
-      "ts": 1787513077.950875,
-      "fb_id": "880054721853552",
-      "fb_media_id": "880054721853552",
-      "ig_id": "17950510782252389",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Resumo do dia — 23.08.2026",
       "source": "digest",
       "ts": 1787513265.5043788,
@@ -39,16 +9,6 @@
       "fb_media_id": "900574889416153",
       "is_video": true,
       "is_digest": true
-    },
-    {
-      "head": "Sérgio Ferreira: «Difícil jogar contra o Sporting",
-      "source": "zerozero.pt",
-      "ts": 1787520291.673538,
-      "fb_id": "4531485637180651",
-      "fb_media_id": "4531485637180651",
-      "ig_id": "18091464647134032",
-      "is_video": true,
-      "hashtag_n": 3
     },
     {
       "head": "2026/2027 começa com a Supertaça Feminina Depois d",
@@ -89,6 +49,16 @@
       "ig_id": "18110081456043987",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "A reação de Tiago Margarido aos primeiros pontos c",
+      "source": "zerozero.pt",
+      "ts": 1787643989.067571,
+      "fb_id": "2277916389413584",
+      "fb_media_id": "2277916389413584",
+      "ig_id": "18491682892103244",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -139,6 +109,10 @@
     "uol.com.br": {
       "reach_avg": 0.0735,
       "n": 6
+    },
+    "zerozero.pt": {
+      "reach_avg": 6.3689209,
+      "n": 4
     }
   },
   "hours": {
@@ -167,12 +141,12 @@
       "n": 23
     },
     "19": {
-      "reach_avg": 0.6226477122878198,
-      "n": 45
+      "reach_avg": 4.947659084915128,
+      "n": 46
     },
     "21": {
-      "reach_avg": 0.6508455448199999,
-      "n": 27
+      "reach_avg": 1.189618217928,
+      "n": 28
     },
     "2": {
       "reach_avg": 0.0012621870840494776,
@@ -199,8 +173,8 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 0.03618384635396865,
-      "n": 22
+      "reach_avg": 5.838945476979111,
+      "n": 24
     },
     "14": {
       "reach_avg": 0.7003335953938479,
@@ -236,10 +210,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-24",
-    "posts": 4
+    "day": "2026-08-25",
+    "posts": 1
   },
-  "last_scored_ts": 1787558504.1992483,
+  "last_scored_ts": 1787644029.070736,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -298,12 +272,12 @@
       "n": 5
     },
     "6-19": {
-      "reach_avg": 0.0,
-      "n": 9
+      "reach_avg": 4.6986,
+      "n": 10
     },
     "6-21": {
-      "reach_avg": 0.0,
-      "n": 3
+      "reach_avg": 0.9292799999999999,
+      "n": 4
     },
     "6-23": {
       "reach_avg": 0.0,
@@ -570,8 +544,8 @@
       "n": 5
     },
     "6-16": {
-      "reach_avg": 0.0,
-      "n": 4
+      "reach_avg": 5.8288139999999995,
+      "n": 6
     },
     "0-13": {
       "reach_avg": 7.515,
@@ -660,8 +634,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 3.205906343328586,
-      "n": 21
+      "reach_avg": 5.4432072841013435,
+      "n": 25
     }
   },
   "variants": {
@@ -670,8 +644,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 0.051449999999999996,
-      "n": 33
+      "reach_avg": 5.114332817603992,
+      "n": 37
     },
     "tags:1-2": {
       "reach_avg": 0.0,
@@ -714,7 +688,36 @@
     0.25,
     0.0,
     0.0,
-    0.0
+    0.0,
+    10.2307,
+    5.1064,
+    7.8309999999999995,
+    1.5488
   ],
-  "recent_winners": []
+  "recent_winners": [
+    {
+      "head": "Lazio chega a acordo com Ajax e anuncia zagueiro q",
+      "source": "zerozero.pt",
+      "reward": 10.2307,
+      "ts": 1787644029.070736
+    },
+    {
+      "head": "Seleção feminina Sub-16 conquista a Divisão B do E",
+      "source": "zerozero.pt",
+      "reward": 5.1064,
+      "ts": 1787644029.070736
+    },
+    {
+      "head": "João Rego segue por empréstimo para clube da Liga",
+      "source": "zerozero.pt",
+      "reward": 7.8309999999999995,
+      "ts": 1787644029.070736
+    },
+    {
+      "head": "Sérgio Ferreira: «Difícil jogar contra o Sporting",
+      "source": "zerozero.pt",
+      "reward": 1.5488,
+      "ts": 1787644029.070736
+    }
+  ]
 }
