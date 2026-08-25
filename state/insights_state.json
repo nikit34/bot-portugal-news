@@ -79,6 +79,26 @@
       "ig_id": "18549463399075501",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Gonçalo Paciência continua em grande: a veia golea",
+      "source": "zerozero.pt",
+      "ts": 1787686526.9073353,
+      "fb_id": "2196304447893667",
+      "fb_media_id": "2196304447893667",
+      "ig_id": "18616556359010243",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Mais uma chicotada na Liga 3: Nuno Silva despedido",
+      "source": "zerozero.pt",
+      "ts": 1787686639.2425058,
+      "fb_id": "1005140092497720",
+      "fb_media_id": "1005140092497720",
+      "ig_id": "18223563733333271",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -231,7 +251,7 @@
   },
   "ig_quota": {
     "day": "2026-08-25",
-    "posts": 3
+    "posts": 5
   },
   "last_scored_ts": 1787644029.070736,
   "dow_hours": {
