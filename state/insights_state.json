@@ -79,6 +79,26 @@
       "ig_id": "18092260274417083",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Mourinho sem filtros: Vini Jr., Endrick, o rookie",
+      "source": "zerozero.pt",
+      "ts": 1787752698.861407,
+      "fb_id": "2124082305185507",
+      "fb_media_id": "2124082305185507",
+      "ig_id": "18213054148347990",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Benfica garante internacional húngara para o meio-",
+      "source": "zerozero.pt",
+      "ts": 1787752811.8876584,
+      "fb_id": "28528644320073684",
+      "fb_media_id": "28528644320073684",
+      "ig_id": "18173544469429382",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -231,7 +251,7 @@
   },
   "ig_quota": {
     "day": "2026-08-26",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1787730648.7508798,
   "dow_hours": {
