@@ -99,6 +99,26 @@
       "ig_id": "18173544469429382",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Veja os possíveis adversários de FC Porto e Sporti",
+      "source": "zerozero.pt",
+      "ts": 1787780642.0394986,
+      "fb_id": "1080204731185721",
+      "fb_media_id": "1080204731185721",
+      "ig_id": "18084020081278400",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Taça do Brasil: Artur Jorge empata na receção ao A",
+      "source": "zerozero.pt",
+      "ts": 1787780758.09133,
+      "fb_id": "1128346919756820",
+      "fb_media_id": "1128346919756820",
+      "ig_id": "18023123897702475",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -251,7 +271,7 @@
   },
   "ig_quota": {
     "day": "2026-08-26",
-    "posts": 3
+    "posts": 5
   },
   "last_scored_ts": 1787730648.7508798,
   "dow_hours": {
