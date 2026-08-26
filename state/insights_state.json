@@ -11,56 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "2026/2027 começa com a Supertaça Feminina Depois d",
-      "source": "zerozero.pt",
-      "ts": 1787558464.195355,
-      "fb_id": "1357646416453827",
-      "fb_media_id": "1357646416453827",
-      "ig_id": "17889593886612140",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Primeria chicotada da Liga 3: UD Santarém anuncia",
-      "source": "zerozero.pt",
-      "ts": 1787580082.2440882,
-      "fb_id": "4719318695022717",
-      "fb_media_id": "4719318695022717",
-      "ig_id": "18363657145214135",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "O Santa Clara x FC Famalicão foi assim... O árbitr",
-      "source": "zerozero.pt",
-      "ts": 1787599969.9930418,
-      "fb_id": "1061703846410338",
-      "fb_media_id": "1061703846410338",
-      "ig_id": "18131909326639469",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "A análise de João Gião à derrota do Nacional em Gu",
-      "source": "zerozero.pt",
-      "ts": 1787607139.436,
-      "fb_id": "28025850903749977",
-      "fb_media_id": "28025850903749977",
-      "ig_id": "18110081456043987",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "A reação de Tiago Margarido aos primeiros pontos c",
-      "source": "zerozero.pt",
-      "ts": 1787643989.067571,
-      "fb_id": "2277916389413584",
-      "fb_media_id": "2277916389413584",
-      "ig_id": "18491682892103244",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Abel Ferreira goleia e reforça liderança do Brasil",
       "source": "zerozero.pt",
       "ts": 1787666010.468762,
@@ -119,6 +69,16 @@
       "ig_id": "17992189941041722",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "T2. Ep, 4 | Já estamos convencidos? No episódio de",
+      "source": "zerozero.pt",
+      "ts": 1787730608.7474058,
+      "fb_id": "2997531390592925",
+      "fb_media_id": "2997531390592925",
+      "ig_id": "18092260274417083",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -171,8 +131,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 6.3689209,
-      "n": 4
+      "reach_avg": 4.833610491821514,
+      "n": 9
     }
   },
   "hours": {
@@ -181,8 +141,8 @@
       "n": 22
     },
     "7": {
-      "reach_avg": 0.14717294688357646,
-      "n": 28
+      "reach_avg": 2.377149178753431,
+      "n": 29
     },
     "10": {
       "reach_avg": 0.18920184047985691,
@@ -201,20 +161,20 @@
       "n": 23
     },
     "19": {
-      "reach_avg": 4.947659084915128,
-      "n": 46
+      "reach_avg": 4.070291359440589,
+      "n": 47
     },
     "21": {
-      "reach_avg": 1.189618217928,
-      "n": 28
+      "reach_avg": 3.4915072871712,
+      "n": 29
     },
     "2": {
       "reach_avg": 0.0012621870840494776,
       "n": 46
     },
     "8": {
-      "reach_avg": 0.021592408033559985,
-      "n": 16
+      "reach_avg": 4.048616963213424,
+      "n": 17
     },
     "12": {
       "reach_avg": 0.0,
@@ -237,8 +197,8 @@
       "n": 24
     },
     "14": {
-      "reach_avg": 0.7003335953938479,
-      "n": 22
+      "reach_avg": 4.673813438157539,
+      "n": 23
     },
     "18": {
       "reach_avg": 0.10636057844999994,
@@ -270,10 +230,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-25",
-    "posts": 7
+    "day": "2026-08-26",
+    "posts": 1
   },
-  "last_scored_ts": 1787644029.070736,
+  "last_scored_ts": 1787730648.7508798,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -368,12 +328,12 @@
       "n": 6
     },
     "0-19": {
-      "reach_avg": 0.010499999999999999,
-      "n": 5
+      "reach_avg": 1.21806,
+      "n": 6
     },
     "0-21": {
-      "reach_avg": 0.0,
-      "n": 3
+      "reach_avg": 3.01566,
+      "n": 4
     },
     "0-23": {
       "reach_avg": 0.0,
@@ -384,8 +344,8 @@
       "n": 6
     },
     "1-7": {
-      "reach_avg": 0.0,
-      "n": 7
+      "reach_avg": 2.31828,
+      "n": 8
     },
     "1-10": {
       "reach_avg": 3.417,
@@ -528,8 +488,8 @@
       "n": 9
     },
     "0-8": {
-      "reach_avg": 1.2485199999999996,
-      "n": 5
+      "reach_avg": 4.539388,
+      "n": 6
     },
     "2-8": {
       "reach_avg": 0.0,
@@ -686,6 +646,10 @@
     "6-18": {
       "reach_avg": 0.0,
       "n": 2
+    },
+    "0-14": {
+      "reach_avg": 7.3228,
+      "n": 1
     }
   },
   "formats": {
@@ -694,8 +658,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 5.4432072841013435,
-      "n": 25
+      "reach_avg": 4.721494086767069,
+      "n": 30
     }
   },
   "variants": {
@@ -704,12 +668,12 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 5.114332817603992,
-      "n": 37
+      "reach_avg": 4.696882478951945,
+      "n": 41
     },
     "tags:1-2": {
-      "reach_avg": 0.0,
-      "n": 3
+      "reach_avg": 3.01566,
+      "n": 4
     }
   },
   "reward_samples": [
@@ -752,7 +716,12 @@
     10.2307,
     5.1064,
     7.8309999999999995,
-    1.5488
+    1.5488,
+    6.7333,
+    7.3228,
+    2.0231,
+    5.0261000000000005,
+    3.8638000000000003
   ],
   "recent_winners": [
     {
@@ -778,6 +747,36 @@
       "source": "zerozero.pt",
       "reward": 1.5488,
       "ts": 1787644029.070736
+    },
+    {
+      "head": "2026/2027 começa com a Supertaça Feminina Depois d",
+      "source": "zerozero.pt",
+      "reward": 6.7333,
+      "ts": 1787730648.7508798
+    },
+    {
+      "head": "Primeria chicotada da Liga 3: UD Santarém anuncia",
+      "source": "zerozero.pt",
+      "reward": 7.3228,
+      "ts": 1787730648.7508798
+    },
+    {
+      "head": "O Santa Clara x FC Famalicão foi assim... O árbitr",
+      "source": "zerozero.pt",
+      "reward": 2.0231,
+      "ts": 1787730648.7508798
+    },
+    {
+      "head": "A análise de João Gião à derrota do Nacional em Gu",
+      "source": "zerozero.pt",
+      "reward": 5.0261000000000005,
+      "ts": 1787730648.7508798
+    },
+    {
+      "head": "A reação de Tiago Margarido aos primeiros pontos c",
+      "source": "zerozero.pt",
+      "reward": 3.8638000000000003,
+      "ts": 1787730648.7508798
     }
   ]
 }
