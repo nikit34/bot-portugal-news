@@ -11,96 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "Abel Ferreira goleia e reforça liderança do Brasil",
-      "source": "zerozero.pt",
-      "ts": 1787666010.468762,
-      "fb_id": "2142938319626824",
-      "fb_media_id": "2142938319626824",
-      "ig_id": "18091804964436941",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Vasco Seabra: «Podíamos ter dado um passo melhor,",
-      "source": "zerozero.pt",
-      "ts": 1787666125.549597,
-      "fb_id": "1458487872774168",
-      "fb_media_id": "1458487872774168",
-      "ig_id": "18549463399075501",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Gonçalo Paciência continua em grande: a veia golea",
-      "source": "zerozero.pt",
-      "ts": 1787686526.9073353,
-      "fb_id": "2196304447893667",
-      "fb_media_id": "2196304447893667",
-      "ig_id": "18616556359010243",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Mais uma chicotada na Liga 3: Nuno Silva despedido",
-      "source": "zerozero.pt",
-      "ts": 1787686639.2425058,
-      "fb_id": "1005140092497720",
-      "fb_media_id": "1005140092497720",
-      "ig_id": "18223563733333271",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "T11, Ep. 99 | Seko Fofana? Sonho portista já é rea",
-      "source": "zerozero.pt",
-      "ts": 1787693484.9056535,
-      "fb_id": "1491159663032514",
-      "fb_media_id": "1491159663032514",
-      "ig_id": "18094198961086387",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "João Matos: «O Sporting não quis renovar. Acabava",
-      "source": "zerozero.pt",
-      "ts": 1787693601.0745716,
-      "fb_id": "1012047265204462",
-      "fb_media_id": "1012047265204462",
-      "ig_id": "17992189941041722",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "T2. Ep, 4 | Já estamos convencidos? No episódio de",
-      "source": "zerozero.pt",
-      "ts": 1787730608.7474058,
-      "fb_id": "2997531390592925",
-      "fb_media_id": "2997531390592925",
-      "ig_id": "18092260274417083",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Mourinho sem filtros: Vini Jr., Endrick, o rookie",
-      "source": "zerozero.pt",
-      "ts": 1787752698.861407,
-      "fb_id": "2124082305185507",
-      "fb_media_id": "2124082305185507",
-      "ig_id": "18213054148347990",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Benfica garante internacional húngara para o meio-",
-      "source": "zerozero.pt",
-      "ts": 1787752811.8876584,
-      "fb_id": "28528644320073684",
-      "fb_media_id": "28528644320073684",
-      "ig_id": "18173544469429382",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Veja os possíveis adversários de FC Porto e Sporti",
       "source": "zerozero.pt",
       "ts": 1787780642.0394986,
@@ -117,6 +27,16 @@
       "fb_id": "1128346919756820",
       "fb_media_id": "1128346919756820",
       "ig_id": "18023123897702475",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Treinador do Aarhus acredita na reviravolta: «Qual",
+      "source": "zerozero.pt",
+      "ts": 1787854197.459766,
+      "fb_id": "4216903091934276",
+      "fb_media_id": "4216903091934276",
+      "ig_id": "18122416558887899",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -171,8 +91,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 4.833610491821514,
-      "n": 9
+      "reach_avg": 5.759364361333171,
+      "n": 18
     }
   },
   "hours": {
@@ -181,16 +101,16 @@
       "n": 22
     },
     "7": {
-      "reach_avg": 2.377149178753431,
-      "n": 29
+      "reach_avg": 3.0742615055802345,
+      "n": 30
     },
     "10": {
       "reach_avg": 0.18920184047985691,
       "n": 45
     },
     "13": {
-      "reach_avg": 1.8073515494999994,
-      "n": 23
+      "reach_avg": 7.043779992741744,
+      "n": 26
     },
     "15": {
       "reach_avg": 0.4260899999999999,
@@ -201,12 +121,12 @@
       "n": 23
     },
     "19": {
-      "reach_avg": 4.070291359440589,
-      "n": 47
+      "reach_avg": 5.553548399768353,
+      "n": 49
     },
     "21": {
-      "reach_avg": 3.4915072871712,
-      "n": 29
+      "reach_avg": 5.100581163250339,
+      "n": 31
     },
     "2": {
       "reach_avg": 0.0012621870840494776,
@@ -237,8 +157,8 @@
       "n": 24
     },
     "14": {
-      "reach_avg": 4.673813438157539,
-      "n": 23
+      "reach_avg": 4.757081982678406,
+      "n": 24
     },
     "18": {
       "reach_avg": 0.10636057844999994,
@@ -270,10 +190,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-26",
-    "posts": 5
+    "day": "2026-08-27",
+    "posts": 1
   },
-  "last_scored_ts": 1787730648.7508798,
+  "last_scored_ts": 1787854237.46432,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -400,12 +320,12 @@
       "n": 3
     },
     "1-19": {
-      "reach_avg": 0.3,
-      "n": 6
+      "reach_avg": 4.986064538265648,
+      "n": 8
     },
     "1-21": {
-      "reach_avg": 0.0,
-      "n": 6
+      "reach_avg": 4.794816000000001,
+      "n": 8
     },
     "1-23": {
       "reach_avg": 0.0,
@@ -416,16 +336,16 @@
       "n": 3
     },
     "2-7": {
-      "reach_avg": 0.0,
-      "n": 6
+      "reach_avg": 2.29338,
+      "n": 7
     },
     "2-10": {
       "reach_avg": 0.0,
       "n": 3
     },
     "2-14": {
-      "reach_avg": 0.010499999999999999,
-      "n": 3
+      "reach_avg": 2.96616,
+      "n": 4
     },
     "2-17": {
       "reach_avg": 0.3,
@@ -628,8 +548,8 @@
       "n": 2
     },
     "2-13": {
-      "reach_avg": 0.0,
-      "n": 3
+      "reach_avg": 4.32648,
+      "n": 4
     },
     "2-15": {
       "reach_avg": 0.0,
@@ -690,6 +610,10 @@
     "0-14": {
       "reach_avg": 7.3228,
       "n": 1
+    },
+    "1-13": {
+      "reach_avg": 7.409472617827632,
+      "n": 2
     }
   },
   "formats": {
@@ -698,8 +622,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 4.721494086767069,
-      "n": 30
+      "reach_avg": 5.758785653408149,
+      "n": 39
     }
   },
   "variants": {
@@ -708,8 +632,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 4.696882478951945,
-      "n": 41
+      "reach_avg": 5.758667770613295,
+      "n": 50
     },
     "tags:1-2": {
       "reach_avg": 3.01566,
@@ -761,7 +685,16 @@
     7.3228,
     2.0231,
     5.0261000000000005,
-    3.8638000000000003
+    3.8638000000000003,
+    6.4989,
+    8.752600000000001,
+    6.514900000000001,
+    6.1269,
+    3.9659,
+    6.405000000000001,
+    3.8223000000000003,
+    7.2108,
+    4.9366
   ],
   "recent_winners": [
     {
@@ -817,6 +750,42 @@
       "source": "zerozero.pt",
       "reward": 3.8638000000000003,
       "ts": 1787730648.7508798
+    },
+    {
+      "head": "Abel Ferreira goleia e reforça liderança do Brasil",
+      "source": "zerozero.pt",
+      "reward": 6.4989,
+      "ts": 1787854237.46432
+    },
+    {
+      "head": "Vasco Seabra: «Podíamos ter dado um passo melhor,",
+      "source": "zerozero.pt",
+      "reward": 8.752600000000001,
+      "ts": 1787854237.46432
+    },
+    {
+      "head": "Gonçalo Paciência continua em grande: a veia golea",
+      "source": "zerozero.pt",
+      "reward": 6.514900000000001,
+      "ts": 1787854237.46432
+    },
+    {
+      "head": "Mais uma chicotada na Liga 3: Nuno Silva despedido",
+      "source": "zerozero.pt",
+      "reward": 6.1269,
+      "ts": 1787854237.46432
+    },
+    {
+      "head": "João Matos: «O Sporting não quis renovar. Acabava",
+      "source": "zerozero.pt",
+      "reward": 6.405000000000001,
+      "ts": 1787854237.46432
+    },
+    {
+      "head": "Mourinho sem filtros: Vini Jr., Endrick, o rookie",
+      "source": "zerozero.pt",
+      "reward": 7.2108,
+      "ts": 1787854237.46432
     }
   ]
 }
