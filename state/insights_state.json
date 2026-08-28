@@ -39,6 +39,26 @@
       "ig_id": "18122416558887899",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Com hat-trick de Mbappé, Mourinho vence reestreia",
+      "source": "zerozero.pt",
+      "ts": 1787884080.4157984,
+      "fb_id": "1402780308469536",
+      "fb_media_id": "1402780308469536",
+      "ig_id": "18083520941311946",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Tiago Andrade deixa FC Porto e segue para Moreira",
+      "source": "zerozero.pt",
+      "ts": 1787884183.190404,
+      "fb_id": "1090727276816661",
+      "fb_media_id": "1090727276816661",
+      "ig_id": "17960963504985003",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -190,8 +210,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-27",
-    "posts": 1
+    "day": "2026-08-28",
+    "posts": 2
   },
   "last_scored_ts": 1787854237.46432,
   "dow_hours": {
