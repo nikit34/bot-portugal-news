@@ -11,36 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "Veja os possíveis adversários de FC Porto e Sporti",
-      "source": "zerozero.pt",
-      "ts": 1787780642.0394986,
-      "fb_id": "1080204731185721",
-      "fb_media_id": "1080204731185721",
-      "ig_id": "18084020081278400",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Taça do Brasil: Artur Jorge empata na receção ao A",
-      "source": "zerozero.pt",
-      "ts": 1787780758.09133,
-      "fb_id": "1128346919756820",
-      "fb_media_id": "1128346919756820",
-      "ig_id": "18023123897702475",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Treinador do Aarhus acredita na reviravolta: «Qual",
-      "source": "zerozero.pt",
-      "ts": 1787854197.459766,
-      "fb_id": "4216903091934276",
-      "fb_media_id": "4216903091934276",
-      "ig_id": "18122416558887899",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Com hat-trick de Mbappé, Mourinho vence reestreia",
       "source": "zerozero.pt",
       "ts": 1787884080.4157984,
@@ -68,6 +38,16 @@
       "fb_media_id": "2119411802297710",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "Três meses, três jogos a eliminar entre Fazendense",
+      "source": "zerozero.pt",
+      "ts": 1787944765.1180363,
+      "fb_id": "1430357385946714",
+      "fb_media_id": "1430357385946714",
+      "ig_id": "18004693172993295",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -120,8 +100,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 5.759364361333171,
-      "n": 18
+      "reach_avg": 6.375835740594638,
+      "n": 21
     }
   },
   "hours": {
@@ -154,8 +134,8 @@
       "n": 49
     },
     "21": {
-      "reach_avg": 5.100581163250339,
-      "n": 31
+      "reach_avg": 6.059128908537655,
+      "n": 33
     },
     "2": {
       "reach_avg": 0.0012621870840494776,
@@ -190,8 +170,8 @@
       "n": 24
     },
     "18": {
-      "reach_avg": 0.10636057844999994,
-      "n": 10
+      "reach_avg": 3.9935442313800005,
+      "n": 11
     },
     "6": {
       "reach_avg": 0.43217999999999984,
@@ -220,9 +200,9 @@
   },
   "ig_quota": {
     "day": "2026-08-28",
-    "posts": 2
+    "posts": 3
   },
-  "last_scored_ts": 1787854237.46432,
+  "last_scored_ts": 1787944805.12645,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -385,8 +365,8 @@
       "n": 9
     },
     "2-21": {
-      "reach_avg": 0.0,
-      "n": 6
+      "reach_avg": 5.531139063261902,
+      "n": 8
     },
     "2-23": {
       "reach_avg": 0.0,
@@ -409,8 +389,8 @@
       "n": 5
     },
     "3-18": {
-      "reach_avg": 1.2914999999999999,
-      "n": 3
+      "reach_avg": 4.467600000000001,
+      "n": 4
     },
     "3-21": {
       "reach_avg": 0.8819999999999998,
@@ -651,8 +631,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 5.758785653408149,
-      "n": 39
+      "reach_avg": 6.375688539154921,
+      "n": 42
     }
   },
   "variants": {
@@ -661,8 +641,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 5.758667770613295,
-      "n": 50
+      "reach_avg": 6.37565855843426,
+      "n": 53
     },
     "tags:1-2": {
       "reach_avg": 3.01566,
@@ -723,7 +703,10 @@
     6.405000000000001,
     3.8223000000000003,
     7.2108,
-    4.9366
+    4.9366,
+    6.234400000000001,
+    6.952,
+    6.585000000000001
   ],
   "recent_winners": [
     {
@@ -815,6 +798,12 @@
       "source": "zerozero.pt",
       "reward": 7.2108,
       "ts": 1787854237.46432
+    },
+    {
+      "head": "Taça do Brasil: Artur Jorge empata na receção ao A",
+      "source": "zerozero.pt",
+      "reward": 6.952,
+      "ts": 1787944805.12645
     }
   ]
 }
