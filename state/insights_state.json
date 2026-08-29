@@ -48,6 +48,26 @@
       "ig_id": "18004693172993295",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Pedro Emanuel recebe ex-Farense e Vitória SC no Va",
+      "source": "zerozero.pt",
+      "ts": 1787972855.822772,
+      "fb_id": "1110602228308142",
+      "fb_media_id": "1110602228308142",
+      "ig_id": "18616673245003548",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Benfica não pode defrontar a Juventus em Turim: pe",
+      "source": "zerozero.pt",
+      "ts": 1787972963.7194824,
+      "fb_id": "1461851662440689",
+      "fb_media_id": "1461851662440689",
+      "ig_id": "18098095652287040",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -200,7 +220,7 @@
   },
   "ig_quota": {
     "day": "2026-08-29",
-    "posts": 0
+    "posts": 2
   },
   "last_scored_ts": 1787944805.12645,
   "dow_hours": {
