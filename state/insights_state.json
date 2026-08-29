@@ -88,6 +88,16 @@
       "ig_id": "18552262297072617",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Vai haver duelo entre Benfica e Sporting na 1ª eli",
+      "source": "zerozero.pt",
+      "ts": 1788039243.672753,
+      "fb_id": "2570007380126877",
+      "fb_media_id": "2570007380126877",
+      "ig_id": "17904101673548377",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -240,7 +250,7 @@
   },
   "ig_quota": {
     "day": "2026-08-29",
-    "posts": 6
+    "posts": 7
   },
   "last_scored_ts": 1788023409.3676858,
   "dow_hours": {
