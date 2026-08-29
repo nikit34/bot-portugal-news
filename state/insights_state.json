@@ -68,6 +68,26 @@
       "ig_id": "18098095652287040",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Conheça os clubes que o Torreense irá enfrentar na",
+      "source": "zerozero.pt",
+      "ts": 1788008545.745782,
+      "fb_id": "4049861651985914",
+      "fb_media_id": "4049861651985914",
+      "ig_id": "18427641775197754",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Luana Bessa assina contrato profissional com o SC",
+      "source": "zerozero.pt",
+      "ts": 1788008670.2560983,
+      "fb_id": "1785936752534877",
+      "fb_media_id": "1785936752534877",
+      "ig_id": "18583300957070722",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -220,7 +240,7 @@
   },
   "ig_quota": {
     "day": "2026-08-29",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1787944805.12645,
   "dow_hours": {
