@@ -11,26 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "Com hat-trick de Mbappé, Mourinho vence reestreia",
-      "source": "zerozero.pt",
-      "ts": 1787884080.4157984,
-      "fb_id": "1402780308469536",
-      "fb_media_id": "1402780308469536",
-      "ig_id": "18083520941311946",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Tiago Andrade deixa FC Porto e segue para Moreira",
-      "source": "zerozero.pt",
-      "ts": 1787884183.190404,
-      "fb_id": "1090727276816661",
-      "fb_media_id": "1090727276816661",
-      "ig_id": "17960963504985003",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Resumo do dia — 28.08.2026",
       "source": "digest",
       "ts": 1787887995.9535952,
@@ -88,6 +68,26 @@
       "ig_id": "18583300957070722",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Quantos pontos fazem FC Porto, Sporting, Torreense",
+      "source": "zerozero.pt",
+      "ts": 1788023247.8354986,
+      "fb_id": "2481129175715951",
+      "fb_media_id": "2481129175715951",
+      "ig_id": "18189165694403383",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Chaves reforça meio-campo com jovem costa-marfinen",
+      "source": "zerozero.pt",
+      "ts": 1788023369.351808,
+      "fb_id": "1753401699141583",
+      "fb_media_id": "1753401699141583",
+      "ig_id": "18552262297072617",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -140,8 +140,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 6.375835740594638,
-      "n": 21
+      "reach_avg": 5.765490567867102,
+      "n": 23
     }
   },
   "hours": {
@@ -178,8 +178,8 @@
       "n": 33
     },
     "2": {
-      "reach_avg": 0.0012621870840494776,
-      "n": 46
+      "reach_avg": 4.028094233968928,
+      "n": 48
     },
     "8": {
       "reach_avg": 4.048616963213424,
@@ -240,9 +240,9 @@
   },
   "ig_quota": {
     "day": "2026-08-29",
-    "posts": 4
+    "posts": 6
   },
-  "last_scored_ts": 1787944805.12645,
+  "last_scored_ts": 1788023409.3676858,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -437,8 +437,8 @@
       "n": 4
     },
     "4-2": {
-      "reach_avg": 0.0,
-      "n": 8
+      "reach_avg": 4.027759172787423,
+      "n": 10
     },
     "4-7": {
       "reach_avg": 0.21,
@@ -671,8 +671,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 6.375688539154921,
-      "n": 42
+      "reach_avg": 5.765420547480977,
+      "n": 44
     }
   },
   "variants": {
@@ -681,8 +681,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 6.37565855843426,
-      "n": 53
+      "reach_avg": 5.765406286519067,
+      "n": 55
     },
     "tags:1-2": {
       "reach_avg": 3.01566,
@@ -746,7 +746,9 @@
     4.9366,
     6.234400000000001,
     6.952,
-    6.585000000000001
+    6.585000000000001,
+    6.589600000000001,
+    4.1867
   ],
   "recent_winners": [
     {
