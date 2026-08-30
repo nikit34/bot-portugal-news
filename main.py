@@ -3,6 +3,7 @@ import asyncio
 import logging
 import argparse
 import time
+from collections import deque
 
 import spacy
 from telethon import TelegramClient
@@ -11,10 +12,6 @@ from deep_translator import GoogleTranslator
 import facebook as fb
 
 from src.files_manager import clean_tmp_folder
-from src.parsers.facebook.self_parser import get_facebook_published_messages
-from src.parsers.instagram.self_parser import get_instagram_published_messages
-from src.parsers.telegram.self_parser import get_telegram_published_messages
-from src.processor.history_comparator import process_post_histories
 from src.processor.image_filter import image_filter_summary
 from src.parsers.rss.parser import rss_wrapper
 from src.parsers.rss.channels.pt.abola import close_client as close_abola_client
@@ -35,7 +32,6 @@ from src.producers.reel import get_failure_counts as get_reel_failure_counts
 from src.properties_reader import get_secret_key
 from src.store import dedup, redis_client
 from src.static.settings import (
-    COUNT_UNIQUE_MESSAGES,
     TARGET_LANGUAGE,
     INSIGHTS_MEDIA_LIMIT,
     MAX_POSTS_PER_RUN,
@@ -82,8 +78,9 @@ from src.static.settings import (
     LEARNING_WINNERS_MAX,
     LEARNING_REWARD_SAMPLES_MAX,
     LEARNING_FOLLOWUP_SOURCE_BUDGET_BONUS,
+    DEDUP_ALLOW_EMPTY_LEDGER,
 )
-from src.static.sources import get_config, Platform
+from src.static.sources import get_config
 from src.producers.telegram.telegram_api import send_message_api
 from src.utils.logger import setup_logging
 from src.utils.ci import get_ci_run_url
@@ -177,41 +174,24 @@ async def main(config_name, digest=False):
             set_digest_mode(True)
         today = time.strftime('%Y-%m-%d', time.gmtime())
 
-        posted_d = await dedup.load(config_name) if dedup.enabled() else None
-        needs_platform_history = posted_d is None or await dedup.sync_due(config_name)
-
-        if needs_platform_history:
-            app_logger.info("Fetching message history from Facebook, Instagram and Telegram")
-            # Fetch the three histories concurrently so adding Instagram doesn't extend
-            # startup: FB/IG are blocking `requests` calls (offloaded to threads), TG is async.
-            # Own-published history for dedup. Telegram is fetched only when the channel
-            # actually posts to Telegram — a FB+IG-only channel (e.g. food) has a
-            # placeholder self.telegram_channel, and resolving it raises
-            # UsernameNotOccupiedError, which would take the whole gather (and the run) down.
-            telegram_enabled = Platform.TELEGRAM in context['platforms']
-
-            async def _empty_history():
-                return []
-
-            facebook_history, instagram_history, telegram_history = await asyncio.gather(
-                asyncio.to_thread(get_facebook_published_messages, graph, context, COUNT_UNIQUE_MESSAGES),
-                asyncio.to_thread(get_instagram_published_messages, graph, context, COUNT_UNIQUE_MESSAGES),
-                get_telegram_published_messages(getter_client, COUNT_UNIQUE_MESSAGES, context)
-                if telegram_enabled else _empty_history(),
-            )
-            app_logger.info(
-                f"Loaded history — Facebook: {len(facebook_history)}, "
-                f"Instagram: {len(instagram_history)}, Telegram: {len(telegram_history)}")
-
-            history_posted = process_post_histories(
-                facebook_history, telegram_history, instagram_history)
-            if dedup.enabled():
-                await dedup.seed(config_name, history_posted)
-                posted_d = await dedup.load(config_name) or history_posted
-            else:
-                posted_d = history_posted
-        else:
-            app_logger.info("Dedup ledger served from Redis; skipping platform history fetch")
+        posted_d = await dedup.load(config_name)
+        blocked = dedup.publish_blocked(posted_d, dedup.enabled(), DEDUP_ALLOW_EMPTY_LEDGER)
+        if blocked:
+            app_logger.error(
+                f"Refusing to publish: {blocked}. Without a dedup ledger every story "
+                f"looks new and the run would repost the whole feed. Seed it with "
+                f"tools/seed_dedup_ledger.py, or set DEDUP_ALLOW_EMPTY_LEDGER=true "
+                f"for a genuinely fresh channel.")
+            await send_message_api(
+                build_error_message('ERROR: dedup ledger unavailable, run aborted',
+                                    RuntimeError(blocked), get_ci_run_url()),
+                telegram_bot_token, context)
+            return
+        if posted_d is None:
+            app_logger.warning(
+                "Empty dedup ledger accepted (DEDUP_ALLOW_EMPTY_LEDGER); "
+                "treating the channel as fresh")
+            posted_d = deque()
 
         app_logger.info(f"Dedup history: {len(posted_d)} unique heads")
 

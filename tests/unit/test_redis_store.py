@@ -95,26 +95,6 @@ async def test_dedup_drops_heads_older_than_ttl(fake, monkeypatch):
     assert await dedup.load(CONFIG) is None
 
 
-async def test_dedup_sync_due_is_true_before_first_seed(fake):
-    assert await dedup.sync_due(CONFIG) is True
-
-
-async def test_dedup_sync_due_is_false_right_after_seed(fake):
-    await dedup.seed(CONFIG, _posted(('Selecao convoca jogadores', {Platform.FACEBOOK})))
-
-    assert await dedup.sync_due(CONFIG) is False
-
-
-async def test_dedup_sync_due_again_after_the_resync_window(fake, monkeypatch):
-    await dedup.seed(CONFIG, _posted(('Selecao convoca jogadores', {Platform.FACEBOOK})))
-    _, _, synced_key = dedup._keys(CONFIG)
-    fake.strings[synced_key] = str(time.time() - 10_000)
-
-    monkeypatch.setattr(dedup, 'REDIS_DEDUP_RESYNC_SECONDS', 3600)
-
-    assert await dedup.sync_due(CONFIG) is True
-
-
 async def test_dedup_falls_back_when_redis_breaks_mid_run(fake):
     await dedup.record(CONFIG, 'Arbitragem sob investigacao', {Platform.FACEBOOK})
     fake.fail = True
@@ -253,3 +233,19 @@ async def test_queue_survives_a_broken_redis(fake):
         'handler_url_path': SaveFileUrl('http://img/x.jpg'), 'is_video': False,
     }) is None
     assert await candidate_queue.load(CONFIG, 10) == []
+
+
+def test_publish_is_allowed_once_the_ledger_has_heads():
+    assert dedup.publish_blocked(_posted(('h', {Platform.FACEBOOK})), True, False) == ''
+
+
+def test_publish_is_blocked_when_redis_is_unavailable():
+    assert dedup.publish_blocked(None, False, True) == 'Redis is unavailable'
+
+
+def test_publish_is_blocked_on_an_empty_ledger_by_default():
+    assert dedup.publish_blocked(None, True, False) == 'the Redis dedup ledger is empty'
+
+
+def test_empty_ledger_is_allowed_only_with_the_explicit_opt_in():
+    assert dedup.publish_blocked(None, True, True) == ''

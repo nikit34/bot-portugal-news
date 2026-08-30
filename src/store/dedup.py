@@ -5,7 +5,6 @@ from collections import deque
 from src.static.settings import (
     REDIS_DEDUP_ENABLED,
     REDIS_DEDUP_MAX_HEADS,
-    REDIS_DEDUP_RESYNC_SECONDS,
     REDIS_DEDUP_TTL_SECONDS,
     REDIS_NAMESPACE,
 )
@@ -124,21 +123,12 @@ async def seed(config_name, posted):
     return written
 
 
-async def sync_due(config_name):
-    """Пора ли снова сверить леджер с историей площадок (страховка от потери Redis)."""
-    client = await _client(config_name)
-    if client is None:
-        return True
-    if REDIS_DEDUP_RESYNC_SECONDS <= 0:
-        return False
-    _, _, synced_key = _keys(config_name)
-    try:
-        raw = await client.get(synced_key)
-    except Exception as e:
-        redis_client.mark_unavailable(e)
-        return True
-    try:
-        last = float(raw)
-    except (TypeError, ValueError):
-        return True
-    return (time.time() - last) >= REDIS_DEDUP_RESYNC_SECONDS
+def publish_blocked(posted, redis_ok, allow_empty):
+    """Причина, по которой публиковать нельзя, или пустая строка."""
+    if posted is not None:
+        return ''
+    if not redis_ok:
+        return 'Redis is unavailable'
+    if not allow_empty:
+        return 'the Redis dedup ledger is empty'
+    return ''
