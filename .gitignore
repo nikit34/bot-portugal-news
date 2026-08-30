@@ -27,3 +27,7 @@ src/static/voices/*.onnx
 src/static/voices/*.onnx.json
 
 **/__pycache__/
+
+# Session/tooling artefacts that keep landing in the working copy.
+.playwright-mcp/
+tesla_step3_review.png

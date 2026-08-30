@@ -58,6 +58,7 @@ from src.producers.reel import build_reel
 from src.producers.digest_video import build_digest_video, build_digest_caption
 from src.processor.ranker import candidate_score
 from src.static.sources import Platform
+from src.store import candidate_queue, dedup
 
 
 app_logger = logging.getLogger('app')
@@ -160,15 +161,60 @@ def should_stop():
     return budget_remaining() <= 0 or _scrape_budget_exceeded()
 
 
-async def drain_pool(client, graph, nlp, state):
+async def _load_queued_candidates(getter_client, context, posted_d):
+    """Кандидаты, недобранные прошлыми прогонами: очередь переживает завершение job'а."""
+    config_name = (context or {}).get('name')
+    if not config_name or not candidate_queue.enabled():
+        return []
+    limit = _pool_target() - len(_candidate_pool)
+    if limit <= 0:
+        return []
+
+    seen = {cand['head'] for cand in _candidate_pool}
+    restored = []
+    stale = []
+    for payload in await candidate_queue.load(config_name, limit + len(seen)):
+        head = payload.get('head')
+        if not head or head in seen:
+            continue
+        if is_duplicate_publish(
+                get_decisions_publish_platforms(head, posted_d, context['platforms'])):
+            stale.append(payload['member'])
+            continue
+        handler = await candidate_queue.rehydrate_media(payload.get('media'), getter_client)
+        if handler is None:
+            stale.append(payload['member'])
+            continue
+        seen.add(head)
+        restored.append({
+            'head': head, 'source': payload.get('source'), 'text': payload.get('text') or '',
+            'handler_url_path': handler, 'posted_d': posted_d, 'context': context,
+            'is_video': bool(payload.get('is_video')), 'queue_member': payload['member'],
+        })
+        if len(restored) >= limit:
+            break
+    await candidate_queue.remove(config_name, stale)
+    if restored:
+        app_logger.info(f"[queue] restored {len(restored)} candidate(s) from Redis")
+    return restored
+
+
+async def drain_pool(client, graph, nlp, state, getter_client=None, context=None, posted_d=None):
     # Phase 2 of the ranker: score the buffered candidates and publish the best ones
     # first, until the per-run post budget or wall-clock deadline stops us. The
     # heavy work (download/NSFW/uniquify/publish) happens only for drained items.
-    if not _candidate_pool:
+    pool = list(_candidate_pool)
+    if posted_d is None and pool:
+        posted_d = pool[0]['posted_d']
+    if context is None and pool:
+        context = pool[0]['context']
+    if posted_d is not None:
+        pool.extend(await _load_queued_candidates(getter_client, context, posted_d))
+    if not pool:
         return
     current_hour = time.gmtime().tm_hour
     scored = sorted(
-        ((candidate_score(cand, state, current_hour), cand) for cand in _candidate_pool),
+        ((candidate_score(cand, state, current_hour), cand) for cand in pool),
         key=lambda pair: pair[0], reverse=True)
     ranked = [cand for _, cand in scored]
     app_logger.info(f"[ranker] draining {len(ranked)} pooled candidates by score")
@@ -177,6 +223,7 @@ async def drain_pool(client, graph, nlp, state):
             f"[ranker] #{position} score={score:.2f} "
             f"pt={int(has_portugal_signal(cand['head'], cand['text']))} "
             f"video={int(bool(cand.get('is_video')))} {cand['source']} | {cand['head']}")
+    consumed = []
     try:
         for cand in ranked:
             # Drain uses the FULL run deadline (not the reserve-adjusted scrape stop)
@@ -186,8 +233,10 @@ async def drain_pool(client, graph, nlp, state):
             await _download_and_publish(
                 client, graph, nlp, cand['text'], cand['handler_url_path'],
                 cand['posted_d'], cand['context'], cand['source'], cand['head'])
+            consumed.append(cand.get('queue_member'))
     finally:
         _candidate_pool.clear()
+        await candidate_queue.remove((context or {}).get('name'), consumed)
 
 
 async def drain_digest(client, graph, nlp, state, context):
@@ -308,10 +357,12 @@ async def _publish_digest(client, graph, context, video_path, caption, used, hea
             return
         _published_count += 1
         mark_posted(posted_d, head, succeeded)
+        await dedup.record(context.get('name'), head, succeeded)
         for cand in used:
             # Сюжеты, ушедшие в ролик, помечаем использованными, чтобы в этом же
             # прогоне они не разошлись ещё и отдельными постами.
             mark_posted(cand['posted_d'], cand['head'], succeeded)
+            await dedup.record(context.get('name'), cand['head'], succeeded)
         # is_digest уводит reward дайджеста в СВОЙ бакет: его величина (минуты
         # просмотра длинного ролика) на порядок больше пост-уровня и, попав в
         # sources/hours, перекосила бы нормировку ранкера и бюджет часов.
@@ -406,11 +457,15 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
 
     if RANKER_ENABLED or _digest_mode:
         if len(_candidate_pool) < _pool_target():
-            _candidate_pool.append({
+            candidate = {
                 'head': head, 'source': source, 'text': translated_message,
                 'handler_url_path': handler_url_path, 'posted_d': posted_d, 'context': context,
                 'is_video': likely_video,
-            })
+            }
+            if not _digest_mode:
+                candidate['queue_member'] = await candidate_queue.push(
+                    context.get('name'), candidate)
+            _candidate_pool.append(candidate)
         return
 
     await _download_and_publish(
@@ -605,6 +660,7 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
                     if succeeded:
                         _published_count += 1
                         mark_posted(posted_d, head, succeeded)
+                        await dedup.record(context.get('name'), head, succeeded)
                         if source:
                             record = {'head': head, 'source': source, 'ts': time.time(),
                                       'is_video': is_video, 'fb_id': fb_post_id,

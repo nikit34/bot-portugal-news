@@ -33,6 +33,7 @@ from src.producers.instagram.producer import get_failure_counts
 from src.producers.facebook.producer import get_failure_counts as get_facebook_failure_counts
 from src.producers.reel import get_failure_counts as get_reel_failure_counts
 from src.properties_reader import get_secret_key
+from src.store import dedup, redis_client
 from src.static.settings import (
     COUNT_UNIQUE_MESSAGES,
     TARGET_LANGUAGE,
@@ -176,29 +177,42 @@ async def main(config_name, digest=False):
             set_digest_mode(True)
         today = time.strftime('%Y-%m-%d', time.gmtime())
 
-        app_logger.info("Fetching message history from Facebook, Instagram and Telegram")
-        # Fetch the three histories concurrently so adding Instagram doesn't extend
-        # startup: FB/IG are blocking `requests` calls (offloaded to threads), TG is async.
-        # Own-published history for dedup. Telegram is fetched only when the channel
-        # actually posts to Telegram — a FB+IG-only channel (e.g. food) has a
-        # placeholder self.telegram_channel, and resolving it raises
-        # UsernameNotOccupiedError, which would take the whole gather (and the run) down.
-        telegram_enabled = Platform.TELEGRAM in context['platforms']
+        posted_d = await dedup.load(config_name) if dedup.enabled() else None
+        needs_platform_history = posted_d is None or await dedup.sync_due(config_name)
 
-        async def _empty_history():
-            return []
+        if needs_platform_history:
+            app_logger.info("Fetching message history from Facebook, Instagram and Telegram")
+            # Fetch the three histories concurrently so adding Instagram doesn't extend
+            # startup: FB/IG are blocking `requests` calls (offloaded to threads), TG is async.
+            # Own-published history for dedup. Telegram is fetched only when the channel
+            # actually posts to Telegram — a FB+IG-only channel (e.g. food) has a
+            # placeholder self.telegram_channel, and resolving it raises
+            # UsernameNotOccupiedError, which would take the whole gather (and the run) down.
+            telegram_enabled = Platform.TELEGRAM in context['platforms']
 
-        facebook_history, instagram_history, telegram_history = await asyncio.gather(
-            asyncio.to_thread(get_facebook_published_messages, graph, context, COUNT_UNIQUE_MESSAGES),
-            asyncio.to_thread(get_instagram_published_messages, graph, context, COUNT_UNIQUE_MESSAGES),
-            get_telegram_published_messages(getter_client, COUNT_UNIQUE_MESSAGES, context)
-            if telegram_enabled else _empty_history(),
-        )
-        app_logger.info(
-            f"Loaded history — Facebook: {len(facebook_history)}, "
-            f"Instagram: {len(instagram_history)}, Telegram: {len(telegram_history)}")
+            async def _empty_history():
+                return []
 
-        posted_d = process_post_histories(facebook_history, telegram_history, instagram_history)
+            facebook_history, instagram_history, telegram_history = await asyncio.gather(
+                asyncio.to_thread(get_facebook_published_messages, graph, context, COUNT_UNIQUE_MESSAGES),
+                asyncio.to_thread(get_instagram_published_messages, graph, context, COUNT_UNIQUE_MESSAGES),
+                get_telegram_published_messages(getter_client, COUNT_UNIQUE_MESSAGES, context)
+                if telegram_enabled else _empty_history(),
+            )
+            app_logger.info(
+                f"Loaded history — Facebook: {len(facebook_history)}, "
+                f"Instagram: {len(instagram_history)}, Telegram: {len(telegram_history)}")
+
+            history_posted = process_post_histories(
+                facebook_history, telegram_history, instagram_history)
+            if dedup.enabled():
+                await dedup.seed(config_name, history_posted)
+                posted_d = await dedup.load(config_name) or history_posted
+            else:
+                posted_d = history_posted
+        else:
+            app_logger.info("Dedup ledger served from Redis; skipping platform history fetch")
+
         app_logger.info(f"Dedup history: {len(posted_d)} unique heads")
 
         state = learning.load_state(LEARNING_STATE_PATH)
@@ -294,7 +308,8 @@ async def main(config_name, digest=False):
         if digest:
             await drain_digest(client, graph, nlp, state, context)
         elif RANKER_ENABLED:
-            await drain_pool(client, graph, nlp, state)
+            await drain_pool(client, graph, nlp, state, getter_client=getter_client,
+                             context=context, posted_d=posted_d)
 
         app_logger.info(image_filter_summary())
 
@@ -415,6 +430,7 @@ async def main(config_name, digest=False):
             await close_abola_client()
         except Exception:
             app_logger.warning("Error closing abola HTTP client", exc_info=True)
+        await redis_client.close()
         app_logger.info("Cleanup completed")
         for tg_client in (client, getter_client):
             try:

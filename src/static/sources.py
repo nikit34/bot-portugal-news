@@ -49,6 +49,7 @@ def get_config(config_name):
         platforms[getattr(Platform, platform)] = value
 
     return {
+        'name': config_name,
         'platforms': platforms,
         'self_telegram_channel': config['self']['telegram_channel'],
         'self_telegram_debug_chat_id': config['self']['telegram_debug_chat_id'],

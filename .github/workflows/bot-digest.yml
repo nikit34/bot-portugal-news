@@ -92,6 +92,7 @@ jobs:
           TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
           TELEGRAM_SESSION: ${{ secrets.TELEGRAM_SESSION }}
           FACEBOOK_ACCESS_TOKEN: ${{ secrets.FACEBOOK_ACCESS_TOKEN }}
+          REDIS_URL: ${{ secrets.REDIS_URL }}
           LOG_LEVEL: ${{ github.event_name == 'schedule' && 'INFO' || inputs.log_level || 'DEBUG' }}
           DIGEST_ENABLED: 'true'
           AUDIENCE_FILTER_ENABLED: 'true'

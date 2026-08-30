@@ -549,3 +549,17 @@ DIGEST_TITLE = os.getenv('DIGEST_TITLE', 'Resumo do dia — %s')
 # Дублировать ли дайджест в Instagram. По умолчанию ВЫКЛ: IG за просмотры почти не
 # платит (Reels Play свернули), а лишняя публикация жжёт суточную квоту IG.
 DIGEST_TO_INSTAGRAM = _flag('DIGEST_TO_INSTAGRAM', 'false')
+
+REDIS_URL = os.getenv('REDIS_URL', '')
+REDIS_ENABLED = _flag('REDIS_ENABLED', 'true')
+REDIS_NAMESPACE = os.getenv('REDIS_NAMESPACE', 'botnews')
+REDIS_SOCKET_TIMEOUT_SECONDS = float(os.getenv('REDIS_SOCKET_TIMEOUT_SECONDS', '5'))
+
+REDIS_DEDUP_ENABLED = _flag('REDIS_DEDUP_ENABLED', 'true')
+REDIS_DEDUP_TTL_SECONDS = int(os.getenv('REDIS_DEDUP_TTL_SECONDS', str(30 * 24 * 3600)))
+REDIS_DEDUP_MAX_HEADS = int(os.getenv('REDIS_DEDUP_MAX_HEADS', str(COUNT_UNIQUE_MESSAGES)))
+REDIS_DEDUP_RESYNC_SECONDS = int(os.getenv('REDIS_DEDUP_RESYNC_SECONDS', str(24 * 3600)))
+
+REDIS_QUEUE_ENABLED = _flag('REDIS_QUEUE_ENABLED', 'true')
+REDIS_QUEUE_TTL_SECONDS = int(os.getenv('REDIS_QUEUE_TTL_SECONDS', '21600'))
+REDIS_QUEUE_MAX = int(os.getenv('REDIS_QUEUE_MAX', '200'))

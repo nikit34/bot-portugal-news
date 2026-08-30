@@ -9,6 +9,7 @@ from src.static.sources import Platform
 
 PLATFORMS = {Platform.ALL: None, Platform.FACEBOOK: True, Platform.INSTAGRAM: True, Platform.TELEGRAM: True}
 CONTEXT = {
+    'name': 'football',
     'platforms': PLATFORMS,
     'self_instagram_channel': 'IG',
     'self_facebook_page_id': 'FB',
@@ -474,3 +475,124 @@ async def test_digest_mode_ignores_post_budget(monkeypatch):
     svc._run_cap = 3
 
     assert svc.should_stop() is False
+
+
+@pytest.fixture
+def queue_redis():
+    from src.store import redis_client
+    from tests.unit.fake_redis import FakeRedis
+
+    client = FakeRedis()
+    redis_client.set_client(client)
+    yield client
+    redis_client.reset()
+
+
+def _queued_candidate(head='Benfica vence classico', url='http://img/x.jpg'):
+    from src.files_manager import SaveFileUrl
+
+    return {'head': head, 'source': 'abola.pt', 'text': 'Noticia do campeonato',
+            'handler_url_path': SaveFileUrl(url), 'is_video': False}
+
+
+async def test_pooled_candidate_is_pushed_to_the_redis_queue(monkeypatch, queue_redis):
+    from src.files_manager import SaveFileUrl
+    from src.store import candidate_queue
+
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+
+    await svc.serve(None, object(), _nlp, _Translator(),
+                    'Benfica vence o Porto numa noite memoravel no estadio da luz',
+                    SaveFileUrl('http://img/x.jpg'), deque(), CONTEXT, source='abola.pt')
+
+    assert len(svc._candidate_pool) == 1
+    assert svc._candidate_pool[0]['queue_member']
+    assert len(await candidate_queue.load('football', 10)) == 1
+
+
+async def test_digest_mode_does_not_push_to_the_redis_queue(monkeypatch, queue_redis):
+    from src.files_manager import SaveFileUrl
+    from src.store import candidate_queue
+
+    svc._digest_mode = True
+
+    await svc.serve(None, object(), _nlp, _Translator(),
+                    'Benfica vence o Porto numa noite memoravel no estadio da luz',
+                    SaveFileUrl('http://img/x.jpg'), deque(), CONTEXT, source='abola.pt')
+
+    assert len(svc._candidate_pool) == 1
+    assert await candidate_queue.load('football', 10) == []
+
+
+async def test_leftover_candidate_is_restored_on_the_next_run(monkeypatch, queue_redis):
+    from src.store import candidate_queue
+
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    await candidate_queue.push('football', _queued_candidate())
+
+    drained = []
+
+    async def fake_publish(client, graph, nlp, text, handler, posted, context, source, head):
+        drained.append(head)
+
+    monkeypatch.setattr(svc, '_download_and_publish', fake_publish)
+
+    await svc.drain_pool(None, object(), _nlp, {'sources': {}, 'hours': {}},
+                         context=CONTEXT, posted_d=deque())
+
+    assert drained == ['Benfica vence classico']
+    assert await candidate_queue.load('football', 10) == []
+
+
+async def test_restored_candidate_already_published_is_dropped(monkeypatch, queue_redis):
+    from src.store import candidate_queue
+
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    await candidate_queue.push('football', _queued_candidate())
+
+    drained = []
+
+    async def fake_publish(*args, **kwargs):
+        drained.append(args)
+
+    monkeypatch.setattr(svc, '_download_and_publish', fake_publish)
+    posted = deque([['Benfica vence classico', {Platform.FACEBOOK, Platform.INSTAGRAM,
+                                                Platform.TELEGRAM}]])
+
+    await svc.drain_pool(None, object(), _nlp, {'sources': {}, 'hours': {}},
+                         context=CONTEXT, posted_d=posted)
+
+    assert drained == []
+    assert await candidate_queue.load('football', 10) == []
+
+
+async def test_candidate_left_unpublished_stays_in_the_queue(monkeypatch, queue_redis):
+    from src.store import candidate_queue
+
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    svc._run_cap = 1
+    await candidate_queue.push('football', _queued_candidate('Benfica vence classico'))
+    await candidate_queue.push('football', _queued_candidate('Sporting empata fora de casa'))
+
+    async def fake_publish(client, graph, nlp, text, handler, posted, context, source, head):
+        svc._published_count += 1
+
+    monkeypatch.setattr(svc, '_download_and_publish', fake_publish)
+
+    await svc.drain_pool(None, object(), _nlp, {'sources': {}, 'hours': {}},
+                         context=CONTEXT, posted_d=deque())
+
+    left = await candidate_queue.load('football', 10)
+    assert len(left) == 1
+
+
+async def test_publishing_records_the_head_in_the_redis_ledger(monkeypatch, queue_redis):
+    from src.store import dedup
+
+    _mock_sends(monkeypatch)
+
+    await _serve()
+
+    loaded = await dedup.load('football')
+    assert loaded is not None
+    assert len(loaded) == 1
