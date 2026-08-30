@@ -7,7 +7,7 @@ from src.files_manager import SaveFileTelegram
 from src.processor.recipe_filter import is_recipe
 from src.processor.service import serve, should_stop
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, MESSAGE_CHUNK_SIZE, MAX_VIDEO_SIZE_MB
-from src.producers.telegram.telegram_api import send_message_api
+from src.producers.telegram.debug_chat import send_debug_message
 from src.utils.ci import get_ci_run_url
 from src.utils.notify import build_error_message
 
@@ -53,7 +53,7 @@ def _video_too_large(message):
     return bool(size) and size > MAX_VIDEO_SIZE_MB * 1024 * 1024
 
 
-async def telegram_wrapper(client, getter_client, graph, nlp, translator, telegram_bot_token, channel_link, posted_d, context):
+async def telegram_wrapper(client, getter_client, graph, nlp, translator, channel_link, posted_d, context):
     app_logger.info(f"[Telegram] Starting Telegram parser for channel: {channel_link}")
     try:
         await _telegram_parser(client, getter_client, graph, nlp, translator, channel_link, posted_d, context)
@@ -62,7 +62,7 @@ async def telegram_wrapper(client, getter_client, graph, nlp, translator, telegr
         app_logger.error(f"[Telegram] Error in Telegram parser for channel {channel_link}", exc_info=True)
         message = build_error_message(f'ERROR: {channel_link} telegram parser is down', e, get_ci_run_url())
         app_logger.error(message)
-        await send_message_api(message, telegram_bot_token, context)
+        await send_debug_message(message, client, context)
 
 
 async def _process_message_chunk(

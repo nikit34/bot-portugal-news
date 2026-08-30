@@ -25,7 +25,7 @@ from src.processor.service import serve, should_stop
 from src.static.settings import (
     MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS, MESSAGE_CHUNK_SIZE, RSS_VIDEO_ENABLED,
     RECIPE_PAGE_FETCH_ENABLED, RECIPE_PAGE_FETCH_TIMEOUT, RECIPE_PAGE_FETCH_MAX_PER_RUN)
-from src.producers.telegram.telegram_api import send_message_api
+from src.producers.telegram.debug_chat import send_debug_message
 from src.parsers.rss.user_agents_manager import random_user_agent_headers
 from src.utils.ci import get_ci_run_url
 from src.utils.notify import build_error_message
@@ -39,19 +39,19 @@ stats_logger = logging.getLogger('stats')
 _page_fetch_count = 0
 
 
-async def rss_wrapper(client, graph, nlp, translator, telegram_bot_token, source, rss_link, posted_d, context):
+async def rss_wrapper(client, graph, nlp, translator, source, rss_link, posted_d, context):
     try:
         app_logger.info(f"[RSS] Starting RSS parser for source: {source}, RSS link: {rss_link}")
-        await _rss_parser(client, graph, nlp, translator, telegram_bot_token, source, rss_link, posted_d, context)
+        await _rss_parser(client, graph, nlp, translator, source, rss_link, posted_d, context)
         app_logger.info(f"[RSS] RSS parser completed successfully for source: {source}, RSS link: {rss_link}")
     except Exception as e:
         app_logger.error(f"[RSS] Error in RSS parser for source: {source}, RSS link: {rss_link}", exc_info=True)
         message = build_error_message(f'ERROR: {source} rss parser is down', e, get_ci_run_url())
         app_logger.error(message, exc_info=True)
-        await send_message_api(message, telegram_bot_token, context)
+        await send_debug_message(message, client, context)
 
 
-async def _make_request(rss_link, telegram_bot_token, context, repeat=REPEAT_REQUESTS):
+async def _make_request(rss_link, client, context, repeat=REPEAT_REQUESTS):
     # follow_redirects: многие валидные RSS отдают 301 (www↔без-www, http→https,
     # переезд пути — teleculinaria, sapo /data/rss, blogspot→свой домен). Без этого
     # raise_for_status() считает редирект ошибкой и фид молча выпадает. Рабочие фиды
@@ -76,7 +76,7 @@ async def _make_request(rss_link, telegram_bot_token, context, repeat=REPEAT_REQ
                 else:
                     message = build_error_message(f'ERROR: {rss_link} request is down', e, get_ci_run_url())
                     app_logger.error(message, exc_info=True)
-                    await send_message_api(message, telegram_bot_token, context)
+                    await send_debug_message(message, client, context)
     finally:
         await httpx_client.aclose()
 
@@ -295,14 +295,13 @@ async def _rss_parser(
         graph,
         nlp,
         translator,
-        telegram_bot_token,
         source,
         rss_link,
         posted_d,
         context
 ):
     app_logger.info(f"[RSS] Starting RSS parser for {source}, RSS link: {rss_link}")
-    response = await _make_request(rss_link, telegram_bot_token, context)
+    response = await _make_request(rss_link, client, context)
     if response is None:
         app_logger.error(f"[RSS] No response received for {source}, RSS link: {rss_link}; skipping")
         return

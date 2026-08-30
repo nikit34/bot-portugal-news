@@ -81,7 +81,7 @@ from src.static.settings import (
     DEDUP_ALLOW_EMPTY_LEDGER,
 )
 from src.static.sources import get_config
-from src.producers.telegram.telegram_api import send_message_api
+from src.producers.telegram.debug_chat import send_debug_message
 from src.utils.logger import setup_logging
 from src.utils.ci import get_ci_run_url
 from src.utils.notify import build_error_message, build_run_summary
@@ -127,19 +127,17 @@ async def main(config_name, digest=False):
     app_logger.debug("Loading secret keys")
     telegram_api_id = get_secret_key('.', 'TELEGRAM_API_ID')
     telegram_api_hash = get_secret_key('.', 'TELEGRAM_API_HASH')
-    telegram_bot_token = get_secret_key('.', 'TELEGRAM_TOKEN_BOT')
     facebook_access_token = get_secret_key('.', 'FACEBOOK_ACCESS_TOKEN')
     app_logger.debug("Secret keys loaded successfully")
 
-    app_logger.info("Initializing Telegram clients")
-    client = TelegramClient('bot', telegram_api_id, telegram_api_hash)
+    app_logger.info("Initializing Telegram client")
     # User-account session: prefer the TELEGRAM_SESSION secret (StringSession) so the
     # credential lives in CI secrets, not in a committed .session file; fall back to
     # the local 'getter_bot' file session for local development.
     telegram_session = os.environ.get('TELEGRAM_SESSION')
     getter_session = StringSession(telegram_session) if telegram_session else 'getter_bot'
     getter_client = TelegramClient(getter_session, telegram_api_id, telegram_api_hash)
-    app_logger.debug("Telegram clients created")
+    app_logger.debug("Telegram client created")
 
     app_logger.info("Initializing Facebook Graph API")
     graph = fb.GraphAPI(access_token=facebook_access_token)
@@ -151,13 +149,9 @@ async def main(config_name, digest=False):
     translator = GoogleTranslator(source='auto', target=TARGET_LANGUAGE)
     app_logger.debug("NLP model and translator loaded successfully")
 
-    app_logger.info("Starting Telegram clients")
-    tasks = [
-        client.start(bot_token=telegram_bot_token),
-        getter_client.start()
-    ]
-    await asyncio.gather(*tasks)
-    app_logger.info("Telegram clients started successfully")
+    app_logger.info("Starting Telegram client")
+    await getter_client.start()
+    app_logger.info("Telegram client started successfully")
 
     try:
         # Per-run wall-clock budget so "nothing fresh" runs don't scrape every source
@@ -182,10 +176,10 @@ async def main(config_name, digest=False):
                 f"looks new and the run would repost the whole feed. Seed it with "
                 f"tools/seed_dedup_ledger.py, or set DEDUP_ALLOW_EMPTY_LEDGER=true "
                 f"for a genuinely fresh channel.")
-            await send_message_api(
+            await send_debug_message(
                 build_error_message('ERROR: dedup ledger unavailable, run aborted',
                                     RuntimeError(blocked), get_ci_run_url()),
-                telegram_bot_token, context)
+                getter_client, context)
             return
         if posted_d is None:
             app_logger.warning(
@@ -244,14 +238,14 @@ async def main(config_name, digest=False):
 
         for channel_link in context['telegram_channels']:
             source_jobs.append((channel_link, lambda channel_link=channel_link: telegram_wrapper(
-                client=client, getter_client=getter_client, graph=graph, nlp=nlp,
-                translator=translator, telegram_bot_token=telegram_bot_token,
+                client=getter_client, getter_client=getter_client, graph=graph, nlp=nlp,
+                translator=translator,
                 channel_link=channel_link, posted_d=posted_d, context=context)))
 
         for source, rss_link in context['rss_channels'].items():
             source_jobs.append((source, lambda source=source, rss_link=rss_link: rss_wrapper(
-                client=client, graph=graph, nlp=nlp, translator=translator,
-                telegram_bot_token=telegram_bot_token, source=source, rss_link=rss_link,
+                client=getter_client, graph=graph, nlp=nlp, translator=translator,
+                source=source, rss_link=rss_link,
                 posted_d=posted_d, context=context)))
 
         # Source bias only kicks in once enough sources are well-sampled — otherwise
@@ -286,9 +280,9 @@ async def main(config_name, digest=False):
         # Phase 2: собрать длинный дайджест-ролик из лучших кандидатов (режим
         # дайджеста) либо опубликовать топ-K по отдельности (обычный ранкер).
         if digest:
-            await drain_digest(client, graph, nlp, state, context)
+            await drain_digest(getter_client, graph, nlp, state, context)
         elif RANKER_ENABLED:
-            await drain_pool(client, graph, nlp, state, getter_client=getter_client,
+            await drain_pool(getter_client, graph, nlp, state, getter_client=getter_client,
                              context=context, posted_d=posted_d)
 
         app_logger.info(image_filter_summary())
@@ -378,7 +372,7 @@ async def main(config_name, digest=False):
 
         if send_digest:
             await report_insights(
-                graph, telegram_bot_token, context,
+                graph, getter_client, context,
                 source_ranking=learning.top_sources(state['sources']),
                 hour_ranking=learning.top_sources(state['hours']),
                 dow_hour_ranking=learning.top_sources(state.get('dow_hours', {})),
@@ -397,12 +391,12 @@ async def main(config_name, digest=False):
                         **get_reel_failure_counts()}
             if stats['posts'] or any(failures.values()) or stats['meta_circuit_open']:
                 summary = build_run_summary(stats, failures, image_filter_summary())
-                await send_message_api(summary, telegram_bot_token, context)
+                await send_debug_message(summary, getter_client, context)
     except Exception as e:
         app_logger.error("Critical error occurred during execution", exc_info=True)
         message = build_error_message('ERROR: Parsers is down', e, get_ci_run_url())
         app_logger.error(message)
-        await send_message_api(message, telegram_bot_token, context)
+        await send_debug_message(message, getter_client, context)
     finally:
         app_logger.info("Cleaning up temporary files")
         clean_tmp_folder()
@@ -412,12 +406,11 @@ async def main(config_name, digest=False):
             app_logger.warning("Error closing abola HTTP client", exc_info=True)
         await redis_client.close()
         app_logger.info("Cleanup completed")
-        for tg_client in (client, getter_client):
-            try:
-                await tg_client.disconnect()
-            except Exception:
-                app_logger.warning("Error disconnecting Telegram client", exc_info=True)
-        app_logger.info("Telegram clients disconnected")
+        try:
+            await getter_client.disconnect()
+        except Exception:
+            app_logger.warning("Error disconnecting Telegram client", exc_info=True)
+        app_logger.info("Telegram client disconnected")
 
 
 if __name__ == '__main__':
