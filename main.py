@@ -150,8 +150,22 @@ async def main(config_name, digest=False):
     app_logger.debug("NLP model and translator loaded successfully")
 
     app_logger.info("Starting Telegram client")
-    await getter_client.start()
-    app_logger.info("Telegram client started successfully")
+    # Телеграм теперь только один из источников, поэтому мёртвая сессия (отозвана,
+    # истекла) не должна ронять прогон: RSS-источники и публикация в Facebook и
+    # Instagram от неё не зависят. auth_callbacks: без TTY telethon иначе уходит в
+    # интерактивный логин и падает с EOFError.
+    try:
+        await getter_client.start(
+            phone=lambda: (_ for _ in ()).throw(RuntimeError('session is not authorized')),
+            bot_token=None)
+        app_logger.info("Telegram client started successfully")
+    except Exception as e:
+        app_logger.error(
+            f"Telegram session unusable ({e}); skipping Telegram sources for this run. "
+            f"Reissue it with reauth.py and update the TELEGRAM_SESSION secret.")
+        report(build_error_message(
+            'WARNING: Telegram session unusable, sources skipped', e, get_ci_run_url()))
+        getter_client = None
 
     try:
         # Per-run wall-clock budget so "nothing fresh" runs don't scrape every source
@@ -234,7 +248,7 @@ async def main(config_name, digest=False):
         # skipping the fetch of the remaining lower-ranked sources.
         source_jobs = []
 
-        for channel_link in context['telegram_channels']:
+        for channel_link in (context['telegram_channels'] if getter_client else []):
             source_jobs.append((channel_link, lambda channel_link=channel_link: telegram_wrapper(
                 getter_client=getter_client, graph=graph, nlp=nlp,
                 translator=translator,
@@ -404,11 +418,12 @@ async def main(config_name, digest=False):
             app_logger.warning("Error closing abola HTTP client", exc_info=True)
         await redis_client.close()
         app_logger.info("Cleanup completed")
-        try:
-            await getter_client.disconnect()
-        except Exception:
-            app_logger.warning("Error disconnecting Telegram client", exc_info=True)
-        app_logger.info("Telegram client disconnected")
+        if getter_client is not None:
+            try:
+                await getter_client.disconnect()
+            except Exception:
+                app_logger.warning("Error disconnecting Telegram client", exc_info=True)
+            app_logger.info("Telegram client disconnected")
 
 
 if __name__ == '__main__':
