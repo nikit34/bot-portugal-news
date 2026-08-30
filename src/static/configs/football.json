@@ -1,15 +1,13 @@
 {
     "platforms": {
         "ALL": null,
-        "TELEGRAM": true,
         "FACEBOOK": true,
         "INSTAGRAM": true
     },
     "self": {
-        "telegram_channel": "https://t.me/sportportugal",
-        "telegram_debug_chat_id": "-1002178707665",
         "facebook_page_id": "348454375016310",
-        "instagram_channel": "17841467413345329"
+        "instagram_channel": "17841467413345329",
+        "watermark_handle": "@desportportugal"
     },
     "native_language_sources": [
         "abola.pt",

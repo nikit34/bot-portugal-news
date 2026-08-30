@@ -1,33 +1,31 @@
 {
-  "platforms": {
-    "ALL": null,
-    "FACEBOOK": true,
-    "INSTAGRAM": true
-  },
-  "recipe_only": true,
-  "self": {
-    "telegram_channel": "https://t.me/CHANGE_ME_food_channel",
-    "telegram_debug_chat_id": "-1003908815503",
-    "facebook_page_id": "1245348061988891",
-    "instagram_channel": "17841412428059741"
-  },
-  "telegram_channels": [
-    "https://t.me/receitas_br",
-    "https://t.me/culinariadiaadia",
-    "https://t.me/Brasil_Receitas"
-  ],
-  "rss_channels": {
-    "receitatodahora": "https://receitatodahora.com.br/feed/",
-    "cozinhalegal": "https://cozinhalegal.com.br/feed/",
-    "receitasdemae": "https://www.receitasdemae.com.br/feed/",
-    "teleculinaria": "https://www.teleculinaria.pt/feed/",
-    "cincoquartosdelaranja": "https://cincoquartosdelaranja.blogspot.com/feeds/posts/default?alt=rss",
-    "receitasdatia": "https://receitasdatia.blogs.sapo.pt/rss",
-    "receitasja": "https://www.receitasja.com/feed/",
-    "acasaencantada": "https://www.acasaencantada.com.br/feed/",
-    "naminhapanela": "https://naminhapanela.com/feed/",
-    "cozinhadaduxa": "https://cozinhadaduxa.blogspot.com/feeds/posts/default?alt=rss",
-    "cozinhaportuguesa": "https://cozinhaportuguesa.blogspot.com/feeds/posts/default?alt=rss",
-    "receitasdafatima": "https://receitasdafatima.blogspot.com/feeds/posts/default?alt=rss"
-  }
+    "platforms": {
+        "ALL": null,
+        "FACEBOOK": true,
+        "INSTAGRAM": true
+    },
+    "recipe_only": true,
+    "self": {
+        "facebook_page_id": "1245348061988891",
+        "instagram_channel": "17841412428059741"
+    },
+    "telegram_channels": [
+        "https://t.me/receitas_br",
+        "https://t.me/culinariadiaadia",
+        "https://t.me/Brasil_Receitas"
+    ],
+    "rss_channels": {
+        "receitatodahora": "https://receitatodahora.com.br/feed/",
+        "cozinhalegal": "https://cozinhalegal.com.br/feed/",
+        "receitasdemae": "https://www.receitasdemae.com.br/feed/",
+        "teleculinaria": "https://www.teleculinaria.pt/feed/",
+        "cincoquartosdelaranja": "https://cincoquartosdelaranja.blogspot.com/feeds/posts/default?alt=rss",
+        "receitasdatia": "https://receitasdatia.blogs.sapo.pt/rss",
+        "receitasja": "https://www.receitasja.com/feed/",
+        "acasaencantada": "https://www.acasaencantada.com.br/feed/",
+        "naminhapanela": "https://naminhapanela.com/feed/",
+        "cozinhadaduxa": "https://cozinhadaduxa.blogspot.com/feeds/posts/default?alt=rss",
+        "cozinhaportuguesa": "https://cozinhaportuguesa.blogspot.com/feeds/posts/default?alt=rss",
+        "receitasdafatima": "https://receitasdafatima.blogspot.com/feeds/posts/default?alt=rss"
+    }
 }

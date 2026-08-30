@@ -21,10 +21,6 @@ from src.producers.instagram.producer import (
     instagram_prepare_post,
     instagram_send_message
 )
-from src.producers.telegram.producer import (
-    telegram_prepare_post,
-    telegram_send_message
-)
 from src.producers.media_uniquify import apply_uniquify
 from src.producers.hashtags import extract_hashtags
 from src.static.settings import (
@@ -199,7 +195,7 @@ async def _load_queued_candidates(getter_client, context, posted_d):
     return restored
 
 
-async def drain_pool(client, graph, nlp, state, getter_client=None, context=None, posted_d=None):
+async def drain_pool(graph, nlp, state, getter_client=None, context=None, posted_d=None):
     # Phase 2 of the ranker: score the buffered candidates and publish the best ones
     # first, until the per-run post budget or wall-clock deadline stops us. The
     # heavy work (download/NSFW/uniquify/publish) happens only for drained items.
@@ -231,7 +227,7 @@ async def drain_pool(client, graph, nlp, state, getter_client=None, context=None
             if budget_remaining() <= 0 or time_budget_exceeded():
                 break
             await _download_and_publish(
-                client, graph, nlp, cand['text'], cand['handler_url_path'],
+                graph, nlp, cand['text'], cand['handler_url_path'],
                 cand['posted_d'], cand['context'], cand['source'], cand['head'])
             consumed.append(cand.get('queue_member'))
     finally:
@@ -239,7 +235,7 @@ async def drain_pool(client, graph, nlp, state, getter_client=None, context=None
         await candidate_queue.remove((context or {}).get('name'), consumed)
 
 
-async def drain_digest(client, graph, nlp, state, context):
+async def drain_digest(graph, nlp, state, context):
     # Фаза 2 в режиме ДАЙДЖЕСТА: вместо N отдельных перепостов собираем из лучших
     # кандидатов один длинный озвученный ролик и публикуем его ОДИН раз.
     #
@@ -284,7 +280,7 @@ async def drain_digest(client, graph, nlp, state, context):
 
         title = DIGEST_TITLE % time.strftime('%d.%m.%Y', time.gmtime())
         caption = build_digest_caption(title, headlines)
-        await _publish_digest(client, graph, context, video_path, caption, used, title)
+        await _publish_digest(graph, context, video_path, caption, used, title)
     finally:
         for item in items:
             path = item.get('path')
@@ -293,7 +289,7 @@ async def drain_digest(client, graph, nlp, state, context):
         _candidate_pool.clear()
 
 
-async def _publish_digest(client, graph, context, video_path, caption, used, head):
+async def _publish_digest(graph, context, video_path, caption, used, head):
     # Публикация готового ролика. Facebook — цель (там деньги), Telegram — витрина.
     # Instagram по умолчанию выключен: за просмотры он почти не платит, а публикация
     # всё равно съест суточную квоту IG.
@@ -307,8 +303,6 @@ async def _publish_digest(client, graph, context, video_path, caption, used, hea
         if DIGEST_TO_INSTAGRAM and Platform.INSTAGRAM in context['platforms'] \
                 and _ig_daily_count < _ig_daily_limit:
             targets.append(Platform.INSTAGRAM)
-        if Platform.TELEGRAM in context['platforms']:
-            targets.append(Platform.TELEGRAM)
         if _meta_circuit_open:
             targets = [t for t in targets if t not in (Platform.FACEBOOK, Platform.INSTAGRAM)]
         if not targets:
@@ -325,9 +319,6 @@ async def _publish_digest(client, graph, context, video_path, caption, used, hea
             elif platform is Platform.INSTAGRAM:
                 coros.append(instagram_send_message(
                     graph, caption, None, url_path, context, publish_story=False))
-            else:
-                coros.append(telegram_send_message(
-                    client, telegram_prepare_post(caption), url_path, context))
 
         results = await asyncio.gather(*coros, return_exceptions=True)
 
@@ -392,7 +383,7 @@ def get_run_stats():
     }
 
 
-async def serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d,
+async def serve(graph, nlp, translator, message_text, handler_url_path, posted_d,
                 context, source=None, is_video_hint=False, recipe_checked=False):
     # Phase-1 intake: cheap text-only filters + dedup + budget check. With the ranker
     # OFF (default) we publish inline immediately (unchanged FIFO behavior); with it
@@ -469,7 +460,7 @@ async def serve(client, graph, nlp, translator, message_text, handler_url_path, 
         return
 
     await _download_and_publish(
-        client, graph, nlp, translated_message, handler_url_path, posted_d, context, source, head)
+        graph, nlp, translated_message, handler_url_path, posted_d, context, source, head)
 
 
 async def _download_and_filter(handler_url_path, nlp, translated_message, source, head):
@@ -516,7 +507,7 @@ async def _download_and_filter(handler_url_path, nlp, translated_message, source
     return url_path, is_video, doc
 
 
-async def _download_and_publish(client, graph, nlp, translated_message, handler_url_path,
+async def _download_and_publish(graph, nlp, translated_message, handler_url_path,
                                 posted_d, context, source, head):
     # Phase-2 core: download media, run media filters, build the original card,
     # uniquify, then publish under the lock. Shared by the inline path (ranker off)
@@ -621,9 +612,6 @@ async def _download_and_publish(client, graph, nlp, translated_message, handler_
                             coros.append(instagram_send_message(
                                 graph, ig_caption, ig_comment, url_path, context,
                                 publish_story=publish_story))
-                        else:
-                            coros.append(telegram_send_message(
-                                client, telegram_prepare_post(translated_message), url_path, context))
 
                     results = await asyncio.gather(*coros, return_exceptions=True)
 
@@ -683,8 +671,6 @@ def _targets_from_decisions(decisions, url_path):
         targets.append(Platform.FACEBOOK)
     if decisions.get(Platform.INSTAGRAM, False) and _instagram_publishable(url_path):
         targets.append(Platform.INSTAGRAM)
-    if decisions.get(Platform.TELEGRAM, False):
-        targets.append(Platform.TELEGRAM)
     return targets
 
 

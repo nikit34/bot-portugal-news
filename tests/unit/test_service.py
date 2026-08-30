@@ -7,13 +7,12 @@ import src.processor.service as svc
 from src.static.sources import Platform
 
 
-PLATFORMS = {Platform.ALL: None, Platform.FACEBOOK: True, Platform.INSTAGRAM: True, Platform.TELEGRAM: True}
+PLATFORMS = {Platform.ALL: None, Platform.FACEBOOK: True, Platform.INSTAGRAM: True}
 CONTEXT = {
     'name': 'football',
     'platforms': PLATFORMS,
     'self_instagram_channel': 'IG',
     'self_facebook_page_id': 'FB',
-    'self_telegram_channel': 'tg',
 }
 
 
@@ -71,7 +70,6 @@ def _reset(monkeypatch):
     monkeypatch.setattr(svc, 'is_unsafe_image', lambda p: False)
     monkeypatch.setattr(svc, 'facebook_prepare_post', lambda msg, doc: msg)
     monkeypatch.setattr(svc, 'instagram_prepare_post', lambda msg, doc: (msg, ''))
-    monkeypatch.setattr(svc, 'telegram_prepare_post', lambda msg: msg)
 
 
 def _mock_sends(monkeypatch, fail=()):
@@ -87,13 +85,12 @@ def _mock_sends(monkeypatch, fail=()):
 
     monkeypatch.setattr(svc, 'facebook_send_message', make(Platform.FACEBOOK))
     monkeypatch.setattr(svc, 'instagram_send_message', make(Platform.INSTAGRAM))
-    monkeypatch.setattr(svc, 'telegram_send_message', make(Platform.TELEGRAM))
     return calls
 
 
 async def _serve(message='Benfica vence o Porto numa noite memoravel no estadio da luz', posted=None, source='abola.pt'):
     posted = deque() if posted is None else posted
-    await svc.serve(None, object(), _nlp, _Translator(), message, _url_path, posted, CONTEXT, source=source)
+    await svc.serve(object(), _nlp, _Translator(), message, _url_path, posted, CONTEXT, source=source)
     return posted
 
 
@@ -101,13 +98,13 @@ async def test_fresh_post_publishes_to_all_platforms(monkeypatch):
     calls = _mock_sends(monkeypatch)
     posted = await _serve()
 
-    assert set(calls) == {Platform.FACEBOOK, Platform.INSTAGRAM, Platform.TELEGRAM}
+    assert set(calls) == {Platform.FACEBOOK, Platform.INSTAGRAM}
     assert svc._published_count == 1
     assert svc._ig_posts_this_run == 1
-    assert svc.get_run_stats()['platforms'] == {'FACEBOOK': 1, 'INSTAGRAM': 1, 'TELEGRAM': 1}
+    assert svc.get_run_stats()['platforms'] == {'FACEBOOK': 1, 'INSTAGRAM': 1}
     assert len(svc.get_publish_records()) == 1 and svc.get_publish_records()[0]['source'] == 'abola.pt'
     # mark_posted recorded the head on all three platforms
-    assert len(posted) == 1 and posted[0][1] == {Platform.FACEBOOK, Platform.INSTAGRAM, Platform.TELEGRAM}
+    assert len(posted) == 1 and posted[0][1] == {Platform.FACEBOOK, Platform.INSTAGRAM}
 
 
 def _count_tags(monkeypatch):
@@ -138,7 +135,7 @@ async def test_duplicate_is_skipped(monkeypatch):
     calls = _mock_sends(monkeypatch)
     from src.processor.history_comparator import make_head
     head = make_head('Benfica vence o Porto numa noite memoravel no estadio da luz')
-    posted = deque([[head, {Platform.FACEBOOK, Platform.INSTAGRAM, Platform.TELEGRAM}]])
+    posted = deque([[head, {Platform.FACEBOOK, Platform.INSTAGRAM}]])
 
     await _serve(posted=posted)
 
@@ -175,7 +172,7 @@ async def test_missing_media_path_is_skipped(monkeypatch):
         return {'url': 'tg://media', 'path': None}
 
     posted = deque()
-    await svc.serve(None, object(), _nlp, _Translator(),
+    await svc.serve(object(), _nlp, _Translator(),
                     'Benfica vence o Porto numa noite memoravel no estadio da luz',
                     _no_file, posted, CONTEXT, source='t.me/x')
 
@@ -185,14 +182,13 @@ async def test_missing_media_path_is_skipped(monkeypatch):
 
 
 async def test_meta_rate_limit_opens_circuit(monkeypatch):
-    # FB rate-limited; IG+TG still publish, and the Meta circuit latches open.
     calls = _mock_sends(monkeypatch, fail={Platform.FACEBOOK: _RateLimited()})
 
     await _serve()
 
     assert svc._meta_circuit_open is True
-    assert Platform.TELEGRAM in calls
-    assert svc._published_count == 1  # IG/TG succeeded
+    assert Platform.INSTAGRAM in calls
+    assert svc._published_count == 1
 
 
 async def test_ig_daily_quota_skips_instagram(monkeypatch):
@@ -202,7 +198,7 @@ async def test_ig_daily_quota_skips_instagram(monkeypatch):
     await _serve()
 
     assert Platform.INSTAGRAM not in calls
-    assert {Platform.FACEBOOK, Platform.TELEGRAM} <= set(calls)
+    assert Platform.FACEBOOK in calls
     assert svc._ig_posts_this_run == 0
 
 
@@ -215,17 +211,17 @@ async def test_ranker_pools_in_phase1_then_drains(monkeypatch):
     calls = _mock_sends(monkeypatch)
 
     posted = deque()
-    await svc.serve(None, object(), _nlp, _Translator(),
+    await svc.serve(object(), _nlp, _Translator(),
                     'Benfica vence o Porto numa noite memoravel no estadio da luz',
                     _url_path, posted, CONTEXT, source='abola.pt')
-    await svc.serve(None, object(), _nlp, _Translator(),
+    await svc.serve(object(), _nlp, _Translator(),
                     'Sporting empata fora e segue lider isolado na tabela da liga portuguesa',
                     _url_path, posted, CONTEXT, source='rtp.pt')
 
     assert calls == []                       # phase 1 publishes nothing
     assert len(svc._candidate_pool) == 2
 
-    await svc.drain_pool(None, object(), _nlp, {'sources': {}, 'hours': {}})
+    await svc.drain_pool(object(), _nlp, {'sources': {}, 'hours': {}})
 
     assert svc._published_count >= 1          # phase 2 published
     assert svc._candidate_pool == []          # pool drained and cleared
@@ -242,7 +238,7 @@ async def test_low_semantic_load_gated_before_pooling(monkeypatch):
     thin_nlp = lambda _text: _Doc(n=1)  # 1 keyword < MINIMUM_NUMBER_KEYWORDS -> low load
 
     posted = deque()
-    await svc.serve(None, object(), thin_nlp, _Translator(),
+    await svc.serve(object(), thin_nlp, _Translator(),
                     '🔥 FC Porto 🆚 Benfica', _url_path, posted, CONTEXT, source='t.me/x')
 
     assert calls == []                    # nothing published
@@ -261,7 +257,7 @@ async def test_video_hint_exempts_low_semantic_gate_and_pools(monkeypatch):
     thin_nlp = lambda _text: _Doc(n=1)  # would trip the low-semantic gate for a photo
 
     posted = deque()
-    await svc.serve(None, object(), thin_nlp, _Translator(),
+    await svc.serve(object(), thin_nlp, _Translator(),
                     '🔥 Golo do Benfica!', _url_path, posted, CONTEXT,
                     source='t.me/x', is_video_hint=True)
 
@@ -280,7 +276,7 @@ async def test_photo_still_gated_without_hint(monkeypatch):
     thin_nlp = lambda _text: _Doc(n=1)
 
     posted = deque()
-    await svc.serve(None, object(), thin_nlp, _Translator(),
+    await svc.serve(object(), thin_nlp, _Translator(),
                     '🔥 Golo do Benfica!', _url_path, posted, CONTEXT, source='t.me/x')
 
     assert calls == []
@@ -293,7 +289,7 @@ async def test_recipe_only_config_drops_unchecked_post(monkeypatch):
     calls = _mock_sends(monkeypatch)
     context = {**CONTEXT, 'recipe_only': True}
 
-    await svc.serve(None, object(), _nlp, _Translator(), 'Chef abre novo restaurante no Porto',
+    await svc.serve(object(), _nlp, _Translator(), 'Chef abre novo restaurante no Porto',
                     _url_path, deque(), context, source='rss')
 
     assert calls == []
@@ -304,10 +300,10 @@ async def test_recipe_only_config_publishes_checked_post(monkeypatch):
     calls = _mock_sends(monkeypatch)
     context = {**CONTEXT, 'recipe_only': True}
 
-    await svc.serve(None, object(), _nlp, _Translator(), 'Bolo de cenoura fofinho: ingredientes e modo de preparo',
+    await svc.serve(object(), _nlp, _Translator(), 'Bolo de cenoura fofinho: ingredientes e modo de preparo',
                     _url_path, deque(), context, source='rss', recipe_checked=True)
 
-    assert set(calls) == {Platform.FACEBOOK, Platform.INSTAGRAM, Platform.TELEGRAM}
+    assert set(calls) == {Platform.FACEBOOK, Platform.INSTAGRAM}
     assert svc._published_count == 1
 
 
@@ -317,7 +313,7 @@ async def test_recipe_gate_does_not_touch_other_configs(monkeypatch):
 
     await _serve()
 
-    assert set(calls) == {Platform.FACEBOOK, Platform.INSTAGRAM, Platform.TELEGRAM}
+    assert set(calls) == {Platform.FACEBOOK, Platform.INSTAGRAM}
 
 
 async def test_should_stop_on_budget_and_deadline():
@@ -371,7 +367,7 @@ async def test_digest_publishes_single_long_video(monkeypatch):
     seen = _stub_digest(monkeypatch)
     svc._candidate_pool = _digest_candidates()
 
-    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+    await svc.drain_digest(object(), _nlp, {}, CONTEXT)
 
     # ОДНА публикация вместо шести перепостов
     assert svc._published_count == 1
@@ -386,7 +382,7 @@ async def test_digest_record_is_isolated_from_source_learning(monkeypatch):
     _stub_digest(monkeypatch)
     svc._candidate_pool = _digest_candidates()
 
-    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+    await svc.drain_digest(object(), _nlp, {}, CONTEXT)
 
     record = svc.get_publish_records()[0]
     assert record['is_digest'] is True and record['source'] == 'digest'
@@ -401,7 +397,7 @@ async def test_digest_skips_video_candidates(monkeypatch):
     seen = _stub_digest(monkeypatch)
     svc._candidate_pool = _digest_candidates(3) + _digest_candidates(3, is_video=True)
 
-    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+    await svc.drain_digest(object(), _nlp, {}, CONTEXT)
 
     assert len(seen['items']) == 3
 
@@ -411,7 +407,7 @@ async def test_digest_not_published_when_render_fails(monkeypatch):
     _stub_digest(monkeypatch, video_path=None)
     svc._candidate_pool = _digest_candidates()
 
-    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+    await svc.drain_digest(object(), _nlp, {}, CONTEXT)
 
     assert calls == []
     assert svc._published_count == 0
@@ -425,7 +421,7 @@ async def test_digest_marks_used_stories_posted(monkeypatch):
     posted = candidates[0]['posted_d']      # drain_digest очищает сам пул, ссылку берём заранее
     svc._candidate_pool = candidates
 
-    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+    await svc.drain_digest(object(), _nlp, {}, CONTEXT)
 
     # сюжеты, ушедшие в ролик, помечены — в этом же прогоне их не выложат отдельно
     heads = {entry[0] for entry in posted}
@@ -438,10 +434,9 @@ async def test_digest_respects_open_meta_circuit(monkeypatch):
     svc._meta_circuit_open = True
     svc._candidate_pool = _digest_candidates()
 
-    await svc.drain_digest(None, object(), _nlp, {}, CONTEXT)
+    await svc.drain_digest(object(), _nlp, {}, CONTEXT)
 
-    assert Platform.FACEBOOK not in calls
-    assert calls == [Platform.TELEGRAM]
+    assert calls == []
 
 
 async def test_digest_mode_pools_regardless_of_ranker_flag(monkeypatch):
@@ -501,7 +496,7 @@ async def test_pooled_candidate_is_pushed_to_the_redis_queue(monkeypatch, queue_
 
     monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
 
-    await svc.serve(None, object(), _nlp, _Translator(),
+    await svc.serve(object(), _nlp, _Translator(),
                     'Benfica vence o Porto numa noite memoravel no estadio da luz',
                     SaveFileUrl('http://img/x.jpg'), deque(), CONTEXT, source='abola.pt')
 
@@ -516,7 +511,7 @@ async def test_digest_mode_does_not_push_to_the_redis_queue(monkeypatch, queue_r
 
     svc._digest_mode = True
 
-    await svc.serve(None, object(), _nlp, _Translator(),
+    await svc.serve(object(), _nlp, _Translator(),
                     'Benfica vence o Porto numa noite memoravel no estadio da luz',
                     SaveFileUrl('http://img/x.jpg'), deque(), CONTEXT, source='abola.pt')
 
@@ -532,12 +527,12 @@ async def test_leftover_candidate_is_restored_on_the_next_run(monkeypatch, queue
 
     drained = []
 
-    async def fake_publish(client, graph, nlp, text, handler, posted, context, source, head):
+    async def fake_publish(graph, nlp, text, handler, posted, context, source, head):
         drained.append(head)
 
     monkeypatch.setattr(svc, '_download_and_publish', fake_publish)
 
-    await svc.drain_pool(None, object(), _nlp, {'sources': {}, 'hours': {}},
+    await svc.drain_pool(object(), _nlp, {'sources': {}, 'hours': {}},
                          context=CONTEXT, posted_d=deque())
 
     assert drained == ['Benfica vence classico']
@@ -556,10 +551,9 @@ async def test_restored_candidate_already_published_is_dropped(monkeypatch, queu
         drained.append(args)
 
     monkeypatch.setattr(svc, '_download_and_publish', fake_publish)
-    posted = deque([['Benfica vence classico', {Platform.FACEBOOK, Platform.INSTAGRAM,
-                                                Platform.TELEGRAM}]])
+    posted = deque([['Benfica vence classico', {Platform.FACEBOOK, Platform.INSTAGRAM}]])
 
-    await svc.drain_pool(None, object(), _nlp, {'sources': {}, 'hours': {}},
+    await svc.drain_pool(object(), _nlp, {'sources': {}, 'hours': {}},
                          context=CONTEXT, posted_d=posted)
 
     assert drained == []
@@ -574,12 +568,12 @@ async def test_candidate_left_unpublished_stays_in_the_queue(monkeypatch, queue_
     await candidate_queue.push('football', _queued_candidate('Benfica vence classico'))
     await candidate_queue.push('football', _queued_candidate('Sporting empata fora de casa'))
 
-    async def fake_publish(client, graph, nlp, text, handler, posted, context, source, head):
+    async def fake_publish(graph, nlp, text, handler, posted, context, source, head):
         svc._published_count += 1
 
     monkeypatch.setattr(svc, '_download_and_publish', fake_publish)
 
-    await svc.drain_pool(None, object(), _nlp, {'sources': {}, 'hours': {}},
+    await svc.drain_pool(object(), _nlp, {'sources': {}, 'hours': {}},
                          context=CONTEXT, posted_d=deque())
 
     left = await candidate_queue.load('football', 10)

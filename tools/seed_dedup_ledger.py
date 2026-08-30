@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Разовая заливка дедуп-леджера в Redis из историй Facebook, Instagram и Telegram.
+"""Разовая заливка дедуп-леджера в Redis из историй Facebook и Instagram.
 
 Обычный прогон бота истории площадок НЕ читает: «что уже опубликовано» живёт в
 Redis. Этот скрипт нужен, когда леджера нет - первый запуск на новой базе, потеря
@@ -9,8 +9,7 @@ Redis. Этот скрипт нужен, когда леджера нет - пе
 
 Ничего не публикует: только читает истории и пишет в Redis.
 
-    REDIS_URL=rediss://... FACEBOOK_ACCESS_TOKEN=... TELEGRAM_SESSION=... \\
-        python tools/seed_dedup_ledger.py
+    REDIS_URL=rediss://... FACEBOOK_ACCESS_TOKEN=... python tools/seed_dedup_ledger.py
     ... python tools/seed_dedup_ledger.py --config food_br
 """
 import os
@@ -21,11 +20,9 @@ import argparse
 sys.path.insert(0, os.getcwd())
 
 import facebook as fb                                               # noqa: E402
-from telethon import TelegramClient                                 # noqa: E402
-from telethon.sessions import StringSession                         # noqa: E402
 
 from src.properties_reader import get_secret_key                    # noqa: E402
-from src.static.sources import get_config, Platform                 # noqa: E402
+from src.static.sources import get_config                           # noqa: E402
 from src.static.settings import COUNT_UNIQUE_MESSAGES               # noqa: E402
 from src.parsers.facebook.self_parser import (                      # noqa: E402
     get_facebook_published_messages,
@@ -33,15 +30,8 @@ from src.parsers.facebook.self_parser import (                      # noqa: E402
 from src.parsers.instagram.self_parser import (                     # noqa: E402
     get_instagram_published_messages,
 )
-from src.parsers.telegram.self_parser import (                      # noqa: E402
-    get_telegram_published_messages,
-)
 from src.processor.history_comparator import process_post_histories  # noqa: E402
 from src.store import dedup, redis_client                           # noqa: E402
-
-
-async def _empty():
-    return []
 
 
 def _resolve_page_token(graph, page_id):
@@ -65,25 +55,15 @@ async def seed(config_name, limit):
     graph = fb.GraphAPI(access_token=get_secret_key('.', 'FACEBOOK_ACCESS_TOKEN'))
     graph.access_token = _resolve_page_token(graph, context['self_facebook_page_id'])
 
-    session = os.environ.get('TELEGRAM_SESSION')
-    getter_client = TelegramClient(
-        StringSession(session) if session else 'getter_bot',
-        get_secret_key('.', 'TELEGRAM_API_ID'), get_secret_key('.', 'TELEGRAM_API_HASH'))
-    await getter_client.start()
-
     try:
-        telegram_enabled = Platform.TELEGRAM in context['platforms']
-        facebook_history, instagram_history, telegram_history = await asyncio.gather(
+        facebook_history, instagram_history = await asyncio.gather(
             asyncio.to_thread(get_facebook_published_messages, graph, context, limit),
             asyncio.to_thread(get_instagram_published_messages, graph, context, limit),
-            get_telegram_published_messages(getter_client, limit, context)
-            if telegram_enabled else _empty(),
         )
         print(f"read history - Facebook: {len(facebook_history)}, "
-              f"Instagram: {len(instagram_history)}, Telegram: {len(telegram_history)}")
+              f"Instagram: {len(instagram_history)}")
 
-        posted = process_post_histories(
-            facebook_history, telegram_history, instagram_history)
+        posted = process_post_histories(facebook_history, instagram_history)
         if not posted:
             print("no history read; refusing to seed an empty ledger")
             return 1
@@ -93,7 +73,6 @@ async def seed(config_name, limit):
         print(f"seeded {written} heads; ledger now holds {len(loaded or [])}")
         return 0 if loaded else 1
     finally:
-        await getter_client.disconnect()
         await redis_client.close()
 
 

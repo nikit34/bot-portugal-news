@@ -25,7 +25,7 @@ from src.processor.service import serve, should_stop
 from src.static.settings import (
     MAX_NUMBER_TAKEN_MESSAGES, TIMEOUT, REPEAT_REQUESTS, MESSAGE_CHUNK_SIZE, RSS_VIDEO_ENABLED,
     RECIPE_PAGE_FETCH_ENABLED, RECIPE_PAGE_FETCH_TIMEOUT, RECIPE_PAGE_FETCH_MAX_PER_RUN)
-from src.producers.telegram.debug_chat import send_debug_message
+from src.utils.report import report
 from src.parsers.rss.user_agents_manager import random_user_agent_headers
 from src.utils.ci import get_ci_run_url
 from src.utils.notify import build_error_message
@@ -39,19 +39,19 @@ stats_logger = logging.getLogger('stats')
 _page_fetch_count = 0
 
 
-async def rss_wrapper(client, graph, nlp, translator, source, rss_link, posted_d, context):
+async def rss_wrapper(graph, nlp, translator, source, rss_link, posted_d, context):
     try:
         app_logger.info(f"[RSS] Starting RSS parser for source: {source}, RSS link: {rss_link}")
-        await _rss_parser(client, graph, nlp, translator, source, rss_link, posted_d, context)
+        await _rss_parser(graph, nlp, translator, source, rss_link, posted_d, context)
         app_logger.info(f"[RSS] RSS parser completed successfully for source: {source}, RSS link: {rss_link}")
     except Exception as e:
         app_logger.error(f"[RSS] Error in RSS parser for source: {source}, RSS link: {rss_link}", exc_info=True)
         message = build_error_message(f'ERROR: {source} rss parser is down', e, get_ci_run_url())
         app_logger.error(message, exc_info=True)
-        await send_debug_message(message, client, context)
+        report(message)
 
 
-async def _make_request(rss_link, client, context, repeat=REPEAT_REQUESTS):
+async def _make_request(rss_link, repeat=REPEAT_REQUESTS):
     # follow_redirects: многие валидные RSS отдают 301 (www↔без-www, http→https,
     # переезд пути — teleculinaria, sapo /data/rss, blogspot→свой домен). Без этого
     # raise_for_status() считает редирект ошибкой и фид молча выпадает. Рабочие фиды
@@ -76,7 +76,7 @@ async def _make_request(rss_link, client, context, repeat=REPEAT_REQUESTS):
                 else:
                     message = build_error_message(f'ERROR: {rss_link} request is down', e, get_ci_run_url())
                     app_logger.error(message, exc_info=True)
-                    await send_debug_message(message, client, context)
+                    report(message)
     finally:
         await httpx_client.aclose()
 
@@ -147,7 +147,6 @@ def _entry_texts(entry):
 async def _process_entry(
     entry,
     source,
-    client,
     graph,
     nlp,
     translator,
@@ -260,7 +259,7 @@ async def _process_entry(
 
         # recipe_checked: гейт рецепта выше уже прогнан по ПОЛНОМУ телу записи, а в serve
         # уходит только подпись (заголовок + начало описания), по которой рецепт не виден.
-        await serve(client, graph, nlp, translator, message_text, handler_url_path, posted_d, context,
+        await serve(graph, nlp, translator, message_text, handler_url_path, posted_d, context,
                     source=source, recipe_checked=True)
         app_logger.debug(f"[RSS] Successfully processed entry: {message_text}")
         return True
@@ -271,7 +270,6 @@ async def _process_entry(
 async def _process_entry_chunk(
     entry_chunk,
     source,
-    client,
     graph,
     nlp,
     translator,
@@ -282,7 +280,7 @@ async def _process_entry_chunk(
     tasks = []
     
     for entry in entry_chunk:
-        task = _process_entry(entry, source, client, graph, nlp, translator, posted_d, context)
+        task = _process_entry(entry, source, graph, nlp, translator, posted_d, context)
         tasks.append(task)
     
     results = await asyncio.gather(*tasks)
@@ -291,7 +289,6 @@ async def _process_entry_chunk(
     return skipped_count
 
 async def _rss_parser(
-        client,
         graph,
         nlp,
         translator,
@@ -301,7 +298,7 @@ async def _rss_parser(
         context
 ):
     app_logger.info(f"[RSS] Starting RSS parser for {source}, RSS link: {rss_link}")
-    response = await _make_request(rss_link, client, context)
+    response = await _make_request(rss_link)
     if response is None:
         app_logger.error(f"[RSS] No response received for {source}, RSS link: {rss_link}; skipping")
         return
@@ -317,7 +314,7 @@ async def _rss_parser(
     skipped_count = 0
     
     for entry_chunk in entries_chunks:
-        skipped_count += await _process_entry_chunk(entry_chunk, source, client, graph, nlp, translator, posted_d, context)
+        skipped_count += await _process_entry_chunk(entry_chunk, source, graph, nlp, translator, posted_d, context)
 
     stats_logger.info(
         f"[RSS] RSS parser statistics for {source}, RSS link: {rss_link}: "

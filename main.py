@@ -81,7 +81,7 @@ from src.static.settings import (
     DEDUP_ALLOW_EMPTY_LEDGER,
 )
 from src.static.sources import get_config
-from src.producers.telegram.debug_chat import send_debug_message
+from src.utils.report import report
 from src.utils.logger import setup_logging
 from src.utils.ci import get_ci_run_url
 from src.utils.notify import build_error_message, build_run_summary
@@ -176,10 +176,8 @@ async def main(config_name, digest=False):
                 f"looks new and the run would repost the whole feed. Seed it with "
                 f"tools/seed_dedup_ledger.py, or set DEDUP_ALLOW_EMPTY_LEDGER=true "
                 f"for a genuinely fresh channel.")
-            await send_debug_message(
-                build_error_message('ERROR: dedup ledger unavailable, run aborted',
-                                    RuntimeError(blocked), get_ci_run_url()),
-                getter_client, context)
+            report(build_error_message('ERROR: dedup ledger unavailable, run aborted',
+                                       RuntimeError(blocked), get_ci_run_url()))
             return
         if posted_d is None:
             app_logger.warning(
@@ -238,13 +236,13 @@ async def main(config_name, digest=False):
 
         for channel_link in context['telegram_channels']:
             source_jobs.append((channel_link, lambda channel_link=channel_link: telegram_wrapper(
-                client=getter_client, getter_client=getter_client, graph=graph, nlp=nlp,
+                getter_client=getter_client, graph=graph, nlp=nlp,
                 translator=translator,
                 channel_link=channel_link, posted_d=posted_d, context=context)))
 
         for source, rss_link in context['rss_channels'].items():
             source_jobs.append((source, lambda source=source, rss_link=rss_link: rss_wrapper(
-                client=getter_client, graph=graph, nlp=nlp, translator=translator,
+                graph=graph, nlp=nlp, translator=translator,
                 source=source, rss_link=rss_link,
                 posted_d=posted_d, context=context)))
 
@@ -280,9 +278,9 @@ async def main(config_name, digest=False):
         # Phase 2: собрать длинный дайджест-ролик из лучших кандидатов (режим
         # дайджеста) либо опубликовать топ-K по отдельности (обычный ранкер).
         if digest:
-            await drain_digest(getter_client, graph, nlp, state, context)
+            await drain_digest(graph, nlp, state, context)
         elif RANKER_ENABLED:
-            await drain_pool(getter_client, graph, nlp, state, getter_client=getter_client,
+            await drain_pool(graph, nlp, state, getter_client=getter_client,
                              context=context, posted_d=posted_d)
 
         app_logger.info(image_filter_summary())
@@ -372,7 +370,7 @@ async def main(config_name, digest=False):
 
         if send_digest:
             await report_insights(
-                graph, getter_client, context,
+                graph, context,
                 source_ranking=learning.top_sources(state['sources']),
                 hour_ranking=learning.top_sources(state['hours']),
                 dow_hour_ranking=learning.top_sources(state.get('dow_hours', {})),
@@ -391,12 +389,12 @@ async def main(config_name, digest=False):
                         **get_reel_failure_counts()}
             if stats['posts'] or any(failures.values()) or stats['meta_circuit_open']:
                 summary = build_run_summary(stats, failures, image_filter_summary())
-                await send_debug_message(summary, getter_client, context)
+                report(summary)
     except Exception as e:
         app_logger.error("Critical error occurred during execution", exc_info=True)
         message = build_error_message('ERROR: Parsers is down', e, get_ci_run_url())
         app_logger.error(message)
-        await send_debug_message(message, getter_client, context)
+        report(message)
     finally:
         app_logger.info("Cleaning up temporary files")
         clean_tmp_folder()

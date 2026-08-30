@@ -11,7 +11,7 @@ _URL_PATTERN = re.compile(r'http[s]?://\S+')
 _WHITESPACE_PATTERN = re.compile(r'\s+')
 
 # Платформы, в которые реально публикуем (Platform.ALL — служебная, не цель).
-_PUBLISH_PLATFORMS = (Platform.FACEBOOK, Platform.INSTAGRAM, Platform.TELEGRAM)
+_PUBLISH_PLATFORMS = (Platform.FACEBOOK, Platform.INSTAGRAM)
 
 
 def make_head(text):
@@ -83,16 +83,15 @@ def mark_posted(posted, head, succeeded):
         posted.appendleft([head, set(succeeded)])
 
 
-def process_post_histories(facebook_history, telegram_history, instagram_history=None):
+def process_post_histories(facebook_history, instagram_history=None):
     # Merge per-platform histories into one `head -> {platforms}` structure. The
-    # same story is published to FB/IG/TG with the same normalized head, so the IG
-    # history mostly merges into existing FB/TG entries by exact head — the
-    # structure stays ~the size of FB∪TG and the fuzzy-scan cost doesn't grow.
+    # same story is published to FB and IG with the same normalized head, so the
+    # IG history mostly merges into existing FB entries by exact head — the
+    # structure stays ~the size of FB and the fuzzy-scan cost doesn't grow.
     instagram_history = instagram_history or []
     platforms_by_head = {}
     for source, platform in (
         (facebook_history, Platform.FACEBOOK),
-        (telegram_history, Platform.TELEGRAM),
         (instagram_history, Platform.INSTAGRAM),
     ):
         for head in source:

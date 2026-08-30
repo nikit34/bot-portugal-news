@@ -27,17 +27,9 @@ _FONT_BOLD = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static', 
 
 # --- общее -------------------------------------------------------------------
 
-def _handle_from_url(url):
-    # 'https://t.me/sportportugal' -> '@sportportugal'
-    if not url:
-        return ''
-    slug = url.rstrip('/').split('/')[-1].lstrip('@')
-    return ('@' + slug) if slug else ''
-
-
 def resolve_watermark_text(context):
-    # Явный WATERMARK_TEXT приоритетнее; иначе @handle нашего телеграм-канала.
-    return WATERMARK_TEXT or _handle_from_url((context or {}).get('self_telegram_channel', ''))
+    # Явный WATERMARK_TEXT приоритетнее; иначе handle из конфига.
+    return WATERMARK_TEXT or (context or {}).get('self_watermark_handle', '')
 
 
 def _jitter(lo, hi):

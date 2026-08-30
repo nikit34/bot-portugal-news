@@ -38,7 +38,7 @@ async def test_dedup_load_is_none_without_redis():
 
 async def test_dedup_seed_then_load_round_trips_platforms(fake):
     await dedup.seed(CONFIG, _posted(
-        ('Benfica vence classico', {Platform.FACEBOOK, Platform.TELEGRAM}),
+        ('Benfica vence classico', {Platform.FACEBOOK, Platform.INSTAGRAM}),
         ('Porto contrata avancado', {Platform.INSTAGRAM}),
     ))
 
@@ -46,7 +46,7 @@ async def test_dedup_seed_then_load_round_trips_platforms(fake):
 
     assert loaded is not None
     by_head = {head: platforms for head, platforms in loaded}
-    assert by_head['Benfica vence classico'] == {Platform.FACEBOOK, Platform.TELEGRAM}
+    assert by_head['Benfica vence classico'] == {Platform.FACEBOOK, Platform.INSTAGRAM}
     assert by_head['Porto contrata avancado'] == {Platform.INSTAGRAM}
 
 
@@ -55,12 +55,12 @@ async def test_dedup_load_is_none_on_empty_ledger(fake):
 
 
 async def test_dedup_record_merges_platforms(fake):
-    await dedup.record(CONFIG, 'Sporting empata fora', {Platform.TELEGRAM})
+    await dedup.record(CONFIG, 'Sporting empata fora', {Platform.INSTAGRAM})
     await dedup.record(CONFIG, 'Sporting empata fora', {Platform.FACEBOOK})
 
     loaded = await dedup.load(CONFIG)
 
-    assert dict(loaded)['Sporting empata fora'] == {Platform.TELEGRAM, Platform.FACEBOOK}
+    assert dict(loaded)['Sporting empata fora'] == {Platform.INSTAGRAM, Platform.FACEBOOK}
 
 
 async def test_dedup_seed_does_not_drop_platforms_already_recorded(fake):

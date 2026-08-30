@@ -18,8 +18,6 @@ def _write_config(tmp_dir, name, payload):
 BASE = {
     'platforms': {'FACEBOOK': True},
     'self': {
-        'telegram_channel': 'https://t.me/x',
-        'telegram_debug_chat_id': '-1',
         'facebook_page_id': '1',
         'instagram_channel': '2',
     },
@@ -77,7 +75,7 @@ async def test_serve_skips_translation_for_native_sources(monkeypatch, source, e
         'native_language_sources': {'zerozero.pt'},
     }
     await service.serve(
-        client=AsyncMock(), graph=MagicMock(), nlp=MagicMock(), translator=translator,
+        graph=MagicMock(), nlp=MagicMock(), translator=translator,
         message_text='Lazio anuncia central apontado ao Benfica',
         handler_url_path=MagicMock(), posted_d={}, context=context, source=source,
     )

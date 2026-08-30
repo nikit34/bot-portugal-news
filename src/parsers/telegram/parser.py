@@ -7,7 +7,7 @@ from src.files_manager import SaveFileTelegram
 from src.processor.recipe_filter import is_recipe
 from src.processor.service import serve, should_stop
 from src.static.settings import MAX_NUMBER_TAKEN_MESSAGES, MESSAGE_CHUNK_SIZE, MAX_VIDEO_SIZE_MB
-from src.producers.telegram.debug_chat import send_debug_message
+from src.utils.report import report
 from src.utils.ci import get_ci_run_url
 from src.utils.notify import build_error_message
 
@@ -53,21 +53,20 @@ def _video_too_large(message):
     return bool(size) and size > MAX_VIDEO_SIZE_MB * 1024 * 1024
 
 
-async def telegram_wrapper(client, getter_client, graph, nlp, translator, channel_link, posted_d, context):
+async def telegram_wrapper(getter_client, graph, nlp, translator, channel_link, posted_d, context):
     app_logger.info(f"[Telegram] Starting Telegram parser for channel: {channel_link}")
     try:
-        await _telegram_parser(client, getter_client, graph, nlp, translator, channel_link, posted_d, context)
+        await _telegram_parser(getter_client, graph, nlp, translator, channel_link, posted_d, context)
         app_logger.info(f"[Telegram] Telegram parser completed successfully for channel: {channel_link}")
     except Exception as e:
         app_logger.error(f"[Telegram] Error in Telegram parser for channel {channel_link}", exc_info=True)
         message = build_error_message(f'ERROR: {channel_link} telegram parser is down', e, get_ci_run_url())
         app_logger.error(message)
-        await send_debug_message(message, client, context)
+        report(message)
 
 
 async def _process_message_chunk(
     message_chunk,
-    client,
     getter_client,
     graph,
     nlp,
@@ -113,7 +112,7 @@ async def _process_message_chunk(
             app_logger.debug(
                 f"[Telegram] Created file handler for message (video={is_video_hint}): {message_text}")
 
-            await serve(client, graph, nlp, translator, message_text, handler_url_path,
+            await serve(graph, nlp, translator, message_text, handler_url_path,
                         posted_d, context, source=source, is_video_hint=is_video_hint,
                         recipe_checked=True)
             app_logger.debug(f"[Telegram] Successfully processed message: {message_text}")
@@ -124,7 +123,7 @@ async def _process_message_chunk(
     return skipped_count
 
 
-async def _telegram_parser(client, getter_client, graph, nlp, translator, channel_link, posted_d, context):
+async def _telegram_parser(getter_client, graph, nlp, translator, channel_link, posted_d, context):
     app_logger.info(f"[Telegram] Initializing message iteration for channel: {channel_link}")
     message_count = 0
     skipped_count = 0
@@ -146,7 +145,7 @@ async def _telegram_parser(client, getter_client, graph, nlp, translator, channe
         app_logger.debug(f"[Telegram] Processing {len(message_chunks)} chunks in parallel")
         chunk_results = await asyncio.gather(*[
             _process_message_chunk(
-                message_chunk, client, getter_client, graph, nlp, translator, posted_d, context, channel_link
+                message_chunk, getter_client, graph, nlp, translator, posted_d, context, channel_link
             ) for message_chunk in message_chunks
         ])
         skipped_count = sum(chunk_results)

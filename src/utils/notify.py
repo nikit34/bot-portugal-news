@@ -3,8 +3,6 @@ import re
 
 from src.static.settings import MAX_ERROR_RESPONSE_CHARS
 
-# send_debug_message шлёт с parse_mode=HTML; держим экранированный текст с запасом под
-# ссылку на CI и перевод строки (жёсткий лимит Telegram sendMessage — 4096 символов).
 _MAX_ERROR_BODY_CHARS = 3800
 
 # Graph API errors stringify to include the request URL, which carries the

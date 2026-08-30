@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 import requests
 
 from src.processor.history_comparator import make_head
-from src.producers.telegram.debug_chat import send_debug_message
+from src.utils.report import report as write_report
 from src.utils.notify import redact_secrets
 from src.static.settings import (
     INSIGHTS_REPORT_ENABLED,
@@ -546,7 +546,7 @@ def build_insights_report(ig_items, fb_stats, source_ranking=None, hour_ranking=
     return '\n'.join(lines)
 
 
-async def report_insights(graph, client, context, source_ranking=None, hour_ranking=None,
+async def report_insights(graph, context, source_ranking=None, hour_ranking=None,
                           format_ranking=None, variant_ranking=None, dow_hour_ranking=None,
                           winners=None, digest_ranking=None):
     ig_items = []
@@ -576,5 +576,5 @@ async def report_insights(graph, client, context, source_ranking=None, hour_rank
         ig_items, fb_stats, source_ranking, hour_ranking, format_ranking, variant_ranking,
         dow_hour_ranking, winners=winners, monetization=monetization,
         digest_ranking=digest_ranking)
-    await send_debug_message(report, client, context)
-    logger.info("[insights] report sent to debug chat")
+    write_report(report)
+    logger.info("[insights] report written to the run summary")

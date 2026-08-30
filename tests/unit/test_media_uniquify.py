@@ -9,22 +9,21 @@ import src.producers.media_uniquify as mu
 
 # ---- watermark text resolution ---------------------------------------------
 
-def test_handle_from_url():
-    assert mu._handle_from_url('https://t.me/sportportugal') == '@sportportugal'
-    assert mu._handle_from_url('https://t.me/sportportugal/') == '@sportportugal'
-    assert mu._handle_from_url('@already') == '@already'
-    assert mu._handle_from_url('') == ''
+def test_resolve_watermark_text_without_a_handle(monkeypatch):
+    monkeypatch.setattr(mu, 'WATERMARK_TEXT', '')
+    assert mu.resolve_watermark_text({}) == ''
+    assert mu.resolve_watermark_text(None) == ''
 
 
 def test_resolve_watermark_text_from_config(monkeypatch):
     monkeypatch.setattr(mu, 'WATERMARK_TEXT', '')
-    ctx = {'self_telegram_channel': 'https://t.me/sportportugal'}
+    ctx = {'self_watermark_handle': '@sportportugal'}
     assert mu.resolve_watermark_text(ctx) == '@sportportugal'
 
 
 def test_resolve_watermark_text_explicit_override(monkeypatch):
     monkeypatch.setattr(mu, 'WATERMARK_TEXT', 'Futebol PT')
-    ctx = {'self_telegram_channel': 'https://t.me/sportportugal'}
+    ctx = {'self_watermark_handle': '@sportportugal'}
     assert mu.resolve_watermark_text(ctx) == 'Futebol PT'
 
 
@@ -106,7 +105,7 @@ def test_apply_uniquify_image_mutates_url_path(tmp_path):
     Image.new('RGB', (700, 500), (20, 120, 200)).save(src, format='JPEG')
     url_path = {'url': 'https://cdn/source.jpg', 'path': src}
 
-    mu.apply_uniquify(url_path, is_video=False, context={'self_telegram_channel': 'https://t.me/sportportugal'})
+    mu.apply_uniquify(url_path, is_video=False, context={'self_watermark_handle': '@sportportugal'})
 
     assert url_path['path'] != src
     assert url_path['path'].endswith('.uniq.jpg')

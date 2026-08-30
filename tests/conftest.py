@@ -17,13 +17,10 @@ def config_file(tmp_path):
     config_data = {
         "platforms": {
             "ALL": None,
-            "TELEGRAM": True,
             "FACEBOOK": True,
             "INSTAGRAM": True
         },
         "self": {
-            "telegram_channel": "test_channel",
-            "telegram_debug_chat_id": "test_debug_chat_id",
             "facebook_page_id": "test_facebook_id",
             "instagram_channel": "test_instagram_id"
         },

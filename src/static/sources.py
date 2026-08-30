@@ -5,12 +5,11 @@ from enum import Enum, auto
 
 class Platform(Enum):
     ALL = auto()
-    TELEGRAM = auto()
     FACEBOOK = auto()
     INSTAGRAM = auto()
 
 
-_REQUIRED_SELF_KEYS = ('telegram_channel', 'telegram_debug_chat_id', 'facebook_page_id', 'instagram_channel')
+_REQUIRED_SELF_KEYS = ('facebook_page_id', 'instagram_channel')
 _REQUIRED_TOP_KEYS = ('platforms', 'self', 'telegram_channels', 'rss_channels')
 
 
@@ -51,9 +50,8 @@ def get_config(config_name):
     return {
         'name': config_name,
         'platforms': platforms,
-        'self_telegram_channel': config['self']['telegram_channel'],
-        'self_telegram_debug_chat_id': config['self']['telegram_debug_chat_id'],
         'self_facebook_page_id': config['self']['facebook_page_id'],
+        'self_watermark_handle': config['self'].get('watermark_handle', ''),
         'self_instagram_channel': config['self']['instagram_channel'],
         'telegram_channels': config['telegram_channels'],
         'rss_channels': config['rss_channels'],
