@@ -108,6 +108,26 @@
       "ig_id": "18093963227399288",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Gabri Veiga é o dragão com maior chama no arranque",
+      "source": "zerozero.pt",
+      "ts": 1788126759.4737182,
+      "fb_id": "1319293214601511",
+      "fb_media_id": "1319293214601511",
+      "ig_id": "18112323431047657",
+      "is_video": true,
+      "hashtag_n": 1
+    },
+    {
+      "head": "Al-Diriyah de Bruno Lage regressa às vitórias e ri",
+      "source": "zerozero.pt",
+      "ts": 1788126876.459376,
+      "fb_id": "4568612870124657",
+      "fb_media_id": "4568612870124657",
+      "ig_id": "17916170412243035",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -264,7 +284,7 @@
   },
   "ig_quota": {
     "day": "2026-08-30",
-    "posts": 6
+    "posts": 8
   },
   "last_scored_ts": 1788106358.2743855,
   "dow_hours": {
