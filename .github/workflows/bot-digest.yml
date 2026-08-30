@@ -83,6 +83,7 @@ jobs:
           restore-keys: |
             insights-state-
       - name: Build and publish digest
+        id: bot
         run: python main.py --config ${{ inputs.config || 'football' }} --mode digest
         timeout-minutes: 25
         continue-on-error: true
@@ -127,7 +128,7 @@ jobs:
             git push origin "HEAD:${GITHUB_REF_NAME}" || echo "state push skipped (non-fast-forward)"
           fi
       - name: Notify Telegram on failure
-        if: failure()
+        if: failure() || steps.bot.outcome == 'failure'
         continue-on-error: true
         run: |
           python tools/notify_debug.py --config football \
