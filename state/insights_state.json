@@ -20,56 +20,6 @@
       "is_digest": true
     },
     {
-      "head": "Três meses, três jogos a eliminar entre Fazendense",
-      "source": "zerozero.pt",
-      "ts": 1787944765.1180363,
-      "fb_id": "1430357385946714",
-      "fb_media_id": "1430357385946714",
-      "ig_id": "18004693172993295",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Pedro Emanuel recebe ex-Farense e Vitória SC no Va",
-      "source": "zerozero.pt",
-      "ts": 1787972855.822772,
-      "fb_id": "1110602228308142",
-      "fb_media_id": "1110602228308142",
-      "ig_id": "18616673245003548",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Benfica não pode defrontar a Juventus em Turim: pe",
-      "source": "zerozero.pt",
-      "ts": 1787972963.7194824,
-      "fb_id": "1461851662440689",
-      "fb_media_id": "1461851662440689",
-      "ig_id": "18098095652287040",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Conheça os clubes que o Torreense irá enfrentar na",
-      "source": "zerozero.pt",
-      "ts": 1788008545.745782,
-      "fb_id": "4049861651985914",
-      "fb_media_id": "4049861651985914",
-      "ig_id": "18427641775197754",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Luana Bessa assina contrato profissional com o SC",
-      "source": "zerozero.pt",
-      "ts": 1788008670.2560983,
-      "fb_id": "1785936752534877",
-      "fb_media_id": "1785936752534877",
-      "ig_id": "18583300957070722",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Quantos pontos fazem FC Porto, Sporting, Torreense",
       "source": "zerozero.pt",
       "ts": 1788023247.8354986,
@@ -106,6 +56,16 @@
       "fb_id": "1061717683245053",
       "fb_media_id": "1061717683245053",
       "ig_id": "18141051568603639",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Telma Encarnação bisa e Sporting soma nova vitória",
+      "source": "zerozero.pt",
+      "ts": 1788106318.0761197,
+      "fb_id": "1451758333450598",
+      "fb_media_id": "1451758333450598",
+      "ig_id": "18111063197004409",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -160,8 +120,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 5.765490567867102,
-      "n": 23
+      "reach_avg": 5.059073191422291,
+      "n": 28
     }
   },
   "hours": {
@@ -178,8 +138,8 @@
       "n": 45
     },
     "13": {
-      "reach_avg": 7.043779992741744,
-      "n": 26
+      "reach_avg": 5.591337196443455,
+      "n": 28
     },
     "15": {
       "reach_avg": 0.4260899999999999,
@@ -190,8 +150,8 @@
       "n": 23
     },
     "19": {
-      "reach_avg": 5.553548399768353,
-      "n": 49
+      "reach_avg": 7.325348545863364,
+      "n": 50
     },
     "21": {
       "reach_avg": 6.059128908537655,
@@ -256,13 +216,17 @@
     "4": {
       "reach_avg": 0.0,
       "n": 1
+    },
+    "3": {
+      "reach_avg": 5.8999299999999995,
+      "n": 2
     }
   },
   "ig_quota": {
     "day": "2026-08-30",
-    "posts": 1
+    "posts": 2
   },
-  "last_scored_ts": 1788023409.3676858,
+  "last_scored_ts": 1788106358.2743855,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -277,8 +241,8 @@
       "n": 9
     },
     "5-13": {
-      "reach_avg": 0.0,
-      "n": 9
+      "reach_avg": 3.6459,
+      "n": 11
     },
     "5-15": {
       "reach_avg": 0.0,
@@ -565,8 +529,8 @@
       "n": 2
     },
     "4-19": {
-      "reach_avg": 0.6,
-      "n": 4
+      "reach_avg": 5.724900000000001,
+      "n": 5
     },
     "4-20": {
       "reach_avg": 0.0,
@@ -683,6 +647,10 @@
     "1-13": {
       "reach_avg": 7.409472617827632,
       "n": 2
+    },
+    "5-3": {
+      "reach_avg": 5.8999299999999995,
+      "n": 2
     }
   },
   "formats": {
@@ -691,8 +659,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 5.765420547480977,
-      "n": 44
+      "reach_avg": 5.059069059128534,
+      "n": 49
     }
   },
   "variants": {
@@ -701,12 +669,12 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 5.765406286519067,
-      "n": 55
+      "reach_avg": 4.713025953364374,
+      "n": 59
     },
     "tags:1-2": {
-      "reach_avg": 3.01566,
-      "n": 4
+      "reach_avg": 6.6911640000000006,
+      "n": 5
     }
   },
   "reward_samples": [
@@ -768,7 +736,12 @@
     6.952,
     6.585000000000001,
     6.589600000000001,
-    4.1867
+    4.1867,
+    9.1415,
+    7.2538,
+    2.7409,
+    3.5215,
+    4.6679
   ],
   "recent_winners": [
     {
@@ -866,6 +839,18 @@
       "source": "zerozero.pt",
       "reward": 6.952,
       "ts": 1787944805.12645
+    },
+    {
+      "head": "Três meses, três jogos a eliminar entre Fazendense",
+      "source": "zerozero.pt",
+      "reward": 9.1415,
+      "ts": 1788106358.2743855
+    },
+    {
+      "head": "Pedro Emanuel recebe ex-Farense e Vitória SC no Va",
+      "source": "zerozero.pt",
+      "reward": 7.2538,
+      "ts": 1788106358.2743855
     }
   ]
 }
