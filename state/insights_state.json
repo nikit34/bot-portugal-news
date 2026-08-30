@@ -88,6 +88,26 @@
       "ig_id": "18193006306382911",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Varzim goleia e reserva bilhete para a próxima fas",
+      "source": "zerozero.pt",
+      "ts": 1788110170.3701587,
+      "fb_id": "1065093726269800",
+      "fb_media_id": "1065093726269800",
+      "ig_id": "18113877179081368",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "«É a primeira vez que contra um grande sinto mesmo",
+      "source": "zerozero.pt",
+      "ts": 1788110283.060137,
+      "fb_id": "28402014069430074",
+      "fb_media_id": "28402014069430074",
+      "ig_id": "18093963227399288",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -244,7 +264,7 @@
   },
   "ig_quota": {
     "day": "2026-08-30",
-    "posts": 4
+    "posts": 6
   },
   "last_scored_ts": 1788106358.2743855,
   "dow_hours": {
