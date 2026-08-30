@@ -68,6 +68,26 @@
       "ig_id": "18111063197004409",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Como 1907 pesca internacional italiano no AC Milan",
+      "source": "zerozero.pt",
+      "ts": 1788108510.004514,
+      "fb_id": "1444502020829895",
+      "fb_media_id": "1444502020829895",
+      "ig_id": "18123755059886310",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Wolverhampton e Swansea City com triunfos categóri",
+      "source": "zerozero.pt",
+      "ts": 1788108620.2969282,
+      "fb_id": "2063012167669557",
+      "fb_media_id": "2063012167669557",
+      "ig_id": "18193006306382911",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -224,7 +244,7 @@
   },
   "ig_quota": {
     "day": "2026-08-30",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1788106358.2743855,
   "dow_hours": {
