@@ -95,7 +95,7 @@ Redis недоступен: лучше пропустить прогон, чем
 | `REDIS_NAMESPACE` | `botnews` | префикс ключей |
 | `REDIS_DEDUP_ENABLED` | `true` | леджер опубликованного |
 | `REDIS_DEDUP_TTL_SECONDS` | 30 дней | сколько помним голову |
-| `REDIS_DEDUP_MAX_HEADS` | 1000 | потолок размера леджера |
+| `REDIS_DEDUP_MAX_HEADS` | 3000 | потолок размера леджера (объединение трёх площадок) |
 | `DEDUP_ALLOW_EMPTY_LEDGER` | `false` | разрешить прогон с пустым леджером |
 | `REDIS_QUEUE_ENABLED` | `true` | очередь кандидатов |
 | `REDIS_QUEUE_TTL_SECONDS` | 6 часов | срок годности кандидата |
