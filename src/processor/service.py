@@ -472,11 +472,11 @@ async def serve(graph, nlp, translator, message_text, handler_url_path, posted_d
                 'handler_url_path': handler_url_path, 'posted_d': posted_d, 'context': context,
                 'is_video': likely_video,
             }
+            _candidate_pool.append(candidate)
+            _pool_by_source[source] += 1
             if not _digest_mode:
                 candidate['queue_member'] = await candidate_queue.push(
                     context.get('name'), candidate)
-            _candidate_pool.append(candidate)
-            _pool_by_source[source] += 1
         return
 
     await _download_and_publish(

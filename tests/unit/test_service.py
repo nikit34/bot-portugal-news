@@ -678,3 +678,47 @@ async def test_draining_clears_the_per_source_counter(monkeypatch):
     await svc.drain_pool(object(), _nlp, {'sources': {}, 'hours': {}})
 
     assert svc._pool_by_source == Counter()
+
+
+async def test_concurrent_serves_cannot_overshoot_the_pool(monkeypatch):
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    monkeypatch.setattr(svc, 'RANKER_POOL_FACTOR', 2)
+    monkeypatch.setattr(svc, 'RANKER_SOURCE_SHARE', 0)
+    svc._run_cap = 2
+    _mock_sends(monkeypatch)
+
+    async def slow_push(config_name, candidate):
+        await asyncio.sleep(0)
+        return 'member'
+
+    monkeypatch.setattr(svc.candidate_queue, 'push', slow_push)
+
+    posted = deque()
+    await asyncio.gather(*[
+        svc.serve(object(), _nlp, _Translator(), f'{_DIGEST_HEADS[i % 6]} numero {i}',
+                  _url_path, posted, CONTEXT, source='abola.pt')
+        for i in range(12)])
+
+    assert len(svc._candidate_pool) == svc._pool_target() == 4
+
+
+async def test_concurrent_serves_cannot_overshoot_the_source_cap(monkeypatch):
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    monkeypatch.setattr(svc, 'RANKER_POOL_FACTOR', 8)
+    monkeypatch.setattr(svc, 'RANKER_SOURCE_SHARE', 0.34)
+    svc._run_cap = 2
+    _mock_sends(monkeypatch)
+
+    async def slow_push(config_name, candidate):
+        await asyncio.sleep(0)
+        return 'member'
+
+    monkeypatch.setattr(svc.candidate_queue, 'push', slow_push)
+
+    posted = deque()
+    await asyncio.gather(*[
+        svc.serve(object(), _nlp, _Translator(), f'{_DIGEST_HEADS[i % 6]} numero {i}',
+                  _url_path, posted, CONTEXT, source='zerozero.pt')
+        for i in range(15)])
+
+    assert svc._pool_by_source['zerozero.pt'] == svc.source_cap() == 5
