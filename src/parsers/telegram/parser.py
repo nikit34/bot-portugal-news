@@ -78,7 +78,7 @@ async def _process_message_chunk(
     skipped_count = 0
     for message in message_chunk:
         # Stop once the post budget is filled or the per-run time budget is exhausted.
-        if should_stop():
+        if should_stop(source):
             break
 
         message_text = message.raw_text

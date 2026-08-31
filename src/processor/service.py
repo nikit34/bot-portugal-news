@@ -44,6 +44,7 @@ from src.static.settings import (
     STORY_GATE_IG_BUDGET_FRACTION,
     RANKER_ENABLED,
     RANKER_POOL_FACTOR,
+    RANKER_SOURCE_SHARE,
     DIGEST_ITEMS,
     DIGEST_POOL_FACTOR,
     DIGEST_TITLE,
@@ -91,6 +92,7 @@ _platform_publishes = Counter()
 # Candidate ranker (RANKER_ENABLED): phase-1 buffers candidates here; drain_pool
 # scores them and publishes only the top ones. Capped so phase-1 stops scraping.
 _candidate_pool = []
+_pool_by_source = Counter()
 # Режим дайджеста (main --mode digest): фаза 1 копит кандидатов ВСЕГДА, независимо
 # от RANKER_ENABLED, а фаза 2 вместо N перепостов собирает один длинный ролик.
 _digest_mode = False
@@ -145,11 +147,26 @@ def _pool_target():
     return max(1, _run_cap) * RANKER_POOL_FACTOR
 
 
-def should_stop():
+def source_cap():
+    """Потолок кандидатов от одного источника. 0 => без ограничения."""
+    if RANKER_SOURCE_SHARE <= 0:
+        return 0
+    return max(1, int(_pool_target() * RANKER_SOURCE_SHARE))
+
+
+def source_quota_filled(source):
+    cap = source_cap()
+    return bool(cap) and _pool_by_source[source] >= cap
+
+
+def should_stop(source=None):
     # Parsers call this to stop taking new entries: either the per-run post budget
     # is filled, or the (reserve-adjusted) wall-clock budget is exhausted. With the
     # ranker on, also stop once the candidate pool is full — otherwise phase-1
     # (which never publishes) would scrape until the deadline.
+    if (RANKER_ENABLED or _digest_mode) and source is not None \
+            and source_quota_filled(source):
+        return True
     if _digest_mode:
         return len(_candidate_pool) >= _pool_target() or _scrape_budget_exceeded()
     if RANKER_ENABLED and len(_candidate_pool) >= _pool_target():
@@ -232,6 +249,7 @@ async def drain_pool(graph, nlp, state, getter_client=None, context=None, posted
             consumed.append(cand.get('queue_member'))
     finally:
         _candidate_pool.clear()
+        _pool_by_source.clear()
         await candidate_queue.remove((context or {}).get('name'), consumed)
 
 
@@ -287,6 +305,7 @@ async def drain_digest(graph, nlp, state, context):
             if path and os.path.exists(path):
                 os.remove(path)
         _candidate_pool.clear()
+        _pool_by_source.clear()
 
 
 async def _publish_digest(graph, context, video_path, caption, used, head):
@@ -447,7 +466,7 @@ async def serve(graph, nlp, translator, message_text, handler_url_path, posted_d
         return
 
     if RANKER_ENABLED or _digest_mode:
-        if len(_candidate_pool) < _pool_target():
+        if len(_candidate_pool) < _pool_target() and not source_quota_filled(source):
             candidate = {
                 'head': head, 'source': source, 'text': translated_message,
                 'handler_url_path': handler_url_path, 'posted_d': posted_d, 'context': context,
@@ -457,6 +476,7 @@ async def serve(graph, nlp, translator, message_text, handler_url_path, posted_d
                 candidate['queue_member'] = await candidate_queue.push(
                     context.get('name'), candidate)
             _candidate_pool.append(candidate)
+            _pool_by_source[source] += 1
         return
 
     await _download_and_publish(

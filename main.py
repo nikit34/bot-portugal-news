@@ -150,10 +150,6 @@ async def main(config_name, digest=False):
     app_logger.debug("NLP model and translator loaded successfully")
 
     app_logger.info("Starting Telegram client")
-    # Телеграм теперь только один из источников, поэтому мёртвая сессия (отозвана,
-    # истекла) не должна ронять прогон: RSS-источники и публикация в Facebook и
-    # Instagram от неё не зависят. auth_callbacks: без TTY telethon иначе уходит в
-    # интерактивный логин и падает с EOFError.
     try:
         await getter_client.start(
             phone=lambda: (_ for _ in ()).throw(RuntimeError('session is not authorized')),

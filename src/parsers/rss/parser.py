@@ -157,7 +157,7 @@ async def _process_entry(
     # the per-run time budget is exhausted. Remaining fresh content is picked up next
     # run (dedup keeps it available) — this keeps "nothing fresh" runs from scraping
     # every source to the end.
-    if should_stop():
+    if should_stop(source):
         return False
 
     # Если фид несёт прямое видео (mp4-enclosure / media:content medium="video"),

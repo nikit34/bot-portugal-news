@@ -28,7 +28,7 @@ _FONT_BOLD = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'static', 
 # --- общее -------------------------------------------------------------------
 
 def resolve_watermark_text(context):
-    # Явный WATERMARK_TEXT приоритетнее; иначе handle из конфига.
+    """Явный WATERMARK_TEXT приоритетнее; иначе handle из конфига."""
     return WATERMARK_TEXT or (context or {}).get('self_watermark_handle', '')
 
 

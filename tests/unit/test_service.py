@@ -1,5 +1,5 @@
 import asyncio
-from collections import deque
+from collections import deque, Counter
 
 import pytest
 
@@ -63,6 +63,7 @@ def _reset(monkeypatch):
     svc._platform_publishes = svc.Counter()
     svc._publish_lock = asyncio.Lock()
     svc._candidate_pool = []
+    svc._pool_by_source = svc.Counter()
     svc._digest_mode = False
     monkeypatch.setattr(svc, 'POST_DELAY_SECONDS', 0)
     # Stub image filters (avoid PIL/nudenet + real files) and prepare functions.
@@ -590,3 +591,90 @@ async def test_publishing_records_the_head_in_the_redis_ledger(monkeypatch, queu
     loaded = await dedup.load('football')
     assert loaded is not None
     assert len(loaded) == 1
+
+
+async def _pool_from(source, n, monkeypatch):
+    posted = deque()
+    for i in range(n):
+        await svc.serve(object(), _nlp, _Translator(), _DIGEST_HEADS[i % len(_DIGEST_HEADS)],
+                        _url_path, posted, CONTEXT, source=source)
+    return posted
+
+
+async def test_one_source_cannot_take_more_than_its_share_of_the_pool(monkeypatch):
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    monkeypatch.setattr(svc, 'RANKER_POOL_FACTOR', 3)
+    monkeypatch.setattr(svc, 'RANKER_SOURCE_SHARE', 0.34)
+    svc._run_cap = 3
+    _mock_sends(monkeypatch)
+
+    await _pool_from('zerozero.pt', 6, monkeypatch)
+
+    assert svc.source_cap() == 3
+    assert len(svc._candidate_pool) == 3
+    assert {c['source'] for c in svc._candidate_pool} == {'zerozero.pt'}
+
+
+async def test_a_filled_source_stops_itself_but_not_the_others(monkeypatch):
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    monkeypatch.setattr(svc, 'RANKER_POOL_FACTOR', 3)
+    monkeypatch.setattr(svc, 'RANKER_SOURCE_SHARE', 0.34)
+    svc._run_cap = 3
+    _mock_sends(monkeypatch)
+
+    await _pool_from('zerozero.pt', 6, monkeypatch)
+
+    assert svc.should_stop('zerozero.pt') is True
+    assert svc.should_stop('https://t.me/FCPorto_INF') is False
+    assert svc.should_stop() is False
+
+
+async def test_pool_reaches_several_sources_instead_of_only_the_first(monkeypatch):
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    monkeypatch.setattr(svc, 'RANKER_POOL_FACTOR', 3)
+    monkeypatch.setattr(svc, 'RANKER_SOURCE_SHARE', 0.34)
+    svc._run_cap = 3
+    _mock_sends(monkeypatch)
+
+    posted = deque()
+    for source in ('zerozero.pt', 'https://t.me/FCPorto_INF'):
+        for i in range(6):
+            if svc.should_stop(source):
+                break
+            await svc.serve(object(), _nlp, _Translator(),
+                            f'{_DIGEST_HEADS[i % len(_DIGEST_HEADS)]} via {source}',
+                            _url_path, posted, CONTEXT, source=source)
+
+    by_source = Counter(c['source'] for c in svc._candidate_pool)
+    assert set(by_source) == {'zerozero.pt', 'https://t.me/FCPorto_INF'}
+
+
+async def test_share_of_zero_restores_the_single_source_pool(monkeypatch):
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    monkeypatch.setattr(svc, 'RANKER_POOL_FACTOR', 3)
+    monkeypatch.setattr(svc, 'RANKER_SOURCE_SHARE', 0)
+    svc._run_cap = 3
+    _mock_sends(monkeypatch)
+
+    await _pool_from('zerozero.pt', 12, monkeypatch)
+
+    assert svc.source_cap() == 0
+    assert len(svc._candidate_pool) == 9
+    assert svc.should_stop('zerozero.pt') is True
+
+
+async def test_draining_clears_the_per_source_counter(monkeypatch):
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    monkeypatch.setattr(svc, 'RANKER_SOURCE_SHARE', 0.34)
+    _mock_sends(monkeypatch)
+
+    async def fake_publish(*args, **kwargs):
+        pass
+
+    monkeypatch.setattr(svc, '_download_and_publish', fake_publish)
+    await _pool_from('zerozero.pt', 2, monkeypatch)
+    assert svc._pool_by_source['zerozero.pt'] > 0
+
+    await svc.drain_pool(object(), _nlp, {'sources': {}, 'hours': {}})
+
+    assert svc._pool_by_source == Counter()
