@@ -148,6 +148,26 @@
       "ig_id": "18233869492316305",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Nacional x Est. Amadora: antevisão, ausências e on",
+      "source": "zerozero.pt",
+      "ts": 1788137772.8584352,
+      "fb_id": "1116624220687558",
+      "fb_media_id": "1116624220687558",
+      "ig_id": "17907838665525743",
+      "is_video": true,
+      "hashtag_n": 2
+    },
+    {
+      "head": "FC Famalicão x Gil Vicente: antevisão, ausências e",
+      "source": "zerozero.pt",
+      "ts": 1788137883.3355358,
+      "fb_id": "2792415484492895",
+      "fb_media_id": "2792415484492895",
+      "ig_id": "18208167541362377",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -304,7 +324,7 @@
   },
   "ig_quota": {
     "day": "2026-08-31",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1788106358.2743855,
   "dow_hours": {
