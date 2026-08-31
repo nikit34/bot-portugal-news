@@ -179,6 +179,26 @@
       "ig_id": "18374227093239526",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "El Karouani está em Lisboa para reforçar o Benfica",
+      "source": "zerozero.pt",
+      "ts": 1788217762.5438766,
+      "fb_id": "1079828584603451",
+      "fb_media_id": "1079828584603451",
+      "ig_id": "18009090629763753",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "A análise de Luís Pinto ao empate do Gil Vicente f",
+      "source": "zerozero.pt",
+      "ts": 1788217833.1573894,
+      "fb_id": "28590245517276548",
+      "fb_media_id": "28590245517276548",
+      "ig_id": "18139252849588392",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -335,7 +355,7 @@
   },
   "ig_quota": {
     "day": "2026-08-31",
-    "posts": 10
+    "posts": 12
   },
   "last_scored_ts": 1788188294.2672262,
   "dow_hours": {
