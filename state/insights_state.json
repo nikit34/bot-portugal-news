@@ -2,15 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 23.08.2026",
-      "source": "digest",
-      "ts": 1787513265.5043788,
-      "fb_id": "900574889416153",
-      "fb_media_id": "900574889416153",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
       "head": "Resumo do dia — 28.08.2026",
       "source": "digest",
       "ts": 1787887995.9535952,
@@ -18,46 +9,6 @@
       "fb_media_id": "2119411802297710",
       "is_video": true,
       "is_digest": true
-    },
-    {
-      "head": "Quantos pontos fazem FC Porto, Sporting, Torreense",
-      "source": "zerozero.pt",
-      "ts": 1788023247.8354986,
-      "fb_id": "2481129175715951",
-      "fb_media_id": "2481129175715951",
-      "ig_id": "18189165694403383",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Chaves reforça meio-campo com jovem costa-marfinen",
-      "source": "zerozero.pt",
-      "ts": 1788023369.351808,
-      "fb_id": "1753401699141583",
-      "fb_media_id": "1753401699141583",
-      "ig_id": "18552262297072617",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Vai haver duelo entre Benfica e Sporting na 1ª eli",
-      "source": "zerozero.pt",
-      "ts": 1788039243.672753,
-      "fb_id": "2570007380126877",
-      "fb_media_id": "2570007380126877",
-      "ig_id": "17904101673548377",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Rui Borges: «Não quero agarrar-me às dores de cres",
-      "source": "zerozero.pt",
-      "ts": 1788093670.1662257,
-      "fb_id": "1061717683245053",
-      "fb_media_id": "1061717683245053",
-      "ig_id": "18141051568603639",
-      "is_video": true,
-      "hashtag_n": 3
     },
     {
       "head": "Telma Encarnação bisa e Sporting soma nova vitória",
@@ -208,6 +159,26 @@
       "ig_id": "17946614172290492",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Convocatória de Palhinha, Kaminski e o reencontro",
+      "source": "zerozero.pt",
+      "ts": 1788188170.8730743,
+      "fb_id": "1933617433976725",
+      "fb_media_id": "1933617433976725",
+      "ig_id": "18090712655161048",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Campeã africana e melhor guarda-redes da prova: Mi",
+      "source": "zerozero.pt",
+      "ts": 1788188254.1429527,
+      "fb_id": "1378849520487187",
+      "fb_media_id": "1378849520487187",
+      "ig_id": "18374227093239526",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -260,8 +231,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 5.059073191422291,
-      "n": 28
+      "reach_avg": 5.646991953724985,
+      "n": 32
     }
   },
   "hours": {
@@ -286,16 +257,16 @@
       "n": 22
     },
     "17": {
-      "reach_avg": 0.10289999999999999,
-      "n": 23
+      "reach_avg": 3.227814651809502,
+      "n": 25
     },
     "19": {
       "reach_avg": 7.325348545863364,
       "n": 50
     },
     "21": {
-      "reach_avg": 6.059128908537655,
-      "n": 33
+      "reach_avg": 6.8459322436249295,
+      "n": 34
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -306,8 +277,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 0.0,
-      "n": 8
+      "reach_avg": 2.33292,
+      "n": 9
     },
     "0": {
       "reach_avg": 0.0,
@@ -364,9 +335,9 @@
   },
   "ig_quota": {
     "day": "2026-08-31",
-    "posts": 8
+    "posts": 10
   },
-  "last_scored_ts": 1788106358.2743855,
+  "last_scored_ts": 1788188294.2672262,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -389,16 +360,16 @@
       "n": 7
     },
     "5-17": {
-      "reach_avg": 0.0,
-      "n": 3
+      "reach_avg": 3.202791405483178,
+      "n": 5
     },
     "5-19": {
       "reach_avg": 0.007349999999999999,
       "n": 7
     },
     "5-21": {
-      "reach_avg": 0.0,
-      "n": 3
+      "reach_avg": 4.8219,
+      "n": 4
     },
     "5-23": {
       "reach_avg": 0.0,
@@ -413,8 +384,8 @@
       "n": 5
     },
     "6-12": {
-      "reach_avg": 0.0,
-      "n": 4
+      "reach_avg": 2.33292,
+      "n": 5
     },
     "6-15": {
       "reach_avg": 0.6086999999999999,
@@ -799,8 +770,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 5.059069059128534,
-      "n": 49
+      "reach_avg": 5.646991837043354,
+      "n": 53
     }
   },
   "variants": {
@@ -809,8 +780,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 4.713025953364374,
-      "n": 59
+      "reach_avg": 5.641417796193103,
+      "n": 63
     },
     "tags:1-2": {
       "reach_avg": 6.6911640000000006,
@@ -881,7 +852,11 @@
     7.2538,
     2.7409,
     3.5215,
-    4.6679
+    4.6679,
+    5.0737000000000005,
+    3.5035000000000003,
+    8.0365,
+    3.8882000000000003
   ],
   "recent_winners": [
     {
@@ -991,6 +966,12 @@
       "source": "zerozero.pt",
       "reward": 7.2538,
       "ts": 1788106358.2743855
+    },
+    {
+      "head": "Vai haver duelo entre Benfica e Sporting na 1ª eli",
+      "source": "zerozero.pt",
+      "reward": 8.0365,
+      "ts": 1788188294.2672262
     }
   ]
 }
