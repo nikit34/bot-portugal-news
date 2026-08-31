@@ -722,3 +722,26 @@ async def test_concurrent_serves_cannot_overshoot_the_source_cap(monkeypatch):
         for i in range(15)])
 
     assert svc._pool_by_source['zerozero.pt'] == svc.source_cap() == 5
+
+
+async def test_drain_logs_the_pool_mix_by_source(monkeypatch, caplog):
+    monkeypatch.setattr(svc, 'RANKER_ENABLED', True)
+    _mock_sends(monkeypatch)
+
+    async def fake_publish(*args, **kwargs):
+        pass
+
+    monkeypatch.setattr(svc, '_download_and_publish', fake_publish)
+    svc._candidate_pool = [
+        {'head': h, 'source': src, 'text': 't', 'handler_url_path': _url_path,
+         'posted_d': deque(), 'context': CONTEXT, 'is_video': False}
+        for h, src in (('Benfica vence classico', 'zerozero.pt'),
+                       ('Sporting empata fora de casa', 'zerozero.pt'),
+                       ('Porto contrata avancado brasileiro', 'https://t.me/FCPorto_INF'))]
+
+    with caplog.at_level('INFO', logger='app'):
+        await svc.drain_pool(object(), _nlp, {'sources': {}, 'hours': {}})
+
+    line = next(m for m in caplog.messages if 'pooled candidates by score' in m)
+    assert 'zerozero.pt:2' in line
+    assert 'https://t.me/FCPorto_INF:1' in line

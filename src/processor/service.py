@@ -230,7 +230,11 @@ async def drain_pool(graph, nlp, state, getter_client=None, context=None, posted
         ((candidate_score(cand, state, current_hour), cand) for cand in pool),
         key=lambda pair: pair[0], reverse=True)
     ranked = [cand for _, cand in scored]
-    app_logger.info(f"[ranker] draining {len(ranked)} pooled candidates by score")
+    by_source = Counter(cand['source'] for cand in ranked)
+    app_logger.info(
+        f"[ranker] draining {len(ranked)} pooled candidates by score; "
+        f"cap {source_cap() or 'off'}/source, mix: "
+        + ', '.join(f'{name}:{n}' for name, n in by_source.most_common()))
     for position, (score, cand) in enumerate(scored[:_LOG_TOP_N], start=1):
         app_logger.info(
             f"[ranker] #{position} score={score:.2f} "
