@@ -128,6 +128,26 @@
       "ig_id": "17916170412243035",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Fafe carimba passagem na Taça de Portugal com vitó",
+      "source": "zerozero.pt",
+      "ts": 1788137089.0349545,
+      "fb_id": "2685231751879353",
+      "fb_media_id": "2685231751879353",
+      "ig_id": "18000861612004592",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Vivaldo Semedo: o leãozinho que se graduou em Ingl",
+      "source": "zerozero.pt",
+      "ts": 1788137204.4927366,
+      "fb_id": "2264468674333527",
+      "fb_media_id": "2264468674333527",
+      "ig_id": "18233869492316305",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -283,8 +303,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-08-30",
-    "posts": 8
+    "day": "2026-08-31",
+    "posts": 2
   },
   "last_scored_ts": 1788106358.2743855,
   "dow_hours": {
