@@ -188,6 +188,26 @@
       "ig_id": "17945577249290614",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Iván Barbero está talhado para o golo: nas primeir",
+      "source": "zerozero.pt",
+      "ts": 1788138727.4999883,
+      "fb_id": "1587237796069190",
+      "fb_media_id": "1587237796069190",
+      "ig_id": "18155425162502339",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Farioli: «Temos de ver bem a situação do Bednarek»",
+      "source": "zerozero.pt",
+      "ts": 1788138830.5753891,
+      "fb_id": "1113797747846747",
+      "fb_media_id": "1113797747846747",
+      "ig_id": "17946614172290492",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -344,7 +364,7 @@
   },
   "ig_quota": {
     "day": "2026-08-31",
-    "posts": 6
+    "posts": 8
   },
   "last_scored_ts": 1788106358.2743855,
   "dow_hours": {
