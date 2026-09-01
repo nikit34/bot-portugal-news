@@ -89,6 +89,26 @@
       "ig_id": "18115391684002781",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "O que falta resolver no mercado para FC Porto, Spo",
+      "source": "zerozero.pt",
+      "ts": 1788298802.1857016,
+      "fb_id": "2187833665126569",
+      "fb_media_id": "2187833665126569",
+      "ig_id": "18115134406764292",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Dani Silva vai prosseguir a carreira no futebol po",
+      "source": "zerozero.pt",
+      "ts": 1788298927.9218988,
+      "fb_id": "1992598181459174",
+      "fb_media_id": "1992598181459174",
+      "ig_id": "18373957747236389",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -245,7 +265,7 @@
   },
   "ig_quota": {
     "day": "2026-09-01",
-    "posts": 4
+    "posts": 6
   },
   "last_scored_ts": 1788265767.625267,
   "dow_hours": {
