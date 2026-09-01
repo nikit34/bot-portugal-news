@@ -69,6 +69,26 @@
       "ig_id": "18119923405924777",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Adversário do Sporting na Champions contrata ex-Fa",
+      "source": "zerozero.pt",
+      "ts": 1788282827.9871864,
+      "fb_id": "4673795329508948",
+      "fb_media_id": "4673795329508948",
+      "ig_id": "18128730407494547",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Giménez: «Tenho muita fome e fogo interno, quero d",
+      "source": "zerozero.pt",
+      "ts": 1788282940.6893003,
+      "fb_id": "2043681596257601",
+      "fb_media_id": "2043681596257601",
+      "ig_id": "18115391684002781",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -225,7 +245,7 @@
   },
   "ig_quota": {
     "day": "2026-09-01",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1788265767.625267,
   "dow_hours": {
