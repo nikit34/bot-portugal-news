@@ -11,46 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "Convocatória de Palhinha, Kaminski e o reencontro",
-      "source": "zerozero.pt",
-      "ts": 1788188170.8730743,
-      "fb_id": "1933617433976725",
-      "fb_media_id": "1933617433976725",
-      "ig_id": "18090712655161048",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Campeã africana e melhor guarda-redes da prova: Mi",
-      "source": "zerozero.pt",
-      "ts": 1788188254.1429527,
-      "fb_id": "1378849520487187",
-      "fb_media_id": "1378849520487187",
-      "ig_id": "18374227093239526",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "El Karouani está em Lisboa para reforçar o Benfica",
-      "source": "zerozero.pt",
-      "ts": 1788217762.5438766,
-      "fb_id": "1079828584603451",
-      "fb_media_id": "1079828584603451",
-      "ig_id": "18009090629763753",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "A análise de Luís Pinto ao empate do Gil Vicente f",
-      "source": "zerozero.pt",
-      "ts": 1788217833.1573894,
-      "fb_id": "28590245517276548",
-      "fb_media_id": "28590245517276548",
-      "ig_id": "18139252849588392",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Cinco em cinco: Stephanie Ribeiro volta a marcar e",
       "source": "zerozero.pt",
       "ts": 1788265612.6049604,
@@ -109,6 +69,26 @@
       "ig_id": "18373957747236389",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Torreense confirma reforço vindo do SC Braga João",
+      "source": "zerozero.pt",
+      "ts": 1788350443.919047,
+      "fb_id": "1795717705195005",
+      "fb_media_id": "1795717705195005",
+      "ig_id": "18012244655753054",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Pauleta aponta à Supertaça e Dorsin está pronta pa",
+      "source": "zerozero.pt",
+      "ts": 1788350555.2332673,
+      "fb_id": "2461752420999991",
+      "fb_media_id": "2461752420999991",
+      "ig_id": "18131700805637207",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -161,14 +141,14 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 6.734621927836031,
-      "n": 47
+      "reach_avg": 4.602028691610986,
+      "n": 51
     }
   },
   "hours": {
     "23": {
-      "reach_avg": 0.0,
-      "n": 22
+      "reach_avg": 2.793732,
+      "n": 24
     },
     "7": {
       "reach_avg": 3.0742615055802345,
@@ -227,8 +207,8 @@
       "n": 27
     },
     "14": {
-      "reach_avg": 4.757081982678406,
-      "n": 24
+      "reach_avg": 5.33449101418383,
+      "n": 26
     },
     "18": {
       "reach_avg": 3.9935442313800005,
@@ -264,10 +244,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-01",
-    "posts": 6
+    "day": "2026-09-02",
+    "posts": 2
   },
-  "last_scored_ts": 1788265767.625267,
+  "last_scored_ts": 1788350595.3102713,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -370,8 +350,8 @@
       "n": 4
     },
     "0-23": {
-      "reach_avg": 0.0,
-      "n": 4
+      "reach_avg": 2.793732,
+      "n": 6
     },
     "1-2": {
       "reach_avg": 0.0,
@@ -682,8 +662,8 @@
       "n": 2
     },
     "0-14": {
-      "reach_avg": 7.3228,
-      "n": 1
+      "reach_avg": 6.3623080000000005,
+      "n": 3
     },
     "1-13": {
       "reach_avg": 7.409472617827632,
@@ -700,8 +680,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 6.734621927864808,
-      "n": 68
+      "reach_avg": 4.602028691617624,
+      "n": 72
     }
   },
   "variants": {
@@ -710,8 +690,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 6.781063430158636,
-      "n": 76
+      "reach_avg": 4.612776855574644,
+      "n": 80
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -801,7 +781,11 @@
     6.5285,
     6.3296,
     6.9401,
-    7.484300000000001
+    7.484300000000001,
+    7.0366,
+    4.3215,
+    5.568600000000001,
+    1.5164
   ],
   "recent_winners": [
     {
