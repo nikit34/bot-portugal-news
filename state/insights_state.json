@@ -89,6 +89,16 @@
       "ig_id": "18131700805637207",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Daniel Bragança renova com o Sporting, mas segue p",
+      "source": "zerozero.pt",
+      "ts": 1788368684.2113252,
+      "fb_id": "867611246306204",
+      "fb_media_id": "867611246306204",
+      "ig_id": "18103376987353542",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -245,7 +255,7 @@
   },
   "ig_quota": {
     "day": "2026-09-02",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1788350595.3102713,
   "dow_hours": {
