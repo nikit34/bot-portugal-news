@@ -11,76 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "Cinco em cinco: Stephanie Ribeiro volta a marcar e",
-      "source": "zerozero.pt",
-      "ts": 1788265612.6049604,
-      "fb_id": "1053117097417681",
-      "fb_media_id": "1053117097417681",
-      "ig_id": "18616704382060052",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Está confirmado: Torreense recruta promessa camaro",
-      "source": "zerozero.pt",
-      "ts": 1788265727.531025,
-      "fb_id": "1388486703352519",
-      "fb_media_id": "1388486703352519",
-      "ig_id": "18119923405924777",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Adversário do Sporting na Champions contrata ex-Fa",
-      "source": "zerozero.pt",
-      "ts": 1788282827.9871864,
-      "fb_id": "4673795329508948",
-      "fb_media_id": "4673795329508948",
-      "ig_id": "18128730407494547",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Giménez: «Tenho muita fome e fogo interno, quero d",
-      "source": "zerozero.pt",
-      "ts": 1788282940.6893003,
-      "fb_id": "2043681596257601",
-      "fb_media_id": "2043681596257601",
-      "ig_id": "18115391684002781",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "O que falta resolver no mercado para FC Porto, Spo",
-      "source": "zerozero.pt",
-      "ts": 1788298802.1857016,
-      "fb_id": "2187833665126569",
-      "fb_media_id": "2187833665126569",
-      "ig_id": "18115134406764292",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Dani Silva vai prosseguir a carreira no futebol po",
-      "source": "zerozero.pt",
-      "ts": 1788298927.9218988,
-      "fb_id": "1992598181459174",
-      "fb_media_id": "1992598181459174",
-      "ig_id": "18373957747236389",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Torreense confirma reforço vindo do SC Braga João",
-      "source": "zerozero.pt",
-      "ts": 1788350443.919047,
-      "fb_id": "1795717705195005",
-      "fb_media_id": "1795717705195005",
-      "ig_id": "18012244655753054",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Pauleta aponta à Supertaça e Dorsin está pronta pa",
       "source": "zerozero.pt",
       "ts": 1788350555.2332673,
@@ -107,6 +37,16 @@
       "fb_id": "1608911577307503",
       "fb_media_id": "1608911577307503",
       "ig_id": "17867759241640640",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "FC Famalicão contrata avançado mexicano Depois de",
+      "source": "zerozero.pt",
+      "ts": 1788436821.10706,
+      "fb_id": "1400598202034468",
+      "fb_media_id": "1400598202034468",
+      "ig_id": "18138372226525130",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -161,8 +101,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 4.602028691610986,
-      "n": 51
+      "reach_avg": 5.3046024696567,
+      "n": 58
     }
   },
   "hours": {
@@ -187,16 +127,16 @@
       "n": 22
     },
     "17": {
-      "reach_avg": 6.882597830897161,
-      "n": 27
+      "reach_avg": 7.921347724943747,
+      "n": 29
     },
     "19": {
       "reach_avg": 7.325348545863364,
       "n": 50
     },
     "21": {
-      "reach_avg": 6.961385779937865,
-      "n": 36
+      "reach_avg": 5.866708032169554,
+      "n": 38
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -207,8 +147,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 2.33292,
-      "n": 9
+      "reach_avg": 3.3340887877624272,
+      "n": 12
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -264,10 +204,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-02",
-    "posts": 4
+    "day": "2026-09-03",
+    "posts": 1
   },
-  "last_scored_ts": 1788350595.3102713,
+  "last_scored_ts": 1788436861.23659,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -390,16 +330,16 @@
       "n": 6
     },
     "1-17": {
-      "reach_avg": 0.0,
-      "n": 3
+      "reach_avg": 7.336488,
+      "n": 5
     },
     "1-19": {
       "reach_avg": 4.986064538265648,
       "n": 8
     },
     "1-21": {
-      "reach_avg": 4.794816000000001,
-      "n": 8
+      "reach_avg": 4.824875993149215,
+      "n": 10
     },
     "1-23": {
       "reach_avg": 0.0,
@@ -530,8 +470,8 @@
       "n": 6
     },
     "2-12": {
-      "reach_avg": 0.0,
-      "n": 2
+      "reach_avg": 2.04096,
+      "n": 3
     },
     "2-16": {
       "reach_avg": 0.21,
@@ -692,6 +632,10 @@
     "5-3": {
       "reach_avg": 5.8999299999999995,
       "n": 2
+    },
+    "1-12": {
+      "reach_avg": 3.9005500000000004,
+      "n": 2
     }
   },
   "formats": {
@@ -700,8 +644,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 4.602028691617624,
-      "n": 72
+      "reach_avg": 5.3046024696566985,
+      "n": 79
     }
   },
   "variants": {
@@ -710,8 +654,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 4.612776855574644,
-      "n": 80
+      "reach_avg": 5.304600181138488,
+      "n": 87
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -805,21 +749,16 @@
     7.0366,
     4.3215,
     5.568600000000001,
-    1.5164
+    1.5164,
+    4.171600000000001,
+    3.2681000000000004,
+    7.5277,
+    9.2164,
+    4.2759,
+    5.1922999999999995,
+    3.4016
   ],
   "recent_winners": [
-    {
-      "head": "Sérgio Ferreira: «Difícil jogar contra o Sporting",
-      "source": "zerozero.pt",
-      "reward": 1.5488,
-      "ts": 1787644029.070736
-    },
-    {
-      "head": "2026/2027 começa com a Supertaça Feminina Depois d",
-      "source": "zerozero.pt",
-      "reward": 6.7333,
-      "ts": 1787730648.7508798
-    },
     {
       "head": "Primeria chicotada da Liga 3: UD Santarém anuncia",
       "source": "zerozero.pt",
@@ -927,6 +866,18 @@
       "source": "zerozero.pt",
       "reward": 7.484300000000001,
       "ts": 1788265767.625267
+    },
+    {
+      "head": "Adversário do Sporting na Champions contrata ex-Fa",
+      "source": "zerozero.pt",
+      "reward": 7.5277,
+      "ts": 1788436861.23659
+    },
+    {
+      "head": "Giménez: «Tenho muita fome e fogo interno, quero d",
+      "source": "zerozero.pt",
+      "reward": 9.2164,
+      "ts": 1788436861.23659
     }
   ]
 }
