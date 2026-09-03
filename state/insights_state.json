@@ -49,6 +49,26 @@
       "ig_id": "18138372226525130",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Para todos os gostos: 10 jogadores livres que faze",
+      "source": "zerozero.pt",
+      "ts": 1788454736.2758627,
+      "fb_id": "2041580013160559",
+      "fb_media_id": "2041580013160559",
+      "ig_id": "17975551766916036",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "T2, Ep. 4 | A implacável força do FC Porto No epis",
+      "source": "zerozero.pt",
+      "ts": 1788454837.8848174,
+      "fb_id": "1098478265951942",
+      "fb_media_id": "1098478265951942",
+      "ig_id": "18621587557038477",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -205,7 +225,7 @@
   },
   "ig_quota": {
     "day": "2026-09-03",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1788436861.23659,
   "dow_hours": {
