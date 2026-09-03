@@ -69,6 +69,26 @@
       "ig_id": "18621587557038477",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "FC Porto perde primeiro jogo de preparação O FC Po",
+      "source": "zerozero.pt",
+      "ts": 1788471400.6329188,
+      "fb_id": "1405395715078625",
+      "fb_media_id": "1405395715078625",
+      "ig_id": "18113662079054967",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Benfica anuncia contratação de promessa argentina",
+      "source": "zerozero.pt",
+      "ts": 1788471508.2967203,
+      "fb_id": "1604200851329455",
+      "fb_media_id": "1604200851329455",
+      "ig_id": "18125875666873954",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -225,7 +245,7 @@
   },
   "ig_quota": {
     "day": "2026-09-03",
-    "posts": 3
+    "posts": 5
   },
   "last_scored_ts": 1788436861.23659,
   "dow_hours": {
