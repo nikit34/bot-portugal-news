@@ -2,55 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 28.08.2026",
-      "source": "digest",
-      "ts": 1787887995.9535952,
-      "fb_id": "2119411802297710",
-      "fb_media_id": "2119411802297710",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "Pauleta aponta à Supertaça e Dorsin está pronta pa",
-      "source": "zerozero.pt",
-      "ts": 1788350555.2332673,
-      "fb_id": "2461752420999991",
-      "fb_media_id": "2461752420999991",
-      "ig_id": "18131700805637207",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Daniel Bragança renova com o Sporting, mas segue p",
-      "source": "zerozero.pt",
-      "ts": 1788368684.2113252,
-      "fb_id": "867611246306204",
-      "fb_media_id": "867611246306204",
-      "ig_id": "18103376987353542",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Van Hooijdonk deixa Estrela e segue por empréstimo",
-      "source": "zerozero.pt",
-      "ts": 1788385128.9922905,
-      "fb_id": "1608911577307503",
-      "fb_media_id": "1608911577307503",
-      "ig_id": "17867759241640640",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "FC Famalicão contrata avançado mexicano Depois de",
-      "source": "zerozero.pt",
-      "ts": 1788436821.10706,
-      "fb_id": "1400598202034468",
-      "fb_media_id": "1400598202034468",
-      "ig_id": "18138372226525130",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Para todos os gostos: 10 jogadores livres que faze",
       "source": "zerozero.pt",
       "ts": 1788454736.2758627,
@@ -87,6 +38,26 @@
       "fb_id": "1604200851329455",
       "fb_media_id": "1604200851329455",
       "ig_id": "18125875666873954",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Farioli fala de tudo e avalia reforços: «Souza e G",
+      "source": "zerozero.pt",
+      "ts": 1788523332.34098,
+      "fb_id": "2211021176408150",
+      "fb_media_id": "2211021176408150",
+      "ig_id": "18096074522455669",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Gil Vicente vai fazer encaixe com Cáseres e tem ac",
+      "source": "zerozero.pt",
+      "ts": 1788523437.9831095,
+      "fb_id": "3321025421417412",
+      "fb_media_id": "3321025421417412",
+      "ig_id": "18090802571422887",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -141,8 +112,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 5.3046024696567,
-      "n": 58
+      "reach_avg": 3.7077710737522054,
+      "n": 62
     }
   },
   "hours": {
@@ -167,16 +138,16 @@
       "n": 22
     },
     "17": {
-      "reach_avg": 7.921347724943747,
-      "n": 29
+      "reach_avg": 6.324823407460623,
+      "n": 30
     },
     "19": {
       "reach_avg": 7.325348545863364,
       "n": 50
     },
     "21": {
-      "reach_avg": 5.866708032169554,
-      "n": 38
+      "reach_avg": 5.430265622518688,
+      "n": 39
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -187,8 +158,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 3.3340887877624272,
-      "n": 12
+      "reach_avg": 3.166114867521614,
+      "n": 14
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -244,10 +215,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-03",
-    "posts": 5
+    "day": "2026-09-04",
+    "posts": 2
   },
-  "last_scored_ts": 1788436861.23659,
+  "last_scored_ts": 1788523478.0864365,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -402,16 +373,16 @@
       "n": 4
     },
     "2-17": {
-      "reach_avg": 0.3,
-      "n": 6
+      "reach_avg": 1.67976,
+      "n": 7
     },
     "2-19": {
       "reach_avg": 0.0,
       "n": 9
     },
     "2-21": {
-      "reach_avg": 5.531139063261902,
-      "n": 8
+      "reach_avg": 5.195367344283331,
+      "n": 9
     },
     "2-23": {
       "reach_avg": 0.0,
@@ -510,8 +481,8 @@
       "n": 6
     },
     "2-12": {
-      "reach_avg": 2.04096,
-      "n": 3
+      "reach_avg": 2.970440180209313,
+      "n": 4
     },
     "2-16": {
       "reach_avg": 0.21,
@@ -676,6 +647,10 @@
     "1-12": {
       "reach_avg": 3.9005500000000004,
       "n": 2
+    },
+    "3-12": {
+      "reach_avg": 2.4604,
+      "n": 1
     }
   },
   "formats": {
@@ -684,8 +659,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 5.3046024696566985,
-      "n": 79
+      "reach_avg": 3.707771073752205,
+      "n": 83
     }
   },
   "variants": {
@@ -694,8 +669,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 5.304600181138488,
-      "n": 87
+      "reach_avg": 3.7077705532369447,
+      "n": 91
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -796,7 +771,11 @@
     9.2164,
     4.2759,
     5.1922999999999995,
-    3.4016
+    3.4016,
+    3.7343,
+    2.5996,
+    4.4119,
+    2.4604
   ],
   "recent_winners": [
     {
