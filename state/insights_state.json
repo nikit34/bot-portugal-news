@@ -60,6 +60,16 @@
       "ig_id": "18090802571422887",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "T11, Ep. 109 | Vitória SC agita últimas horas de m",
+      "source": "zerozero.pt",
+      "ts": 1788540452.8973305,
+      "fb_id": "28018632157778997",
+      "fb_media_id": "28018632157778997",
+      "ig_id": "17938670217358344",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -216,7 +226,7 @@
   },
   "ig_quota": {
     "day": "2026-09-04",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1788523478.0864365,
   "dow_hours": {
