@@ -60,6 +60,16 @@
       "ig_id": "18340670950281484",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "José Mourinho: «Não sei como perdemos, jogámos mui",
+      "source": "zerozero.pt",
+      "ts": 1788648545.881449,
+      "fb_id": "937247472175321",
+      "fb_media_id": "937247472175321",
+      "ig_id": "18089519222257307",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -216,7 +226,7 @@
   },
   "ig_quota": {
     "day": "2026-09-05",
-    "posts": 3
+    "posts": 4
   },
   "last_scored_ts": 1788606720.5288029,
   "dow_hours": {
