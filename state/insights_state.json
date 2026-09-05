@@ -40,6 +40,16 @@
       "ig_id": "17919459186223678",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "🤔Оффтоп из Нидерландов от финна с португальскими к",
+      "source": "https://t.me/futebol_portugues",
+      "ts": 1788623591.771905,
+      "fb_id": "1078571635065285",
+      "fb_media_id": "1078571635065285",
+      "ig_id": "18621445873018245",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -196,7 +206,7 @@
   },
   "ig_quota": {
     "day": "2026-09-05",
-    "posts": 1
+    "posts": 2
   },
   "last_scored_ts": 1788606720.5288029,
   "dow_hours": {
