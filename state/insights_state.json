@@ -2,46 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Para todos os gostos: 10 jogadores livres que faze",
-      "source": "zerozero.pt",
-      "ts": 1788454736.2758627,
-      "fb_id": "2041580013160559",
-      "fb_media_id": "2041580013160559",
-      "ig_id": "17975551766916036",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "T2, Ep. 4 | A implacável força do FC Porto No epis",
-      "source": "zerozero.pt",
-      "ts": 1788454837.8848174,
-      "fb_id": "1098478265951942",
-      "fb_media_id": "1098478265951942",
-      "ig_id": "18621587557038477",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "FC Porto perde primeiro jogo de preparação O FC Po",
-      "source": "zerozero.pt",
-      "ts": 1788471400.6329188,
-      "fb_id": "1405395715078625",
-      "fb_media_id": "1405395715078625",
-      "ig_id": "18113662079054967",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Benfica anuncia contratação de promessa argentina",
-      "source": "zerozero.pt",
-      "ts": 1788471508.2967203,
-      "fb_id": "1604200851329455",
-      "fb_media_id": "1604200851329455",
-      "ig_id": "18125875666873954",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Farioli fala de tudo e avalia reforços: «Souza e G",
       "source": "zerozero.pt",
       "ts": 1788523332.34098,
@@ -72,12 +32,12 @@
       "hashtag_n": 3
     },
     {
-      "head": "Afonso Patrão deixa futebol belga e é reforço de S",
+      "head": "Carolina Tristão renova com o Benfica Carolina Tri",
       "source": "zerozero.pt",
-      "ts": 1788556745.9728174,
-      "fb_id": "969791832811874",
-      "fb_media_id": "969791832811874",
-      "ig_id": "17904546270475181",
+      "ts": 1788606680.3596647,
+      "fb_id": "1428292379146937",
+      "fb_media_id": "1428292379146937",
+      "ig_id": "17919459186223678",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -132,8 +92,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 3.7077710737522054,
-      "n": 62
+      "reach_avg": 2.9873527615374433,
+      "n": 66
     }
   },
   "hours": {
@@ -158,16 +118,16 @@
       "n": 22
     },
     "17": {
-      "reach_avg": 6.324823407460623,
-      "n": 30
+      "reach_avg": 5.139576385222436,
+      "n": 31
     },
     "19": {
       "reach_avg": 7.325348545863364,
       "n": 50
     },
     "21": {
-      "reach_avg": 5.430265622518688,
-      "n": 39
+      "reach_avg": 4.081282155034156,
+      "n": 41
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -194,8 +154,8 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 6.868845892176479,
-      "n": 27
+      "reach_avg": 5.498912124523534,
+      "n": 28
     },
     "14": {
       "reach_avg": 5.33449101418383,
@@ -235,10 +195,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-04",
-    "posts": 4
+    "day": "2026-09-05",
+    "posts": 1
   },
-  "last_scored_ts": 1788523478.0864365,
+  "last_scored_ts": 1788606720.5288029,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -429,8 +389,8 @@
       "n": 4
     },
     "3-21": {
-      "reach_avg": 0.8819999999999998,
-      "n": 4
+      "reach_avg": 2.6664128217687075,
+      "n": 6
     },
     "4-2": {
       "reach_avg": 4.027759172787423,
@@ -513,8 +473,8 @@
       "n": 2
     },
     "3-16": {
-      "reach_avg": 0.0,
-      "n": 2
+      "reach_avg": 1.38144,
+      "n": 3
     },
     "3-19": {
       "reach_avg": 0.010499999999999999,
@@ -609,8 +569,8 @@
       "n": 2
     },
     "3-17": {
-      "reach_avg": 0.0,
-      "n": 1
+      "reach_avg": 1.4244,
+      "n": 2
     },
     "4-21": {
       "reach_avg": 0.6,
@@ -679,8 +639,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 3.707771073752205,
-      "n": 83
+      "reach_avg": 2.9873527615374433,
+      "n": 87
     }
   },
   "variants": {
@@ -689,8 +649,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 3.7077705532369447,
-      "n": 91
+      "reach_avg": 2.9873526790665608,
+      "n": 95
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -795,7 +755,11 @@
     3.7343,
     2.5996,
     4.4119,
-    2.4604
+    2.4604,
+    2.3024,
+    2.374,
+    1.7342,
+    3.5209
   ],
   "recent_winners": [
     {
