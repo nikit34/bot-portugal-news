@@ -40,6 +40,26 @@
       "ig_id": "18104309483238564",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Reencontro de ex-leões em Itália sorri ao Torino A",
+      "source": "zerozero.pt",
+      "ts": 1788710571.194662,
+      "fb_id": "2016120049093953",
+      "fb_media_id": "2016120049093953",
+      "ig_id": "18145060798564477",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Atenção, FC Porto: Man City vence e continua imbat",
+      "source": "zerozero.pt",
+      "ts": 1788710677.8468153,
+      "fb_id": "1640107197827029",
+      "fb_media_id": "1640107197827029",
+      "ig_id": "18284373880288987",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -196,7 +216,7 @@
   },
   "ig_quota": {
     "day": "2026-09-06",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1788694522.636755,
   "dow_hours": {
