@@ -2,46 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Farioli fala de tudo e avalia reforços: «Souza e G",
-      "source": "zerozero.pt",
-      "ts": 1788523332.34098,
-      "fb_id": "2211021176408150",
-      "fb_media_id": "2211021176408150",
-      "ig_id": "18096074522455669",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Gil Vicente vai fazer encaixe com Cáseres e tem ac",
-      "source": "zerozero.pt",
-      "ts": 1788523437.9831095,
-      "fb_id": "3321025421417412",
-      "fb_media_id": "3321025421417412",
-      "ig_id": "18090802571422887",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "T11, Ep. 109 | Vitória SC agita últimas horas de m",
-      "source": "zerozero.pt",
-      "ts": 1788540452.8973305,
-      "fb_id": "28018632157778997",
-      "fb_media_id": "28018632157778997",
-      "ig_id": "17938670217358344",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Carolina Tristão renova com o Benfica Carolina Tri",
-      "source": "zerozero.pt",
-      "ts": 1788606680.3596647,
-      "fb_id": "1428292379146937",
-      "fb_media_id": "1428292379146937",
-      "ig_id": "17919459186223678",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "🤔Оффтоп из Нидерландов от финна с португальскими к",
       "source": "https://t.me/futebol_portugues",
       "ts": 1788623591.771905,
@@ -68,6 +28,16 @@
       "fb_id": "937247472175321",
       "fb_media_id": "937247472175321",
       "ig_id": "18089519222257307",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "UD Leiria reforça-se com avançado francês do FC Vi",
+      "source": "zerozero.pt",
+      "ts": 1788694482.5079005,
+      "fb_id": "1758831945007481",
+      "fb_media_id": "1758831945007481",
+      "ig_id": "18104309483238564",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -122,8 +92,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 2.9873527615374433,
-      "n": 66
+      "reach_avg": 3.629545618882937,
+      "n": 70
     }
   },
   "hours": {
@@ -168,8 +138,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 3.166114867521614,
-      "n": 14
+      "reach_avg": 5.187630162906052,
+      "n": 16
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -184,8 +154,8 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 5.498912124523534,
-      "n": 28
+      "reach_avg": 4.597228487166474,
+      "n": 29
     },
     "14": {
       "reach_avg": 5.33449101418383,
@@ -200,8 +170,8 @@
       "n": 7
     },
     "11": {
-      "reach_avg": 0.0028824004999999987,
-      "n": 9
+      "reach_avg": 1.1782329602,
+      "n": 10
     },
     "20": {
       "reach_avg": 0.15,
@@ -225,10 +195,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-05",
-    "posts": 4
+    "day": "2026-09-06",
+    "posts": 1
   },
-  "last_scored_ts": 1788606720.5288029,
+  "last_scored_ts": 1788694522.636755,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -455,8 +425,8 @@
       "n": 4
     },
     "5-11": {
-      "reach_avg": 0.008403499999999998,
-      "n": 6
+      "reach_avg": 1.1804413999999999,
+      "n": 7
     },
     "5-16": {
       "reach_avg": 0.008403499999999998,
@@ -661,6 +631,14 @@
     "3-12": {
       "reach_avg": 2.4604,
       "n": 1
+    },
+    "4-12": {
+      "reach_avg": 6.43595,
+      "n": 2
+    },
+    "4-16": {
+      "reach_avg": 2.4933,
+      "n": 1
     }
   },
   "formats": {
@@ -669,8 +647,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 2.9873527615374433,
-      "n": 87
+      "reach_avg": 3.629545618882937,
+      "n": 91
     }
   },
   "variants": {
@@ -679,8 +657,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 2.9873526790665608,
-      "n": 95
+      "reach_avg": 3.629545607567932,
+      "n": 99
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -789,15 +767,13 @@
     2.3024,
     2.374,
     1.7342,
-    3.5209
+    3.5209,
+    7.6244000000000005,
+    3.6629000000000005,
+    2.4933,
+    1.9618
   ],
   "recent_winners": [
-    {
-      "head": "Primeria chicotada da Liga 3: UD Santarém anuncia",
-      "source": "zerozero.pt",
-      "reward": 7.3228,
-      "ts": 1787730648.7508798
-    },
     {
       "head": "O Santa Clara x FC Famalicão foi assim... O árbitr",
       "source": "zerozero.pt",
@@ -911,6 +887,12 @@
       "source": "zerozero.pt",
       "reward": 9.2164,
       "ts": 1788436861.23659
+    },
+    {
+      "head": "Farioli fala de tudo e avalia reforços: «Souza e G",
+      "source": "zerozero.pt",
+      "reward": 7.6244000000000005,
+      "ts": 1788694522.636755
     }
   ]
 }
