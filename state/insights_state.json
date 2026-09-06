@@ -60,6 +60,26 @@
       "ig_id": "18284373880288987",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "O FC Alverca x SC Braga foi assim... O árbitro api",
+      "source": "zerozero.pt",
+      "ts": 1788728927.587735,
+      "fb_id": "1076295882066975",
+      "fb_media_id": "1076295882066975",
+      "ig_id": "18021958562860946",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Al-Nassr com primeiro desaire na Liga Saudita O Al",
+      "source": "zerozero.pt",
+      "ts": 1788729033.344458,
+      "fb_id": "951342580629614",
+      "fb_media_id": "951342580629614",
+      "ig_id": "18071972660555178",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -216,7 +236,7 @@
   },
   "ig_quota": {
     "day": "2026-09-06",
-    "posts": 3
+    "posts": 5
   },
   "last_scored_ts": 1788694522.636755,
   "dow_hours": {
