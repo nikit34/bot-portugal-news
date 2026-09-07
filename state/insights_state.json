@@ -50,6 +50,16 @@
       "ig_id": "18108222935159280",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Benfica 5-1 FC Porto ao minuto GOLO Benfica!Anna C",
+      "source": "zerozero.pt",
+      "ts": 1788818228.3930953,
+      "fb_id": "2131645337759986",
+      "fb_media_id": "2131645337759986",
+      "ig_id": "18105444088898408",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -206,7 +216,7 @@
   },
   "ig_quota": {
     "day": "2026-09-07",
-    "posts": 1
+    "posts": 2
   },
   "last_scored_ts": 1788787339.841492,
   "dow_hours": {
