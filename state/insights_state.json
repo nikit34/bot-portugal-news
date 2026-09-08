@@ -2,46 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Reencontro de ex-leões em Itália sorri ao Torino A",
-      "source": "zerozero.pt",
-      "ts": 1788710571.194662,
-      "fb_id": "2016120049093953",
-      "fb_media_id": "2016120049093953",
-      "ig_id": "18145060798564477",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Atenção, FC Porto: Man City vence e continua imbat",
-      "source": "zerozero.pt",
-      "ts": 1788710677.8468153,
-      "fb_id": "1640107197827029",
-      "fb_media_id": "1640107197827029",
-      "ig_id": "18284373880288987",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "O FC Alverca x SC Braga foi assim... O árbitro api",
-      "source": "zerozero.pt",
-      "ts": 1788728927.587735,
-      "fb_id": "1076295882066975",
-      "fb_media_id": "1076295882066975",
-      "ig_id": "18021958562860946",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Al-Nassr com primeiro desaire na Liga Saudita O Al",
-      "source": "zerozero.pt",
-      "ts": 1788729033.344458,
-      "fb_id": "951342580629614",
-      "fb_media_id": "951342580629614",
-      "ig_id": "18071972660555178",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "O sucessor da posição deixada por Gustavo Sá: pode",
       "source": "zerozero.pt",
       "ts": 1788787299.7348845,
@@ -58,6 +18,16 @@
       "fb_id": "2131645337759986",
       "fb_media_id": "2131645337759986",
       "ig_id": "18105444088898408",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Estoril Praia x FC Arouca: antevisão, ausências e",
+      "source": "zerozero.pt",
+      "ts": 1788868913.2767591,
+      "fb_id": "1591417129383106",
+      "fb_media_id": "1591417129383106",
+      "ig_id": "18114234112960496",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -112,8 +82,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 4.342852541301055,
-      "n": 73
+      "reach_avg": 3.5271343685723062,
+      "n": 77
     }
   },
   "hours": {
@@ -146,8 +116,8 @@
       "n": 50
     },
     "21": {
-      "reach_avg": 4.081282155034156,
-      "n": 41
+      "reach_avg": 3.271804255966736,
+      "n": 43
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -174,8 +144,8 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 4.597228487166474,
-      "n": 29
+      "reach_avg": 4.668672212836665,
+      "n": 31
     },
     "14": {
       "reach_avg": 5.33449101418383,
@@ -215,10 +185,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-07",
-    "posts": 2
+    "day": "2026-09-08",
+    "posts": 1
   },
-  "last_scored_ts": 1788787339.841492,
+  "last_scored_ts": 1788868953.2844887,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -281,8 +251,8 @@
       "n": 10
     },
     "6-21": {
-      "reach_avg": 5.9735431406991335,
-      "n": 6
+      "reach_avg": 4.199012138942575,
+      "n": 8
     },
     "6-23": {
       "reach_avg": 0.0,
@@ -549,8 +519,8 @@
       "n": 6
     },
     "6-16": {
-      "reach_avg": 6.869355410361582,
-      "n": 9
+      "reach_avg": 5.5783227925914,
+      "n": 11
     },
     "0-13": {
       "reach_avg": 7.515,
@@ -667,8 +637,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 4.260923818910739,
-      "n": 95
+      "reach_avg": 3.517780918310775,
+      "n": 99
     }
   },
   "variants": {
@@ -677,8 +647,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 4.26092381735832,
-      "n": 103
+      "reach_avg": 3.5177809181389943,
+      "n": 107
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -795,7 +765,11 @@
     2.2362,
     1.4329,
     6.6174,
-    2.4393000000000002
+    2.4393000000000002,
+    2.5131,
+    5.614800000000001,
+    1.5046,
+    3.1867
   ],
   "recent_winners": [
     {
