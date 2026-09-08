@@ -30,6 +30,16 @@
       "ig_id": "18114234112960496",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Ana Capeta sofre rotura do ligamento cruzado e Mun",
+      "source": "zerozero.pt",
+      "ts": 1788887271.0209723,
+      "fb_id": "1427855909267213",
+      "fb_media_id": "1427855909267213",
+      "ig_id": "17884443594485410",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -186,7 +196,7 @@
   },
   "ig_quota": {
     "day": "2026-09-08",
-    "posts": 1
+    "posts": 2
   },
   "last_scored_ts": 1788868953.2844887,
   "dow_hours": {
