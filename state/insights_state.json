@@ -40,6 +40,16 @@
       "ig_id": "17884443594485410",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Leões anunciam defesa de 18 anos: «Tinha o sonho d",
+      "source": "zerozero.pt",
+      "ts": 1788903619.442209,
+      "fb_id": "1403061771891805",
+      "fb_media_id": "1403061771891805",
+      "ig_id": "18009451877763037",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -196,7 +206,7 @@
   },
   "ig_quota": {
     "day": "2026-09-08",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1788868953.2844887,
   "dow_hours": {
