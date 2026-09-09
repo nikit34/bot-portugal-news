@@ -2,36 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "O sucessor da posição deixada por Gustavo Sá: pode",
-      "source": "zerozero.pt",
-      "ts": 1788787299.7348845,
-      "fb_id": "2577430449365469",
-      "fb_media_id": "2577430449365469",
-      "ig_id": "18108222935159280",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Benfica 5-1 FC Porto ao minuto GOLO Benfica!Anna C",
-      "source": "zerozero.pt",
-      "ts": 1788818228.3930953,
-      "fb_id": "2131645337759986",
-      "fb_media_id": "2131645337759986",
-      "ig_id": "18105444088898408",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Estoril Praia x FC Arouca: antevisão, ausências e",
-      "source": "zerozero.pt",
-      "ts": 1788868913.2767591,
-      "fb_id": "1591417129383106",
-      "fb_media_id": "1591417129383106",
-      "ig_id": "18114234112960496",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Ana Capeta sofre rotura do ligamento cruzado e Mun",
       "source": "zerozero.pt",
       "ts": 1788887271.0209723,
@@ -48,6 +18,16 @@
       "fb_id": "1403061771891805",
       "fb_media_id": "1403061771891805",
       "ig_id": "18009451877763037",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Casa Pia, um sem-abrigo com milhões O futebol port",
+      "source": "zerozero.pt",
+      "ts": 1788956011.3894806,
+      "fb_id": "1405489661522159",
+      "fb_media_id": "1405489661522159",
+      "ig_id": "18135998971544232",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -102,8 +82,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 3.5271343685723062,
-      "n": 77
+      "reach_avg": 3.7236133362401724,
+      "n": 80
     }
   },
   "hours": {
@@ -120,8 +100,8 @@
       "n": 45
     },
     "13": {
-      "reach_avg": 5.591337196443455,
-      "n": 28
+      "reach_avg": 6.268329083760438,
+      "n": 29
     },
     "15": {
       "reach_avg": 1.512156,
@@ -136,8 +116,8 @@
       "n": 50
     },
     "21": {
-      "reach_avg": 3.271804255966736,
-      "n": 43
+      "reach_avg": 2.789492979176715,
+      "n": 44
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -148,8 +128,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 5.187630162906052,
-      "n": 16
+      "reach_avg": 4.163271114034235,
+      "n": 17
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -205,10 +185,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-08",
-    "posts": 3
+    "day": "2026-09-09",
+    "posts": 1
   },
-  "last_scored_ts": 1788868953.2844887,
+  "last_scored_ts": 1788956051.492526,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -307,8 +287,8 @@
       "n": 6
     },
     "0-21": {
-      "reach_avg": 3.01566,
-      "n": 4
+      "reach_avg": 2.6101919999999996,
+      "n": 5
     },
     "0-23": {
       "reach_avg": 2.793732,
@@ -543,8 +523,8 @@
       "n": 11
     },
     "0-13": {
-      "reach_avg": 7.515,
-      "n": 2
+      "reach_avg": 7.455299999999999,
+      "n": 3
     },
     "1-22": {
       "reach_avg": 2.0999999999999996,
@@ -635,8 +615,8 @@
       "n": 2
     },
     "1-12": {
-      "reach_avg": 3.9005500000000004,
-      "n": 2
+      "reach_avg": 3.262315,
+      "n": 3
     },
     "3-12": {
       "reach_avg": 2.4604,
@@ -657,8 +637,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 3.517780918310775,
-      "n": 99
+      "reach_avg": 3.7217800599889115,
+      "n": 102
     }
   },
   "variants": {
@@ -667,8 +647,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 3.5177809181389943,
-      "n": 107
+      "reach_avg": 3.721780059955243,
+      "n": 110
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -789,7 +769,10 @@
     2.5131,
     5.614800000000001,
     1.5046,
-    3.1867
+    3.1867,
+    7.316000000000001,
+    1.6641,
+    1.7731
   ],
   "recent_winners": [
     {
