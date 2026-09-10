@@ -2,26 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Ana Capeta sofre rotura do ligamento cruzado e Mun",
-      "source": "zerozero.pt",
-      "ts": 1788887271.0209723,
-      "fb_id": "1427855909267213",
-      "fb_media_id": "1427855909267213",
-      "ig_id": "17884443594485410",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Leões anunciam defesa de 18 anos: «Tinha o sonho d",
-      "source": "zerozero.pt",
-      "ts": 1788903619.442209,
-      "fb_id": "1403061771891805",
-      "fb_media_id": "1403061771891805",
-      "ig_id": "18009451877763037",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Casa Pia, um sem-abrigo com milhões O futebol port",
       "source": "zerozero.pt",
       "ts": 1788956011.3894806,
@@ -48,6 +28,16 @@
       "fb_id": "1393822209397279",
       "fb_media_id": "1393822209397279",
       "ig_id": "18111355303873294",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Regresso amargo: cinco notas sobre a derrota do FC",
+      "source": "zerozero.pt",
+      "ts": 1789042053.0774765,
+      "fb_id": "1718512979231193",
+      "fb_media_id": "1718512979231193",
+      "ig_id": "18120578437713858",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -102,8 +92,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 3.7236133362401724,
-      "n": 80
+      "reach_avg": 3.3766253113435645,
+      "n": 82
     }
   },
   "hours": {
@@ -128,16 +118,16 @@
       "n": 23
     },
     "17": {
-      "reach_avg": 5.139576385222436,
-      "n": 31
+      "reach_avg": 4.291813469655705,
+      "n": 32
     },
     "19": {
       "reach_avg": 7.325348545863364,
       "n": 50
     },
     "21": {
-      "reach_avg": 2.789492979176715,
-      "n": 44
+      "reach_avg": 3.0738384518904285,
+      "n": 45
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -205,10 +195,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-09",
-    "posts": 3
+    "day": "2026-09-10",
+    "posts": 1
   },
-  "last_scored_ts": 1788956051.492526,
+  "last_scored_ts": 1789042093.0955274,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -331,16 +321,16 @@
       "n": 6
     },
     "1-17": {
-      "reach_avg": 7.336488,
-      "n": 5
+      "reach_avg": 5.8296516,
+      "n": 6
     },
     "1-19": {
       "reach_avg": 4.986064538265648,
       "n": 8
     },
     "1-21": {
-      "reach_avg": 4.824875993149215,
-      "n": 10
+      "reach_avg": 4.43851319520445,
+      "n": 11
     },
     "1-23": {
       "reach_avg": 0.0,
@@ -657,8 +647,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 3.7217800599889115,
-      "n": 102
+      "reach_avg": 3.3757842906057984,
+      "n": 104
     }
   },
   "variants": {
@@ -667,8 +657,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 3.721780059955243,
-      "n": 110
+      "reach_avg": 3.375784290590356,
+      "n": 112
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -792,7 +782,9 @@
     3.1867,
     7.316000000000001,
     1.6641,
-    1.7731
+    1.7731,
+    2.3137,
+    3.537
   ],
   "recent_winners": [
     {
