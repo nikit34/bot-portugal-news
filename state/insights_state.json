@@ -40,6 +40,16 @@
       "ig_id": "18120578437713858",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "T2, Ep. 5 | Champions que promete! Esta semana, Pe",
+      "source": "zerozero.pt",
+      "ts": 1789059388.438578,
+      "fb_id": "1429470372402394",
+      "fb_media_id": "1429470372402394",
+      "ig_id": "18025163882888792",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -196,7 +206,7 @@
   },
   "ig_quota": {
     "day": "2026-09-10",
-    "posts": 1
+    "posts": 2
   },
   "last_scored_ts": 1789042093.0955274,
   "dow_hours": {
