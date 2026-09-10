@@ -50,6 +50,16 @@
       "ig_id": "18025163882888792",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Ronaldo marca mais um golo; Darwin ajuda na vitóri",
+      "source": "zerozero.pt",
+      "ts": 1789075769.5642622,
+      "fb_id": "1063852519782570",
+      "fb_media_id": "1063852519782570",
+      "ig_id": "18109661105149766",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -206,7 +216,7 @@
   },
   "ig_quota": {
     "day": "2026-09-10",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1789042093.0955274,
   "dow_hours": {
