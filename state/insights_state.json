@@ -2,36 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Casa Pia, um sem-abrigo com milhões O futebol port",
-      "source": "zerozero.pt",
-      "ts": 1788956011.3894806,
-      "fb_id": "1405489661522159",
-      "fb_media_id": "1405489661522159",
-      "ig_id": "18135998971544232",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Rui Borges: «Temos muita gente jovem e com ambição",
-      "source": "zerozero.pt",
-      "ts": 1788973519.1293588,
-      "fb_id": "1714898879617406",
-      "fb_media_id": "1714898879617406",
-      "ig_id": "17873875971634703",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Est. Amadora reage à interdição do Estádio José Go",
-      "source": "zerozero.pt",
-      "ts": 1788989609.1483798,
-      "fb_id": "1393822209397279",
-      "fb_media_id": "1393822209397279",
-      "ig_id": "18111355303873294",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Regresso amargo: cinco notas sobre a derrota do FC",
       "source": "zerozero.pt",
       "ts": 1789042053.0774765,
@@ -58,6 +28,16 @@
       "fb_id": "1063852519782570",
       "fb_media_id": "1063852519782570",
       "ig_id": "18109661105149766",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "ANTEVISÃO | Portugal arranca Eurovolley em busca d",
+      "source": "zerozero.pt",
+      "ts": 1789128340.6861699,
+      "fb_id": "1845033703148717",
+      "fb_media_id": "1845033703148717",
+      "ig_id": "18069320993743979",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -112,8 +92,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 3.3766253113435645,
-      "n": 82
+      "reach_avg": 3.940283833589903,
+      "n": 85
     }
   },
   "hours": {
@@ -138,16 +118,16 @@
       "n": 23
     },
     "17": {
-      "reach_avg": 4.291813469655705,
-      "n": 32
+      "reach_avg": 4.192479428758993,
+      "n": 33
     },
     "19": {
       "reach_avg": 7.325348545863364,
       "n": 50
     },
     "21": {
-      "reach_avg": 3.0738384518904285,
-      "n": 45
+      "reach_avg": 3.861138721863322,
+      "n": 46
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -158,8 +138,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 4.163271114034235,
-      "n": 17
+      "reach_avg": 3.4007397798239647,
+      "n": 18
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -215,10 +195,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-10",
-    "posts": 3
+    "day": "2026-09-11",
+    "posts": 1
   },
-  "last_scored_ts": 1789042093.0955274,
+  "last_scored_ts": 1789128380.8034375,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -373,16 +353,16 @@
       "n": 4
     },
     "2-17": {
-      "reach_avg": 1.67976,
-      "n": 7
+      "reach_avg": 3.048324,
+      "n": 8
     },
     "2-19": {
       "reach_avg": 0.0,
       "n": 9
     },
     "2-21": {
-      "reach_avg": 5.195367344283331,
-      "n": 9
+      "reach_avg": 5.066647140998332,
+      "n": 10
     },
     "2-23": {
       "reach_avg": 0.0,
@@ -481,8 +461,8 @@
       "n": 6
     },
     "2-12": {
-      "reach_avg": 2.970440180209313,
-      "n": 4
+      "reach_avg": 2.565758126146519,
+      "n": 5
     },
     "2-16": {
       "reach_avg": 0.21,
@@ -667,8 +647,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 3.3757842906057984,
-      "n": 104
+      "reach_avg": 3.940189989832677,
+      "n": 107
     }
   },
   "variants": {
@@ -677,8 +657,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 3.375784290590356,
-      "n": 112
+      "reach_avg": 3.9401899898309547,
+      "n": 115
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -804,7 +784,10 @@
     1.6641,
     1.7731,
     2.3137,
-    3.537
+    3.537,
+    1.6215,
+    3.9607,
+    4.7663
   ],
   "recent_winners": [
     {
