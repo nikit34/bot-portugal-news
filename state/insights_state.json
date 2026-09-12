@@ -2,36 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Regresso amargo: cinco notas sobre a derrota do FC",
-      "source": "zerozero.pt",
-      "ts": 1789042053.0774765,
-      "fb_id": "1718512979231193",
-      "fb_media_id": "1718512979231193",
-      "ig_id": "18120578437713858",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "T2, Ep. 5 | Champions que promete! Esta semana, Pe",
-      "source": "zerozero.pt",
-      "ts": 1789059388.438578,
-      "fb_id": "1429470372402394",
-      "fb_media_id": "1429470372402394",
-      "ig_id": "18025163882888792",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Ronaldo marca mais um golo; Darwin ajuda na vitóri",
-      "source": "zerozero.pt",
-      "ts": 1789075769.5642622,
-      "fb_id": "1063852519782570",
-      "fb_media_id": "1063852519782570",
-      "ig_id": "18109661105149766",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "ANTEVISÃO | Portugal arranca Eurovolley em busca d",
       "source": "zerozero.pt",
       "ts": 1789128340.6861699,
@@ -58,6 +28,16 @@
       "fb_id": "896956943273597",
       "fb_media_id": "896956943273597",
       "ig_id": "17944700076299141",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Zé Carlos é o novo lateral direito do Rio Ave Está",
+      "source": "zerozero.pt",
+      "ts": 1789212760.0670207,
+      "fb_id": "4372964906180324",
+      "fb_media_id": "4372964906180324",
+      "ig_id": "18062282096610443",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -112,8 +92,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 3.940283833589903,
-      "n": 85
+      "reach_avg": 5.424914031383621,
+      "n": 88
     }
   },
   "hours": {
@@ -146,8 +126,8 @@
       "n": 50
     },
     "21": {
-      "reach_avg": 3.861138721863322,
-      "n": 46
+      "reach_avg": 5.594624373999014,
+      "n": 47
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -158,8 +138,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 3.4007397798239647,
-      "n": 18
+      "reach_avg": 3.130997845876775,
+      "n": 19
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -174,8 +154,8 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 4.668672212836665,
-      "n": 31
+      "reach_avg": 3.824330548985665,
+      "n": 32
     },
     "14": {
       "reach_avg": 5.33449101418383,
@@ -215,10 +195,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-11",
-    "posts": 3
+    "day": "2026-09-12",
+    "posts": 1
   },
-  "last_scored_ts": 1789128380.8034375,
+  "last_scored_ts": 1789212800.2456546,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -409,8 +389,8 @@
       "n": 4
     },
     "3-21": {
-      "reach_avg": 2.6664128217687075,
-      "n": 6
+      "reach_avg": 5.286545128707484,
+      "n": 7
     },
     "4-2": {
       "reach_avg": 4.027759172787423,
@@ -493,8 +473,8 @@
       "n": 2
     },
     "3-16": {
-      "reach_avg": 1.38144,
-      "n": 3
+      "reach_avg": 1.5718047480889508,
+      "n": 4
     },
     "3-19": {
       "reach_avg": 0.010499999999999999,
@@ -649,8 +629,8 @@
       "n": 3
     },
     "3-12": {
-      "reach_avg": 2.4604,
-      "n": 1
+      "reach_avg": 2.4729669712241913,
+      "n": 2
     },
     "4-12": {
       "reach_avg": 6.43595,
@@ -667,8 +647,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 3.940189989832677,
-      "n": 107
+      "reach_avg": 5.4248956380072055,
+      "n": 110
     }
   },
   "variants": {
@@ -677,8 +657,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 3.9401899898309547,
-      "n": 115
+      "reach_avg": 5.424895638006868,
+      "n": 118
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -807,7 +787,10 @@
     3.537,
     1.6215,
     3.9607,
-    4.7663
+    4.7663,
+    2.5016,
+    1.8542,
+    7.0333000000000006
   ],
   "recent_winners": [
     {
