@@ -50,6 +50,16 @@
       "ig_id": "18083049692333693",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Trincão marca na vitória do Al-Ahli Jeddah; Richar",
+      "source": "zerozero.pt",
+      "ts": 1789247897.4267013,
+      "fb_id": "1092893743141710",
+      "fb_media_id": "1092893743141710",
+      "ig_id": "18029158016894837",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -206,7 +216,7 @@
   },
   "ig_quota": {
     "day": "2026-09-12",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1789212800.2456546,
   "dow_hours": {
