@@ -12,36 +12,6 @@
       "hashtag_n": 3
     },
     {
-      "head": "Prestianni voa como nunca: dupla com Schjelderup p",
-      "source": "zerozero.pt",
-      "ts": 1789145886.8670638,
-      "fb_id": "1763972401509878",
-      "fb_media_id": "1763972401509878",
-      "ig_id": "18093717464551333",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "GD Chaves contrata central com quase 70 internacio",
-      "source": "zerozero.pt",
-      "ts": 1789162519.3176115,
-      "fb_id": "896956943273597",
-      "fb_media_id": "896956943273597",
-      "ig_id": "17944700076299141",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Zé Carlos é o novo lateral direito do Rio Ave Está",
-      "source": "zerozero.pt",
-      "ts": 1789212760.0670207,
-      "fb_id": "4372964906180324",
-      "fb_media_id": "4372964906180324",
-      "ig_id": "18062282096610443",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Feminino | Portugal volta a vencer e está nas meia",
       "source": "zerozero.pt",
       "ts": 1789229096.2547152,
@@ -58,6 +28,16 @@
       "fb_id": "1092893743141710",
       "fb_media_id": "1092893743141710",
       "ig_id": "18029158016894837",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Rui Borges deixa aviso sobre o pós-Champions: «Mud",
+      "source": "zerozero.pt",
+      "ts": 1789303037.187492,
+      "fb_id": "958216936587792",
+      "fb_media_id": "958216936587792",
+      "ig_id": "18462838114136345",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -112,8 +92,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 5.424914031383621,
-      "n": 88
+      "reach_avg": 3.7457847127645816,
+      "n": 91
     }
   },
   "hours": {
@@ -146,8 +126,8 @@
       "n": 50
     },
     "21": {
-      "reach_avg": 5.594624373999014,
-      "n": 47
+      "reach_avg": 4.52283706179931,
+      "n": 48
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -174,8 +154,8 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 3.824330548985665,
-      "n": 32
+      "reach_avg": 3.6351113842899654,
+      "n": 33
     },
     "14": {
       "reach_avg": 5.33449101418383,
@@ -190,8 +170,8 @@
       "n": 7
     },
     "11": {
-      "reach_avg": 1.9348731840800002,
-      "n": 11
+      "reach_avg": 2.6356721577082474,
+      "n": 12
     },
     "20": {
       "reach_avg": 0.91974,
@@ -215,10 +195,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-12",
-    "posts": 3
+    "day": "2026-09-13",
+    "posts": 1
   },
-  "last_scored_ts": 1789212800.2456546,
+  "last_scored_ts": 1789303077.3699484,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -445,8 +425,8 @@
       "n": 4
     },
     "5-11": {
-      "reach_avg": 1.1804413999999999,
-      "n": 7
+      "reach_avg": 2.45409656,
+      "n": 8
     },
     "5-16": {
       "reach_avg": 0.008403499999999998,
@@ -593,8 +573,8 @@
       "n": 2
     },
     "4-21": {
-      "reach_avg": 0.6,
-      "n": 2
+      "reach_avg": 1.4532,
+      "n": 3
     },
     "5-1": {
       "reach_avg": 0.0,
@@ -657,8 +637,8 @@
       "n": 2
     },
     "4-16": {
-      "reach_avg": 2.4933,
-      "n": 1
+      "reach_avg": 2.7623985537239806,
+      "n": 2
     }
   },
   "formats": {
@@ -667,8 +647,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 5.4248956380072055,
-      "n": 110
+      "reach_avg": 3.7457784038364714,
+      "n": 113
     }
   },
   "variants": {
@@ -677,8 +657,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 5.424895638006868,
-      "n": 118
+      "reach_avg": 3.745778403836355,
+      "n": 121
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -810,7 +790,10 @@
     4.7663,
     2.5016,
     1.8542,
-    7.0333000000000006
+    7.0333000000000006,
+    3.1936,
+    2.0220000000000002,
+    3.3032
   ],
   "recent_winners": [
     {
