@@ -50,6 +50,16 @@
       "ig_id": "18020281109710758",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Adeptos do Al-Taawon provocaram Rúben Neves gritan",
+      "source": "zerozero.pt",
+      "ts": 1789334268.429215,
+      "fb_id": "1417071570391548",
+      "fb_media_id": "1417071570391548",
+      "ig_id": "18118031479822097",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -206,7 +216,7 @@
   },
   "ig_quota": {
     "day": "2026-09-13",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1789303077.3699484,
   "dow_hours": {
