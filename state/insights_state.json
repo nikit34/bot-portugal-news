@@ -40,6 +40,16 @@
       "ig_id": "18462838114136345",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Lillestrom soma 3ª vitória seguida antes de encont",
+      "source": "zerozero.pt",
+      "ts": 1789318469.463559,
+      "fb_id": "1112827934557119",
+      "fb_media_id": "1112827934557119",
+      "ig_id": "18020281109710758",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -196,7 +206,7 @@
   },
   "ig_quota": {
     "day": "2026-09-13",
-    "posts": 1
+    "posts": 2
   },
   "last_scored_ts": 1789303077.3699484,
   "dow_hours": {
