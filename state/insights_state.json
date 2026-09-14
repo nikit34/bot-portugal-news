@@ -40,6 +40,26 @@
       "ig_id": "18112591663971002",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Djé Tavares, o pêndulo do meio-campo do Santa Clar",
+      "source": "zerozero.pt",
+      "ts": 1789424460.2614472,
+      "fb_id": "1605270564600896",
+      "fb_media_id": "1605270564600896",
+      "ig_id": "18133682635726590",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Feirense anuncia saída de Mário Nunes O Feirense r",
+      "source": "zerozero.pt",
+      "ts": 1789424569.3845036,
+      "fb_id": "1621244366041127",
+      "fb_media_id": "1621244366041127",
+      "ig_id": "18172830388454735",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -196,7 +216,7 @@
   },
   "ig_quota": {
     "day": "2026-09-14",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1789393636.716893,
   "dow_hours": {
