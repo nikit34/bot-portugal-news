@@ -12,36 +12,6 @@
       "hashtag_n": 3
     },
     {
-      "head": "Feminino | Portugal volta a vencer e está nas meia",
-      "source": "zerozero.pt",
-      "ts": 1789229096.2547152,
-      "fb_id": "1731690668161721",
-      "fb_media_id": "1731690668161721",
-      "ig_id": "18083049692333693",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Trincão marca na vitória do Al-Ahli Jeddah; Richar",
-      "source": "zerozero.pt",
-      "ts": 1789247897.4267013,
-      "fb_id": "1092893743141710",
-      "fb_media_id": "1092893743141710",
-      "ig_id": "18029158016894837",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Rui Borges deixa aviso sobre o pós-Champions: «Mud",
-      "source": "zerozero.pt",
-      "ts": 1789303037.187492,
-      "fb_id": "958216936587792",
-      "fb_media_id": "958216936587792",
-      "ig_id": "18462838114136345",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Lillestrom soma 3ª vitória seguida antes de encont",
       "source": "zerozero.pt",
       "ts": 1789318469.463559,
@@ -58,6 +28,16 @@
       "fb_id": "1417071570391548",
       "fb_media_id": "1417071570391548",
       "ig_id": "18118031479822097",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Barcelona bate coragem do Levante de Luís Castro O",
+      "source": "zerozero.pt",
+      "ts": 1789393596.577952,
+      "fb_id": "1777269973425108",
+      "fb_media_id": "1777269973425108",
+      "ig_id": "18112591663971002",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -112,8 +92,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 3.7457847127645816,
-      "n": 91
+      "reach_avg": 7.756895403701858,
+      "n": 94
     }
   },
   "hours": {
@@ -146,8 +126,8 @@
       "n": 50
     },
     "21": {
-      "reach_avg": 4.52283706179931,
-      "n": 48
+      "reach_avg": 9.800834824719724,
+      "n": 49
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -158,8 +138,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 3.130997845876775,
-      "n": 19
+      "reach_avg": 3.49795010064484,
+      "n": 20
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -174,8 +154,8 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 3.6351113842899654,
-      "n": 33
+      "reach_avg": 3.2840479690029754,
+      "n": 34
     },
     "14": {
       "reach_avg": 5.33449101418383,
@@ -215,10 +195,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-13",
-    "posts": 3
+    "day": "2026-09-14",
+    "posts": 1
   },
-  "last_scored_ts": 1789303077.3699484,
+  "last_scored_ts": 1789393636.716893,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -249,8 +229,8 @@
       "n": 7
     },
     "5-21": {
-      "reach_avg": 4.8219,
-      "n": 4
+      "reach_avg": 9.92046,
+      "n": 5
     },
     "5-23": {
       "reach_avg": 0.0,
@@ -265,8 +245,8 @@
       "n": 5
     },
     "6-12": {
-      "reach_avg": 2.33292,
-      "n": 5
+      "reach_avg": 3.2432653382027676,
+      "n": 6
     },
     "6-15": {
       "reach_avg": 0.6086999999999999,
@@ -449,8 +429,8 @@
       "n": 8
     },
     "5-16": {
-      "reach_avg": 0.008403499999999998,
-      "n": 6
+      "reach_avg": 1.4823013999999999,
+      "n": 7
     },
     "6-7": {
       "reach_avg": 0.008746499999999997,
@@ -667,8 +647,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 3.7457784038364714,
-      "n": 113
+      "reach_avg": 7.756894167151948,
+      "n": 116
     }
   },
   "variants": {
@@ -677,8 +657,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 3.745778403836355,
-      "n": 121
+      "reach_avg": 7.756894167151924,
+      "n": 124
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -813,15 +793,12 @@
     7.0333000000000006,
     3.1936,
     2.0220000000000002,
-    3.3032
+    3.3032,
+    2.4649,
+    13.3195,
+    4.0716
   ],
   "recent_winners": [
-    {
-      "head": "O Santa Clara x FC Famalicão foi assim... O árbitr",
-      "source": "zerozero.pt",
-      "reward": 2.0231,
-      "ts": 1787730648.7508798
-    },
     {
       "head": "A análise de João Gião à derrota do Nacional em Gu",
       "source": "zerozero.pt",
@@ -935,6 +912,12 @@
       "source": "zerozero.pt",
       "reward": 7.6244000000000005,
       "ts": 1788694522.636755
+    },
+    {
+      "head": "Trincão marca na vitória do Al-Ahli Jeddah; Richar",
+      "source": "zerozero.pt",
+      "reward": 13.3195,
+      "ts": 1789393636.716893
     }
   ]
 }
