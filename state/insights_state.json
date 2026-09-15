@@ -40,6 +40,16 @@
       "ig_id": "18224881864331546",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "João Simões regressa à competição no Sporting B Ci",
+      "source": "zerozero.pt",
+      "ts": 1789493598.1828213,
+      "fb_id": "2609113746188843",
+      "fb_media_id": "2609113746188843",
+      "ig_id": "18139103920577966",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -196,7 +206,7 @@
   },
   "ig_quota": {
     "day": "2026-09-15",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1789475778.3911464,
   "dow_hours": {
