@@ -50,6 +50,16 @@
       "ig_id": "18139103920577966",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Bruma deixa Benfica e segue para a Grécia O Aris S",
+      "source": "zerozero.pt",
+      "ts": 1789509530.9714,
+      "fb_id": "1743985803534141",
+      "fb_media_id": "1743985803534141",
+      "ig_id": "17956869972216309",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -206,7 +216,7 @@
   },
   "ig_quota": {
     "day": "2026-09-15",
-    "posts": 3
+    "posts": 4
   },
   "last_scored_ts": 1789475778.3911464,
   "dow_hours": {
