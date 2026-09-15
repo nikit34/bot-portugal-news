@@ -12,26 +12,6 @@
       "hashtag_n": 3
     },
     {
-      "head": "Lillestrom soma 3ª vitória seguida antes de encont",
-      "source": "zerozero.pt",
-      "ts": 1789318469.463559,
-      "fb_id": "1112827934557119",
-      "fb_media_id": "1112827934557119",
-      "ig_id": "18020281109710758",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Adeptos do Al-Taawon provocaram Rúben Neves gritan",
-      "source": "zerozero.pt",
-      "ts": 1789334268.429215,
-      "fb_id": "1417071570391548",
-      "fb_media_id": "1417071570391548",
-      "ig_id": "18118031479822097",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Barcelona bate coragem do Levante de Luís Castro O",
       "source": "zerozero.pt",
       "ts": 1789393596.577952,
@@ -42,22 +22,22 @@
       "hashtag_n": 3
     },
     {
-      "head": "Djé Tavares, o pêndulo do meio-campo do Santa Clar",
+      "head": "Últimos minutos fatais: a malapata de Rui Borges e",
       "source": "zerozero.pt",
-      "ts": 1789424460.2614472,
-      "fb_id": "1605270564600896",
-      "fb_media_id": "1605270564600896",
-      "ig_id": "18133682635726590",
+      "ts": 1789475632.9388587,
+      "fb_id": "1611141613978855",
+      "fb_media_id": "1611141613978855",
+      "ig_id": "18106986428617668",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "Feirense anuncia saída de Mário Nunes O Feirense r",
+      "head": "Mourinho deixa bicada: «Nenhuma pergunta sobre os",
       "source": "zerozero.pt",
-      "ts": 1789424569.3845036,
-      "fb_id": "1621244366041127",
-      "fb_media_id": "1621244366041127",
-      "ig_id": "18172830388454735",
+      "ts": 1789475738.2802157,
+      "fb_id": "1061019716544218",
+      "fb_media_id": "1061019716544218",
+      "ig_id": "18224881864331546",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -112,8 +92,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 7.756895403701858,
-      "n": 94
+      "reach_avg": 6.504235747813911,
+      "n": 96
     }
   },
   "hours": {
@@ -146,8 +126,8 @@
       "n": 50
     },
     "21": {
-      "reach_avg": 9.800834824719724,
-      "n": 49
+      "reach_avg": 8.722744377303806,
+      "n": 50
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -174,8 +154,8 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 3.2840479690029754,
-      "n": 34
+      "reach_avg": 3.5481173341142043,
+      "n": 35
     },
     "14": {
       "reach_avg": 5.33449101418383,
@@ -215,10 +195,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-14",
-    "posts": 3
+    "day": "2026-09-15",
+    "posts": 2
   },
-  "last_scored_ts": 1789393636.716893,
+  "last_scored_ts": 1789475778.3911464,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -281,8 +261,8 @@
       "n": 10
     },
     "6-21": {
-      "reach_avg": 4.199012138942575,
-      "n": 8
+      "reach_avg": 5.0895947292297326,
+      "n": 9
     },
     "6-23": {
       "reach_avg": 0.0,
@@ -549,8 +529,8 @@
       "n": 6
     },
     "6-16": {
-      "reach_avg": 5.5783227925914,
-      "n": 11
+      "reach_avg": 5.10653595481398,
+      "n": 12
     },
     "0-13": {
       "reach_avg": 7.455299999999999,
@@ -667,8 +647,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 7.756894167151948,
-      "n": 116
+      "reach_avg": 6.504235141904455,
+      "n": 118
     }
   },
   "variants": {
@@ -677,8 +657,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 7.756894167151924,
-      "n": 124
+      "reach_avg": 6.504235141904442,
+      "n": 126
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -816,7 +796,9 @@
     3.3032,
     2.4649,
     13.3195,
-    4.0716
+    4.0716,
+    4.0057,
+    6.2072
   ],
   "recent_winners": [
     {
