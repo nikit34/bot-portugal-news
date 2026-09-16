@@ -12,16 +12,6 @@
       "hashtag_n": 3
     },
     {
-      "head": "Barcelona bate coragem do Levante de Luís Castro O",
-      "source": "zerozero.pt",
-      "ts": 1789393596.577952,
-      "fb_id": "1777269973425108",
-      "fb_media_id": "1777269973425108",
-      "ig_id": "18112591663971002",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Últimos minutos fatais: a malapata de Rui Borges e",
       "source": "zerozero.pt",
       "ts": 1789475632.9388587,
@@ -60,6 +50,16 @@
       "ig_id": "17956869972216309",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Marco Silva com um «reforço» de peso no último tre",
+      "source": "zerozero.pt",
+      "ts": 1789561792.1478312,
+      "fb_id": "2348722152330375",
+      "fb_media_id": "2348722152330375",
+      "ig_id": "18043808177819508",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -112,8 +112,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 6.504235747813911,
-      "n": 96
+      "reach_avg": 5.318325023469738,
+      "n": 97
     }
   },
   "hours": {
@@ -130,8 +130,8 @@
       "n": 45
     },
     "13": {
-      "reach_avg": 6.268329083760438,
-      "n": 29
+      "reach_avg": 5.1531903586323065,
+      "n": 30
     },
     "15": {
       "reach_avg": 1.512156,
@@ -215,10 +215,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-15",
-    "posts": 4
+    "day": "2026-09-16",
+    "posts": 1
   },
-  "last_scored_ts": 1789475778.3911464,
+  "last_scored_ts": 1789561832.1731977,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -553,8 +553,8 @@
       "n": 12
     },
     "0-13": {
-      "reach_avg": 7.455299999999999,
-      "n": 3
+      "reach_avg": 5.984069999999999,
+      "n": 4
     },
     "1-22": {
       "reach_avg": 2.0999999999999996,
@@ -667,8 +667,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 6.504235141904455,
-      "n": 118
+      "reach_avg": 5.318324599333119,
+      "n": 119
     }
   },
   "variants": {
@@ -677,8 +677,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 6.504235141904442,
-      "n": 126
+      "reach_avg": 5.31832459933311,
+      "n": 127
     },
     "tags:1-2": {
       "reach_avg": 5.57905236,
@@ -818,7 +818,8 @@
     13.3195,
     4.0716,
     4.0057,
-    6.2072
+    6.2072,
+    2.5512
   ],
   "recent_winners": [
     {
