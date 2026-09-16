@@ -70,6 +70,16 @@
       "ig_id": "18171544276454124",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Pedro Gonçalves estreia-se a marcar e sela passage",
+      "source": "zerozero.pt",
+      "ts": 1789595914.3604681,
+      "fb_id": "1633157854819545",
+      "fb_media_id": "1633157854819545",
+      "ig_id": "18107602723968430",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -226,7 +236,7 @@
   },
   "ig_quota": {
     "day": "2026-09-16",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1789561832.1731977,
   "dow_hours": {
