@@ -40,6 +40,26 @@
       "ig_id": "18131427307656984",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Israel perde e Portugal segue em frente no EuroVol",
+      "source": "zerozero.pt",
+      "ts": 1789666404.6032403,
+      "fb_id": "2329179571150575",
+      "fb_media_id": "2329179571150575",
+      "ig_id": "18133487665577009",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Dor de cabeça no FC Porto: ex-Real Madrid sofre ro",
+      "source": "zerozero.pt",
+      "ts": 1789666523.0029895,
+      "fb_id": "1057712463771107",
+      "fb_media_id": "1057712463771107",
+      "ig_id": "17967660126166217",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -196,7 +216,7 @@
   },
   "ig_quota": {
     "day": "2026-09-17",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1789648255.1300876,
   "dow_hours": {
