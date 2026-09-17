@@ -12,56 +12,6 @@
       "hashtag_n": 3
     },
     {
-      "head": "Últimos minutos fatais: a malapata de Rui Borges e",
-      "source": "zerozero.pt",
-      "ts": 1789475632.9388587,
-      "fb_id": "1611141613978855",
-      "fb_media_id": "1611141613978855",
-      "ig_id": "18106986428617668",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Mourinho deixa bicada: «Nenhuma pergunta sobre os",
-      "source": "zerozero.pt",
-      "ts": 1789475738.2802157,
-      "fb_id": "1061019716544218",
-      "fb_media_id": "1061019716544218",
-      "ig_id": "18224881864331546",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "João Simões regressa à competição no Sporting B Ci",
-      "source": "zerozero.pt",
-      "ts": 1789493598.1828213,
-      "fb_id": "2609113746188843",
-      "fb_media_id": "2609113746188843",
-      "ig_id": "18139103920577966",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Bruma deixa Benfica e segue para a Grécia O Aris S",
-      "source": "zerozero.pt",
-      "ts": 1789509530.9714,
-      "fb_id": "1743985803534141",
-      "fb_media_id": "1743985803534141",
-      "ig_id": "17956869972216309",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Marco Silva com um «reforço» de peso no último tre",
-      "source": "zerozero.pt",
-      "ts": 1789561792.1478312,
-      "fb_id": "2348722152330375",
-      "fb_media_id": "2348722152330375",
-      "ig_id": "18043808177819508",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Médio do Sporting convocado para os sub-21 da Dina",
       "source": "zerozero.pt",
       "ts": 1789580008.8250146,
@@ -78,6 +28,16 @@
       "fb_id": "1633157854819545",
       "fb_media_id": "1633157854819545",
       "ig_id": "18107602723968430",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Vasco Seabra nomeado Treinador do Mês de agosto da",
+      "source": "zerozero.pt",
+      "ts": 1789648214.9689176,
+      "fb_id": "1028743066808739",
+      "fb_media_id": "1028743066808739",
+      "ig_id": "18131427307656984",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -132,8 +92,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 5.318325023469738,
-      "n": 97
+      "reach_avg": 9.543229384727361,
+      "n": 102
     }
   },
   "hours": {
@@ -158,16 +118,16 @@
       "n": 23
     },
     "17": {
-      "reach_avg": 4.192479428758993,
-      "n": 33
+      "reach_avg": 3.464955600131295,
+      "n": 34
     },
     "19": {
       "reach_avg": 7.325348545863364,
       "n": 50
     },
     "21": {
-      "reach_avg": 8.722744377303806,
-      "n": 50
+      "reach_avg": 7.041831064112664,
+      "n": 51
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -178,8 +138,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 3.49795010064484,
-      "n": 20
+      "reach_avg": 9.390622619726388,
+      "n": 23
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -235,10 +195,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-16",
-    "posts": 3
+    "day": "2026-09-17",
+    "posts": 1
   },
-  "last_scored_ts": 1789561832.1731977,
+  "last_scored_ts": 1789648255.1300876,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -361,16 +321,16 @@
       "n": 6
     },
     "1-17": {
-      "reach_avg": 5.8296516,
-      "n": 6
+      "reach_avg": 4.61097612,
+      "n": 7
     },
     "1-19": {
       "reach_avg": 4.986064538265648,
       "n": 8
     },
     "1-21": {
-      "reach_avg": 4.43851319520445,
-      "n": 11
+      "reach_avg": 4.042869236643115,
+      "n": 12
     },
     "1-23": {
       "reach_avg": 0.0,
@@ -501,8 +461,8 @@
       "n": 6
     },
     "2-12": {
-      "reach_avg": 2.565758126146519,
-      "n": 5
+      "reach_avg": 9.347523250458607,
+      "n": 6
     },
     "2-16": {
       "reach_avg": 0.21,
@@ -665,8 +625,8 @@
       "n": 2
     },
     "1-12": {
-      "reach_avg": 3.262315,
-      "n": 3
+      "reach_avg": 2.55804535,
+      "n": 5
     },
     "3-12": {
       "reach_avg": 2.4729669712241913,
@@ -687,8 +647,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 5.318324599333119,
-      "n": 119
+      "reach_avg": 9.543229345090385,
+      "n": 124
     }
   },
   "variants": {
@@ -697,12 +657,12 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 5.31832459933311,
-      "n": 127
+      "reach_avg": 9.531645215028503,
+      "n": 131
     },
     "tags:1-2": {
-      "reach_avg": 5.57905236,
-      "n": 7
+      "reach_avg": 4.841246652,
+      "n": 8
     }
   },
   "reward_samples": [
@@ -839,15 +799,14 @@
     4.0716,
     4.0057,
     6.2072,
-    2.5512
+    2.5512,
+    1.6381000000000001,
+    2.0517000000000003,
+    1.7674,
+    3.1197000000000004,
+    13.8687
   ],
   "recent_winners": [
-    {
-      "head": "A análise de João Gião à derrota do Nacional em Gu",
-      "source": "zerozero.pt",
-      "reward": 5.0261000000000005,
-      "ts": 1787730648.7508798
-    },
     {
       "head": "A reação de Tiago Margarido aos primeiros pontos c",
       "source": "zerozero.pt",
@@ -961,6 +920,12 @@
       "source": "zerozero.pt",
       "reward": 13.3195,
       "ts": 1789393636.716893
+    },
+    {
+      "head": "Marco Silva com um «reforço» de peso no último tre",
+      "source": "zerozero.pt",
+      "reward": 13.8687,
+      "ts": 1789648255.1300876
     }
   ]
 }
