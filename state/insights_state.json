@@ -60,6 +60,16 @@
       "ig_id": "18190233661401802",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Ex-Juventus e FC Porto viveu drama: «Estive intern",
+      "source": "zerozero.pt",
+      "ts": 1789766964.5307522,
+      "fb_id": "2163350714534350",
+      "fb_media_id": "2163350714534350",
+      "ig_id": "18072445679725908",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -216,7 +226,7 @@
   },
   "ig_quota": {
     "day": "2026-09-18",
-    "posts": 3
+    "posts": 4
   },
   "last_scored_ts": 1789733496.0175147,
   "dow_hours": {
