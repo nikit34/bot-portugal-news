@@ -2,36 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "ANTEVISÃO | Portugal arranca Eurovolley em busca d",
-      "source": "zerozero.pt",
-      "ts": 1789128340.6861699,
-      "fb_id": "1845033703148717",
-      "fb_media_id": "1845033703148717",
-      "ig_id": "18069320993743979",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Médio do Sporting convocado para os sub-21 da Dina",
-      "source": "zerozero.pt",
-      "ts": 1789580008.8250146,
-      "fb_id": "1091494677179499",
-      "fb_media_id": "1091494677179499",
-      "ig_id": "18171544276454124",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Pedro Gonçalves estreia-se a marcar e sela passage",
-      "source": "zerozero.pt",
-      "ts": 1789595914.3604681,
-      "fb_id": "1633157854819545",
-      "fb_media_id": "1633157854819545",
-      "ig_id": "18107602723968430",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Vasco Seabra nomeado Treinador do Mês de agosto da",
       "source": "zerozero.pt",
       "ts": 1789648214.9689176,
@@ -62,24 +32,24 @@
       "hashtag_n": 3
     },
     {
-      "head": "Carlos Simões: «Estaria a mentir se dissesse que e",
+      "head": "Lillestrom x Torreense: antevisão, ausências e onz",
       "source": "zerozero.pt",
-      "ts": 1789682329.8035266,
-      "fb_id": "2640820639671152",
-      "fb_media_id": "2640820639671152",
-      "ig_id": "17968359597177469",
+      "ts": 1789733345.1193004,
+      "fb_id": "28526458546989195",
+      "fb_media_id": "28526458546989195",
+      "ig_id": "18173870041444043",
       "is_video": true,
       "hashtag_n": 3
     },
     {
-      "head": "«O presidente deu-me uma bala e disse que atirava",
+      "head": "Rui Costa sem receios para o Dragão: «Não estou pr",
       "source": "zerozero.pt",
-      "ts": 1789682446.3183887,
-      "fb_id": "1096942156204174",
-      "fb_media_id": "1096942156204174",
-      "ig_id": "18095121728396553",
+      "ts": 1789733455.9290597,
+      "fb_id": "1065998409490809",
+      "fb_media_id": "1065998409490809",
+      "ig_id": "18340047016248903",
       "is_video": true,
-      "hashtag_n": 2
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -132,8 +102,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 9.543229384727361,
-      "n": 102
+      "reach_avg": 6.765526398516407,
+      "n": 104
     }
   },
   "hours": {
@@ -158,16 +128,16 @@
       "n": 23
     },
     "17": {
-      "reach_avg": 3.464955600131295,
-      "n": 34
+      "reach_avg": 3.288088920091907,
+      "n": 35
     },
     "19": {
       "reach_avg": 7.325348545863364,
       "n": 50
     },
     "21": {
-      "reach_avg": 7.041831064112664,
-      "n": 51
+      "reach_avg": 6.414791744878864,
+      "n": 52
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -235,10 +205,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-17",
-    "posts": 5
+    "day": "2026-09-18",
+    "posts": 2
   },
-  "last_scored_ts": 1789648255.1300876,
+  "last_scored_ts": 1789733496.0175147,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -393,16 +363,16 @@
       "n": 4
     },
     "2-17": {
-      "reach_avg": 3.048324,
-      "n": 8
+      "reach_avg": 2.9964468,
+      "n": 9
     },
     "2-19": {
       "reach_avg": 0.0,
       "n": 9
     },
     "2-21": {
-      "reach_avg": 5.066647140998332,
-      "n": 10
+      "reach_avg": 5.032162998698832,
+      "n": 11
     },
     "2-23": {
       "reach_avg": 0.0,
@@ -687,8 +657,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 9.543229345090385,
-      "n": 124
+      "reach_avg": 6.765526379094288,
+      "n": 126
     }
   },
   "variants": {
@@ -697,8 +667,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 9.531645215028503,
-      "n": 131
+      "reach_avg": 6.759850155363965,
+      "n": 133
     },
     "tags:1-2": {
       "reach_avg": 4.841246652,
@@ -844,7 +814,9 @@
     2.0517000000000003,
     1.7674,
     3.1197000000000004,
-    13.8687
+    13.8687,
+    2.8754,
+    4.951700000000001
   ],
   "recent_winners": [
     {
