@@ -2,36 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Vasco Seabra nomeado Treinador do Mês de agosto da",
-      "source": "zerozero.pt",
-      "ts": 1789648214.9689176,
-      "fb_id": "1028743066808739",
-      "fb_media_id": "1028743066808739",
-      "ig_id": "18131427307656984",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Israel perde e Portugal segue em frente no EuroVol",
-      "source": "zerozero.pt",
-      "ts": 1789666404.6032403,
-      "fb_id": "2329179571150575",
-      "fb_media_id": "2329179571150575",
-      "ig_id": "18133487665577009",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Dor de cabeça no FC Porto: ex-Real Madrid sofre ro",
-      "source": "zerozero.pt",
-      "ts": 1789666523.0029895,
-      "fb_id": "1057712463771107",
-      "fb_media_id": "1057712463771107",
-      "ig_id": "17967660126166217",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Lillestrom x Torreense: antevisão, ausências e onz",
       "source": "zerozero.pt",
       "ts": 1789733345.1193004,
@@ -68,6 +38,16 @@
       "fb_id": "2163350714534350",
       "fb_media_id": "2163350714534350",
       "ig_id": "18072445679725908",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Benfica perde e não vai jogar Liga dos Campeões em",
+      "source": "zerozero.pt",
+      "ts": 1789818695.4085248,
+      "fb_id": "1786649382788090",
+      "fb_media_id": "1786649382788090",
+      "ig_id": "18127773316852516",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -122,8 +102,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 6.765526398516407,
-      "n": 104
+      "reach_avg": 4.114388054691127,
+      "n": 107
     }
   },
   "hours": {
@@ -148,8 +128,8 @@
       "n": 23
     },
     "17": {
-      "reach_avg": 3.288088920091907,
-      "n": 35
+      "reach_avg": 3.052961300683116,
+      "n": 37
     },
     "19": {
       "reach_avg": 7.325348545863364,
@@ -168,8 +148,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 9.390622619726388,
-      "n": 23
+      "reach_avg": 7.365885833808471,
+      "n": 24
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -225,10 +205,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-18",
-    "posts": 4
+    "day": "2026-09-19",
+    "posts": 1
   },
-  "last_scored_ts": 1789733496.0175147,
+  "last_scored_ts": 1789818735.5814137,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -599,8 +579,8 @@
       "n": 2
     },
     "3-17": {
-      "reach_avg": 1.4244,
-      "n": 2
+      "reach_avg": 2.68240449536647,
+      "n": 4
     },
     "4-21": {
       "reach_avg": 1.4532,
@@ -659,8 +639,8 @@
       "n": 5
     },
     "3-12": {
-      "reach_avg": 2.4729669712241913,
-      "n": 2
+      "reach_avg": 2.5269725443707167,
+      "n": 3
     },
     "4-12": {
       "reach_avg": 6.43595,
@@ -677,8 +657,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 6.765526379094288,
-      "n": 126
+      "reach_avg": 4.11438804802934,
+      "n": 129
     }
   },
   "variants": {
@@ -687,8 +667,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 6.759850155363965,
-      "n": 133
+      "reach_avg": 4.112441103289839,
+      "n": 136
     },
     "tags:1-2": {
       "reach_avg": 4.841246652,
@@ -836,7 +816,10 @@
     3.1197000000000004,
     13.8687,
     2.8754,
-    4.951700000000001
+    4.951700000000001,
+    2.6415,
+    1.7972000000000001,
+    3.427
   ],
   "recent_winners": [
     {
