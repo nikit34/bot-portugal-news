@@ -60,6 +60,16 @@
       "ig_id": "17948562069305917",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Médio do Santa Clara em estreia nas convocatórias",
+      "source": "zerozero.pt",
+      "ts": 1789852948.2435043,
+      "fb_id": "1734236647846227",
+      "fb_media_id": "1734236647846227",
+      "ig_id": "18089813501383655",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -216,7 +226,7 @@
   },
   "ig_quota": {
     "day": "2026-09-19",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1789818735.5814137,
   "dow_hours": {
