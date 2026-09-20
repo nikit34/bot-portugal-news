@@ -20,6 +20,26 @@
       "ig_id": "18148075093480627",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "GoldenCat Feminina | Portugal vence Alemanha e est",
+      "source": "zerozero.pt",
+      "ts": 1789922669.094822,
+      "fb_id": "1395807252680373",
+      "fb_media_id": "1395807252680373",
+      "ig_id": "18109533277893244",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Froholdt, Samu e Oskar disponíveis, Benfica e arbi",
+      "source": "zerozero.pt",
+      "ts": 1789922805.063684,
+      "fb_id": "1582213683365402",
+      "fb_media_id": "1582213683365402",
+      "ig_id": "18019084763928252",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -176,7 +196,7 @@
   },
   "ig_quota": {
     "day": "2026-09-20",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1789906018.2246606,
   "dow_hours": {
