@@ -2,56 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Lillestrom x Torreense: antevisão, ausências e onz",
-      "source": "zerozero.pt",
-      "ts": 1789733345.1193004,
-      "fb_id": "28526458546989195",
-      "fb_media_id": "28526458546989195",
-      "ig_id": "18173870041444043",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Rui Costa sem receios para o Dragão: «Não estou pr",
-      "source": "zerozero.pt",
-      "ts": 1789733455.9290597,
-      "fb_id": "1065998409490809",
-      "fb_media_id": "1065998409490809",
-      "ig_id": "18340047016248903",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Convocados pelo Uruguai, Maxi e Zalazar podem ser",
-      "source": "zerozero.pt",
-      "ts": 1789750861.3300362,
-      "fb_id": "973965119054999",
-      "fb_media_id": "973965119054999",
-      "ig_id": "18190233661401802",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Ex-Juventus e FC Porto viveu drama: «Estive intern",
-      "source": "zerozero.pt",
-      "ts": 1789766964.5307522,
-      "fb_id": "2163350714534350",
-      "fb_media_id": "2163350714534350",
-      "ig_id": "18072445679725908",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Benfica perde e não vai jogar Liga dos Campeões em",
-      "source": "zerozero.pt",
-      "ts": 1789818695.4085248,
-      "fb_id": "1786649382788090",
-      "fb_media_id": "1786649382788090",
-      "ig_id": "18127773316852516",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Jorge Jesus chama Cristiano: «Tem estatuto diferen",
       "source": "zerozero.pt",
       "ts": 1789834752.0516815,
@@ -62,12 +12,12 @@
       "hashtag_n": 3
     },
     {
-      "head": "Médio do Santa Clara em estreia nas convocatórias",
+      "head": "Bis de Gustavo Varela dá a vitória ao Monza Gustav",
       "source": "zerozero.pt",
-      "ts": 1789852948.2435043,
-      "fb_id": "1734236647846227",
-      "fb_media_id": "1734236647846227",
-      "ig_id": "18089813501383655",
+      "ts": 1789905978.065901,
+      "fb_id": "1093846266686113",
+      "fb_media_id": "1093846266686113",
+      "ig_id": "18148075093480627",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -122,8 +72,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 4.114388054691127,
-      "n": 107
+      "reach_avg": 5.039173059951987,
+      "n": 112
     }
   },
   "hours": {
@@ -148,16 +98,16 @@
       "n": 23
     },
     "17": {
-      "reach_avg": 3.052961300683116,
-      "n": 37
+      "reach_avg": 3.4997159576820698,
+      "n": 38
     },
     "19": {
       "reach_avg": 7.325348545863364,
       "n": 50
     },
     "21": {
-      "reach_avg": 6.414791744878864,
-      "n": 52
+      "reach_avg": 6.79322368030991,
+      "n": 53
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -168,8 +118,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 7.365885833808471,
-      "n": 24
+      "reach_avg": 5.947505903193189,
+      "n": 26
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -200,8 +150,8 @@
       "n": 7
     },
     "11": {
-      "reach_avg": 2.6356721577082474,
-      "n": 12
+      "reach_avg": 2.647399468582851,
+      "n": 13
     },
     "20": {
       "reach_avg": 0.91974,
@@ -225,10 +175,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-19",
-    "posts": 3
+    "day": "2026-09-20",
+    "posts": 1
   },
-  "last_scored_ts": 1789818735.5814137,
+  "last_scored_ts": 1789906018.2246606,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -439,8 +389,8 @@
       "n": 5
     },
     "4-17": {
-      "reach_avg": 0.0,
-      "n": 5
+      "reach_avg": 2.4892799999999995,
+      "n": 6
     },
     "5-2": {
       "reach_avg": 0.9113999999999998,
@@ -455,8 +405,8 @@
       "n": 4
     },
     "5-11": {
-      "reach_avg": 2.45409656,
-      "n": 8
+      "reach_avg": 2.526049794706625,
+      "n": 9
     },
     "5-16": {
       "reach_avg": 1.4823013999999999,
@@ -603,8 +553,8 @@
       "n": 4
     },
     "4-21": {
-      "reach_avg": 1.4532,
-      "n": 3
+      "reach_avg": 5.07798,
+      "n": 4
     },
     "5-1": {
       "reach_avg": 0.0,
@@ -663,8 +613,8 @@
       "n": 3
     },
     "4-12": {
-      "reach_avg": 6.43595,
-      "n": 2
+      "reach_avg": 5.561250121330673,
+      "n": 4
     },
     "4-16": {
       "reach_avg": 2.7623985537239806,
@@ -677,8 +627,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 4.11438804802934,
-      "n": 129
+      "reach_avg": 5.039173059943139,
+      "n": 134
     }
   },
   "variants": {
@@ -687,8 +637,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 4.112441103289839,
-      "n": 136
+      "reach_avg": 5.039170540305385,
+      "n": 141
     },
     "tags:1-2": {
       "reach_avg": 4.841246652,
@@ -839,15 +789,14 @@
     4.951700000000001,
     2.6415,
     1.7972000000000001,
-    3.427
+    3.427,
+    2.0278,
+    6.3209,
+    4.1488,
+    7.4945,
+    2.6742000000000004
   ],
   "recent_winners": [
-    {
-      "head": "A reação de Tiago Margarido aos primeiros pontos c",
-      "source": "zerozero.pt",
-      "reward": 3.8638000000000003,
-      "ts": 1787730648.7508798
-    },
     {
       "head": "Abel Ferreira goleia e reforça liderança do Brasil",
       "source": "zerozero.pt",
@@ -961,6 +910,12 @@
       "source": "zerozero.pt",
       "reward": 13.8687,
       "ts": 1789648255.1300876
+    },
+    {
+      "head": "Ex-Juventus e FC Porto viveu drama: «Estive intern",
+      "source": "zerozero.pt",
+      "reward": 7.4945,
+      "ts": 1789906018.2246606
     }
   ]
 }
