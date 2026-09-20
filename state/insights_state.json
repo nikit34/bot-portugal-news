@@ -40,6 +40,26 @@
       "ig_id": "18019084763928252",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Salgueiros surpreende e muito mais: o sábado de Ta",
+      "source": "zerozero.pt",
+      "ts": 1789938931.893792,
+      "fb_id": "1862727158421389",
+      "fb_media_id": "1862727158421389",
+      "ig_id": "17905938729565209",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "FC Porto estreia-se oficialmente no futsal com gol",
+      "source": "zerozero.pt",
+      "ts": 1789939040.408654,
+      "fb_id": "2097486317521550",
+      "fb_media_id": "2097486317521550",
+      "ig_id": "17939248983364954",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -196,7 +216,7 @@
   },
   "ig_quota": {
     "day": "2026-09-20",
-    "posts": 3
+    "posts": 5
   },
   "last_scored_ts": 1789906018.2246606,
   "dow_hours": {
