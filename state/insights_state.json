@@ -50,6 +50,16 @@
       "ig_id": "18433217275179357",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "O Estoril Praia x Casa Pia AC foi assim... O árbit",
+      "source": "zerozero.pt",
+      "ts": 1790029866.2745411,
+      "fb_id": "1850075402650299",
+      "fb_media_id": "1850075402650299",
+      "ig_id": "18134987812652063",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -206,7 +216,7 @@
   },
   "ig_quota": {
     "day": "2026-09-21",
-    "posts": 1
+    "posts": 2
   },
   "last_scored_ts": 1789998284.6366577,
   "dow_hours": {
