@@ -2,26 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Jorge Jesus chama Cristiano: «Tem estatuto diferen",
-      "source": "zerozero.pt",
-      "ts": 1789834752.0516815,
-      "fb_id": "1632533568578027",
-      "fb_media_id": "1632533568578027",
-      "ig_id": "17948562069305917",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Bis de Gustavo Varela dá a vitória ao Monza Gustav",
-      "source": "zerozero.pt",
-      "ts": 1789905978.065901,
-      "fb_id": "1093846266686113",
-      "fb_media_id": "1093846266686113",
-      "ig_id": "18148075093480627",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "GoldenCat Feminina | Portugal vence Alemanha e est",
       "source": "zerozero.pt",
       "ts": 1789922669.094822,
@@ -60,6 +40,16 @@
       "ig_id": "17939248983364954",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Três portugueses na convocatória da Grécia para a",
+      "source": "zerozero.pt",
+      "ts": 1789998244.6213531,
+      "fb_id": "1398138459193953",
+      "fb_media_id": "1398138459193953",
+      "ig_id": "18433217275179357",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -112,8 +102,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 5.039173059951987,
-      "n": 112
+      "reach_avg": 4.128203799376474,
+      "n": 114
     }
   },
   "hours": {
@@ -158,8 +148,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 5.947505903193189,
-      "n": 26
+      "reach_avg": 4.803574132235232,
+      "n": 27
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -174,8 +164,8 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 3.5481173341142043,
-      "n": 35
+      "reach_avg": 4.082457197104372,
+      "n": 36
     },
     "14": {
       "reach_avg": 5.33449101418383,
@@ -215,10 +205,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-20",
-    "posts": 5
+    "day": "2026-09-21",
+    "posts": 1
   },
-  "last_scored_ts": 1789906018.2246606,
+  "last_scored_ts": 1789998284.6366577,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -265,8 +255,8 @@
       "n": 5
     },
     "6-12": {
-      "reach_avg": 3.2432653382027676,
-      "n": 6
+      "reach_avg": 2.910605736741937,
+      "n": 7
     },
     "6-15": {
       "reach_avg": 0.6086999999999999,
@@ -449,8 +439,8 @@
       "n": 9
     },
     "5-16": {
-      "reach_avg": 1.4823013999999999,
-      "n": 7
+      "reach_avg": 3.50346056,
+      "n": 8
     },
     "6-7": {
       "reach_avg": 0.008746499999999997,
@@ -667,8 +657,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 5.039173059943139,
-      "n": 134
+      "reach_avg": 4.128203799372138,
+      "n": 136
     }
   },
   "variants": {
@@ -677,8 +667,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 5.039170540305385,
-      "n": 141
+      "reach_avg": 4.128202564749639,
+      "n": 143
     },
     "tags:1-2": {
       "reach_avg": 4.841246652,
@@ -834,7 +824,9 @@
     6.3209,
     4.1488,
     7.4945,
-    2.6742000000000004
+    2.6742000000000004,
+    4.8509,
+    2.1344000000000003
   ],
   "recent_winners": [
     {
