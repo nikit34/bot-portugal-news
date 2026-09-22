@@ -2,46 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "GoldenCat Feminina | Portugal vence Alemanha e est",
-      "source": "zerozero.pt",
-      "ts": 1789922669.094822,
-      "fb_id": "1395807252680373",
-      "fb_media_id": "1395807252680373",
-      "ig_id": "18109533277893244",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Froholdt, Samu e Oskar disponíveis, Benfica e arbi",
-      "source": "zerozero.pt",
-      "ts": 1789922805.063684,
-      "fb_id": "1582213683365402",
-      "fb_media_id": "1582213683365402",
-      "ig_id": "18019084763928252",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Salgueiros surpreende e muito mais: o sábado de Ta",
-      "source": "zerozero.pt",
-      "ts": 1789938931.893792,
-      "fb_id": "1862727158421389",
-      "fb_media_id": "1862727158421389",
-      "ig_id": "17905938729565209",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "FC Porto estreia-se oficialmente no futsal com gol",
-      "source": "zerozero.pt",
-      "ts": 1789939040.408654,
-      "fb_id": "2097486317521550",
-      "fb_media_id": "2097486317521550",
-      "ig_id": "17939248983364954",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
       "head": "Três portugueses na convocatória da Grécia para a",
       "source": "zerozero.pt",
       "ts": 1789998244.6213531,
@@ -58,6 +18,16 @@
       "fb_id": "1850075402650299",
       "fb_media_id": "1850075402650299",
       "ig_id": "18134987812652063",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Clóvis marca mais de um terço dos golos do Académi",
+      "source": "zerozero.pt",
+      "ts": 1790080048.0001297,
+      "fb_id": "2520374018376572",
+      "fb_media_id": "2520374018376572",
+      "ig_id": "17925357522422456",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -112,8 +82,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 4.128203799376474,
-      "n": 114
+      "reach_avg": 3.933765473347342,
+      "n": 118
     }
   },
   "hours": {
@@ -146,8 +116,8 @@
       "n": 50
     },
     "21": {
-      "reach_avg": 6.79322368030991,
-      "n": 53
+      "reach_avg": 4.949645603351855,
+      "n": 55
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -174,8 +144,8 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 4.082457197104372,
-      "n": 36
+      "reach_avg": 4.714733077757495,
+      "n": 38
     },
     "14": {
       "reach_avg": 5.33449101418383,
@@ -215,10 +185,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-21",
-    "posts": 2
+    "day": "2026-09-22",
+    "posts": 1
   },
-  "last_scored_ts": 1789998284.6366577,
+  "last_scored_ts": 1790080088.0356753,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -281,8 +251,8 @@
       "n": 10
     },
     "6-21": {
-      "reach_avg": 5.0895947292297326,
-      "n": 9
+      "reach_avg": 4.114867417322569,
+      "n": 11
     },
     "6-23": {
       "reach_avg": 0.0,
@@ -549,8 +519,8 @@
       "n": 6
     },
     "6-16": {
-      "reach_avg": 5.10653595481398,
-      "n": 12
+      "reach_avg": 4.929478916282854,
+      "n": 14
     },
     "0-13": {
       "reach_avg": 5.984069999999999,
@@ -667,8 +637,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 4.128203799372138,
-      "n": 136
+      "reach_avg": 3.933765473347087,
+      "n": 140
     }
   },
   "variants": {
@@ -677,12 +647,12 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 4.128202564749639,
-      "n": 143
+      "reach_avg": 4.120179143597639,
+      "n": 146
     },
     "tags:1-2": {
-      "reach_avg": 4.841246652,
-      "n": 8
+      "reach_avg": 4.4385126563999995,
+      "n": 9
     }
   },
   "reward_samples": [
@@ -836,7 +806,11 @@
     7.4945,
     2.6742000000000004,
     4.8509,
-    2.1344000000000003
+    2.1344000000000003,
+    2.2005,
+    5.8976,
+    2.7206,
+    3.4988
   ],
   "recent_winners": [
     {
