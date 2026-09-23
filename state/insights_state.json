@@ -49,6 +49,16 @@
       "ig_id": "18058796372716816",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Prestianni: «Estar no adeus a Messi é a recompensa",
+      "source": "zerozero.pt",
+      "ts": 1790201378.5340788,
+      "fb_id": "1561156068523857",
+      "fb_media_id": "1561156068523857",
+      "ig_id": "17908663266552179",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -205,7 +215,7 @@
   },
   "ig_quota": {
     "day": "2026-09-23",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1790167173.0821812,
   "dow_hours": {
