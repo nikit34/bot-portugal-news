@@ -2,36 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Três portugueses na convocatória da Grécia para a",
-      "source": "zerozero.pt",
-      "ts": 1789998244.6213531,
-      "fb_id": "1398138459193953",
-      "fb_media_id": "1398138459193953",
-      "ig_id": "18433217275179357",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "O Estoril Praia x Casa Pia AC foi assim... O árbit",
-      "source": "zerozero.pt",
-      "ts": 1790029866.2745411,
-      "fb_id": "1850075402650299",
-      "fb_media_id": "1850075402650299",
-      "ig_id": "18134987812652063",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Clóvis marca mais de um terço dos golos do Académi",
-      "source": "zerozero.pt",
-      "ts": 1790080048.0001297,
-      "fb_id": "2520374018376572",
-      "fb_media_id": "2520374018376572",
-      "ig_id": "17925357522422456",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Clássico pintado de azul e branco: os cinco pontos",
       "source": "zerozero.pt",
       "ts": 1790098502.4047213,
@@ -59,6 +29,16 @@
       "fb_media_id": "2282015285907988",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "A camisola é a mesma, a Juventus nem por isso: eis",
+      "source": "zerozero.pt",
+      "ts": 1790167133.049608,
+      "fb_id": "1092419633385604",
+      "fb_media_id": "1092419633385604",
+      "ig_id": "17869448202641611",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -111,8 +91,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 3.933765473347342,
-      "n": 118
+      "reach_avg": 3.060912657358138,
+      "n": 121
     }
   },
   "hours": {
@@ -129,8 +109,8 @@
       "n": 45
     },
     "13": {
-      "reach_avg": 5.1531903586323065,
-      "n": 30
+      "reach_avg": 4.554123251042614,
+      "n": 31
     },
     "15": {
       "reach_avg": 1.512156,
@@ -157,8 +137,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 4.803574132235232,
-      "n": 27
+      "reach_avg": 4.207271892564663,
+      "n": 28
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -197,8 +177,8 @@
       "n": 17
     },
     "22": {
-      "reach_avg": 4.009243357925271,
-      "n": 26
+      "reach_avg": 3.3820203505476893,
+      "n": 27
     },
     "5": {
       "reach_avg": 1.0216499999999997,
@@ -214,10 +194,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-22",
-    "posts": 3
+    "day": "2026-09-23",
+    "posts": 1
   },
-  "last_scored_ts": 1790080088.0356753,
+  "last_scored_ts": 1790167173.0821812,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -552,8 +532,8 @@
       "n": 14
     },
     "0-13": {
-      "reach_avg": 5.984069999999999,
-      "n": 4
+      "reach_avg": 5.135738999999999,
+      "n": 5
     },
     "1-22": {
       "reach_avg": 2.0999999999999996,
@@ -644,8 +624,8 @@
       "n": 2
     },
     "1-12": {
-      "reach_avg": 2.55804535,
-      "n": 5
+      "reach_avg": 2.6431993808620797,
+      "n": 6
     },
     "3-12": {
       "reach_avg": 2.5269725443707167,
@@ -658,6 +638,10 @@
     "4-16": {
       "reach_avg": 2.7623985537239806,
       "n": 2
+    },
+    "0-22": {
+      "reach_avg": 1.9185,
+      "n": 1
     }
   },
   "formats": {
@@ -666,8 +650,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 3.933765473347087,
-      "n": 140
+      "reach_avg": 3.0609126573580503,
+      "n": 143
     }
   },
   "variants": {
@@ -676,8 +660,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 4.120179143597639,
-      "n": 146
+      "reach_avg": 3.1248525462539902,
+      "n": 149
     },
     "tags:1-2": {
       "reach_avg": 4.4385126563999995,
@@ -839,7 +823,10 @@
     2.2005,
     5.8976,
     2.7206,
-    3.4988
+    3.4988,
+    3.1563000000000003,
+    1.9185,
+    2.8159
   ],
   "recent_winners": [
     {
