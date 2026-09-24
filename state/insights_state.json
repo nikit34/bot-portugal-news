@@ -2,26 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Clássico pintado de azul e branco: os cinco pontos",
-      "source": "zerozero.pt",
-      "ts": 1790098502.4047213,
-      "fb_id": "2096712801049442",
-      "fb_media_id": "2096712801049442",
-      "ig_id": "18102843032340678",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Rotura do ligamento cruzado afasta Joana Valente p",
-      "source": "zerozero.pt",
-      "ts": 1790113957.3236885,
-      "fb_id": "1258368583090544",
-      "fb_media_id": "1258368583090544",
-      "ig_id": "18135202261725658",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Resumo do dia — 22.09.2026",
       "source": "digest",
       "ts": 1790114211.2269676,
@@ -51,12 +31,12 @@
       "hashtag_n": 3
     },
     {
-      "head": "Prestianni: «Estar no adeus a Messi é a recompensa",
+      "head": "Esta quarta-feira há sorteio da Taça, já com equip",
       "source": "zerozero.pt",
-      "ts": 1790201378.5340788,
-      "fb_id": "1561156068523857",
-      "fb_media_id": "1561156068523857",
-      "ig_id": "17908663266552179",
+      "ts": 1790253457.9919937,
+      "fb_id": "1386201766526992",
+      "fb_media_id": "1386201766526992",
+      "ig_id": "18115232836815218",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -111,8 +91,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 3.060912657358138,
-      "n": 121
+      "reach_avg": 6.383577544060278,
+      "n": 123
     }
   },
   "hours": {
@@ -137,16 +117,16 @@
       "n": 23
     },
     "17": {
-      "reach_avg": 3.4997159576820698,
-      "n": 38
+      "reach_avg": 7.794146383072828,
+      "n": 39
     },
     "19": {
       "reach_avg": 7.325348545863364,
       "n": 50
     },
     "21": {
-      "reach_avg": 4.949645603351855,
-      "n": 55
+      "reach_avg": 4.515291922346298,
+      "n": 56
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -214,10 +194,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-23",
-    "posts": 3
+    "day": "2026-09-24",
+    "posts": 1
   },
-  "last_scored_ts": 1790167173.0821812,
+  "last_scored_ts": 1790253498.0035641,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -340,16 +320,16 @@
       "n": 6
     },
     "1-17": {
-      "reach_avg": 4.61097612,
-      "n": 7
+      "reach_avg": 8.238650448,
+      "n": 8
     },
     "1-19": {
       "reach_avg": 4.986064538265648,
       "n": 8
     },
     "1-21": {
-      "reach_avg": 4.042869236643115,
-      "n": 12
+      "reach_avg": 3.8805484656501807,
+      "n": 13
     },
     "1-23": {
       "reach_avg": 0.0,
@@ -670,8 +650,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 3.0609126573580503,
-      "n": 143
+      "reach_avg": 6.383577544060254,
+      "n": 145
     }
   },
   "variants": {
@@ -680,8 +660,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 3.1248525462539902,
-      "n": 149
+      "reach_avg": 6.401480712951117,
+      "n": 151
     },
     "tags:1-2": {
       "reach_avg": 4.4385126563999995,
@@ -846,15 +826,11 @@
     3.4988,
     3.1563000000000003,
     1.9185,
-    2.8159
+    2.8159,
+    10.6571,
+    3.5018000000000002
   ],
   "recent_winners": [
-    {
-      "head": "Abel Ferreira goleia e reforça liderança do Brasil",
-      "source": "zerozero.pt",
-      "reward": 6.4989,
-      "ts": 1787854237.46432
-    },
     {
       "head": "Vasco Seabra: «Podíamos ter dado um passo melhor,",
       "source": "zerozero.pt",
@@ -968,6 +944,12 @@
       "source": "zerozero.pt",
       "reward": 7.4945,
       "ts": 1789906018.2246606
+    },
+    {
+      "head": "Clássico pintado de azul e branco: os cinco pontos",
+      "source": "zerozero.pt",
+      "reward": 10.6571,
+      "ts": 1790253498.0035641
     }
   ]
 }
