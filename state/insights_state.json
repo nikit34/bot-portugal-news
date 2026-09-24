@@ -39,6 +39,26 @@
       "ig_id": "18115232836815218",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Gustavo Varela: «As expectativas podem estragar a",
+      "source": "zerozero.pt",
+      "ts": 1790272133.5164242,
+      "fb_id": "1671007627873698",
+      "fb_media_id": "1671007627873698",
+      "ig_id": "17908843044308596",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Gonçalo Nunes: «Temos de encarar a segunda mão com",
+      "source": "zerozero.pt",
+      "ts": 1790272249.712057,
+      "fb_id": "1452945626700247",
+      "fb_media_id": "1452945626700247",
+      "ig_id": "18111399386602219",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -195,7 +215,7 @@
   },
   "ig_quota": {
     "day": "2026-09-24",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1790253498.0035641,
   "dow_hours": {
