@@ -59,6 +59,26 @@
       "ig_id": "18111399386602219",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Manchester United revela valor do despedimento de",
+      "source": "zerozero.pt",
+      "ts": 1790287531.37236,
+      "fb_id": "4485126478420907",
+      "fb_media_id": "4485126478420907",
+      "ig_id": "18371887711211293",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Torreense renova com Javi Vázquez até 2029 Ao serv",
+      "source": "zerozero.pt",
+      "ts": 1790287638.1542127,
+      "fb_id": "1120030330461723",
+      "fb_media_id": "1120030330461723",
+      "ig_id": "18369186616242818",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -215,7 +235,7 @@
   },
   "ig_quota": {
     "day": "2026-09-24",
-    "posts": 3
+    "posts": 5
   },
   "last_scored_ts": 1790253498.0035641,
   "dow_hours": {
