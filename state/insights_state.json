@@ -69,6 +69,16 @@
       "ig_id": "18071853545727893",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Corte na defesa e no ataque: eis os riscados por J",
+      "source": "zerozero.pt",
+      "ts": 1790358616.7982845,
+      "fb_id": "1802371337560175",
+      "fb_media_id": "1802371337560175",
+      "ig_id": "17864327934678786",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -225,7 +235,7 @@
   },
   "ig_quota": {
     "day": "2026-09-25",
-    "posts": 2
+    "posts": 3
   },
   "last_scored_ts": 1790340096.7213314,
   "dow_hours": {
