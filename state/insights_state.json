@@ -11,36 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "A camisola é a mesma, a Juventus nem por isso: eis",
-      "source": "zerozero.pt",
-      "ts": 1790167133.049608,
-      "fb_id": "1092419633385604",
-      "fb_media_id": "1092419633385604",
-      "ig_id": "17869448202641611",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Bah dispensado da seleção da Dinamarca devido a le",
-      "source": "zerozero.pt",
-      "ts": 1790185651.8351812,
-      "fb_id": "1611972463838814",
-      "fb_media_id": "1611972463838814",
-      "ig_id": "18058796372716816",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Esta quarta-feira há sorteio da Taça, já com equip",
-      "source": "zerozero.pt",
-      "ts": 1790253457.9919937,
-      "fb_id": "1386201766526992",
-      "fb_media_id": "1386201766526992",
-      "ig_id": "18115232836815218",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Gustavo Varela: «As expectativas podem estragar a",
       "source": "zerozero.pt",
       "ts": 1790272133.5164242,
@@ -77,6 +47,26 @@
       "fb_id": "1120030330461723",
       "fb_media_id": "1120030330461723",
       "ig_id": "18369186616242818",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "É português e virou figura de culto no FM a jogar",
+      "source": "zerozero.pt",
+      "ts": 1790339944.1870918,
+      "fb_id": "2207083919855327",
+      "fb_media_id": "2207083919855327",
+      "ig_id": "18116227645848935",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Sporting vence Belenenses e segue imparável no Cam",
+      "source": "zerozero.pt",
+      "ts": 1790340056.5652716,
+      "fb_id": "1680786470722869",
+      "fb_media_id": "1680786470722869",
+      "ig_id": "18071853545727893",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -131,8 +121,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 6.383577544060278,
-      "n": 123
+      "reach_avg": 4.465494297612675,
+      "n": 126
     }
   },
   "hours": {
@@ -157,8 +147,8 @@
       "n": 23
     },
     "17": {
-      "reach_avg": 7.794146383072828,
-      "n": 39
+      "reach_avg": 6.800262468150979,
+      "n": 40
     },
     "19": {
       "reach_avg": 7.325348545863364,
@@ -177,8 +167,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 4.207271892564663,
-      "n": 28
+      "reach_avg": 3.702609141524858,
+      "n": 30
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -234,10 +224,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-24",
-    "posts": 5
+    "day": "2026-09-25",
+    "posts": 2
   },
-  "last_scored_ts": 1790253498.0035641,
+  "last_scored_ts": 1790340096.7213314,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -392,8 +382,8 @@
       "n": 4
     },
     "2-17": {
-      "reach_avg": 2.9964468,
-      "n": 9
+      "reach_avg": 3.662583376144786,
+      "n": 10
     },
     "2-19": {
       "reach_avg": 0.0,
@@ -500,8 +490,8 @@
       "n": 6
     },
     "2-12": {
-      "reach_avg": 9.347523250458607,
-      "n": 6
+      "reach_avg": 7.947746275321024,
+      "n": 7
     },
     "2-16": {
       "reach_avg": 0.21,
@@ -668,8 +658,8 @@
       "n": 6
     },
     "3-12": {
-      "reach_avg": 2.5269725443707167,
-      "n": 3
+      "reach_avg": 2.4155607810595017,
+      "n": 4
     },
     "4-12": {
       "reach_avg": 5.561250121330673,
@@ -690,8 +680,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 6.383577544060254,
-      "n": 145
+      "reach_avg": 4.465494297612667,
+      "n": 148
     }
   },
   "variants": {
@@ -700,8 +690,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 6.401480712951117,
-      "n": 151
+      "reach_avg": 4.471635084542233,
+      "n": 154
     },
     "tags:1-2": {
       "reach_avg": 4.4385126563999995,
@@ -868,7 +858,10 @@
     1.9185,
     2.8159,
     10.6571,
-    3.5018000000000002
+    3.5018000000000002,
+    4.6815999999999995,
+    4.4812,
+    2.1556
   ],
   "recent_winners": [
     {
