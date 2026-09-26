@@ -11,46 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "Gustavo Varela: «As expectativas podem estragar a",
-      "source": "zerozero.pt",
-      "ts": 1790272133.5164242,
-      "fb_id": "1671007627873698",
-      "fb_media_id": "1671007627873698",
-      "ig_id": "17908843044308596",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Gonçalo Nunes: «Temos de encarar a segunda mão com",
-      "source": "zerozero.pt",
-      "ts": 1790272249.712057,
-      "fb_id": "1452945626700247",
-      "fb_media_id": "1452945626700247",
-      "ig_id": "18111399386602219",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Manchester United revela valor do despedimento de",
-      "source": "zerozero.pt",
-      "ts": 1790287531.37236,
-      "fb_id": "4485126478420907",
-      "fb_media_id": "4485126478420907",
-      "ig_id": "18371887711211293",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Torreense renova com Javi Vázquez até 2029 Ao serv",
-      "source": "zerozero.pt",
-      "ts": 1790287638.1542127,
-      "fb_id": "1120030330461723",
-      "fb_media_id": "1120030330461723",
-      "ig_id": "18369186616242818",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "É português e virou figura de culto no FM a jogar",
       "source": "zerozero.pt",
       "ts": 1790339944.1870918,
@@ -87,6 +47,16 @@
       "fb_id": "1634040651400257",
       "fb_media_id": "1634040651400257",
       "ig_id": "18086651888693555",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "FC Porto e mais oito: as equipas cem por cento vit",
+      "source": "zerozero.pt",
+      "ts": 1790424471.3344917,
+      "fb_id": "1424009162428565",
+      "fb_media_id": "1424009162428565",
+      "ig_id": "18011310959762967",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -141,8 +111,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 4.465494297612675,
-      "n": 126
+      "reach_avg": 5.929142337632458,
+      "n": 130
     }
   },
   "hours": {
@@ -167,8 +137,8 @@
       "n": 23
     },
     "17": {
-      "reach_avg": 6.800262468150979,
-      "n": 40
+      "reach_avg": 4.134337609393979,
+      "n": 42
     },
     "19": {
       "reach_avg": 7.325348545863364,
@@ -227,8 +197,8 @@
       "n": 17
     },
     "22": {
-      "reach_avg": 3.3820203505476893,
-      "n": 27
+      "reach_avg": 6.038823698153352,
+      "n": 29
     },
     "5": {
       "reach_avg": 1.0216499999999997,
@@ -244,10 +214,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-25",
-    "posts": 4
+    "day": "2026-09-26",
+    "posts": 1
   },
-  "last_scored_ts": 1790340096.7213314,
+  "last_scored_ts": 1790424511.3476155,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -534,8 +504,8 @@
       "n": 3
     },
     "3-22": {
-      "reach_avg": 0.0,
-      "n": 2
+      "reach_avg": 5.091857999999999,
+      "n": 4
     },
     "4-6": {
       "reach_avg": 0.0,
@@ -618,8 +588,8 @@
       "n": 2
     },
     "3-17": {
-      "reach_avg": 2.68240449536647,
-      "n": 4
+      "reach_avg": 2.11658720272957,
+      "n": 6
     },
     "4-21": {
       "reach_avg": 5.07798,
@@ -700,8 +670,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 4.465494297612667,
-      "n": 148
+      "reach_avg": 5.929142337632457,
+      "n": 152
     }
   },
   "variants": {
@@ -710,8 +680,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 4.471635084542233,
-      "n": 154
+      "reach_avg": 5.929984853599193,
+      "n": 158
     },
     "tags:1-2": {
       "reach_avg": 4.4385126563999995,
@@ -881,15 +851,13 @@
     3.5018000000000002,
     4.6815999999999995,
     4.4812,
-    2.1556
+    2.1556,
+    1.3629,
+    1.7200000000000002,
+    11.061399999999999,
+    1.4868999999999999
   ],
   "recent_winners": [
-    {
-      "head": "Vasco Seabra: «Podíamos ter dado um passo melhor,",
-      "source": "zerozero.pt",
-      "reward": 8.752600000000001,
-      "ts": 1787854237.46432
-    },
     {
       "head": "Gonçalo Paciência continua em grande: a veia golea",
       "source": "zerozero.pt",
@@ -1003,6 +971,12 @@
       "source": "zerozero.pt",
       "reward": 10.6571,
       "ts": 1790253498.0035641
+    },
+    {
+      "head": "Manchester United revela valor do despedimento de",
+      "source": "zerozero.pt",
+      "reward": 11.061399999999999,
+      "ts": 1790424511.3476155
     }
   ]
 }
