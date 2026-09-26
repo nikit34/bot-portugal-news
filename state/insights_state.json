@@ -79,6 +79,26 @@
       "ig_id": "17991472092012522",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "«Bruno Fernandes no corredor esquerdo? É uma posiç",
+      "source": "zerozero.pt",
+      "ts": 1790459720.9951339,
+      "fb_id": "1635093054724621",
+      "fb_media_id": "1635093054724621",
+      "ig_id": "17929610574165445",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "«Mesmo cansado, deixo o Félix em campo... sei que",
+      "source": "zerozero.pt",
+      "ts": 1790459827.823446,
+      "fb_id": "2147979112455210",
+      "fb_media_id": "2147979112455210",
+      "ig_id": "17907551667488435",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -235,7 +255,7 @@
   },
   "ig_quota": {
     "day": "2026-09-26",
-    "posts": 3
+    "posts": 5
   },
   "last_scored_ts": 1790424511.3476155,
   "dow_hours": {
