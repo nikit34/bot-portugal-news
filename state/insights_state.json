@@ -59,6 +59,26 @@
       "ig_id": "18011310959762967",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Aursnes e Schjelderup levam a melhor sobre Frohold",
+      "source": "zerozero.pt",
+      "ts": 1790441775.4529014,
+      "fb_id": "28826146513743232",
+      "fb_media_id": "28826146513743232",
+      "ig_id": "18108713960524253",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Jorge Jesus: «A substituição do Ronaldo foi o que",
+      "source": "zerozero.pt",
+      "ts": 1790441878.65554,
+      "fb_id": "1130082813052827",
+      "fb_media_id": "1130082813052827",
+      "ig_id": "17991472092012522",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -215,7 +235,7 @@
   },
   "ig_quota": {
     "day": "2026-09-26",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1790424511.3476155,
   "dow_hours": {
