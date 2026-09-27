@@ -11,56 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "É português e virou figura de culto no FM a jogar",
-      "source": "zerozero.pt",
-      "ts": 1790339944.1870918,
-      "fb_id": "2207083919855327",
-      "fb_media_id": "2207083919855327",
-      "ig_id": "18116227645848935",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Sporting vence Belenenses e segue imparável no Cam",
-      "source": "zerozero.pt",
-      "ts": 1790340056.5652716,
-      "fb_id": "1680786470722869",
-      "fb_media_id": "1680786470722869",
-      "ig_id": "18071853545727893",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Corte na defesa e no ataque: eis os riscados por J",
-      "source": "zerozero.pt",
-      "ts": 1790358616.7982845,
-      "fb_id": "1802371337560175",
-      "fb_media_id": "1802371337560175",
-      "ig_id": "17864327934678786",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "«Centralização? O importante é pensarmos na forma",
-      "source": "zerozero.pt",
-      "ts": 1790373843.6473432,
-      "fb_id": "1634040651400257",
-      "fb_media_id": "1634040651400257",
-      "ig_id": "18086651888693555",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "FC Porto e mais oito: as equipas cem por cento vit",
-      "source": "zerozero.pt",
-      "ts": 1790424471.3344917,
-      "fb_id": "1424009162428565",
-      "fb_media_id": "1424009162428565",
-      "ig_id": "18011310959762967",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Aursnes e Schjelderup levam a melhor sobre Frohold",
       "source": "zerozero.pt",
       "ts": 1790441775.4529014,
@@ -97,6 +47,16 @@
       "fb_id": "2147979112455210",
       "fb_media_id": "2147979112455210",
       "ig_id": "17907551667488435",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Moreirense aplica goleada ao Leixões em jogo parti",
+      "source": "zerozero.pt",
+      "ts": 1790513577.0633621,
+      "fb_id": "1747690463132748",
+      "fb_media_id": "1747690463132748",
+      "ig_id": "18008814887999398",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -151,8 +111,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 5.929142337632458,
-      "n": 130
+      "reach_avg": 8.328207946428313,
+      "n": 135
     }
   },
   "hours": {
@@ -177,8 +137,8 @@
       "n": 23
     },
     "17": {
-      "reach_avg": 4.134337609393979,
-      "n": 42
+      "reach_avg": 6.747375043757591,
+      "n": 43
     },
     "19": {
       "reach_avg": 7.325348545863364,
@@ -197,8 +157,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 3.702609141524858,
-      "n": 30
+      "reach_avg": 7.497200997888257,
+      "n": 33
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -237,8 +197,8 @@
       "n": 17
     },
     "22": {
-      "reach_avg": 6.038823698153352,
-      "n": 29
+      "reach_avg": 6.0882775376141325,
+      "n": 30
     },
     "5": {
       "reach_avg": 1.0216499999999997,
@@ -254,10 +214,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-26",
-    "posts": 5
+    "day": "2026-09-27",
+    "posts": 1
   },
-  "last_scored_ts": 1790424511.3476155,
+  "last_scored_ts": 1790513617.245991,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -468,8 +428,8 @@
       "n": 5
     },
     "4-17": {
-      "reach_avg": 2.4892799999999995,
-      "n": 6
+      "reach_avg": 6.089352,
+      "n": 7
     },
     "5-2": {
       "reach_avg": 0.9113999999999998,
@@ -568,8 +528,8 @@
       "n": 3
     },
     "4-22": {
-      "reach_avg": 0.42,
-      "n": 5
+      "reach_avg": 3.88764,
+      "n": 6
     },
     "5-14": {
       "reach_avg": 0.0,
@@ -648,8 +608,8 @@
       "n": 2
     },
     "5-12": {
-      "reach_avg": 0.0,
-      "n": 2
+      "reach_avg": 6.176819999999999,
+      "n": 3
     },
     "6-1": {
       "reach_avg": 0.0,
@@ -692,8 +652,8 @@
       "n": 4
     },
     "4-12": {
-      "reach_avg": 5.561250121330673,
-      "n": 4
+      "reach_avg": 4.2115125594520295,
+      "n": 6
     },
     "4-16": {
       "reach_avg": 2.7623985537239806,
@@ -710,8 +670,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 5.929142337632457,
-      "n": 152
+      "reach_avg": 8.328207946428313,
+      "n": 157
     }
   },
   "variants": {
@@ -720,8 +680,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 5.929984853599193,
-      "n": 158
+      "reach_avg": 8.328198532237842,
+      "n": 163
     },
     "tags:1-2": {
       "reach_avg": 4.4385126563999995,
@@ -895,21 +855,14 @@
     1.3629,
     1.7200000000000002,
     11.061399999999999,
-    1.4868999999999999
+    1.4868999999999999,
+    3.7580000000000005,
+    2.3244,
+    8.4894,
+    6.199400000000001,
+    10.294699999999999
   ],
   "recent_winners": [
-    {
-      "head": "Gonçalo Paciência continua em grande: a veia golea",
-      "source": "zerozero.pt",
-      "reward": 6.514900000000001,
-      "ts": 1787854237.46432
-    },
-    {
-      "head": "Mais uma chicotada na Liga 3: Nuno Silva despedido",
-      "source": "zerozero.pt",
-      "reward": 6.1269,
-      "ts": 1787854237.46432
-    },
     {
       "head": "João Matos: «O Sporting não quis renovar. Acabava",
       "source": "zerozero.pt",
@@ -1017,6 +970,18 @@
       "source": "zerozero.pt",
       "reward": 11.061399999999999,
       "ts": 1790424511.3476155
+    },
+    {
+      "head": "Corte na defesa e no ataque: eis os riscados por J",
+      "source": "zerozero.pt",
+      "reward": 8.4894,
+      "ts": 1790513617.245991
+    },
+    {
+      "head": "FC Porto e mais oito: as equipas cem por cento vit",
+      "source": "zerozero.pt",
+      "reward": 10.294699999999999,
+      "ts": 1790513617.245991
     }
   ]
 }
