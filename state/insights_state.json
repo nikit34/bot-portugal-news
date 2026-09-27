@@ -79,6 +79,26 @@
       "ig_id": "18060118433795726",
       "is_video": true,
       "hashtag_n": 2
+    },
+    {
+      "head": "Marcus Edwards marca, mas perde na estreia por Chi",
+      "source": "zerozero.pt",
+      "ts": 1790546055.4683926,
+      "fb_id": "1411185840382171",
+      "fb_media_id": "1411185840382171",
+      "ig_id": "18098053691533953",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "T7, Ep. 1 | Cavani no Benfica A janela de transfer",
+      "source": "zerozero.pt",
+      "ts": 1790546166.1519477,
+      "fb_id": "2371559286712083",
+      "fb_media_id": "2371559286712083",
+      "ig_id": "18090742958442874",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -235,7 +255,7 @@
   },
   "ig_quota": {
     "day": "2026-09-27",
-    "posts": 3
+    "posts": 5
   },
   "last_scored_ts": 1790513617.245991,
   "dow_hours": {
