@@ -59,6 +59,26 @@
       "ig_id": "18008814887999398",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "«O FC Barcelona tinha interesse, mas o Valencia nã",
+      "source": "zerozero.pt",
+      "ts": 1790530592.9114165,
+      "fb_id": "3231404097052114",
+      "fb_media_id": "3231404097052114",
+      "ig_id": "17953301844039806",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "T2, Ep. 9 | Guerra e Paz: um livro já lido No epis",
+      "source": "zerozero.pt",
+      "ts": 1790530709.219614,
+      "fb_id": "1559773875901228",
+      "fb_media_id": "1559773875901228",
+      "ig_id": "18060118433795726",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
   "sources": {
@@ -215,7 +235,7 @@
   },
   "ig_quota": {
     "day": "2026-09-27",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1790513617.245991,
   "dow_hours": {
