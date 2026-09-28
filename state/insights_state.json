@@ -68,6 +68,26 @@
       "ig_id": "18083327909703686",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Cara conhecida do futebol luso dispara após vitóri",
+      "source": "zerozero.pt",
+      "ts": 1790639247.4883006,
+      "fb_id": "1860106341490698",
+      "fb_media_id": "1860106341490698",
+      "ig_id": "18111609326164840",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Félix e a passagem pelo Atlético de Madrid: «Obvia",
+      "source": "zerozero.pt",
+      "ts": 1790639350.7890007,
+      "fb_id": "1575100780966170",
+      "fb_media_id": "1575100780966170",
+      "ig_id": "18088662185245556",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -224,7 +244,7 @@
   },
   "ig_quota": {
     "day": "2026-09-28",
-    "posts": 1
+    "posts": 3
   },
   "last_scored_ts": 1790607918.375184,
   "dow_hours": {
