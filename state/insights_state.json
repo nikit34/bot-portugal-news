@@ -11,56 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "Aursnes e Schjelderup levam a melhor sobre Frohold",
-      "source": "zerozero.pt",
-      "ts": 1790441775.4529014,
-      "fb_id": "28826146513743232",
-      "fb_media_id": "28826146513743232",
-      "ig_id": "18108713960524253",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Jorge Jesus: «A substituição do Ronaldo foi o que",
-      "source": "zerozero.pt",
-      "ts": 1790441878.65554,
-      "fb_id": "1130082813052827",
-      "fb_media_id": "1130082813052827",
-      "ig_id": "17991472092012522",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "«Bruno Fernandes no corredor esquerdo? É uma posiç",
-      "source": "zerozero.pt",
-      "ts": 1790459720.9951339,
-      "fb_id": "1635093054724621",
-      "fb_media_id": "1635093054724621",
-      "ig_id": "17929610574165445",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "«Mesmo cansado, deixo o Félix em campo... sei que",
-      "source": "zerozero.pt",
-      "ts": 1790459827.823446,
-      "fb_id": "2147979112455210",
-      "fb_media_id": "2147979112455210",
-      "ig_id": "17907551667488435",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Moreirense aplica goleada ao Leixões em jogo parti",
-      "source": "zerozero.pt",
-      "ts": 1790513577.0633621,
-      "fb_id": "1747690463132748",
-      "fb_media_id": "1747690463132748",
-      "ig_id": "18008814887999398",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "«O FC Barcelona tinha interesse, mas o Valencia nã",
       "source": "zerozero.pt",
       "ts": 1790530592.9114165,
@@ -108,6 +58,16 @@
       "fb_media_id": "1834331101249248",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "Renato Veiga: «Haaland? Há coisas mais importantes",
+      "source": "zerozero.pt",
+      "ts": 1790607878.1727927,
+      "fb_id": "1113438787771794",
+      "fb_media_id": "1113438787771794",
+      "ig_id": "18083327909703686",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -160,8 +120,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 8.328207946428313,
-      "n": 135
+      "reach_avg": 6.040400725512955,
+      "n": 140
     }
   },
   "hours": {
@@ -194,8 +154,8 @@
       "n": 50
     },
     "21": {
-      "reach_avg": 4.515291922346298,
-      "n": 56
+      "reach_avg": 5.673319841080315,
+      "n": 58
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -206,8 +166,8 @@
       "n": 17
     },
     "12": {
-      "reach_avg": 7.497200997888257,
-      "n": 33
+      "reach_avg": 5.99060069852178,
+      "n": 34
     },
     "0": {
       "reach_avg": 5.041547679101883,
@@ -222,8 +182,8 @@
       "n": 7
     },
     "16": {
-      "reach_avg": 4.714733077757495,
-      "n": 38
+      "reach_avg": 8.5366852617721,
+      "n": 40
     },
     "14": {
       "reach_avg": 5.33449101418383,
@@ -263,10 +223,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-27",
-    "posts": 5
+    "day": "2026-09-28",
+    "posts": 1
   },
-  "last_scored_ts": 1790513617.245991,
+  "last_scored_ts": 1790607918.375184,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -297,8 +257,8 @@
       "n": 7
     },
     "5-21": {
-      "reach_avg": 9.92046,
-      "n": 5
+      "reach_avg": 7.9291464,
+      "n": 7
     },
     "5-23": {
       "reach_avg": 0.0,
@@ -313,8 +273,8 @@
       "n": 5
     },
     "6-12": {
-      "reach_avg": 2.910605736741937,
-      "n": 7
+      "reach_avg": 2.779984015719356,
+      "n": 8
     },
     "6-15": {
       "reach_avg": 0.6086999999999999,
@@ -497,8 +457,8 @@
       "n": 9
     },
     "5-16": {
-      "reach_avg": 3.50346056,
-      "n": 8
+      "reach_avg": 8.1975289568,
+      "n": 10
     },
     "6-7": {
       "reach_avg": 0.008746499999999997,
@@ -719,8 +679,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 8.328207946428313,
-      "n": 157
+      "reach_avg": 6.040400725512955,
+      "n": 162
     }
   },
   "variants": {
@@ -729,8 +689,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 8.328198532237842,
-      "n": 163
+      "reach_avg": 6.04040055444897,
+      "n": 168
     },
     "tags:1-2": {
       "reach_avg": 4.4385126563999995,
@@ -909,15 +869,14 @@
     2.3244,
     8.4894,
     6.199400000000001,
-    10.294699999999999
+    10.294699999999999,
+    2.4699999999999998,
+    11.5336,
+    7.4211,
+    5.0323,
+    2.4752
   ],
   "recent_winners": [
-    {
-      "head": "João Matos: «O Sporting não quis renovar. Acabava",
-      "source": "zerozero.pt",
-      "reward": 6.405000000000001,
-      "ts": 1787854237.46432
-    },
     {
       "head": "Mourinho sem filtros: Vini Jr., Endrick, o rookie",
       "source": "zerozero.pt",
@@ -1031,6 +990,12 @@
       "source": "zerozero.pt",
       "reward": 10.294699999999999,
       "ts": 1790513617.245991
+    },
+    {
+      "head": "Jorge Jesus: «A substituição do Ronaldo foi o que",
+      "source": "zerozero.pt",
+      "reward": 11.5336,
+      "ts": 1790607918.375184
     }
   ]
 }
