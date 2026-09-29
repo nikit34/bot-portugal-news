@@ -11,46 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "«O FC Barcelona tinha interesse, mas o Valencia nã",
-      "source": "zerozero.pt",
-      "ts": 1790530592.9114165,
-      "fb_id": "3231404097052114",
-      "fb_media_id": "3231404097052114",
-      "ig_id": "17953301844039806",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "T2, Ep. 9 | Guerra e Paz: um livro já lido No epis",
-      "source": "zerozero.pt",
-      "ts": 1790530709.219614,
-      "fb_id": "1559773875901228",
-      "fb_media_id": "1559773875901228",
-      "ig_id": "18060118433795726",
-      "is_video": true,
-      "hashtag_n": 2
-    },
-    {
-      "head": "Marcus Edwards marca, mas perde na estreia por Chi",
-      "source": "zerozero.pt",
-      "ts": 1790546055.4683926,
-      "fb_id": "1411185840382171",
-      "fb_media_id": "1411185840382171",
-      "ig_id": "18098053691533953",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "T7, Ep. 1 | Cavani no Benfica A janela de transfer",
-      "source": "zerozero.pt",
-      "ts": 1790546166.1519477,
-      "fb_id": "2371559286712083",
-      "fb_media_id": "2371559286712083",
-      "ig_id": "18090742958442874",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Resumo do dia — 27.09.2026",
       "source": "digest",
       "ts": 1790546377.3269703,
@@ -86,6 +46,26 @@
       "fb_id": "1575100780966170",
       "fb_media_id": "1575100780966170",
       "ig_id": "18088662185245556",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Sub-20 | Carrasco de Portugal sagra-se campeão mun",
+      "source": "zerozero.pt",
+      "ts": 1790689905.5764182,
+      "fb_id": "4274603836172716",
+      "fb_media_id": "4274603836172716",
+      "ig_id": "17974296594138214",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Xavi soma primeira vitória à frente dos Países Bai",
+      "source": "zerozero.pt",
+      "ts": 1790690018.8127916,
+      "fb_id": "1433336708725140",
+      "fb_media_id": "1433336708725140",
+      "ig_id": "18117401944757889",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -140,8 +120,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 6.040400725512955,
-      "n": 140
+      "reach_avg": 7.189236775809127,
+      "n": 144
     }
   },
   "hours": {
@@ -166,16 +146,16 @@
       "n": 23
     },
     "17": {
-      "reach_avg": 6.747375043757591,
-      "n": 43
+      "reach_avg": 8.191257679696884,
+      "n": 45
     },
     "19": {
       "reach_avg": 7.325348545863364,
       "n": 50
     },
     "21": {
-      "reach_avg": 5.673319841080315,
-      "n": 58
+      "reach_avg": 6.027292980045953,
+      "n": 60
     },
     "2": {
       "reach_avg": 4.028094233968928,
@@ -243,10 +223,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-28",
-    "posts": 3
+    "day": "2026-09-29",
+    "posts": 2
   },
-  "last_scored_ts": 1790607918.375184,
+  "last_scored_ts": 1790690058.9957619,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -301,16 +281,16 @@
       "n": 9
     },
     "6-17": {
-      "reach_avg": 6.747672,
-      "n": 7
+      "reach_avg": 8.191277182337375,
+      "n": 9
     },
     "6-19": {
       "reach_avg": 4.6986,
       "n": 10
     },
     "6-21": {
-      "reach_avg": 4.114867417322569,
-      "n": 11
+      "reach_avg": 5.574879791861971,
+      "n": 13
     },
     "6-23": {
       "reach_avg": 0.0,
@@ -699,8 +679,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 6.040400725512955,
-      "n": 162
+      "reach_avg": 7.189236775809127,
+      "n": 166
     }
   },
   "variants": {
@@ -709,12 +689,12 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 6.04040055444897,
-      "n": 168
+      "reach_avg": 7.755278404973645,
+      "n": 171
     },
     "tags:1-2": {
-      "reach_avg": 4.4385126563999995,
-      "n": 9
+      "reach_avg": 4.833959371009453,
+      "n": 10
     }
   },
   "reward_samples": [
@@ -894,15 +874,13 @@
     11.5336,
     7.4211,
     5.0323,
-    2.4752
+    2.4752,
+    11.7271,
+    5.501900000000001,
+    5.4222,
+    6.7796
   ],
   "recent_winners": [
-    {
-      "head": "Mourinho sem filtros: Vini Jr., Endrick, o rookie",
-      "source": "zerozero.pt",
-      "reward": 7.2108,
-      "ts": 1787854237.46432
-    },
     {
       "head": "Taça do Brasil: Artur Jorge empata na receção ao A",
       "source": "zerozero.pt",
@@ -1016,6 +994,12 @@
       "source": "zerozero.pt",
       "reward": 11.5336,
       "ts": 1790607918.375184
+    },
+    {
+      "head": "«O FC Barcelona tinha interesse, mas o Valencia nã",
+      "source": "zerozero.pt",
+      "reward": 11.7271,
+      "ts": 1790690058.9957619
     }
   ]
 }
