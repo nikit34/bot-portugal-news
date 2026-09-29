@@ -68,6 +68,26 @@
       "ig_id": "18117401944757889",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Francisco Neto divulga convocatória para playoff a",
+      "source": "zerozero.pt",
+      "ts": 1790722405.988309,
+      "fb_id": "1422193140052909",
+      "fb_media_id": "1422193140052909",
+      "ig_id": "18105469730265717",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Pedro Gonçalves: «Rui Costa? Vestimos camisolas mu",
+      "source": "zerozero.pt",
+      "ts": 1790722517.426485,
+      "fb_id": "2207097566906958",
+      "fb_media_id": "2207097566906958",
+      "ig_id": "18104235059351530",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -224,7 +244,7 @@
   },
   "ig_quota": {
     "day": "2026-09-29",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1790690058.9957619,
   "dow_hours": {
