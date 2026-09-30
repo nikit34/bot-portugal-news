@@ -69,6 +69,26 @@
       "ig_id": "18019617026936571",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Luís Freire: «Queremos dar uma resposta forte e vo",
+      "source": "zerozero.pt",
+      "ts": 1790808715.0909946,
+      "fb_id": "965734985917941",
+      "fb_media_id": "965734985917941",
+      "ig_id": "18097410542437454",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "João Simões: «Vou tentar voltar à minha melhor ver",
+      "source": "zerozero.pt",
+      "ts": 1790808813.825033,
+      "fb_id": "1095426939653533",
+      "fb_media_id": "1095426939653533",
+      "ig_id": "17949328209269629",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -225,7 +245,7 @@
   },
   "ig_quota": {
     "day": "2026-09-30",
-    "posts": 2
+    "posts": 4
   },
   "last_scored_ts": 1790774885.6009228,
   "dow_hours": {
