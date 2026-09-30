@@ -2,15 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 22.09.2026",
-      "source": "digest",
-      "ts": 1790114211.2269676,
-      "fb_id": "2282015285907988",
-      "fb_media_id": "2282015285907988",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
       "head": "Resumo do dia — 27.09.2026",
       "source": "digest",
       "ts": 1790546377.3269703,
@@ -18,36 +9,6 @@
       "fb_media_id": "1834331101249248",
       "is_video": true,
       "is_digest": true
-    },
-    {
-      "head": "Renato Veiga: «Haaland? Há coisas mais importantes",
-      "source": "zerozero.pt",
-      "ts": 1790607878.1727927,
-      "fb_id": "1113438787771794",
-      "fb_media_id": "1113438787771794",
-      "ig_id": "18083327909703686",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Cara conhecida do futebol luso dispara após vitóri",
-      "source": "zerozero.pt",
-      "ts": 1790639247.4883006,
-      "fb_id": "1860106341490698",
-      "fb_media_id": "1860106341490698",
-      "ig_id": "18111609326164840",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Félix e a passagem pelo Atlético de Madrid: «Obvia",
-      "source": "zerozero.pt",
-      "ts": 1790639350.7890007,
-      "fb_id": "1575100780966170",
-      "fb_media_id": "1575100780966170",
-      "ig_id": "18088662185245556",
-      "is_video": true,
-      "hashtag_n": 3
     },
     {
       "head": "Sub-20 | Carrasco de Portugal sagra-se campeão mun",
@@ -86,6 +47,26 @@
       "fb_id": "2207097566906958",
       "fb_media_id": "2207097566906958",
       "ig_id": "18104235059351530",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "T9, Ep. 9 | Seleção de JJ: novos ares, novos probl",
+      "source": "zerozero.pt",
+      "ts": 1790774733.7268357,
+      "fb_id": "1471748998198700",
+      "fb_media_id": "1471748998198700",
+      "ig_id": "18102690398016998",
+      "is_video": true,
+      "hashtag_n": 3
+    },
+    {
+      "head": "Dupla do FC Porto perde na Suécia; Bósnia triunfa",
+      "source": "zerozero.pt",
+      "ts": 1790774845.4683323,
+      "fb_id": "1758711265383137",
+      "fb_media_id": "1758711265383137",
+      "ig_id": "18019617026936571",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -140,14 +121,14 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 7.189236775809127,
-      "n": 144
+      "reach_avg": 6.166115072225404,
+      "n": 147
     }
   },
   "hours": {
     "23": {
-      "reach_avg": 2.793732,
-      "n": 24
+      "reach_avg": 4.772249202657529,
+      "n": 26
     },
     "7": {
       "reach_avg": 3.0742615055802345,
@@ -162,8 +143,8 @@
       "n": 31
     },
     "15": {
-      "reach_avg": 1.512156,
-      "n": 23
+      "reach_avg": 5.1730824,
+      "n": 24
     },
     "17": {
       "reach_avg": 8.191257679696884,
@@ -243,10 +224,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-29",
-    "posts": 4
+    "day": "2026-09-30",
+    "posts": 2
   },
-  "last_scored_ts": 1790690058.9957619,
+  "last_scored_ts": 1790774885.6009228,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -333,8 +314,8 @@
       "n": 3
     },
     "0-15": {
-      "reach_avg": 0.0,
-      "n": 3
+      "reach_avg": 4.56822,
+      "n": 4
     },
     "0-16": {
       "reach_avg": 0.010499999999999999,
@@ -349,8 +330,8 @@
       "n": 5
     },
     "0-23": {
-      "reach_avg": 2.793732,
-      "n": 6
+      "reach_avg": 4.772249202657529,
+      "n": 8
     },
     "1-2": {
       "reach_avg": 0.0,
@@ -699,8 +680,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 7.189236775809127,
-      "n": 166
+      "reach_avg": 6.166115072225404,
+      "n": 169
     }
   },
   "variants": {
@@ -709,8 +690,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 7.755278404973645,
-      "n": 171
+      "reach_avg": 6.35658339290596,
+      "n": 174
     },
     "tags:1-2": {
       "reach_avg": 4.833959371009453,
@@ -898,15 +879,12 @@
     11.7271,
     5.501900000000001,
     5.4222,
-    6.7796
+    6.7796,
+    7.613700000000001,
+    3.7108999999999996,
+    5.9934
   ],
   "recent_winners": [
-    {
-      "head": "Taça do Brasil: Artur Jorge empata na receção ao A",
-      "source": "zerozero.pt",
-      "reward": 6.952,
-      "ts": 1787944805.12645
-    },
     {
       "head": "Três meses, três jogos a eliminar entre Fazendense",
       "source": "zerozero.pt",
@@ -1020,6 +998,12 @@
       "source": "zerozero.pt",
       "reward": 11.7271,
       "ts": 1790690058.9957619
+    },
+    {
+      "head": "Renato Veiga: «Haaland? Há coisas mais importantes",
+      "source": "zerozero.pt",
+      "reward": 7.613700000000001,
+      "ts": 1790774885.6009228
     }
   ]
 }
