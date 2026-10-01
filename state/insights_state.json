@@ -11,82 +11,12 @@
       "is_digest": true
     },
     {
-      "head": "Sub-20 | Carrasco de Portugal sagra-se campeão mun",
+      "head": "Jesus e Ronaldo reaproximam-se: as últimas sobre a",
       "source": "zerozero.pt",
-      "ts": 1790689905.5764182,
-      "fb_id": "4274603836172716",
-      "fb_media_id": "4274603836172716",
-      "ig_id": "17974296594138214",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Xavi soma primeira vitória à frente dos Países Bai",
-      "source": "zerozero.pt",
-      "ts": 1790690018.8127916,
-      "fb_id": "1433336708725140",
-      "fb_media_id": "1433336708725140",
-      "ig_id": "18117401944757889",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Francisco Neto divulga convocatória para playoff a",
-      "source": "zerozero.pt",
-      "ts": 1790722405.988309,
-      "fb_id": "1422193140052909",
-      "fb_media_id": "1422193140052909",
-      "ig_id": "18105469730265717",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Pedro Gonçalves: «Rui Costa? Vestimos camisolas mu",
-      "source": "zerozero.pt",
-      "ts": 1790722517.426485,
-      "fb_id": "2207097566906958",
-      "fb_media_id": "2207097566906958",
-      "ig_id": "18104235059351530",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "T9, Ep. 9 | Seleção de JJ: novos ares, novos probl",
-      "source": "zerozero.pt",
-      "ts": 1790774733.7268357,
-      "fb_id": "1471748998198700",
-      "fb_media_id": "1471748998198700",
-      "ig_id": "18102690398016998",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Dupla do FC Porto perde na Suécia; Bósnia triunfa",
-      "source": "zerozero.pt",
-      "ts": 1790774845.4683323,
-      "fb_id": "1758711265383137",
-      "fb_media_id": "1758711265383137",
-      "ig_id": "18019617026936571",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Luís Freire: «Queremos dar uma resposta forte e vo",
-      "source": "zerozero.pt",
-      "ts": 1790808715.0909946,
-      "fb_id": "965734985917941",
-      "fb_media_id": "965734985917941",
-      "ig_id": "18097410542437454",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "João Simões: «Vou tentar voltar à minha melhor ver",
-      "source": "zerozero.pt",
-      "ts": 1790808813.825033,
-      "fb_id": "1095426939653533",
-      "fb_media_id": "1095426939653533",
-      "ig_id": "17949328209269629",
+      "ts": 1790864370.0045676,
+      "fb_id": "2136903080555556",
+      "fb_media_id": "2136903080555556",
+      "ig_id": "18079155017708801",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -141,8 +71,8 @@
       "n": 6
     },
     "zerozero.pt": {
-      "reach_avg": 6.166115072225404,
-      "n": 147
+      "reach_avg": 3.06156947789586,
+      "n": 153
     }
   },
   "hours": {
@@ -159,8 +89,8 @@
       "n": 45
     },
     "13": {
-      "reach_avg": 4.554123251042614,
-      "n": 31
+      "reach_avg": 3.200504882675302,
+      "n": 35
     },
     "15": {
       "reach_avg": 5.1730824,
@@ -227,8 +157,8 @@
       "n": 17
     },
     "22": {
-      "reach_avg": 6.0882775376141325,
-      "n": 30
+      "reach_avg": 3.8431819934309246,
+      "n": 32
     },
     "5": {
       "reach_avg": 1.0216499999999997,
@@ -244,10 +174,10 @@
     }
   },
   "ig_quota": {
-    "day": "2026-09-30",
-    "posts": 4
+    "day": "2026-10-01",
+    "posts": 1
   },
-  "last_scored_ts": 1790774885.6009228,
+  "last_scored_ts": 1790864410.0526745,
   "dow_hours": {
     "3-23": {
       "reach_avg": 0.0,
@@ -586,8 +516,8 @@
       "n": 5
     },
     "1-22": {
-      "reach_avg": 2.0999999999999996,
-      "n": 2
+      "reach_avg": 1.8889259999999997,
+      "n": 4
     },
     "2-1": {
       "reach_avg": 0.0,
@@ -602,8 +532,8 @@
       "n": 2
     },
     "2-13": {
-      "reach_avg": 4.32648,
-      "n": 4
+      "reach_avg": 3.7559291999999997,
+      "n": 6
     },
     "2-15": {
       "reach_avg": 0.0,
@@ -666,8 +596,8 @@
       "n": 3
     },
     "1-13": {
-      "reach_avg": 7.409472617827632,
-      "n": 2
+      "reach_avg": 4.542440582735539,
+      "n": 4
     },
     "5-3": {
       "reach_avg": 5.8999299999999995,
@@ -700,8 +630,8 @@
       "n": 418
     },
     "video": {
-      "reach_avg": 6.166115072225404,
-      "n": 169
+      "reach_avg": 3.06156947789586,
+      "n": 175
     }
   },
   "variants": {
@@ -710,8 +640,8 @@
       "n": 1
     },
     "tags:3+": {
-      "reach_avg": 6.35658339290596,
-      "n": 174
+      "reach_avg": 3.07831496868238,
+      "n": 180
     },
     "tags:1-2": {
       "reach_avg": 4.833959371009453,
@@ -902,7 +832,13 @@
     6.7796,
     7.613700000000001,
     3.7108999999999996,
-    5.9934
+    5.9934,
+    2.0999,
+    1.5694,
+    1.7866,
+    1.6158000000000001,
+    2.7574,
+    3.523
   ],
   "recent_winners": [
     {
