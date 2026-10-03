@@ -29,18 +29,26 @@
       "fb_media_id": "3418430528326891",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
+      "source": "https://t.me/FCPorto_INF",
+      "ts": 1791029955.5521982,
+      "ig_id": "18115367369083939",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-10-02",
-    "posts": 2
+    "day": "2026-10-03",
+    "posts": 1
   },
   "dow_hours": {},
   "formats": {},
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1790948552.1450083
+  "last_scored_ts": 1791029995.5673263
 }
