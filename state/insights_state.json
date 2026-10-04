@@ -2,26 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
-      "source": "https://t.me/FCPorto_INF",
-      "ts": 1790948512.142308,
-      "fb_id": "1851636286024197",
-      "fb_media_id": "1851636286024197",
-      "ig_id": "17928064623423422",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
-      "source": "https://t.me/FCPorto_INF",
-      "ts": 1790981538.7648602,
-      "fb_id": "3673486202814034",
-      "fb_media_id": "3673486202814034",
-      "ig_id": "18176481997450436",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Resumo do dia — 02.10.2026",
       "source": "digest",
       "ts": 1790981760.7645335,
@@ -29,14 +9,6 @@
       "fb_media_id": "3418430528326891",
       "is_video": true,
       "is_digest": true
-    },
-    {
-      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
-      "source": "https://t.me/FCPorto_INF",
-      "ts": 1791029955.5521982,
-      "ig_id": "18115367369083939",
-      "is_video": true,
-      "hashtag_n": 3
     },
     {
       "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
@@ -62,18 +34,71 @@
       "fb_media_id": "1421244539981586",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
+      "source": "https://t.me/FCPorto_INF",
+      "ts": 1791119201.73261,
+      "ig_id": "18123942154917110",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
-  "sources": {},
-  "hours": {},
-  "ig_quota": {
-    "day": "2026-10-03",
-    "posts": 3
+  "sources": {
+    "https://t.me/FCPorto_INF": {
+      "reach_avg": 2.1753,
+      "n": 3
+    }
   },
-  "dow_hours": {},
-  "formats": {},
-  "variants": {},
-  "reward_samples": [],
+  "hours": {
+    "13": {
+      "reach_avg": 2.1753,
+      "n": 1
+    },
+    "22": {
+      "reach_avg": 2.1753,
+      "n": 1
+    },
+    "12": {
+      "reach_avg": 2.1753,
+      "n": 1
+    }
+  },
+  "ig_quota": {
+    "day": "2026-10-04",
+    "posts": 1
+  },
+  "dow_hours": {
+    "4-13": {
+      "reach_avg": 2.1753,
+      "n": 1
+    },
+    "4-22": {
+      "reach_avg": 2.1753,
+      "n": 1
+    },
+    "5-12": {
+      "reach_avg": 2.1753,
+      "n": 1
+    }
+  },
+  "formats": {
+    "video": {
+      "reach_avg": 2.1753,
+      "n": 3
+    }
+  },
+  "variants": {
+    "tags:3+": {
+      "reach_avg": 2.1753,
+      "n": 3
+    }
+  },
+  "reward_samples": [
+    2.1753,
+    2.1753,
+    2.1753
+  ],
   "recent_winners": [],
-  "last_scored_ts": 1791029995.5673263
+  "last_scored_ts": 1791119241.735788
 }
