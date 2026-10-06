@@ -33,13 +33,23 @@
       "ig_id": "18427149193148364",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Liga Nações. Sudakov dispensado da seleção ucrania",
+      "source": "rtp.pt/desporto",
+      "ts": 1791327488.0905962,
+      "fb_id": "4422842301300715",
+      "fb_media_id": "4422842301300715",
+      "ig_id": "17912172633504417",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-10-06",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {},
   "formats": {},
