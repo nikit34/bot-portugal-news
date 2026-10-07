@@ -2,45 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
-      "source": "https://t.me/FCPorto_INF",
-      "ts": 1791214790.271942,
-      "ig_id": "18442506400182246",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
-      "source": "https://t.me/FCPorto_INF",
-      "ts": 1791247215.357594,
-      "ig_id": "18281712199294030",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Resumo do dia — 06.10.2026",
-      "source": "digest",
-      "ts": 1791247491.0012646,
-      "fb_id": "1428158302790306",
-      "fb_media_id": "1428158302790306",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
-      "source": "https://t.me/FCPorto_INF",
-      "ts": 1791295333.7055192,
-      "ig_id": "18427149193148364",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Liga Nações. Sudakov dispensado da seleção ucrania",
-      "source": "rtp.pt/desporto",
-      "ts": 1791327488.0905962,
-      "fb_id": "4422842301300715",
-      "fb_media_id": "4422842301300715",
-      "ig_id": "17912172633504417",
+      "head": "Pauleta falha playoff de apuramento para o Mundial",
+      "source": "zerozero.pt",
+      "ts": 1791382775.9613237,
+      "fb_id": "1324357020152496",
+      "fb_media_id": "1324357020152496",
+      "ig_id": "17957825580246547",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -48,13 +15,13 @@
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-10-06",
-    "posts": 3
+    "day": "2026-10-07",
+    "posts": 1
   },
   "dow_hours": {},
   "formats": {},
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1791295373.7118912
+  "last_scored_ts": 1791382815.965951
 }
