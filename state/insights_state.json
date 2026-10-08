@@ -2,22 +2,10 @@
   "version": 1,
   "pending": [
     {
-      "head": "Pauleta falha playoff de apuramento para o Mundial",
-      "source": "zerozero.pt",
-      "ts": 1791382775.9613237,
-      "fb_id": "1324357020152496",
-      "fb_media_id": "1324357020152496",
-      "ig_id": "17957825580246547",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Raquel Ferreira e o playoff para o Mundial 2027: «",
-      "source": "zerozero.pt",
-      "ts": 1791415885.426216,
-      "fb_id": "2140244013510972",
-      "fb_media_id": "2140244013510972",
-      "ig_id": "18125088820677271",
+      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
+      "source": "https://t.me/FCPorto_INF",
+      "ts": 1791469655.1175783,
+      "ig_id": "17939379897368348",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -25,13 +13,13 @@
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-10-07",
-    "posts": 2
+    "day": "2026-10-08",
+    "posts": 1
   },
   "dow_hours": {},
   "formats": {},
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1791382815.965951
+  "last_scored_ts": 1791469695.1567452
 }
