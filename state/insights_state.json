@@ -8,13 +8,23 @@
       "ig_id": "17895943347418254",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Rui Silva torna-se o guarda-redes com mais autogol",
+      "source": "zerozero.pt",
+      "ts": 1791670729.190065,
+      "fb_id": "1842731370499021",
+      "fb_media_id": "1842731370499021",
+      "ig_id": "18009697898975559",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-10-10",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {},
   "formats": {},
