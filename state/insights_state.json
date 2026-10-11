@@ -2,14 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
-      "source": "https://t.me/FCPorto_INF",
-      "ts": 1791638583.8014498,
-      "ig_id": "17895943347418254",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Rui Silva torna-se o guarda-redes com mais autogol",
       "source": "zerozero.pt",
       "ts": 1791670729.190065,
@@ -27,18 +19,53 @@
       "fb_media_id": "1298874175625038",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
+      "source": "https://t.me/FCPorto_INF",
+      "ts": 1791726770.1090918,
+      "ig_id": "18094551551442163",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
-  "sources": {},
-  "hours": {},
-  "ig_quota": {
-    "day": "2026-10-10",
-    "posts": 2
+  "sources": {
+    "https://t.me/FCPorto_INF": {
+      "reach_avg": 2.3573,
+      "n": 1
+    }
   },
-  "dow_hours": {},
-  "formats": {},
-  "variants": {},
-  "reward_samples": [],
+  "hours": {
+    "13": {
+      "reach_avg": 2.3573,
+      "n": 1
+    }
+  },
+  "ig_quota": {
+    "day": "2026-10-11",
+    "posts": 1
+  },
+  "dow_hours": {
+    "5-13": {
+      "reach_avg": 2.3573,
+      "n": 1
+    }
+  },
+  "formats": {
+    "video": {
+      "reach_avg": 2.3573,
+      "n": 1
+    }
+  },
+  "variants": {
+    "tags:3+": {
+      "reach_avg": 2.3573,
+      "n": 1
+    }
+  },
+  "reward_samples": [
+    2.3573
+  ],
   "recent_winners": [],
-  "last_scored_ts": 1791638623.830172
+  "last_scored_ts": 1791726810.1133733
 }
