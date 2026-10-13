@@ -2,14 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
-      "source": "https://t.me/FCPorto_INF",
-      "ts": 1791822958.192539,
-      "ig_id": "18116644867820984",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Nuno Espírito Santo eleito melhor treinador de set",
       "source": "rtp.pt/desporto",
       "ts": 1791853819.0032258,
@@ -27,18 +19,53 @@
       "fb_media_id": "1132471172767463",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
+      "source": "https://t.me/FCPorto_INF",
+      "ts": 1791933236.0481408,
+      "ig_id": "17909706231553718",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
-  "sources": {},
-  "hours": {},
+  "sources": {
+    "https://t.me/FCPorto_INF": {
+      "reach_avg": 2.3573,
+      "n": 1
+    }
+  },
+  "hours": {
+    "16": {
+      "reach_avg": 2.3573,
+      "n": 1
+    }
+  },
   "ig_quota": {
     "day": "2026-10-13",
-    "posts": 1
+    "posts": 2
   },
-  "dow_hours": {},
-  "formats": {},
-  "variants": {},
-  "reward_samples": [],
+  "dow_hours": {
+    "0-16": {
+      "reach_avg": 2.3573,
+      "n": 1
+    }
+  },
+  "formats": {
+    "video": {
+      "reach_avg": 2.3573,
+      "n": 1
+    }
+  },
+  "variants": {
+    "tags:3+": {
+      "reach_avg": 2.3573,
+      "n": 1
+    }
+  },
+  "reward_samples": [
+    2.3573
+  ],
   "recent_winners": [],
-  "last_scored_ts": 1791822998.2050052
+  "last_scored_ts": 1791933276.0890703
 }
