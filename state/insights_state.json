@@ -8,12 +8,22 @@
       "ig_id": "18116644867820984",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Nuno Espírito Santo eleito melhor treinador de set",
+      "source": "rtp.pt/desporto",
+      "ts": 1791853819.0032258,
+      "fb_id": "1114449237614790",
+      "fb_media_id": "1114449237614790",
+      "ig_id": "18009983099776511",
+      "is_video": true,
+      "hashtag_n": 1
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-10-12",
+    "day": "2026-10-13",
     "posts": 1
   },
   "dow_hours": {},
