@@ -16,13 +16,23 @@
       "ig_id": "17881054371629250",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Faleceu Vítor Murta, antigo presidente do Boavista",
+      "source": "zerozero.pt",
+      "ts": 1792272036.272757,
+      "fb_id": "1714227350266473",
+      "fb_media_id": "1714227350266473",
+      "ig_id": "18190710595417357",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-10-17",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {},
   "formats": {},
