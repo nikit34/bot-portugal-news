@@ -16,13 +16,23 @@
       "ig_id": "18345510412252345",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Santa Clara eliminado pelo Mafra no prolongamento",
+      "source": "rtp.pt/desporto",
+      "ts": 1792534290.0811052,
+      "fb_id": "2230459474199313",
+      "fb_media_id": "2230459474199313",
+      "ig_id": "18634881073011904",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-10-20",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {},
   "formats": {},
