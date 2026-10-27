@@ -4,84 +4,22 @@
     {
       "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
       "source": "https://t.me/FCPorto_INF",
-      "ts": 1792947675.4935434,
-      "ig_id": "18208352128370684",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "II Liga: Académica goleia Leixões reduzido a 10 du",
-      "source": "rtp.pt/desporto",
-      "ts": 1792964003.77116,
-      "fb_id": "1691802335722881",
-      "fb_media_id": "1691802335722881",
-      "ig_id": "18228863566327546",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Resumo do dia — 25.10.2026",
-      "source": "digest",
-      "ts": 1792964291.61993,
-      "fb_id": "959227966835432",
-      "fb_media_id": "959227966835432",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
-      "source": "https://t.me/FCPorto_INF",
-      "ts": 1793023266.130205,
-      "ig_id": "18121487093320773",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "✅ | 𝗠𝗘𝗥𝗖𝗔𝗗𝗢 Juan Valencia assina contrato profissi",
-      "source": "https://t.me/FCPorto_INF",
-      "ts": 1793055905.8099105,
-      "ig_id": "18036987506900141",
+      "ts": 1793106250.1786115,
+      "ig_id": "18130542295696318",
       "is_video": true,
       "hashtag_n": 3
     }
   ],
-  "sources": {
-    "https://t.me/FCPorto_INF": {
-      "reach_avg": 1.8239,
-      "n": 1
-    }
-  },
-  "hours": {
-    "12": {
-      "reach_avg": 1.8239,
-      "n": 1
-    }
-  },
+  "sources": {},
+  "hours": {},
   "ig_quota": {
-    "day": "2026-10-26",
-    "posts": 2
+    "day": "2026-10-27",
+    "posts": 1
   },
-  "dow_hours": {
-    "6-12": {
-      "reach_avg": 1.8239,
-      "n": 1
-    }
-  },
-  "formats": {
-    "video": {
-      "reach_avg": 1.8239,
-      "n": 1
-    }
-  },
-  "variants": {
-    "tags:3+": {
-      "reach_avg": 1.8239,
-      "n": 1
-    }
-  },
-  "reward_samples": [
-    1.8239
-  ],
+  "dow_hours": {},
+  "formats": {},
+  "variants": {},
+  "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1793023306.1496122
+  "last_scored_ts": 1793106290.1837456
 }
