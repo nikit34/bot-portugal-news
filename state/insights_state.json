@@ -10,13 +10,23 @@
       "ig_id": "17993288685103087",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "II Liga. Torreense volta a vencer, deixa zona de r",
+      "source": "rtp.pt/desporto",
+      "ts": 1793228388.790033,
+      "fb_id": "1616856887118866",
+      "fb_media_id": "1616856887118866",
+      "ig_id": "18137067532710471",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-10-28",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {},
   "formats": {},
