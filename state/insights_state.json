@@ -2,16 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Taça de Portugal. \"Europeus\" entram no sorteio dos",
-      "source": "rtp.pt/desporto",
-      "ts": 1793195640.1692731,
-      "fb_id": "1825754238737763",
-      "fb_media_id": "1825754238737763",
-      "ig_id": "17993288685103087",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "II Liga. Torreense volta a vencer, deixa zona de r",
       "source": "rtp.pt/desporto",
       "ts": 1793228388.790033,
@@ -29,18 +19,55 @@
       "fb_media_id": "1000771105616282",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "Cristiano, Trincão e um herói em Monza: os golos p",
+      "source": "zerozero.pt",
+      "ts": 1793282436.8086407,
+      "fb_id": "1441771241444436",
+      "fb_media_id": "1441771241444436",
+      "ig_id": "18431452867144037",
+      "is_video": true,
+      "hashtag_n": 2
     }
   ],
-  "sources": {},
-  "hours": {},
-  "ig_quota": {
-    "day": "2026-10-28",
-    "posts": 2
+  "sources": {
+    "rtp.pt/desporto": {
+      "reach_avg": 1.0132,
+      "n": 1
+    }
   },
-  "dow_hours": {},
-  "formats": {},
-  "variants": {},
-  "reward_samples": [],
+  "hours": {
+    "13": {
+      "reach_avg": 1.0132,
+      "n": 1
+    }
+  },
+  "ig_quota": {
+    "day": "2026-10-29",
+    "posts": 1
+  },
+  "dow_hours": {
+    "2-13": {
+      "reach_avg": 1.0132,
+      "n": 1
+    }
+  },
+  "formats": {
+    "video": {
+      "reach_avg": 1.0132,
+      "n": 1
+    }
+  },
+  "variants": {
+    "tags:3+": {
+      "reach_avg": 1.0132,
+      "n": 1
+    }
+  },
+  "reward_samples": [
+    1.0132
+  ],
   "recent_winners": [],
-  "last_scored_ts": 1793195680.1711762
+  "last_scored_ts": 1793282476.8456254
 }
