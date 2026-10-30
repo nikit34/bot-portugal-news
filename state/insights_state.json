@@ -46,6 +46,16 @@
       "ig_id": "18255032041309083",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Cristiano Ronaldo eleito o melhor Bola de Ouro da",
+      "source": "rtp.pt/desporto",
+      "ts": 1793400732.3661425,
+      "fb_id": "2309166193266070",
+      "fb_media_id": "2309166193266070",
+      "ig_id": "18637094938048843",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -66,7 +76,7 @@
   },
   "ig_quota": {
     "day": "2026-10-30",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "2-13": {
