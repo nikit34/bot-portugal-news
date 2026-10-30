@@ -2,16 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "II Liga. Torreense volta a vencer, deixa zona de r",
-      "source": "rtp.pt/desporto",
-      "ts": 1793228388.790033,
-      "fb_id": "1616856887118866",
-      "fb_media_id": "1616856887118866",
-      "ig_id": "18137067532710471",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Resumo do dia — 28.10.2026",
       "source": "digest",
       "ts": 1793228799.3046944,
@@ -48,45 +38,62 @@
       "fb_media_id": "1148946320907589",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "Taça da Liga. Durán convocado no Benfica apesar da",
+      "source": "rtp.pt/desporto",
+      "ts": 1793368550.3184,
+      "ig_id": "18255032041309083",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
     "rtp.pt/desporto": {
-      "reach_avg": 1.0132,
-      "n": 1
+      "reach_avg": 4.41298,
+      "n": 2
     }
   },
   "hours": {
     "13": {
       "reach_avg": 1.0132,
       "n": 1
+    },
+    "22": {
+      "reach_avg": 6.6795,
+      "n": 1
     }
   },
   "ig_quota": {
-    "day": "2026-10-29",
-    "posts": 2
+    "day": "2026-10-30",
+    "posts": 1
   },
   "dow_hours": {
     "2-13": {
       "reach_avg": 1.0132,
       "n": 1
+    },
+    "2-22": {
+      "reach_avg": 6.6795,
+      "n": 1
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 1.0132,
-      "n": 1
+      "reach_avg": 4.41298,
+      "n": 2
     }
   },
   "variants": {
     "tags:3+": {
-      "reach_avg": 1.0132,
-      "n": 1
+      "reach_avg": 4.41298,
+      "n": 2
     }
   },
   "reward_samples": [
-    1.0132
+    1.0132,
+    6.6795
   ],
   "recent_winners": [],
-  "last_scored_ts": 1793282476.8456254
+  "last_scored_ts": 1793368590.3230333
 }
