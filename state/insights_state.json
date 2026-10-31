@@ -53,6 +53,16 @@
       "ig_id": "18120015487777719",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Casa Pia-Sporting abre a jornada Um Sporting &#039",
+      "source": "rtp.pt/desporto",
+      "ts": 1793485122.9490764,
+      "fb_id": "1431232068590443",
+      "fb_media_id": "1431232068590443",
+      "ig_id": "17939023809126883",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -85,7 +95,7 @@
   },
   "ig_quota": {
     "day": "2026-10-31",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "2-13": {
