@@ -54,6 +54,16 @@
       "ig_id": "18575242024073882",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Bayer Leverkusen perde em casa e cai para sexto na",
+      "source": "rtp.pt/desporto",
+      "ts": 1793572737.9557025,
+      "fb_id": "1675544154221299",
+      "fb_media_id": "1675544154221299",
+      "ig_id": "18102928034541249",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -86,7 +96,7 @@
   },
   "ig_quota": {
     "day": "2026-11-01",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "2-13": {
