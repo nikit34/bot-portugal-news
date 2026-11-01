@@ -20,24 +20,6 @@
       "is_digest": true
     },
     {
-      "head": "Taça da Liga. Durán convocado no Benfica apesar da",
-      "source": "rtp.pt/desporto",
-      "ts": 1793368550.3184,
-      "ig_id": "18255032041309083",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Cristiano Ronaldo eleito o melhor Bola de Ouro da",
-      "source": "rtp.pt/desporto",
-      "ts": 1793400732.3661425,
-      "fb_id": "2309166193266070",
-      "fb_media_id": "2309166193266070",
-      "ig_id": "18637094938048843",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Resumo do dia — 30.10.2026",
       "source": "digest",
       "ts": 1793400936.4748898,
@@ -45,14 +27,6 @@
       "fb_media_id": "2304389113751711",
       "is_video": true,
       "is_digest": true
-    },
-    {
-      "head": "Cristiano Ronaldo eleito o melhor Bola de Ouro da",
-      "source": "rtp.pt/desporto",
-      "ts": 1793453193.4630814,
-      "ig_id": "18120015487777719",
-      "is_video": true,
-      "hashtag_n": 5
     },
     {
       "head": "Casa Pia-Sporting abre a jornada Um Sporting &#039",
@@ -72,12 +46,20 @@
       "fb_media_id": "1917864339623870",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "Casa Pia-Sporting abre a jornada Um Sporting &#039",
+      "source": "rtp.pt/desporto",
+      "ts": 1793542109.0898242,
+      "ig_id": "18575242024073882",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
     "rtp.pt/desporto": {
-      "reach_avg": 4.41298,
-      "n": 2
+      "reach_avg": 6.945310884335516,
+      "n": 5
     },
     "zerozero.pt": {
       "reach_avg": 1.4567590453567587,
@@ -86,12 +68,12 @@
   },
   "hours": {
     "13": {
-      "reach_avg": 1.0132,
-      "n": 1
+      "reach_avg": 6.0693280000000005,
+      "n": 3
     },
     "22": {
-      "reach_avg": 6.6795,
-      "n": 1
+      "reach_avg": 7.135717405793847,
+      "n": 2
     },
     "14": {
       "reach_avg": 1.1156000000000001,
@@ -103,8 +85,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-10-31",
-    "posts": 2
+    "day": "2026-11-01",
+    "posts": 1
   },
   "dow_hours": {
     "2-13": {
@@ -122,18 +104,30 @@
     "3-23": {
       "reach_avg": 1.8147,
       "n": 1
+    },
+    "4-13": {
+      "reach_avg": 4.7229,
+      "n": 1
+    },
+    "4-22": {
+      "reach_avg": 7.956200000000001,
+      "n": 1
+    },
+    "5-13": {
+      "reach_avg": 7.956200000000001,
+      "n": 1
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 2.9410462,
-      "n": 4
+      "reach_avg": 6.924095754685151,
+      "n": 7
     }
   },
   "variants": {
     "tags:3+": {
-      "reach_avg": 3.633496,
-      "n": 3
+      "reach_avg": 6.954178433099629,
+      "n": 6
     },
     "tags:1-2": {
       "reach_avg": 1.1156000000000001,
@@ -144,8 +138,11 @@
     1.0132,
     6.6795,
     1.1156000000000001,
-    1.8147
+    1.8147,
+    4.7229,
+    7.956200000000001,
+    7.956200000000001
   ],
   "recent_winners": [],
-  "last_scored_ts": 1793453233.484763
+  "last_scored_ts": 1793542149.0985048
 }
