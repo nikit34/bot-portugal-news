@@ -29,16 +29,6 @@
       "is_digest": true
     },
     {
-      "head": "Casa Pia-Sporting abre a jornada Um Sporting &#039",
-      "source": "rtp.pt/desporto",
-      "ts": 1793485122.9490764,
-      "fb_id": "1431232068590443",
-      "fb_media_id": "1431232068590443",
-      "ig_id": "17939023809126883",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Resumo do dia — 31.10.2026",
       "source": "digest",
       "ts": 1793485483.1290085,
@@ -46,14 +36,6 @@
       "fb_media_id": "1917864339623870",
       "is_video": true,
       "is_digest": true
-    },
-    {
-      "head": "Casa Pia-Sporting abre a jornada Um Sporting &#039",
-      "source": "rtp.pt/desporto",
-      "ts": 1793542109.0898242,
-      "ig_id": "18575242024073882",
-      "is_video": true,
-      "hashtag_n": 5
     },
     {
       "head": "Bayer Leverkusen perde em casa e cai para sexto na",
@@ -73,12 +55,20 @@
       "fb_media_id": "998851655875469",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "II Liga. Benfica B vence Desportivo de Chaves com",
+      "source": "rtp.pt/desporto",
+      "ts": 1793638509.455722,
+      "ig_id": "18217393561355824",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
     "rtp.pt/desporto": {
-      "reach_avg": 6.945310884335516,
-      "n": 5
+      "reach_avg": 4.038866333324402,
+      "n": 7
     },
     "zerozero.pt": {
       "reach_avg": 1.4567590453567587,
@@ -91,12 +81,12 @@
       "n": 3
     },
     "22": {
-      "reach_avg": 7.135717405793847,
-      "n": 2
+      "reach_avg": 5.368922184055693,
+      "n": 3
     },
     "14": {
-      "reach_avg": 1.1156000000000001,
-      "n": 1
+      "reach_avg": 1.1594407457870206,
+      "n": 2
     },
     "23": {
       "reach_avg": 1.8147,
@@ -104,8 +94,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-11-01",
-    "posts": 2
+    "day": "2026-11-02",
+    "posts": 1
   },
   "dow_hours": {
     "2-13": {
@@ -135,18 +125,26 @@
     "5-13": {
       "reach_avg": 7.956200000000001,
       "n": 1
+    },
+    "5-22": {
+      "reach_avg": 1.2464,
+      "n": 1
+    },
+    "6-14": {
+      "reach_avg": 1.2464,
+      "n": 1
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 6.924095754685151,
-      "n": 7
+      "reach_avg": 4.028470919795724,
+      "n": 9
     }
   },
   "variants": {
     "tags:3+": {
-      "reach_avg": 6.954178433099629,
-      "n": 6
+      "reach_avg": 4.0432114322188175,
+      "n": 8
     },
     "tags:1-2": {
       "reach_avg": 1.1156000000000001,
@@ -160,8 +158,10 @@
     1.8147,
     4.7229,
     7.956200000000001,
-    7.956200000000001
+    7.956200000000001,
+    1.2464,
+    1.2464
   ],
   "recent_winners": [],
-  "last_scored_ts": 1793542149.0985048
+  "last_scored_ts": 1793638549.4568279
 }
