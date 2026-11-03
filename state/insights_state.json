@@ -10,13 +10,23 @@
       "ig_id": "18034382261677321",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "I Liga. Sporting Braga - Famalicão Sporting de Bra",
+      "source": "rtp.pt/desporto",
+      "ts": 1793750125.5654972,
+      "fb_id": "1657583689494238",
+      "fb_media_id": "1657583689494238",
+      "ig_id": "18238141564322027",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-11-03",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {},
   "formats": {},
