@@ -63,6 +63,16 @@
       "ig_id": "18217393561355824",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Santa Clara tenta manter-se ‘colado’ ao Sporting e",
+      "source": "rtp.pt/desporto",
+      "ts": 1793669418.7522728,
+      "fb_id": "28946581104962673",
+      "fb_media_id": "28946581104962673",
+      "ig_id": "18100895126411227",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -94,7 +104,7 @@
     }
   },
   "ig_quota": {
-    "day": "2026-11-02",
+    "day": "2026-11-03",
     "posts": 1
   },
   "dow_hours": {
