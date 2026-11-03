@@ -2,176 +2,26 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 28.10.2026",
-      "source": "digest",
-      "ts": 1793228799.3046944,
-      "fb_id": "1000771105616282",
-      "fb_media_id": "1000771105616282",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "Resumo do dia — 29.10.2026",
-      "source": "digest",
-      "ts": 1793315621.6449604,
-      "fb_id": "1148946320907589",
-      "fb_media_id": "1148946320907589",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "Resumo do dia — 30.10.2026",
-      "source": "digest",
-      "ts": 1793400936.4748898,
-      "fb_id": "2304389113751711",
-      "fb_media_id": "2304389113751711",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "Resumo do dia — 31.10.2026",
-      "source": "digest",
-      "ts": 1793485483.1290085,
-      "fb_id": "1917864339623870",
-      "fb_media_id": "1917864339623870",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "Bayer Leverkusen perde em casa e cai para sexto na",
+      "head": "Real Madrid de Mourinho volta a vencer em Espanha",
       "source": "rtp.pt/desporto",
-      "ts": 1793572737.9557025,
-      "fb_id": "1675544154221299",
-      "fb_media_id": "1675544154221299",
-      "ig_id": "18102928034541249",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Resumo do dia — 01.11.2026",
-      "source": "digest",
-      "ts": 1793572911.9359863,
-      "fb_id": "998851655875469",
-      "fb_media_id": "998851655875469",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "II Liga. Benfica B vence Desportivo de Chaves com",
-      "source": "rtp.pt/desporto",
-      "ts": 1793638509.455722,
-      "ig_id": "18217393561355824",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Santa Clara tenta manter-se ‘colado’ ao Sporting e",
-      "source": "rtp.pt/desporto",
-      "ts": 1793669418.7522728,
-      "fb_id": "28946581104962673",
-      "fb_media_id": "28946581104962673",
-      "ig_id": "18100895126411227",
+      "ts": 1793717763.7494025,
+      "fb_id": "1122170190624002",
+      "fb_media_id": "1122170190624002",
+      "ig_id": "18034382261677321",
       "is_video": true,
       "hashtag_n": 3
     }
   ],
-  "sources": {
-    "rtp.pt/desporto": {
-      "reach_avg": 4.038866333324402,
-      "n": 7
-    },
-    "zerozero.pt": {
-      "reach_avg": 1.4567590453567587,
-      "n": 2
-    }
-  },
-  "hours": {
-    "13": {
-      "reach_avg": 6.0693280000000005,
-      "n": 3
-    },
-    "22": {
-      "reach_avg": 5.368922184055693,
-      "n": 3
-    },
-    "14": {
-      "reach_avg": 1.1594407457870206,
-      "n": 2
-    },
-    "23": {
-      "reach_avg": 1.8147,
-      "n": 1
-    }
-  },
+  "sources": {},
+  "hours": {},
   "ig_quota": {
     "day": "2026-11-03",
     "posts": 1
   },
-  "dow_hours": {
-    "2-13": {
-      "reach_avg": 1.0132,
-      "n": 1
-    },
-    "2-22": {
-      "reach_avg": 6.6795,
-      "n": 1
-    },
-    "3-14": {
-      "reach_avg": 1.1156000000000001,
-      "n": 1
-    },
-    "3-23": {
-      "reach_avg": 1.8147,
-      "n": 1
-    },
-    "4-13": {
-      "reach_avg": 4.7229,
-      "n": 1
-    },
-    "4-22": {
-      "reach_avg": 7.956200000000001,
-      "n": 1
-    },
-    "5-13": {
-      "reach_avg": 7.956200000000001,
-      "n": 1
-    },
-    "5-22": {
-      "reach_avg": 1.2464,
-      "n": 1
-    },
-    "6-14": {
-      "reach_avg": 1.2464,
-      "n": 1
-    }
-  },
-  "formats": {
-    "video": {
-      "reach_avg": 4.028470919795724,
-      "n": 9
-    }
-  },
-  "variants": {
-    "tags:3+": {
-      "reach_avg": 4.0432114322188175,
-      "n": 8
-    },
-    "tags:1-2": {
-      "reach_avg": 1.1156000000000001,
-      "n": 1
-    }
-  },
-  "reward_samples": [
-    1.0132,
-    6.6795,
-    1.1156000000000001,
-    1.8147,
-    4.7229,
-    7.956200000000001,
-    7.956200000000001,
-    1.2464,
-    1.2464
-  ],
+  "dow_hours": {},
+  "formats": {},
+  "variants": {},
+  "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1793638549.4568279
+  "last_scored_ts": 1793717803.7525756
 }
