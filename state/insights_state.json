@@ -2,22 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Real Madrid de Mourinho volta a vencer em Espanha",
+      "head": "Regresso ou não de Ronaldo à seleção conhecido na",
       "source": "rtp.pt/desporto",
-      "ts": 1793717763.7494025,
-      "fb_id": "1122170190624002",
-      "fb_media_id": "1122170190624002",
-      "ig_id": "18034382261677321",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "I Liga. Sporting Braga - Famalicão Sporting de Bra",
-      "source": "rtp.pt/desporto",
-      "ts": 1793750125.5654972,
-      "fb_id": "1657583689494238",
-      "fb_media_id": "1657583689494238",
-      "ig_id": "18238141564322027",
+      "ts": 1793805251.4713142,
+      "fb_id": "1137327708693501",
+      "fb_media_id": "1137327708693501",
+      "ig_id": "18120602371768294",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -25,13 +15,13 @@
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-03",
-    "posts": 2
+    "day": "2026-11-04",
+    "posts": 1
   },
   "dow_hours": {},
   "formats": {},
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1793717803.7525756
+  "last_scored_ts": 1793805291.4766636
 }
