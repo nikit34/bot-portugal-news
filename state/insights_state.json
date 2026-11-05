@@ -2,16 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Regresso ou não de Ronaldo à seleção conhecido na",
-      "source": "rtp.pt/desporto",
-      "ts": 1793805251.4713142,
-      "fb_id": "1137327708693501",
-      "fb_media_id": "1137327708693501",
-      "ig_id": "18120602371768294",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Sporting defronta Shakhtar Donetsk na Liga dos Cam",
       "source": "rtp.pt/desporto",
       "ts": 1793837646.5835392,
@@ -29,18 +19,55 @@
       "fb_media_id": "3205159353180398",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "Ruben Amorim: «Neste momento, podemos ganhar ou pe",
+      "source": "zerozero.pt",
+      "ts": 1793891750.057978,
+      "fb_id": "1877426253453265",
+      "fb_media_id": "1877426253453265",
+      "ig_id": "18081586919399706",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
-  "sources": {},
-  "hours": {},
+  "sources": {
+    "rtp.pt/desporto": {
+      "reach_avg": 4.7357,
+      "n": 1
+    }
+  },
+  "hours": {
+    "15": {
+      "reach_avg": 4.7357,
+      "n": 1
+    }
+  },
   "ig_quota": {
     "day": "2026-11-05",
-    "posts": 1
+    "posts": 2
   },
-  "dow_hours": {},
-  "formats": {},
-  "variants": {},
-  "reward_samples": [],
+  "dow_hours": {
+    "2-15": {
+      "reach_avg": 4.7357,
+      "n": 1
+    }
+  },
+  "formats": {
+    "video": {
+      "reach_avg": 4.7357,
+      "n": 1
+    }
+  },
+  "variants": {
+    "tags:3+": {
+      "reach_avg": 4.7357,
+      "n": 1
+    }
+  },
+  "reward_samples": [
+    4.7357
+  ],
   "recent_winners": [],
-  "last_scored_ts": 1793805291.4766636
+  "last_scored_ts": 1793891790.0593717
 }
