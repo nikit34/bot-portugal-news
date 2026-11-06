@@ -29,6 +29,16 @@
       "ig_id": "18141615172712267",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Liga Europa. Benfica recebe Lech Poznan esta quint",
+      "source": "rtp.pt/desporto",
+      "ts": 1794008564.4221938,
+      "fb_id": "1618263232536160",
+      "fb_media_id": "1618263232536160",
+      "ig_id": "17996691524848549",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -49,7 +59,7 @@
   },
   "ig_quota": {
     "day": "2026-11-06",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "2-15": {
