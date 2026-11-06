@@ -29,6 +29,16 @@
       "ig_id": "18081586919399706",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "FC Porto recebe Nápoles na quarta jornada da Liga",
+      "source": "rtp.pt/desporto",
+      "ts": 1793923184.0894275,
+      "fb_id": "1492608962821044",
+      "fb_media_id": "1492608962821044",
+      "ig_id": "18651803233014445",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -45,7 +55,7 @@
   },
   "ig_quota": {
     "day": "2026-11-05",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {
     "2-15": {
