@@ -39,6 +39,16 @@
       "ig_id": "18043710149639285",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "zerozero e cromos.pt juntam-se ao Portugal Card Sh",
+      "source": "zerozero.pt",
+      "ts": 1794090790.1436083,
+      "fb_id": "1644327340724038",
+      "fb_media_id": "1644327340724038",
+      "ig_id": "18080635082470856",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -63,7 +73,7 @@
   },
   "ig_quota": {
     "day": "2026-11-07",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "2-15": {
