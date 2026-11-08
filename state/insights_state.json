@@ -29,6 +29,16 @@
       "ig_id": "18120075854088609",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Liga das Nações. Estreias e regressos na convocató",
+      "source": "rtp.pt/desporto",
+      "ts": 1794177787.9758801,
+      "fb_id": "1156785213673336",
+      "fb_media_id": "1156785213673336",
+      "ig_id": "17905057650397904",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -65,7 +75,7 @@
   },
   "ig_quota": {
     "day": "2026-11-08",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "2-15": {
