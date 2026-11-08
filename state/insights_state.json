@@ -11,36 +11,6 @@
       "is_digest": true
     },
     {
-      "head": "Liga Nações. Bah e Froholdt nos convocados da Dina",
-      "source": "rtp.pt/desporto",
-      "ts": 1793976716.9317098,
-      "fb_id": "1143349054827061",
-      "fb_media_id": "1143349054827061",
-      "ig_id": "18141615172712267",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Liga Europa. Benfica recebe Lech Poznan esta quint",
-      "source": "rtp.pt/desporto",
-      "ts": 1794008564.4221938,
-      "fb_id": "1618263232536160",
-      "fb_media_id": "1618263232536160",
-      "ig_id": "17996691524848549",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Cristiano Ronaldo diz adeus à seleção em vídeo nas",
-      "source": "rtp.pt/desporto",
-      "ts": 1794059329.685911,
-      "fb_id": "1153662680550839",
-      "fb_media_id": "1153662680550839",
-      "ig_id": "18043710149639285",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "zerozero e cromos.pt juntam-se ao Portugal Card Sh",
       "source": "zerozero.pt",
       "ts": 1794090790.1436083,
@@ -49,12 +19,22 @@
       "ig_id": "18080635082470856",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Marco Silva revela «processo de renovação com Pres",
+      "source": "zerozero.pt",
+      "ts": 1794146991.9398942,
+      "fb_id": "2290259114853022",
+      "fb_media_id": "2290259114853022",
+      "ig_id": "18120075854088609",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
     "rtp.pt/desporto": {
-      "reach_avg": 3.7484299999999995,
-      "n": 2
+      "reach_avg": 9.362317879999999,
+      "n": 5
     },
     "zerozero.pt": {
       "reach_avg": 4.9993,
@@ -69,11 +49,23 @@
     "0": {
       "reach_avg": 1.4447999999999999,
       "n": 1
+    },
+    "14": {
+      "reach_avg": 1.5834000000000001,
+      "n": 1
+    },
+    "23": {
+      "reach_avg": 1.44,
+      "n": 1
+    },
+    "13": {
+      "reach_avg": 13.8697,
+      "n": 1
     }
   },
   "ig_quota": {
-    "day": "2026-11-07",
-    "posts": 2
+    "day": "2026-11-08",
+    "posts": 1
   },
   "dow_hours": {
     "2-15": {
@@ -87,25 +79,40 @@
     "3-15": {
       "reach_avg": 4.9993,
       "n": 1
+    },
+    "4-14": {
+      "reach_avg": 1.5834000000000001,
+      "n": 1
+    },
+    "4-23": {
+      "reach_avg": 1.44,
+      "n": 1
+    },
+    "5-13": {
+      "reach_avg": 13.8697,
+      "n": 1
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 4.248917488708606,
-      "n": 3
+      "reach_avg": 9.460413427786886,
+      "n": 6
     }
   },
   "variants": {
     "tags:3+": {
-      "reach_avg": 4.248917488708606,
-      "n": 3
+      "reach_avg": 9.460413427786886,
+      "n": 6
     }
   },
   "reward_samples": [
     4.7357,
     1.4447999999999999,
-    4.9993
+    4.9993,
+    1.5834000000000001,
+    1.44,
+    13.8697
   ],
   "recent_winners": [],
-  "last_scored_ts": 1794059369.7268357
+  "last_scored_ts": 1794147031.9808207
 }
