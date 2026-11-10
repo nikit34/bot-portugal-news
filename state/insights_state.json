@@ -2,20 +2,10 @@
   "version": 1,
   "pending": [
     {
-      "head": "AC Milan vence fora com assistência de Gonçalo Ram",
-      "source": "zerozero.pt",
-      "ts": 1794244623.4114838,
-      "fb_id": "1406136455015154",
-      "fb_media_id": "1406136455015154",
-      "ig_id": "18203192407389856",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Benfica vence Sporting e conquista Supertaça de hó",
       "source": "rtp.pt/desporto",
-      "ts": 1794275806.597569,
-      "ig_id": "17871108249658923",
+      "ts": 1794324562.5597725,
+      "ig_id": "18135282574743929",
       "is_video": true,
       "hashtag_n": 5
     }
@@ -31,5 +21,5 @@
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1794244663.4378388
+  "last_scored_ts": 1794324602.5801446
 }
