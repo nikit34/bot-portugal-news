@@ -10,12 +10,20 @@
       "ig_id": "18203192407389856",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Benfica vence Sporting e conquista Supertaça de hó",
+      "source": "rtp.pt/desporto",
+      "ts": 1794275806.597569,
+      "ig_id": "17871108249658923",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-09",
+    "day": "2026-11-10",
     "posts": 1
   },
   "dow_hours": {},
