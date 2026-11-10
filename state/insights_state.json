@@ -8,13 +8,23 @@
       "ig_id": "18135282574743929",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "Golo de Walace França fora de portas? Para o Gil V",
+      "source": "zerozero.pt",
+      "ts": 1794355095.2419262,
+      "fb_id": "1433242305591291",
+      "fb_media_id": "1433242305591291",
+      "ig_id": "18015760019964744",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-11-10",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {},
   "formats": {},
