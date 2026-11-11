@@ -2,20 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Benfica vence Sporting e conquista Supertaça de hó",
-      "source": "rtp.pt/desporto",
-      "ts": 1794324562.5597725,
-      "ig_id": "18135282574743929",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "Golo de Walace França fora de portas? Para o Gil V",
+      "head": "FC Porto convoca Assembleia Geral para 21 de novem",
       "source": "zerozero.pt",
-      "ts": 1794355095.2419262,
-      "fb_id": "1433242305591291",
-      "fb_media_id": "1433242305591291",
-      "ig_id": "18015760019964744",
+      "ts": 1794409224.6992958,
+      "fb_id": "1312487627649725",
+      "fb_media_id": "1312487627649725",
+      "ig_id": "18200777725391341",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -23,13 +15,13 @@
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-10",
-    "posts": 2
+    "day": "2026-11-11",
+    "posts": 1
   },
   "dow_hours": {},
   "formats": {},
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1794324602.5801446
+  "last_scored_ts": 1794409264.700789
 }
