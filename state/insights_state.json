@@ -2,16 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "FC Porto convoca Assembleia Geral para 21 de novem",
-      "source": "zerozero.pt",
-      "ts": 1794409224.6992958,
-      "fb_id": "1312487627649725",
-      "fb_media_id": "1312487627649725",
-      "ig_id": "18200777725391341",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Alberto Costa fala do «sentimento de concretização",
       "source": "zerozero.pt",
       "ts": 1794446543.309435,
@@ -29,18 +19,55 @@
       "fb_media_id": "1619586933273780",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "FC Porto vence em Guimarães e continua invicto na",
+      "source": "rtp.pt/desporto",
+      "ts": 1794498737.5567772,
+      "fb_id": "1113768514874562",
+      "fb_media_id": "1113768514874562",
+      "ig_id": "18035434418884282",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
-  "sources": {},
-  "hours": {},
+  "sources": {
+    "zerozero.pt": {
+      "reach_avg": 1.7764,
+      "n": 1
+    }
+  },
+  "hours": {
+    "15": {
+      "reach_avg": 1.7764,
+      "n": 1
+    }
+  },
   "ig_quota": {
     "day": "2026-11-12",
-    "posts": 1
+    "posts": 2
   },
-  "dow_hours": {},
-  "formats": {},
-  "variants": {},
-  "reward_samples": [],
+  "dow_hours": {
+    "2-15": {
+      "reach_avg": 1.7764,
+      "n": 1
+    }
+  },
+  "formats": {
+    "video": {
+      "reach_avg": 1.7764,
+      "n": 1
+    }
+  },
+  "variants": {
+    "tags:3+": {
+      "reach_avg": 1.7764,
+      "n": 1
+    }
+  },
+  "reward_samples": [
+    1.7764
+  ],
   "recent_winners": [],
-  "last_scored_ts": 1794409264.700789
+  "last_scored_ts": 1794498777.5630782
 }
