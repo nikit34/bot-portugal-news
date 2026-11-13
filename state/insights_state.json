@@ -2,82 +2,26 @@
   "version": 1,
   "pending": [
     {
-      "head": "Alberto Costa fala do «sentimento de concretização",
-      "source": "zerozero.pt",
-      "ts": 1794446543.309435,
-      "fb_id": "1849384316477972",
-      "fb_media_id": "1849384316477972",
-      "ig_id": "18119430944020127",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Resumo do dia — 12.11.2026",
-      "source": "digest",
-      "ts": 1794446833.2072484,
-      "fb_id": "1619586933273780",
-      "fb_media_id": "1619586933273780",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "FC Porto vence em Guimarães e continua invicto na",
+      "head": "Liga das Nações: Portugal inicia estágio com todos",
       "source": "rtp.pt/desporto",
-      "ts": 1794498737.5567772,
-      "fb_id": "1113768514874562",
-      "fb_media_id": "1113768514874562",
-      "ig_id": "18035434418884282",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Gustavo Sá e a preparação para o Europeu: «Temos d",
-      "source": "zerozero.pt",
-      "ts": 1794528078.845398,
-      "fb_id": "2250441048873498",
-      "fb_media_id": "2250441048873498",
-      "ig_id": "18134086643501708",
+      "ts": 1794582737.5761607,
+      "fb_id": "1138958038494002",
+      "fb_media_id": "1138958038494002",
+      "ig_id": "18677252395008171",
       "is_video": true,
       "hashtag_n": 3
     }
   ],
-  "sources": {
-    "zerozero.pt": {
-      "reach_avg": 1.7764,
-      "n": 1
-    }
-  },
-  "hours": {
-    "15": {
-      "reach_avg": 1.7764,
-      "n": 1
-    }
-  },
+  "sources": {},
+  "hours": {},
   "ig_quota": {
-    "day": "2026-11-12",
-    "posts": 3
+    "day": "2026-11-13",
+    "posts": 1
   },
-  "dow_hours": {
-    "2-15": {
-      "reach_avg": 1.7764,
-      "n": 1
-    }
-  },
-  "formats": {
-    "video": {
-      "reach_avg": 1.7764,
-      "n": 1
-    }
-  },
-  "variants": {
-    "tags:3+": {
-      "reach_avg": 1.7764,
-      "n": 1
-    }
-  },
-  "reward_samples": [
-    1.7764
-  ],
+  "dow_hours": {},
+  "formats": {},
+  "variants": {},
+  "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1794498777.5630782
+  "last_scored_ts": 1794582777.582711
 }
