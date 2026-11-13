@@ -29,6 +29,16 @@
       "ig_id": "18035434418884282",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Gustavo Sá e a preparação para o Europeu: «Temos d",
+      "source": "zerozero.pt",
+      "ts": 1794528078.845398,
+      "fb_id": "2250441048873498",
+      "fb_media_id": "2250441048873498",
+      "ig_id": "18134086643501708",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -45,7 +55,7 @@
   },
   "ig_quota": {
     "day": "2026-11-12",
-    "posts": 2
+    "posts": 3
   },
   "dow_hours": {
     "2-15": {
