@@ -29,18 +29,28 @@
       "fb_media_id": "1446259377574786",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "João Pereira deixa comando técnico do Alanyaspor e",
+      "source": "rtp.pt/desporto",
+      "ts": 1794664851.4356759,
+      "fb_id": "1472885308375339",
+      "fb_media_id": "1472885308375339",
+      "ig_id": "18040108352661585",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-11-14",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {},
   "formats": {},
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1794582777.582711
+  "last_scored_ts": 1794664891.4493701
 }
