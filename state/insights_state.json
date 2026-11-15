@@ -2,64 +2,26 @@
   "version": 1,
   "pending": [
     {
-      "head": "Liga das Nações: Portugal inicia estágio com todos",
-      "source": "rtp.pt/desporto",
-      "ts": 1794582737.5761607,
-      "fb_id": "1138958038494002",
-      "fb_media_id": "1138958038494002",
-      "ig_id": "18677252395008171",
+      "head": "Colômbia vence Chile com Luis Suárez a titular A C",
+      "source": "zerozero.pt",
+      "ts": 1794753348.9856772,
+      "fb_id": "29076620775325018",
+      "fb_media_id": "29076620775325018",
+      "ig_id": "17916582504287465",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "João Pereira deixa comando técnico do Alanyaspor e",
-      "source": "rtp.pt/desporto",
-      "ts": 1794615337.229353,
-      "fb_id": "1829306061545319",
-      "fb_media_id": "1829306061545319",
-      "ig_id": "18078816881443669",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Resumo do dia — 14.11.2026",
-      "source": "digest",
-      "ts": 1794615573.6836736,
-      "fb_id": "1446259377574786",
-      "fb_media_id": "1446259377574786",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "João Pereira deixa comando técnico do Alanyaspor e",
-      "source": "rtp.pt/desporto",
-      "ts": 1794664851.4356759,
-      "fb_id": "1472885308375339",
-      "fb_media_id": "1472885308375339",
-      "ig_id": "18040108352661585",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Resumo do dia — 14.11.2026",
-      "source": "digest",
-      "ts": 1794696971.6384358,
-      "fb_id": "2103246510365630",
-      "fb_media_id": "2103246510365630",
-      "is_video": true,
-      "is_digest": true
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-14",
-    "posts": 2
+    "day": "2026-11-15",
+    "posts": 1
   },
   "dow_hours": {},
   "formats": {},
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1794664891.4493701
+  "last_scored_ts": 1794753389.025012
 }
