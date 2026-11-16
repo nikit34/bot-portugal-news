@@ -2,22 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Colômbia vence Chile com Luis Suárez a titular A C",
+      "head": "Sporting de regresso à Copa Intercontinental 19 an",
       "source": "zerozero.pt",
-      "ts": 1794753348.9856772,
-      "fb_id": "29076620775325018",
-      "fb_media_id": "29076620775325018",
-      "ig_id": "17916582504287465",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Benfica no top-3 mundial. Está concluída a atualiz",
-      "source": "rtp.pt/desporto",
-      "ts": 1794784928.9145029,
-      "fb_id": "1793193428403200",
-      "fb_media_id": "1793193428403200",
-      "ig_id": "18174655324458078",
+      "ts": 1794847930.7695787,
+      "fb_id": "1315010910750818",
+      "fb_media_id": "1315010910750818",
+      "ig_id": "17919313827492450",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -25,13 +15,13 @@
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-15",
-    "posts": 2
+    "day": "2026-11-16",
+    "posts": 1
   },
   "dow_hours": {},
   "formats": {},
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1794753389.025012
+  "last_scored_ts": 1794847970.7776408
 }
