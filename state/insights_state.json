@@ -10,12 +10,22 @@
       "ig_id": "17919313827492450",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "FC Porto na final da Taça Continental de hóquei em",
+      "source": "rtp.pt/desporto",
+      "ts": 1794882146.202878,
+      "fb_id": "1435574208221008",
+      "fb_media_id": "1435574208221008",
+      "ig_id": "18170868214489794",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-16",
+    "day": "2026-11-17",
     "posts": 1
   },
   "dow_hours": {},
