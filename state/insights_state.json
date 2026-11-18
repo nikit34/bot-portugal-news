@@ -39,13 +39,23 @@
       "ig_id": "17877805710587020",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Neemias Queta marca oito pontos em vitória históri",
+      "source": "rtp.pt/desporto",
+      "ts": 1794965542.1657913,
+      "fb_id": "2525953307895383",
+      "fb_media_id": "2525953307895383",
+      "ig_id": "18509259211097232",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-17",
-    "posts": 2
+    "day": "2026-11-18",
+    "posts": 1
   },
   "dow_hours": {},
   "formats": {},
