@@ -2,51 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Sporting de regresso à Copa Intercontinental 19 an",
-      "source": "zerozero.pt",
-      "ts": 1794847930.7695787,
-      "fb_id": "1315010910750818",
-      "fb_media_id": "1315010910750818",
-      "ig_id": "17919313827492450",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "FC Porto na final da Taça Continental de hóquei em",
-      "source": "rtp.pt/desporto",
-      "ts": 1794882146.202878,
-      "fb_id": "1435574208221008",
-      "fb_media_id": "1435574208221008",
-      "ig_id": "18170868214489794",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Resumo do dia — 17.11.2026",
-      "source": "digest",
-      "ts": 1794882382.1832256,
-      "fb_id": "1448930344100331",
-      "fb_media_id": "1448930344100331",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "Gonçalo Nogueira e o lance com Froholdt: «Não ente",
+      "head": "Altimira conta tudo: do \"privilégio\" de capitanear",
       "source": "record.pt",
-      "ts": 1794934021.766537,
-      "fb_id": "29196763406648989",
-      "fb_media_id": "29196763406648989",
-      "ig_id": "17877805710587020",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Neemias Queta marca oito pontos em vitória históri",
-      "source": "rtp.pt/desporto",
-      "ts": 1794965542.1657913,
-      "fb_id": "2525953307895383",
-      "fb_media_id": "2525953307895383",
-      "ig_id": "18509259211097232",
+      "ts": 1795018667.790714,
+      "fb_id": "2125460354760886",
+      "fb_media_id": "2125460354760886",
+      "ig_id": "18109148090291581",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -62,5 +23,5 @@
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1794934061.7959113
+  "last_scored_ts": 1795018707.7942717
 }
