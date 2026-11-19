@@ -2,22 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Altimira conta tudo: do \"privilégio\" de capitanear",
-      "source": "record.pt",
-      "ts": 1795018667.790714,
-      "fb_id": "2125460354760886",
-      "fb_media_id": "2125460354760886",
-      "ig_id": "18109148090291581",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Portugal sofre derrota volumosa na receção à Alema",
-      "source": "zerozero.pt",
-      "ts": 1795050082.0662067,
-      "fb_id": "4596336307290221",
-      "fb_media_id": "4596336307290221",
-      "ig_id": "17925734568450329",
+      "head": "Alonso regressa ao Dakar com Aston Martin numa edi",
+      "source": "rtp.pt/desporto",
+      "ts": 1795105529.2998178,
+      "fb_id": "1122856383686243",
+      "fb_media_id": "1122856383686243",
+      "ig_id": "18144325711614064",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -33,5 +23,5 @@
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1795018707.7942717
+  "last_scored_ts": 1795105569.3031561
 }
