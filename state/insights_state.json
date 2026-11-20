@@ -10,12 +10,22 @@
       "ig_id": "18144325711614064",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Portugal segura liderança do grupo com vitória sua",
+      "source": "rtp.pt/desporto",
+      "ts": 1795136808.3770258,
+      "fb_id": "4581123952147464",
+      "fb_media_id": "4581123952147464",
+      "ig_id": "18111840713191946",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-19",
+    "day": "2026-11-20",
     "posts": 1
   },
   "dow_hours": {},
