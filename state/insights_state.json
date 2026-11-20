@@ -29,18 +29,28 @@
       "fb_media_id": "1168978282129396",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "Fator Carlos Forbs: Jorge Jesus explica reviravolt",
+      "source": "rtp.pt/desporto",
+      "ts": 1795190339.7351255,
+      "fb_id": "1622484809917484",
+      "fb_media_id": "1622484809917484",
+      "ig_id": "18041187116654879",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
     "day": "2026-11-20",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {},
   "formats": {},
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1795105569.3031561
+  "last_scored_ts": 1795190379.8628547
 }
