@@ -2,51 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Alonso regressa ao Dakar com Aston Martin numa edi",
-      "source": "rtp.pt/desporto",
-      "ts": 1795105529.2998178,
-      "fb_id": "1122856383686243",
-      "fb_media_id": "1122856383686243",
-      "ig_id": "18144325711614064",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Portugal segura liderança do grupo com vitória sua",
-      "source": "rtp.pt/desporto",
-      "ts": 1795136808.3770258,
-      "fb_id": "4581123952147464",
-      "fb_media_id": "4581123952147464",
-      "ig_id": "18111840713191946",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Resumo do dia — 20.11.2026",
-      "source": "digest",
-      "ts": 1795137023.2215333,
-      "fb_id": "1168978282129396",
-      "fb_media_id": "1168978282129396",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "Fator Carlos Forbs: Jorge Jesus explica reviravolt",
-      "source": "rtp.pt/desporto",
-      "ts": 1795190339.7351255,
-      "fb_id": "1622484809917484",
-      "fb_media_id": "1622484809917484",
-      "ig_id": "18041187116654879",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Ex-guarda-redes do Sporting Antonio Adán termina c",
-      "source": "rtp.pt/desporto",
-      "ts": 1795221687.4992673,
-      "fb_id": "1110463568532874",
-      "fb_media_id": "1110463568532874",
-      "ig_id": "18162364105566588",
+      "head": "O que precisa o Benfica para continuar na Champion",
+      "source": "zerozero.pt",
+      "ts": 1795273880.4887388,
+      "fb_id": "1500878238629705",
+      "fb_media_id": "1500878238629705",
+      "ig_id": "18236306044326027",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -62,5 +23,5 @@
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1795190379.8628547
+  "last_scored_ts": 1795273920.4937687
 }
