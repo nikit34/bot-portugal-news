@@ -39,13 +39,23 @@
       "ig_id": "18041187116654879",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Ex-guarda-redes do Sporting Antonio Adán termina c",
+      "source": "rtp.pt/desporto",
+      "ts": 1795221687.4992673,
+      "fb_id": "1110463568532874",
+      "fb_media_id": "1110463568532874",
+      "ig_id": "18162364105566588",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-20",
-    "posts": 2
+    "day": "2026-11-21",
+    "posts": 1
   },
   "dow_hours": {},
   "formats": {},
