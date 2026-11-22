@@ -2,29 +2,20 @@
   "version": 1,
   "pending": [
     {
-      "head": "O que precisa o Benfica para continuar na Champion",
-      "source": "zerozero.pt",
-      "ts": 1795273880.4887388,
-      "fb_id": "1500878238629705",
-      "fb_media_id": "1500878238629705",
-      "ig_id": "18236306044326027",
+      "head": "Reencontro de Portugal com Países Baixos e um Espa",
+      "source": "rtp.pt/desporto",
+      "ts": 1795360096.2143466,
+      "fb_id": "4105732206397281",
+      "fb_media_id": "4105732206397281",
+      "ig_id": "17971236186206157",
       "is_video": true,
       "hashtag_n": 3
-    },
-    {
-      "head": "Resumo do dia — 21.11.2026",
-      "source": "digest",
-      "ts": 1795304759.0408561,
-      "fb_id": "915341581569806",
-      "fb_media_id": "915341581569806",
-      "is_video": true,
-      "is_digest": true
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-21",
+    "day": "2026-11-22",
     "posts": 1
   },
   "dow_hours": {},
@@ -32,5 +23,5 @@
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1795273920.4937687
+  "last_scored_ts": 1795360136.2328613
 }
