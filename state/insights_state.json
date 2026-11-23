@@ -10,12 +10,22 @@
       "ig_id": "17971236186206157",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Felgueiras elimina Estoril Praia na quarta ronda d",
+      "source": "rtp.pt/desporto",
+      "ts": 1795392223.188497,
+      "fb_id": "4619788561671321",
+      "fb_media_id": "4619788561671321",
+      "ig_id": "18109969199277435",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-22",
+    "day": "2026-11-23",
     "posts": 1
   },
   "dow_hours": {},
