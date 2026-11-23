@@ -2,16 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Reencontro de Portugal com Países Baixos e um Espa",
-      "source": "rtp.pt/desporto",
-      "ts": 1795360096.2143466,
-      "fb_id": "4105732206397281",
-      "fb_media_id": "4105732206397281",
-      "ig_id": "17971236186206157",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Felgueiras elimina Estoril Praia na quarta ronda d",
       "source": "rtp.pt/desporto",
       "ts": 1795392223.188497,
@@ -29,18 +19,55 @@
       "fb_media_id": "4079348122359390",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "Feyenoord perde em casa com o Excelsior antes de r",
+      "source": "rtp.pt/desporto",
+      "ts": 1795460611.6128519,
+      "fb_id": "1706488654422792",
+      "fb_media_id": "1706488654422792",
+      "ig_id": "18129725854909043",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
-  "sources": {},
-  "hours": {},
+  "sources": {
+    "rtp.pt/desporto": {
+      "reach_avg": 1.8732000000000002,
+      "n": 1
+    }
+  },
+  "hours": {
+    "15": {
+      "reach_avg": 1.8732000000000002,
+      "n": 1
+    }
+  },
   "ig_quota": {
     "day": "2026-11-23",
-    "posts": 1
+    "posts": 2
   },
-  "dow_hours": {},
-  "formats": {},
-  "variants": {},
-  "reward_samples": [],
+  "dow_hours": {
+    "6-15": {
+      "reach_avg": 1.8732000000000002,
+      "n": 1
+    }
+  },
+  "formats": {
+    "video": {
+      "reach_avg": 1.8732000000000002,
+      "n": 1
+    }
+  },
+  "variants": {
+    "tags:3+": {
+      "reach_avg": 1.8732000000000002,
+      "n": 1
+    }
+  },
+  "reward_samples": [
+    1.8732000000000002
+  ],
   "recent_winners": [],
-  "last_scored_ts": 1795360136.2328613
+  "last_scored_ts": 1795460651.6218023
 }
