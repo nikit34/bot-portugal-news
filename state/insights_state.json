@@ -29,6 +29,15 @@
       "ig_id": "18129725854909043",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Resumo do dia — 24.11.2026",
+      "source": "digest",
+      "ts": 1795493754.2780776,
+      "fb_id": "1887831052570799",
+      "fb_media_id": "1887831052570799",
+      "is_video": true,
+      "is_digest": true
     }
   ],
   "sources": {
@@ -44,8 +53,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-11-23",
-    "posts": 2
+    "day": "2026-11-24",
+    "posts": 0
   },
   "dow_hours": {
     "6-15": {
