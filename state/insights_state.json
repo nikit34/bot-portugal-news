@@ -38,6 +38,14 @@
       "fb_media_id": "1887831052570799",
       "is_video": true,
       "is_digest": true
+    },
+    {
+      "head": "FC Porto procura afirmar-se e Sporting luta por lu",
+      "source": "rtp.pt/desporto",
+      "ts": 1795497116.4984155,
+      "ig_id": "18112437053628809",
+      "is_video": true,
+      "hashtag_n": 5
     }
   ],
   "sources": {
@@ -54,7 +62,7 @@
   },
   "ig_quota": {
     "day": "2026-11-24",
-    "posts": 0
+    "posts": 1
   },
   "dow_hours": {
     "6-15": {
