@@ -2,16 +2,6 @@
   "version": 1,
   "pending": [
     {
-      "head": "Felgueiras elimina Estoril Praia na quarta ronda d",
-      "source": "rtp.pt/desporto",
-      "ts": 1795392223.188497,
-      "fb_id": "4619788561671321",
-      "fb_media_id": "4619788561671321",
-      "ig_id": "18109969199277435",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
       "head": "Resumo do dia — 23.11.2026",
       "source": "digest",
       "ts": 1795392637.7756364,
@@ -46,45 +36,64 @@
       "ig_id": "18112437053628809",
       "is_video": true,
       "hashtag_n": 5
+    },
+    {
+      "head": "'Bis' de Hristov evita derrota do Vizela frente ao",
+      "source": "rtp.pt/desporto",
+      "ts": 1795545813.2601278,
+      "fb_id": "1383942390341786",
+      "fb_media_id": "1383942390341786",
+      "ig_id": "17969401385981278",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
     "rtp.pt/desporto": {
-      "reach_avg": 1.8732000000000002,
-      "n": 1
+      "reach_avg": 4.8625799999999995,
+      "n": 2
     }
   },
   "hours": {
     "15": {
       "reach_avg": 1.8732000000000002,
       "n": 1
+    },
+    "0": {
+      "reach_avg": 6.8555,
+      "n": 1
     }
   },
   "ig_quota": {
     "day": "2026-11-24",
-    "posts": 1
+    "posts": 2
   },
   "dow_hours": {
     "6-15": {
       "reach_avg": 1.8732000000000002,
       "n": 1
+    },
+    "0-0": {
+      "reach_avg": 6.8555,
+      "n": 1
     }
   },
   "formats": {
     "video": {
-      "reach_avg": 1.8732000000000002,
-      "n": 1
+      "reach_avg": 4.8625799999999995,
+      "n": 2
     }
   },
   "variants": {
     "tags:3+": {
-      "reach_avg": 1.8732000000000002,
-      "n": 1
+      "reach_avg": 4.8625799999999995,
+      "n": 2
     }
   },
   "reward_samples": [
-    1.8732000000000002
+    1.8732000000000002,
+    6.8555
   ],
   "recent_winners": [],
-  "last_scored_ts": 1795460651.6218023
+  "last_scored_ts": 1795545853.263009
 }
