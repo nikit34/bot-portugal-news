@@ -46,6 +46,16 @@
       "ig_id": "17969401385981278",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Gil Vicente sofre para bater Olhanense, mas está n",
+      "source": "rtp.pt/desporto",
+      "ts": 1795575545.5993774,
+      "fb_id": "1159209793352962",
+      "fb_media_id": "1159209793352962",
+      "ig_id": "18138853633635688",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {
@@ -65,8 +75,8 @@
     }
   },
   "ig_quota": {
-    "day": "2026-11-24",
-    "posts": 2
+    "day": "2026-11-25",
+    "posts": 1
   },
   "dow_hours": {
     "6-15": {
