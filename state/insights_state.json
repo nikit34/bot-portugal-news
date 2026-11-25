@@ -2,108 +2,26 @@
   "version": 1,
   "pending": [
     {
-      "head": "Resumo do dia — 23.11.2026",
-      "source": "digest",
-      "ts": 1795392637.7756364,
-      "fb_id": "4079348122359390",
-      "fb_media_id": "4079348122359390",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "Feyenoord perde em casa com o Excelsior antes de r",
-      "source": "rtp.pt/desporto",
-      "ts": 1795460611.6128519,
-      "fb_id": "1706488654422792",
-      "fb_media_id": "1706488654422792",
-      "ig_id": "18129725854909043",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Resumo do dia — 24.11.2026",
-      "source": "digest",
-      "ts": 1795493754.2780776,
-      "fb_id": "1887831052570799",
-      "fb_media_id": "1887831052570799",
-      "is_video": true,
-      "is_digest": true
-    },
-    {
-      "head": "FC Porto procura afirmar-se e Sporting luta por lu",
-      "source": "rtp.pt/desporto",
-      "ts": 1795497116.4984155,
-      "ig_id": "18112437053628809",
-      "is_video": true,
-      "hashtag_n": 5
-    },
-    {
-      "head": "'Bis' de Hristov evita derrota do Vizela frente ao",
-      "source": "rtp.pt/desporto",
-      "ts": 1795545813.2601278,
-      "fb_id": "1383942390341786",
-      "fb_media_id": "1383942390341786",
-      "ig_id": "17969401385981278",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Gil Vicente sofre para bater Olhanense, mas está n",
-      "source": "rtp.pt/desporto",
-      "ts": 1795575545.5993774,
-      "fb_id": "1159209793352962",
-      "fb_media_id": "1159209793352962",
-      "ig_id": "18138853633635688",
+      "head": "Farioli: «Se o Feyenoord empatasse... não me poder",
+      "source": "abola.pt",
+      "ts": 1795629169.4994724,
+      "fb_id": "1420920893456577",
+      "fb_media_id": "1420920893456577",
+      "ig_id": "17969838210226619",
       "is_video": true,
       "hashtag_n": 3
     }
   ],
-  "sources": {
-    "rtp.pt/desporto": {
-      "reach_avg": 4.8625799999999995,
-      "n": 2
-    }
-  },
-  "hours": {
-    "15": {
-      "reach_avg": 1.8732000000000002,
-      "n": 1
-    },
-    "0": {
-      "reach_avg": 6.8555,
-      "n": 1
-    }
-  },
+  "sources": {},
+  "hours": {},
   "ig_quota": {
     "day": "2026-11-25",
     "posts": 1
   },
-  "dow_hours": {
-    "6-15": {
-      "reach_avg": 1.8732000000000002,
-      "n": 1
-    },
-    "0-0": {
-      "reach_avg": 6.8555,
-      "n": 1
-    }
-  },
-  "formats": {
-    "video": {
-      "reach_avg": 4.8625799999999995,
-      "n": 2
-    }
-  },
-  "variants": {
-    "tags:3+": {
-      "reach_avg": 4.8625799999999995,
-      "n": 2
-    }
-  },
-  "reward_samples": [
-    1.8732000000000002,
-    6.8555
-  ],
+  "dow_hours": {},
+  "formats": {},
+  "variants": {},
+  "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1795545853.263009
+  "last_scored_ts": 1795629209.50432
 }
