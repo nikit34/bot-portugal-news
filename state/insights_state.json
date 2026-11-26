@@ -2,22 +2,12 @@
   "version": 1,
   "pending": [
     {
-      "head": "Farioli: «Se o Feyenoord empatasse... não me poder",
-      "source": "abola.pt",
-      "ts": 1795629169.4994724,
-      "fb_id": "1420920893456577",
-      "fb_media_id": "1420920893456577",
-      "ig_id": "17969838210226619",
-      "is_video": true,
-      "hashtag_n": 3
-    },
-    {
-      "head": "Nani lança jogo de Alvalade: «Ambas querem ganhar",
-      "source": "zerozero.pt",
-      "ts": 1795658819.206732,
-      "fb_id": "1147992547972852",
-      "fb_media_id": "1147992547972852",
-      "ig_id": "18116525270595423",
+      "head": "Nuno Santos e Debast regressam aos treinos O defes",
+      "source": "rtp.pt/desporto",
+      "ts": 1795714649.1142912,
+      "fb_id": "2361820851298455",
+      "fb_media_id": "2361820851298455",
+      "ig_id": "17954922729329104",
       "is_video": true,
       "hashtag_n": 3
     }
@@ -33,5 +23,5 @@
   "variants": {},
   "reward_samples": [],
   "recent_winners": [],
-  "last_scored_ts": 1795629209.50432
+  "last_scored_ts": 1795714689.118695
 }
