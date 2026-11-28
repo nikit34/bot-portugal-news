@@ -10,12 +10,22 @@
       "ig_id": "18478203025143659",
       "is_video": true,
       "hashtag_n": 3
+    },
+    {
+      "head": "Clássico de domingo: FC Porto em grande, Sporting",
+      "source": "rtp.pt/desporto",
+      "ts": 1795830589.4661443,
+      "fb_id": "1151535967765825",
+      "fb_media_id": "1151535967765825",
+      "ig_id": "18173559934464362",
+      "is_video": true,
+      "hashtag_n": 3
     }
   ],
   "sources": {},
   "hours": {},
   "ig_quota": {
-    "day": "2026-11-27",
+    "day": "2026-11-28",
     "posts": 1
   },
   "dow_hours": {},
